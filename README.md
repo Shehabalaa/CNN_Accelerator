@@ -14,6 +14,7 @@
 - Common code should be added in Utils folder.
 - Every sub team should work on his branch.
 - Don't merge on master unless your code is well tested.
+- All reserved words in Capslock ==> "PORT, ARCHITECTURE, SIGNAL...etc"
 - If you have other rules add them :D
 
 
