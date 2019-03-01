@@ -26,13 +26,13 @@ SIGNAL temp : STD_LOGIC_VECTOR (wordSize-1 DOWNTO 0);
 
 BEGIN
 
-      f0: entity work.adder PORT MAP(a(0),b(0),carryIn,sum(0),temp(0));
+      f0: entity work.FullAdder PORT MAP(a(0),b(0),carryIn,sum(0),temp(0));
 
 
       loop1: FOR i IN 1 TO wordSize-1
       GENERATE
             
-          fx: ENTITY work.adder PORT MAP  (a(i),b(i),temp(i-1),sum(i),temp(i));
+          fx: ENTITY work.FullAdder PORT MAP(a(i),b(i),temp(i-1),sum(i),temp(i));
 
       END GENERATE;
         
