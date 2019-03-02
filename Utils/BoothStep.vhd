@@ -4,7 +4,7 @@ USE ieee.numeric_std.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
 ENTITY BoothStep IS
-    GENERIC (n:INteger);
+    GENERIC (n:INTEGER := 16);
     PORT (
         p,s,a :IN STD_LOGIC_VECTOR(2*n DOWNTO 0);
         f :OUT STD_LOGIC_VECTOR(2*n DOWNTO 0)
