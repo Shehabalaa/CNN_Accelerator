@@ -12,7 +12,7 @@ architecture TestBencArch of TestBooth is
   signal f :std_logic_vector(31 downto 0);
   signal rightAns : std_logic_vector(31 downto 0);
 begin
-  --test_c : entity work.BoothMul generic map(16) port map (m,r,f,clk,start,done); normal booth
+  --test_c : entity work.BoothMul generic map(16) port map (m,r,f,clk,start,done); --normal booth
   test_c : entity work.ModifiedBoothMul generic map(16) port map (m,r,f,clk,start,done); --modified
   mul_c : entity work.Mul  generic map(16) port map (m,r,rightAns);
   process
@@ -26,8 +26,8 @@ begin
         start <= '0';
         wait for 10 ns;
         start <= '1';
-        --wait for 1600 ns; slow
-	wait for 800 ns; -- modified
+        --wait for 1600 ns; --slow
+	    wait for 800 ns; -- modified
         assert f = rightAns
         report "Fail in test case "
         severity error;

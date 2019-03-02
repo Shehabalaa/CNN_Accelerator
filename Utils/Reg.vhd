@@ -25,8 +25,10 @@ BEGIN
 		BEGIN
 			IF rst ='1' THEN
 				Q <= (others=>'0');
-			ELSIF rising_edge(clk) AND en='1' THEN
-				Q <= D;
+            ELSIF clk'EVENT AND clk='1' THEN
+                IF en='1' THEN
+                    Q <= D;
+                END IF;
 			END IF;
 
 		END PROCESS;

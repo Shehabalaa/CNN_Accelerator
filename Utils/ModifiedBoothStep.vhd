@@ -4,10 +4,10 @@ USE ieee.numeric_std.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
 ENTITY ModifiedBoothStep IS
-    GENERIC (n:INTEGER := 6);
+    GENERIC (n:INTEGER := 8);
     PORT (
         p :IN STD_LOGIC_VECTOR(2*n DOWNTO 0);
-        x : IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
+        x :IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
         f :OUT STD_LOGIC_VECTOR(2*n DOWNTO 0)
     );
 END ModifiedBoothStep;
