@@ -29,7 +29,7 @@ ENTITY RegFile IS
       );
 
   PORT(
-      internalBus: INOUT STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
+      internalBus: IN STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
       decoderPage1, decoderPage2, decoderFilters: IN STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
       clk, rst, decoderPage1Enable, decoderPage2Enable, decoderFilterEnable, shift2To1, shift1To2, pageTurn: IN STD_LOGIC;
       pagesOuts, filtersOuts: OUT ARRAYOFREGS(0 TO numUnits-1)(wordSize-1 DOWNTO 0)

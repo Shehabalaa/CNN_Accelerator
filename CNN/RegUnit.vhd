@@ -18,7 +18,7 @@ USE IEEE.STD_LOGIC_1164.all;
 ENTITY RegUnit IS
   GENERIC (wordSize : INTEGER := 16);
   PORT(
-      internalBus: INOUT STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
+      internalBus: IN STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
       regPage1NextUnit, regPage2NextUnit: IN STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
       clk, rst, enableRegPage1, enableRegPage2, enableRegFilter, page1ReadBusOrPage2, page2ReadBusOrPage1, pageTurn: IN STD_LOGIC;
       outRegPage, outFilter, outputRegPage1, outputRegPage2: OUT STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0)
