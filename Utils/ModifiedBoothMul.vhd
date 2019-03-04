@@ -3,12 +3,13 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
 ENTITY ModifiedBoothMul IS
-    GENERIC (n :INteger := 8);
+    GENERIC (n :INTEGER := 8);
     PORT (
-        m,q,c :IN STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- operads to be multiplied
+        m,q :IN STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- operads to be multiplied
         f :OUT STD_LOGIC_VECTOR(2*n-1 DOWNTO 0); -- result
         clk,start :IN STD_LOGIC; -- clk and signal start to start NOTe start should be 0 THEN goes TO 1
-        done : INOUT STD_LOGIC -- done indicates finish of multiplication and f is ready
+        done : INOUT STD_LOGIC; -- done indicates finish of multiplication and f is ready
+		c :IN STD_LOGIC_VECTOR(n-1 DOWNTO 0) := (n-1 DOWNTO 0 => '0') -- operand to be add on result of multiplication 
     );
 END ModifiedBoothMul;
 

@@ -13,7 +13,7 @@ architecture TestBencArch of TestBooth is
   signal rightAns,rightAns2,paddc : std_logic_vector(31 downto 0);
 begin
   --test_c : entity work.BoothMul generic map(16) port map (m,r,f,clk,start,done); --normal booth
-  test_c : entity work.ModifiedBoothMul generic map(16) port map (m,r,c,f,clk,start,done); --modified
+  test_c : entity work.ModifiedBoothMul generic map(16) port map (m,r,f,clk,start,done,c); --modified
   mul_c : entity work.Mul  generic map(16) port map (m,r,rightAns);
   paddc <= (15 downto 0 => c(15)) & c;
   add_c : entity work.Add generic map(32) port map (rightAns,paddc,rightAns2);
