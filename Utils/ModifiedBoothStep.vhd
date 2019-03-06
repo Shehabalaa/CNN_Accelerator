@@ -13,16 +13,17 @@ ENTITY ModifiedBoothStep IS
 END ModifiedBoothStep;
 
 ARCHITECTURE ModifiedBoothStepArch OF ModifiedBoothStep IS
-    SIGNAL op2,res,xTwosComp : STD_LOGIC_VECTOR(n-1 DOWNTO 0);
+    SIGNAL op2,res : STD_LOGIC_VECTOR(n-1 DOWNTO 0);
+    SIGNAL carryIn : STD_LOGIC;
 BEGIN
-    TwosCompCmp : ENTITY work.TwosComplement GENERIC MAP(n) PORT MAP(x,xTwosComp);
-    AdderCmp : ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(p(2*n DOWNTO n+1),op2,'0',res);
-
+    AdderCmp : ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(p(2*n DOWNTO n+1),op2,carryIn,res);
+    carryIn <= p(2) AND (NOT p(1) OR NOT p(0) ); -- this for twos complenet
+    
     op2 <= (n-1 DOWNTO 0 => '0') WHEN p(2 DOWNTO 0) = "000" or p(2 DOWNTO 0) = "111"
     ELSE x WHEN p(2 DOWNTO 0) = "001" or p(2 DOWNTO 0) = "010"
     Else x(n-2 DOWNTO 0) &'0' WHEN p(2 DOWNTO 0) = "011"
-    Else xTwosComp(n-2 DOWNTO 0) &'0' WHEN p(2 DOWNTO 0) = "100"
-    ELSE xTwosComp;
+    Else NOT (x(n-2 DOWNTO 0)) &'1'  WHEN p(2 DOWNTO 0) = "100"
+    ELSE NOT x;
 
     f <= res(n-1) & res(n-1) & res & p(n DOWNTO 2) ;
 END ModifiedBoothStepArch; 

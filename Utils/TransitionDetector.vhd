@@ -2,7 +2,8 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
--- this mux select only between two values with n bits in length
+-- this circuit detect transition of an input and output one till next rising edge if clk is inverted or till next falling edge if clk isn't
+-- and it detect transition but there should be speration betweem tranisions of input with one clkcylcle
 ENTITY TransitionDetector IS
     PORT (
         edge,clk,rst : IN STD_LOGIC;
@@ -16,7 +17,7 @@ ARCHITECTURE TransitionDetectorArch OF TransitionDetector IS
 BEGIN
     process(clk)
     begin
-        IF clk'EVENT AND clk ='1' THEN
+        IF clk'EVENT AND clk ='0' THEN
             d <= f;
         END IF;
     end process;

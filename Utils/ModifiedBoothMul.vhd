@@ -15,23 +15,24 @@ END ModifiedBoothMul;
 
 ARCHITECTURE ModifiedBoothMulArch OF ModifiedBoothMul IS
     SIGNAL pInit,pBs,pMux,pReg : STD_LOGIC_VECTOR(2*n DOWNTO 0);
+    SIGNAL mReg : STD_LOGIC_VECTOR(n-1 DOWNTO 0); 
     SIGNAL counter : STD_LOGIC_VECTOR(n/2 DOWNTO 0);
-    SIGNAL counterRst,startAndPause,clkInv:STD_LOGIC;
+    SIGNAL counterRst,startAndPause:STD_LOGIC;
 BEGIN
     -- algo paramters intialaization
     pInit <= c & q &'0';
 
     -- wrinting and controling of circuit
-    clkInv <= clk;
     done <= counter(n/2-1);
     startAndPause <= NOT done;
 
     -- create and wire circuit main compenet
     StartCaptuerCmp : ENTITY work.TransitionDetector GENERIC MAP(1) PORT MAP(start,clk,rst,counterRst);
-    RegCmp : ENTITY work.Reg GENERIC MAP(2*n+1) PORT MAP(pBs,startAndPause,clk,'0',pReg);
+    pRegCmp : ENTITY work.Reg GENERIC MAP(2*n+1) PORT MAP(pBs,startAndPause,clk,'0',pReg);
     MuxCmp :  ENTITY work.BinaryMux GENERIC MAP(2*n+1) PORT MAP(pReg,pInit,counter(0),pMux);
-    BSCmp : ENTITY work.ModifiedBoothStep GENERIC MAP(n) PORT MAP(pMux,m,pBs);
+    BSCmp : ENTITY work.ModifiedBoothStep GENERIC MAP(n) PORT MAP(pMux,mReg,pBs);
     CounterCmp : ENTITY work.ShIFtReg GENERIC MAP(n/2) PORT MAP(counter,clk,startAndPause,counterRst); -- to be put with system rst
+    mRegCmp : ENTITY work.Reg GENERIC MAP(n) PORT MAP(m,'1',start,rst,mReg);
 
     -- output only valid if done is one
     f <= pBs(2*n DOWNTO 1);
