@@ -33,7 +33,7 @@ BEGIN
     RegCmp : ENTITY work.Reg GENERIC MAP(2*n+1) PORT MAP(pBoothStep,startAndPause,clk,'0',pReg);
     MuxCmp :  ENTITY work.BinaryMux GENERIC MAP(2*n+1) PORT MAP(pReg,pIntial,counter(0),pMux);
     BSCmp : ENTITY work.BoothStep GENERIC MAP(n) PORT MAP(pMux,s,a,pBoothStep);
-    CounterCmp : ENTITY work.ShIFtReg GENERIC MAP(n) PORT MAP(counter,clk,startAndPause,counterRst);
+    CounterCmp : ENTITY work.ShIFtReg GENERIC MAP(n) PORT MAP(counter,clk,startAndPause,counterRst,'0');
     TwosComplementCmp: ENTITY work.TwosComplement GENERIC MAP(n) PORT MAP(m,mTwosComplement);
 
     -- output only valid if done is one
