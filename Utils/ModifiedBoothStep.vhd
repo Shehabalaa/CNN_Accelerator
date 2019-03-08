@@ -17,7 +17,7 @@ ARCHITECTURE ModifiedBoothStepArch OF ModifiedBoothStep IS
     SIGNAL carryIn : STD_LOGIC;
 BEGIN
     AdderCmp : ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(p(2*n DOWNTO n+1),op2,carryIn,res);
-    carryIn <= p(2) AND (NOT p(1) OR NOT p(0) ); -- this for twos complenet
+    carryIn <= p(2) AND (p(1) NAND p(0) ); -- this for twos complenet
     
     op2 <= (n-1 DOWNTO 0 => '0') WHEN p(2 DOWNTO 0) = "000" or p(2 DOWNTO 0) = "111"
     ELSE x WHEN p(2 DOWNTO 0) = "001" or p(2 DOWNTO 0) = "010"

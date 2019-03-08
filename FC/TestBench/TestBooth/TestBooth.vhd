@@ -7,13 +7,13 @@ end TestBooth;
 
 architecture TestBencArch of TestBooth is
   type tests is array (9 downto 0) of integer;
-  signal clk,start,done,rst : std_logic;
+  signal clk,start,done,rst,working : std_logic;
   signal m,r,c : std_logic_vector(15  downto 0);
   signal f :std_logic_vector(31 downto 0);
   signal rightAns,rightAns2,paddc : std_logic_vector(31 downto 0);
 begin
   --test_c : entity work.BoothMul generic map(16) port map (m,r,f,clk,start,done); --normal booth
-  test_c : entity work.ModifiedBoothMul generic map(16) port map (m,r,f,clk,start,rst,done,c); --modified
+  test_c : entity work.ModifiedBoothMul generic map(16) port map (m,r,f,clk,start,rst,done,working,c); --modified
   mul_c : entity work.Mul  generic map(16) port map (m,r,rightAns);
   paddc <= (15 downto 0 => c(15)) & c;
   add_c : entity work.Add generic map(32) port map (rightAns,paddc,rightAns2);
