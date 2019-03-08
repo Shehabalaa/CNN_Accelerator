@@ -5,7 +5,8 @@ USE IEEE.math_real.all;
 
 -- Register File
 
--- internalBus --> the internal bus of the CNN
+-- filterBus --> the bus where filters can read input from
+-- windowBus --> the bus where page registers can read input from
 -- decoderPage1 --> which register from page 1 to read from the internal bus
 -- decoderPage2 --> which register from page 2 to read from the internal bus
 -- decoderFilters --> which register from Filters to read from the internal bus
@@ -23,46 +24,71 @@ USE IEEE.math_real.all;
 ENTITY RegFile IS
 
   GENERIC (
-      wordSize: INTEGER := 16;
-      numUnits: INTEGER := 25;
-      decoderSize: INTEGER := 5
+      filterSize: INTEGER := 8;
+      windowSize: INTEGER := 16;
+      numUnits: INTEGER := 5;
+      numRows: INTEGER := 5;
+      decoderSize: INTEGER := 3;
+      primary: INTEGER := 3
       );
 
   PORT(
-      internalBus: IN STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
+      filterBus: IN STD_LOGIC_VECTOR((numUnits*filterSize)-1 DOWNTO 0);
+      windowBus: IN STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
       decoderPage1, decoderPage2, decoderFilters: IN STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
       clk, rst, decoderPage1Enable, decoderPage2Enable, decoderFilterEnable, shift2To1, shift1To2, pageTurn: IN STD_LOGIC;
-      pagesOuts, filtersOuts: OUT ARRAYOFREGS(0 TO numUnits-1)(wordSize-1 DOWNTO 0)
+      pagesOuts: OUT ARRAYOFREGS(0 TO (numUnits*numRows)-1)(windowSize-1 DOWNTO 0);
+      filtersOuts: OUT ARRAYOFREGS(0 TO (numUnits*numRows)-1)(filterSize-1 DOWNTO 0)
     );
 
 END RegFile;
 
 ------------------------------------------------------------
 
--- CNN Cores Architecture
+-- Register File Architecture
 
 ARCHITECTURE RegFileArch OF RegFile IS
 
-    SIGNAL page1Out, page2Out: ARRAYOFREGS(0 TO 24)(wordSize-1 DOWNTO 0);
+    SIGNAL page1Out, page2Out: ARRAYOFREGS(0 TO (numUnits*numRows)-1 +5)(windowSize-1 DOWNTO 0);
     SIGNAL decodedPage1, decodedPage2, decodedFilter: STD_LOGIC_VECTOR(0 TO (2**decoderSize)-1);
+
+
+    SIGNAL tempPageOutPrimary: ARRAYOFREGS(0 TO (numRows*primary)-1)(windowSize-1 DOWNTO 0);
+    SIGNAL tempPageOutSecondary: ARRAYOFREGS(0 TO (numRows*(numUnits-primary)-1))(windowSize-1 DOWNTO 0);
+
+    SIGNAL tempfilterOutPrimary: ARRAYOFREGS(0 TO (numRows*primary)-1)(filterSize-1 DOWNTO 0);
+    SIGNAL tempfilterOutSecondary: ARRAYOFREGS(0 TO (numRows*(numUnits-primary)-1))(filterSize-1 DOWNTO 0);
 
     BEGIN
 
-    decoder1Map: ENTITY work.Decoder GENERIC MAP(decoderSize) PORT MAP(decoderPage1, decoderPage1Enable, decodedPage1);
-    decoder2Map: ENTITY work.Decoder GENERIC MAP(decoderSize) PORT MAP(decoderPage2, decoderPage2Enable, decodedPage2);
-    decoderFilterMap: ENTITY work.Decoder GENERIC MAP(decoderSize) PORT MAP(decoderFilters, decoderFilterEnable, decodedFilter);
+        decoder1Map: ENTITY work.Decoder GENERIC MAP(decoderSize) PORT MAP(decoderPage1, decoderPage1Enable, decodedPage1);
+        decoder2Map: ENTITY work.Decoder GENERIC MAP(decoderSize) PORT MAP(decoderPage2, decoderPage2Enable, decodedPage2);
+        decoderFilterMap: ENTITY work.Decoder GENERIC MAP(decoderSize) PORT MAP(decoderFilters, decoderFilterEnable, decodedFilter);
 
-    loop1: FOR i IN 0 TO numUnits - 1
-    GENERATE
-          
-        regUnitMap: ENTITY work.RegUnit GENERIC MAP(wordSize) PORT MAP(
-            internalBus, page1Out(i+1), page2Out(i+1),
-            clk, rst, 
-            decodedPage1(i), decodedPage2(i), decodedFilter(i),
-            shift2To1, shift1To2, pageTurn,
-            pagesOuts(i), filtersOuts(i), page1Out(i), page2Out(i)
-            );
+        loop1: FOR i IN 0 TO numRows - 1
+        GENERATE
+            
+            regRowMap: ENTITY work.RegRow GENERIC MAP(filterSize, windowSize, numUnits, primary) PORT MAP(
+                filterBus, windowBus,
+                page1Out((i+1)*numUnits TO (i+1)*numUnits+numUnits-1),
+                page2Out((i+1)*numUnits TO (i+1)*numUnits+numUnits-1),
+                clk, rst,
+                decodedPage1(i), decodedPage2(i), decodedFilter(i),
+                shift2To1, shift1To2, pageTurn,
+                page1Out(i*numUnits TO i*numUnits+numUnits-1),
+                page2Out(i*numUnits TO i*numUnits+numUnits-1),
+                tempPageOutPrimary(i*primary TO i*primary+primary-1),
+                tempPageOutSecondary(i*(numUnits-primary) TO i*(numUnits-primary)+(numUnits-primary)-1),
+                tempfilterOutPrimary(i*primary TO i*primary+primary-1),
+                tempfilterOutSecondary(i*(numUnits-primary) TO i*(numUnits-primary)+(numUnits-primary)-1)
+                );
 
-    END GENERATE;
+        END GENERATE;
+
+        pagesOuts(0 TO numRows*primary-1) <= tempPageOutPrimary;
+        pagesOuts(numRows*primary TO numRows*numUnits-1) <= tempPageOutSecondary;
+
+        filtersOuts(0 TO numRows*primary-1) <= tempPageOutPrimary;
+        filtersOuts(numRows*primary TO numRows*numUnits-1) <= tempPageOutSecondary;
 
 END ARCHITECTURE;
