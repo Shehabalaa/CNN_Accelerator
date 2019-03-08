@@ -3,12 +3,12 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
 ENTITY BoothMul IS
-    GENERIC (n :INteger := 4);
+    GENERIC (n :INTEGER := 16);
     PORT (
         m,r :IN STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- operads to be multiplied
         f :OUT STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- result
         clk,start :IN STD_LOGIC; -- clk and signal start to start NOTe start should be 0 THEN goes TO 1
-        done : OUT STD_LOGIC -- done indicates finish of multiplication and f is ready
+        done : INOUT STD_LOGIC -- done indicates finish of multiplication and f is ready
     );
 END BoothMul;
 
@@ -33,7 +33,7 @@ BEGIN
     RegCmp : ENTITY work.Reg GENERIC MAP(2*n+1) PORT MAP(pBoothStep,startAndPause,clk,'0',pReg);
     MuxCmp :  ENTITY work.BinaryMux GENERIC MAP(2*n+1) PORT MAP(pReg,pIntial,counter(0),pMux);
     BSCmp : ENTITY work.BoothStep GENERIC MAP(n) PORT MAP(pMux,s,a,pBoothStep);
-    CounterCmp : ENTITY work.ShIFtReg GENERIC MAP(n) PORT MAP(counter,clk,startAndPause,counterRst);
+    CounterCmp : ENTITY work.ShIFtReg GENERIC MAP(n) PORT MAP(counter,clk,startAndPause,counterRst,'0');
     TwosComplementCmp: ENTITY work.TwosComplement GENERIC MAP(n) PORT MAP(m,mTwosComplement);
 
     -- output only valid if done is one
