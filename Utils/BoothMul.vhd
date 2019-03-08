@@ -6,7 +6,7 @@ ENTITY BoothMul IS
     GENERIC (n :INTEGER := 16);
     PORT (
         m,r :IN STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- operads to be multiplied
-        f :OUT STD_LOGIC_VECTOR(2*n-1 DOWNTO 0); -- result
+        f :OUT STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- result
         clk,start :IN STD_LOGIC; -- clk and signal start to start NOTe start should be 0 THEN goes TO 1
         done : INOUT STD_LOGIC -- done indicates finish of multiplication and f is ready
     );
@@ -37,6 +37,6 @@ BEGIN
     TwosComplementCmp: ENTITY work.TwosComplement GENERIC MAP(n) PORT MAP(m,mTwosComplement);
 
     -- output only valid if done is one
-    f <= pBoothStep(2*n DOWNTO 1);
+    f <= pBoothStep(n-1 DOWNTO 1);
 
 END BoothMulArch; 
