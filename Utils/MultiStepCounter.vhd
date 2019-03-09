@@ -15,7 +15,7 @@ ENTITY MultiStepCounter IS
 
     PORT(
         load,toBeAdded: in std_logic_vector(n-1 downto 0);
-        reset, clk, isLoad: in std_logic;
+        reset, clk, isLoad,MFC: in std_logic;
         count: out std_logic_vector(n-1 downto 0)
     );
 
@@ -24,14 +24,13 @@ END MultiStepCounter;
 
 ARCHITECTURE MultiStepCounterArch OF MultiStepCounter    IS
 
-    SIGNAL counterInput, countAdded, currentCount: std_logic_vector(n-1 DOWNTO 0);
+    SIGNAL loadOrCurrent,counterInput, countAdded, currentCount: std_logic_vector(n-1 DOWNTO 0);
 
     BEGIN
 
         counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, '1', clk, '0', currentCount);
         nextCount: ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(currentCount, toBeAdded, '0', countAdded);
-        muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(countAdded, load, isLoad, counterInput);
---      muxInput: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(countAdded, (others => '0'), reset, resetOrCurrent);
+        muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(currentCount, load, isLoad, loadOrCurrent);
+        muxInput: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(loadOrCurrent, countAdded, MFC, counterInput);
         count <= currentCount;
-
 END ARCHITECTURE;
