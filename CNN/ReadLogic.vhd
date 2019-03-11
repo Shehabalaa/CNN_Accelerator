@@ -10,8 +10,9 @@
 -- 
 -- 
 -- optimizations:
---      we don't need extra signals of switch state and reset, make the load of the counter => ramBaseAddress and the isLoad => switchRam signal ==> remove all logic of switch ram but keep only when you get switch ram enforce to go to idle like if you have reset 
+--      1- we don't need extra signals of switch state and reset, make the load of the counter => ramBaseAddress and the isLoad => switchRam signal ==> remove all logic of switch ram but keep only when you get switch ram enforce to go to idle like if you have reset 
 -- 
+--      2- For the state we inc base address counter in, we can inject this increment in the first fetch state and save one cycle
 
 library ieee ;
     use ieee.std_logic_1164.all ;
@@ -40,6 +41,7 @@ ENTITY ReadLogic IS
     ramRead: OUT STD_LOGIC; --
     ramWrite: OUT STD_LOGIC; --
     ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    ramAddress: OUT std_logic_vector(addressSize-1 downto 0) ;
     MFC: IN STD_LOGIC;
 
     -- CONFIG
@@ -61,13 +63,13 @@ ARCHITECTURE ReadLogicArch OF ReadLogic IS
 
 
 -- FSM
--- Enum for State Machine States
 TYPE FSM IS (
     idleState,
     switchState,
     initState,
+    incState,
     fetchState
-); -- Finite Machine States
+); -- (idle, reset all signals), (switch, state to reset the addressReg with ram base address), (init, initialize the dma), (inc, increment the counter of the baseAddress), (fetch, fetch the data from dma)
 SIGNAL currentState, nextState: FSM; -- state reg output and input (hold the state info)
 
 -- helper signals:
@@ -102,14 +104,13 @@ BEGIN
     -- end define helper signals
 
     dma: ENTITY work.DMA GENERIC MAP(addressSize, internalBusSize) PORT MAP (
-        count => dmaCountIn,
-        startAddress => addressRegOut, --
+        initialCount => dmaCountIn,
+        readBaseAddress => addressRegOut, --
         readStep => inputSize,
         internalBus => internalBus,
         ramDataInBus => ramDataInBus,
         ramRead => ramRead,
-        ramWrite => ramWrite,
-        ramDataOutBus => ramDataOutBus,
+        ramReadAddress => ramAddress,
         MFC => MFC,
         load => dmaLoad,
         initCounter => dmaInitCounter,
@@ -124,6 +125,7 @@ BEGIN
         isLoad => resetAddressReg,
         reset => '0', -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
         clk => "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk))), -- only count when i set inc signal and count after rising edge
+        -- clk => "and"(clk, "or"(resetAddressReg, incBaseAddress)), -- only count when i set inc signal and count after rising edge
         count => addressRegOut
     );
 
@@ -131,14 +133,23 @@ BEGIN
         load => (others => '0'), -- we don't need this functionality
         isLoad => '0', -- we don't need this functionality
         reset => resetUnitNumberReg, -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
-        clk => "AND"(clk,incUnitNumber), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
+        clk => "AND"(clk, "or"(incUnitNumber, resetUnitNumberReg)), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
         count => unitRegOut
     );
 
-    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, dmaFinishOneRead,dmaFinishAll)
+    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead,dmaFinishAll)
     BEGIN
         CASE currentState IS
             WHEN switchState =>
+                -- reset all cnt signals you have
+                dmaLoad <= '0';
+                dmaInitCounter <= '0';
+                dmaInitAddress <= '0';
+                resetAddressReg <= '0';
+                incBaseAddress <= '0';
+                resetUnitNumberReg <= '0';
+                incUnitNumber <= '0';
+                
                 -- reset the baseAddressRegister to RamBaseAddress value
                 dmaLoad <= '0';
                 resetAddressReg <= '1'; -- open the reset register to enable writing..
@@ -165,24 +176,56 @@ BEGIN
 
             
             WHEN initState =>
+                -- reset all cnt signals you have
+                dmaLoad <= '0';
+                dmaInitCounter <= '0';
+                dmaInitAddress <= '0';
+                resetAddressReg <= '0';
+                incBaseAddress <= '0';
+                resetUnitNumberReg <= '0';
+                incUnitNumber <= '0';
+
                 dmaInitCounter <= '1';
+                nextState <= fetchState; -- transition logic
                 IF loadNextWordList = '1' THEN
+                    nextState <= incState; -- transition logic
                     dmaCountIn <= filterSize;
-                    incBaseAddress <= '1'; -- 
                     dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
+                -- TODO: optimization -> remove elseif and make it else, it is impossible to be here and the two loads signals is 0 
                 ELSIF loadWord = '1' THEN
                     dmaCountIn <= (0 => '1', others => '0'); -- TODO: check the syntax to set it to "0000000000001"
                 ELSE
                     -- TODO: print error message here
                     nextState <= idleState;
-                    stateRegEn <= '1';
                 END IF;
-
                 -- transition logic
-                stateRegEn <= '1'; -- go to fetch state
+                stateRegEn <= '1'; -- always go to nextState (inc or fetch)
+
+            WHEN incState =>
+                -- reset all cnt signals you have
+                dmaLoad <= '0';
+                dmaInitCounter <= '0';
+                dmaInitAddress <= '0';
+                resetAddressReg <= '0';
+                incBaseAddress <= '0';
+                resetUnitNumberReg <= '0';
+                incUnitNumber <= '0';
+
+                incBaseAddress <= '1'; -- 
+                -- transition logic
+                stateRegEn <= '1'; -- always go to fetch state
                 nextState <= fetchState; -- always take one cycle and doesn't depend on anything
                 
             WHEN fetchState =>
+                -- reset all cnt signals you have
+                dmaLoad <= '0';
+                dmaInitCounter <= '0';
+                dmaInitAddress <= '0';
+                resetAddressReg <= '0';
+                incBaseAddress <= '0';
+                resetUnitNumberReg <= '0';
+                incUnitNumber <= '0';
+
                 dmaLoad <= '1';
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
                 readFinal <= dmaFinishAll;
