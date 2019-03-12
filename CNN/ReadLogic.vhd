@@ -39,8 +39,7 @@ ENTITY ReadLogic IS
     internalBus: INOUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramDataInBus: IN STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     ramRead: OUT STD_LOGIC; --
-    ramWrite: OUT STD_LOGIC; --
-    ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    -- ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     ramAddress: OUT std_logic_vector(addressSize-1 downto 0) ;
     MFC: IN STD_LOGIC;
 
@@ -103,6 +102,9 @@ BEGIN
     load <= loadNextWordList OR loadWord;
     -- end define helper signals
 
+    readFinal <= dmaFinishAll;
+    readOne <= dmaFinishOneRead;
+
     dma: ENTITY work.DMA GENERIC MAP(addressSize, internalBusSize) PORT MAP (
         initialCount => dmaCountIn,
         readBaseAddress => addressRegOut, --
@@ -116,8 +118,8 @@ BEGIN
         initCounter => dmaInitCounter,
         initAddress => dmaInitAddress,
         clk => clk,
-        finishedReading => dmaFinishOneRead,
-        finishedOneRead => dmaFinishAll
+        finishedReading => dmaFinishAll,
+        finishedOneRead => dmaFinishOneRead
     );
 
     baseAddressCounter: entity work.Counter generic map (addressSize) port map (
@@ -133,7 +135,8 @@ BEGIN
         load => (others => '0'), -- we don't need this functionality
         isLoad => '0', -- we don't need this functionality
         reset => resetUnitNumberReg, -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
-        clk => "AND"(clk, "or"(incUnitNumber, resetUnitNumberReg)), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
+        -- clk => "AND"(clk, "or"(incUnitNumber, resetUnitNumberReg)), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
+        clk => "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, "not"(clk))),
         count => unitRegOut
     );
 
@@ -228,12 +231,10 @@ BEGIN
 
                 dmaLoad <= '1';
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
-                readFinal <= dmaFinishAll;
+                -- readFinal <= dmaFinishAll;
                 nextState <= idleState;
                 IF dmaFinishOneRead = '1' THEN
                     incUnitNumber <= '1';
-                ELSE
-                    incUnitNumber <= '0';
                 END IF;
         END CASE;
     END PROCESS;
