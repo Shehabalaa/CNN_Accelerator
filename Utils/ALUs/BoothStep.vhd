@@ -3,16 +3,16 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
-ENTITY ModifiedBoothStep IS
+ENTITY BoothStep IS
     GENERIC (n:INTEGER := 8);
     PORT (
         p :IN STD_LOGIC_VECTOR(2*n DOWNTO 0);
         x :IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
         f :OUT STD_LOGIC_VECTOR(2*n DOWNTO 0)
     );
-END ModifiedBoothStep;
+END BoothStep;
 
-ARCHITECTURE ModifiedBoothStepArch OF ModifiedBoothStep IS
+ARCHITECTURE BoothStepArch OF BoothStep IS
     SIGNAL op2,res : STD_LOGIC_VECTOR(n-1 DOWNTO 0);
     SIGNAL carryIn : STD_LOGIC;
 BEGIN
@@ -26,4 +26,4 @@ BEGIN
     ELSE NOT x;
 
     f <= res(n-1) & res(n-1) & res & p(n DOWNTO 2) ;
-END ModifiedBoothStepArch; 
+END BoothStepArch; 
