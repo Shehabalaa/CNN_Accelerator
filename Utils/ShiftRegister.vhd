@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL; 
 
 ENTITY ShiftReg IS
-	GENERIC (n:INteger :=32);
+	GENERIC (n:INTEGER :=32);
 	PORT(
 	outp: INOUT STD_LOGIC_VECTOR(n DOWNTO 0);
 	clk,en,rst: IN STD_LOGIC 
