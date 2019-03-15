@@ -15,7 +15,7 @@ def makeFixedStrings(Arr, integers,floating):
             else:
                 string += '0'
         curr -= int(curr)
-        for i in range(1,floating):
+        for i in range(1,floating+1):
             if(curr > np.power(2,-i,dtype = float)):
                 curr -= np.power(2,-i,dtype = float)
                 string +='1'
