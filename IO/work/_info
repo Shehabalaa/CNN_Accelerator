@@ -1,0 +1,381 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/D/PDFS/College/3rd year/2nd term/VLSI/Project/CNN_Accelerator/IO
+Econtroller
+w1552760210
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+8Controller.vhd
+FController.vhd
+l0
+L6
+V>CaHk3?Dc15:eJf[Ma?hW0
+!s100 ?2ISMTjChQPz:TU3^jR_J3
+Z4 OP;C;10.4a;61
+32
+Z5 !s110 1552765050
+!i10b 1
+Z6 !s108 1552765050.000000
+Z7 !s90 Controller.vhd|Decompressor.vhd|DFF.vhd|DownCounterAsyncLoad.vhd|FullSubtractor.vhd|Mux2.vhd|NBitSubtractor.vhd|Reg.vhd|RegWithLoad.vhd|
+Z8 !s107 RegWithLoad.vhd|Reg.vhd|NBitSubtractor.vhd|Mux2.vhd|FullSubtractor.vhd|DownCounterAsyncLoad.vhd|DFF.vhd|Decompressor.vhd|Controller.vhd|
+!i113 1
+o-O0
+Z9 tExplicit 1
+Edecompressor
+Z10 w1552764836
+R2
+R3
+R0
+Z11 8Decompressor.vhd
+Z12 FDecompressor.vhd
+l0
+L7
+Vn<`oGQ1?d:kWei1PbMaaV0
+!s100 aVbT55T`1hDE1lL^O07Se2
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Adecompressorarchitecture
+Z13 DEx4 work 3 reg 0 22 O;KHCjQ]68^_9j`SE29=l2
+R2
+R3
+DEx4 work 12 decompressor 0 22 n<`oGQ1?d:kWei1PbMaaV0
+l19
+L17
+V219hdaHP5?JSaCLBLOY<R2
+!s100 a=ni=4dkgGFZ;F<L_<m0H3
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Edff
+Z14 w1552763720
+R2
+R3
+R0
+Z15 8DFF.vhd
+Z16 FDFF.vhd
+l0
+L4
+VdfUjzTj]n??Ohz1TH?[T@0
+!s100 8cHH5D4lZTgz2LdhjMoh40
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Adffarch
+R2
+R3
+DEx4 work 3 dff 0 22 dfUjzTj]n??Ohz1TH?[T@0
+l13
+L12
+VOKg2kLm7U8nA`QbQPneUU3
+!s100 M_mk[KRaA0SCL2bhFFV0V0
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Edowncounter
+Z17 w1552759765
+Z18 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z19 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R2
+R3
+R0
+8DownCounter.vhd
+FDownCounter.vhd
+l0
+L4
+VTjGhM?cSkWO`hO1][DVGg2
+!s100 iAXhjI;kYEKRL`oIL986Z3
+R4
+32
+!s110 1552764874
+!i10b 1
+!s108 1552764874.000000
+!s90 Controller.vhd|Decompressor.vhd|DFF.vhd|DownCounter.vhd|DownCounterAsyncLoad.vhd|FullSubtractor.vhd|Mux2.vhd|NBitSubtractor.vhd|Reg.vhd|RegWithLoad.vhd|
+!s107 RegWithLoad.vhd|Reg.vhd|NBitSubtractor.vhd|Mux2.vhd|FullSubtractor.vhd|DownCounterAsyncLoad.vhd|DownCounter.vhd|DFF.vhd|Decompressor.vhd|Controller.vhd|
+!i113 1
+o-O0
+R9
+Edowncounterasyncload
+Z20 w1552765042
+R2
+R3
+R0
+Z21 8DownCounterAsyncLoad.vhd
+Z22 FDownCounterAsyncLoad.vhd
+l0
+L8
+V0aW@Ama^K95PjWl=o[^b>2
+!s100 N0[Vm]1<YLbm?8L4`W8?V2
+R4
+32
+Z23 !s110 1552765125
+!i10b 1
+Z24 !s108 1552765125.000000
+Z25 !s90 DownCounterAsyncLoad.vhd|-check_synthesis|
+Z26 !s107 DownCounterAsyncLoad.vhd|
+!i113 1
+Z27 o-check_synthesis -O0
+R9
+Adowncounterasyncloadarch
+Z28 DEx4 work 4 mux2 0 22 SUz2Ne_0[b^PzGBQILLz]2
+R1
+Z29 DEx4 work 14 nbitsubtractor 0 22 Ljd_G3>Z_b4]:dQm420>Q0
+Z30 DEx4 work 11 regwithload 0 22 i>QFR]I81TBhWX_0@A3hF2
+R2
+R3
+DEx4 work 20 downcounterasyncload 0 22 0aW@Ama^K95PjWl=o[^b>2
+l19
+L17
+VoSY0[;LgOQ7YD<1AN`Io40
+Z31 !s100 d@o=bbh_W^ijTeXOIDWVP1
+R4
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R27
+R9
+Efullsubtractor
+Z32 w1552764599
+R19
+R18
+R2
+R3
+R0
+Z33 8FullSubtractor.vhd
+Z34 FFullSubtractor.vhd
+l0
+L5
+V0TlDb8_H6dhN9@09fz4oZ3
+!s100 o1g_c`LH7;_BXO6kC>ci]0
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Abehavioral
+R19
+R18
+R2
+R3
+Z35 DEx4 work 14 fullsubtractor 0 22 0TlDb8_H6dhN9@09fz4oZ3
+l14
+L13
+VU5jIN[GHJ8^V?=^<]j=:>3
+!s100 `c;?8GZM>0zW1YLZ=[[oP3
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Emux2
+R17
+R2
+R3
+R0
+Z36 8Mux2.vhd
+Z37 FMux2.vhd
+l0
+L9
+VSUz2Ne_0[b^PzGBQILLz]2
+!s100 ?z6@F`WU[<RURUjz<FX=80
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Amux2arch
+R2
+R3
+R28
+l25
+L23
+VRCcASNzSk7?eF0VUNVTAf3
+!s100 X?>ZnDPVEJTZjnf`SiW;d2
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Enbitsubtractor
+R17
+R1
+R2
+R3
+R0
+Z38 8NBitSubtractor.vhd
+Z39 FNBitSubtractor.vhd
+l0
+L4
+VLjd_G3>Z_b4]:dQm420>Q0
+!s100 W[MM[F<Vm@zdB=T[j?I?a0
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Anbitsubtractorarch
+R19
+R18
+R35
+R1
+R2
+R3
+R29
+l19
+L17
+VW<oS7WVKcV[D@XHz65m2i2
+!s100 Bo1[OC87f<<3<k?zMmd>C1
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Ereg
+R17
+R2
+R3
+R0
+Z40 8Reg.vhd
+Z41 FReg.vhd
+l0
+L6
+VO;KHCjQ]68^_9j`SE29=l2
+!s100 PnV@3AIMnfTfhZoWfMNF=3
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Aregarch
+R2
+R3
+R13
+l22
+L20
+V2TKS>iQ<h]R7ki0oPc?e20
+!s100 ^l>^XQ]GV>nU6:A71I6N:3
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Eregwithload
+Z42 w1552764512
+R2
+R3
+R0
+Z43 8RegWithLoad.vhd
+Z44 FRegWithLoad.vhd
+l0
+L6
+Vi>QFR]I81TBhWX_0@A3hF2
+!s100 3AQcdN8oLj9V1lD:_Q7PV1
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
+Aregwithloadarch
+R2
+R3
+R30
+l22
+L20
+V5b?IC^@[SYA]iKo3P:S7[1
+!s100 U<N1_eX>b30U`8XU2UXT`3
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+o-O0
+R9
