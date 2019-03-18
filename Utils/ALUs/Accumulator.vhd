@@ -13,11 +13,11 @@ ENTITY Accumulator IS
 END Accumulator;
 
 ARCHITECTURE AccumulatorArch OF Accumulator IS
-    SIGNAL inReg : genericArrayofVector16bit(n-1 downto 0);
+    SIGNAL outReg : genericArrayofVector16bit(n-1 downto 0);
 BEGIN
     gen: FOR i IN n-1 DOWNTO 0  GENERATE
     BEGIN
-        cmp1: ENTITY work.NBitAdder GENERIC MAP (16) PORT MAP (a(i),f(i),'0',inReg(i));
-        cmp2: ENTITY work.Reg GENERIC MAP (16) PORT MAP (inReg(i),'1',save,rst,f(i));
+        cmp1: ENTITY work.NBitAdder GENERIC MAP (16) PORT MAP (a(i),outReg(i),'0',f(i));
+        cmp2: ENTITY work.Reg GENERIC MAP (16) PORT MAP (f(i),'1',save,rst,outReg(i));
     END GENERATE;
 END AccumulatorArch; 
