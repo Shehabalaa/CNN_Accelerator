@@ -17,17 +17,18 @@ END Alu16x16;
 
 ARCHITECTURE Alu16x16Arch OF Alu16x16 IS
     SIGNAL counter :STD_LOGIC_VECTOR(7 DOWNTO 0);
-    SIGNAL counterRst,restartDetection,startAndPause,firstStart :STD_LOGIC;
+    SIGNAL counterRst,restartDetection,startAndPause,firstStart,clkInv :STD_LOGIC;
 BEGIN
     gen: FOR i IN n-1 DOWNTO 0  GENERATE
     BEGIN
-        cmp: ENTITY work.Mul16x16 PORT MAP (q(i),m(i),c(i),f(i),clk,start,rst,counter(0),startAndPause);
+        cmp: ENTITY work.Mul16x16 PORT MAP (q(i),m(i),c(i),f(i),clkInv,start,rst,counter(0),startAndPause);
     END GENERATE;
 
     done <= counter(7);
     startAndPause <= NOT done;
     working <= firstStart AND NOT done; 
     counterRst <= rst OR restartDetection;
+    clkInv <= NOT clk;
 
     StartCaptuerCmp : ENTITY work.TransitionDetector PORT MAP(start,clk,rst,restartDetection);
     CounterCmp : ENTITY work.ShiftReg GENERIC MAP(7) PORT MAP(counter,clk,startAndPause,counterRst);
