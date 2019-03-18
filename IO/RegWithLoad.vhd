@@ -27,7 +27,7 @@ BEGIN
 				Q <= (others=>'0');
 			ELSIF load = '1' AND en = '1' THEN
 				Q <= D;
-            ELSIF rising_edge(clk) AND en = '1' THEN
+      ELSIF rising_edge(clk) AND en = '1' THEN
 				Q <= D;
 			END IF;
 

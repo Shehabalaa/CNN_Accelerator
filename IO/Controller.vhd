@@ -1,11 +1,18 @@
-LIBRARY ieee;
+LIBRARY IEEE;
 USE ieee.std_logic_1164.ALL;
-USE ieee.numeric_std.ALL;
 
---This entity controls all the IO operations; enabling the proper modules and synchronizing them together
+--Controller entity is responsible for controlling and enabling all modules
+--Is also responsible for identifying state and sending synchronization signals to CPU
 ENTITY Controller IS
-    PORT (
-        edge,clk,rst : IN STD_LOGIC;
-        f : INOUT STD_LOGIC
-    );
-END Controller;
+  GENERIC (chipInputSize: integer :=16;
+           chipOutputSize: integer :=4);
+  PORT(
+      doneDecomp, doneDMAFC, doneDMACNN, INTR, clk, loadOrProcess, rst, imageOrCNN: in std_logic;
+      busy, donePhase, interfaceEnable: out std_logic
+  );
+END ENTITY;
+
+ARCHITECTURE ControllerArch OF Controller IS
+BEGIN
+  
+END ARCHITECTURE;
