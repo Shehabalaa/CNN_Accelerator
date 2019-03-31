@@ -1,6 +1,6 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.all;
-USE work.Types.ARRAYOFREGS;
+USE work.Types.all;
 USE IEEE.math_real.all;
 
 -- Register Row
@@ -35,13 +35,13 @@ ENTITY RegRow IS
   PORT(
       filterBus: IN STD_LOGIC_VECTOR((numUnits*filterSize)-1 DOWNTO 0);
       windowBus: IN STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
-      page1NextRow, page2NextRow: IN ARRAYOFREGS(0 TO numUnits-1)(windowSize-1 DOWNTO 0);
+      page1NextRow, page2NextRow: IN ARRAYOFREGS16(0 TO numUnits-1);
       clk, rst, enablePage1Read, enablePage2Read, enableFilterRead, shift2To1, shift1To2, pageTurn: IN STD_LOGIC;
-      page1Out, page2Out: OUT ARRAYOFREGS(0 TO numUnits-1)(windowSize-1 DOWNTO 0);
-      pagesOutsPrimary: OUT ARRAYOFREGS(0 TO primary-1)(windowSize-1 DOWNTO 0);
-      pagesOutsSecondary: OUT ARRAYOFREGS(0 TO (numUnits-primary)-1)(windowSize-1 DOWNTO 0);
-      filtersOutsPrimary: OUT ARRAYOFREGS(0 TO primary-1)(filterSize-1 DOWNTO 0);
-      filtersOutsSecondary: OUT ARRAYOFREGS(0 TO (numUnits-primary)-1)(filterSize-1 DOWNTO 0)
+      page1Out, page2Out: OUT ARRAYOFREGS16(0 TO numUnits-1);
+      pagesOutsPrimary: OUT ARRAYOFREGS16(0 TO primary-1);
+      pagesOutsSecondary: OUT ARRAYOFREGS16(0 TO (numUnits-primary)-1);
+      filtersOutsPrimary: OUT ARRAYOFREGS8(0 TO primary-1);
+      filtersOutsSecondary: OUT ARRAYOFREGS8(0 TO (numUnits-primary)-1)
     );
 
 END RegRow;
@@ -52,8 +52,8 @@ END RegRow;
 
 ARCHITECTURE RegRowArch OF RegRow IS
 
-    SIGNAL tempPagesOuts: ARRAYOFREGS(0 TO numUnits-1)(windowSize-1 DOWNTO 0);
-    SIGNAL tempFiltersOuts: ARRAYOFREGS(0 TO numUnits-1)(filterSize-1 DOWNTO 0);
+    SIGNAL tempPagesOuts: ARRAYOFREGS16(0 TO numUnits-1);
+    SIGNAL tempFiltersOuts: ARRAYOFREGS8(0 TO numUnits-1);
 
     BEGIN
 

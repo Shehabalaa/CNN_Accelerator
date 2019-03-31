@@ -1,0 +1,39 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 422.1 MHz
+
+
+                        Critical Path Report
+
+Critical path #1, (unconstrained path)
+NAME                                                        GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------------------------------
+decoderRow(1)/                                                          0.00  0.00 dn             0.05
+ix63/Y                                                      nor02_2x    0.10  0.10 up             0.01
+ix3449/Y                                                    inv01       0.27  0.37 dn             0.07
+ix71/Y                                                      nor03_2x    0.36  0.72 up             0.08
+loop1_0_regRowMap_loop1_0_regUnitMap/ix598/Y                nor02_2x    0.14  0.86 dn             0.01
+loop1_0_regRowMap_loop1_0_regUnitMap/ix875/Y                inv01       0.40  1.26 up             0.07
+loop1_0_regRowMap_loop1_0_regUnitMap/ix877/Y                inv02       0.24  1.50 dn             0.07
+loop1_0_regRowMap_loop1_0_regUnitMap/ix600/Y                nand02      0.20  1.70 up             0.01
+loop1_0_regRowMap_loop1_0_regUnitMap/ix134/Y                oai21       0.20  1.90 dn             0.02
+loop1_0_regRowMap_loop1_0_regUnitMap/regPage1Map_reg_Q(0)/D
+                                                            dffr        0.00  1.90 dn             0.00
+data arrival time                                                             1.90
+
+
+data required time                                                         not specified
+-------------------------------------------------------------------------------------------------------
+data required time                                                         not specified
+data arrival time                                                             1.90
+                                                                           ----------
+                                                                        unconstrained path
+-------------------------------------------------------------------------------------------------------
+
+

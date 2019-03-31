@@ -1,6 +1,6 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.all;
-USE work.Types.ARRAYOFREGS;
+USE work.Types.ARRAYOFREGS16;
 
 -- CNNAdders Entity
 
@@ -12,7 +12,7 @@ USE work.Types.ARRAYOFREGS;
 ENTITY CNNAdders IS
   GENERIC (wordSize : INTEGER := 16);
   PORT(
-      inputs: IN ARRAYOFREGS(0 TO 24)(wordSize-1 DOWNTO 0);
+      inputs: IN ARRAYOFREGS16(0 TO 24);
       filterType: IN STD_LOGIC;
       finalSum: OUT STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0)
     );

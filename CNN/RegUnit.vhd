@@ -41,7 +41,7 @@ ARCHITECTURE RegUnitArch OF RegUnit IS
 
 
 
-SIGNAL inputRegPage1, inputRegPage2: STD_LOGIC_VECTOR (windowSize-1 DOWNTO 0);
+SIGNAL inputRegPage1, inputRegPage2, tempOutPage1, tempOutPage2: STD_LOGIC_VECTOR (windowSize-1 DOWNTO 0);
 SIGNAL reg1TotalEnable, reg2TotalEnable: STD_LOGIC;
 
 BEGIN
@@ -52,10 +52,13 @@ BEGIN
       reg1TotalEnable <= enableRegPage1 or page1ReadBusOrPage2;
       reg2TotalEnable <= enableRegPage2 or page2ReadBusOrPage1;
 
-      regPage1Map: ENTITY work.Reg GENERIC MAP(windowSize) PORT MAP(inputRegPage1, reg1TotalEnable, clk, rst, outputRegPage1);
-      regPage2Map: ENTITY work.Reg GENERIC MAP(windowSize) PORT MAP(inputRegPage2, reg2TotalEnable, clk, rst, outputRegPage2);
+      regPage1Map: ENTITY work.Reg GENERIC MAP(windowSize) PORT MAP(inputRegPage1, reg1TotalEnable, clk, rst, tempOutPage1);
+      regPage2Map: ENTITY work.Reg GENERIC MAP(windowSize) PORT MAP(inputRegPage2, reg2TotalEnable, clk, rst, tempOutPage2);
       regFilterMap: ENTITY work.Reg GENERIC MAP(filterSize) PORT MAP(filterBus, enableRegFilter, clk, rst, outFilter);
 
-      outPageMap: ENTITY work.Mux2 GENERIC MAP(windowSize) PORT MAP(outputRegPage1, outputRegPage2, pageTurn, outRegPage);
+      outputRegPage1 <= tempOutPage1;
+      outputRegPage2 <= tempOutPage2;
+
+      outPageMap: ENTITY work.Mux2 GENERIC MAP(windowSize) PORT MAP(tempOutPage1, tempOutPage2, pageTurn, outRegPage);
 
 END ARCHITECTURE;

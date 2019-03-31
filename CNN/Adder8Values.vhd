@@ -1,6 +1,6 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.all;
-USE work.Types.ARRAYOFREGS;
+USE work.Types.ARRAYOFREGS16;
 
 -- Adder8Values Entity
 
@@ -9,7 +9,7 @@ USE work.Types.ARRAYOFREGS;
 ENTITY Adder8Values IS
   GENERIC (wordSize : INTEGER := 16);
   PORT(
-      inputs: IN ARRAYOFREGS(0 TO 7)(wordSize-1 DOWNTO 0);
+      inputs: IN ARRAYOFREGS16(0 TO 7);
       sum: OUT STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0)
     );
 

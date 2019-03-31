@@ -1,6 +1,6 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.all;
-USE work.Types.ARRAYOFREGS;
+USE work.Types.all;
 USE IEEE.math_real.all;
 
 -- Register File
@@ -37,8 +37,8 @@ ENTITY RegFile IS
       windowBus: IN STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
       decoderRow: IN STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
       clk, rst, enablePage1Read, enablePage2Read, enableFilterRead, shift2To1, shift1To2, pageTurn: IN STD_LOGIC;
-      pagesOuts: OUT ARRAYOFREGS(0 TO (numUnits*numRows)-1)(windowSize-1 DOWNTO 0);
-      filtersOuts: OUT ARRAYOFREGS(0 TO (numUnits*numRows)-1)(filterSize-1 DOWNTO 0)
+      pagesOuts: OUT ARRAYOFREGS16(0 TO (numUnits*numRows)-1);
+      filtersOuts: OUT ARRAYOFREGS8(0 TO (numUnits*numRows)-1)
     );
 
 END RegFile;
@@ -49,16 +49,16 @@ END RegFile;
 
 ARCHITECTURE RegFileArch OF RegFile IS
 
-    SIGNAL page1Out, page2Out: ARRAYOFREGS(0 TO (numUnits*numRows)-1 +5)(windowSize-1 DOWNTO 0);
+    SIGNAL page1Out, page2Out: ARRAYOFREGS16(0 TO (numUnits*numRows)-1 +5);
     -- SIGNAL decodedPage1, decodedPage2, decodedFilter: STD_LOGIC_VECTOR(0 TO (2**decoderSize)-1);
     SIGNAL page1Enables, page2Enables, filterEnables: STD_LOGIC_VECTOR(0 TO (2**decoderSize)-1);
     SIGNAL decodedRow: STD_LOGIC_VECTOR((2**decoderSize)-1 DOWNTO 0);
 
-    SIGNAL tempPageOutPrimary: ARRAYOFREGS(0 TO (numRows*primary)-1)(windowSize-1 DOWNTO 0);
-    SIGNAL tempPageOutSecondary: ARRAYOFREGS(0 TO (numRows*(numUnits-primary)-1))(windowSize-1 DOWNTO 0);
+    SIGNAL tempPageOutPrimary: ARRAYOFREGS16(0 TO (numRows*primary)-1);
+    SIGNAL tempPageOutSecondary: ARRAYOFREGS16(0 TO (numRows*(numUnits-primary)-1));
 
-    SIGNAL tempfilterOutPrimary: ARRAYOFREGS(0 TO (numRows*primary)-1)(filterSize-1 DOWNTO 0);
-    SIGNAL tempfilterOutSecondary: ARRAYOFREGS(0 TO (numRows*(numUnits-primary)-1))(filterSize-1 DOWNTO 0);
+    SIGNAL tempfilterOutPrimary: ARRAYOFREGS8(0 TO (numRows*primary)-1);
+    SIGNAL tempfilterOutSecondary: ARRAYOFREGS8(0 TO (numRows*(numUnits-primary)-1));
 
     SIGNAL decoderRowEnable: STD_LOGIC;
 
