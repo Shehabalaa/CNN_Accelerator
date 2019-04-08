@@ -15,24 +15,13 @@ PORT    (
 END ENTITY;
 
 ARCHITECTURE DMAImageArchitecture of DMAImage IS
-component Counter IS
-
-    GENERIC (n: integer :=2);
-
-    PORT(
-        load: in std_logic_vector(n-1 downto 0);
-        reset, clk, isLoad: in std_logic;
-        count: out std_logic_vector(n-1 downto 0)
-    );
-
-END component;
 signal addressCounterIn: STD_LOGIC_VECTOR(15 downto 0);
 signal registerIn: STD_LOGIC_VECTOR(15 downto 0);
 BEGIN
 	addressCounterIn <= "000000" & addressIn;
 -- Address Counter needs enable
-	addressCounter: Counter GENERIC MAP(16) PORT MAP(reset => rst, clk => clk, isLoad => intrDelayed, load => addressCounterIn, count => addressOut);
+	addressCounter: Entity work.UpCounterAsyncLoad GENERIC MAP(16) PORT MAP(addressCounterIn, enableImageCounter, intrDelayed , rst, clk, addressOut);
 	registerIn <= "00000000" & dataIn;
-	MyReg: ENTITY work.Reg	PORT MAP(registerIn, enableImageRegister, clk, rst, dataOut);
+	MyReg: ENTITY work.Reg	GENERIC MAP(16) PORT MAP(registerIn, enableImageRegister, clk, rst, dataOut);
 
 END ARCHITECTURE;

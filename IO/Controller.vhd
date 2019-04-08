@@ -14,5 +14,5 @@ END ENTITY;
 
 ARCHITECTURE ControllerArch OF Controller IS
 BEGIN
-  
+
 END ARCHITECTURE;

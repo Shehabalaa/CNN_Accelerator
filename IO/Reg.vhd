@@ -5,7 +5,7 @@ use ieee.std_logic_1164.all;
 
 ENTITY Reg IS
 
-	Generic(wordSize:integer :=32);
+	Generic(wordSize:integer :=16);
 	PORT(
 			D: in STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
 			en, clk, rst: in STD_LOGIC;
