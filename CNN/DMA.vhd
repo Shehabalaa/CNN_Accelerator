@@ -52,6 +52,7 @@ BEGIN
       -- reset all
       finishedOneRead <= '0';
       finishedReading <= '0';
+      ramRead <= '0';
 
       -- finishedReading <= MFC AND ( (clk AND currentCount = "000") OR ((NOT clk) AND currentCount="001") );
       IF MFC = '1' AND ( (clk = '1' AND currentCount = "000") OR (clk = '0' AND currentCount = "001") ) THEN
@@ -62,11 +63,23 @@ BEGIN
       -- if currentCount=zeros AND MFC='1'   then--finished counting and data is ready
       --   finishedReading<='1';
       --   end if;
-	    if load='0' then
-        ramRead<='0';
-      elsif load='1' AND currentCount/=zeros then
-        ramRead<='1';
-      end if;
+
+      -- IF load = '1' AND ( (clk = '1' AND currentCount /= "000") OR (MFC = '1' AND clk = '0' AND currentCount /= "001") ) THEN
+      --   ramRead <= '1';
+      -- ELSE
+      --   ramRead <= '0';
+      -- END IF;
+      IF load = '0' OR ( (MFC = '1' AND clk = '0' AND currentCount = "001") OR (clk = '1' AND currentCount = "000") ) THEN
+        ramRead <= '0';
+      ELSE
+        ramRead <= '1';
+      END IF;
+
+	    -- if load='0' then
+      --   ramRead<='0';
+      -- elsif load='1' AND currentCount/=zeros then
+      --   ramRead<='1';
+      -- end if;
       if MFC='1' THEN
         finishedOneRead<='1';
         internalBus<=ramDataInBus;
