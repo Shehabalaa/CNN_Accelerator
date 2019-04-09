@@ -2,14 +2,15 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
 USE IEEE.numeric_std.all;
 use IEEE.NUMERIC_STD.ALL;
-use work.Types.ALL;
+use work.Utiles.ALL;
+
 -- Single bit Adder Entity
 
 ENTITY ngetMax IS  
     GENERIC (wordSize : integer := 16;
     labels : integer := 10);
      PORT( 
-            inputArray : IN ARRAYOFINTEGERES(9 downto 0);
+            inputArray : IN genericArrayofVector16bit(9 downto 0);
             en, clk, rst: in STD_LOGIC;
             outLabel : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
             done: OUT STD_LOGIC

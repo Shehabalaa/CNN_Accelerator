@@ -13,9 +13,14 @@ sim:/fcmain/dataOutRamWeights
 add wave -position insertpoint  \
 sim:/fcmain/dataOutRamNeorons
 
-add wave -position end  sim:/fcmain/multiplyDone
+
 add wave -position end  sim:/fcmain/multiplyWork
 add wave -position end  sim:/fcmain/startMultiply
+add wave -position end  sim:/fcmain/mulInputNeoron
+add wave -position end  sim:/fcmain/mulInputWeight
+add wave -position end  sim:/fcmain/labelReg
+add wave -position end  sim:/fcmain/dumpDone
+
 
 
 add wave -position end  sim:/fcmain/decrement
@@ -31,35 +36,51 @@ add wave -position end  sim:/fcmain/defaultAddressNeorons
 add wave -position end  sim:/fcmain/incrementNeoronsAdd
 add wave -position end  sim:/fcmain/neoronMuxOutput
 
-add wave -position end  sim:/fcmain/neoronValueSelection
-add wave -position end  sim:/fcmain/state
 add wave -position end  sim:/fcmain/startMax
 add wave -position end  sim:/fcmain/doneMax
+add wave -position end  sim:/fcmain/maxNumber
+add wave -position end  sim:/fcmain/labelReg
 
-force -freeze sim:/fcmain/dataOutRamWeights 80'hXXXXXXXXXXXXXXXXXX03 0
-force -freeze sim:/fcmain/dataOutRamNeorons 80'hXXXXXXXXXXXXXXXX4455 0
 
-force -freeze sim:/fcmain/doneMax 0 0
+add wave -position end  sim:/fcmain/state
+add wave -position end  sim:/fcmain/neoronValueSelection
+
+
+
+
+force -freeze sim:/fcmain/dataOutRamWeights 3 0
+force -freeze sim:/fcmain/dataOutRamNeorons 10 0
+
 
 
 force -freeze sim:/fcmain/clk 1 0, 0 {50 ns} -r 100
 force -freeze sim:/fcmain/reset 1 0
 force -freeze sim:/fcmain/cnnDone 0 0
-force -freeze sim:/fcmain/finishRamWeights 0 0
-force -freeze sim:/fcmain/finishRamNeorons 0 0
 
 run 
+
 
 force -freeze sim:/fcmain/reset 0 0
 force -freeze sim:/fcmain/cnnDone 1 0
 run
+
+
+
+
+
+
+
+
+
+
+
 force -freeze sim:/fcmain/cnnDone 0 0
 run
 run
 run
 
-force -freeze sim:/fcmain/finishRamWeights 1 0
-run
+//////////force -freeze sim:/fcmain/finishRamWeights 1 0
+//////////run
 
 run
 run
@@ -74,9 +95,7 @@ run
 run
 force -freeze sim:/fcmain/finishRamWeights 1 0
 run
-run
-force -freeze sim:/fcmain/multiplyWork 0 0
-run
+
 
 run
 run
