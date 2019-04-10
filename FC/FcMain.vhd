@@ -74,7 +74,10 @@ BEGIN
     NEORONREGMux: ENTITY work.mux2 GENERIC MAP(16) PORT MAP( dataOutRamNeorons(15 downto 0),oneNeoron,neoronValueSelection, neoronMuxOutput);
 
     ------------------------------
-  
+    RAMWEIGHTS: ENTITY work.RAM GENERIC MAP(5,8*10) PORT MAP( clk,'0',dmaAddRamWeights,dataOutRamWeights,dataOutRamWeights);
+
+    RAMNEORONS: ENTITY work.RAM GENERIC MAP(5,16*5) PORT MAP(clk,'0' ,dmaAddRamNeorons,dataOutRamNeorons,dataOutRamNeorons)
+
     ------------------------------------
     MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,cnnDone,maxNumber,doneMax);
     ------------------------------------
