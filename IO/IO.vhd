@@ -16,7 +16,7 @@ ARCHITECTURE IOArch OF IO IS
          interfaceEnable, globalCounterEnable, zeroState: std_logic;
   BEGIN
     Interface: ENTITY work.IOInterface GENERIC MAP(chipInputSize, chipOutputSize) 
-                      PORT MAP(Din, INTR, clk, rst, globalCounterEnable, zeroState interfaceOutput, result);
+                      PORT MAP(Din, INTR, clk, rst, globalCounterEnable, zeroState, interfaceOutput, result);
     Controller: ENTITY work.Controller GENERIC MAP(chipInputSize, chipOutputSize) 
                       PORT MAP(doneDecomp, doneDMAFC, doneDMACNN, INTR, clk, loadOrProcess, rst, imageOrCNN, 
                                busy, donePhase, interfaceEnable);

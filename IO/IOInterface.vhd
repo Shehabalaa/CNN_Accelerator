@@ -2,6 +2,13 @@ LIBRARY IEEE;
 USE ieee.std_logic_1164.ALL;
 
 --IO Interface entity is responsible for reading data from CPU and writing the final result
+--Din: Data placed by CPU on the bus
+--INTR: Signal set by CPU when placing data on bus, to alert the chip, forwarded from the controller to the interface
+--clk: The chip's clock, forwarded from the controller
+--rst: Signal for resetting the registers, used as initialization for the chip
+--zeroState: Signal informs the controller if the global counter has reached its zero state
+--Q: Data outputted by the IO Interface register
+--result: 4 bits containing the class of the input image (0->9)
 ENTITY IOInterface IS
   GENERIC (chipInputSize: integer :=16;
            chipOutputSize: integer :=4);
@@ -16,18 +23,14 @@ END ENTITY;
 
 ARCHITECTURE IOInterfaceArch OF IOInterface IS
 SIGNAL globalCounterLoad, myZeroState, myGlobalCounterEnable: std_logic;
-SIGNAL globalCounterOutputBar, globalCounterOutput, temp: std_logic_vector(chipInputSize - 1 DOWNTO 0);
+SIGNAL globalCounterOutputBar, globalCounterOutput, zeros: std_logic_vector(chipInputSize - 1 DOWNTO 0);
 BEGIN
-  --globalCounterOutputBar(chipInputSize - 1 DOWNTO 0) <= NOT globalCounterOutput(chipInputSize - 1 DOWNTO 0);
-  globalCounterOutputBar <= NOT globalCounterOutput;
-  temp(0) <= globalCounterOutputBar(0);
-  gen: FOR i IN 1 TO chipInputSize - 1 GENERATE
-        temp(i) <= temp(i-1) AND globalCounterOutputBar(i);
-    END GENERATE; 
-  myZeroState <= temp(chipInputSize-1);
+  zeros <= (OTHERS => '0');
+  
+  myZeroState <= '1' WHEN globalCounterOutput = zeros
+                   ELSE '0';
+
   zeroState <= myZeroState;
-  --zeroState2 <= '1' WHEN Q(chipInputSize - 1 DOWNTO 0) = (others => '0')
-  --               ELSE <= '0'; 
   globalCounterLoad <= INTR AND myZeroState;
   myGlobalCounterEnable <= globalCounterEnable OR globalCounterLoad;
   GlobalCounter: ENTITY work.DownCounterAsyncLoad GENERIC MAP(chipInputSize) 
