@@ -10,13 +10,13 @@ truncate = lambda b: BS.pack('int:30=a',a=b)[14:].int
 
 bytes = []
 for i in range(byte_n):
-    tmp = random.randint(-63,64)
+    tmp = random.randint(-(1<<7),(1<<7)-1)
     bytes.append(BS.pack('int:8=a',a=tmp))
 
 
 words = []
 for i in range(byte_n):
-    tmp = random.randint(-100,100)
+    tmp = random.randint(-(1<<15),(1<<15)-1)
     words.append(BS.pack('int:16=a',a=tmp))
 
 
