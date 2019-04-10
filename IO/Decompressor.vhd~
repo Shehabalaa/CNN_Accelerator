@@ -22,6 +22,6 @@ BEGIN
 	Counter: Entity work.DownCounterAsyncLoad GENERIC MAP(n=>6) PORT MAP(loadData => dataIn, clk =>clk, 	en=>en,rst => rst,load => intrDelayed, counterOutput => countOut);
 	registerIN <= "00000001";
 	zeroState <= NOT(countOut(0) or countOut(1) or countOut(2) or countOut(3) or countOut(4) or countOut(5));
-	MyReg: ENTITY work.Reg	PORT MAP(registerIn, imageLoad, clk, rst, dataOut);
+	MyReg: ENTITY work.Reg	GENERIC MAP(8) PORT MAP(registerIn, imageLoad, clk, rst, dataOut);
 
 END ARCHITECTURE;
