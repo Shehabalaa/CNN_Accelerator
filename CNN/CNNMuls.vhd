@@ -4,22 +4,26 @@ USE work.Types.ARRAYOFREGS;
 
 -- CNNMuls Entity
 
--- inputs ==> array of 25 registers to be added
--- filterType ==> 0 for 3*3 Filter and 1 for 5*5 Filter
--- finalSum ==> the summation of the 25 inputs in case of 5*5 filter or the first 9 in case of 3*3 filter
-
+-- window --> output registers of the window (25 in our case)
+-- filter --> output registers of the filter (25 in our case)
+-- clk --> system clock
+-- start --> signal to start the multiplication operation
+-- outputs --> output of the multiplication (25 output in our case)
+-- done --> signal to indicate that multiplication is done and output is ready
 
 ENTITY CNNMuls IS
 
   GENERIC (
-      wordSize : INTEGER := 16;
+      filterSize: INTEGER := 8;
+      windowSize: INTEGER := 16;
       numUnits: INTEGER := 25
       );
 
   PORT(
-      window, filter: IN ARRAYOFREGS(0 TO numUnits-1)(wordSize-1 DOWNTO 0);
+      window: IN ARRAYOFREGS(0 TO numUnits-1)(windowSize-1 DOWNTO 0);
+      filter: IN ARRAYOFREGS(0 TO numUnits-1)(filterSize-1 DOWNTO 0);
       clk, start: IN STD_LOGIC;
-      outputs: OUT ARRAYOFREGS(0 TO numUnits-1)(wordSize-1 DOWNTO 0);
+      outputs: OUT ARRAYOFREGS(0 TO numUnits-1)(windowSize-1 DOWNTO 0);
       done: OUT STD_LOGIC
     );
 
@@ -38,7 +42,7 @@ ARCHITECTURE CNNMulsArch OF CNNMuls IS
         loop1: FOR i IN 0 TO numUnits - 1
         GENERATE
             
-            mulMap: ENTITY work.BoothMul GENERIC MAP(wordSize) PORT MAP(window(i), filter(i), outputs(i), clk, start, dones(i));
+            mulMap: ENTITY work.BoothMul GENERIC MAP(windowSize) PORT MAP(window(i), filter(i), outputs(i), clk, start, dones(i));
 
         END GENERATE;
 

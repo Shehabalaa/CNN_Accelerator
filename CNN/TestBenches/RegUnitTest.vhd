@@ -5,7 +5,10 @@ USE IEEE.numeric_std.all;
 USE work.Types.ARRAYOFREGS;
 
 ENTITY RegUnitTest IS
-    GENERIC(wordSize : INTEGER := 16);
+    GENERIC(
+        filterSize: INTEGER := 8;
+        windowSize: INTEGER := 16
+    );
 END RegUnitTest;
 
 
@@ -14,19 +17,20 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
 
     CONSTANT CLK_PERIOD : time := 100 ps;
 
-    SIGNAL internalBus, regPage1NextUnit, regPage2NextUnit, outRegPage, outFilter, outputRegPage1, outputRegPage2: STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
-    SIGNAL realUnitOut, realFilterOut, realPage1Out, realPage2Out: STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0);
+    SIGNAL windowBus, regPage1NextUnit, regPage2NextUnit, outRegPage, outputRegPage1, outputRegPage2: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
+    SIGNAL filterBus, outFilter, realFilterOut: STD_LOGIC_VECTOR(filterSize-1 DOWNTO 0);
+    SIGNAL realUnitOut, realPage1Out, realPage2Out: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
     SIGNAL clk, rst, enableRegPage1, enableRegPage2, enableRegFilter, shift21, shift12, pageTurn: STD_LOGIC;
 
     
  
     BEGIN
 
-        AddersMap: ENTITY work.RegUnit GENERIC MAP(wordSize) PORT MAP(
-            internalBus,
+        regUnitMap: ENTITY work.RegUnit GENERIC MAP(filterSize, windowSize) PORT MAP(
+            filterBus, windowBus,
             regPage1NextUnit, regPage2NextUnit,
             clk, rst, enableRegPage1, enableRegPage2, enableRegFilter, shift21, shift12, pageTurn,
-            outRegPage, outFilter, outputRegPage1, outputRegPage2
+            outRegPage, outputRegPage1, outputRegPage2, outFilter
         );
 
 
@@ -51,10 +55,11 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             enableRegPage2 <= '0';
             shift12 <= '0';
             shift21 <= '0';
-            internalBus <= x"1234";
+            windowBus <= x"1234";
+            filterBus <= x"78";
 
             realUnitOut <= x"0000";
-            realFilterOut <= x"0000";
+            realFilterOut <= x"00";
             realPage1Out <= x"0000";
             realPage2Out <= x"0000";
             
@@ -79,14 +84,15 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             
             rst <= '0';
 
-            internalBus <= x"1234";
+            windowBus <= x"1234";
+            filterBus <= x"78";
             enableRegPage1 <= '1';
             pageTurn <= '0';
 
 
 
             realUnitOut <= x"1234";
-            realFilterOut <= x"0000";
+            realFilterOut <= x"00";
             realPage1Out <= x"1234";
             realPage2Out <= x"0000";
             
@@ -109,7 +115,8 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             SEVERITY ERROR;
             --------------------------------------------------------------------------------------
 
-            internalBus <= x"1234";
+            windowBus <= x"1234";
+            filterBus <= x"78";
             enableRegPage1 <= '0';
             enableRegFilter <= '1';
             shift12 <= '0';
@@ -119,7 +126,7 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
 
 
             realUnitOut <= x"0000";
-            realFilterOut <= x"1234";
+            realFilterOut <= x"78";
             realPage1Out <= x"1234";
             realPage2Out <= x"0000";
             
@@ -142,9 +149,10 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             SEVERITY ERROR;
             --------------------------------------------------------------------------------------
 
-            internalBus <= x"1235";
+            windowBus <= x"1235";
+            filterBus <= x"98";
             enableRegPage1 <= '0';
-            enableRegFilter <= '0';
+            enableRegFilter <= '1';
             enableRegPage2 <= '1';
             shift12 <= '0';
             shift21 <= '0';
@@ -153,7 +161,7 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
 
 
             realUnitOut <= x"1235";
-            realFilterOut <= x"1234";
+            realFilterOut <= x"98";
             realPage1Out <= x"1234";
             realPage2Out <= x"1235";
             
@@ -176,7 +184,8 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             SEVERITY ERROR;
             --------------------------------------------------------------------------------------
 
-            internalBus <= x"1235";
+            windowBus <= x"1235";
+            filterBus <= x"98";
             enableRegPage1 <= '0';
             enableRegFilter <= '0';
             enableRegPage2 <= '0';
@@ -185,7 +194,7 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
 
 
             realUnitOut <= x"1234";
-            realFilterOut <= x"1234";
+            realFilterOut <= x"98";
             realPage1Out <= x"1234";
             realPage2Out <= x"1235";
             
@@ -216,7 +225,7 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             shift21 <= '1';
 
             realUnitOut <= x"1235";
-            realFilterOut <= x"1234";
+            realFilterOut <= x"98";
             realPage1Out <= x"5679";
             realPage2Out <= x"1235";
             
@@ -246,7 +255,7 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             shift21 <= '0';
 
             realUnitOut <= x"5679";
-            realFilterOut <= x"1234";
+            realFilterOut <= x"98";
             realPage1Out <= x"5679";
             realPage2Out <= x"1235";
             
@@ -277,7 +286,7 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             shift21 <= '0';
 
             realUnitOut <= x"5678";
-            realFilterOut <= x"1234";
+            realFilterOut <= x"98";
             realPage1Out <= x"5679";
             realPage2Out <= x"5678";
             
@@ -308,7 +317,7 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             shift21 <= '0';
 
             realUnitOut <= x"5679";
-            realFilterOut <= x"1234";
+            realFilterOut <= x"98";
             realPage1Out <= x"5679";
             realPage2Out <= x"5678";
             
@@ -334,7 +343,7 @@ ARCHITECTURE RegUnitTestArch OF RegUnitTest IS
             rst <= '1';
 
             realUnitOut <= x"0000";
-            realFilterOut <= x"0000";
+            realFilterOut <= x"00";
             realPage1Out <= x"0000";
             realPage2Out <= x"0000";
             
