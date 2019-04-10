@@ -2,30 +2,33 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.numeric_std.all;
 
-ENTITY FilterConvController IS
-
+ENTITY NetworkController IS
+        GENERIC(maxLayer : INTEGER := 2); -- Maximum bits to represent number of layers
 	PORT(
-			start, -- Signal to Start applying 1 filter to 1 image
-            oneConvFinish, -- Signal when One convolution finishes it sends it
+            start, -- Signal to Start applying 1 filter to 1 image
+            dmaFinish, -- Signal from DMA when it finishes loading Layer configration
+            oneLayerFinish, -- Signal when all convolution of this filter finish
             resetState, -- Signal to reset State to idle state
 			clk : IN STD_LOGIC; -- System clock
 
-            depth : IN STD_LOGIC_VECTOR(2 downto 0); -- Filter depth --> Number of Convolutions
-            outputSize : IN STD_LOGIC_VECTOR(4 downto 0); -- Output Image size Example : 26 --> output image size 26x26
+            layersNumber : IN STD_LOGIC_VECTOR(maxLayer-1 downto 0); -- Filter depth --> Number of Convolutions
+            -- outputSize : IN STD_LOGIC_VECTOR(4 downto 0); -- Output Image size Example : 26 --> output image size 26x26
 
-            startOneConv, -- Signal sent to One Convolution Controller to start processing
+			loadConfig, -- Signal is sent to DMA to start loading configration of this layer
+			startOneLayer, -- Signal sent to One Convolution Controller to start processing
 			finish: OUT STD_LOGIC -- Signal is sent to upper FSM to tell that convolution with this filter is finished
 		);
 
-END ENTITY FilterConvController;
+END ENTITY NetworkController;
 
 ------------------------------------------------------------
 
-ARCHITECTURE FilterConvControllerArch OF FilterConvController IS
+ARCHITECTURE NetworkControllerArch OF NetworkController IS
 	
 	-- Enum for State Machine States
-		TYPE fsmStateMachine IS (	idleState,			
-									OneConvState,
+		TYPE fsmStateMachine IS (	idleState,	
+									configurationState,		
+									layerExecuteState,
 									endState
 								); -- Machine States
 
@@ -37,50 +40,67 @@ ARCHITECTURE FilterConvControllerArch OF FilterConvController IS
 
         SIGNAL finalCounterEn,counterEn,resetCounter : STD_LOGIC;
 
-        SIGNAL counterOut : STD_LOGIC_VECTOR (2 DOWNTO 0);
+        SIGNAL counterOut : STD_LOGIC_VECTOR (maxLayer-1 DOWNTO 0);
 	------------------------------------------------------------
 
 	BEGIN
 		-- limit Counters to count only at rising edge
 			finalCounterEn <= (clk AND counterEn);		
 
-		PROCESS(currentState,oneConvFinish)
+		PROCESS(start,currentState,oneLayerFinish,dmaFinish)
 
 			BEGIN
 			CASE currentState IS
 
 				WHEN idleState =>
 					-- Intialize all Signals to 0
-                        startOneConv <= '0';
+						startOneLayer <= '0';
+						loadConfig <='0';
+                        finish <= '0';
 
 					-- Reset Counters to 0
 						counterEn <= '1';
 						resetCounter <= '1';
 			
 					-- Set Next State
-						nextState <= OneConvState; 
+						nextState <= configurationState; 
 
 					-- When Start signal comes Go to specified Next State
-						stateRegEn <= '1';
+						stateRegEn <= start;
+
 
 			------------------------------------------------------------
-			WHEN OneConvState =>
-						-- Release Reset Signals for Counters
-                            -- counterEn <= '0';
-                            resetCounter <= '0';
+			WHEN configurationState =>
+					-- Release Reset Signals for Counters
+						counterEn <= '0';
+						resetCounter <= '0';
+					
+                    loadConfig <= '1';
+                    
+                    -- Set Next State
+                        nextState <= layerExecuteState; 
                         
+                    -- When finish signal comes Go to specified Next State
+						stateRegEn <= dmaFinish;
+
+			------------------------------------------------------------
+			WHEN layerExecuteState =>
+						-- Release raised Signals by past state
+							loadConfig <= '0';
+
+
                         -- Send start Signal to One Convolution FSM
-                            startOneConv <= '1';
+                            startOneLayer <= '1';
 
                         -- Enable Counter to count when One Convolution Finishes
-                            counterEn <= oneConvFinish;
+                            counterEn <= oneLayerFinish;
 
                         
                         -- Set Next State
 							nextState <= endState;
 
 						-- When One Convolution finishes Go to specified Next State	
-                            IF counterOut = depth AND oneConvFinish = '1' THEN
+                            IF counterOut = layersNumber AND oneLayerFinish = '1' THEN
                                 stateRegEn <= '1';
                             ELSE
                                 stateRegEn <= '0';
@@ -90,8 +110,10 @@ ARCHITECTURE FilterConvControllerArch OF FilterConvController IS
 
 			-- The last state after completeing applying full filter to image
 				WHEN endState =>
-
-					-- Raise finish Signal
+                    
+                    startOneLayer <= '0';
+                    
+                    -- Raise finish Signal
 						finish <= '1';
 					-- Set Next State
 						nextState <= idleState; -- Get back to 0 state (idle state)
@@ -102,7 +124,7 @@ ARCHITECTURE FilterConvControllerArch OF FilterConvController IS
 
 
 	-- Counter to stop when finish depth of filter
-		counterMap : ENTITY work.Counter GENERIC MAP (3) PORT MAP ( "000",resetCounter, finalCounterEn , '0',counterOut);
+		counterMap : ENTITY work.Counter GENERIC MAP (maxLayer) PORT MAP ( "00",resetCounter, finalCounterEn , '0',counterOut);
 
 	-- Process to save state and change to next state when enable = 1
 		PROCESS(nextState,clk, stateRegEn, resetState)
