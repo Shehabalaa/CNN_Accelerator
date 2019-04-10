@@ -7,14 +7,21 @@ use ieee.std_logic_1164.all;
     use ieee.numeric_std.all;
     use work.constants.all;
     Entity WriteDMA is
+       GENERIC(
+        addressSize: INTEGER:=16;
+        internalBusSize: INTEGER:=16
+       );
         port(
             clk:in std_logic;
+            -- Write logic interface
             writeBaseAddress:IN std_logic_vector(addressSize-1 downto 0) ;
             writeStep:IN std_logic_vector(maxImageSize-1 downto 0);
             writeToRam:IN std_logic;
             counter:In std_logic_vector(maxImageSize-1 downto 0) ;
-            init:IN std_logic;
+            initCounter,initAddress:IN std_logic;
             internalBus:INOUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
+           
+            --ram interface
             ramWrite:out std_logic;
             writeComplete:out std_logic;
             ramDataInBus:out STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
@@ -25,12 +32,12 @@ use ieee.std_logic_1164.all;
     architecture WriteDMAArch of WriteDMA is
         signal toBeAdded :std_logic_vector(15 downto 0) ;  
         signal currentCount:std_logic_vector(maxImageSize-1 downto 0) ;
-         constant zeros:std_logic_vector(maxImageSize-1 downto 0) :=(others=>'0');  
+        constant zeros:std_logic_vector(maxImageSize-1 downto 0) :=(others=>'0');  
         signal enableCounter:std_logic; 
         begin
-            writeStepRegister:Entity work.Reg Generic Map(16) PORT MAP(writeStep,'1',init,'0',tobeAdded);
-            writeAddressRegister:Entity work.MultiStepCounter  Generic map(addressSize) port map(writeBaseAddress,tobeAdded,'0',clk,init,MFC,ramWriteAddress);
-            writecounter:Entity work.DownCounter Generic map(maxImageSize) port map(counter,enableCounter,clk,init,currentCount); 
+            writeStepRegister:Entity work.Reg Generic Map(16) PORT MAP(writeStep,'1',initCounter,'0',tobeAdded);
+            writeAddressRegister:Entity work.MultiStepCounter  Generic map(addressSize) port map(writeBaseAddress,tobeAdded,'0',clk,initAddress,MFC,ramWriteAddress);
+            writecounter:Entity work.DownCounter Generic map(maxImageSize) port map(counter,enableCounter,clk,initCounter,currentCount); 
            
             process(MFC,writeToRam,currentCount,internalBus)
             begin
@@ -47,7 +54,4 @@ use ieee.std_logic_1164.all;
             end if;
             enableCounter<=MFC or init;
             end process;
-            end architecture;            
-
-                
-                   
+            end architecture;               
