@@ -1,136 +1,133 @@
 Info, Log file moved to new working directory
 -- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
 -- Loading package standard into library std
--- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Mux2.vhd into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/FullAdder.vhd into library work
 -- Reading file /home/ayman/mgc/LeonardoSpectrum/data/std_1164.vhd for unit std_logic_1164
 -- Loading package std_logic_1164 into library IEEE
--- Loading entity Mux2 into library work
--- Loading architecture Mux2Arch of Mux2 into library work
--- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Reg.vhd into library work
--- Loading entity Reg into library work
--- Loading architecture RegArch of Reg into library work
--- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegUnit.vhd into library work
--- Loading entity RegUnit into library work
--- Loading architecture RegUnitArch of RegUnit into library work
--- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Types.vhd into library work
--- Loading package Types into library work
--- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegRow.vhd into library work
-"/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 4: Warning, math_real is not declared in library IEEE.
--- Loading entity RegRow into library work
--- Loading architecture RegRowArch of RegRow into library work
--- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegFile.vhd into library work
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 4: Warning, math_real is not declared in library IEEE.
--- Loading entity RegFile into library work
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 73: Warning, Decoder is not declared in library work.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 73: Error, expected 0 actuals while 1 are given.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 73: Error, expected 0 actuals while 3 are given.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 52: Warning, signal page1Out is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 52: Warning, signal page1Out is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 52: Warning, signal page2Out is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 52: Warning, signal page2Out is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 54: Warning, signal page1Enables is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 54: Warning, signal page2Enables is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 54: Warning, signal filterEnables is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 55: Warning, signal decodedRow is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 57: Warning, signal tempPageOutPrimary is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 58: Warning, signal tempPageOutSecondary is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 60: Warning, signal tempfilterOutPrimary is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 61: Warning, signal tempfilterOutSecondary is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 63: Warning, signal decoderRowEnable is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 36: Warning, input filterBus is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 37: Warning, input windowBus is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 38: Warning, input decoderRow is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input clk is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input rst is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input shift2To1 is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input shift1To2 is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input pageTurn is never used.
-Error in file /media/sf_CNN_Accelerator/CNN/RegFile.vhd.
--- Error found in VHDL source
+-- Loading entity FullAdder into library work
+-- Loading architecture FullAdderArch of FullAdder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/NBitAdder.vhd into library work
+-- Loading entity NBitAdder into library work
+-- Loading architecture NBitAdderArch of NBitAdder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/Adder4Values.vhd into library work
+-- Loading entity Adder4Values into library work
+-- Loading architecture Adder4ValuesArch of Adder4Values into library work
+{Package .std.standard} {Entity .work.FullAdder} {Entity .work.NBitAdder} {Entity .work.Adder4Values} {Package .IEEE.std_logic_1164}
+{Architecture .work.FullAdder.FullAdderArch} {Architecture .work.NBitAdder.NBitAdderArch} {Architecture .work.Adder4Values.Adder4ValuesArch}
+{Package .std.standard} {Entity .work.FullAdder} {Entity .work.NBitAdder} {Entity .work.Adder4Values} {Package .IEEE.std_logic_1164}
+{Architecture .work.FullAdder.FullAdderArch} {Architecture .work.NBitAdder.NBitAdderArch} {Architecture .work.Adder4Values.Adder4ValuesArch}
+{Package .std.standard} {Entity .work.FullAdder} {Entity .work.NBitAdder} {Entity .work.Adder4Values} {Package .IEEE.std_logic_1164}
+-- Compiling root entity Adder4Values(Adder4ValuesArch)
+-- Compiling entity NBitAdder_16(NBitAdderArch)
+-- Compiling entity FullAdder(FullAdderArch)
+Info, Command 'elaborate' finished successfully
+{Package .std.standard} {Entity .work.FullAdder} {Entity .work.NBitAdder} {Entity .work.Adder4Values} {Package .IEEE.std_logic_1164}
+{Architecture .work.FullAdder.FullAdderArch} {Architecture .work.NBitAdder.NBitAdderArch} {Architecture .work.Adder4Values.Adder4ValuesArch}
+{Package .std.standard} {Entity .work.FullAdder} {Entity .work.NBitAdder} {Entity .work.Adder4Values} {Package .IEEE.std_logic_1164}
+-- Boundary optimization.
+-- Boundary optimization.
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1720
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2287
+-- Start pre-optimization for design .work.NBitAdder_16.NBitAdderArch_unfold_2161
+-- Start pre-optimization for design .work.Adder4Values.Adder4ValuesArch
+Info, Command 'pre_optimize' finished successfully
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1720
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2287
+-- Start pre-optimization for design .work.NBitAdder_16.NBitAdderArch_unfold_2161
+-- Start pre-optimization for design .work.Adder4Values.Adder4ValuesArch
+Info, Command 'pre_optimize' finished successfully
+Info, Instances dissolved by autodissolve in View .work.NBitAdder_16.NBitAdderArch_unfold_2161
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 29: f0 (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_1_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_2_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_3_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_4_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_5_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_6_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_7_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_8_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_9_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_10_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_11_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_12_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_13_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_14_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_15_fx (FullAdder)
+->set wire_table "" 
+Info: setting wire_table to 
+NO wire table is found
+-- Optimizing netlist .work.NBitAdder_16.NBitAdderArch_unfold_2161
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.Adder4Values.Adder4ValuesArch
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Final Design Rule Check..
+Info, Command 'optimize' finished successfully
+-- Start timing optimization for design .work.NBitAdder_16.NBitAdderArch_unfold_2161
+Starting Timing Characterization...
+Starting Timing Analysis...
+NO wire table is found
+Timing analysis done, time = 0 CPU secs.
+Timing characterization done, time = 0 CPU secs.
+Info, Command 'optimize_timing' finished successfully
+-- Start timing optimization for design .work.NBitAdder_16.NBitAdderArch_unfold_2161
+Starting Timing Characterization...
+Starting Timing Analysis...
+NO wire table is found
+Timing analysis done, time = 0 CPU secs.
+Timing characterization done, time = 0 CPU secs.
+Info, Command 'optimize_timing' finished successfully
+Info, Command 'report_area' finished successfully
+NO wire table is found
+Info, Command 'report_delay' finished successfully
+Info: setting novendor_constraint_file to FALSE
+FALSE
+AutoWrite args are : Adder4Values.vhd
+-- Writing file Adder4Values.vhd
+Info, Command 'auto_write' finished successfully
+Info: setting novendor_constraint_file to FALSE
+FALSE
+AutoWrite args are : -format VHDL Adder4Values.vhd
+-- Writing file Adder4Values.vhd
+Info, Command 'auto_write' finished successfully
+Info: setting novendor_constraint_file to FALSE
+FALSE
+AutoWrite args are : -format Verilog Adder4Values.v
+-- Writing file Adder4Values.v
+Info, Command 'auto_write' finished successfully
+Info: setting novendor_constraint_file to FALSE
+FALSE
+AutoWrite args are : -format SDF Adder4Values.sdf
+-- Writing file Adder4Values.sdf
+NO wire table is found
+Info, Command 'auto_write' finished successfully
 Info, Library tsmc035_typ is already loaded. Setting it as target
 Info: setting encoding to auto
 Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/RegFile'
+Info, History file moved to new working directory
+Info, Log file moved to new working directory
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Mux2.vhd into library work
 -- Loading entity Mux2 into library work
-"/media/sf_CNN_Accelerator/Utils/Mux2.vhd",line 9: Warning, replacing Mux2 in HDL library work.
 -- Loading architecture Mux2Arch of Mux2 into library work
-"/media/sf_CNN_Accelerator/Utils/Mux2.vhd",line 23: Warning, replacing Mux2Arch of entity Mux2.
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Reg.vhd into library work
 -- Loading entity Reg into library work
-"/media/sf_CNN_Accelerator/Utils/Reg.vhd",line 6: Warning, replacing Reg in HDL library work.
 -- Loading architecture RegArch of Reg into library work
-"/media/sf_CNN_Accelerator/Utils/Reg.vhd",line 20: Warning, replacing RegArch of entity Reg.
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegUnit.vhd into library work
 -- Loading entity RegUnit into library work
-"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd",line 19: Warning, replacing RegUnit in HDL library work.
 -- Loading architecture RegUnitArch of RegUnit into library work
-"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd",line 40: Warning, replacing RegUnitArch of entity RegUnit.
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Types.vhd into library work
 -- Loading package Types into library work
-"/media/sf_CNN_Accelerator/Utils/Types.vhd",line 5: Warning, replacing Types in HDL library work.
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegRow.vhd into library work
 "/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 4: Warning, math_real is not declared in library IEEE.
 -- Loading entity RegRow into library work
-"/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 26: Warning, replacing RegRow in HDL library work.
 -- Loading architecture RegRowArch of RegRow into library work
-"/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 53: Warning, replacing RegRowArch of entity RegRow.
--- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegFile.vhd into library work
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 4: Warning, math_real is not declared in library IEEE.
--- Loading entity RegFile into library work
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 24: Warning, replacing RegFile in HDL library work.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 73: Warning, Decoder is not declared in library work.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 73: Error, expected 0 actuals while 1 are given.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 73: Error, expected 0 actuals while 3 are given.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 52: Warning, signal page1Out is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 52: Warning, signal page1Out is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 52: Warning, signal page2Out is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 52: Warning, signal page2Out is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 54: Warning, signal page1Enables is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 54: Warning, signal page2Enables is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 54: Warning, signal filterEnables is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 55: Warning, signal decodedRow is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 57: Warning, signal tempPageOutPrimary is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 58: Warning, signal tempPageOutSecondary is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 60: Warning, signal tempfilterOutPrimary is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 61: Warning, signal tempfilterOutSecondary is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 63: Warning, signal decoderRowEnable is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 36: Warning, input filterBus is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 37: Warning, input windowBus is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 38: Warning, input decoderRow is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input clk is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input rst is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input shift2To1 is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input shift1To2 is never used.
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 39: Warning, input pageTurn is never used.
-Error in file /media/sf_CNN_Accelerator/CNN/RegFile.vhd.
--- Error found in VHDL source
-Info, Library tsmc035_typ is already loaded. Setting it as target
-Info: setting encoding to auto
-Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/RegFile'
--- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Mux2.vhd into library work
--- Loading entity Mux2 into library work
-"/media/sf_CNN_Accelerator/Utils/Mux2.vhd",line 9: Warning, replacing Mux2 in HDL library work.
--- Loading architecture Mux2Arch of Mux2 into library work
-"/media/sf_CNN_Accelerator/Utils/Mux2.vhd",line 23: Warning, replacing Mux2Arch of entity Mux2.
--- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Reg.vhd into library work
--- Loading entity Reg into library work
-"/media/sf_CNN_Accelerator/Utils/Reg.vhd",line 6: Warning, replacing Reg in HDL library work.
--- Loading architecture RegArch of Reg into library work
-"/media/sf_CNN_Accelerator/Utils/Reg.vhd",line 20: Warning, replacing RegArch of entity Reg.
--- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegUnit.vhd into library work
--- Loading entity RegUnit into library work
-"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd",line 19: Warning, replacing RegUnit in HDL library work.
--- Loading architecture RegUnitArch of RegUnit into library work
-"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd",line 40: Warning, replacing RegUnitArch of entity RegUnit.
--- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Types.vhd into library work
--- Loading package Types into library work
-"/media/sf_CNN_Accelerator/Utils/Types.vhd",line 5: Warning, replacing Types in HDL library work.
--- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegRow.vhd into library work
-"/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 4: Warning, math_real is not declared in library IEEE.
--- Loading entity RegRow into library work
-"/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 26: Warning, replacing RegRow in HDL library work.
--- Loading architecture RegRowArch of RegRow into library work
-"/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 53: Warning, replacing RegRowArch of entity RegRow.
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Decoder.vhd into library work
 "/media/sf_CNN_Accelerator/Utils/Decoder.vhd",line 3: Warning, math_real is not declared in library IEEE.
 -- Reading file /home/ayman/mgc/LeonardoSpectrum/data/numeric_std.vhd for unit numeric_std
@@ -140,7 +137,6 @@ Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/RegFile'
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegFile.vhd into library work
 "/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 4: Warning, math_real is not declared in library IEEE.
 -- Loading entity RegFile into library work
-"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 24: Warning, replacing RegFile in HDL library work.
 -- Loading architecture RegFileArch of RegFile into library work
 -- Compiling root entity RegFile(RegFileArch)
 -- Compiling entity Decoder_3(DecoderArch)
@@ -149,6 +145,21 @@ Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/RegFile'
 -- Compiling entity Mux2_16(Mux2Arch)
 -- Compiling entity Reg_16(RegArch)
 -- Compiling entity Reg_8(RegArch)
+-- Compiling root entity RegFile(RegFileArch)
+-- Compiling entity Decoder_3(DecoderArch)
+-- Info, replacing Decoder_3(DecoderArch)
+-- Compiling entity RegRow_8_16_5_3(RegRowArch)
+-- Compiling entity RegUnit_8_16(RegUnitArch)
+-- Compiling entity Mux2_16(Mux2Arch)
+-- Info, replacing Mux2_16(Mux2Arch)
+-- Compiling entity Reg_16(RegArch)
+-- Info, replacing Reg_16(RegArch)
+-- Compiling entity Reg_8(RegArch)
+-- Info, replacing Reg_8(RegArch)
+-- Info, replacing RegUnit_8_16(RegUnitArch)
+-- Info, replacing RegRow_8_16_5_3(RegRowArch)
+-- Info, replacing RegFile(RegFileArch)
+Info: setting sdf_type to combined
 -- Boundary optimization.
 -- Boundary optimization.
 -- Boundary optimization.
@@ -247,6 +258,9 @@ NO wire table is found
 Info: setting novendor_constraint_file to FALSE
 AutoWrite args are : -format Verilog RegFile.v
 -- Writing file RegFile.v
+Info: setting novendor_constraint_file to FALSE
+AutoWrite args are : -format VHDL RegFile.vhd
+-- Writing file RegFile.vhd
 Info: setting novendor_constraint_file to FALSE
 AutoWrite args are : -format SDF RegFile.sdf
 -- Writing file RegFile.sdf

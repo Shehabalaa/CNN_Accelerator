@@ -1,0 +1,50 @@
+
+*******************************************************
+
+Cell: NBitAdder_16    View: NBitAdderArch_unfold_2161    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+aoi22       tsmc035_typ     7 x      1     10 gates
+fake_gnd    tsmc035_typ     1 x      1      1 fake_gnd
+inv01       tsmc035_typ    17 x      1     13 gates
+nand02      tsmc035_typ     7 x      1      7 gates
+oai21       tsmc035_typ     6 x      1      7 gates
+oai22       tsmc035_typ     1 x      1      1 gates
+xnor2       tsmc035_typ    45 x      2     86 gates
+
+ Number of ports :                      50
+ Number of nets :                      116
+ Number of instances :                  84
+ Number of references to this view :     3
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of gates :                     125
+ Number of accumulated instances :      84
+
+*******************************************************
+
+Cell: Adder4Values    View: Adder4ValuesArch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+NBitAdder_16    work            3 x    125    375 gates
+                                         1      3 fake_gnd
+fake_gnd        tsmc035_typ     1 x      1      1 fake_gnd
+
+ Number of ports :                      80
+ Number of nets :                      113
+ Number of instances :                   4
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of fake_gnd :                    4
+ Number of gates :                     375
+ Number of accumulated instances :     253
