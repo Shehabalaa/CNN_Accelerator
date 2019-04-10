@@ -13,8 +13,11 @@ sim:/fcmain/dataOutRamWeights
 add wave -position insertpoint  \
 sim:/fcmain/dataOutRamNeorons
 
+add wave -position end  sim:/fcmain/multiplyWorkIn
+add wave -position end  sim:/fcmain/multiplyWorkDelayed
 
 add wave -position end  sim:/fcmain/multiplyWork
+
 add wave -position end  sim:/fcmain/startMultiply
 add wave -position end  sim:/fcmain/mulInputNeoron
 add wave -position end  sim:/fcmain/mulInputWeight

@@ -19,7 +19,7 @@ END FcMain;
 
 ARCHITECTURE FcMainArch OF FcMain IS
 
-    TYPE State_type IS (initial,setCounter,delay,loadBias,compareCounter ,loadNeoronAndWeights,Maxmimize,PrintOutput); -- the 4 different states
+    TYPE State_type IS (initial,setCounter,delay,loadBias,compareCounter ,loadNeoronAndWeights,Maxmimize,PrintOutput,startMul); -- the 4 different states
 	SIGNAL state : State_Type;   
     ---- Signal Declaration 
     SIGNAL readRamWeights,readRamNeorons,finishRamWeights,finishRamNeorons: STD_LOGIC;
@@ -50,12 +50,14 @@ ARCHITECTURE FcMainArch OF FcMain IS
     ---------------------------------------
     SIGNAL mulInputWeight : genericArrayofVector8bit (9 downto 0);
     SIGNAL mulInputNeoron : genericArrayofVector16bit (9 downto 0);
-    SIGNAL multiplyWork,multiplyWorkIn,startMultiply:STD_LOGIC;
+    SIGNAL multiplyWork,multiplyWorkDelayed,multiplyWorkIn,startMultiply:STD_LOGIC;
     SIGNAL dumpDone: STD_LOGIC;
     ---------------------------------------
     SIGNAL clkInverted,bufferTwoInput : STD_LOGIC;
 
     ---------------------------------------
+
+    SIGNAL mulDoneDetection : STD_LOGIC;
     ---------------------------------------
 
 BEGIN
@@ -76,7 +78,7 @@ BEGIN
     ------------------------------
     RAMWEIGHTS: ENTITY work.RAM GENERIC MAP(5,8*10) PORT MAP( clk,'0',dmaAddRamWeights,dataOutRamWeights,dataOutRamWeights);
 
-    RAMNEORONS: ENTITY work.RAM GENERIC MAP(5,16*5) PORT MAP(clk,'0' ,dmaAddRamNeorons,dataOutRamNeorons,dataOutRamNeorons)
+    RAMNEORONS: ENTITY work.RAM GENERIC MAP(5,16*5) PORT MAP(clk,'0' ,dmaAddRamNeorons,dataOutRamNeorons,dataOutRamNeorons);
 
     ------------------------------------
     MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,cnnDone,maxNumber,doneMax);
@@ -84,14 +86,14 @@ BEGIN
     ALUMAP: ENTITY work.Alus8x16 GENERIC MAP(10) PORT MAP(mulInputWeight,mulInputNeoron,labelReg,clk,startMultiply,reset,dumpDone,multiplyWorkIn);
     ----------------------------------------------
     bufferRegOne: ENTITY work.FlibFlob  PORT MAP(multiplyWorkIn,'1',clkInverted,reset,bufferTwoInput);
-    
-    bufferRegTwo: ENTITY work.FlibFlob  PORT MAP(bufferTwoInput,'1',clk,reset,multiplyWork);
+    bufferRegTwo: ENTITY work.FlibFlob  PORT MAP(bufferTwoInput,'1',clk,reset,multiplyWorkDelayed);
     -----------------------------------------------------------
-
-    DMAWEIGHTS : ENTITY work.Dma  GENERIC MAP (5,5) PORT MAP(clk,reset,incrementWeightAdd,cnnDone,defaultAddressWeights,readRamWeights,finishRamWeights,dmaAddRamWeights);
+    DMAWEIGHTS : ENTITY work.Dma  GENERIC MAP (2,5) PORT MAP(clk,reset,incrementWeightAdd,cnnDone,defaultAddressWeights,readRamWeights,finishRamWeights,dmaAddRamWeights);
     
-    DMANEORONS : ENTITY work.Dma GENERIC MAP (5,5) PORT MAP(clk,reset,incrementNeoronsAdd,cnnDone,defaultAddressNeorons,readRamNeorons,finishRamNeorons,dmaAddRamNeorons);
+    DMANEORONS : ENTITY work.Dma GENERIC MAP (2,5) PORT MAP(clk,reset,incrementNeoronsAdd,cnnDone,defaultAddressNeorons,readRamNeorons,finishRamNeorons,dmaAddRamNeorons);
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    multiplyWork <= (multiplyWorkDelayed and multiplyWorkIn);
     ---------------------------------------------
     WEIGHTVALUEMAP: for I in 0 to 9 generate
     begin
@@ -107,9 +109,11 @@ BEGIN
     loadNumberOFNeorons <='1' when ((state=setCounter) and (finishRamWeights='1')) else
                           '0' ;
    
-    startMultiply <='1' when  ((state = loadBias) and (finishRamWeights ='1')and (multiplyWork='0')) else
-                    '1' when ((state = loadNeoronAndWeights) and (finishRamWeights ='1')and(finishRamNeorons ='1')and(multiplyWork='0'))else
-                    '0';
+    --startMultiply <='1' when  ((state = loadBias) and (finishRamWeights ='1')and (multiplyWork='0')) else
+    --                '1' when ((state = loadNeoronAndWeights) and (finishRamWeights ='1')and(finishRamNeorons ='1')and(multiplyWork='0'))else
+    --                '0';
+
+    startMultiply <= '1' when (state=startMul) else '0';
 
     decrement <=startMultiply;
     incrementWeightAdd <= '1' when ((startMultiply='1') or (loadNumberOFNeorons='1')) else '0';
@@ -143,8 +147,10 @@ BEGIN
                     end if; 
                 when loadBias =>
                     if (finishRamWeights ='1')and ((multiplyWork='0')) then
-                        state <= compareCounter;
+                        state <= startMul;
                     end if; 
+                when startMul => 
+                        state <= compareCounter;
                 when compareCounter =>
                     if (numberOFNeorons =("00000000"))and(finishRamWeights ='0')and (finishRamNeorons ='0')and((multiplyWork='0')) then 
                         state <= Maxmimize;
@@ -155,7 +161,7 @@ BEGIN
                     end if;
                 when loadNeoronAndWeights =>
                    if  (finishRamWeights ='1')and (finishRamNeorons ='1')and ((multiplyWork='0')) then
-                        state <= compareCounter;
+                        state <= startMul;
                     end if; 
                 when Maxmimize =>
                     if doneMax='1' then
