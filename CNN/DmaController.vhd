@@ -36,8 +36,9 @@ ENTITY DMAController IS
     windowInternalBus: INOUT STD_LOGIC_VECTOR(windowBusSize-1 DOWNTO 0);
     
     -- Two Rams interface
-    windowRamAddress: OUT STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
+    ,: OUT STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
     weightsRamAddress: OUT STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
+    windowRamAddress: OUT STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
     weightsRamDataInBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     windowRamDataInBus: OUT STD_LOGIC_VECTOR(windowBusSize-1 DOWNTO 0);
     weightsRamRead: OUT STD_LOGIC; --
@@ -99,6 +100,14 @@ begin
       C => currentWriteRamAddress
     );
 
+    -- mux to select which address should enter to the window ram, address from write or address from read
+    windowRamAddressMux: ENTITY work.Mux2 GENERIC MAP(addressSize) PORT MAP(
+      A => windowRamWriteAddress,
+      B => windowRamReadAddress,
+      S => write,
+      C => windowRamAddress
+    );
+
     windowReadLogicEnt: ENTITY work.ReadLogic GENERIC MAP (addressSize, windowBusSize) PORT MAP (
       clk => clk,
 
@@ -112,6 +121,7 @@ begin
       ramRead => windowRamRead,
       ramWrite => windowRamWrite,
       ramDataOutBus => windowRamDataOutBus,
+      ramAddress => windowRamReadAddress,
       MFC => MFCWindowRam,
 
       -- CONFIG
@@ -169,7 +179,7 @@ begin
       internalBus => windowInternalBus,
       ramWrite => windowRamWrite,
       ramDataInBus => windowRamDataInBus,
-      ramAddress => windowRamAddress,
+      ramAddress => windowRamWriteAddress,
       MFC => MFCWindowRam,
 
       -- CONFIG

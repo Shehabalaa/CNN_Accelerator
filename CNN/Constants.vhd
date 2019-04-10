@@ -9,7 +9,6 @@ constant configCount: integer :=3;
 
 
 
-
 constant addressSize: integer := 20 -- bits
 constant maxImageSize: integer := 28 -- bits
 

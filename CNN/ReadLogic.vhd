@@ -54,7 +54,7 @@ ENTITY ReadLogic IS
     -- output cnt signals
     readOne: OUT STD_LOGIC; -- output signal set when one row when loading window is available on internal buses
     readFinal: OUT STD_LOGIC;-- // // // // when final input is available on the internal data bus
-    aluNumber: OUT STD_LOGIC_VECTOR(4 downto 0) -- 5 bits to say where to set the data within which ALU
+    aluNumber: OUT STD_LOGIC_VECTOR(2 downto 0) -- 5 bits to say where to set the data within which ALU
   );
 END ReadLogic ; 
 
@@ -102,8 +102,11 @@ BEGIN
     load <= loadNextWordList OR loadWord;
     -- end define helper signals
 
+    -- mapping from internal signals to output port
+    -- TODO: should be removed and bind these port signals directly
     readFinal <= dmaFinishAll;
     readOne <= dmaFinishOneRead;
+    -- aluNumber <= unitRegOut;
 
     dma: ENTITY work.DMA GENERIC MAP(addressSize, internalBusSize) PORT MAP (
         initialCount => dmaCountIn,
@@ -136,7 +139,7 @@ BEGIN
         isLoad => '0', -- we don't need this functionality
         reset => resetUnitNumberReg, -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
         -- clk => "AND"(clk, "or"(incUnitNumber, resetUnitNumberReg)), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
-        clk => "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, "not"(clk))),
+        clk => "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk)),
         count => unitRegOut
     );
 
@@ -158,6 +161,7 @@ BEGIN
                 resetAddressReg <= '1'; -- open the reset register to enable writing..
                 addressRegIn <= ramBasedAddress; -- ..and put the base value to it
                 resetUnitNumberReg <= '1';
+                unitRegOut <= (others => '0');
 
                 -- transition logic
                 stateRegEn <= '1'; -- to go to init state
@@ -245,7 +249,7 @@ BEGIN
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;
-        ELSIF switchRam ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
+        ELSIF FALLING_EDGE(clk) AND switchRam ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= switchState;
         ELSIF FALLING_EDGE(clk) AND stateRegEn='1' THEN -- Change value only when enable = 1 and rising edge
             currentState <= nextState;
