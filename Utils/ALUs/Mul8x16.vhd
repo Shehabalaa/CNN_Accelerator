@@ -15,17 +15,19 @@ END Mul8x16;
 
 ARCHITECTURE Mul8x16Arch OF Mul8x16 IS
     SIGNAL pInit,pBs,pMux,pReg : STD_LOGIC_VECTOR(2*16 DOWNTO 0);
-    SIGNAL mReg : STD_LOGIC_VECTOR(16-1 DOWNTO 0); 
+    SIGNAL mReg : STD_LOGIC_VECTOR(15 DOWNTO 0); 
+    SIGNAL mExtended : STD_LOGIC_VECTOR(23 DOWNTO 0); 
 BEGIN
     pInit <=  ( 7+16 DOWNTO 0 =>'0') & q &'0';
+    mExtended <= (7 downto 0 => mReg(15))&mReg;
 
     pRegCmp : ENTITY work.Reg GENERIC MAP(2*16+1) PORT MAP(pBs,startAndPause,clk,rst,pReg);
     mRegCmp : ENTITY work.Reg GENERIC MAP(16) PORT MAP(m,'1',start,rst,mReg);
     MuxCmp :  ENTITY work.BinaryMux GENERIC MAP(2*16+1) PORT MAP(pReg,pInit,sel,pMux);
-    BSCmp : ENTITY work.BoothStep GENERIC MAP(16) PORT MAP(pMux,mReg,pBs);
+    BSCmp : ENTITY work.BoothStep PORT MAP(pMux,mExtended,pBs);
     -- output only valid if done is one
     
     --f <= pBs(2*16-8 DOWNTO 9); -- without floating point
-    f <= pBs(2*16-2 DOWNTO 9 +6); --with floating point
+    f <= pBs(15+7 DOWNTO 7); --with floating point
 
 END Mul8x16Arch; 
