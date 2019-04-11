@@ -1,7 +1,7 @@
 vsim -gui work.NetworkController
 add wave sim:/NetworkController/*
 force -freeze sim:/NetworkController/clk 0 0, 1 {50 ps} -r 100
-force -freeze sim:/NetworkController/LayersNumber 11 0
+force -freeze sim:/NetworkController/LayersNumber 10 0
 
 force -freeze sim:/NetworkController/start 1 0
 force -freeze sim:/NetworkController/dmaFinish 0 0

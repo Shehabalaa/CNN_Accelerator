@@ -29,50 +29,50 @@ run
 force -freeze sim:/filtercontroller/oneConvFinish 0 0
 run
 
-#
-#run
-#run
-#run
-#run
-#
-#force -freeze sim:/FilterController/oneConvFinish 1 0
-#
-#run
-#
-#
-#force -freeze sim:/FilterController/oneConvFinish 0 0
-#
-#run
-#
-#run
-#run
-#run
-#run
-#
-#force -freeze sim:/FilterController/oneConvFinish 1 0
-#
-#run
-#
-#
-#force -freeze sim:/FilterController/oneConvFinish 0 0
-#
-#run
-#
-#run
-#
-#run
-#run
-#run
-#run
-#
-#force -freeze sim:/FilterController/oneConvFinish 1 0
-#
-#run
-#
-#
-#force -freeze sim:/FilterController/oneConvFinish 0 0
-#
-#run
-#
-#run
-#run
+
+run
+run
+run
+run
+
+force -freeze sim:/FilterController/oneConvFinish 1 0
+
+run
+
+
+force -freeze sim:/FilterController/oneConvFinish 0 0
+
+run
+
+run
+run
+run
+run
+
+force -freeze sim:/FilterController/oneConvFinish 1 0
+
+run
+
+
+force -freeze sim:/FilterController/oneConvFinish 0 0
+
+run
+
+run
+
+run
+run
+run
+run
+
+force -freeze sim:/FilterController/oneConvFinish 1 0
+
+run
+
+
+force -freeze sim:/FilterController/oneConvFinish 0 0
+
+run
+
+run
+run

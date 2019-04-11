@@ -310,19 +310,27 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 
 
-	-- Counter to stop when finish image
-		innerCounterMap : ENTITY work.Counter GENERIC MAP (5) PORT MAP ( "00000",resetInnerCounter, finalInnerCounterEn , '0',innerCounterOut);
+	-- -- Counter to stop when finish image
+	-- 	innerCounterMap : ENTITY work.Counter GENERIC MAP (5) PORT MAP ( "00000",resetInnerCounter, finalInnerCounterEn , '0',innerCounterOut);
+
+	-- -- Counter to stop when finish image
+	-- 	outerCounterMap : ENTITY work.Counter GENERIC MAP (5) PORT MAP ( "00000",resetOuterCounter, finalOuterCounterEn , '0',outerCounterOut);
 
 	-- Counter to stop when finish image
-		outerCounterMap : ENTITY work.Counter GENERIC MAP (5) PORT MAP ( "00000",resetOuterCounter, finalOuterCounterEn , '0',outerCounterOut);
+		innerCounterMap : ENTITY work.Counter GENERIC MAP (5) PORT MAP ( innerCounterEn,resetInnerCounter,clk,innerCounterOut);
 
+	-- Counter to stop when finish image
+		outerCounterMap : ENTITY work.Counter GENERIC MAP (5) PORT MAP ( outerCounterEn,resetOuterCounter,clk,outerCounterOut);
+		
 	-- Process to save state and change to next state when enable = 1
 		PROCESS(nextState,clk, stateRegEn, resetState)
 			BEGIN
 				IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					currentState <= idleState;
-				ELSIF FALLING_EDGE(clk) AND stateRegEn='1' THEN -- Change value only when enable = 1 and rising edge
-					currentState <= nextState;
+				ELSIF FALLING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
+					IF stateRegEn='1' THEN
+						currentState <= nextState;
+					END IF;
 				END IF;
 
 		END PROCESS;

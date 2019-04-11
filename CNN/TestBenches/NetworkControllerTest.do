@@ -1,5 +1,10 @@
 vsim -gui work.NetworkControllerTest
 add wave sim:/NetworkControllerTest/*
+add wave sim:/sliceFilterMap/*
+#add wave sim:/sliceFilterMap/innerCounterOut
+add wave sim:/networkMap/counterOut
+add wave sim:/oneLayerMap/counterOut
+add wave sim:/filterMap/counterOut
 
 run
 force -freeze sim:/networkcontrollertest/startNetwork 1 0

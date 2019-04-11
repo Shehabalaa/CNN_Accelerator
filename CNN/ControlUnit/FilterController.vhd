@@ -134,15 +134,17 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 
 
 	-- Counter to stop when finish depth of filter
-		counterMap : ENTITY work.Counter GENERIC MAP (maxDepth) PORT MAP ( "000",resetCounter, finalCounterEn , '0',counterOut);
+		counterMap : ENTITY work.Counter GENERIC MAP (maxDepth) PORT MAP (counterEn,resetCounter, clk ,counterOut);
 
 	-- Process to save state and change to next state when enable = 1
 		PROCESS(nextState,clk, stateRegEn, resetState)
 			BEGIN
 				IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					currentState <= idleState;
-				ELSIF FALLING_EDGE(clk) AND stateRegEn='1' THEN -- Change value only when enable = 1 and rising edge
-					currentState <= nextState;
+				ELSIF FALLING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
+					IF stateRegEn='1' THEN
+						currentState <= nextState;
+					END IF;
 				END IF;
 
 		END PROCESS;
