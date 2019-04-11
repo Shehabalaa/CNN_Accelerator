@@ -1,17 +1,30 @@
-vcom Utils\Mux2.vhd -2008
-vcom Utils\Mux4.vhd -2008
-vcom Utils\Mux.vhd -2008
-vcom Utils\FullAdder.vhd -2008
-vcom Utils\NBitAdder.vhd -2008
-vcom Utils\Reg.vhd -2008
-vcom Utils\TwosComplement.vhd -2008
-vcom Utils\ShiftRegister.vhd -2008
-vcom Utils\BoothStep.vhd -2008
-vcom Utils\ModifiedBoothStep.vhd -2008
-vcom Utils\Types.vhd -2008
-vcom Utils/*.vhd -2008
-vcom CNN/RegFile.vhd -2008
-vcom CNN/CNNMuls.vhd -2008
-vcom CNN/*.vhd -2008
-vcom CNN/RegUnit.vhd -2008
-vcom CNN/TestBenches/*.vhd -2008
+@echo off
+vcom Utils\Mux2.vhd -93
+vcom Utils\Mux4.vhd -93
+vcom Utils\Mux.vhd -93
+vcom Utils\FullAdder.vhd -93
+vcom Utils\NBitAdder.vhd -93
+vcom Utils\Reg.vhd -93
+vcom Utils\TwosComplement.vhd -93
+vcom Utils\ShiftRegister.vhd -93
+vcom Utils\BoothStep.vhd -93
+vcom Utils\ModifiedBoothStep.vhd -93
+vcom Utils\Types.vhd -93
+vcom Utils\MultiStepCounter.vhd -93
+vcom Utils\FullSubtractor.vhd -93
+vcom Utils\NbitSubtractor.vhd -93
+vcom Utils\DownCounter.vhd -93
+
+vcom Utils/*.vhd -93
+
+REM # CNN
+vcom CNN\Constants.vhd -93
+vcom CNN\WriteDMA.vhd -93
+vcom CNN\WriteLogic.vhd -93
+
+vcom CNN\DMA.vhd -93
+vcom CNN\ReadLogic.vhd -93
+
+vcom CNN\DmaController.vhd -93
+
+REM vcom CNN/*.vhd -93
