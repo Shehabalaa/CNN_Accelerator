@@ -2,14 +2,15 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
 USE IEEE.numeric_std.all;
 use IEEE.NUMERIC_STD.ALL;
-use work.Types.ALL;
+use work.Utiles.ALL;
+
 -- Single bit Adder Entity
 
 ENTITY ngetMax IS  
     GENERIC (wordSize : integer := 16;
     labels : integer := 10);
      PORT( 
-            inputArray : IN ARRAYOFINTEGERES(9 downto 0);
+            inputArray : IN genericArrayofVector16bit(9 downto 0);
             en, clk, rst: in STD_LOGIC;
             outLabel : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
             done: OUT STD_LOGIC
@@ -58,15 +59,15 @@ Signal indexMaxin : STD_LOGIC_VECTOR(4 DOWNTO 0);
 Signal indexMaxout : STD_LOGIC_VECTOR(4 DOWNTO 0);
 Signal ComparatorG : STD_LOGIC;
 Signal ComparatorEqual : STD_LOGIC;
-Signal Count : STD_LOGIC_VECTOR (4 DOWNTO 0);
+Signal Count : STD_LOGIC_VECTOR (3 DOWNTO 0);
 signal InputBcomparator : STD_LOGIC_VECTOR(wordSize-1 downto 0);
 signal enableReg, enableModule : STD_LOGIC;
 signal counterEnable, loadCounter : STD_LOGIC;
-signal dCount: STD_LOGIC_VECTOR (4 DOWNTO 0);
+signal dCount: STD_LOGIC_VECTOR (3 DOWNTO 0);
 BEGIN
-    enableModule <= '1' when (en = '1' and  (signed(Count) <= "01001")) else '0';
+    enableModule <= '1' when (en = '1' and  (unsigned(dCount) <= "1001")) else '0';
     done <= '1' when Count = "01010" else '0';
-    dCount <= Count when (enableModule ='1' and  (signed(Count) <= "01001" and signed(Count) >= "00000")) else "00000";
+    dCount <= Count when (enableModule ='1' and  (unsigned(Count) <= "1001" and unsigned(Count) >= "0000")) else "0000";
     regMaxValue : Reg generic map(wordSize) port map(regMaxin,enableModule,clk,rst,regMaxout);
     regMaxIndex : Reg generic map(5) port map(indexMaxin,enableModule,clk,rst,indexMaxout);
     InputBcomparator <= inputArray(to_integer(unsigned(dCount)));
