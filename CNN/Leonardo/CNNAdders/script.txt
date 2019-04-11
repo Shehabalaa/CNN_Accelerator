@@ -1,13 +1,15 @@
+load_lib tsmc035_typ.syn
 load_library tsmc035_typ
 set_working_dir /media/sf_CNN_Accelerator/CNN/Leonardo/CNNAdders
-read -technology "tsmc035_typ"  { "/media/sf_CNN_Accelerator/Utils/FullAdder.vhd" "/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd" "/media/sf_CNN_Accelerator/CNN/Adder4Values.vhd" "/media/sf_CNN_Accelerator/Utils/Types.vhd" "/media/sf_CNN_Accelerator/CNN/Adder8Values.vhd" "/media/sf_CNN_Accelerator/Utils/Mux2.vhd" "/media/sf_CNN_Accelerator/CNN/CNNAdders.vhd" }
+read -technology "tsmc035_typ" -dont_elaborate { "/media/sf_CNN_Accelerator/Utils/FullAdder.vhd" "/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd" "/media/sf_CNN_Accelerator/CNN/Adder4Values.vhd" "/media/sf_CNN_Accelerator/Utils/Types.vhd" "/media/sf_CNN_Accelerator/CNN/Adder8Values.vhd" "/media/sf_CNN_Accelerator/Utils/Mux2.vhd" "/media/sf_CNN_Accelerator/CNN/CNNAdders.vhd" }
+elaborate CNNAdders -architecture CNNAddersArch
+set sdf_type combined
 pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize 
 pre_optimize -extract 
 optimize .work.CNNAdders.CNNAddersArch -target tsmc035_typ -macro -delay -effort standard -hierarchy auto 
 optimize_timing .work.CNNAdders.CNNAddersArch -force 
 report_area area.rep -cell_usage -hierarchy -all_leafs 
 report_delay delay.rep -num_paths 1 -longest_path -clock_frequency
-set novendor_constraint_file FALSE
 auto_write -format Verilog CNNAdders.v
-set novendor_constraint_file FALSE
 auto_write -format SDF CNNAdders.sdf
+auto_write -format VHDL CNNAdders.vhd
