@@ -1,0 +1,375 @@
+/home/ayman/mgc/LeonardoSpectrum/bin/Linux/spectrum -file script.tcl 
+-------------------------------------------------
+LeonardoSpectrum Level 3 - 2018a.2 (Release Production Release, compiled Nov  1 2018 at 10:14:57)
+Copyright 1990-2018 Mentor Graphics.  All rights reserved.
+Portions copyright 1991-2018 Compuware Corporation
+
+Checking Security ...
+Reading library file `/home/ayman/mgc/LeonardoSpectrum/lib/tsmc035_typ.syn`...
+Library version = 3.0 Release : Patch (a) : 09/13/04
+Delays assume: Process=typical Temp= 27.0 C  Voltage=3.30 V  
+Info: setting encoding to auto
+Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/CNNCores'
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
+-- Loading package standard into library std
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Types.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/std_1164.vhd for unit STD_LOGIC_1164
+-- Loading package std_logic_1164 into library IEEE
+-- Loading package Types into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Mux2.vhd into library work
+-- Loading entity Mux2 into library work
+-- Loading architecture Mux2Arch of Mux2 into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Reg.vhd into library work
+-- Loading entity Reg into library work
+-- Loading architecture RegArch of Reg into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegUnit.vhd into library work
+-- Loading entity RegUnit into library work
+-- Loading architecture RegUnitArch of RegUnit into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegRow.vhd into library work
+"/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 4: Warning, math_real is not declared in library IEEE.
+-- Loading entity RegRow into library work
+-- Loading architecture RegRowArch of RegRow into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Decoder.vhd into library work
+"/media/sf_CNN_Accelerator/Utils/Decoder.vhd",line 3: Warning, math_real is not declared in library IEEE.
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/numeric_std.vhd for unit numeric_std
+-- Loading package NUMERIC_STD into library IEEE
+-- Loading entity Decoder into library work
+-- Loading architecture DecoderArch of Decoder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegFile.vhd into library work
+"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 4: Warning, math_real is not declared in library IEEE.
+-- Loading entity RegFile into library work
+-- Loading architecture RegFileArch of RegFile into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/FullAdder.vhd into library work
+-- Loading entity FullAdder into library work
+-- Loading architecture FullAdderArch of FullAdder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/NBitAdder.vhd into library work
+-- Loading entity NBitAdder into library work
+-- Loading architecture NBitAdderArch of NBitAdder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/BinaryMux.vhd into library work
+-- Loading entity BinaryMux into library work
+-- Loading architecture BinaryMuxArch of BinaryMux into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/ShiftRegister.vhd into library work
+-- Loading entity ShiftReg into library work
+-- Loading architecture ShiftRegArch of ShiftReg into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/TransitionDetector.vhd into library work
+-- Loading entity TransitionDetector into library work
+-- Loading architecture TransitionDetectorArch of TransitionDetector into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/ALUs/BoothStep.vhd into library work
+-- Searching for SYNOPSYS package std_logic_unsigned..
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/syn_unsi.vhd for unit std_logic_unsigned
+-- Searching for SYNOPSYS package std_logic_arith..
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/syn_arit.vhd for unit std_logic_arith
+-- Loading package std_logic_arith into library IEEE
+-- Loading package STD_LOGIC_UNSIGNED into library IEEE
+-- Loading entity BoothStep into library work
+-- Loading architecture BoothStepArch of BoothStep into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/ALUs/Mul8X16.vhd into library work
+-- Loading entity Mul8x16 into library work
+-- Loading architecture Mul8x16Arch of Mul8x16 into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/CNNMuls.vhd into library work
+-- Loading entity CNNMuls into library work
+-- Loading architecture CNNMulsArch of CNNMuls into library work
+"/media/sf_CNN_Accelerator/CNN/CNNMuls.vhd",line 23: Warning, inout outputs is used as output only.
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/Adder4Values.vhd into library work
+-- Loading entity Adder4Values into library work
+-- Loading architecture Adder4ValuesArch of Adder4Values into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/Adder8Values.vhd into library work
+-- Loading entity Adder8Values into library work
+-- Loading architecture Adder8ValuesArch of Adder8Values into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/CNNAdders.vhd into library work
+-- Loading entity CNNAdders into library work
+-- Loading architecture CNNAddersArch of CNNAdders into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/CNNShifter.vhd into library work
+-- Loading entity CNNShifter into library work
+-- Loading architecture CNNShifterArch of CNNShifter into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/CNNCores.vhd into library work
+-- Loading entity CNNCores into library work
+-- Loading architecture CNNCoresArch of CNNCores into library work
+-- Compiling root entity CNNCores(CNNCoresArch)
+-- Compiling entity RegFile_8_16_5_5_3_3(RegFileArch)
+-- Compiling entity Decoder_3(DecoderArch)
+-- Compiling entity RegRow_8_16_5_3(RegRowArch)
+-- Compiling entity RegUnit_8_16(RegUnitArch)
+-- Compiling entity Mux2_16(Mux2Arch)
+-- Compiling entity Reg_16(RegArch)
+-- Compiling entity Reg_8(RegArch)
+-- Compiling entity CNNMuls_25(CNNMulsArch)
+-- Compiling entity Mul8x16(Mul8x16Arch)
+-- Compiling entity Reg_33(RegArch)
+-- Compiling entity BinaryMux_33(BinaryMuxArch)
+-- Compiling entity BoothStep(BoothStepArch)
+-- Compiling entity NBitAdder_24(NBitAdderArch)
+-- Compiling entity FullAdder(FullAdderArch)
+-- Compiling entity TransitionDetector(TransitionDetectorArch)
+-- Compiling entity ShiftReg_3(ShiftRegArch)
+-- Compiling entity Reg_1(RegArch)
+-- Compiling entity CNNAdders_16(CNNAddersArch)
+-- Compiling entity Adder8Values_16(Adder8ValuesArch)
+-- Compiling entity Adder4Values_16(Adder4ValuesArch)
+-- Compiling entity NBitAdder_16(NBitAdderArch)
+-- Compiling entity CNNShifter_16(CNNShifterArch)
+-- Compiling root entity CNNCores(CNNCoresArch)
+-- Compiling entity RegFile_8_16_5_5_3_3(RegFileArch)
+-- Compiling entity Decoder_3(DecoderArch)
+-- Info, replacing Decoder_3(DecoderArch)
+-- Compiling entity RegRow_8_16_5_3(RegRowArch)
+-- Compiling entity RegUnit_8_16(RegUnitArch)
+-- Compiling entity Mux2_16(Mux2Arch)
+-- Info, replacing Mux2_16(Mux2Arch)
+-- Compiling entity Reg_16(RegArch)
+-- Info, replacing Reg_16(RegArch)
+-- Compiling entity Reg_8(RegArch)
+-- Info, replacing Reg_8(RegArch)
+-- Info, replacing RegUnit_8_16(RegUnitArch)
+-- Info, replacing RegRow_8_16_5_3(RegRowArch)
+-- Info, replacing RegFile_8_16_5_5_3_3(RegFileArch)
+-- Compiling entity CNNMuls_25(CNNMulsArch)
+-- Compiling entity Mul8x16(Mul8x16Arch)
+-- Compiling entity Reg_33(RegArch)
+-- Info, replacing Reg_33(RegArch)
+-- Compiling entity BinaryMux_33(BinaryMuxArch)
+-- Info, replacing BinaryMux_33(BinaryMuxArch)
+-- Compiling entity BoothStep(BoothStepArch)
+-- Compiling entity NBitAdder_24(NBitAdderArch)
+-- Compiling entity FullAdder(FullAdderArch)
+-- Info, replacing FullAdder(FullAdderArch)
+-- Info, replacing NBitAdder_24(NBitAdderArch)
+-- Info, replacing BoothStep(BoothStepArch)
+-- Info, replacing Mul8x16(Mul8x16Arch)
+-- Compiling entity TransitionDetector(TransitionDetectorArch)
+-- Info, replacing TransitionDetector(TransitionDetectorArch)
+-- Compiling entity ShiftReg_3(ShiftRegArch)
+-- Info, replacing ShiftReg_3(ShiftRegArch)
+-- Compiling entity Reg_1(RegArch)
+-- Info, replacing Reg_1(RegArch)
+-- Info, replacing CNNMuls_25(CNNMulsArch)
+-- Compiling entity CNNAdders_16(CNNAddersArch)
+-- Compiling entity Adder8Values_16(Adder8ValuesArch)
+-- Compiling entity Adder4Values_16(Adder4ValuesArch)
+-- Compiling entity NBitAdder_16(NBitAdderArch)
+-- Info, replacing NBitAdder_16(NBitAdderArch)
+-- Info, replacing Adder4Values_16(Adder4ValuesArch)
+-- Info, replacing Adder8Values_16(Adder8ValuesArch)
+-- Info, replacing CNNAdders_16(CNNAddersArch)
+-- Compiling entity CNNShifter_16(CNNShifterArch)
+-- Info, replacing CNNShifter_16(CNNShifterArch)
+-- Info, replacing CNNCores(CNNCoresArch)
+Info: setting sdf_type to combined
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Start pre-optimization for design .work.Decoder_3.DecoderArch_unfold_2725
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch
+-- Start pre-optimization for design .work.Reg_16.RegArch
+-- Start pre-optimization for design .work.Reg_8.RegArch
+-- Start pre-optimization for design .work.RegUnit_8_16.RegUnitArch_unfold_2792
+-- Start pre-optimization for design .work.RegRow_8_16_5_3.RegRowArch_unfold_2854
+-- Start pre-optimization for design .work.RegUnit_8_16.RegUnitArch
+-- Start pre-optimization for design .work.RegRow_8_16_5_3.RegRowArch
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch_unfold_2333
+-- Start pre-optimization for design .work.RegUnit_8_16.RegUnitArch_unfold_2792_2
+-- Start pre-optimization for design .work.RegRow_8_16_5_3.RegRowArch_unfold_2858
+-- Start pre-optimization for design .work.RegFile_8_16_5_5_3_3.RegFileArch
+-- Start pre-optimization for design .work.Reg_33.RegArch_unfold_1389
+-- Start pre-optimization for design .work.Reg_16.RegArch_unfold_1386
+-- Start pre-optimization for design .work.BinaryMux_33.BinaryMuxArch_unfold_1786
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2284
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2285_0
+-- Start pre-optimization for design .work.NBitAdder_24.NBitAdderArch_unfold_2081
+-- Start pre-optimization for design .work.BoothStep.BoothStepArch_unfold_1646
+-- Start pre-optimization for design .work.Mul8x16.Mul8x16Arch
+-- Start pre-optimization for design .work.TransitionDetector.TransitionDetectorArch
+-- Start pre-optimization for design .work.ShiftReg_3.ShiftRegArch_unfold_2142
+-- Start pre-optimization for design .work.Reg_1.RegArch_unfold_2203
+-- Start pre-optimization for design .work.CNNMuls_25.CNNMulsArch_unfold_1782
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1720
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2285
+-- Start pre-optimization for design .work.NBitAdder_16.NBitAdderArch_unfold_2263
+-- Start pre-optimization for design .work.Adder4Values_16.Adder4ValuesArch
+-- Start pre-optimization for design .work.Adder8Values_16.Adder8ValuesArch
+-- Start pre-optimization for design .work.CNNAdders_16.CNNAddersArch
+-- Start pre-optimization for design .work.CNNShifter_16.CNNShifterArch_unfold_2206
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch_unfold_1859
+-- Start pre-optimization for design .work.CNNCores.CNNCoresArch
+-- Start pre-optimization for design .work.Decoder_3.DecoderArch_unfold_2725
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch
+-- Start pre-optimization for design .work.Reg_16.RegArch
+-- Start pre-optimization for design .work.Reg_8.RegArch
+-- Start pre-optimization for design .work.RegUnit_8_16.RegUnitArch_unfold_2792
+-- Start pre-optimization for design .work.RegRow_8_16_5_3.RegRowArch_unfold_2854
+-- Start pre-optimization for design .work.RegUnit_8_16.RegUnitArch
+-- Start pre-optimization for design .work.RegRow_8_16_5_3.RegRowArch
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch_unfold_2333
+-- Start pre-optimization for design .work.RegUnit_8_16.RegUnitArch_unfold_2792_2
+-- Start pre-optimization for design .work.RegRow_8_16_5_3.RegRowArch_unfold_2858
+-- Start pre-optimization for design .work.RegFile_8_16_5_5_3_3.RegFileArch
+-- Start pre-optimization for design .work.Reg_33.RegArch_unfold_1389
+-- Start pre-optimization for design .work.Reg_16.RegArch_unfold_1386
+-- Start pre-optimization for design .work.BinaryMux_33.BinaryMuxArch_unfold_1786
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2284
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2285_0
+-- Start pre-optimization for design .work.NBitAdder_24.NBitAdderArch_unfold_2081
+-- Start pre-optimization for design .work.BoothStep.BoothStepArch_unfold_1646
+-- Start pre-optimization for design .work.Mul8x16.Mul8x16Arch
+-- Start pre-optimization for design .work.TransitionDetector.TransitionDetectorArch
+-- Start pre-optimization for design .work.ShiftReg_3.ShiftRegArch_unfold_2142
+-- Start pre-optimization for design .work.Reg_1.RegArch_unfold_2203
+-- Start pre-optimization for design .work.CNNMuls_25.CNNMulsArch_unfold_1782
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1720
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2285
+-- Start pre-optimization for design .work.NBitAdder_16.NBitAdderArch_unfold_2263
+-- Start pre-optimization for design .work.Adder4Values_16.Adder4ValuesArch
+-- Start pre-optimization for design .work.Adder8Values_16.Adder8ValuesArch
+-- Start pre-optimization for design .work.CNNAdders_16.CNNAddersArch
+-- Start pre-optimization for design .work.CNNShifter_16.CNNShifterArch_unfold_2206
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch_unfold_1859
+-- Start pre-optimization for design .work.CNNCores.CNNCoresArch
+Info, Instances dissolved by autodissolve in View .work.RegUnit_8_16.RegUnitArch_unfold_2792
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 49: inputRegPage1Map (Mux2_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 50: inputRegPage2Map (Mux2_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 55: regPage1Map (Reg_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 56: regPage2Map (Reg_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 57: regFilterMap (Reg_8)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 62: outPageMap (Mux2_16)
+Info, Instances dissolved by autodissolve in View .work.RegUnit_8_16.RegUnitArch
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 49: inputRegPage1Map (Mux2_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 50: inputRegPage2Map (Mux2_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 55: regPage1Map (Reg_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 56: regPage2Map (Reg_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 57: regFilterMap (Reg_8)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 62: outPageMap (Mux2_16)
+Info, Instances dissolved by autodissolve in View .work.RegUnit_8_16.RegUnitArch_unfold_2792_2
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 49: inputRegPage1Map (Mux2_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 50: inputRegPage2Map (Mux2_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 55: regPage1Map (Reg_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 56: regPage2Map (Reg_16)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 57: regFilterMap (Reg_8)
+"/media/sf_CNN_Accelerator/CNN/RegUnit.vhd", line 62: outPageMap (Mux2_16)
+Info, Instances dissolved by autodissolve in View .work.RegFile_8_16_5_5_3_3.RegFileArch
+"/media/sf_CNN_Accelerator/CNN/RegFile.vhd", line 73: decoderRowMap (Decoder_3)
+"/media/sf_CNN_Accelerator/CNN/RegFile.vhd", line 84: loop1_0_regRowMap (RegRow_8_16_5_3)
+"/media/sf_CNN_Accelerator/CNN/RegFile.vhd", line 84: loop1_1_regRowMap (RegRow_8_16_5_3)
+"/media/sf_CNN_Accelerator/CNN/RegFile.vhd", line 84: loop1_2_regRowMap (RegRow_8_16_5_3)
+"/media/sf_CNN_Accelerator/CNN/RegFile.vhd", line 84: loop1_3_regRowMap (RegRow_8_16_5_3)
+"/media/sf_CNN_Accelerator/CNN/RegFile.vhd", line 84: loop1_4_regRowMap (RegRow_8_16_5_3)
+Info, Instances dissolved by autodissolve in View .work.NBitAdder_24.NBitAdderArch_unfold_2081
+Info, Many instances (>16) were flattened in this view. Not printing all the instance names....
+Info, Instances dissolved by autodissolve in View .work.Mul8x16.Mul8x16Arch
+"/media/sf_CNN_Accelerator/Utils/ALUs/Mul8X16.vhd", line 25: mRegCmp (Reg_16)
+"/media/sf_CNN_Accelerator/Utils/ALUs/Mul8X16.vhd", line 27: BSCmp (BoothStep)
+Info, Instances dissolved by autodissolve in View .work.CNNMuls_25.CNNMulsArch_unfold_1782
+Info, Many instances (>16) were flattened in this view. Not printing all the instance names....
+Info, Instances dissolved by autodissolve in View .work.NBitAdder_16.NBitAdderArch_unfold_2263
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 29: f0 (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_1_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_2_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_3_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_4_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_5_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_6_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_7_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_8_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_9_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_10_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_11_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_12_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_13_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_14_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_15_fx (FullAdder)
+Info, Instances dissolved by autodissolve in View .work.Adder8Values_16.Adder8ValuesArch
+"/media/sf_CNN_Accelerator/CNN/Adder8Values.vhd", line 29: sum1Map (Adder4Values_16)
+"/media/sf_CNN_Accelerator/CNN/Adder8Values.vhd", line 30: sum2Map (Adder4Values_16)
+Info, Instances dissolved by autodissolve in View .work.CNNAdders_16.CNNAddersArch
+"/media/sf_CNN_Accelerator/CNN/CNNAdders.vhd", line 33: sum1Map (Adder8Values_16)
+"/media/sf_CNN_Accelerator/CNN/CNNAdders.vhd", line 34: sum2Map (Adder8Values_16)
+"/media/sf_CNN_Accelerator/CNN/CNNAdders.vhd", line 35: sum3Map (Adder8Values_16)
+"/media/sf_CNN_Accelerator/CNN/CNNAdders.vhd", line 41: finalSumMap (Mux2_16)
+Info, Instances dissolved by autodissolve in View .work.CNNCores.CNNCoresArch
+Info, Many instances (>16) were flattened in this view. Not printing all the instance names....
+->set wire_table "" 
+Session history will be logged to file '/media/sf_CNN_Accelerator/CNN/Leonardo/CNNCores/leospec.his'
+Info: setting wire_table to 
+NO wire table is found
+-- Optimizing netlist .work.Reg_33.RegArch_unfold_1389
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.BinaryMux_33.BinaryMuxArch_unfold_1786
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.NBitAdder_24.NBitAdderArch_unfold_2081
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.CNNMuls_25.CNNMulsArch_unfold_1782
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:01 Mapping
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.RegUnit_8_16.RegUnitArch_unfold_2792
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.RegUnit_8_16.RegUnitArch
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.RegUnit_8_16.RegUnitArch_unfold_2792_2
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.NBitAdder_16.NBitAdderArch_unfold_2263
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.CNNCores.CNNCoresArch
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
+-- Final Design Rule Check..
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+-- Start timing optimization for design .work.Reg_33.RegArch_unfold_1389
+Starting Timing Characterization...
+Starting Timing Analysis...
+NO wire table is found
+Timing analysis done, time = 4 CPU secs.
+Timing characterization done, time = 4 CPU secs.
+NO wire table is found
+Info: setting novendor_constraint_file to FALSE
+AutoWrite args are : -format Verilog CNNCores.v
+-- Writing file CNNCores.v
+Info: setting novendor_constraint_file to FALSE
+AutoWrite args are : -format VHDL CNNCores.vhd
+-- Writing file CNNCores.vhd
+Info: setting novendor_constraint_file to FALSE
+AutoWrite args are : -format SDF CNNCores.sdf
+-- Writing file CNNCores.sdf
+NO wire table is found

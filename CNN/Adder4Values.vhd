@@ -16,7 +16,7 @@ END Adder4Values;
 
 ------------------------------------------------------------
 
--- CNN Cores Architecture
+-- Adder4Values Architecture
 
 ARCHITECTURE Adder4ValuesArch OF Adder4Values IS
 
