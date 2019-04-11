@@ -19,8 +19,11 @@ begin
     variable op1Tests :tests8bits;
     variable op2Tests,answersAccum :tests16bits;
   begin
+    q <= (others=>'0');
+    m <= (others=>'0');
+    start <= '0';
     rst<='1';
-    wait for 10 ns;
+    wait for 100 ns;
     rst<='0';
     wait for 100 ns;
     op1Tests := (x"60", x"56", x"48", x"ff", x"8e", x"92", x"5b", x"dc", x"6d", x"4d", x"ae", x"ef", x"3a", x"98", x"25", x"08", x"12", x"44", x"06", x"13", x"b6", x"3c", x"36", x"bd", x"86", x"95", x"6c", x"87", x"a4", x"61", x"e2", x"6c", x"e5", x"3d", x"14", x"d4", x"db", x"61", x"2c", x"07", x"45", x"8d", x"72", x"ed", x"3d", x"fe", x"d6", x"75", x"da", x"d3", x"79", x"0e", x"ba", x"7b", x"c5", x"3d", x"d2", x"88", x"cd", x"68", x"fe", x"21", x"18", x"f2", x"ae", x"90", x"e8", x"bb", x"35", x"6e", x"84", x"72", x"b6", x"ca", x"ae", x"a0", x"f7", x"a9", x"e1", x"fb", x"ae", x"11", x"f5", x"c7", x"b5", x"5b", x"cc", x"ac", x"50", x"af", x"de", x"40", x"32", x"1d", x"fa", x"ce", x"04", x"14", x"30", x"0d", x"c7", x"b5", x"7d", x"48", x"08", x"d5", x"6b", x"73", x"f2", x"b7", x"63", x"7d", x"5a", x"28", x"8b", x"3a", x"44", x"da", x"41", x"5b", x"03", x"6b", x"ca", x"5f", x"d6", x"eb", x"00", x"bb", x"4f", x"df", x"f6", x"30", x"04", x"11", x"c4", x"1d", x"d1", x"93", x"54", x"88", x"52", x"34", x"d2", x"bb", x"bb", x"70", x"c7", x"f4", x"5f", x"3f", x"8d", x"a8", x"cd", x"a9", x"1d", x"ad", x"02", x"c5", x"bf", x"cb", x"84", x"36", x"f5", x"29", x"95", x"56", x"44", x"36", x"a2", x"79", x"2a", x"c7", x"3c", x"f1", x"7d", x"f1", x"cd", x"b2", x"ec", x"a9", x"d9", x"32", x"a2", x"20", x"4e", x"a0", x"c0", x"7d", x"c3", x"7e", x"d1", x"69", x"ec", x"c9", x"0f", x"b0", x"de", x"03", x"c7", x"dd");

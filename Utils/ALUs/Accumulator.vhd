@@ -8,7 +8,7 @@ ENTITY Accumulator IS
     PORT (
         a :IN genericArrayofVector16bit(n-1 downto 0); 
         f :INOUT genericArrayofVector16bit(n-1 downto 0);
-        save,rst,en :IN STD_LOGIC
+        save,rst:IN STD_LOGIC
     );
 END Accumulator;
 

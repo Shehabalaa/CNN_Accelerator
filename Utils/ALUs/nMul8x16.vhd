@@ -26,7 +26,7 @@ BEGIN
     END GENERATE;
 
     done <= counter(3);
-    startAndPause <= NOT done;
+    startAndPause <= working;
     working <= firstStart AND NOT done; 
     counterRst <= rst OR restartDetection;
     clkInv <= NOT clk;
