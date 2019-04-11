@@ -97,7 +97,16 @@ SIGNAL
     incUnitNumber -- mean => unitNumber += 1
 : STD_LOGIC;
 
+-- after compiling with 93
+SIGNAL baseAddressCounterClk, aluNumberCounterClk: STD_LOGIC;
+
 BEGIN
+    -- to compile with 93
+    baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
+    aluNumberCounterClk <= (clk AND incUnitNumber) OR (resetUnitNumberReg AND clk);
+    -- "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk))
+    -- "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk)))
+
     -- define helper signals
     load <= loadNextWordList OR loadWord;
     -- end define helper signals
@@ -129,7 +138,7 @@ BEGIN
         load => addressRegIn, -- TODO: set here the value BASE_ADDRESS,,,, think again here
         isLoad => resetAddressReg,
         reset => '0', -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
-        clk => "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk))), -- only count when i set inc signal and count after rising edge
+        clk => baseAddressCounterClk,-- only count when i set inc signal and count after rising edge
         -- clk => "and"(clk, "or"(resetAddressReg, incBaseAddress)), -- only count when i set inc signal and count after rising edge
         count => addressRegOut
     );
@@ -139,7 +148,7 @@ BEGIN
         isLoad => '0', -- we don't need this functionality
         reset => resetUnitNumberReg, -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
         -- clk => "AND"(clk, "or"(incUnitNumber, resetUnitNumberReg)), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
-        clk => "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk)),
+        clk => aluNumberCounterClk,
         count => unitRegOut
     );
 
