@@ -39,16 +39,17 @@ ENTITY Controller IS
   PORT(
       doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, processing, imageOrCNN, 
       zeroState, decompZeroState, rst: in std_logic;
-      INTRDelayed, load, globalCounterLoad: inout std_logic;
-      busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, CNNCounterEnable, 
-      CNNRegisterEnable, imageCounterEnable, imageRegisterEnable, globalCounterEnable, toCNN, toFC: out std_logic
+      INTRDelayed, load, globalCounterLoad, imageLoad: inout std_logic;
+      busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, 
+      CNNCounterEnable, CNNRegisterEnable, decompDecrementorEnable, imageCounterEnable, 
+      imageRegisterEnable, globalCounterEnable, toCNN, toFC: out std_logic
   );
 END ENTITY;
 
 ARCHITECTURE ControllerArch OF Controller IS
-SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp, imageLoad,
+SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp,
        CNNLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, INTRDelayedSq, INTRFFD,
-       stateCounterEnable, stateCounterLoad, decompDecrementorEnable, CNNOrFC, busyRst: std_logic;
+       stateCounterEnable, stateCounterLoad, CNNOrFC, busyRst: std_logic;
 SIGNAL stateCounterQ, stateCounterD, zeros: std_logic_vector(1 DOWNTO 0);
 SIGNAL high: std_logic := '1';
 BEGIN

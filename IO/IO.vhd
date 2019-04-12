@@ -8,11 +8,11 @@ ENTITY IO IS
           );
   PORT(
       Din: in std_logic_vector(chipInputSize - 1 DOWNTO 0);
-      doneDMAFC, doneDMACNN, doneDMAImage, doneDecomp, INTR, clk, rst, processing, imageOrCNN, 
+      doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, rst, processing, imageOrCNN, 
       decompZeroState: in std_logic;
-      doneWithPhase, CNNCounterEnable, CNNRegisterEnable, imageCounterEnable,
+      doneWithPhase, CNNCounterEnable, CNNRegisterEnable, imageCounterEnable, decompDecrementorEnable,
       imageRegisterEnable, busy, toCNN, toFC: out std_logic;
-      INTRDelayed: inout std_logic;
+      INTRDelayed, imageLoad: inout std_logic;
       interfaceOutput: inout std_logic_vector(chipInputSize - 1 DOWNTO 0);
       result: out std_logic_vector(chipOutputSize - 1 DOWNTO 0)
   );
@@ -28,8 +28,8 @@ ARCHITECTURE IOArch OF IO IS
                       globalCounterLoad, zeroState, interfaceOutput, result);
     Controller: ENTITY work.Controller GENERIC MAP(chipInputSize, chipOutputSize) 
                       PORT MAP(doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, processing, imageOrCNN, zeroState,
-                      decompZeroState, rst, INTRDelayed, load, globalCounterLoad,
+                      decompZeroState, rst, INTRDelayed, load, globalCounterLoad, imageLoad,
                       busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, 
-                      CNNCounterEnable, CNNRegisterEnable, imageCounterEnable, imageRegisterEnable,
-                      globalCounterEnable, toCNN, toFC);
+                      CNNCounterEnable, CNNRegisterEnable, decompDecrementorEnable, imageCounterEnable, 
+                      imageRegisterEnable, globalCounterEnable, toCNN, toFC);
 END ARCHITECTURE;
