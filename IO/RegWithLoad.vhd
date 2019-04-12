@@ -21,7 +21,7 @@ ARCHITECTURE RegWithLoadArch of RegWithLoad is
 
 BEGIN
 
-	PROCESS(clk, en, rst, load)
+	PROCESS(D, clk, en, rst, load)
 		BEGIN
 			IF rst = '1' THEN
 				Q <= (others=>'0');

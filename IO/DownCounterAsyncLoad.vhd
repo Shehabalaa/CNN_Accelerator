@@ -1,3 +1,5 @@
+
+
 LIBRARY IEEE;
 USE ieee.std_logic_1164.ALL;
 
@@ -20,6 +22,7 @@ BEGIN
 	counterOutput <= currentCount;
 	counterReg: ENTITY work.RegWithLoad GENERIC MAP(n) PORT MAP(counterInput, en, clk, rst, load, currentCount);
   nextCount: ENTITY work.NBitSubtractor GENERIC MAP(n) PORT MAP(currentCount, (others => '0'), '1', subtractorOutput);
-  muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(subtractorOutput, loadData, load, counterInput);
+	muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(subtractorOutput, loadData, load, counterInput);
+	counterOutput <= currentCount;
 END ARCHITECTURE;
 	
