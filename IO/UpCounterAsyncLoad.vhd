@@ -19,7 +19,7 @@ SIGNAL counterInput, adderOutput,  currentCount: std_logic_vector(n-1 DOWNTO 0);
 BEGIN
 	counterOutput <= currentCount;
 	counterReg: ENTITY work.RegWithLoad GENERIC MAP(n) PORT MAP(counterInput, en, clk, rst, load, currentCount);
-  nextCount: ENTITY work.FullAdder GENERIC MAP(n) PORT MAP(currentCount, (others => '0'), '1', adderOutput);
+  nextCount: ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(currentCount, (others => '0'), '1', adderOutput);
   muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(adderOutput, loadData, load, counterInput);
 END ARCHITECTURE;
 	

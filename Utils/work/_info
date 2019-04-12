@@ -8,39 +8,36 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/D/PDFS/College/3rd year/2nd term/VLSI/Project/CNN_Accelerator/Utils
-Ebinarymux
-Z1 w1551444642
-Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-R0
-Z5 8BinaryMux.vhd
-Z6 FBinaryMux.vhd
+Eadder
+Z1 w1552931720
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/Users/Owner/GitHubRepos/VLSI Project/CNN_Accelerator/Utils
+Z5 8.\Adder.vhd
+Z6 F.\Adder.vhd
 l0
-L6
-VY@HYfdlVN42S2:?YC1aY23
-!s100 7e?^PBHEhbB4f[YVDZnQf3
-Z7 OP;C;10.4a;61
-33
-Z8 !s110 1551445012
+L5
+V3hP4KLMnHdfJ5kVb]=CNL0
+!s100 K^0<j=fP:<B;@C?57^E202
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1552933846
 !i10b 1
-Z9 !s108 1551445012.000000
-Z10 !s90 BinaryMux.vhd|BoothMul.vhd|BoothMul.vhdl|BoothStep.vhd|Counter.vhd|Decoder.vhd|FullAdder.vhd|Mux2.vhd|Mux4.vhd|NBitAdder.vhd|Ram.vhd|Reg.vhd|ShiftRegister.vhd|Tristate.vhd|TwosComplement.vhd|Utils.vhd|-2008|-check_synthesis|
-Z11 !s107 Utils.vhd|TwosComplement.vhd|Tristate.vhd|ShiftRegister.vhd|Reg.vhd|Ram.vhd|NBitAdder.vhd|Mux4.vhd|Mux2.vhd|FullAdder.vhd|Decoder.vhd|Counter.vhd|BoothStep.vhd|BoothMul.vhdl|BoothMul.vhd|BinaryMux.vhd|
+Z9 !s108 1552933846.000000
+Z10 !s90 .\Adder.vhd|
+Z11 !s107 .\Adder.vhd|
 !i113 1
-Z12 o-2008 -check_synthesis -O0
-Z13 tExplicit 1
-Abinarymuxarch
+Z12 tExplicit 1 CvgOpt 0
+Aadderarch
 R2
 R3
-R4
-Z14 DEx4 work 9 binarymux 0 22 Y@HYfdlVN42S2:?YC1aY23
-l17
+Z13 DEx4 work 5 adder 0 22 3hP4KLMnHdfJ5kVb]=CNL0
+l18
 L16
-Z15 V^En7QEmobO2Ph^GA7Z1b^1
-Z16 !s100 9Ah;l;4E<JO]2W<ME]eAJ2
+V066ajnnF115cc>nYV9KkT2
+!s100 <NZ9SiUgeg0PKMmKc403l1
 R7
-33
+32
 R8
 !i10b 1
 R9
@@ -48,12 +45,52 @@ R10
 R11
 !i113 1
 R12
-R13
-Eboothmul
-R1
+Ebinarymux
+Z14 w1551444642
+Z15 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R2
 R3
-R4
+R0
+Z16 8BinaryMux.vhd
+Z17 FBinaryMux.vhd
+l0
+L6
+VY@HYfdlVN42S2:?YC1aY23
+!s100 7e?^PBHEhbB4f[YVDZnQf3
+Z18 OP;C;10.4a;61
+33
+Z19 !s110 1551445012
+!i10b 1
+Z20 !s108 1551445012.000000
+Z21 !s90 BinaryMux.vhd|BoothMul.vhd|BoothMul.vhdl|BoothStep.vhd|Counter.vhd|Decoder.vhd|FullAdder.vhd|Mux2.vhd|Mux4.vhd|NBitAdder.vhd|Ram.vhd|Reg.vhd|ShiftRegister.vhd|Tristate.vhd|TwosComplement.vhd|Utils.vhd|-2008|-check_synthesis|
+Z22 !s107 Utils.vhd|TwosComplement.vhd|Tristate.vhd|ShiftRegister.vhd|Reg.vhd|Ram.vhd|NBitAdder.vhd|Mux4.vhd|Mux2.vhd|FullAdder.vhd|Decoder.vhd|Counter.vhd|BoothStep.vhd|BoothMul.vhdl|BoothMul.vhd|BinaryMux.vhd|
+!i113 1
+Z23 o-2008 -check_synthesis -O0
+Z24 tExplicit 1
+Abinarymuxarch
+R15
+R2
+R3
+DEx4 work 9 binarymux 0 22 Y@HYfdlVN42S2:?YC1aY23
+l17
+L16
+V^En7QEmobO2Ph^GA7Z1b^1
+!s100 9Ah;l;4E<JO]2W<ME]eAJ2
+R18
+33
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R23
+R24
+Eboothmul
+R14
+R15
+R2
+R3
 R0
 8BoothMul.vhd
 FBoothMul.vhd
@@ -61,13 +98,71 @@ l0
 L5
 V>Z4iCinG6GX1eaLYi`M_11
 !s100 cDBBA@oVo5:mGKh6]^WDl3
-R7
+R18
 33
-R8
+R19
 !i10b 1
-R9
-R10
-R11
+R20
+R21
+R22
+!i113 1
+R23
+R24
+Efulladder
+R1
+R2
+R3
+R4
+Z25 8.\FullAdder.vhd
+Z26 F.\FullAdder.vhd
+l0
+L6
+V4Q7j@f[ZPREA64^D2e>0j3
+!s100 SFZTR]d6OIQYZEJRWb^Uj1
+R7
+32
+Z27 !s110 1552936995
+!i10b 1
+Z28 !s108 1552936995.000000
+Z29 !s90 .\FullAdder.vhd|
+Z30 !s107 .\FullAdder.vhd|
 !i113 1
 R12
+Afulladderarch
 R13
+R2
+R3
+Z31 DEx4 work 9 fulladder 0 22 4Q7j@f[ZPREA64^D2e>0j3
+l27
+L21
+Z32 VkOO=P9CeB2Ok7nMl^HU`b2
+Z33 !s100 fOiFQX]<:@LlNNz3RgLo32
+R7
+32
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R12
+Enbitadder
+w1552928522
+R2
+R3
+R4
+8.\NBitAdder.vhd
+F.\NBitAdder.vhd
+l0
+L6
+V@O>?LjQUW[zF2Q8Ion0el2
+!s100 l53EhgVdEA1KV[@^eR]GS1
+R7
+32
+!s110 1552935139
+!i10b 1
+!s108 1552935139.000000
+!s90 .\NBitAdder.vhd|
+!s107 .\NBitAdder.vhd|
+!i113 1
+R12
