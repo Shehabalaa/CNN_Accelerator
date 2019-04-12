@@ -17,12 +17,13 @@ ENTITY DMA IS
 GENERIC (
     addressSize: INTEGER:=16;
     wordSize : INTEGER := 16;
+    readStepSize:INTEGER :=16;
     internalBusSize: INTEGER:=16
   );
   port (
     initialCount: IN std_logic_vector(2 downto 0); -- three bit to include max count size which is 5
     readBaseAddress: IN std_logic_vector(addressSize-1 downto 0) ; -- the start address of the fetching (fetch -> inc with offsetAddress -> fetch again tell the counter ends)
-    readStep: IN std_logic_vector(maxImageSize-1 downto 0); -- three bit to include max count size which is 5
+    readStep: IN std_logic_vector(addressSize-1 downto 0); -- three bit to include max count size which is 5
     initAddress: in std_logic;
     initCounter:in std_logic;
     load: in std_logic;
@@ -40,13 +41,13 @@ END DMA ;
 
 ARCHITECTURE DMAArch OF DMA IS
 Signal currentCount:std_logic_vector(2 downto 0) ;
-Signal tobeAdded:std_logic_vector(15 downto 0) ;
+Signal tobeAdded:std_logic_vector(addressSize-1 downto 0) ;
 signal enableCount:std_logic;
-constant zeros:std_logic_vector(2 downto 0) :="001"; 
+
 BEGIN
   addressRegister:Entity work.MultiStepCounter Generic Map(addressSize) PORT MAP(readBaseAddress,tobeAdded,'0',clk,initAddress,MFC,ramReadAddress);
   counter:Entity work.DownCounter Generic Map(3) PORT MAP(initialCount,enableCount ,clk,initCounter,currentCount);
-  readStepRegister:Entity work.Reg Generic Map(16) PORT MAP(readStep,'1',initCounter,'0',tobeAdded);
+  readStepRegister:Entity work.Reg Generic Map(addressSize) PORT MAP(readStep,'1',initCounter,'0',tobeAdded);
   process(MFC, load, ramDataInBus, currentCount, initCounter, clk)
     begin
       -- reset all
@@ -55,7 +56,7 @@ BEGIN
       ramRead <= '0';
 
       -- finishedReading <= MFC AND ( (clk AND currentCount = "000") OR ((NOT clk) AND currentCount="001") );
-      IF MFC = '1' AND ( (clk = '1' AND currentCount = "000") OR (clk = '0' AND currentCount = "001") ) THEN
+      IF MFC = '1' AND load = '1' AND ( (clk = '1' AND currentCount = "000") OR (clk = '0' AND currentCount = "001") ) THEN
         finishedReading <= '1';
       ELSE
         finishedReading <= '0';
@@ -80,7 +81,7 @@ BEGIN
       -- elsif load='1' AND currentCount/=zeros then
       --   ramRead<='1';
       -- end if;
-      if MFC='1' THEN
+      if MFC='1' AND load = '1' THEN
         finishedOneRead<='1';
         internalBus<=ramDataInBus;
       end if;

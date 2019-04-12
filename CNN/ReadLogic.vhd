@@ -44,9 +44,9 @@ ENTITY ReadLogic IS
     MFC: IN STD_LOGIC;
 
     -- CONFIG
-    inputSize: IN STD_LOGIC_VECTOR(maxImageSize-1 downto 0);
-    filterSize: IN STD_LOGIC_VECTOR(3-1 downto 0);
-    
+    inputSize: IN STD_LOGIC_VECTOR(addressSize-1 downto 0);
+    filterSize: IN STD_LOGIC_VECTOR(addressSize-1 downto 0);
+    isFilter: IN STD_LOGIC;
     
     -- input cnt signals
     loadNextWordList: IN STD_LOGIC; -- signal to specify to me to start reading the filter, here we keep track of the next address to read from
@@ -91,6 +91,7 @@ SIGNAL
     dmaLoad,
     dmaInitCounter,
     dmaInitAddress,
+    dmaInitRamBaseAddress, -- init dma from ramBasedAddress (the signal in this entity port) 
     resetAddressReg,
     incBaseAddress, -- mean => windowBaseAddress += 1
     resetUnitNumberReg,
@@ -99,7 +100,7 @@ SIGNAL
 
 -- after compiling with 93
 SIGNAL baseAddressCounterClk, aluNumberCounterClk: STD_LOGIC;
-
+SIGNAL dmaReadBaseAddress: STD_LOGIC_VECTOR(addressSize-1 downto 0);
 BEGIN
     -- to compile with 93
     baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
@@ -107,6 +108,12 @@ BEGIN
     -- "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk))
     -- "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk)))
 
+    dmaReadBaseAddressMux: ENTITY work.MUX2 GENERIC MAP (addressSize) PORT MAP (
+        A => addressRegOut,
+        B => ramBasedAddress,
+        S => dmaInitRamBaseAddress,
+        C => dmaReadBaseAddress
+    );
     -- define helper signals
     load <= loadNextWordList OR loadWord;
     -- end define helper signals
@@ -115,11 +122,11 @@ BEGIN
     -- TODO: should be removed and bind these port signals directly
     readFinal <= dmaFinishAll;
     readOne <= dmaFinishOneRead;
-    -- aluNumber <= unitRegOut;
+    aluNumber <= unitRegOut;
 
     dma: ENTITY work.DMA GENERIC MAP(addressSize, internalBusSize) PORT MAP (
         initialCount => dmaCountIn,
-        readBaseAddress => addressRegOut, --
+        readBaseAddress => dmaReadBaseAddress, --
         readStep => inputSize,
         internalBus => internalBus,
         ramDataInBus => ramDataInBus,
@@ -164,13 +171,14 @@ BEGIN
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
+                dmaInitRamBaseAddress <= '0';
                 
                 -- reset the baseAddressRegister to RamBaseAddress value
-                dmaLoad <= '0';
+                dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                 resetAddressReg <= '1'; -- open the reset register to enable writing..
                 addressRegIn <= ramBasedAddress; -- ..and put the base value to it
                 resetUnitNumberReg <= '1';
-                unitRegOut <= (others => '0');
+                -- unitRegOut <= (others => '0');
 
                 -- transition logic
                 stateRegEn <= '1'; -- to go to init state
@@ -185,6 +193,7 @@ BEGIN
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
+                dmaInitRamBaseAddress <= '0';
 
                 -- transition logic
                 stateRegEn <= load; -- to go to init state
@@ -200,13 +209,18 @@ BEGIN
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
+                dmaInitRamBaseAddress <= '0';
 
                 dmaInitCounter <= '1';
                 nextState <= fetchState; -- transition logic
                 IF loadNextWordList = '1' THEN
-                    nextState <= incState; -- transition logic
-                    dmaCountIn <= filterSize;
                     dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
+                    if isFilter = '0' THEN
+                        nextState <= incState; -- transition logic
+                    ELSE
+                        dmaInitRamBaseAddress <= '1';
+                    END IF;
+                    dmaCountIn <= filterSize(2 DOWNTO 0);
                 -- TODO: optimization -> remove elseif and make it else, it is impossible to be here and the two loads signals is 0 
                 ELSIF loadWord = '1' THEN
                     dmaCountIn <= (0 => '1', others => '0'); -- TODO: check the syntax to set it to "0000000000001"
@@ -226,6 +240,7 @@ BEGIN
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
+                dmaInitRamBaseAddress <= '0';
 
                 incBaseAddress <= '1'; -- 
                 -- transition logic
@@ -241,6 +256,7 @@ BEGIN
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
+                dmaInitRamBaseAddress <= '0';
 
                 dmaLoad <= '1';
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
