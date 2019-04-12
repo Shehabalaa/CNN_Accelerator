@@ -36,7 +36,7 @@ ENTITY ReadLogic IS
 
     
     -- DMA interface: pass it to dma
-    internalBus: INOUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
+    internalBus: out STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramDataInBus: IN STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     ramRead: OUT STD_LOGIC; --
     -- ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
@@ -101,7 +101,9 @@ SIGNAL
 -- after compiling with 93
 SIGNAL baseAddressCounterClk, aluNumberCounterClk: STD_LOGIC;
 SIGNAL dmaReadBaseAddress: STD_LOGIC_VECTOR(addressSize-1 downto 0);
+SIGNAL zerosSignal: STD_LOGIC_VECTOR(2 DOWNTO 0);
 BEGIN
+    zerosSignal <= (others => '0');
     -- to compile with 93
     baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
     aluNumberCounterClk <= (clk AND incUnitNumber) OR (resetUnitNumberReg AND clk);
@@ -141,7 +143,7 @@ BEGIN
         finishedOneRead => dmaFinishOneRead
     );
 
-    baseAddressCounter: entity work.Counter generic map (addressSize) port map (
+    baseAddressCounter: entity work.Counter2 generic map (addressSize) port map (
         load => addressRegIn, -- TODO: set here the value BASE_ADDRESS,,,, think again here
         isLoad => resetAddressReg,
         reset => '0', -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
@@ -150,8 +152,8 @@ BEGIN
         count => addressRegOut
     );
 
-    aluNumberCounter: entity work.Counter generic map (3) port map (
-        load => (others => '0'), -- we don't need this functionality
+    aluNumberCounter: entity work.Counter2 generic map (3) port map (
+        load => zerosSignal, -- we don't need this functionality
         isLoad => '0', -- we don't need this functionality
         reset => resetUnitNumberReg, -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
         -- clk => "AND"(clk, "or"(incUnitNumber, resetUnitNumberReg)), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
@@ -159,7 +161,7 @@ BEGIN
         count => unitRegOut
     );
 
-    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead,dmaFinishAll)
+    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead,dmaFinishAll,ramBasedAddress,isFilter,filterSize)
     BEGIN
         CASE currentState IS
             WHEN switchState =>
@@ -226,6 +228,7 @@ BEGIN
                 ELSIF loadWord = '1' THEN
                     dmaCountIn <= (0 => '1', others => '0'); -- TODO: check the syntax to set it to "0000000000001"
                 ELSE
+                    dmaCountIn<=dmaCountIn;
                     -- TODO: print error message here
                     nextState <= idleState;
                 END IF;
@@ -280,15 +283,16 @@ BEGIN
 
 
     -- Process to save state and change to next state when enable = 1
-    PROCESS(nextState,clk, stateRegEn, resetState, switchRam)
+    PROCESS(nextState,clk, stateRegEn, resetState, switchRam,ramBasedAddress)
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;
         ELSIF FALLING_EDGE(clk) THEN -- Change value only when enable = 1 and rising edge
             IF switchRam ='1' THEN
-                currentState <= switchState
-            ELSE IF stateRegEn='1' THEN
+                currentState <= switchState;
+            ELSIF stateRegEn='1' THEN
                 currentState <= nextState;
+            END IF;
         END IF;
     END PROCESS;
 

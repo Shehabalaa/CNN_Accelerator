@@ -30,7 +30,7 @@ ENTITY DMAController IS
     clk: IN STD_LOGIC;
     reset: IN STD_LOGIC;
     -- internal buses
-    weightsInternalBus: INOUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    weightsInternalBus: out STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     windowInternalBus: INOUT STD_LOGIC_VECTOR(windowBusSize-1 DOWNTO 0);
     
     -- Two Rams interface

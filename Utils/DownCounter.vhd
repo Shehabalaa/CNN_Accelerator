@@ -10,10 +10,11 @@ Entity DownCounter is
     );
     end DownCounter;
     ARCHITECTURE DownCounterArch of DownCounter is 
-    SIGNAL counterInput, subtractorOutput: std_logic_vector(n-1 DOWNTO 0);
+    SIGNAL counterInput, subtractorOutput,zerosSignal: std_logic_vector(n-1 DOWNTO 0);
     begin
+    zerosSignal <= (others => '0'); 
         counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, enable, clk, '0', currentCount);
-        nextCount: ENTITY work.NBitSubtractor GENERIC MAP(n) PORT MAP(currentCount, (others => '0'), '1', subtractorOutput);
+        nextCount: ENTITY work.NBitSubtractor GENERIC MAP(n) PORT MAP(currentCount, zerosSignal, '1', subtractorOutput);
         muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(subtractorOutput, load, isLoad, counterInput);
         
     end  ARCHITECTURE   ;

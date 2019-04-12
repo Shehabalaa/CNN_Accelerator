@@ -120,7 +120,7 @@ BEGIN
         ramWriteAddress=>ramAddress
     );
 
-    baseAddressCounter: entity work.Counter generic map (addressSize) port map (
+    baseAddressCounter: entity work.Counter2 generic map (addressSize) port map (
         load => addressRegIn, -- TODO: set here the value BASE_ADDRESS,,,, think again here
         isLoad => resetAddressReg,
         reset => '0', -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
@@ -214,10 +214,14 @@ BEGIN
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;
-        ELSIF FALLING_EDGE(clk) AND switchRam ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
-            currentState <= switchState;
-        ELSIF FALLING_EDGE(clk) AND stateRegEn='1' THEN -- Change value only when enable = 1 and rising edge
-            currentState <= nextState;
+        ELSIF FALLING_EDGE(clk) THEN -- if reset is equal to 1 set current state to idle state (0)
+            IF switchRam ='1' THEN
+                currentState <= switchState;
+            END IF;
+            IF stateRegEn='1' THEN 
+                currentState <= nextState;
+            END IF;
+
         END IF;
     END PROCESS;
 

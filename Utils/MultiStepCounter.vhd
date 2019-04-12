@@ -28,7 +28,7 @@ ARCHITECTURE MultiStepCounterArch OF MultiStepCounter    IS
 
     BEGIN
 
-        counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, '1', clk, '0', currentCount);
+        counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, '1', clk, reset, currentCount);
         nextCount: ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(currentCount, toBeAdded, '0', countAdded);
         muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(currentCount, load, isLoad, loadOrCurrent);
         muxInput: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(loadOrCurrent, countAdded, MFC, counterInput);

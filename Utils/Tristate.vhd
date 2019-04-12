@@ -1,6 +1,5 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
-use IEEE.math_real.all;
 
 -- Tristate buffer Entity
 

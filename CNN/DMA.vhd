@@ -27,7 +27,7 @@ GENERIC (
     initAddress: in std_logic;
     initCounter:in std_logic;
     load: in std_logic;
-    internalBus: INOUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
+    internalBus: out STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     finishedOneRead:out std_logic ;
     finishedReading:out std_logic;
     clk:in std_logic;
@@ -43,17 +43,20 @@ ARCHITECTURE DMAArch OF DMA IS
 Signal currentCount:std_logic_vector(2 downto 0) ;
 Signal tobeAdded:std_logic_vector(addressSize-1 downto 0) ;
 signal enableCount:std_logic;
+signal enableTristate:std_logic;
 
 BEGIN
   addressRegister:Entity work.MultiStepCounter Generic Map(addressSize) PORT MAP(readBaseAddress,tobeAdded,'0',clk,initAddress,MFC,ramReadAddress);
   counter:Entity work.DownCounter Generic Map(3) PORT MAP(initialCount,enableCount ,clk,initCounter,currentCount);
   readStepRegister:Entity work.Reg Generic Map(addressSize) PORT MAP(readStep,'1',initCounter,'0',tobeAdded);
+  tristateLabel:Entity work.Tristate Generic Map(internalBusSize) PORT MAP(ramDataInBus,enableTristate,internalBus);
   process(MFC, load, ramDataInBus, currentCount, initCounter, clk)
     begin
       -- reset all
       finishedOneRead <= '0';
       finishedReading <= '0';
       ramRead <= '0';
+      enableTristate<='0';
 
       -- finishedReading <= MFC AND ( (clk AND currentCount = "000") OR ((NOT clk) AND currentCount="001") );
       IF MFC = '1' AND load = '1' AND ( (clk = '1' AND currentCount = "000") OR (clk = '0' AND currentCount = "001") ) THEN
@@ -83,7 +86,8 @@ BEGIN
       -- end if;
       if MFC='1' AND load = '1' THEN
         finishedOneRead<='1';
-        internalBus<=ramDataInBus;
+        enableTristate<='1';
+        --internalBus<=ramDataInBus;
       end if;
       enableCount<= MFC or initCounter;
       end process;
