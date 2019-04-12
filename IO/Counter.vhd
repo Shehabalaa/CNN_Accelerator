@@ -29,7 +29,7 @@ ARCHITECTURE CounterArch OF Counter IS
     BEGIN
 
         counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, '1', clk, '0', currentCount);
-        nextCount: ENTITY work.FullAdder GENERIC MAP(n) PORT MAP(currentCount, zeros, '1', countAdded);
+        nextCount: ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(currentCount, zeros, '1', countAdded);
         muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(resetOrCurrent, load, isLoad, counterInput);
         muxInput: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(countAdded, zeros, reset, resetOrCurrent);
         count <= currentCount;

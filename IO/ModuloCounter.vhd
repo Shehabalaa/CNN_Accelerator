@@ -19,7 +19,7 @@ SIGNAL currentCountSignal, nextCount, zeros, muxedCount: STD_LOGIC_VECTOR(n-1 DO
 SIGNAL carryOut,sel: STD_LOGIC;
 BEGIN
 	counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(muxedCount, en, clk, rst, currentCountSignal);
-	nBitAdder: ENTITY work.FullAdder GENERIC MAP(n) PORT MAP(currentCountSignal,zeros, '1', nextCount, carryOut);
+	nBitAdder: ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(currentCountSignal,zeros, '1', nextCount, carryOut);
 	Mux2: ENTITY work.Mux2 GENERIC MAP(n) PORT MAP(nextCount,zeros,sel,muxedCount);
 	currentCount <= currentCountSignal;
 	zeros <= ( OTHERS => '0');
