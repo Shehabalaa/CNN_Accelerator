@@ -1,5 +1,6 @@
 vsim -gui work.IO
 add wave -position insertpoint  \
+sim:/io/Din \
 sim:/IO/INTR \
 sim:/IO/INTRDelayed \
 sim:/IO/clk \
@@ -41,12 +42,14 @@ force -freeze sim:/IO/doneDMAFC 0 0
 force -freeze sim:/IO/doneDMACNN 0 0
 force -freeze sim:/IO/doneDMAImage 0 0
 run 25
+noforce sim:/IO/Din 
 force -freeze sim:/IO/INTR 0 0
 run 25
 #1st real input
 force -freeze sim:/IO/INTR 1 0
 force -freeze sim:/IO/Din 2'b0001100010000010 0 
 run 25
+noforce sim:/IO/Din 
 force -freeze sim:/IO/INTR 0 0
 run 25
 run 25
@@ -58,8 +61,10 @@ run 50
 #Should be done writing to RAM
 force -freeze sim:/IO/doneDMAImage 1 0
 run 25
+noforce sim:/IO/Din 
 force -freeze sim:/IO/INTR 0 0
 run 25
+noforce sim:/IO/Din 
 force -freeze sim:/IO/INTR 0 0
 force -freeze sim:/IO/doneDMAImage 0 0
 #2nd white pixel in run
@@ -73,6 +78,7 @@ run 25
 force -freeze sim:/IO/INTR 1 0
 force -freeze sim:/IO/Din 2'b0001111101000001 0
 run 25
+noforce sim:/IO/Din 
 force -freeze sim:/IO/INTR 0 0
 run 25
 run 25
@@ -88,4 +94,20 @@ run 25
 force -freeze sim:/IO/doneDMAImage 0 0
 run 25
 force -freeze sim:/IO/imageOrCNN 1 0
+force -freeze sim:/IO/INTR 1 0
+force -freeze sim:/IO/Din 2'b0000001011100000 0
 run 25
+force -freeze sim:/IO/INTR 0 0
+noforce sim:/IO/Din 
+run 25
+force -freeze sim:/IO/INTR 1 0
+force -freeze sim:/IO/Din 2'b0001111101000111 0
+run 25
+force -freeze sim:/IO/INTR 0 0
+noforce sim:/IO/Din 
+run 25
+run 50
+run 50
+force -freeze sim:/IO/doneDMACNN 1 0
+run 25
+run 50
