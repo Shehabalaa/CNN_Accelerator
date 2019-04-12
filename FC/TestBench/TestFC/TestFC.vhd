@@ -12,18 +12,22 @@ begin
   FCcmp: ENTITY work.FcMain PORT MAP(cnnDone,clk,reset,fcDone);
   process
   begin 
-    reset <= '1';
-    cnnDone <= '0';
-    wait for 20 ns;
-    reset <= '0';
-    wait for 20 ns;
-    cnnDone <= '1';
+    if(reset = 'U' )then 
+      reset <= '1';
+      cnnDone <= '0';
+      wait for 20 ns;
+      reset <= '0';
+      wait for 20 ns;
+      cnnDone <= '1';
+      wait for 20 ns;
+      cnnDone <= '0';
+    end if;
 
     if(fcDone /= 'U' and fcDone = '1')then 
       report "FC TEST IS DONE";
       wait;
     end if;
-
+	wait on clk;
     -- wait for 20 ns;
     -- stops <= '1' after 800 ns;
   end process;
