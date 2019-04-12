@@ -266,6 +266,15 @@ BEGIN
                 IF dmaFinishOneRead = '1' AND loadNextWordList = '1' THEN
                     incUnitNumber <= '1';
                 END IF;
+            when others =>
+                dmaLoad <= '0';
+                dmaInitCounter <= '0';
+                dmaInitAddress <= '0';
+                resetAddressReg <= '0';
+                incBaseAddress <= '0';
+                resetUnitNumberReg <= '0';
+                incUnitNumber <= '0';
+                dmaInitRamBaseAddress <= '0';
         END CASE;
     END PROCESS;
 
@@ -275,10 +284,11 @@ BEGIN
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;
-        ELSIF FALLING_EDGE(clk) AND switchRam ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
-            currentState <= switchState;
-        ELSIF FALLING_EDGE(clk) AND stateRegEn='1' THEN -- Change value only when enable = 1 and rising edge
-            currentState <= nextState;
+        ELSIF FALLING_EDGE(clk) THEN -- Change value only when enable = 1 and rising edge
+            IF switchRam ='1' THEN
+                currentState <= switchState
+            ELSE IF stateRegEn='1' THEN
+                currentState <= nextState;
         END IF;
     END PROCESS;
 
