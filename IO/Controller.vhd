@@ -21,7 +21,7 @@ USE ieee.std_logic_1164.ALL;
 --load: Indicates I'm currently loading the image or model data
 
 --busy: Sent to CPU to indicate that the chip isn't ready for new inputs
---donePhase: Informs CPU that the current phase's data is successfully done writing to memory
+--doneWithPhase: Informs CPU that the current phase's data is successfully done writing to memory
 --interfaceRegEnable: Enables the IO Interface register (port)
 --interfaceMuxSel: IO Interface's MUX selection bit
 --interfaceMuxEnable: Enables the IO Interface MUX
@@ -29,6 +29,8 @@ USE ieee.std_logic_1164.ALL;
 --CNNRegisterEnable: Enables the CNN DMA register
 --imageCounterEnable: Enables the Image DMA counter
 --imageRegisterEnable: Enables the Image DMA register
+--globalCounterLoad: Load signal of global counter
+--globalCounterEnable: Enable signal of global counter
 --toCNN: Informs the CNN module to start working
 --toFC: Informs the FC module to start working
 ENTITY Controller IS
@@ -36,32 +38,45 @@ ENTITY Controller IS
            chipOutputSize: integer :=4);
   PORT(
       doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, processing, imageOrCNN, zeroState, decompZeroState: in std_logic;
-      rst, INTRDelayed, load: inout std_logic;
-      busy, donePhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, CNNCounterEnable, 
-      CNNRegisterEnable, imageCounterEnable, imageRegisterEnable, toCNN, toFC: out std_logic
+      rst, INTRDelayed, load, globalCounterLoad: inout std_logic;
+      busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, CNNCounterEnable, 
+      CNNRegisterEnable, imageCounterEnable, imageRegisterEnable, globalCounterEnable, toCNN, toFC: out std_logic
   );
 END ENTITY;
 
 ARCHITECTURE ControllerArch OF Controller IS
-SIGNAL doneImage, anyDone, doneWithPhase, imageLatcherD, busyFFD, busyFFQ, doneDecomp,
-       imageLoad, CNNLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, INTRDelayedSq, decompDecrementorEnable: std_logic;
-SIGNAL stateCounterQ, stateCounterD: std_logic_vector(1 DOWNTO 0);
+SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp, imageLoad,
+       CNNLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, INTRDelayedSq, INTRFFD,
+       stateCounterEnable, stateCounterLoad, decompDecrementorEnable, CNNOrFC, busyRst: std_logic;
+SIGNAL stateCounterQ, stateCounterD, zeros: std_logic_vector(1 DOWNTO 0);
 SIGNAL high: std_logic := '1';
 BEGIN
+  --Temporary initialization values for state counter, might change if we wanna handle multiple images for single CNN
+  zeros <= (others => '0');
+  stateCounterLoad <= '0';
+
+  --Image latch
   imageLatcherD <= (NOT imageOrCNN) OR doneImage;
   imageLatcher: ENTITY work.DFF PORT MAP(imageLatcherD, clk, rst, high, doneImage);
   
+  --Busy latch
   busyFFD <= INTR OR busyFFQ;
   busy <= busyFFQ OR INTR;
-  busyFF: ENTITY work.DFF PORT MAP(busyFFD, clk, anyDone, high, busyFFQ);
+  busyRst <= anyDone OR zeroState;
+  busyFF: ENTITY work.DFF PORT MAP(busyFFD, clk, busyRst, high, busyFFQ);
 
-  --stateCounterEnable <= imageOrCNN AND zeroState AND anyDone;
-  --stateCounter: ENTITY work.UpCounter GENERIC MAP(chipInputSize) 
-                      -- PORT MAP(stateCounterD, stateCounterEnable, rst, clk, stateCounterQ);
+  --State counter
+  stateCounterEnable <= imageOrCNN AND zeroState AND anyDone;
+  stateCounter: ENTITY work.UpCounterAsyncLoad GENERIC MAP(2) 
+                       PORT MAP(zeros, stateCounterEnable, stateCounterLoad, rst, clk, stateCounterQ);
+  CNNOrFC <= stateCounterQ(1);
 
-  --stateCounterD <= stateCounterQ;
-  --CNNOrFC <= stateCounterQ(1);
+  --INTR and INTR delayed FF
+  INTRFFD <= INTR AND (NOT zeroState);
+  INTRFF1: ENTITY work.DFF PORT MAP(INTRFFD, clk, rst, high, INTRDelayed);
+  INTRFF2: ENTITY work.DFF PORT MAP(INTRDelayed, clk, rst, high, INTRDELAYEDSq);
 
+  --Image phase signals
   DMAImageOrINTRDelayed <= doneDMAImage OR INTRDelayed;
   DMAImageOrINTRDelayedSq <= doneDMAImage OR INTRDelayedSq;
   imageLoad <= load AND (NOT imageOrCNN);
@@ -70,17 +85,25 @@ BEGIN
   decompDecrementorEnable <= imageLoad AND DMAImageOrINTRDelayed;
   doneDecomp <= doneDMAImage AND decompZeroState;
 
+  --IO Interface signals
   interfaceMuxEnable <= load;
   interfaceMuxSel <= imageOrCNN;
   interfaceRegEnable <= load AND INTR;
+  globalCounterLoad <= INTR AND zeroState;
+  globalCounterEnable <= globalCounterLoad OR anyDone;
 
-  --CNNLoad <= load AND imageOrCNN AND CNNOrFC;
-  --CNNCounterEnable <= CNNLoad AND doneDMACNN;
-  --CNNRegisterEnable <= CNNLoad AND INTRDelayed AND (NOT zeroState);
+  --CNN signals
+  CNNLoad <= load AND imageOrCNN AND CNNOrFC;
+  CNNCounterEnable <= CNNLoad AND doneDMACNN;
+  CNNRegisterEnable <= CNNLoad AND INTRDelayed AND (NOT zeroState);
   
-  anyDone <= (doneDMAFC OR doneDMACNN OR doneDecomp) AND zeroState;
+  --Done output signals
+  --Legacy line, keeping in case future problems encountered
+  --anyDone <= (doneDMAFC OR doneDMACNN OR doneDecomp) AND zeroState;
+  anyDone <= doneDMAFC OR doneDMACNN OR doneDecomp;
   doneWithPhase <= anyDone AND zeroState;
 
-  --toCNN <= doneDMAImage AND (NOT CNNOrFC); --CNNOrFC is produced form 2 bit state counter (MSB)
-  --toFC <= stateCounterQ(1) AND stateCounterQ(0) AND doneImage;
+  --Communication signals with the other modules
+  toCNN <= doneDMAImage AND (NOT CNNOrFC); --CNNOrFC is produced form 2 bit state counter (MSB)
+  toFC <= stateCounterQ(1) AND stateCounterQ(0) AND doneImage;
 END ARCHITECTURE;
