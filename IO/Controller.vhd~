@@ -37,22 +37,23 @@ ENTITY Controller IS
   GENERIC (chipInputSize: integer :=16;
            chipOutputSize: integer :=4);
   PORT(
-      doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, processing, imageOrCNN, 
-      zeroState, decompZeroState, rst: in std_logic;
-      INTRDelayed, load, globalCounterLoad, imageLoad: inout std_logic;
-      busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, 
-      CNNCounterEnable, CNNRegisterEnable, decompDecrementorEnable, imageCounterEnable, 
-      imageRegisterEnable, globalCounterEnable, toCNN, toFC: out std_logic
+      doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, processing, imageOrCNN, zeroState, decompZeroState: in std_logic;
+      rst, INTRDelayed, load, globalCounterLoad: inout std_logic;
+      busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, CNNCounterEnable, 
+      CNNRegisterEnable, imageCounterEnable, imageRegisterEnable, globalCounterEnable, toCNN, toFC: out std_logic
   );
 END ENTITY;
 
 ARCHITECTURE ControllerArch OF Controller IS
-SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp,
+SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp, imageLoad,
        CNNLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, INTRDelayedSq, INTRFFD,
-       stateCounterEnable, stateCounterLoad, CNNOrFC, busyRst: std_logic;
+       stateCounterEnable, stateCounterLoad, decompDecrementorEnable, CNNOrFC, busyRst: std_logic;
 SIGNAL stateCounterQ, stateCounterD, zeros: std_logic_vector(1 DOWNTO 0);
 SIGNAL high: std_logic := '1';
 BEGIN
+<<<<<<< HEAD
+
+=======
   --Temporary initialization values for state counter, might change if we wanna handle multiple images for single CNN
   zeros <= (others => '0');
   stateCounterLoad <= '0';
@@ -108,4 +109,5 @@ BEGIN
   --Communication signals with the other modules
   toCNN <= doneDMAImage AND (NOT CNNOrFC); --CNNOrFC is produced form 2 bit state counter (MSB)
   toFC <= stateCounterQ(1) AND stateCounterQ(0) AND doneImage;
+>>>>>>> 261a0b931dd0ad95f08ec23fd75f622ee45b137f
 END ARCHITECTURE;
