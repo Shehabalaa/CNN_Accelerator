@@ -10,7 +10,7 @@ ENTITY IO IS
       Din: in std_logic_vector(chipInputSize - 1 DOWNTO 0);
       doneDMAFC, doneDMACNN, doneDMAImage, doneDecomp, INTR, clk, rst, processing, imageOrCNN, 
       decompZeroState: in std_logic;
-      doneWithPhase, CNNCounterEnable, CNNRegisterEnable, imageCounterEnable, donePhase,
+      doneWithPhase, CNNCounterEnable, CNNRegisterEnable, imageCounterEnable,
       imageRegisterEnable, busy, toCNN, toFC: out std_logic;
       INTRDelayed: inout std_logic;
       interfaceOutput: inout std_logic_vector(chipInputSize - 1 DOWNTO 0);

@@ -2,7 +2,6 @@ vsim -gui work.IO
 add wave -position insertpoint  \
 sim:/IO/INTR \
 sim:/IO/INTRDelayed \
-sim:/IO/INTRDelayedSq \
 sim:/IO/clk \
 sim:/IO/processing \
 sim:/IO/imageOrCNN \
@@ -13,12 +12,10 @@ sim:/IO/busy \
 sim:/IO/interfaceRegEnable \
 sim:/IO/globalCounterLoad \
 sim:/IO/globalCounterEnable \
-sim:/IO/stateCounterQ \
 sim:/IO/doneDMAFC \
 sim:/IO/doneDMACNN \
 sim:/IO/doneDMAImage \
 sim:/IO/doneDecomp \
-sim:/IO/anyDone \
 sim:/IO/doneWithPhase \
 sim:/IO/CNNCounterEnable \
 sim:/IO/CNNRegisterEnable \
