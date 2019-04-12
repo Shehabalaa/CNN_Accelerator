@@ -14,7 +14,7 @@ ENTITY IOInterface IS
            chipOutputSize: integer :=4);
   PORT(
       Din: in std_logic_vector(chipInputSize - 1 DOWNTO 0);
-      INTR, clk, rst, globalCounterEnable: in std_logic;
+      INTR, clk, rst, globalCounterEnable, globalCounterLoad: in std_logic;
       zeroState: out std_logic;
       Q: inout std_logic_vector(chipInputSize - 1 DOWNTO 0);
       result: out std_logic_vector(chipOutputSize - 1 DOWNTO 0)
@@ -22,7 +22,7 @@ ENTITY IOInterface IS
 END ENTITY;
 
 ARCHITECTURE IOInterfaceArch OF IOInterface IS
-SIGNAL globalCounterLoad, myZeroState, myGlobalCounterEnable: std_logic;
+SIGNAL myZeroState, myGlobalCounterEnable: std_logic;
 SIGNAL globalCounterOutputBar, globalCounterOutput, zeros: std_logic_vector(chipInputSize - 1 DOWNTO 0);
 BEGIN
   zeros <= (OTHERS => '0');
@@ -31,7 +31,6 @@ BEGIN
                    ELSE '0';
 
   zeroState <= myZeroState;
-  globalCounterLoad <= INTR AND myZeroState;
   myGlobalCounterEnable <= globalCounterEnable OR globalCounterLoad;
   GlobalCounter: ENTITY work.DownCounterAsyncLoad GENERIC MAP(chipInputSize) 
                         PORT MAP(Q, myGlobalCounterEnable, globalCounterLoad, rst, clk, globalCounterOutput);

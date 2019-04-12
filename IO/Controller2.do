@@ -66,5 +66,6 @@ run 75
 force -freeze sim:/Controller/doneDMAImage 1 0
 force -freeze sim:/Controller/zeroState 1 0
 force -freeze sim:/Controller/decompZeroState 1 0
+force -freeze sim:/Controller/imageOrCNN 1 0
 run 25
 run 25

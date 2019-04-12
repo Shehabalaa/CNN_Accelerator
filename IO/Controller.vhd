@@ -37,8 +37,9 @@ ENTITY Controller IS
   GENERIC (chipInputSize: integer :=16;
            chipOutputSize: integer :=4);
   PORT(
-      doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, processing, imageOrCNN, zeroState, decompZeroState: in std_logic;
-      rst, INTRDelayed, load, globalCounterLoad: inout std_logic;
+      doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, processing, imageOrCNN, 
+      zeroState, decompZeroState, rst: in std_logic;
+      INTRDelayed, load, globalCounterLoad: inout std_logic;
       busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, CNNCounterEnable, 
       CNNRegisterEnable, imageCounterEnable, imageRegisterEnable, globalCounterEnable, toCNN, toFC: out std_logic
   );
