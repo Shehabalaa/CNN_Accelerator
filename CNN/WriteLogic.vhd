@@ -35,7 +35,7 @@ GENERIC (
 
     
     -- DMA interface: pass it to dma
-    internalBus: INOUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
+    internalBus: IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramWrite: OUT STD_LOGIC; --
     ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     ramAddress: OUT STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0); 

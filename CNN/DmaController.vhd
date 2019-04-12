@@ -41,7 +41,6 @@ ENTITY DMAController IS
     weightsRamRead: OUT STD_LOGIC; --
     windowRamRead: OUT STD_LOGIC; --
     windowRamWrite: OUT STD_LOGIC; --
-    weightsRamDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     windowRamDataOutBus: OUT STD_LOGIC_VECTOR(windowBusSize-1 DOWNTO 0);
     MFCWindowRam: IN STD_LOGIC;
     MFCWeightsRam: IN STD_LOGIC;

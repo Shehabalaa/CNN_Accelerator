@@ -21,7 +21,7 @@ Entity WriteDMA is
         counter:In std_logic_vector(maxImageSize-1 downto 0) ;
         initCounter,initAddress:IN std_logic;
         
-        internalBus:INOUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
+        internalBus:IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
         --ram interface
         ramWrite:out std_logic;
         ramDataOutBus:out STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
@@ -45,10 +45,10 @@ architecture WriteDMAArch of WriteDMA is
         writecounter:Entity work.DownCounter Generic map(maxImageSize) port map(counter,enableCounter,clk,initCounter,currentCount); 
         
         enableCounter <= MFC or initCounter;
-        writeCompleteOne <= MFC;
+        writeCompleteOne <= MFC AND writeToRam;
         process(clk, MFC,writeToRam,currentCount,internalBus,initCounter, initAddress)
         begin
-            if MFC='1' AND ( (clk = '0' AND currentCount = ones) OR (clk = '1' AND currentCount = zeros))  THEN
+            if MFC='1' AND writeToRam = '1' AND ( (clk = '0' AND currentCount = ones) OR (clk = '1' AND currentCount = zeros))  THEN
                 writeComplete <= '1';
             else 
                 writeComplete <= '0';

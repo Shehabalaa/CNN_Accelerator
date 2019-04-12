@@ -214,6 +214,7 @@ BEGIN
                 dmaInitCounter <= '1';
                 nextState <= fetchState; -- transition logic
                 IF loadNextWordList = '1' THEN
+                    resetUnitNumberReg <= '1';
                     dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                     if isFilter = '0' THEN
                         nextState <= incState; -- transition logic
@@ -262,7 +263,7 @@ BEGIN
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
                 -- readFinal <= dmaFinishAll;
                 nextState <= idleState;
-                IF dmaFinishOneRead = '1' THEN
+                IF dmaFinishOneRead = '1' AND loadNextWordList = '1' THEN
                     incUnitNumber <= '1';
                 END IF;
         END CASE;
