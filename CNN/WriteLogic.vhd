@@ -1,4 +1,4 @@
--- ReadLogic is responsible for:
+-- WriteLogic is responsible for:
 --    * read word
 --    * read window
 -- 
@@ -21,7 +21,7 @@ use work.Constants.all;
 
 
 
-ENTITY ReadLogic IS
+ENTITY WriteLogic IS
 GENERIC (
     addressSize: INTEGER := 16;
     internalBusSize: INTEGER := 16
@@ -35,25 +35,26 @@ GENERIC (
 
     
     -- DMA interface: pass it to dma
-    internalBus: INOUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
+    internalBus: IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramWrite: OUT STD_LOGIC; --
-    ramDataInBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     ramAddress: OUT STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0); 
     MFC: IN STD_LOGIC;
 
     -- CONFIG
-    outputSize: IN STD_LOGIC_VECTOR(maxImageSize-1 downto 0);
+    outputSize: IN STD_LOGIC_VECTOR(addressSize-1 downto 0);
     
     
     -- input cnt signals
     write: IN STD_LOGIC; -- signal to take the data at internal bus and put it into the ram in the next write address
 
     -- output cnt signals
-    writeDone: OUT STD_LOGIC -- output signal set when any write is done
+    writeDone: OUT STD_LOGIC; -- output signal set when all the write is done
+    writeDoneOne: OUT STD_LOGIC
   );
-END ReadLogic ; 
+END WriteLogic ; 
 
-ARCHITECTURE ReadLogicArch OF ReadLogic IS
+ARCHITECTURE ReadLogicArch OF WriteLogic IS
 
 
 -- FSM
@@ -68,7 +69,7 @@ SIGNAL currentState, nextState: FSM; -- state reg output and input (hold the sta
 
 
 
-SIGNAL dmaCountIn: STD_LOGIC_VECTOR(2 downto 0);
+SIGNAL dmaCountIn: STD_LOGIC_VECTOR(maxImageSize-1 downto 0);
 SIGNAL addressRegOut, addressRegIn: STD_LOGIC_VECTOR(addressSize-1 downto 0); -- two signals of the baseRegister (windowBaseAddress, filterBaseAddress)
 
 
@@ -77,29 +78,37 @@ SIGNAL
     stateRegEn, -- set when you want to go from current state to next state
 
     -- input cnt signals from dma
-    dmaFinishOneRead,
+    dmaFinishOneWrite,
     dmaFinishAll,
     -- output cnt signals
     dmaWrite,
     dmaInitCounter,
     dmaInitAddress,
     resetAddressReg,
-    incBaseAddress, -- mean => windowBaseAddress += 1
+    incBaseAddress -- mean => windowBaseAddress += 1
 : STD_LOGIC;
 
+-- after compiling with 93
+SIGNAL baseAddressCounterClk: STD_LOGIC;
+
+
 BEGIN
+    -- after compiling with 93 mapping
+    baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
+    --clk => "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk))) -- only count when i set inc signal and count after rising edge
+
     -- mapping from internal signals to output port
     -- TODO: should be removed and bind these port signals directly
-    readFinal <= dmaFinishAll;
-    readOne <= dmaFinishOneRead;
+    writeDone <= dmaFinishAll;
+    writeDoneOne <= dmaFinishOneWrite;
 
     -- aluNumber <= unitRegOut;
-    dma: ENTITY work.writeDMA GENERIC MAP(addressSize, internalBusSize) PORT MAP (
+    dma: ENTITY work.WriteDMA GENERIC MAP(addressSize, internalBusSize) PORT MAP (
         counter => dmaCountIn,
         writeBaseAddress => addressRegOut, --
         writeStep => outputSize,
         internalBus => internalBus,
-        ramDataInBus => ramDataInBus,
+        ramDataOutBus => ramDataOutBus,
         ramWrite => ramWrite,
         MFC => MFC,
         writeToRam => dmaWrite,
@@ -107,6 +116,7 @@ BEGIN
         initAddress => dmaInitAddress,
         clk => clk,
         writeComplete => dmaFinishAll,
+        writeCompleteOne => dmaFinishOneWrite,
         ramWriteAddress=>ramAddress
     );
 
@@ -114,13 +124,13 @@ BEGIN
         load => addressRegIn, -- TODO: set here the value BASE_ADDRESS,,,, think again here
         isLoad => resetAddressReg,
         reset => '0', -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
-        clk => "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk))), -- only count when i set inc signal and count after rising edge
+        clk => baseAddressCounterClk, -- only count when i set inc signal and count after rising edge
         -- clk => "and"(clk, "or"(resetAddressReg, incBaseAddress)), -- only count when i set inc signal and count after rising edge
         count => addressRegOut
     );
 
   
-    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead,dmaFinishAll)
+    IOLogicCnt: PROCESS(currentState, write, dmaWrite, dmaFinishOneWrite,dmaFinishAll)
     BEGIN
         CASE currentState IS
             WHEN switchState =>
@@ -149,7 +159,7 @@ BEGIN
                 incBaseAddress <= '0';
 
                 -- transition logic
-                stateRegEn <= dmaWrite; -- to go to init state
+                stateRegEn <= write; -- to go to init state
                 nextState <= initState;
 
             
@@ -195,7 +205,6 @@ BEGIN
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
                 -- readFinal <= dmaFinishAll;
                 nextState <= idleState;
-                END IF;
         END CASE;
     END PROCESS;
 

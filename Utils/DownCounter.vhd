@@ -6,11 +6,11 @@ Entity DownCounter is
     port(
         load:IN std_logic_vector(n-1 downto 0) ;
         enable,clk,isLoad:in std_logic;
-        currentCount:out std_logic_vector(n-1 downto 0) 
+        currentCount:inout std_logic_vector(n-1 downto 0) 
     );
     end DownCounter;
     ARCHITECTURE DownCounterArch of DownCounter is 
-    SIGNAL counterInput, subtractorOutput,  resetOrCurrent: std_logic_vector(n-1 DOWNTO 0);
+    SIGNAL counterInput, subtractorOutput: std_logic_vector(n-1 DOWNTO 0);
     begin
         counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, enable, clk, '0', currentCount);
         nextCount: ENTITY work.NBitSubtractor GENERIC MAP(n) PORT MAP(currentCount, (others => '0'), '1', subtractorOutput);
