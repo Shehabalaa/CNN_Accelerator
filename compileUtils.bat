@@ -18,5 +18,5 @@ vcom CNN/ControlUnit/LayerController.vhd -93
 vcom CNN/ControlUnit/FilterController.vhd -93
 vcom CNN/ControlUnit/SliceFilterController.vhd -93
 vcom CNN/RegUnit.vhd -93
-vcom CNN/TestBenches/*.vhd -93
-vcom CNN/TestBenches/NetworkControllerTest.vhd -93
+vcom CNN/ControlUnit/*.vhd -93
+vcom CNN/ControlUnit/ControlUnit.vhd -93

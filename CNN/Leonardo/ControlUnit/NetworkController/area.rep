@@ -1,0 +1,29 @@
+
+*******************************************************
+
+Cell: NetworkController    View: NetworkControllerArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+aoi222      tsmc035_typ     1 x      2      2 gates
+dffr        tsmc035_typ     6 x      6     33 gates
+inv01       tsmc035_typ     4 x      1      3 gates
+inv02       tsmc035_typ     1 x      1      1 gates
+mux21       tsmc035_typ     2 x      2      4 gates
+nand02      tsmc035_typ     3 x      1      3 gates
+nor02_2x    tsmc035_typ     6 x      1      6 gates
+oai21       tsmc035_typ     3 x      1      4 gates
+oai22       tsmc035_typ     1 x      1      1 gates
+xnor2       tsmc035_typ     5 x      2     10 gates
+
+ Number of ports :                      10
+ Number of nets :                       43
+ Number of instances :                  32
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of gates :                      67
+ Number of accumulated instances :      32

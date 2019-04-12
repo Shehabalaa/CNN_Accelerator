@@ -1,0 +1,41 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 447.1 MHz
+
+
+                        Critical Path Report
+
+Critical path #1, (unconstrained path)
+NAME                                      GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------------
+clock information not specified
+delay thru clock network                                    0.00 (ideal)
+
+
+reg_currentState(1)/Q                     dffr        0.00  0.54 dn             0.04
+ix254/Y                                   inv02       0.13  0.67 up             0.03
+ix65/Y                                    nor02_2x    0.15  0.81 dn             0.03
+ix241/Y                                   nand02      0.21  1.03 up             0.02
+ix71/Y                                    nor03_2x    0.15  1.17 dn             0.03
+ix219/Y                                   nor02_2x    0.14  1.32 up             0.01
+ix85/Y                                    oai221      0.17  1.49 dn             0.02
+ix174/Y                                   mux21       0.28  1.77 up             0.02
+reg_currentState(1)/D                     dffr        0.00  1.77 up             0.00
+data arrival time                                           1.77
+
+
+data required time                                       not specified
+-------------------------------------------------------------------------------------
+data required time                                       not specified
+data arrival time                                           1.77
+                                                         ----------
+                                                      unconstrained path
+-------------------------------------------------------------------------------------
+
+

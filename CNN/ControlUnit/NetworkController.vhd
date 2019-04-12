@@ -11,7 +11,7 @@ ENTITY NetworkController IS
             resetState, -- Signal to reset State to idle state
 			clk : IN STD_LOGIC; -- System clock
 
-            layersNumber : IN STD_LOGIC_VECTOR(maxLayer-1 downto 0); -- Filter depth --> Number of Convolutions
+            layersNumber: IN STD_LOGIC_VECTOR(maxLayer-1 downto 0); -- Filter depth --> Number of Convolutions
             -- outputSize : IN STD_LOGIC_VECTOR(4 downto 0); -- Output Image size Example : 26 --> output image size 26x26
 
 			loadConfig, -- Signal is sent to DMA to start loading configration of this layer
@@ -38,16 +38,16 @@ ARCHITECTURE NetworkControllerArch OF NetworkController IS
 
     -- Counter Signals
 
-        SIGNAL finalCounterEn,counterEn,resetCounter : STD_LOGIC;
+        SIGNAL counterEn,resetCounter : STD_LOGIC;
 
-        SIGNAL counterOut : STD_LOGIC_VECTOR (maxLayer-1 DOWNTO 0);
+        SIGNAL counterOut,altCounterOut : STD_LOGIC_VECTOR (maxLayer-1 DOWNTO 0);
 	------------------------------------------------------------
 
 	BEGIN
-		-- limit Counters to count only at rising edge
-			finalCounterEn <= (clk AND counterEn);		
+		
+		counterOut <= altCounterOut when rising_edge(clk);	
 
-		PROCESS(start,currentState,oneLayerFinish,dmaFinish)
+		PROCESS(start,currentState,oneLayerFinish,dmaFinish,layersNumber,counterOut)
 
 			BEGIN
 			CASE currentState IS
@@ -55,7 +55,7 @@ ARCHITECTURE NetworkControllerArch OF NetworkController IS
 				WHEN idleState =>
 					-- Intialize all Signals to 0
 						startOneLayer <= '0';
-						loadConfig <='0';
+						
                         finish <= '0';
 
 					-- Reset Counters to 0
@@ -66,6 +66,7 @@ ARCHITECTURE NetworkControllerArch OF NetworkController IS
 						nextState <= configurationState; 
 
 					-- When Start signal comes Go to specified Next State
+						loadConfig <= start;
 						stateRegEn <= start;
 
 
@@ -74,6 +75,8 @@ ARCHITECTURE NetworkControllerArch OF NetworkController IS
 					-- Release Reset Signals for Counters
 						counterEn <= '0';
 						resetCounter <= '0';
+						startOneLayer <= '0';
+						finish <= '0';
 					
                     loadConfig <= '1';
                     
@@ -87,6 +90,8 @@ ARCHITECTURE NetworkControllerArch OF NetworkController IS
 			WHEN layerExecuteState =>
 						-- Release raised Signals by past state
 							loadConfig <= '0';
+							resetCounter <= '0';
+							finish <= '0';
 
 
                         -- Send start Signal to One Convolution FSM
@@ -111,12 +116,18 @@ ARCHITECTURE NetworkControllerArch OF NetworkController IS
 			-- The last state after completeing applying full filter to image
 				WHEN endState =>
                     
-                    startOneLayer <= '0';
+						startOneLayer <= '0';
+						loadConfig <='0';
+						resetCounter <= '0';
+						counterEn <= '0';
                     
                     -- Raise finish Signal
 						finish <= '1';
+
 					-- Set Next State
 						nextState <= idleState; -- Get back to 0 state (idle state)
+
+						stateRegEn <= '1';
 
 			END CASE;
 	END PROCESS;
@@ -124,7 +135,7 @@ ARCHITECTURE NetworkControllerArch OF NetworkController IS
 
 
 	-- Counter to stop when finish depth of filter
-		counterMap : ENTITY work.Counter GENERIC MAP (maxLayer) PORT MAP (counterEn,resetCounter, clk ,counterOut);
+		counterMap : ENTITY work.Counter GENERIC MAP (maxLayer) PORT MAP (counterEn,resetCounter, clk ,altCounterOut);
 	-- Process to save state and change to next state when enable = 1
 		PROCESS(nextState,clk, stateRegEn, resetState)
 			BEGIN
