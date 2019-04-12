@@ -1,0 +1,154 @@
+predictions in hex at step: 0
+0015
+0005
+fffb
+0012
+0014
+001b
+fff7
+ffef
+001b
+0000
+
+predictions in float at step: 0
+0.08203125
+0.01953125
+-0.01953125
+0.0703125
+0.078125
+0.10546875
+-0.03515625
+-0.06640625
+0.10546875
+0.0
+
+
+predictions in hex at step: 1
+025e
+0153
+fd26
+fc96
+ffc0
+fcba
+fc7b
+02a7
+fe41
+008b
+
+predictions in float at step: 1
+2.3671875
+1.32421875
+-2.8515625
+-3.4140625
+-0.25
+-3.2734375
+-3.51953125
+2.65234375
+-1.74609375
+0.54296875
+
+
+predictions in hex at step: 2
+036d
+033a
+fc32
+fa77
+0098
+fb59
+faff
+039a
+fead
+039d
+
+predictions in float at step: 2
+3.42578125
+3.2265625
+-3.8046875
+-5.53515625
+0.59375
+-4.65234375
+-5.00390625
+3.6015625
+-1.32421875
+3.61328125
+
+
+predictions in hex at step: 3
+019f
+0549
+faa6
+fc02
+00a8
+fca2
+fade
+0578
+febd
+0431
+
+predictions in float at step: 3
+1.62109375
+5.28515625
+-5.3515625
+-3.9921875
+0.65625
+-3.3671875
+-5.1328125
+5.46875
+-1.26171875
+4.19140625
+
+
+predictions in hex at step: 4
+00ba
+fbc0
+01cc
+0375
+01d9
+fd86
+003b
+0eb4
+f9ac
+fb8c
+
+predictions in float at step: 4
+0.7265625
+-4.25
+1.796875
+3.45703125
+1.84765625
+-2.4765625
+0.23046875
+14.703125
+-6.328125
+-4.453125
+
+
+predictions in hex at step: 5
+056f
+ffa5
+036b
+0730
+06b7
+fdd9
+00b7
+0c44
+f8b2
+f6d6
+
+predictions in float at step: 5
+5.43359375
+-0.35546875
+3.41796875
+7.1875
+6.71484375
+-2.15234375
+0.71484375
+12.265625
+-7.3046875
+-9.1640625
+
+
+
+Valid Answer is: 5.438965 -0.345825 3.425842 7.196899 6.725525 -2.140198 0.719727 12.278076 -7.297302 -9.154541 
+And valid maximuim is : 12.2780761719 in float
+FC answer is 12.265625 in float and 0c44 in hex

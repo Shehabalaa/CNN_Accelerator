@@ -18,6 +18,12 @@ END FcMain;
 ----------------------------------------------------------------------
 
 ARCHITECTURE FcMainArch OF FcMain IS
+    ----------------------------------------
+    --CONSTANTS
+    CONSTANT RamNeoronsWIDTH : INTEGER := 16*5; 
+    CONSTANT RamWeigthsWIDTH : INTEGER := 8*10;
+    CONSTANT MaxNeornsNumBitSIZE : INTEGER := 16;
+    --
 
     TYPE State_type IS (initial,setCounter,delay,loadBias,compareCounter ,loadNeoronAndWeights,Maxmimize,PrintOutput,startMul); -- the 4 different states
 	SIGNAL state : State_Type;   
@@ -26,13 +32,12 @@ ARCHITECTURE FcMainArch OF FcMain IS
 
     SIGNAL dmaAddRamNeorons,dmaAddRamWeights,RamInAddNeorons,RamInAddWeights :STD_LOGIC_VECTOR(4 DOWNTO 0);
 
-    SIGNAL dataOutRamNeorons: STD_LOGIC_VECTOR(16*5-1 DOWNTO 0);
-    SIGNAL dataOutRamWeights: STD_LOGIC_VECTOR(8*10-1  DOWNTO 0);
-    
+    SIGNAL dataOutRamNeorons: STD_LOGIC_VECTOR(RamNeoronsWIDTH-1 DOWNTO 0);
+    SIGNAL dataOutRamWeights: STD_LOGIC_VECTOR(RamWeigthsWIDTH-1  DOWNTO 0);
 
     SIGNAL neoronMuxOutput,neoronRegOutput: STD_LOGIC_VECTOR(15 DOWNTO 0);
     SIGNAL loadNumberOFNeorons : STD_LOGIC ;   ---            need to be implemented 
-    SIGNAL numberOFNeorons : STD_LOGIC_VECTOR(7 DOWNTO 0);
+    SIGNAL numberOFNeorons : STD_LOGIC_VECTOR(MaxNeornsNumBitSIZE-1 DOWNTO 0);
     
     SIGNAL decrement : STD_LOGIC;
 
@@ -71,14 +76,14 @@ BEGIN
     ----------------------------------------
 
     
-    NEORONSLASTSTAGES: ENTITY work.CounterUpDown GENERIC MAP(8) PORT MAP(dataOutRamWeights(7 downto 0),(others =>'0'),clk,decrement,reset,loadNumberOFNeorons,'1',numberOFNeorons);
+    NEORONSLASTSTAGES: ENTITY work.CounterUpDown GENERIC MAP(16) PORT MAP(dataOutRamWeights(RamWeigthsWIDTH-1 downto RamWeigthsWIDTH - MaxNeornsNumBitSIZE),(others =>'0'),clk,decrement,reset,loadNumberOFNeorons,'1',numberOFNeorons);
     --------------------------
     NEORONREGMux: ENTITY work.mux2 GENERIC MAP(16) PORT MAP( dataOutRamNeorons(15 downto 0),oneNeoron,neoronValueSelection, neoronMuxOutput);
 
     ------------------------------
-    RAMWEIGHTS: ENTITY work.RAM GENERIC MAP(5,8*10) PORT MAP( clk,'0',dmaAddRamWeights,dataOutRamWeights,dataOutRamWeights);
+    RAMWEIGHTS: ENTITY work.RAM GENERIC MAP(5,RamWeigthsWIDTH) PORT MAP( clk,'0',dmaAddRamWeights,dataOutRamWeights,dataOutRamWeights);
 
-    RAMNEORONS: ENTITY work.RAM GENERIC MAP(5,16*5) PORT MAP(clk,'0' ,dmaAddRamNeorons,dataOutRamNeorons,dataOutRamNeorons);
+    RAMNEORONS: ENTITY work.RAM GENERIC MAP(5,RamNeoronsWIDTH) PORT MAP(clk,'0' ,dmaAddRamNeorons,dataOutRamNeorons,dataOutRamNeorons);
 
     ------------------------------------
     MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,cnnDone,maxNumber,doneMax);

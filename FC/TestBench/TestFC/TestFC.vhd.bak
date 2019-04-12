@@ -1,0 +1,29 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity TestFC is
+end TestFC;
+
+architecture TestBenchArch of TestFC is
+  SIGNAL cnnDone,clk,reset,fcDone : STD_LOGIC;
+begin
+    FCcmp: ENTITY work.FcMain PORT MAP(cnnDone,clk,reset,fcDone);
+    reset <= '1';
+    wait for 20ns;
+    reset <= '0';
+    wait for 20 ns;
+    assert fcDone = '1'
+    report "CNN is DONE"
+    severity error;
+    finish(0);
+end process;
+
+  process
+  begin
+    clk <= '0';
+    wait for 50 ns;
+    clk <= '1';
+    wait for 50 ns;
+  end process;
+end TestBenchArch;

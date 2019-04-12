@@ -13,7 +13,6 @@ architecture TestBenchArch of TestAlus is
   signal m :std_logic_vector(15  downto 0);
   signal fAccum ,ansAccum:std_logic_vector(15 downto 0);
 begin
-  --test_c : entity work.BoothMul generic map(16) port map (m,r,f,clk,start,done); --normal booth
   test_c : entity work.Alus8x16 generic map(1) port map (q(0)=>q,m(0)=>m,f(0)=>fAccum,clk=>clk,start=>start,rst=>rst,done=>done,working=>working); --modified
   process
     variable op1Tests :tests8bits;
