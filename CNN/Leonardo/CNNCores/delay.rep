@@ -1,0 +1,82 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 84.3 MHz
+	start                : 897.8 MHz
+
+
+                        Critical Path Report
+
+Critical path #1, (unconstrained path)
+NAME                                                        GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------------------------------
+clock information not specified
+delay thru clock network                                                      0.00 (ideal)
+
+
+mulsMap/CounterCmp_reg_outp(0)/QB                           dffs_ni     0.00  0.40 up             0.01
+mulsMap/ix9388/Y                                            inv01       0.30  0.69 dn             0.08
+mulsMap/ix11196/Y                                           inv02       0.35  1.05 up             0.09
+mulsMap/ix11180/Y                                           inv02       0.23  1.27 dn             0.08
+mulsMap/gen_12_cmp_MuxCmp/ix230/Y                           inv02       0.27  1.54 up             0.07
+mulsMap/gen_12_cmp_MuxCmp/ix218/Y                           inv02       0.21  1.76 dn             0.08
+mulsMap/gen_12_cmp_MuxCmp/ix98/Y                            nand02      0.20  1.96 up             0.01
+mulsMap/gen_12_cmp_MuxCmp/ix99/Y                            nand02_2x   0.23  2.18 dn             0.11
+mulsMap/ix10640/Y                                           inv04       0.30  2.49 up             0.17
+mulsMap/ix9548/Y                                            inv04       0.20  2.68 dn             0.13
+mulsMap/ix4639/Y                                            nor03_2x    0.21  2.90 up             0.02
+mulsMap/ix10070/Y                                           buf02       0.51  3.41 up             0.15
+mulsMap/ix4679/Y                                            nor03_2x    0.21  3.62 dn             0.02
+mulsMap/ix5832/Y                                            nor02_2x    0.13  3.75 up             0.01
+mulsMap/ix4699/Y                                            nand02      0.18  3.93 dn             0.04
+mulsMap/gen_12_cmp_BSCmp_AdderCmp/ix124/Y                   inv01       0.23  4.16 up             0.03
+mulsMap/gen_12_cmp_BSCmp_AdderCmp/ix9/Y                     xnor2       0.15  4.31 dn             0.01
+mulsMap/gen_12_cmp_BSCmp_AdderCmp/ix120/Y                   aoi22       0.37  4.69 up             0.04
+mulsMap/gen_12_cmp_BSCmp_AdderCmp/ix225/Y                   xnor2       0.25  4.93 dn             0.01
+ix4031/Y                                                    nand02      0.17  5.10 up             0.01
+ix1767/Y                                                    nand02      0.18  5.29 dn             0.04
+addersMap_sum2Map_sum1Map_sum2Map/ix112/Y                   inv01       0.23  5.52 up             0.03
+addersMap_sum2Map_sum1Map_sum2Map/ix11/Y                    xnor2       0.15  5.67 dn             0.01
+addersMap_sum2Map_sum1Map_sum2Map/ix108/Y                   aoi22       0.36  6.03 up             0.03
+addersMap_sum2Map_sum1Map_sum2Map/ix141/Y                   xnor2       0.32  6.35 dn             0.04
+addersMap_sum2Map_sum1Map_sumFinalMap/ix116/Y               inv01       0.27  6.62 up             0.03
+addersMap_sum2Map_sum1Map_sumFinalMap/ix19/Y                xnor2       0.20  6.82 dn             0.03
+addersMap_sum2Map_sum1Map_sumFinalMap/ix141/Y               xnor2       0.32  7.14 up             0.06
+addersMap_sum2Map_sumFinalMap_dup_0/ix19/Y                  xnor2       0.27  7.41 dn             0.03
+addersMap_sum2Map_sumFinalMap_dup_0/ix141/Y                 xnor2       0.32  7.73 up             0.06
+addersMap_sumRestMap/ix122/Y                                xnor2       0.22  7.95 dn             0.01
+addersMap_sumRestMap/ix25/Y                                 oai21       0.24  8.19 up             0.03
+addersMap_sumRestMap/ix139/Y                                xnor2       0.31  8.50 dn             0.04
+addersMap_sumFinalMap/ix134/Y                               inv01       0.27  8.77 up             0.03
+addersMap_sumFinalMap/ix27/Y                                xnor2       0.15  8.92 dn             0.01
+addersMap_sumFinalMap/ix130/Y                               aoi22       0.36  9.29 up             0.03
+addersMap_sumFinalMap/ix41/Y                                oai21       0.29  9.57 dn             0.03
+addersMap_sumFinalMap/ix152/Y                               aoi22       0.35  9.92 up             0.03
+addersMap_sumFinalMap/ix57/Y                                oai21       0.29  10.21 dn             0.03
+addersMap_sumFinalMap/ix169/Y                               aoi22       0.35  10.55 up             0.03
+addersMap_sumFinalMap/ix73/Y                                oai21       0.29  10.84 dn             0.03
+addersMap_sumFinalMap/ix186/Y                               aoi22       0.35  11.19 up             0.03
+addersMap_sumFinalMap/ix89/Y                                oai21       0.29  11.47 dn             0.03
+addersMap_sumFinalMap/ix203/Y                               aoi22       0.35  11.82 up             0.03
+addersMap_sumFinalMap/ix105/Y                               oai21       0.29  12.11 dn             0.03
+addersMap_sumFinalMap/ix220/Y                               aoi22       0.30  12.40 up             0.02
+addersMap_sumFinalMap/ix117/Y                               xnor2       0.25  12.65 dn             0.02
+ix5158/Y                                                    nand03      0.19  12.84 up             0.02
+ix187/Y                                                     nand04      0.16  13.00 dn             0.00
+finalSum(10)/                                                           0.00  13.00 dn             0.00
+data arrival time                                                             13.00
+
+data required time                                                         not specified
+-------------------------------------------------------------------------------------------------------
+data required time                                                         not specified
+data arrival time                                                             13.00
+                                                                           ----------
+                                                                        unconstrained path
+-------------------------------------------------------------------------------------------------------
+
+

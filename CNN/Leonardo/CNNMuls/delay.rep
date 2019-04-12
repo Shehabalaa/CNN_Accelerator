@@ -1,0 +1,75 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 84.3 MHz
+	start                : 2123.3 MHz
+
+
+                        Critical Path Report
+
+Critical path #1, (unconstrained path)
+NAME                                               GATE              ARRIVAL              LOAD
+----------------------------------------------------------------------------------------------
+clock information not specified
+delay thru clock network                                             0.00 (ideal)
+
+
+CounterCmp_reg_outp(0)/QB                          dffs_ni     0.00  0.40 up             0.01
+ix10119/Y                                          inv01       0.30  0.69 dn             0.08
+ix11937/Y                                          inv02       0.35  1.05 up             0.09
+ix11895/Y                                          inv02       0.23  1.27 dn             0.08
+gen_23_cmp_MuxCmp/ix230/Y                          inv02       0.27  1.54 up             0.07
+gen_23_cmp_MuxCmp/ix218/Y                          inv02       0.21  1.76 dn             0.08
+gen_23_cmp_MuxCmp/ix98/Y                           nand02      0.20  1.96 up             0.01
+gen_23_cmp_MuxCmp/ix99/Y                           nand02_2x   0.23  2.18 dn             0.11
+ix11819/Y                                          inv04       0.30  2.49 up             0.17
+ix10147/Y                                          inv04       0.20  2.68 dn             0.13
+ix8885/Y                                           nor03_2x    0.21  2.90 up             0.02
+ix10867/Y                                          buf02       0.51  3.41 up             0.15
+ix8925/Y                                           nor03_2x    0.21  3.62 dn             0.02
+ix9448/Y                                           nor02_2x    0.13  3.75 up             0.01
+ix8945/Y                                           nand02      0.18  3.93 dn             0.04
+gen_23_cmp_BSCmp_AdderCmp/ix124/Y                  inv01       0.23  4.16 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix9/Y                    xnor2       0.15  4.31 dn             0.01
+gen_23_cmp_BSCmp_AdderCmp/ix120/Y                  aoi22       0.37  4.69 up             0.04
+gen_23_cmp_BSCmp_AdderCmp/ix23/Y                   oai21       0.29  4.97 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix142/Y                  aoi22       0.35  5.32 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix39/Y                   oai21       0.28  5.60 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix164/Y                  aoi22       0.35  5.95 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix55/Y                   oai21       0.28  6.23 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix186/Y                  aoi22       0.35  6.58 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix71/Y                   oai21       0.28  6.86 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix208/Y                  aoi22       0.35  7.21 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix87/Y                   oai21       0.28  7.49 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix230/Y                  aoi22       0.35  7.84 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix103/Y                  oai21       0.28  8.12 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix247/Y                  aoi22       0.35  8.47 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix119/Y                  oai21       0.28  8.75 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix264/Y                  aoi22       0.35  9.10 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix135/Y                  oai21       0.28  9.38 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix281/Y                  aoi22       0.35  9.73 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix151/Y                  oai21       0.28  10.01 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix298/Y                  aoi22       0.35  10.36 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix167/Y                  oai21       0.28  10.64 dn             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix315/Y                  aoi22       0.31  10.95 up             0.03
+gen_23_cmp_BSCmp_AdderCmp/ix185/Y                  xnor2       0.15  11.11 dn             0.01
+gen_23_cmp_pRegCmp/ix635/Y                         nand02      0.16  11.27 up             0.01
+gen_23_cmp_pRegCmp/ix406/Y                         nand02      0.12  11.39 dn             0.02
+gen_23_cmp_pRegCmp/reg_Q(29)/D                     dffr        0.00  11.39 dn             0.00
+data arrival time                                                    11.39
+
+
+data required time                                                not specified
+----------------------------------------------------------------------------------------------
+data required time                                                not specified
+data arrival time                                                    11.39
+                                                                  ----------
+                                                               unconstrained path
+----------------------------------------------------------------------------------------------
+
+
