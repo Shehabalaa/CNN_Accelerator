@@ -25,7 +25,7 @@ ARCHITECTURE FcMainArch OF FcMain IS
     CONSTANT MaxNeornsNumBitSIZE : INTEGER := 16;
     --
 
-    TYPE State_type IS (initial,setCounter,delay,loadBias,compareCounter ,loadNeoronAndWeights,Maxmimize,PrintOutput,startMul); -- the 4 different states
+    TYPE State_type IS (initial,setCounter,delay,loadBias,compareCounter ,loadNeoronAndWeights,Maxmimize,PrintOutput,startMul,resetMax); -- the 4 different states
 	SIGNAL state : State_Type;   
     ---- Signal Declaration 
     SIGNAL readRamWeights,readRamNeorons,finishRamWeights,finishRamNeorons: STD_LOGIC;
@@ -51,7 +51,7 @@ ARCHITECTURE FcMainArch OF FcMain IS
     SIGNAL startMax,doneMax:STD_LOGIC; 
     SIGNAL labelReg,cTemp : genericArrayofVector16bit (9 downto 0);
 
-    SIGNAL maxNumber: STD_LOGIC_VECTOR( 4 downto 0);
+    SIGNAL maxNumber: STD_LOGIC_VECTOR( 3 downto 0);
     ---------------------------------------
     SIGNAL mulInputWeight : genericArrayofVector8bit (9 downto 0);
     SIGNAL mulInputNeoron : genericArrayofVector16bit (9 downto 0);
@@ -64,6 +64,8 @@ ARCHITECTURE FcMainArch OF FcMain IS
 
     SIGNAL mulDoneDetection : STD_LOGIC;
     ---------------------------------------
+
+    SIGNAL resetMaxSignal:STD_LOGIC;
 
 BEGIN
     ---------- initializition
@@ -86,7 +88,7 @@ BEGIN
     RAMNEORONS: ENTITY work.RAM GENERIC MAP(5,RamNeoronsWIDTH) PORT MAP(clk,'0' ,dmaAddRamNeorons,dataOutRamNeorons,dataOutRamNeorons);
 
     ------------------------------------
-    MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,cnnDone,maxNumber,doneMax);
+    MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,resetMaxSignal,maxNumber,doneMax);
     ------------------------------------
     ALUMAP: ENTITY work.Alus8x16 GENERIC MAP(10) PORT MAP(mulInputWeight,mulInputNeoron,labelReg,clk,startMultiply,reset,dumpDone,multiplyWorkIn);
     ----------------------------------------------
@@ -129,6 +131,8 @@ BEGIN
 
     startMax <='1'when (state = Maxmimize) else '0';
 
+    resetMaxSignal <= '1' when (state= resetMax) else '0';
+
     fcDone <= '1' when (state = PrintOutput) else '0';
 
     PROCESS (clk, reset) 
@@ -158,7 +162,7 @@ BEGIN
                         state <= compareCounter;
                 when compareCounter =>
                     if (numberOFNeorons =("00000000"))and(finishRamWeights ='0')and (finishRamNeorons ='0')and((multiplyWork='0')) then 
-                        state <= Maxmimize;
+                        state <= resetMax;
                     elsif (numberOFNeorons =("00000000")) then 
                         state <= compareCounter;
                     elsif (finishRamWeights ='0')and (finishRamNeorons ='0') then
@@ -168,6 +172,8 @@ BEGIN
                    if  (finishRamWeights ='1')and (finishRamNeorons ='1')and ((multiplyWork='0')) then
                         state <= startMul;
                     end if; 
+                when resetMax => 
+                    state <= Maxmimize;
                 when Maxmimize =>
                     if doneMax='1' then
                         state <= PrintOutput;

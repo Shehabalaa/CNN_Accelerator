@@ -15,11 +15,11 @@ begin
     if(reset = 'U' )then 
       reset <= '1';
       cnnDone <= '0';
-      wait for 20 ns;
+      wait for 100 ns;
       reset <= '0';
-      wait for 20 ns;
+      wait for 100 ns;
       cnnDone <= '1';
-      wait for 20 ns;
+      wait for 100 ns;
       cnnDone <= '0';
     end if;
 
@@ -34,9 +34,9 @@ begin
 
   process
   begin
-    clk <= '0';
-    wait for 50 ns;
     clk <= '1';
+    wait for 50 ns;
+    clk <= '0';
     wait for 50 ns;
   end process;
 end TestBenchArch;
