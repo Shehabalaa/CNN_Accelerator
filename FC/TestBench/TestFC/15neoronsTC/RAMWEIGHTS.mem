@@ -1,22 +1,22 @@
 // memory data file (do not edit the following line - required for mem load use)
 // instance=/fcmain/RAMWEIGHTS/Ram
 // format=mti addressradix=h dataradix=h version=1.0 wordsperline=1
- 0: fcf81a0e19eef20902ff
- 1: 01170efb0aebe11715f9
- 2: 12e9e907f80a11e41ff0
- 3: f71407ee10f110ecf4e7
- 4: 150a140717fe0b101ced
- 5: 1014f80cf71e03fe1df7
- 6: 1a1d0d000b1f0506f70e
- 7: 05e61e0e081ee91c1416
- 8: ecf901fbfef10b14e20d
- 9: 1104ecf412121f0f13ee
- a: e006e9fbe6f3f3f0fd06
- b: 14171fea1cf001e90000
- c: 1de5f2191a1d02ea150b
- d: e9031dfaf9e9f5fc0111
- e: 09181214ea141d15e6e0
- f: XXXXXXXXXXXXXXXXXXXX
+ 0: 000fXXXXXXXXXXXXXXXX
+ 1: eee60418fd091d180400
+ 2: 09f400f40e12011016e1
+ 3: 09e0faf71f1402eaedf3
+ 4: 0f00111cecf8f90d0e13
+ 5: 0bf5f10d16fc15ee1a12
+ 6: 001fe40b1be3f607f517
+ 7: e40fe0f80eef0de6eee7
+ 8: ea091101fc10eee6e216
+ 9: fe09ed19191908f2ece6
+ a: fc0d0fe5faec0405e1f6
+ b: 1cfafa0c160bf7ef0b1c
+ c: 1506ee011c01f1eaf812
+ d: fdec14fae8f714e414e6
+ e: 050ff1f9e2e4f602ee0c
+ f: ede21dfae91ce50b0dfc
 10: XXXXXXXXXXXXXXXXXXXX
 11: XXXXXXXXXXXXXXXXXXXX
 12: XXXXXXXXXXXXXXXXXXXX

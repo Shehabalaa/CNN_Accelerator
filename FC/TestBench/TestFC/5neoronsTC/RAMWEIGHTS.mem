@@ -1,12 +1,12 @@
 // memory data file (do not edit the following line - required for mem load use)
 // instance=/fcmain/RAMWEIGHTS/Ram
 // format=mti addressradix=h dataradix=h version=1.0 wordsperline=1
- 0: 150ce6e0fde1e019ef05
- 1: f6ee0914f80d0ef7fce3
- 2: 1ce018e8ffec02e3fff7
- 3: fde018190403121fefe3
- 4: e3e8f6e9e2fefd0f061d
- 5: XXXXXXXXXXXXXXXXXXXX
+ 0: 0005XXXXXXXXXXXXXXXX
+ 1: fa02e2fcf304021b10fc
+ 2: 17e0eee7e712e3e411e8
+ 3: ee1be91eec13eefc11f3
+ 4: fef7e3ec17f41812ebea
+ 5: fd1402ec16e4f210f3ec
  6: XXXXXXXXXXXXXXXXXXXX
  7: XXXXXXXXXXXXXXXXXXXX
  8: XXXXXXXXXXXXXXXXXXXX

@@ -73,17 +73,17 @@ def createTestCase():
     os.system("bash -c \"cp ../*.mem . \"")
     with open("RAMWEIGHTS.mem",'r+w') as f:
         lines = f.readlines();
+        lines[3] = lines[3].replace('X'*4,BS.pack("int:16=a",a=len(cnn_out)).hex,1)
         for i in range(len(weights)):
-            lines[3+i] = lines[3+i].replace('X'*len(weights[i])*2,''.join([w.hex for w in weights[i]]),1)
+            lines[4+i] = lines[4+i].replace('X'*len(weights[i])*2,''.join([w.hex for w in weights[i]]),1)
         f.seek(0)
         f.writelines(lines)  
 
     with open("RAMNEORONS.mem",'r+w') as f:
         lines = f.readlines();
         print(cnn_out)
-        lines[3] = lines[3].replace('X'*4,BS.pack("int:16=a",a=len(cnn_out)).hex,1)
-        for i in range(len(cnn_out)/5+len(cnn_out)%5):
-            lines[4+i] = lines[4+i].replace('X'*len(cnn_out[i*5:i*5+5])*4,''.join([neor.hex for neor in cnn_out[i*5:i*5+5] ]) ,1)
+        for i in range(len(cnn_out)):
+            lines[3+i] = lines[3+i].replace('X'*4,cnn_out[i].hex, 1)
         f.seek(0)
         f.writelines(lines)   
 
