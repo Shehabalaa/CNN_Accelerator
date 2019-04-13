@@ -40,16 +40,16 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 
     -- Counter Signals
 
-        SIGNAL finalCounterEn,counterEn,resetCounter : STD_LOGIC;
+        SIGNAL counterEn,resetCounter : STD_LOGIC;
 
-        SIGNAL counterOut : STD_LOGIC_VECTOR (maxDepth-1 DOWNTO 0);
+        SIGNAL counterOut,altCounterOut : STD_LOGIC_VECTOR (maxDepth-1 DOWNTO 0);
 	------------------------------------------------------------
 
-	BEGIN
-		-- limit Counters to count only at rising edge
-			finalCounterEn <= (clk AND counterEn);		
+	BEGIN	
 
-		PROCESS(start,currentState,oneConvFinish,dmaFinish)
+		counterOut <= altCounterOut when rising_edge(clk);	
+
+		PROCESS(start,currentState,oneConvFinish,dmaFinish,depth,counterOut)
 
 			BEGIN
 			CASE currentState IS
@@ -58,7 +58,6 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 					-- Intialize all Signals to 0
 						startOneConv <= '0';
 						filterLastLayer <= '0';
-						loadConfig <= '0';
 						finish <= '0';
 
 					-- Reset Counters to 0
@@ -70,12 +69,15 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 
 					-- When Start signal comes Go to specified Next State
 						stateRegEn <= start;
-
+						loadConfig <= start;
 			------------------------------------------------------------
 			WHEN loadConfigState =>
 					-- Release Reset Signals for Counters
+						startOneConv <= '0';
 						counterEn <= '0';
 						resetCounter <= '0';
+						filterLastLayer <= '0';
+						finish <= '0';
 						
 					loadConfig <= '1';
 
@@ -90,6 +92,8 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 			WHEN OneConvState =>
 						-- Release Reset Signals for Counters
 							loadConfig <= '0';
+							resetCounter <= '0';
+							finish <= '0';
 
                         -- Send start Signal to One Convolution FSM
                             startOneConv <= '1';
@@ -122,9 +126,16 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 				WHEN endState =>
 
 					startOneConv <= '0';
+					loadConfig <= '0';
+					filterLastLayer <= '0';
+					counterEn <= '0';
+					resetCounter <= '0';
+
+					stateRegEn <= '1';
 
 					-- Raise finish Signal
 						finish <= '1';
+						
 					-- Set Next State
 						nextState <= idleState; -- Get back to 0 state (idle state)
 
@@ -134,15 +145,17 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 
 
 	-- Counter to stop when finish depth of filter
-		counterMap : ENTITY work.Counter GENERIC MAP (maxDepth) PORT MAP ( "000",resetCounter, finalCounterEn , '0',counterOut);
+		counterMap : ENTITY work.Counter GENERIC MAP (maxDepth) PORT MAP (counterEn,resetCounter, clk ,altCounterOut);
 
 	-- Process to save state and change to next state when enable = 1
 		PROCESS(nextState,clk, stateRegEn, resetState)
 			BEGIN
 				IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					currentState <= idleState;
-				ELSIF FALLING_EDGE(clk) AND stateRegEn='1' THEN -- Change value only when enable = 1 and rising edge
-					currentState <= nextState;
+				ELSIF FALLING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
+					IF stateRegEn='1' THEN
+						currentState <= nextState;
+					END IF;
 				END IF;
 
 		END PROCESS;

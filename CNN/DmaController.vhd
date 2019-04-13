@@ -29,9 +29,8 @@ ENTITY DMAController IS
     -- clk, reset
     clk: IN STD_LOGIC;
     reset: IN STD_LOGIC;
-	  MFC:IN STD_LOGIC;
     -- internal buses
-    weightsInternalBus: INOUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    weightsInternalBus: out STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     windowInternalBus: INOUT STD_LOGIC_VECTOR(windowBusSize-1 DOWNTO 0);
     
     -- Two Rams interface
@@ -42,7 +41,6 @@ ENTITY DMAController IS
     weightsRamRead: OUT STD_LOGIC; --
     windowRamRead: OUT STD_LOGIC; --
     windowRamWrite: OUT STD_LOGIC; --
-    weightsRamDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     windowRamDataOutBus: OUT STD_LOGIC_VECTOR(windowBusSize-1 DOWNTO 0);
     MFCWindowRam: IN STD_LOGIC;
     MFCWeightsRam: IN STD_LOGIC;
@@ -56,8 +54,8 @@ ENTITY DMAController IS
     write: IN STD_LOGIC; -- signal to specify write the current data in internal bus
 
     -- CONFIG
-    filterSize: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-    inputSize: IN STD_LOGIC_VECTOR(maxImageSize-1 DOWNTO 0);
+    filterSize: IN STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
+    inputSize: IN STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
     outputSize: IN STD_LOGIC_VECTOR(maxImageSize-1 DOWNTO 0);
     windowRamBaseAddress1, windowRamBaseAddress2: IN STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
     filterRamBaseAddress: IN STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
@@ -82,11 +80,12 @@ ARCHITECTURE DMAControllerArch OF DMAController IS
 SIGNAL currentReadRamBaseAddress, currentWriteRamBaseAddress: STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
 SIGNAL readLogicRamAddress, writeLogicRamAddress: STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0);
 SIGNAL ramBaseAddressSelector: STD_LOGIC; -- 0 selects address1, 1 selects address 2
+SIGNAL windowInternalBusRLogic, windowInternalBusWLogic: STD_LOGIC_VECTOR(windowBusSize-1 DOWNTO 0);
 -- internal cnt signals
 SIGNAL switchRam: STD_LOGIC;
 SIGNAL resetLogics: STD_LOGIC;
 begin
-    ramBaseAddressSelector <= '0' WHEN reset = '1';
+    -- ramBaseAddressSelector <= '0' WHEN reset = '1' ELSE '1';
     switchRam <= reset OR layerFinished;
     resetLogics <= '0'; -- till now we always switch ram with reset
     readRamMux: ENTITY work.Mux2 GENERIC MAP(addressSize) PORT MAP(
@@ -104,11 +103,23 @@ begin
 
     -- mux to select which address should enter to the window ram, address from write or address from read
     windowRamAddressMux: ENTITY work.Mux2 GENERIC MAP(addressSize) PORT MAP(
-      A => writeLogicRamAddress,
-      B => readLogicRamAddress,
+      A => readLogicRamAddress,
+      B => writeLogicRamAddress,
       S => write,
       C => windowRamAddress
     );
+
+    -- tristate for window internal bus
+    readLogicTri: ENTITY work.Tristate GENERIC MAP(windowBusSize) PORT MAP (
+      input => windowInternalBusRLogic,
+      output => windowInternalBus,
+      en => '1'
+    ); 
+    writeLogicTri: ENTITY work.Tristate GENERIC MAP(windowBusSize) PORT MAP (
+      input => windowInternalBus,
+      output => windowInternalBusWLogic,
+      en => '1'
+    ); 
 
     windowReadLogicEnt: ENTITY work.ReadLogic GENERIC MAP (addressSize, windowBusSize) PORT MAP (
       clk => clk,
@@ -118,7 +129,7 @@ begin
       ramBasedAddress => currentReadRamBaseAddress,
       
       -- Ram and internal bus
-      internalBus => windowInternalBus,
+      internalBus => windowInternalBusRLogic,
       ramDataInBus => windowRamDataInBus,
       ramRead => windowRamRead,
       ramAddress => readLogicRamAddress,
@@ -127,7 +138,7 @@ begin
       -- CONFIG
       inputSize => inputSize,
       filterSize => filterSize,
-      
+      isFilter => '0',
       
       -- input cnt signals
       loadNextWordList => loadNextWindow,
@@ -142,7 +153,7 @@ begin
       clk => clk,
 
       resetState => resetLogics,
-      switchRam => switchRam,
+      switchRam => reset,
       ramBasedAddress => filterRamBaseAddress,
       
       -- DMA interface => interface to dma
@@ -150,12 +161,12 @@ begin
       ramDataInBus => weightsRamDataInBus,
       ramRead => weightsRamRead,
       ramAddress => weightsRamAddress,
-      MFC => MFC,
+      MFC => MFCWeightsRam,
 
       -- CONFIG
-      inputSize => inputSize,
+      inputSize => filterSize,
       filterSize => filterSize,
-      
+      isFilter => '1',
       
       -- input cnt signals
       loadNextWordList => loadNextFilter,
@@ -175,7 +186,7 @@ begin
 
       
       -- DMA interface => interface to dma
-      internalBus => windowInternalBus,
+      internalBus => windowInternalBusWLogic,
       ramWrite => windowRamWrite,
       ramDataOutBus => windowRamDataOutBus,
       ramAddress => writeLogicRamAddress,
@@ -196,7 +207,9 @@ begin
 
     switchBaseAddressProc: PROCESS(layerFinished)
     begin
-    IF rising_edge(layerFinished) THEN --? TODO: can be simplified to layerFinished = '1' without rising edge ?
+    IF reset = '1' THEN
+      ramBaseAddressSelector <= '0';
+    ELSIF rising_edge(layerFinished) THEN --? TODO: can be simplified to layerFinished = '1' without rising edge ?
       ramBaseAddressSelector <= not ramBaseAddressSelector;
       -- switchRam <= '1';
     END IF;

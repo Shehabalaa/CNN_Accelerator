@@ -1,0 +1,42 @@
+#
+#
+# 
+# Fri Apr 12 11:01:41 2019
+load_library tsmc035_typ
+set_working_dir /home/ayman/Desktop/CNN_Accelerator/CNN/Leonardo/ControlUnit/SliceFilterController
+read -technology "tsmc035_typ"  { "/home/ayman/Desktop/CNN_Accelerator/Utils/Mux2.vhd" "/home/ayman/Desktop/CNN_Accelerator/Utils/Reg.vhd" "/home/ayman/Desktop/CNN_Accelerator/Utils/FullAdder.vhd" "/home/ayman/Desktop/CNN_Accelerator/Utils/NBitAdder.vhd"  "/home/ayman/Desktop/CNN_Accelerator/Utils/Counter.vhd" "/home/ayman/Desktop/CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd"}
+elaborate SliceFilterController -architecture SliceFilterControllerArch
+set sdf_type combined
+pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize -extract 
+optimize .work.SliceFilterController.SliceFilterControllerArch -target tsmc035_typ -macro -delay -effort standard -hierarchy auto 
+optimize_timing .work.SliceFilterController.SliceFilterControllerArch -force 
+report_area area.rep -cell_usage -hierarchy -all_leafs 
+report_delay delay.rep -num_paths 1 -longest_path -clock_frequency
+set novendor_constraint_file FALSE
+auto_write -format Verilog SliceFilterController.v
+set novendor_constraint_file FALSE
+auto_write -format VHDL SliceFilterController.vhd
+set novendor_constraint_file FALSE
+auto_write -format SDF SliceFilterController.sdf
+
+ set wire_table "" 
+load_library tsmc035_typ
+set_working_dir /home/ayman/Desktop/CNN_Accelerator/CNN/Leonardo/ControlUnit/NetworkController
+read -technology "tsmc035_typ"  { "/home/ayman/Desktop/CNN_Accelerator/Utils/Mux2.vhd" "/home/ayman/Desktop/CNN_Accelerator/Utils/Reg.vhd" "/home/ayman/Desktop/CNN_Accelerator/Utils/FullAdder.vhd" "/home/ayman/Desktop/CNN_Accelerator/Utils/NBitAdder.vhd"  "/home/ayman/Desktop/CNN_Accelerator/Utils/Counter.vhd" "/home/ayman/Desktop/CNN_Accelerator/CNN/ControlUnit/NetworkController.vhd"}
+elaborate NetworkController -architecture NetworkControllerArch
+set sdf_type combined
+pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize -extract 
+optimize .work.NetworkController.NetworkControllerArch -target tsmc035_typ -macro -delay -effort standard -hierarchy auto 
+optimize_timing .work.NetworkController.NetworkControllerArch -force 
+report_area area.rep -cell_usage -hierarchy -all_leafs 
+report_delay delay.rep -num_paths 1 -longest_path -clock_frequency
+set novendor_constraint_file FALSE
+auto_write -format Verilog NetworkController.v
+set novendor_constraint_file FALSE
+auto_write -format VHDL NetworkController.vhd
+set novendor_constraint_file FALSE
+auto_write -format SDF NetworkController.sdf
+
+ set wire_table "" 
