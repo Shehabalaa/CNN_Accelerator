@@ -205,7 +205,7 @@ begin
     );
   
 
-    switchBaseAddressProc: PROCESS(layerFinished)
+    switchBaseAddressProc: PROCESS(layerFinished,reset)
     begin
     IF reset = '1' THEN
       ramBaseAddressSelector <= '0';

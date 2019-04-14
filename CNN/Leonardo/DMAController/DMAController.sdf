@@ -1,7 +1,7 @@
 (DELAYFILE
  (SDFVERSION "2.0")
  (DESIGN "DMAController")
- (DATE "Fri Apr 12 20:32:05 2019")
+ (DATE "Sun Apr 14 21:26:55 2019")
  (VENDOR "Exemplar Logic, Inc., Alameda")
  (PROGRAM "LeonardoSpectrum Level 3")
  (VERSION "2018a.2")
@@ -480,8 +480,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix477)
@@ -507,8 +507,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix482)
@@ -534,8 +534,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix487)
@@ -561,8 +561,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix492)
@@ -588,8 +588,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix497)
@@ -615,8 +615,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix502)
@@ -642,8 +642,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix507)
@@ -669,8 +669,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix512)
@@ -696,8 +696,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix517)
@@ -723,8 +723,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix522)
@@ -750,8 +750,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix527)
@@ -777,8 +777,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix532)
@@ -804,8 +804,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix537)
@@ -831,8 +831,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix542)
@@ -858,8 +858,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix547)
@@ -885,8 +885,8 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE ix552)
@@ -1437,13 +1437,13 @@
    (IOPATH A Y (0.07:0.07:0.07) (0.05:0.05:0.05)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE windowReadLogicEnt/ix265)
+ (INSTANCE windowReadLogicEnt/ix297)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.25:0.25:0.25) (0.15:0.15:0.15))
+   (IOPATH A0 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
    (IOPATH A1 Y (0.23:0.23:0.23) (0.14:0.14:0.14))
    (IOPATH S0 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
 (CELL
@@ -1453,14 +1453,14 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.41:0.41:0.41) (0.46:0.46:0.46))
-   (IOPATH CLK QB (0.64:0.64:0.64) (0.52:0.52:0.52))))
+   (IOPATH CLK Q (0.56:0.56:0.56) (0.58:0.58:0.58))
+   (IOPATH CLK QB (0.44:0.44:0.44) (0.34:0.34:0.34))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE windowReadLogicEnt/ix126)
+ (INSTANCE windowReadLogicEnt/ix86)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1471,25 +1471,25 @@
    (IOPATH B0 Y (0.32:0.32:0.32) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "nand03")
- (INSTANCE windowReadLogicEnt/ix79)
+ (INSTANCE windowReadLogicEnt/ix59)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.22:0.22:0.22) (0.19:0.19:0.19))
-   (IOPATH A1 Y (0.27:0.27:0.27) (0.21:0.21:0.21))
+   (IOPATH A1 Y (0.28:0.28:0.28) (0.21:0.21:0.21))
    (IOPATH A2 Y (0.32:0.32:0.32) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix141)
+ (INSTANCE windowReadLogicEnt/ix142)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.15:0.15:0.15) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix77)
+ (INSTANCE windowReadLogicEnt/ix57)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1498,7 +1498,7 @@
    (IOPATH A1 Y (0.28:0.28:0.28) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix144)
+ (INSTANCE windowReadLogicEnt/ix146)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1507,7 +1507,7 @@
    (IOPATH A1 Y (0.21:0.21:0.21) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE windowReadLogicEnt/ix106)
+ (INSTANCE windowReadLogicEnt/ix126)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1518,7 +1518,7 @@
    (IOPATH B0 Y (0.27:0.27:0.27) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE windowReadLogicEnt/ix148)
+ (INSTANCE windowReadLogicEnt/ix150)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1529,24 +1529,24 @@
    (IOPATH B0 Y (0.29:0.29:0.29) (0.18:0.18:0.18)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix31)
+ (INSTANCE windowReadLogicEnt/ix75)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.14:0.14:0.14) (0.12:0.12:0.12))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
    (IOPATH A1 Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nor03_2x")
- (INSTANCE windowReadLogicEnt/ix17)
+ (INSTANCE windowReadLogicEnt/ix65)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.20:0.20:0.20) (0.20:0.20:0.20))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.21:0.21:0.21))
    (IOPATH A1 Y (0.19:0.19:0.19) (0.19:0.19:0.19))
-   (IOPATH A2 Y (0.16:0.16:0.16) (0.14:0.14:0.14)))))
+   (IOPATH A2 Y (0.18:0.18:0.18) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE windowReadLogicEnt/reg_currentState_2)
@@ -1554,14 +1554,14 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.49:0.49:0.49) (0.53:0.53:0.53))
-   (IOPATH CLK QB (0.59:0.59:0.59) (0.48:0.48:0.48))))
+   (IOPATH CLK Q (0.50:0.50:0.50) (0.54:0.54:0.54))
+   (IOPATH CLK QB (0.63:0.63:0.63) (0.51:0.51:0.51))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE windowReadLogicEnt/ix86)
+ (INSTANCE windowReadLogicEnt/ix96)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1572,16 +1572,16 @@
    (IOPATH S0 Y (0.26:0.26:0.26) (0.18:0.18:0.18)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix155)
+ (INSTANCE windowReadLogicEnt/ix157)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.20:0.20:0.20) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.16:0.16:0.16) (0.10:0.10:0.10)))))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE windowReadLogicEnt/ix116)
+ (INSTANCE windowReadLogicEnt/ix106)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1592,36 +1592,36 @@
    (IOPATH B0 Y (0.28:0.28:0.28) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE windowReadLogicEnt/ix161)
+ (INSTANCE windowReadLogicEnt/ix164)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.18:0.18:0.18) (0.20:0.20:0.20))
-   (IOPATH A1 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.15:0.15:0.15))
    (IOPATH B0 Y (0.29:0.29:0.29) (0.18:0.18:0.18)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE windowReadLogicEnt/ix49)
+ (INSTANCE windowReadLogicEnt/ix29)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.18:0.18:0.18) (0.19:0.19:0.19))
+   (IOPATH A0 Y (0.18:0.18:0.18) (0.20:0.20:0.20))
    (IOPATH A1 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
    (IOPATH B0 Y (0.26:0.26:0.26) (0.18:0.18:0.18)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix26)
+ (INSTANCE windowReadLogicEnt/ix24)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.12:0.12:0.12) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix165)
+ (INSTANCE windowReadLogicEnt/ix168)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1630,7 +1630,7 @@
    (IOPATH A1 Y (0.12:0.12:0.12) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix167)
+ (INSTANCE windowReadLogicEnt/ix170)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1639,22 +1639,22 @@
    (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix73)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.16:0.16:0.16) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.21:0.21:0.21) (0.12:0.12:0.12)))))
-(CELL
- (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix170)
+ (INSTANCE windowReadLogicEnt/ix53)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.17:0.17:0.17) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
+   (IOPATH A1 Y (0.22:0.22:0.22) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "nand02")
+ (INSTANCE windowReadLogicEnt/ix173)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE windowReadLogicEnt/reg_currentState_0)
@@ -1662,18 +1662,18 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.49:0.49:0.49) (0.53:0.53:0.53))
-   (IOPATH CLK QB (0.50:0.50:0.50) (0.40:0.40:0.40))))
+   (IOPATH CLK Q (0.58:0.58:0.58) (0.59:0.59:0.59))
+   (IOPATH CLK QB (0.44:0.44:0.44) (0.34:0.34:0.34))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE windowReadLogicEnt/ix174)
+ (INSTANCE windowReadLogicEnt/ix178)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.21:0.21:0.21) (0.16:0.16:0.16)))))
+   (IOPATH A Y (0.22:0.22:0.22) (0.16:0.16:0.16)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE windowReadLogicEnt/reg_currentState_4)
@@ -1681,14 +1681,14 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.54:0.54:0.54) (0.57:0.57:0.57))
-   (IOPATH CLK QB (0.50:0.50:0.50) (0.40:0.40:0.40))))
+   (IOPATH CLK Q (0.57:0.57:0.57) (0.59:0.59:0.59))
+   (IOPATH CLK QB (0.47:0.47:0.47) (0.37:0.37:0.37))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE windowReadLogicEnt/ix178)
+ (INSTANCE windowReadLogicEnt/ix182)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1696,23 +1696,23 @@
    (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.19:0.19:0.19) (0.17:0.17:0.17))
    (IOPATH A1 Y (0.15:0.15:0.15) (0.13:0.13:0.13))
-   (IOPATH B0 Y (0.25:0.25:0.25) (0.21:0.21:0.21)))))
+   (IOPATH B0 Y (0.28:0.28:0.28) (0.21:0.21:0.21)))))
 (CELL
  (CELLTYPE "nand04")
- (INSTANCE windowReadLogicEnt/ix180)
+ (INSTANCE windowReadLogicEnt/ix184)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A3 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.13:0.13:0.13) (0.14:0.14:0.14))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.15:0.15:0.15))
    (IOPATH A1 Y (0.18:0.18:0.18) (0.16:0.16:0.16))
    (IOPATH A2 Y (0.27:0.27:0.27) (0.16:0.16:0.16))
    (IOPATH A3 Y (0.21:0.21:0.21) (0.18:0.18:0.18)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix182)
+ (INSTANCE windowReadLogicEnt/ix186)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1721,14 +1721,14 @@
    (IOPATH A1 Y (0.15:0.15:0.15) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix184)
+ (INSTANCE windowReadLogicEnt/ix188)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.20:0.20:0.20)))))
+   (IOPATH A Y (0.39:0.39:0.39) (0.25:0.25:0.25)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE windowReadLogicEnt/ix186)
+ (INSTANCE windowReadLogicEnt/ix190)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1739,7 +1739,7 @@
    (IOPATH B0 Y (0.23:0.23:0.23) (0.19:0.19:0.19)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE windowReadLogicEnt/ix96)
+ (INSTANCE windowReadLogicEnt/ix116)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1762,7 +1762,7 @@
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "nand03")
- (INSTANCE windowReadLogicEnt/ix192)
+ (INSTANCE windowReadLogicEnt/ix196)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -1773,31 +1773,31 @@
    (IOPATH A2 Y (0.16:0.16:0.16) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix65)
+ (INSTANCE windowReadLogicEnt/ix45)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.11:0.11:0.11))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.13:0.13:0.13))
    (IOPATH A1 Y (0.10:0.10:0.10) (0.08:0.08:0.08)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix89)
+ (INSTANCE windowReadLogicEnt/ix97)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.35:0.35:0.35) (0.28:0.28:0.28))
-   (IOPATH A1 Y (0.43:0.43:0.43) (0.28:0.28:0.28)))))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.19:0.19:0.19) (0.08:0.08:0.08)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix199)
+ (INSTANCE windowReadLogicEnt/ix204)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.08:0.08:0.08) (0.07:0.07:0.07))
-   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_0)
@@ -1811,6 +1811,22 @@
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix137)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix208)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_1)
  (DELAY
@@ -1822,6 +1838,22 @@
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix145)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix213)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_2)
@@ -1835,6 +1867,22 @@
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix153)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix218)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_3)
  (DELAY
@@ -1846,6 +1894,22 @@
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix161)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix222)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_4)
@@ -1859,6 +1923,22 @@
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix169)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix226)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_5)
  (DELAY
@@ -1870,6 +1950,22 @@
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix177)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix230)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_6)
@@ -1883,6 +1979,22 @@
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix185)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix234)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_7)
  (DELAY
@@ -1894,6 +2006,22 @@
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix193)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix238)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_8)
@@ -1907,6 +2035,22 @@
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix201)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix242)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_9)
  (DELAY
@@ -1918,6 +2062,22 @@
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix209)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix246)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_10)
@@ -1931,6 +2091,22 @@
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix217)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix250)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_11)
  (DELAY
@@ -1943,6 +2119,22 @@
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix225)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix254)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_12)
  (DELAY
@@ -1950,10 +2142,26 @@
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.34:0.34:0.34))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix233)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix258)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_13)
@@ -1962,10 +2170,26 @@
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
-   (IOPATH CLK Q (0.24:0.24:0.24) (0.34:0.34:0.34))))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.34:0.34:0.34))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix241)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix262)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_14)
@@ -1974,10 +2198,26 @@
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
-   (IOPATH CLK Q (0.24:0.24:0.24) (0.34:0.34:0.34))))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.34:0.34:0.34))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix249)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix266)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_addressRegIn_15)
@@ -1990,6 +2230,22 @@
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix257)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE windowReadLogicEnt/ix271)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE windowReadLogicEnt/lat_dmaCountIn_0)
@@ -2004,7 +2260,7 @@
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix235)
+ (INSTANCE windowReadLogicEnt/ix267)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2013,19 +2269,19 @@
    (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix219)
+ (INSTANCE windowReadLogicEnt/ix276)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.09:0.09:0.09) (0.06:0.06:0.06)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix27)
+ (INSTANCE windowReadLogicEnt/ix25)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.23:0.23:0.23) (0.20:0.20:0.20))
+   (IOPATH A0 Y (0.24:0.24:0.24) (0.21:0.21:0.21))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.16:0.16:0.16)))))
 (CELL
  (CELLTYPE "latch")
@@ -2041,16 +2297,16 @@
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix243)
+ (INSTANCE windowReadLogicEnt/ix275)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix224)
+ (INSTANCE windowReadLogicEnt/ix281)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2069,16 +2325,16 @@
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix251)
+ (INSTANCE windowReadLogicEnt/ix283)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix228)
+ (INSTANCE windowReadLogicEnt/ix286)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2090,56 +2346,62 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.44:0.44:0.44) (0.50:0.50:0.50))
-   (IOPATH CLK QB (0.54:0.54:0.54) (0.44:0.44:0.44))))
+   (IOPATH CLK Q (0.45:0.45:0.45) (0.51:0.51:0.51))
+   (IOPATH CLK QB (0.55:0.55:0.55) (0.45:0.45:0.45))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix103)
+ (CELLTYPE "nand03")
+ (INSTANCE windowReadLogicEnt/ix105)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.14:0.14:0.14) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
+   (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.16:0.16:0.16) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH A2 Y (0.20:0.20:0.20) (0.16:0.16:0.16)))))
+(CELL
+ (CELLTYPE "oai22")
+ (INSTANCE windowReadLogicEnt/ix101)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT B1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.28:0.28:0.28) (0.29:0.29:0.29))
+   (IOPATH A1 Y (0.25:0.25:0.25) (0.23:0.23:0.23))
+   (IOPATH B0 Y (0.33:0.33:0.33) (0.28:0.28:0.28))
+   (IOPATH B1 Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix97)
+ (INSTANCE windowReadLogicEnt/ix95)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.22:0.22:0.22) (0.20:0.20:0.20))
-   (IOPATH A1 Y (0.21:0.21:0.21) (0.15:0.15:0.15)))))
-(CELL
- (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix234)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
-(CELL
- (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix93)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
+   (IOPATH A0 Y (0.17:0.17:0.17) (0.17:0.17:0.17))
+   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE windowReadLogicEnt/ix238)
+ (INSTANCE windowReadLogicEnt/ix294)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.11:0.11:0.11)))))
+(CELL
+ (CELLTYPE "nand02")
+ (INSTANCE windowReadLogicEnt/ix296)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.17:0.17:0.17) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.19:0.19:0.19) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE windowReadLogicEnt/aluNumberCounter_counterReg_reg_Q_1)
@@ -2147,20 +2409,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.40:0.40:0.40) (0.46:0.46:0.46))
-   (IOPATH CLK QB (0.53:0.53:0.53) (0.43:0.43:0.43))))
+   (IOPATH CLK Q (0.41:0.41:0.41) (0.48:0.48:0.48))
+   (IOPATH CLK QB (0.54:0.54:0.54) (0.45:0.45:0.45))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "nor02_2x")
+ (CELLTYPE "nand02")
  (INSTANCE windowReadLogicEnt/ix115)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.16:0.16:0.16) (0.14:0.14:0.14))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
+   (IOPATH A0 Y (0.16:0.16:0.16) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.21:0.21:0.21) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE windowReadLogicEnt/aluNumberCounter_counterReg_reg_Q_2)
@@ -2168,29 +2430,29 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.46:0.46:0.46) (0.51:0.51:0.51))
-   (IOPATH CLK QB (0.43:0.43:0.43) (0.34:0.34:0.34))))
+   (IOPATH CLK Q (0.47:0.47:0.47) (0.53:0.53:0.53))
+   (IOPATH CLK QB (0.44:0.44:0.44) (0.36:0.36:0.36))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "nor02_2x")
- (INSTANCE windowReadLogicEnt/ix129)
+ (CELLTYPE "nand02")
+ (INSTANCE windowReadLogicEnt/ix127)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.16:0.16:0.16) (0.14:0.14:0.14))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
+   (IOPATH A0 Y (0.16:0.16:0.16) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.20:0.20:0.20) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "xnor2")
- (INSTANCE windowReadLogicEnt/ix249)
+ (INSTANCE windowReadLogicEnt/ix306)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.17:0.17:0.17) (0.19:0.19:0.19))
-   (IOPATH A1 Y (0.16:0.16:0.16) (0.16:0.16:0.16)))))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.17:0.17:0.17))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.14:0.14:0.14)))))
 (CELL
  (CELLTYPE "nor02_2x")
  (INSTANCE windowReadLogicEnt/ix123)
@@ -2202,28 +2464,49 @@
    (IOPATH A1 Y (0.17:0.17:0.17) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE windowReadLogicEnt/ix256)
+ (INSTANCE windowReadLogicEnt/ix313)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.32:0.32:0.32) (0.25:0.25:0.25)))))
+   (IOPATH A Y (0.30:0.30:0.30) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE windowReadLogicEnt/ix258)
+ (INSTANCE windowReadLogicEnt/ix315)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.34:0.34:0.34) (0.26:0.26:0.26)))))
+   (IOPATH A Y (0.31:0.31:0.31) (0.25:0.25:0.25)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE windowReadLogicEnt/ix260)
+ (INSTANCE windowReadLogicEnt/ix317)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.21:0.21:0.21) (0.15:0.15:0.15)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.17:0.17:0.17)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE windowReadLogicEnt/ix319)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.30:0.30:0.30) (0.24:0.24:0.24)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE windowReadLogicEnt/ix321)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.35:0.35:0.35) (0.28:0.28:0.28)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE windowReadLogicEnt/ix323)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.34:0.34:0.34) (0.27:0.27:0.27)))))
 (CELL
  (CELLTYPE "nand04")
- (INSTANCE windowReadLogicEnt/ix102)
+ (INSTANCE windowReadLogicEnt/ix122)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2236,44 +2519,53 @@
    (IOPATH A3 Y (0.21:0.21:0.21) (0.18:0.18:0.18)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix267)
+ (INSTANCE windowReadLogicEnt/ix331)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix269)
+ (INSTANCE windowReadLogicEnt/ix333)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+   (IOPATH A Y (0.16:0.16:0.16) (0.11:0.11:0.11)))))
 (CELL
- (CELLTYPE "xnor2")
- (INSTANCE windowReadLogicEnt/ix244)
+ (CELLTYPE "nor02_2x")
+ (INSTANCE windowReadLogicEnt/ix291)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.19:0.19:0.19) (0.21:0.21:0.21))
-   (IOPATH A1 Y (0.17:0.17:0.17) (0.16:0.16:0.16)))))
+   (IOPATH A0 Y (0.18:0.18:0.18) (0.15:0.15:0.15))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.13:0.13:0.13)))))
+(CELL
+ (CELLTYPE "xnor2")
+ (INSTANCE windowReadLogicEnt/ix301)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.17:0.17:0.17) (0.19:0.19:0.19))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix271)
+ (INSTANCE windowReadLogicEnt/ix335)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.45:0.45:0.45) (0.34:0.34:0.34)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE windowReadLogicEnt/ix273)
+ (INSTANCE windowReadLogicEnt/ix337)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.18:0.18:0.18) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix371)
+ (INSTANCE filterReadLogicEnt/ix403)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2287,14 +2579,14 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.42:0.42:0.42) (0.48:0.48:0.48))
-   (IOPATH CLK QB (0.66:0.66:0.66) (0.54:0.54:0.54))))
+   (IOPATH CLK Q (0.57:0.57:0.57) (0.59:0.59:0.59))
+   (IOPATH CLK QB (0.45:0.45:0.45) (0.36:0.36:0.36))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE filterReadLogicEnt/ix104)
+ (INSTANCE filterReadLogicEnt/ix94)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2305,43 +2597,43 @@
    (IOPATH B0 Y (0.27:0.27:0.27) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "nand03")
- (INSTANCE filterReadLogicEnt/ix57)
+ (INSTANCE filterReadLogicEnt/ix61)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.18:0.18:0.18) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.22:0.22:0.22) (0.17:0.17:0.17))
-   (IOPATH A2 Y (0.27:0.27:0.27) (0.16:0.16:0.16)))))
+   (IOPATH A1 Y (0.23:0.23:0.23) (0.17:0.17:0.17))
+   (IOPATH A2 Y (0.28:0.28:0.28) (0.16:0.16:0.16)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix144)
+ (INSTANCE filterReadLogicEnt/ix142)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix55)
+ (INSTANCE filterReadLogicEnt/ix59)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.18:0.18:0.18) (0.15:0.15:0.15))
+   (IOPATH A0 Y (0.19:0.19:0.19) (0.15:0.15:0.15))
    (IOPATH A1 Y (0.24:0.24:0.24) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix148)
+ (INSTANCE filterReadLogicEnt/ix146)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.16:0.16:0.16) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
+   (IOPATH A1 Y (0.20:0.20:0.20) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix94)
+ (INSTANCE filterReadLogicEnt/ix124)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2352,14 +2644,14 @@
    (IOPATH S0 Y (0.23:0.23:0.23) (0.16:0.16:0.16)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix154)
+ (INSTANCE filterReadLogicEnt/ix152)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix9)
+ (INSTANCE filterReadLogicEnt/ix65)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2368,7 +2660,7 @@
    (IOPATH A1 Y (0.12:0.12:0.12) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE filterReadLogicEnt/ix158)
+ (INSTANCE filterReadLogicEnt/ix156)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2379,14 +2671,14 @@
    (IOPATH B0 Y (0.23:0.23:0.23) (0.19:0.19:0.19)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix124)
+ (INSTANCE filterReadLogicEnt/ix104)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.29:0.29:0.29) (0.18:0.18:0.18))
-   (IOPATH A1 Y (0.29:0.29:0.29) (0.17:0.17:0.17))
+   (IOPATH A1 Y (0.29:0.29:0.29) (0.18:0.18:0.18))
    (IOPATH S0 Y (0.25:0.25:0.25) (0.17:0.17:0.17)))))
 (CELL
  (CELLTYPE "dff")
@@ -2395,30 +2687,30 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.51:0.51:0.51) (0.56:0.56:0.56))
+   (IOPATH CLK Q (0.52:0.52:0.52) (0.56:0.56:0.56))
    (IOPATH CLK QB (0.59:0.59:0.59) (0.48:0.48:0.48))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix164)
+ (INSTANCE filterReadLogicEnt/ix162)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.36:0.36:0.36) (0.24:0.24:0.24)))))
+   (IOPATH A Y (0.38:0.38:0.38) (0.25:0.25:0.25)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix166)
+ (INSTANCE filterReadLogicEnt/ix164)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.17:0.17:0.17) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.16:0.16:0.16) (0.10:0.10:0.10)))))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix168)
+ (INSTANCE filterReadLogicEnt/ix166)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2436,7 +2728,7 @@
    (IOPATH B0 Y (0.27:0.27:0.27) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix174)
+ (INSTANCE filterReadLogicEnt/ix172)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2445,7 +2737,7 @@
    (IOPATH A1 Y (0.18:0.18:0.18) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand03")
- (INSTANCE filterReadLogicEnt/ix29)
+ (INSTANCE filterReadLogicEnt/ix33)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2453,10 +2745,10 @@
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
    (IOPATH A1 Y (0.21:0.21:0.21) (0.12:0.12:0.12))
-   (IOPATH A2 Y (0.22:0.22:0.22) (0.12:0.12:0.12)))))
+   (IOPATH A2 Y (0.21:0.21:0.21) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "nand03")
- (INSTANCE filterReadLogicEnt/ix178)
+ (INSTANCE filterReadLogicEnt/ix176)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2467,7 +2759,7 @@
    (IOPATH A2 Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix180)
+ (INSTANCE filterReadLogicEnt/ix178)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2476,7 +2768,7 @@
    (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE filterReadLogicEnt/ix182)
+ (INSTANCE filterReadLogicEnt/ix180)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2488,14 +2780,14 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.50:0.50:0.50) (0.55:0.55:0.55))
-   (IOPATH CLK QB (0.58:0.58:0.58) (0.47:0.47:0.47))))
+   (IOPATH CLK Q (0.52:0.52:0.52) (0.56:0.56:0.56))
+   (IOPATH CLK QB (0.54:0.54:0.54) (0.44:0.44:0.44))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix186)
+ (INSTANCE filterReadLogicEnt/ix184)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2504,22 +2796,22 @@
    (IOPATH A1 Y (0.17:0.17:0.17) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix51)
+ (INSTANCE filterReadLogicEnt/ix55)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.16:0.16:0.16) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.21:0.21:0.21) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.17:0.17:0.17) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.22:0.22:0.22) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix190)
+ (INSTANCE filterReadLogicEnt/ix188)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.21:0.21:0.21) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.20:0.20:0.20) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE filterReadLogicEnt/reg_currentState_0)
@@ -2527,14 +2819,14 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.50:0.50:0.50) (0.54:0.54:0.54))
-   (IOPATH CLK QB (0.47:0.47:0.47) (0.37:0.37:0.37))))
+   (IOPATH CLK Q (0.59:0.59:0.59) (0.61:0.61:0.61))
+   (IOPATH CLK QB (0.45:0.45:0.45) (0.36:0.36:0.36))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE filterReadLogicEnt/ix194)
+ (INSTANCE filterReadLogicEnt/ix192)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2542,23 +2834,23 @@
    (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.19:0.19:0.19) (0.17:0.17:0.17))
    (IOPATH A1 Y (0.15:0.15:0.15) (0.13:0.13:0.13))
-   (IOPATH B0 Y (0.25:0.25:0.25) (0.21:0.21:0.21)))))
+   (IOPATH B0 Y (0.28:0.28:0.28) (0.21:0.21:0.21)))))
 (CELL
  (CELLTYPE "nand04")
- (INSTANCE filterReadLogicEnt/ix196)
+ (INSTANCE filterReadLogicEnt/ix194)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A3 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.13:0.13:0.13) (0.14:0.14:0.14))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.15:0.15:0.15))
    (IOPATH A1 Y (0.18:0.18:0.18) (0.16:0.16:0.16))
    (IOPATH A2 Y (0.23:0.23:0.23) (0.17:0.17:0.17))
    (IOPATH A3 Y (0.20:0.20:0.20) (0.18:0.18:0.18)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix198)
+ (INSTANCE filterReadLogicEnt/ix196)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2567,126 +2859,126 @@
    (IOPATH A1 Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix202)
+ (INSTANCE filterReadLogicEnt/ix200)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix204)
+ (INSTANCE filterReadLogicEnt/ix202)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.14:0.14:0.14) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix210)
+ (INSTANCE filterReadLogicEnt/ix208)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix212)
+ (INSTANCE filterReadLogicEnt/ix210)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
+ (INSTANCE filterReadLogicEnt/ix214)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix216)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix218)
+ (INSTANCE filterReadLogicEnt/ix220)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix222)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix224)
+ (INSTANCE filterReadLogicEnt/ix226)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix228)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix230)
+ (INSTANCE filterReadLogicEnt/ix232)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix234)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix236)
+ (INSTANCE filterReadLogicEnt/ix238)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix240)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix242)
+ (INSTANCE filterReadLogicEnt/ix244)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix246)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
-(CELL
- (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix248)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix251)
+ (INSTANCE filterReadLogicEnt/ix250)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix253)
+ (INSTANCE filterReadLogicEnt/ix252)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -2697,7 +2989,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix258)
@@ -2711,95 +3003,95 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix263)
+ (INSTANCE filterReadLogicEnt/ix264)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix266)
+ (INSTANCE filterReadLogicEnt/ix267)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix268)
+ (INSTANCE filterReadLogicEnt/ix269)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix271)
+ (INSTANCE filterReadLogicEnt/ix272)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix273)
+ (INSTANCE filterReadLogicEnt/ix274)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix276)
+ (INSTANCE filterReadLogicEnt/ix277)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix278)
+ (INSTANCE filterReadLogicEnt/ix280)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
-(CELL
- (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix281)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix283)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.12:0.12:0.12) (0.09:0.09:0.09)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix286)
+ (INSTANCE filterReadLogicEnt/ix285)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.10:0.10:0.10) (0.07:0.07:0.07)))))
+   (IOPATH A Y (0.12:0.12:0.12) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/ix288)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE filterReadLogicEnt/ix290)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE filterReadLogicEnt/ix71)
+ (INSTANCE filterReadLogicEnt/ix79)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.33:0.33:0.33) (0.33:0.33:0.33))
-   (IOPATH A1 Y (0.32:0.32:0.32) (0.28:0.28:0.28))
-   (IOPATH B0 Y (0.43:0.43:0.43) (0.31:0.31:0.31)))))
+   (IOPATH A0 Y (0.16:0.16:0.16) (0.18:0.18:0.18))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.13:0.13:0.13))
+   (IOPATH B0 Y (0.25:0.25:0.25) (0.17:0.17:0.17)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_0)
@@ -2807,11 +3099,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
    (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix247)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_1)
@@ -2819,11 +3120,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
    (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix255)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_2)
@@ -2831,11 +3141,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
    (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix263)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_3)
@@ -2843,11 +3162,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
    (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix271)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_4)
@@ -2855,11 +3183,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
    (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix279)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_5)
@@ -2867,11 +3204,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
    (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix287)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_6)
@@ -2879,11 +3225,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.36:0.36:0.36))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix295)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_7)
@@ -2891,11 +3246,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.36:0.36:0.36))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix303)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_8)
@@ -2903,11 +3267,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.36:0.36:0.36))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix311)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_9)
@@ -2915,11 +3288,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.36:0.36:0.36))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix319)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_10)
@@ -2927,11 +3309,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.36:0.36:0.36))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix327)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_11)
@@ -2939,11 +3330,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.36:0.36:0.36))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix335)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_12)
@@ -2951,11 +3351,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.36:0.36:0.36))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix343)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_13)
@@ -2963,11 +3372,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.24:0.24:0.24) (0.34:0.34:0.34))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix351)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_14)
@@ -2975,11 +3393,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
+   (IOPATH D Q (0.27:0.27:0.27) (0.32:0.32:0.32))
+   (IOPATH CLK Q (0.24:0.24:0.24) (0.34:0.34:0.34))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix359)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_addressRegIn_15)
@@ -2987,11 +3414,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.27:0.27:0.27) (0.31:0.31:0.31))
-   (IOPATH CLK Q (0.27:0.27:0.27) (0.36:0.36:0.36))))
+   (IOPATH D Q (0.28:0.28:0.28) (0.33:0.33:0.33))
+   (IOPATH CLK Q (0.26:0.26:0.26) (0.36:0.36:0.36))))
  (TIMINGCHECK
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE filterReadLogicEnt/ix367)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "latch")
  (INSTANCE filterReadLogicEnt/lat_dmaCountIn_0)
@@ -3006,7 +3442,7 @@
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix345)
+ (INSTANCE filterReadLogicEnt/ix377)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -3015,14 +3451,14 @@
    (IOPATH A1 Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix309)
+ (INSTANCE filterReadLogicEnt/ix332)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.09:0.09:0.09) (0.06:0.06:0.06)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix5)
+ (INSTANCE filterReadLogicEnt/ix25)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -3043,7 +3479,7 @@
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix353)
+ (INSTANCE filterReadLogicEnt/ix385)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -3052,7 +3488,7 @@
    (IOPATH A1 Y (0.15:0.15:0.15) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix314)
+ (INSTANCE filterReadLogicEnt/ix338)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -3071,7 +3507,7 @@
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix361)
+ (INSTANCE filterReadLogicEnt/ix393)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -3080,7 +3516,7 @@
    (IOPATH A1 Y (0.15:0.15:0.15) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE filterReadLogicEnt/ix318)
+ (INSTANCE filterReadLogicEnt/ix342)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -3092,67 +3528,71 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.46:0.46:0.46) (0.52:0.52:0.52))
-   (IOPATH CLK QB (0.54:0.54:0.54) (0.45:0.45:0.45))))
+   (IOPATH CLK Q (0.45:0.45:0.45) (0.51:0.51:0.51))
+   (IOPATH CLK QB (0.55:0.55:0.55) (0.46:0.46:0.46))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "nor03_2x")
- (INSTANCE filterReadLogicEnt/ix85)
+ (CELLTYPE "nand03")
+ (INSTANCE filterReadLogicEnt/ix87)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.20:0.20:0.20) (0.17:0.17:0.17))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.18:0.18:0.18))
-   (IOPATH A2 Y (0.15:0.15:0.15) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.16:0.16:0.16))
+   (IOPATH A1 Y (0.20:0.20:0.20) (0.15:0.15:0.15))
+   (IOPATH A2 Y (0.20:0.20:0.20) (0.16:0.16:0.16)))))
 (CELL
- (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix69)
+ (CELLTYPE "oai22")
+ (INSTANCE filterReadLogicEnt/ix83)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.17:0.17:0.17) (0.17:0.17:0.17))
-   (IOPATH A1 Y (0.17:0.17:0.17) (0.13:0.13:0.13)))))
+   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT B1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.30:0.30:0.30) (0.33:0.33:0.33))
+   (IOPATH A1 Y (0.26:0.26:0.26) (0.23:0.23:0.23))
+   (IOPATH B0 Y (0.33:0.33:0.33) (0.28:0.28:0.28))
+   (IOPATH B1 Y (0.33:0.33:0.33) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix79)
+ (INSTANCE filterReadLogicEnt/ix348)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.23:0.23:0.23) (0.23:0.23:0.23))
-   (IOPATH A1 Y (0.21:0.21:0.21) (0.15:0.15:0.15)))))
+   (IOPATH A0 Y (0.18:0.18:0.18) (0.16:0.16:0.16))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix324)
+ (INSTANCE filterReadLogicEnt/ix21)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.13:0.13:0.13))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
-(CELL
- (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix75)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
-   (IOPATH A1 Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
+   (IOPATH A0 Y (0.16:0.16:0.16) (0.15:0.15:0.15))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE filterReadLogicEnt/ix327)
+ (INSTANCE filterReadLogicEnt/ix352)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.09:0.09:0.09))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.11:0.11:0.11)))))
+(CELL
+ (CELLTYPE "nand02")
+ (INSTANCE filterReadLogicEnt/ix354)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.17:0.17:0.17) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE filterReadLogicEnt/aluNumberCounter_counterReg_reg_Q_1)
@@ -3160,20 +3600,20 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.40:0.40:0.40) (0.47:0.47:0.47))
-   (IOPATH CLK QB (0.53:0.53:0.53) (0.44:0.44:0.44))))
+   (IOPATH CLK Q (0.41:0.41:0.41) (0.48:0.48:0.48))
+   (IOPATH CLK QB (0.54:0.54:0.54) (0.45:0.45:0.45))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "nor02_2x")
+ (CELLTYPE "nand02")
  (INSTANCE filterReadLogicEnt/ix97)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.16:0.16:0.16) (0.14:0.14:0.14))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
+   (IOPATH A0 Y (0.17:0.17:0.17) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.21:0.21:0.21) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE filterReadLogicEnt/aluNumberCounter_counterReg_reg_Q_2)
@@ -3181,29 +3621,29 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.46:0.46:0.46) (0.52:0.52:0.52))
-   (IOPATH CLK QB (0.43:0.43:0.43) (0.35:0.35:0.35))))
+   (IOPATH CLK Q (0.47:0.47:0.47) (0.53:0.53:0.53))
+   (IOPATH CLK QB (0.44:0.44:0.44) (0.36:0.36:0.36))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix111)
+ (CELLTYPE "nand02")
+ (INSTANCE filterReadLogicEnt/ix109)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.16:0.16:0.16) (0.14:0.14:0.14))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
+   (IOPATH A0 Y (0.17:0.17:0.17) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.20:0.20:0.20) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "xnor2")
- (INSTANCE filterReadLogicEnt/ix337)
+ (INSTANCE filterReadLogicEnt/ix365)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.17:0.17:0.17) (0.19:0.19:0.19))
-   (IOPATH A1 Y (0.16:0.16:0.16) (0.16:0.16:0.16)))))
+   (IOPATH A0 Y (0.15:0.15:0.15) (0.17:0.17:0.17))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.14:0.14:0.14)))))
 (CELL
  (CELLTYPE "nor02_2x")
  (INSTANCE filterReadLogicEnt/ix105)
@@ -3215,46 +3655,67 @@
    (IOPATH A1 Y (0.17:0.17:0.17) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE filterReadLogicEnt/ix346)
+ (INSTANCE filterReadLogicEnt/ix372)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.32:0.32:0.32) (0.25:0.25:0.25)))))
+   (IOPATH A Y (0.29:0.29:0.29) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE filterReadLogicEnt/ix348)
+ (INSTANCE filterReadLogicEnt/ix374)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.34:0.34:0.34) (0.27:0.27:0.27)))))
+   (IOPATH A Y (0.31:0.31:0.31) (0.25:0.25:0.25)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE filterReadLogicEnt/ix350)
+ (INSTANCE filterReadLogicEnt/ix376)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.26:0.26:0.26) (0.20:0.20:0.20)))))
+   (IOPATH A Y (0.18:0.18:0.18) (0.14:0.14:0.14)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE filterReadLogicEnt/ix358)
+ (INSTANCE filterReadLogicEnt/ix378)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.19:0.19:0.19) (0.14:0.14:0.14)))))
+   (IOPATH A Y (0.31:0.31:0.31) (0.25:0.25:0.25)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE filterReadLogicEnt/ix380)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.35:0.35:0.35) (0.28:0.28:0.28)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE filterReadLogicEnt/ix382)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.33:0.33:0.33) (0.26:0.26:0.26)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE filterReadLogicEnt/ix390)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.21:0.21:0.21) (0.16:0.16:0.16)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix125)
+ (INSTANCE filterReadLogicEnt/ix123)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE filterReadLogicEnt/ix206)
+ (INSTANCE filterReadLogicEnt/ix204)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -3263,274 +3724,356 @@
    (IOPATH A1 Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix133)
+ (INSTANCE filterReadLogicEnt/ix131)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix141)
+ (INSTANCE filterReadLogicEnt/ix139)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix149)
+ (INSTANCE filterReadLogicEnt/ix147)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix157)
+ (INSTANCE filterReadLogicEnt/ix155)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix165)
+ (INSTANCE filterReadLogicEnt/ix163)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix173)
+ (INSTANCE filterReadLogicEnt/ix171)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix181)
+ (INSTANCE filterReadLogicEnt/ix179)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix189)
+ (INSTANCE filterReadLogicEnt/ix187)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix197)
+ (INSTANCE filterReadLogicEnt/ix195)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix205)
+ (INSTANCE filterReadLogicEnt/ix203)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix213)
+ (INSTANCE filterReadLogicEnt/ix211)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix221)
+ (INSTANCE filterReadLogicEnt/ix219)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix229)
+ (INSTANCE filterReadLogicEnt/ix227)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH S0 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH S0 Y (0.23:0.23:0.23) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix237)
+ (INSTANCE filterReadLogicEnt/ix235)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
    (IOPATH S0 Y (0.18:0.18:0.18) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE filterReadLogicEnt/ix245)
+ (INSTANCE filterReadLogicEnt/ix243)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.15:0.15:0.15))
+   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
    (IOPATH S0 Y (0.18:0.18:0.18) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "xnor2")
- (INSTANCE filterReadLogicEnt/ix332)
+ (INSTANCE filterReadLogicEnt/ix360)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.19:0.19:0.19) (0.21:0.21:0.21))
-   (IOPATH A1 Y (0.17:0.17:0.17) (0.16:0.16:0.16)))))
+   (IOPATH A0 Y (0.17:0.17:0.17) (0.19:0.19:0.19))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.15:0.15:0.15)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE filterReadLogicEnt/ix365)
+ (INSTANCE filterReadLogicEnt/ix397)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.33:0.33:0.33) (0.26:0.26:0.26)))))
+   (IOPATH A Y (0.34:0.34:0.34) (0.27:0.27:0.27)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE filterReadLogicEnt/ix367)
+ (INSTANCE filterReadLogicEnt/ix399)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.33:0.33:0.33) (0.26:0.26:0.26)))))
+   (IOPATH A Y (0.34:0.34:0.34) (0.27:0.27:0.27)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE filterReadLogicEnt/ix369)
+ (INSTANCE filterReadLogicEnt/ix401)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.15:0.15:0.15) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE writeLogicEnt/ix107)
+ (INSTANCE writeLogicEnt/ix81)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
-   (IOPATH A1 Y (0.12:0.12:0.12) (0.09:0.09:0.09)))))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.17:0.17:0.17))
+   (IOPATH A1 Y (0.21:0.21:0.21) (0.16:0.16:0.16)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/ix137)
+ (INSTANCE writeLogicEnt/ix124)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
 (CELL
- (CELLTYPE "oai22")
- (INSTANCE writeLogicEnt/ix116)
+ (CELLTYPE "mux21")
+ (INSTANCE writeLogicEnt/ix100)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.29:0.29:0.29) (0.18:0.18:0.18))
+   (IOPATH A1 Y (0.29:0.29:0.29) (0.18:0.18:0.18))
+   (IOPATH S0 Y (0.25:0.25:0.25) (0.18:0.18:0.18)))))
+(CELL
+ (CELLTYPE "nand02")
+ (INSTANCE writeLogicEnt/ix129)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix131)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.42:0.42:0.42) (0.31:0.31:0.31)))))
+(CELL
+ (CELLTYPE "mux21")
+ (INSTANCE writeLogicEnt/ix90)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.29:0.29:0.29) (0.18:0.18:0.18))
+   (IOPATH A1 Y (0.28:0.28:0.28) (0.18:0.18:0.18))
+   (IOPATH S0 Y (0.25:0.25:0.25) (0.18:0.18:0.18)))))
+(CELL
+ (CELLTYPE "nand02")
+ (INSTANCE writeLogicEnt/ix135)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.11:0.11:0.11)))))
+(CELL
+ (CELLTYPE "mux21")
+ (INSTANCE writeLogicEnt/ix79)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.29:0.29:0.29) (0.18:0.18:0.18))
+   (IOPATH A1 Y (0.30:0.30:0.30) (0.18:0.18:0.18))
+   (IOPATH S0 Y (0.25:0.25:0.25) (0.18:0.18:0.18)))))
+(CELL
+ (CELLTYPE "nand02")
+ (INSTANCE writeLogicEnt/ix139)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+(CELL
+ (CELLTYPE "mux21")
+ (INSTANCE writeLogicEnt/ix69)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.29:0.29:0.29) (0.18:0.18:0.18))
+   (IOPATH A1 Y (0.28:0.28:0.28) (0.17:0.17:0.17))
+   (IOPATH S0 Y (0.25:0.25:0.25) (0.18:0.18:0.18)))))
+(CELL
+ (CELLTYPE "oai21")
+ (INSTANCE writeLogicEnt/ix143)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.21:0.21:0.21) (0.23:0.23:0.23))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.19:0.19:0.19))
-   (IOPATH B0 Y (0.27:0.27:0.27) (0.23:0.23:0.23))
-   (IOPATH B1 Y (0.27:0.27:0.27) (0.19:0.19:0.19)))))
+   (IOPATH A0 Y (0.19:0.19:0.19) (0.21:0.21:0.21))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.13:0.13:0.13))
+   (IOPATH B0 Y (0.29:0.29:0.29) (0.19:0.19:0.19)))))
+(CELL
+ (CELLTYPE "oai21")
+ (INSTANCE writeLogicEnt/ix110)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.21:0.21:0.21))
+   (IOPATH A1 Y (0.20:0.20:0.20) (0.17:0.17:0.17))
+   (IOPATH B0 Y (0.31:0.31:0.31) (0.20:0.20:0.20)))))
+(CELL
+ (CELLTYPE "dff")
+ (INSTANCE writeLogicEnt/reg_currentState_1)
+ (DELAY
+  (ABSOLUTE
+   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH CLK Q (0.42:0.42:0.42) (0.48:0.48:0.48))
+   (IOPATH CLK QB (0.60:0.60:0.60) (0.49:0.49:0.49))))
+ (TIMINGCHECK
+   (SETUP D (posedge CLK) (0.19))
+   (HOLD D (posedge CLK) (-0.03))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix149)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.35:0.35:0.35) (0.23:0.23:0.23)))))
 (CELL
  (CELLTYPE "nand04")
- (INSTANCE writeLogicEnt/ix37)
+ (INSTANCE writeLogicEnt/ix45)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A3 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH A1 Y (0.28:0.28:0.28) (0.26:0.26:0.26))
-   (IOPATH A2 Y (0.30:0.30:0.30) (0.26:0.26:0.26))
-   (IOPATH A3 Y (0.32:0.32:0.32) (0.27:0.27:0.27)))))
+   (IOPATH A0 Y (0.14:0.14:0.14) (0.15:0.15:0.15))
+   (IOPATH A1 Y (0.23:0.23:0.23) (0.17:0.17:0.17))
+   (IOPATH A2 Y (0.20:0.20:0.20) (0.18:0.18:0.18))
+   (IOPATH A3 Y (0.23:0.23:0.23) (0.18:0.18:0.18)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE writeLogicEnt/ix143)
+ (INSTANCE writeLogicEnt/ix152)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.16:0.16:0.16) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.21:0.21:0.21) (0.15:0.15:0.15)))))
-(CELL
- (CELLTYPE "oai22")
- (INSTANCE writeLogicEnt/ix86)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.22:0.22:0.22) (0.27:0.27:0.27))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.16:0.16:0.16))
-   (IOPATH B0 Y (0.26:0.26:0.26) (0.22:0.22:0.22))
-   (IOPATH B1 Y (0.29:0.29:0.29) (0.19:0.19:0.19)))))
-(CELL
- (CELLTYPE "aoi21")
- (INSTANCE writeLogicEnt/ix147)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.44:0.44:0.44) (0.22:0.22:0.22))
-   (IOPATH A1 Y (0.48:0.48:0.48) (0.21:0.21:0.21))
-   (IOPATH B0 Y (0.29:0.29:0.29) (0.22:0.22:0.22)))))
+   (IOPATH A1 Y (0.18:0.18:0.18) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE writeLogicEnt/reg_currentState_4)
@@ -3538,36 +4081,29 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.51:0.51:0.51) (0.55:0.55:0.55))
-   (IOPATH CLK QB (0.58:0.58:0.58) (0.47:0.47:0.47))))
+   (IOPATH CLK Q (0.47:0.47:0.47) (0.52:0.52:0.52))
+   (IOPATH CLK QB (0.54:0.54:0.54) (0.44:0.44:0.44))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/ix150)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.35:0.35:0.35) (0.23:0.23:0.23)))))
-(CELL
  (CELLTYPE "nand02")
- (INSTANCE writeLogicEnt/ix33)
+ (INSTANCE writeLogicEnt/ix155)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.14:0.14:0.14) (0.11:0.11:0.11))
-   (IOPATH A1 Y (0.19:0.19:0.19) (0.09:0.09:0.09)))))
+   (IOPATH A1 Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE writeLogicEnt/ix153)
+ (INSTANCE writeLogicEnt/ix157)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.25:0.25:0.25) (0.19:0.19:0.19))
-   (IOPATH A1 Y (0.25:0.25:0.25) (0.17:0.17:0.17)))))
+   (IOPATH A0 Y (0.20:0.20:0.20) (0.16:0.16:0.16))
+   (IOPATH A1 Y (0.22:0.22:0.22) (0.14:0.14:0.14)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE writeLogicEnt/reg_currentState_0)
@@ -3582,88 +4118,31 @@
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE writeLogicEnt/ix157)
+ (INSTANCE writeLogicEnt/ix161)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.15:0.15:0.15) (0.14:0.14:0.14))
-   (IOPATH A1 Y (0.11:0.11:0.11) (0.09:0.09:0.09)))))
-(CELL
- (CELLTYPE "aoi21")
- (INSTANCE writeLogicEnt/ix126)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.31:0.31:0.31) (0.17:0.17:0.17))
-   (IOPATH A1 Y (0.36:0.36:0.36) (0.15:0.15:0.15))
-   (IOPATH B0 Y (0.20:0.20:0.20) (0.15:0.15:0.15)))))
-(CELL
- (CELLTYPE "dff")
- (INSTANCE writeLogicEnt/reg_currentState_1)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.42:0.42:0.42) (0.48:0.48:0.48))
-   (IOPATH CLK QB (0.59:0.59:0.59) (0.48:0.48:0.48))))
- (TIMINGCHECK
-   (SETUP D (posedge CLK) (0.19))
-   (HOLD D (posedge CLK) (-0.03))))
-(CELL
- (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/ix163)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.18:0.18:0.18)))))
-(CELL
- (CELLTYPE "nand03")
- (INSTANCE writeLogicEnt/ix35)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.14:0.14:0.14) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.20:0.20:0.20) (0.12:0.12:0.12))
-   (IOPATH A2 Y (0.21:0.21:0.21) (0.12:0.12:0.12)))))
+   (IOPATH A0 Y (0.29:0.29:0.29) (0.23:0.23:0.23))
+   (IOPATH A1 Y (0.27:0.27:0.27) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE writeLogicEnt/ix166)
+ (INSTANCE writeLogicEnt/ix43)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.20:0.20:0.20) (0.16:0.16:0.16))
-   (IOPATH A1 Y (0.22:0.22:0.22) (0.15:0.15:0.15)))))
+   (IOPATH A0 Y (0.16:0.16:0.16) (0.12:0.12:0.12))
+   (IOPATH A1 Y (0.25:0.25:0.25) (0.11:0.11:0.11)))))
 (CELL
- (CELLTYPE "dff")
- (INSTANCE writeLogicEnt/reg_currentState_3)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.42:0.42:0.42) (0.48:0.48:0.48))
-   (IOPATH CLK QB (0.54:0.54:0.54) (0.44:0.44:0.44))))
- (TIMINGCHECK
-   (SETUP D (posedge CLK) (0.19))
-   (HOLD D (posedge CLK) (-0.03))))
-(CELL
- (CELLTYPE "oai22")
- (INSTANCE writeLogicEnt/ix106)
+ (CELLTYPE "nand02")
+ (INSTANCE writeLogicEnt/ix39)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.21:0.21:0.21) (0.22:0.22:0.22))
-   (IOPATH A1 Y (0.23:0.23:0.23) (0.19:0.19:0.19))
-   (IOPATH B0 Y (0.27:0.27:0.27) (0.23:0.23:0.23))
-   (IOPATH B1 Y (0.27:0.27:0.27) (0.19:0.19:0.19)))))
+   (IOPATH A0 Y (0.16:0.16:0.16) (0.13:0.13:0.13))
+   (IOPATH A1 Y (0.20:0.20:0.20) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE writeLogicEnt/reg_currentState_2)
@@ -3671,59 +4150,289 @@
   (ABSOLUTE
    (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH CLK Q (0.42:0.42:0.42) (0.48:0.48:0.48))
-   (IOPATH CLK QB (0.60:0.60:0.60) (0.49:0.49:0.49))))
+   (IOPATH CLK Q (0.55:0.55:0.55) (0.58:0.58:0.58))
+   (IOPATH CLK QB (0.45:0.45:0.45) (0.35:0.35:0.35))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "oai21")
- (INSTANCE writeLogicEnt/ix96)
+ (CELLTYPE "dff")
+ (INSTANCE writeLogicEnt/reg_currentState_3)
  (DELAY
   (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.20:0.20:0.20) (0.21:0.21:0.21))
-   (IOPATH A1 Y (0.22:0.22:0.22) (0.18:0.18:0.18))
-   (IOPATH B0 Y (0.25:0.25:0.25) (0.20:0.20:0.20)))))
-(CELL
- (CELLTYPE "oai21")
- (INSTANCE writeLogicEnt/ix174)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.14:0.14:0.14) (0.14:0.14:0.14))
-   (IOPATH A1 Y (0.13:0.13:0.13) (0.13:0.13:0.13))
-   (IOPATH B0 Y (0.20:0.20:0.20) (0.17:0.17:0.17)))))
+   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH CLK Q (0.44:0.44:0.44) (0.50:0.50:0.50))
+   (IOPATH CLK QB (0.51:0.51:0.51) (0.41:0.41:0.41))))
+ (TIMINGCHECK
+   (SETUP D (posedge CLK) (0.19))
+   (HOLD D (posedge CLK) (-0.03))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE writeLogicEnt/ix23)
+ (INSTANCE writeLogicEnt/ix83)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.13:0.13:0.13) (0.12:0.12:0.12))
-   (IOPATH A1 Y (0.13:0.13:0.13) (0.10:0.10:0.10)))))
+   (IOPATH A1 Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/ix177)
+ (INSTANCE writeLogicEnt/ix170)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix85)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix173)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix87)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix176)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix89)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix179)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix91)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix182)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix93)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix185)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix95)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix188)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix97)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix191)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix99)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix194)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix101)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix197)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix103)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix200)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix105)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix203)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix107)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix206)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix109)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix209)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix111)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.11:0.11:0.11) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix212)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/ix113)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.12:0.12:0.12) (0.11:0.11:0.11))
+   (IOPATH A1 Y (0.12:0.12:0.12) (0.09:0.09:0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/ix215)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.12:0.12:0.12) (0.08:0.08:0.08)))))
 (CELL
  (CELLTYPE "mux21")
- (INSTANCE writeLogicEnt/ix115)
+ (INSTANCE writeLogicEnt/ix121)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT S0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.24:0.24:0.24) (0.15:0.15:0.15))
+   (IOPATH A1 Y (0.23:0.23:0.23) (0.14:0.14:0.14))
    (IOPATH S0 Y (0.14:0.14:0.14) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "latch")
@@ -3918,239 +4627,47 @@
    (SETUP D (negedge CLK) (0.31))
    (HOLD D (negedge CLK) (-0.09))))
 (CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_0)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.28:0.28:0.28) (0.32:0.32:0.32))
-   (IOPATH CLK Q (0.28:0.28:0.28) (0.38:0.38:0.38))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_1)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.36:0.36:0.36))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_2)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_3)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_4)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_5)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_6)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_7)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_8)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_9)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_10)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_11)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_12)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.25:0.25:0.25) (0.35:0.35:0.35))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_13)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.24:0.24:0.24) (0.34:0.34:0.34))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_14)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.26:0.26:0.26) (0.30:0.30:0.30))
-   (IOPATH CLK Q (0.24:0.24:0.24) (0.34:0.34:0.34))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/lat_dmaCountIn_15)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.27:0.27:0.27) (0.31:0.31:0.31))
-   (IOPATH CLK Q (0.26:0.26:0.26) (0.36:0.36:0.36))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
  (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/ix215)
+ (INSTANCE writeLogicEnt/ix237)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
+   (IOPATH A Y (0.30:0.30:0.30) (0.23:0.23:0.23)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/ix217)
+ (INSTANCE writeLogicEnt/ix239)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.32:0.32:0.32) (0.25:0.25:0.25)))))
 (CELL
  (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/ix219)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.20:0.20:0.20) (0.15:0.15:0.15)))))
-(CELL
- (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/ix221)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
-(CELL
- (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/ix223)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.32:0.32:0.32) (0.25:0.25:0.25)))))
-(CELL
- (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/ix225)
+ (INSTANCE writeLogicEnt/ix241)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A Y (0.23:0.23:0.23) (0.17:0.17:0.17)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE writeLogicEnt/ix243)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.34:0.34:0.34) (0.26:0.26:0.26)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE writeLogicEnt/ix245)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.35:0.35:0.35) (0.27:0.27:0.27)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE writeLogicEnt/ix247)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.19:0.19:0.19) (0.16:0.16:0.16)))))
 (CELL
  (CELLTYPE "nor02_2x")
  (INSTANCE windowReadLogicEnt/dma/ix177)
@@ -4390,7 +4907,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.16:0.16:0.16) (0.13:0.13:0.13))
+   (IOPATH A0 Y (0.17:0.17:0.17) (0.13:0.13:0.13))
    (IOPATH A1 Y (0.14:0.14:0.14) (0.11:0.11:0.11)))))
 (CELL
  (CELLTYPE "nor02_2x")
@@ -4436,7 +4953,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
+   (IOPATH A Y (0.17:0.17:0.17) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE windowReadLogicEnt/dma/readStepRegister_reg_Q_0)
@@ -4636,8 +5153,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_1)
@@ -4645,8 +5162,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_2)
@@ -4654,8 +5171,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_3)
@@ -4663,8 +5180,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_4)
@@ -4672,8 +5189,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_5)
@@ -4681,8 +5198,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_6)
@@ -4690,8 +5207,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_7)
@@ -4699,8 +5216,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_8)
@@ -4708,8 +5225,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_9)
@@ -4717,8 +5234,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_10)
@@ -4726,8 +5243,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_11)
@@ -4735,8 +5252,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_12)
@@ -4744,8 +5261,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_13)
@@ -4753,8 +5270,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.22:0.22:0.22) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.20:0.20:0.20) (0.20:0.20:0.20)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_14)
@@ -4762,8 +5279,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.19:0.19:0.19) (0.19:0.19:0.19)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.17:0.17:0.17) (0.17:0.17:0.17)))))
 (CELL
  (CELLTYPE "trib04")
  (INSTANCE windowReadLogicEnt/dma/tristateLabel_tri_output_15)
@@ -4771,8 +5288,8 @@
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT E (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.23:0.23:0.23) (0.24:0.24:0.24))
-   (IOPATH E Y (0.19:0.19:0.19) (0.19:0.19:0.19)))))
+   (IOPATH A Y (0.21:0.21:0.21) (0.23:0.23:0.23))
+   (IOPATH E Y (0.17:0.17:0.17) (0.17:0.17:0.17)))))
 (CELL
  (CELLTYPE "buf02")
  (INSTANCE windowReadLogicEnt/dma/ix308)
@@ -4889,7 +5406,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.47:0.47:0.47) (0.34:0.34:0.34)))))
+   (IOPATH A Y (0.43:0.43:0.43) (0.32:0.32:0.32)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE windowReadLogicEnt/baseAddressCounter/counterReg_reg_Q_0)
@@ -5824,7 +6341,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
+   (IOPATH A Y (0.30:0.30:0.30) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE windowReadLogicEnt/baseAddressCounter/ix268)
@@ -5838,7 +6355,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
+   (IOPATH A Y (0.30:0.30:0.30) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE windowReadLogicEnt/baseAddressCounter/ix272)
@@ -5852,7 +6369,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.20:0.20:0.20) (0.13:0.13:0.13)))))
+   (IOPATH A Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE windowReadLogicEnt/baseAddressCounter/ix276)
@@ -6085,7 +6602,7 @@
    (PORT B0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.19:0.19:0.19) (0.19:0.19:0.19))
    (IOPATH A1 Y (0.18:0.18:0.18) (0.17:0.17:0.17))
-   (IOPATH B0 Y (0.23:0.23:0.23) (0.19:0.19:0.19)))))
+   (IOPATH B0 Y (0.24:0.24:0.24) (0.19:0.19:0.19)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE filterReadLogicEnt/dma/ix243)
@@ -6166,7 +6683,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.15:0.15:0.15) (0.11:0.11:0.11)))))
+   (IOPATH A Y (0.16:0.16:0.16) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE filterReadLogicEnt/dma/readStepRegister_reg_Q_0)
@@ -6619,7 +7136,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.47:0.47:0.47) (0.34:0.34:0.34)))))
+   (IOPATH A Y (0.43:0.43:0.43) (0.31:0.31:0.31)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE filterReadLogicEnt/baseAddressCounter/counterReg_reg_Q_0)
@@ -7226,7 +7743,7 @@
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.15:0.15:0.15) (0.10:0.10:0.10))
-   (IOPATH A1 Y (0.15:0.15:0.15) (0.10:0.10:0.10)))))
+   (IOPATH A1 Y (0.16:0.16:0.16) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "xnor2")
  (INSTANCE filterReadLogicEnt/baseAddressCounter/ix58)
@@ -7554,7 +8071,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
+   (IOPATH A Y (0.30:0.30:0.30) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE filterReadLogicEnt/baseAddressCounter/ix268)
@@ -7568,7 +8085,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
+   (IOPATH A Y (0.30:0.30:0.30) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE filterReadLogicEnt/baseAddressCounter/ix272)
@@ -7582,7 +8099,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.20:0.20:0.20) (0.13:0.13:0.13)))))
+   (IOPATH A Y (0.19:0.19:0.19) (0.13:0.13:0.13)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE filterReadLogicEnt/baseAddressCounter/ix276)
@@ -7618,11 +8135,11 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.17:0.17:0.17) (0.15:0.15:0.15))
-   (IOPATH A1 Y (0.17:0.17:0.17) (0.13:0.13:0.13)))))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.12:0.12:0.12))
+   (IOPATH A1 Y (0.12:0.12:0.12) (0.09:0.09:0.09)))))
 (CELL
  (CELLTYPE "nand04")
- (INSTANCE writeLogicEnt/dma/ix100)
+ (INSTANCE writeLogicEnt/dma/ix84)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -7673,7 +8190,7 @@
    (IOPATH A1 Y (0.12:0.12:0.12) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand04")
- (INSTANCE writeLogicEnt/dma/ix110)
+ (INSTANCE writeLogicEnt/dma/ix94)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -7697,7 +8214,7 @@
    (IOPATH A2 Y (0.12:0.12:0.12) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/dma/ix114)
+ (INSTANCE writeLogicEnt/dma/ix98)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -7731,14 +8248,7 @@
    (IOPATH A1 Y (0.12:0.12:0.12) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/dma/ix122)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.33:0.33:0.33) (0.23:0.23:0.23)))))
-(CELL
- (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/dma/ix124)
+ (INSTANCE writeLogicEnt/dma/ix108)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -7754,7 +8264,7 @@
    (IOPATH A1 Y (0.16:0.16:0.16) (0.16:0.16:0.16)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/dma/ix128)
+ (INSTANCE writeLogicEnt/dma/ix112)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -7768,7 +8278,7 @@
    (IOPATH A Y (0.20:0.20:0.20) (0.14:0.14:0.14)))))
 (CELL
  (CELLTYPE "nor02_2x")
- (INSTANCE writeLogicEnt/dma/ix132)
+ (INSTANCE writeLogicEnt/dma/ix116)
  (DELAY
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
@@ -7968,246 +8478,310 @@
    (SETUP D (posedge CLK) (0.19))
    (HOLD D (posedge CLK) (-0.03))))
 (CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_0)
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix37)
  (DELAY
   (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_1)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_2)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_3)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_4)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_5)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_6)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_7)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_8)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_9)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_10)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_11)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_12)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_13)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.21:0.21:0.21) (0.32:0.32:0.32))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_14)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.20:0.20:0.20) (0.31:0.31:0.31))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
-(CELL
- (CELLTYPE "latch")
- (INSTANCE writeLogicEnt/dma/lat_ramDataOutBus_15)
- (DELAY
-  (ABSOLUTE
-   (PORT D (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (PORT CLK (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH D Q (0.22:0.22:0.22) (0.28:0.28:0.28))
-   (IOPATH CLK Q (0.20:0.20:0.20) (0.31:0.31:0.31))))
- (TIMINGCHECK
-   (SETUP D (negedge CLK) (0.31))
-   (HOLD D (negedge CLK) (-0.09))))
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.07:0.07:0.07)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE writeLogicEnt/dma/ix190)
+ (INSTANCE writeLogicEnt/dma/ix152)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.22:0.22:0.22)))))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
- (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/dma/ix192)
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix39)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.07:0.07:0.07)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix155)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.30:0.30:0.30) (0.23:0.23:0.23)))))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
- (CELLTYPE "inv02")
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix41)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.07:0.07:0.07)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix158)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix43)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.07:0.07:0.07)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix161)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix45)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.07:0.07:0.07)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix164)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix47)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.07:0.07:0.07)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix167)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix49)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix170)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix51)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix173)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix53)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix176)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix55)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix179)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix57)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix182)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix59)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix185)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix61)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.11:0.11:0.11) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix188)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix63)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.09:0.09:0.09) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix191)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
+(CELL
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix65)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.09:0.09:0.09) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
  (INSTANCE writeLogicEnt/dma/ix194)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.31:0.31:0.31) (0.25:0.25:0.25)))))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
- (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/dma/ix196)
+ (CELLTYPE "nor02_2x")
+ (INSTANCE writeLogicEnt/dma/ix67)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A0 Y (0.09:0.09:0.09) (0.09:0.09:0.09))
+   (IOPATH A1 Y (0.09:0.09:0.09) (0.06:0.06:0.06)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix197)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.25:0.25:0.25) (0.20:0.20:0.20)))))
-(CELL
- (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/dma/ix198)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.34:0.34:0.34) (0.27:0.27:0.27)))))
-(CELL
- (CELLTYPE "inv02")
- (INSTANCE writeLogicEnt/dma/ix200)
- (DELAY
-  (ABSOLUTE
-   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.34:0.34:0.34) (0.27:0.27:0.27)))))
+   (IOPATH A Y (0.14:0.14:0.14) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE writeLogicEnt/dma/ix202)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.17:0.17:0.17) (0.12:0.12:0.12)))))
+   (IOPATH A Y (0.35:0.35:0.35) (0.28:0.28:0.28)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE writeLogicEnt/dma/ix204)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.35:0.35:0.35) (0.28:0.28:0.28)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE writeLogicEnt/dma/ix206)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.20:0.20:0.20) (0.16:0.16:0.16)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE writeLogicEnt/dma/ix212)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.27:0.27:0.27) (0.20:0.20:0.20)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE writeLogicEnt/dma/ix214)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.29:0.29:0.29) (0.23:0.23:0.23)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE writeLogicEnt/dma/ix216)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
+(CELL
+ (CELLTYPE "inv02")
+ (INSTANCE writeLogicEnt/dma/ix218)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
+   (IOPATH A Y (0.25:0.25:0.25) (0.19:0.19:0.19)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE writeLogicEnt/baseAddressCounter/ix11)
@@ -8241,7 +8815,7 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.46:0.46:0.46) (0.34:0.34:0.34)))))
+   (IOPATH A Y (0.46:0.46:0.46) (0.33:0.33:0.33)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE writeLogicEnt/baseAddressCounter/counterReg_reg_Q_0)
@@ -9284,7 +9858,7 @@
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.14:0.14:0.14) (0.12:0.12:0.12))
    (IOPATH A1 Y (0.22:0.22:0.22) (0.13:0.13:0.13))
-   (IOPATH A2 Y (0.25:0.25:0.25) (0.12:0.12:0.12)))))
+   (IOPATH A2 Y (0.24:0.24:0.24) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "inv01")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix76)
@@ -9343,7 +9917,7 @@
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.14:0.14:0.14) (0.12:0.12:0.12))
    (IOPATH A1 Y (0.22:0.22:0.22) (0.13:0.13:0.13))
-   (IOPATH A2 Y (0.25:0.25:0.25) (0.12:0.12:0.12)))))
+   (IOPATH A2 Y (0.24:0.24:0.24) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix88)
@@ -9395,7 +9969,7 @@
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.13:0.13:0.13) (0.11:0.11:0.11))
    (IOPATH A1 Y (0.22:0.22:0.22) (0.13:0.13:0.13))
-   (IOPATH A2 Y (0.25:0.25:0.25) (0.12:0.12:0.12)))))
+   (IOPATH A2 Y (0.24:0.24:0.24) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix98)
@@ -9447,7 +10021,7 @@
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.13:0.13:0.13) (0.12:0.12:0.12))
    (IOPATH A1 Y (0.22:0.22:0.22) (0.13:0.13:0.13))
-   (IOPATH A2 Y (0.25:0.25:0.25) (0.12:0.12:0.12)))))
+   (IOPATH A2 Y (0.24:0.24:0.24) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix108)
@@ -9499,7 +10073,7 @@
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.13:0.13:0.13) (0.11:0.11:0.11))
    (IOPATH A1 Y (0.22:0.22:0.22) (0.13:0.13:0.13))
-   (IOPATH A2 Y (0.25:0.25:0.25) (0.12:0.12:0.12)))))
+   (IOPATH A2 Y (0.24:0.24:0.24) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix118)
@@ -9551,7 +10125,7 @@
    (PORT A2 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (IOPATH A0 Y (0.13:0.13:0.13) (0.12:0.12:0.12))
    (IOPATH A1 Y (0.22:0.22:0.22) (0.13:0.13:0.13))
-   (IOPATH A2 Y (0.25:0.25:0.25) (0.12:0.12:0.12)))))
+   (IOPATH A2 Y (0.24:0.24:0.24) (0.12:0.12:0.12)))))
 (CELL
  (CELLTYPE "nand02")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix128)
@@ -10119,28 +10693,28 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.34:0.34:0.34) (0.24:0.24:0.24)))))
+   (IOPATH A Y (0.27:0.27:0.27) (0.19:0.19:0.19)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix249)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.33:0.33:0.33) (0.26:0.26:0.26)))))
+   (IOPATH A Y (0.31:0.31:0.31) (0.25:0.25:0.25)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix251)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.32:0.32:0.32) (0.25:0.25:0.25)))))
+   (IOPATH A Y (0.30:0.30:0.30) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE windowReadLogicEnt/dma/addressRegister/ix253)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.28:0.28:0.28) (0.21:0.21:0.21)))))
+   (IOPATH A Y (0.26:0.26:0.26) (0.21:0.21:0.21)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE filterReadLogicEnt/dma/addressRegister/counterReg_reg_Q_0)
@@ -11027,28 +11601,28 @@
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.35:0.35:0.35) (0.25:0.25:0.25)))))
+   (IOPATH A Y (0.29:0.29:0.29) (0.22:0.22:0.22)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE filterReadLogicEnt/dma/addressRegister/ix249)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.34:0.34:0.34) (0.26:0.26:0.26)))))
+   (IOPATH A Y (0.32:0.32:0.32) (0.25:0.25:0.25)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE filterReadLogicEnt/dma/addressRegister/ix251)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.33:0.33:0.33) (0.25:0.25:0.25)))))
+   (IOPATH A Y (0.31:0.31:0.31) (0.24:0.24:0.24)))))
 (CELL
  (CELLTYPE "inv02")
  (INSTANCE filterReadLogicEnt/dma/addressRegister/ix253)
  (DELAY
   (ABSOLUTE
    (PORT A (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A Y (0.29:0.29:0.29) (0.21:0.21:0.21)))))
+   (IOPATH A Y (0.27:0.27:0.27) (0.21:0.21:0.21)))))
 (CELL
  (CELLTYPE "dff")
  (INSTANCE writeLogicEnt/dma/writeAddressRegister/counterReg_reg_Q_0)
@@ -12127,7 +12701,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.21:0.21:0.21) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "dff")
@@ -12206,7 +12780,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.21:0.21:0.21) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
@@ -12285,7 +12859,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
@@ -12366,7 +12940,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "dff")
@@ -12434,7 +13008,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
@@ -12511,7 +13085,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
@@ -12590,7 +13164,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
@@ -12671,7 +13245,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "dff")
@@ -12739,7 +13313,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
@@ -12816,7 +13390,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
@@ -12895,7 +13469,7 @@
   (ABSOLUTE
    (PORT A0 (0.00:0.00:0.00) (0.00:0.00:0.00))
    (PORT A1 (0.00:0.00:0.00) (0.00:0.00:0.00))
-   (IOPATH A0 Y (0.12:0.12:0.12) (0.10:0.10:0.10))
+   (IOPATH A0 Y (0.13:0.13:0.13) (0.10:0.10:0.10))
    (IOPATH A1 Y (0.20:0.20:0.20) (0.10:0.10:0.10)))))
 (CELL
  (CELLTYPE "nand02")
