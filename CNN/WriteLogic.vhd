@@ -132,6 +132,15 @@ BEGIN
   
     IOLogicCnt: PROCESS(currentState, write, dmaWrite, dmaFinishOneWrite,dmaFinishAll,ramBasedAddress,outputSize)
     BEGIN
+        dmaWrite <= '0';
+        dmaInitCounter <= '0';
+        dmaInitAddress <= '0';
+        resetAddressReg <= '0';
+        incBaseAddress <= '0';
+        dmaCountIn<=(others=>'0');
+        addressRegIn<=addressRegIn;
+        nextState <= idleState;
+        
         CASE currentState IS
             WHEN switchState =>
                 -- reset all cnt signals you have
@@ -211,6 +220,16 @@ BEGIN
                 dmaWrite <= write;
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
                 -- readFinal <= dmaFinishAll;
+                nextState <= idleState;
+
+            WHEN others =>
+                dmaWrite <= '0';
+                dmaInitCounter <= '0';
+                dmaInitAddress <= '0';
+                resetAddressReg <= '0';
+                incBaseAddress <= '0';
+                dmaCountIn<=(others=>'0');
+                addressRegIn<=addressRegIn;
                 nextState <= idleState;
         END CASE;
     END PROCESS;

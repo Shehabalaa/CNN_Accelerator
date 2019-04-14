@@ -44,23 +44,22 @@ MultiStepCounter_16    work            1 x      2      2 fake_gnd
                                               282    282 gates
 dff                    tsmc035_typ    16 x      5     77 gates
 fake_gnd               tsmc035_typ     1 x      1      1 fake_gnd
-inv01                  tsmc035_typ     6 x      1      5 gates
+inv01                  tsmc035_typ    21 x      1     16 gates
 inv02                  tsmc035_typ     6 x      1      5 gates
-latch                  tsmc035_typ    16 x      2     40 gates
 nand04                 tsmc035_typ     2 x      1      3 gates
-nor02_2x               tsmc035_typ     8 x      1      8 gates
+nor02_2x               tsmc035_typ    24 x      1     24 gates
 nor03_2x               tsmc035_typ     2 x      1      2 gates
 xnor2                  tsmc035_typ     1 x      2      2 gates
 
  Number of ports :                     104
- Number of nets :                      158
- Number of instances :                  60
+ Number of nets :                      173
+ Number of instances :                  75
  Number of references to this view :     1
 
 Total accumulated area : 
  Number of fake_gnd :                    3
- Number of gates :                     643
- Number of accumulated instances :     373
+ Number of gates :                     630
+ Number of accumulated instances :     388
 
 *******************************************************
 
@@ -72,31 +71,31 @@ Cell: WriteLogic_16_16    View: ReadLogicArch_unfold_2748    Library: work
  Cell             Library  References     Total Area
 
 Counter2_16       work            1 x    184    184 gates
-WriteDMA_16_16    work            1 x    643    643 gates
+WriteDMA_16_16    work            1 x    630    630 gates
                                            3      3 fake_gnd
 aoi21             tsmc035_typ     2 x      1      2 gates
 dff               tsmc035_typ     5 x      5     24 gates
 fake_gnd          tsmc035_typ     1 x      1      1 fake_gnd
-inv01             tsmc035_typ     4 x      1      3 gates
+inv01             tsmc035_typ    20 x      1     15 gates
 inv02             tsmc035_typ     6 x      1      5 gates
-latch             tsmc035_typ    32 x      2     79 gates
+latch             tsmc035_typ    16 x      2     40 gates
 mux21             tsmc035_typ     1 x      2      2 gates
 nand02            tsmc035_typ     4 x      1      4 gates
 nand03            tsmc035_typ     1 x      1      1 gates
 nand04            tsmc035_typ     1 x      1      1 gates
-nor02_2x          tsmc035_typ     3 x      1      3 gates
+nor02_2x          tsmc035_typ    19 x      1     19 gates
 oai21             tsmc035_typ     2 x      1      2 gates
 oai22             tsmc035_typ     3 x      1      4 gates
 
  Number of ports :                      88
- Number of nets :                      169
- Number of instances :                  67
+ Number of nets :                      185
+ Number of instances :                  83
  Number of references to this view :     1
 
 Total accumulated area : 
  Number of fake_gnd :                    4
- Number of gates :                     958
- Number of accumulated instances :     541
+ Number of gates :                     935
+ Number of accumulated instances :     572
 
 *******************************************************
 
@@ -113,26 +112,26 @@ DMA_16_16_16_16    work            1 x    445    445 gates
 dff                tsmc035_typ     7 x      5     34 gates
 fake_gnd           tsmc035_typ     1 x      1      1 fake_gnd
 inv01              tsmc035_typ    39 x      1     30 gates
-inv02              tsmc035_typ     8 x      1      6 gates
+inv02              tsmc035_typ    11 x      1      8 gates
 latch              tsmc035_typ    19 x      2     47 gates
 mux21              tsmc035_typ    18 x      2     33 gates
-nand02             tsmc035_typ    10 x      1     10 gates
-nand03             tsmc035_typ     3 x      1      4 gates
+nand02             tsmc035_typ    13 x      1     13 gates
+nand03             tsmc035_typ     4 x      1      5 gates
 nand04             tsmc035_typ     1 x      1      1 gates
-nor02_2x           tsmc035_typ    14 x      1     14 gates
-nor03_2x           tsmc035_typ     1 x      1      1 gates
+nor02_2x           tsmc035_typ    26 x      1     26 gates
 oai21              tsmc035_typ     5 x      1      6 gates
+oai22              tsmc035_typ     1 x      1      1 gates
 xnor2              tsmc035_typ     2 x      2      4 gates
 
  Number of ports :                     109
- Number of nets :                      237
- Number of instances :                 130
+ Number of nets :                      255
+ Number of instances :                 149
  Number of references to this view :     1
 
 Total accumulated area : 
  Number of fake_gnd :                    4
- Number of gates :                     819
- Number of accumulated instances :     479
+ Number of gates :                     838
+ Number of accumulated instances :     498
 
 *******************************************************
 
@@ -272,27 +271,28 @@ DMA_16_16_16_16    work            1 x    445    445 gates
                                             3      3 fake_gnd
 dff                tsmc035_typ     8 x      5     38 gates
 fake_gnd           tsmc035_typ     1 x      1      1 fake_gnd
-inv01              tsmc035_typ    10 x      1      8 gates
-inv02              tsmc035_typ     4 x      1      3 gates
+inv01              tsmc035_typ    26 x      1     20 gates
+inv02              tsmc035_typ     7 x      1      5 gates
 latch              tsmc035_typ    19 x      2     47 gates
 mux21              tsmc035_typ     3 x      2      5 gates
-nand02             tsmc035_typ     9 x      1      9 gates
-nand03             tsmc035_typ     2 x      1      2 gates
+nand02             tsmc035_typ    12 x      1     12 gates
+nand03             tsmc035_typ     3 x      1      4 gates
 nand04             tsmc035_typ     2 x      1      3 gates
-nor02_2x           tsmc035_typ    15 x      1     15 gates
+nor02_2x           tsmc035_typ    27 x      1     27 gates
 nor03_2x           tsmc035_typ     1 x      1      1 gates
 oai21              tsmc035_typ     8 x      1     10 gates
+oai22              tsmc035_typ     1 x      1      1 gates
 xnor2              tsmc035_typ     2 x      2      4 gates
 
  Number of ports :                     109
- Number of nets :                      197
- Number of instances :                  86
+ Number of nets :                      232
+ Number of instances :                 122
  Number of references to this view :     1
 
 Total accumulated area : 
  Number of fake_gnd :                    4
- Number of gates :                     775
- Number of accumulated instances :     435
+ Number of gates :                     807
+ Number of accumulated instances :     471
 
 *******************************************************
 
@@ -304,11 +304,11 @@ Cell: DMAController    View: DMAControllerArch    Library: work
  Cell               Library  References     Total Area
 
 ReadLogic_16_16     work            1 x      4      4 fake_gnd
-                                           775    775 gates
+                                           807    807 gates
 ReadLogic_16_16     work            1 x      4      4 fake_gnd
-                                           819    819 gates
+                                           838    838 gates
 WriteLogic_16_16    work            1 x      4      4 fake_gnd
-                                           958    958 gates
+                                           935    935 gates
 dffr                tsmc035_typ     1 x      6      6 gates
 fake_gnd            tsmc035_typ     1 x      1      1 fake_gnd
 fake_vcc            tsmc035_typ     1 x      1      1 fake_vcc
@@ -325,5 +325,5 @@ nor02_2x            tsmc035_typ     1 x      1      1 gates
 Total accumulated area : 
  Number of fake_gnd :                   13
  Number of fake_vcc :                    1
- Number of gates :                    2715
- Number of accumulated instances :    1618
+ Number of gates :                    2742
+ Number of accumulated instances :    1704

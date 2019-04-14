@@ -9,6 +9,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity NBitAdder_16 is
    port (
@@ -124,6 +125,7 @@ end NBitAdderArch_unfold_2878 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity MultiStepCounter_16 is
    port (
@@ -309,6 +311,7 @@ end MultiStepCounterArch_unfold_3160 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity DMA_16_16_16_16 is
    port (
@@ -493,6 +496,7 @@ end DMAArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Counter2_16 is
    port (
@@ -673,6 +677,7 @@ end Counter2Arch_unfold_2981 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity ReadLogic_16_16 is
    port (
@@ -978,6 +983,7 @@ end ReadLogicArch_unfold_3077 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity ReadLogic_16_16_unfolded1 is
    port (
@@ -1328,6 +1334,7 @@ end ReadLogicArch_unfold_3059_xmplrcopy ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity DownCounter_16 is
    port (
@@ -1523,6 +1530,7 @@ end DownCounterArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity WriteDMA_16_16 is
    port (
@@ -1720,6 +1728,7 @@ end WriteDMAArch_unfold_1968 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity WriteLogic_16_16 is
    port (
@@ -1973,6 +1982,7 @@ end ReadLogicArch_unfold_2748 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity DMAController is
    port (
@@ -2598,4 +2608,5 @@ begin
    ix665 : inv02 port map ( Y=>nx666, A=>write);
    ix667 : inv02 port map ( Y=>nx668, A=>write);
 end DMAControllerArch ;
+
 
