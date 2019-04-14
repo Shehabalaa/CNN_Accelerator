@@ -27,7 +27,7 @@ BEGIN
 		BEGIN
 			IF rst ='1' THEN
                 Q <= load;
-                Qbar <= (others=>'1');
+                Qbar <= NOT load;
             ELSIF clk'EVENT AND clk='1' THEN
                 IF en='1' THEN
                     Q <= D;

@@ -77,7 +77,7 @@ BEGIN
     ComparatorLabel: Comparator generic map(wordSize) port map(regMaxout,InputBcomparator,ComparatorG,ComparatorEqual);
     
     InputBcomparator <= inputArray(to_integer(unsigned(Count))) when Count <="1001" and rst ='0';
-    done <= '1' when Count = "1001" else '0';
+    done <= '1' when Count = "1010" else '0';
     indexMaxin <= Count when ComparatorG = '1' else indexMaxout;
     
     regMaxin <= ("1000000000000000" ) when rst='1'
