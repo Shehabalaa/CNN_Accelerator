@@ -19,5 +19,5 @@ ARCHITECTURE Alus8x16Arch OF Alus8x16 IS
 SIGNAL mulOut: genericArrayofVector16bit(n-1 downto 0);
 BEGIN
     cmp1: ENTITY work.nMul8x16 GENERIC MAP(n) PORT MAP (q,m,mulOut,clk,start,rst,done,working);
-    cmp2: ENTITY work.Accumulator GENERIC MAP(n) PORT MAP (mulOut,f,working,rst,'1');
+    cmp2: ENTITY work.Accumulator GENERIC MAP(n) PORT MAP (mulOut,f,working,rst);
 END Alus8x16Arch; 

@@ -1,0 +1,20 @@
+vsim work.testfc
+
+mem load -i Z:/home/shehab/Desktop/CNN_Accelerator/FC/TestBench/TestFC/5neoronsTC/RAMNEORONS.mem testfc/FCcmp/RAMNEORONS/Ram
+mem load -i /home/shehab/Desktop/CNN_Accelerator/FC/TestBench/TestFC/5neoronsTC/RAMWEIGHTS.mem testfc/FCcmp/RAMWEIGHTS/Ram
+
+add wave -position end  sim:/testfc/clk
+add wave -position end  sim:/testfc/cnnDone
+add wave -position end  sim:/testfc/fcDone
+add wave -position end  sim:/testfc/reset
+
+
+#run -a
+#don't use this line (run -a) try simulation first and run one bye one and if there is no proble use it
+#and there will be message idicates end of FC
+
+
+
+# mem save -o weightsRam.mem -f mti -data hex -addr hex -wordsperline 1 /fcmain/RAMWEIGHTS/Ram
+# mem save -o neoronsRam.mem -f mti -data hex -addr hex -wordsperline 1 /fcmain/RAMNEORONS/Ram
+

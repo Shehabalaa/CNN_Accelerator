@@ -3,10 +3,13 @@ import bitstring as BS
 
 byte_n = 200
 word_n = 200
+byte_float_bits = 6
+word_float_bits = 8
 
 
 toFloat = lambda a,b : a/2.**b
-truncate = lambda b: BS.pack('int:30=a',a=b)[14:].int
+toInt = lambda a,b : int(a*2**b)
+truncate = lambda b: BS.pack('int:32=a',a=b)[32-16:].int
 
 bytes = []
 for i in range(byte_n):
@@ -24,7 +27,7 @@ muls = []
 accums = []
 
 for i in range(byte_n):
-    tmp = (bytes[i].int * words[i].int)>>6
+    tmp = (bytes[i].int * words[i].int)>>byte_float_bits
     muls.append(BS.pack('int:16=a',a=truncate(tmp)))
     add = accums[i-1].int if i >0 else 0
     accums.append(BS.pack('int:16=a',a=truncate(add + muls[i].int)))
@@ -46,7 +49,7 @@ with open("out.txt",'w') as f:
     for out in outputfloat:
         f.write(out[0]+'\n')
         for i in range(byte_n):
-            fp = 6 if(out[0].find('8')!=-1) else 8
+            fp = byte_float_bits if(out[0].find('8')!=-1) else 8\word_float_bits
             f.write(str(toFloat(out[1][i].int,fp))+" ")
         f.write('\n\n')
 
