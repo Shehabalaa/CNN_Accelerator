@@ -73,28 +73,25 @@ Cell: WriteLogic_16_16    View: ReadLogicArch_unfold_2748    Library: work
 Counter2_16       work            1 x    184    184 gates
 WriteDMA_16_16    work            1 x    630    630 gates
                                            3      3 fake_gnd
-aoi21             tsmc035_typ     2 x      1      2 gates
 dff               tsmc035_typ     5 x      5     24 gates
 fake_gnd          tsmc035_typ     1 x      1      1 fake_gnd
-inv01             tsmc035_typ    20 x      1     15 gates
+inv01             tsmc035_typ    19 x      1     14 gates
 inv02             tsmc035_typ     6 x      1      5 gates
 latch             tsmc035_typ    16 x      2     40 gates
-mux21             tsmc035_typ     1 x      2      2 gates
-nand02            tsmc035_typ     4 x      1      4 gates
-nand03            tsmc035_typ     1 x      1      1 gates
+mux21             tsmc035_typ     5 x      2      9 gates
+nand02            tsmc035_typ     8 x      1      8 gates
 nand04            tsmc035_typ     1 x      1      1 gates
-nor02_2x          tsmc035_typ    19 x      1     19 gates
+nor02_2x          tsmc035_typ    18 x      1     18 gates
 oai21             tsmc035_typ     2 x      1      2 gates
-oai22             tsmc035_typ     3 x      1      4 gates
 
  Number of ports :                      88
- Number of nets :                      185
+ Number of nets :                      186
  Number of instances :                  83
  Number of references to this view :     1
 
 Total accumulated area : 
  Number of fake_gnd :                    4
- Number of gates :                     935
+ Number of gates :                     936
  Number of accumulated instances :     572
 
 *******************************************************
@@ -308,7 +305,7 @@ ReadLogic_16_16     work            1 x      4      4 fake_gnd
 ReadLogic_16_16     work            1 x      4      4 fake_gnd
                                            838    838 gates
 WriteLogic_16_16    work            1 x      4      4 fake_gnd
-                                           935    935 gates
+                                           936    936 gates
 dffr                tsmc035_typ     1 x      6      6 gates
 fake_gnd            tsmc035_typ     1 x      1      1 fake_gnd
 fake_vcc            tsmc035_typ     1 x      1      1 fake_vcc
@@ -325,5 +322,5 @@ nor02_2x            tsmc035_typ     1 x      1      1 gates
 Total accumulated area : 
  Number of fake_gnd :                   13
  Number of fake_vcc :                    1
- Number of gates :                    2742
+ Number of gates :                    2743
  Number of accumulated instances :    1704

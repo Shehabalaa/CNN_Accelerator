@@ -1,6 +1,6 @@
 //
 // Verilog description for cell DMAController, 
-// Sun Apr 14 19:47:22 2019
+// Sun Apr 14 21:26:54 2019
 //
 // LeonardoSpectrum Level 3, 2018a.2 
 //
@@ -440,12 +440,13 @@ module WriteLogic_16_16 ( clk, resetState, switchRam, ramBasedAddress,
          dmaCountIn_13, dmaCountIn_12, dmaCountIn_11, dmaCountIn_10, 
          dmaCountIn_9, dmaCountIn_8, dmaCountIn_7, dmaCountIn_6, dmaCountIn_5, 
          dmaCountIn_4, dmaCountIn_3, dmaCountIn_2, dmaCountIn_1, dmaCountIn_0, 
-         nextState_1, currentState_4, nx61, NOT_clk, currentState_0, nx62, nx22, 
-         nx32, nx69, nx79, nx89, nx99, nx109, nx120, nx122, nx126, nx130, nx136, 
-         nx138, nx140, nx144, nx146, nx149, nx151, nx157, nx160, nx163, nx166, 
-         nx169, nx172, nx175, nx178, nx181, nx184, nx187, nx190, nx193, nx196, 
-         nx199, nx202, nx205, nx208, nx232, nx234, nx236, nx238, nx240, nx242;
-    wire [3:0] \$dummy ;
+         nextState_1, currentState_4, nx61, NOT_clk, currentState_3, 
+         currentState_0, nx38, nx42, nx68, nx78, nx89, nx99, nx109, nx123, nx125, 
+         nx128, nx130, nx134, nx138, nx142, nx146, nx151, nx154, nx156, nx158, 
+         nx160, nx166, nx169, nx172, nx175, nx178, nx181, nx184, nx187, nx190, 
+         nx193, nx196, nx199, nx202, nx205, nx208, nx211, nx214, nx238, nx240, 
+         nx242, nx244, nx246, nx248;
+    wire [2:0] \$dummy ;
 
 
 
@@ -487,117 +488,116 @@ module WriteLogic_16_16 ( clk, resetState, switchRam, ramBasedAddress,
                 addressRegIn_9,addressRegIn_8,addressRegIn_7,addressRegIn_6,
                 addressRegIn_5,addressRegIn_4,addressRegIn_3,addressRegIn_2,
                 addressRegIn_1,addressRegIn_0}), .reset (nextState_1), .clk (
-                baseAddressCounterClk), .isLoad (nx232), .count ({
+                baseAddressCounterClk), .isLoad (nx238), .count ({
                 addressRegOut_15,addressRegOut_14,addressRegOut_13,
                 addressRegOut_12,addressRegOut_11,addressRegOut_10,
                 addressRegOut_9,addressRegOut_8,addressRegOut_7,addressRegOut_6,
                 addressRegOut_5,addressRegOut_4,addressRegOut_3,addressRegOut_2,
                 addressRegOut_1,addressRegOut_0})) ;
     fake_gnd ix6 (.Y (nextState_1)) ;
-    nor02_2x ix75 (.Y (ramWrite), .A0 (nx120), .A1 (nx122)) ;
-    inv01 ix121 (.Y (nx120), .A (write)) ;
-    oai22 ix100 (.Y (nx99), .A0 (nx122), .A1 (nx61), .B0 (nx151), .B1 (nx130)) ;
-    nand04 ix37 (.Y (nx61), .A0 (nx126), .A1 (nx136), .A2 (nx149), .A3 (nx146)
+    nor02_2x ix81 (.Y (ramWrite), .A0 (nx123), .A1 (nx125)) ;
+    inv01 ix124 (.Y (nx123), .A (write)) ;
+    mux21 ix100 (.Y (nx99), .A0 (nx128), .A1 (nx125), .S0 (nx160)) ;
+    nand02 ix129 (.Y (nx128), .A0 (nx130), .A1 (currentState_3)) ;
+    inv01 ix131 (.Y (nx130), .A (switchRam)) ;
+    mux21 ix90 (.Y (nx89), .A0 (nx134), .A1 (nx166), .S0 (nx160)) ;
+    nand02 ix135 (.Y (nx134), .A0 (nx130), .A1 (currentState_2)) ;
+    mux21 ix79 (.Y (nx78), .A0 (nx138), .A1 (nx244), .S0 (nx160)) ;
+    nand02 ix139 (.Y (nx138), .A0 (nx130), .A1 (currentState_0)) ;
+    mux21 ix69 (.Y (nx68), .A0 (nx142), .A1 (nx158), .S0 (nx160)) ;
+    oai21 ix143 (.Y (nx142), .A0 (nx238), .A1 (currentState_4), .B0 (nx130)) ;
+    oai21 ix110 (.Y (nx109), .A0 (nx146), .A1 (nx61), .B0 (nx130)) ;
+    dff reg_currentState_1 (.Q (\$dummy [1]), .QB (nx146), .D (nx109), .CLK (
+        NOT_clk)) ;
+    inv01 ix149 (.Y (NOT_clk), .A (clk)) ;
+    nand04 ix45 (.Y (nx61), .A0 (nx151), .A1 (nx130), .A2 (nx154), .A3 (nx156)
            ) ;
-    nand02 ix127 (.Y (nx126), .A0 (write), .A1 (currentState_0)) ;
-    oai22 ix70 (.Y (nx69), .A0 (nx130), .A1 (nx140), .B0 (nx138), .B1 (nx61)) ;
-    aoi21 ix131 (.Y (nx130), .A0 (writeDone), .A1 (currentState_4), .B0 (nx32)
-          ) ;
-    dff reg_currentState_4 (.Q (currentState_4), .QB (nx122), .D (nx99), .CLK (
+    nand02 ix152 (.Y (nx151), .A0 (writeDone), .A1 (currentState_4)) ;
+    dff reg_currentState_4 (.Q (currentState_4), .QB (nx125), .D (nx99), .CLK (
         NOT_clk)) ;
-    inv01 ix134 (.Y (NOT_clk), .A (clk)) ;
-    nand02 ix33 (.Y (nx32), .A0 (nx126), .A1 (nx136)) ;
-    nand02 ix137 (.Y (nx136), .A0 (nx122), .A1 (nx138)) ;
-    dff reg_currentState_0 (.Q (currentState_0), .QB (nx138), .D (nx69), .CLK (
+    nand02 ix155 (.Y (nx154), .A0 (write), .A1 (currentState_0)) ;
+    nand02 ix157 (.Y (nx156), .A0 (nx125), .A1 (nx158)) ;
+    dff reg_currentState_0 (.Q (currentState_0), .QB (nx158), .D (nx68), .CLK (
         NOT_clk)) ;
-    nor02_2x ix141 (.Y (nx140), .A0 (nx232), .A1 (currentState_4)) ;
-    aoi21 ix110 (.Y (nx109), .A0 (nx144), .A1 (nx146), .B0 (nx62)) ;
-    dff reg_currentState_1 (.Q (\$dummy [1]), .QB (nx144), .D (nx109), .CLK (
+    nor02_2x ix161 (.Y (nx160), .A0 (nx42), .A1 (nx38)) ;
+    nand02 ix43 (.Y (nx42), .A0 (nx151), .A1 (nx130)) ;
+    nand02 ix39 (.Y (nx38), .A0 (nx154), .A1 (nx156)) ;
+    dff reg_currentState_2 (.Q (currentState_2), .QB (\$dummy [2]), .D (nx78), .CLK (
         NOT_clk)) ;
-    inv01 ix147 (.Y (nx146), .A (switchRam)) ;
-    nand03 ix35 (.Y (nx62), .A0 (nx126), .A1 (nx136), .A2 (nx149)) ;
-    nand02 ix150 (.Y (nx149), .A0 (writeDone), .A1 (currentState_4)) ;
-    dff reg_currentState_3 (.Q (\$dummy [2]), .QB (nx151), .D (nx89), .CLK (
+    dff reg_currentState_3 (.Q (currentState_3), .QB (nx166), .D (nx89), .CLK (
         NOT_clk)) ;
-    oai22 ix90 (.Y (nx89), .A0 (nx151), .A1 (nx61), .B0 (nx238), .B1 (nx130)) ;
-    dff reg_currentState_2 (.Q (currentState_2), .QB (\$dummy [3]), .D (nx79), .CLK (
-        NOT_clk)) ;
-    oai21 ix80 (.Y (nx79), .A0 (nx238), .A1 (nx61), .B0 (nx157)) ;
-    oai21 ix158 (.Y (nx157), .A0 (write), .A1 (nx22), .B0 (currentState_0)) ;
-    nor02_2x ix23 (.Y (nx22), .A0 (nx160), .A1 (nx122)) ;
-    inv01 ix161 (.Y (nx160), .A (writeDone)) ;
-    nor02_2x ix77 (.Y (dmaCountIn_0), .A0 (nx163), .A1 (nx238)) ;
-    inv01 ix164 (.Y (nx163), .A (outputSize[0])) ;
-    nor02_2x ix79 (.Y (dmaCountIn_1), .A0 (nx166), .A1 (nx238)) ;
-    inv01 ix167 (.Y (nx166), .A (outputSize[1])) ;
-    nor02_2x ix81 (.Y (dmaCountIn_2), .A0 (nx169), .A1 (nx238)) ;
-    inv01 ix170 (.Y (nx169), .A (outputSize[2])) ;
-    nor02_2x ix83 (.Y (dmaCountIn_3), .A0 (nx172), .A1 (nx238)) ;
-    inv01 ix173 (.Y (nx172), .A (outputSize[3])) ;
-    nor02_2x ix85 (.Y (dmaCountIn_4), .A0 (nx175), .A1 (nx238)) ;
-    inv01 ix176 (.Y (nx175), .A (outputSize[4])) ;
-    nor02_2x ix87 (.Y (dmaCountIn_5), .A0 (nx178), .A1 (nx240)) ;
-    inv01 ix179 (.Y (nx178), .A (outputSize[5])) ;
-    nor02_2x ix89 (.Y (dmaCountIn_6), .A0 (nx181), .A1 (nx240)) ;
-    inv01 ix182 (.Y (nx181), .A (outputSize[6])) ;
-    nor02_2x ix91 (.Y (dmaCountIn_7), .A0 (nx184), .A1 (nx240)) ;
-    inv01 ix185 (.Y (nx184), .A (outputSize[7])) ;
-    nor02_2x ix93 (.Y (dmaCountIn_8), .A0 (nx187), .A1 (nx240)) ;
-    inv01 ix188 (.Y (nx187), .A (outputSize[8])) ;
-    nor02_2x ix95 (.Y (dmaCountIn_9), .A0 (nx190), .A1 (nx240)) ;
-    inv01 ix191 (.Y (nx190), .A (outputSize[9])) ;
-    nor02_2x ix97 (.Y (dmaCountIn_10), .A0 (nx193), .A1 (nx240)) ;
-    inv01 ix194 (.Y (nx193), .A (outputSize[10])) ;
-    nor02_2x ix99 (.Y (dmaCountIn_11), .A0 (nx196), .A1 (nx240)) ;
-    inv01 ix197 (.Y (nx196), .A (outputSize[11])) ;
-    nor02_2x ix101 (.Y (dmaCountIn_12), .A0 (nx199), .A1 (nx242)) ;
-    inv01 ix200 (.Y (nx199), .A (outputSize[12])) ;
-    nor02_2x ix103 (.Y (dmaCountIn_13), .A0 (nx202), .A1 (nx242)) ;
-    inv01 ix203 (.Y (nx202), .A (outputSize[13])) ;
-    nor02_2x ix105 (.Y (dmaCountIn_14), .A0 (nx205), .A1 (nx242)) ;
-    inv01 ix206 (.Y (nx205), .A (outputSize[14])) ;
-    nor02_2x ix107 (.Y (dmaCountIn_15), .A0 (nx208), .A1 (nx242)) ;
-    inv01 ix209 (.Y (nx208), .A (outputSize[15])) ;
-    mux21 ix115 (.Y (baseAddressCounterClk), .A0 (nx144), .A1 (nx151), .S0 (clk)
+    nor02_2x ix83 (.Y (dmaCountIn_0), .A0 (nx169), .A1 (nx244)) ;
+    inv01 ix170 (.Y (nx169), .A (outputSize[0])) ;
+    nor02_2x ix85 (.Y (dmaCountIn_1), .A0 (nx172), .A1 (nx244)) ;
+    inv01 ix173 (.Y (nx172), .A (outputSize[1])) ;
+    nor02_2x ix87 (.Y (dmaCountIn_2), .A0 (nx175), .A1 (nx244)) ;
+    inv01 ix176 (.Y (nx175), .A (outputSize[2])) ;
+    nor02_2x ix89 (.Y (dmaCountIn_3), .A0 (nx178), .A1 (nx244)) ;
+    inv01 ix179 (.Y (nx178), .A (outputSize[3])) ;
+    nor02_2x ix91 (.Y (dmaCountIn_4), .A0 (nx181), .A1 (nx244)) ;
+    inv01 ix182 (.Y (nx181), .A (outputSize[4])) ;
+    nor02_2x ix93 (.Y (dmaCountIn_5), .A0 (nx184), .A1 (nx244)) ;
+    inv01 ix185 (.Y (nx184), .A (outputSize[5])) ;
+    nor02_2x ix95 (.Y (dmaCountIn_6), .A0 (nx187), .A1 (nx246)) ;
+    inv01 ix188 (.Y (nx187), .A (outputSize[6])) ;
+    nor02_2x ix97 (.Y (dmaCountIn_7), .A0 (nx190), .A1 (nx246)) ;
+    inv01 ix191 (.Y (nx190), .A (outputSize[7])) ;
+    nor02_2x ix99 (.Y (dmaCountIn_8), .A0 (nx193), .A1 (nx246)) ;
+    inv01 ix194 (.Y (nx193), .A (outputSize[8])) ;
+    nor02_2x ix101 (.Y (dmaCountIn_9), .A0 (nx196), .A1 (nx246)) ;
+    inv01 ix197 (.Y (nx196), .A (outputSize[9])) ;
+    nor02_2x ix103 (.Y (dmaCountIn_10), .A0 (nx199), .A1 (nx246)) ;
+    inv01 ix200 (.Y (nx199), .A (outputSize[10])) ;
+    nor02_2x ix105 (.Y (dmaCountIn_11), .A0 (nx202), .A1 (nx246)) ;
+    inv01 ix203 (.Y (nx202), .A (outputSize[11])) ;
+    nor02_2x ix107 (.Y (dmaCountIn_12), .A0 (nx205), .A1 (nx246)) ;
+    inv01 ix206 (.Y (nx205), .A (outputSize[12])) ;
+    nor02_2x ix109 (.Y (dmaCountIn_13), .A0 (nx208), .A1 (nx248)) ;
+    inv01 ix209 (.Y (nx208), .A (outputSize[13])) ;
+    nor02_2x ix111 (.Y (dmaCountIn_14), .A0 (nx211), .A1 (nx248)) ;
+    inv01 ix212 (.Y (nx211), .A (outputSize[14])) ;
+    nor02_2x ix113 (.Y (dmaCountIn_15), .A0 (nx214), .A1 (nx248)) ;
+    inv01 ix215 (.Y (nx214), .A (outputSize[15])) ;
+    mux21 ix121 (.Y (baseAddressCounterClk), .A0 (nx146), .A1 (nx166), .S0 (clk)
           ) ;
     latch lat_addressRegIn_0 (.Q (addressRegIn_0), .D (ramBasedAddress[0]), .CLK (
-          nx232)) ;
+          nx238)) ;
     latch lat_addressRegIn_1 (.Q (addressRegIn_1), .D (ramBasedAddress[1]), .CLK (
-          nx232)) ;
+          nx238)) ;
     latch lat_addressRegIn_2 (.Q (addressRegIn_2), .D (ramBasedAddress[2]), .CLK (
-          nx232)) ;
+          nx238)) ;
     latch lat_addressRegIn_3 (.Q (addressRegIn_3), .D (ramBasedAddress[3]), .CLK (
-          nx232)) ;
+          nx238)) ;
     latch lat_addressRegIn_4 (.Q (addressRegIn_4), .D (ramBasedAddress[4]), .CLK (
-          nx232)) ;
+          nx238)) ;
     latch lat_addressRegIn_5 (.Q (addressRegIn_5), .D (ramBasedAddress[5]), .CLK (
-          nx234)) ;
+          nx240)) ;
     latch lat_addressRegIn_6 (.Q (addressRegIn_6), .D (ramBasedAddress[6]), .CLK (
-          nx234)) ;
+          nx240)) ;
     latch lat_addressRegIn_7 (.Q (addressRegIn_7), .D (ramBasedAddress[7]), .CLK (
-          nx234)) ;
+          nx240)) ;
     latch lat_addressRegIn_8 (.Q (addressRegIn_8), .D (ramBasedAddress[8]), .CLK (
-          nx234)) ;
+          nx240)) ;
     latch lat_addressRegIn_9 (.Q (addressRegIn_9), .D (ramBasedAddress[9]), .CLK (
-          nx234)) ;
+          nx240)) ;
     latch lat_addressRegIn_10 (.Q (addressRegIn_10), .D (ramBasedAddress[10]), .CLK (
-          nx234)) ;
+          nx240)) ;
     latch lat_addressRegIn_11 (.Q (addressRegIn_11), .D (ramBasedAddress[11]), .CLK (
-          nx234)) ;
+          nx240)) ;
     latch lat_addressRegIn_12 (.Q (addressRegIn_12), .D (ramBasedAddress[12]), .CLK (
-          nx236)) ;
+          nx242)) ;
     latch lat_addressRegIn_13 (.Q (addressRegIn_13), .D (ramBasedAddress[13]), .CLK (
-          nx236)) ;
+          nx242)) ;
     latch lat_addressRegIn_14 (.Q (addressRegIn_14), .D (ramBasedAddress[14]), .CLK (
-          nx236)) ;
+          nx242)) ;
     latch lat_addressRegIn_15 (.Q (addressRegIn_15), .D (ramBasedAddress[15]), .CLK (
-          nx236)) ;
-    inv02 ix231 (.Y (nx232), .A (nx144)) ;
-    inv02 ix233 (.Y (nx234), .A (nx144)) ;
-    inv02 ix235 (.Y (nx236), .A (nx144)) ;
-    inv02 ix237 (.Y (nx238), .A (currentState_2)) ;
-    inv02 ix239 (.Y (nx240), .A (currentState_2)) ;
-    inv02 ix241 (.Y (nx242), .A (currentState_2)) ;
+          nx242)) ;
+    inv02 ix237 (.Y (nx238), .A (nx146)) ;
+    inv02 ix239 (.Y (nx240), .A (nx146)) ;
+    inv02 ix241 (.Y (nx242), .A (nx146)) ;
+    inv02 ix243 (.Y (nx244), .A (currentState_2)) ;
+    inv02 ix245 (.Y (nx246), .A (currentState_2)) ;
+    inv02 ix247 (.Y (nx248), .A (currentState_2)) ;
 endmodule
 
 

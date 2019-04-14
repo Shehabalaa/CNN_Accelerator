@@ -240,14 +240,12 @@ BEGIN
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;
-        ELSIF FALLING_EDGE(clk) THEN -- if reset is equal to 1 set current state to idle state (0)
+        ELSIF FALLING_EDGE(clk) THEN -- Change value only when enable = 1 and rising edge
             IF switchRam ='1' THEN
                 currentState <= switchState;
-            END IF;
-            IF stateRegEn='1' THEN 
+            ELSIF stateRegEn='1' THEN
                 currentState <= nextState;
             END IF;
-
         END IF;
     END PROCESS;
 
