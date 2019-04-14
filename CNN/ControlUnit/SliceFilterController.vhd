@@ -19,6 +19,8 @@ ENTITY SliceFilterController IS
 
 			outputSize : IN STD_LOGIC_VECTOR(maxOutputImage-1 downto 0); -- Output Image size Example : 26 --> output image size 26x26
 
+			pageTurn: OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+
 			loadBias, -- Signal is sent to DMA to load Bias from RAM and save into filter buffer
 			loadFilter, -- Signal is sent to DMA to load Filter from RAM
 			loadWindow, -- Signal is sent to DMA to load Window from RAM
@@ -57,7 +59,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 	----------------------------------
 
 		SIGNAL pageRegReset,pageRegEn : STD_LOGIC; -- Current Filling Page 1 or 2 -- Next Page to be filled
-		SIGNAL currentPage,nextPage : STD_LOGIC_VECTOR(0 DOWNTO 0);
+		SIGNAL currentPage, nextPage : STD_LOGIC_VECTOR(0 DOWNTO 0);
 
 	-- Counters Signals
 		SIGNAL innerCounterEn,outerCounterEn : STD_LOGIC; -- Enables, final is anded with enable
@@ -74,6 +76,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 	innerCounterOut <= altInnerCounterOut when rising_edge(clk);
 
 	outerCounterOut <= altOuterCounterOut when rising_edge(clk);
+
+	pageTurn <= currentPage;
 
 	nextPage <= NOT currentPage;
 

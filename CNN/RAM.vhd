@@ -1,11 +1,10 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.Numeric_Std.all;
-use Work.constants.all;
 
 Entity RAM is
     generic(
-        addressSize:INTEGER :=16;
+        addressSize:INTEGER :=13;
         wordSize:Integer:=16;
         internalBusSize: INTEGER := 16*5 ---
     );
@@ -27,9 +26,11 @@ begin
 
     if reset='1' then
         ram<=(others=>zeros);
-    ELSIF we='1' and clk'EVENT AND clk='0' then
-        ram(to_integer(unsigned(address))) <= datain;
-        end if;
+    ELSIF we='1' THEN
+        IF clk'EVENT AND clk='0' then
+            ram(to_integer(unsigned(address))) <= datain;
+        END IF;
+    end if;
         dataOut<=ram(to_integer(unsigned(address)))&ram(to_integer(unsigned(address))+1)&ram(to_integer(unsigned(address))+2)&ram(to_integer(unsigned(address))+3)&ram(to_integer(unsigned(address))+4);
 
     end PROCESS;            

@@ -22,7 +22,7 @@ force -freeze sim:/cnncores/rst 1 0
 run
 
 force -freeze sim:/cnncores/decoderRow 3'h0 0
-force -freeze sim:/cnncores/filterBus 40'h4040404040 0
+force -freeze sim:/cnncores/filterBus 40'h2020202020 0
 force -freeze sim:/cnncores/filterType 0 0
 force -freeze sim:/cnncores/layerType 0 0
 force -freeze sim:/cnncores/pageTurn 0 0
@@ -30,7 +30,7 @@ force -freeze sim:/cnncores/rst 0 0
 force -freeze sim:/cnncores/shift1To2 0 0
 force -freeze sim:/cnncores/shift2To1 0 0
 force -freeze sim:/cnncores/start 0 0
-force -freeze sim:/cnncores/windowBus 80'h01000100010001000100 0
+force -freeze sim:/cnncores/windowBus 80'h04000400040004000400 0
 force -freeze sim:/cnncores/writeFilter 1 0
 force -freeze sim:/cnncores/writePage1 1 0
 force -freeze sim:/cnncores/writePage2 0 0
@@ -57,4 +57,8 @@ run
 force -freeze sim:/cnncores/filterType 1 0
 run
 force -freeze sim:/cnncores/layerType 0 0
+force -freeze sim:/cnncores/start 1 0
+run
+run
+run
 run

@@ -1,0 +1,24 @@
+/home/ayman/mgc/LeonardoSpectrum/bin/Linux/spectrum -file script.tcl 
+-------------------------------------------------
+LeonardoSpectrum Level 3 - 2018a.2 (Release Production Release, compiled Nov  1 2018 at 10:14:57)
+Copyright 1990-2018 Mentor Graphics.  All rights reserved.
+Portions copyright 1991-2018 Compuware Corporation
+
+Checking Security ...
+Reading library file `/home/ayman/mgc/LeonardoSpectrum/lib/tsmc035_typ.syn`...
+Library version = 3.0 Release : Patch (a) : 09/13/04
+Delays assume: Process=typical Temp= 27.0 C  Voltage=3.30 V  
+Info: setting encoding to auto
+Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/RAM'
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
+-- Loading package standard into library std
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RAM.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/std_1164.vhd for unit STD_LOGIC_1164
+-- Loading package std_logic_1164 into library IEEE
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/numeric_std.vhd for unit Numeric_Std
+-- Loading package NUMERIC_STD into library IEEE
+-- Loading entity RAM into library work
+-- Loading architecture RAMArch of RAM into library work
+-- Compiling root entity RAM(RAMArch)
+read: interrupted
+
