@@ -130,7 +130,7 @@ BEGIN
     );
 
   
-    IOLogicCnt: PROCESS(currentState, write, dmaWrite, dmaFinishOneWrite,dmaFinishAll)
+    IOLogicCnt: PROCESS(currentState, write, dmaWrite, dmaFinishOneWrite,dmaFinishAll,ramBasedAddress,outputSize)
     BEGIN
         CASE currentState IS
             WHEN switchState =>
@@ -140,7 +140,8 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
-                 
+                dmaCountIn<=(others=>'0');
+
                 -- reset the baseAddressRegister to RamBaseAddress value
                 dmaWrite <= '0';
                 resetAddressReg <= '1'; -- open the reset register to enable writing..
@@ -157,7 +158,8 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
-
+                dmaCountIn<=(others=>'0');
+                addressRegIn<=addressRegIn;
                 -- transition logic
                 stateRegEn <= write; -- to go to init state
                 nextState <= initState;
@@ -170,6 +172,7 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
+                addressRegIn<=addressRegIn;
 
 
                 dmaInitCounter <= '1';
@@ -187,6 +190,8 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
+                dmaCountIn<=(others=>'0');
+                addressRegIn<=addressRegIn;
 
                 incBaseAddress <= '1'; -- 
                 -- transition logic
@@ -200,6 +205,8 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
+                dmaCountIn<=(others=>'0');
+                addressRegIn<=addressRegIn;
 
                 dmaWrite <= write;
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all

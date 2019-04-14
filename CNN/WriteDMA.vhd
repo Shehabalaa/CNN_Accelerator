@@ -48,16 +48,18 @@ architecture WriteDMAArch of WriteDMA is
         writeCompleteOne <= MFC AND writeToRam;
         process(clk, MFC,writeToRam,currentCount,internalBus,initCounter, initAddress)
         begin
+            ramDataOutBus<=(others=>'0');
             if MFC='1' AND writeToRam = '1' AND ( (clk = '0' AND currentCount = ones) OR (clk = '1' AND currentCount = zeros))  THEN
                 writeComplete <= '1';
             else 
                 writeComplete <= '0';
-        end if;
-        if writeToRam='1' then
-            ramWrite<='1';
-            ramDataOutBus<=internalBus;
-        else
-            ramWrite<='0';
-        end if;
+            end if;
+            
+            if writeToRam='1' then
+                ramWrite<='1';
+                ramDataOutBus<=internalBus;
+            else
+                ramWrite<='0';
+            end if;
     end process;
 end architecture;
