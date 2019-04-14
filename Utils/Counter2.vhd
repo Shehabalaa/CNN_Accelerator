@@ -24,17 +24,18 @@ USE IEEE.numeric_std.all;
 
  ARCHITECTURE Counter2Arch OF Counter2 IS
 
-     SIGNAL counterInput, countAdded, currentCount, resetOrCurrent, zerosSignal: std_logic_vector(n-1 DOWNTO 0);
+     SIGNAL counterInput, countAdded, currentCount, resetOrCurrent, zerosSignal, onesSignal: std_logic_vector(n-1 DOWNTO 0);
 
 
      BEGIN
 
      zerosSignal <= (others => '0');
+     onesSignal <= (others => '1');
 
          counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, '1', clk, '0', currentCount);
         nextCount: ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(currentCount, zerosSignal, '1', countAdded);
         muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(resetOrCurrent, load, isLoad, counterInput);
-        muxInput: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(countAdded, zerosSignal, reset, resetOrCurrent);
+        muxInput: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(countAdded, onesSignal, reset, resetOrCurrent);
         count <= currentCount;
 
  END ARCHITECTURE; 
