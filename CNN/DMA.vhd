@@ -43,45 +43,30 @@ Signal tobeAdded:std_logic_vector(addressSize-1 downto 0) ;
 signal enableCount:std_logic;
 signal enableTristate:std_logic;
 
+signal internalFinishedReading: std_logic;
+
 BEGIN
   addressRegister:Entity work.MultiStepCounter Generic Map(addressSize) PORT MAP(readBaseAddress,tobeAdded,'0',clk,initAddress,MFC,ramReadAddress);
   counter:Entity work.DownCounter Generic Map(3) PORT MAP(initialCount,enableCount ,clk,initCounter,currentCount);
   readStepRegister:Entity work.Reg Generic Map(addressSize) PORT MAP(readStep,'1',initCounter,'0',tobeAdded);
   tristateLabel:Entity work.Tristate Generic Map(internalBusSize) PORT MAP(ramDataInBus,enableTristate,internalBus);
+  finishedReading <= internalFinishedReading;
+  ramRead <= load;
   process(MFC, load, ramDataInBus, currentCount, initCounter, clk)
     begin
       -- reset all
       finishedOneRead <= '0';
-      finishedReading <= '0';
-      ramRead <= '0';
       enableTristate<='0';
 
       -- finishedReading <= MFC AND ( (clk AND currentCount = "000") OR ((NOT clk) AND currentCount="001") );
-      IF MFC = '1' AND load = '1' AND ( (clk = '1' AND currentCount = "000") OR (clk = '0' AND currentCount = "001") ) THEN
-        finishedReading <= '1';
+      IF MFC = '1' AND load = '1' AND ( clk = '0' AND currentCount = "001") THEN
+        internalFinishedReading <= '1';
+      ELSIF MFC = '0' THEN
+        internalFinishedReading <= '0';
       ELSE
-        finishedReading <= '0';
-      END IF;
-      -- if currentCount=zeros AND MFC='1'   then--finished counting and data is ready
-      --   finishedReading<='1';
-      --   end if;
-
-      -- IF load = '1' AND ( (clk = '1' AND currentCount /= "000") OR (MFC = '1' AND clk = '0' AND currentCount /= "001") ) THEN
-      --   ramRead <= '1';
-      -- ELSE
-      --   ramRead <= '0';
-      -- END IF;
-      IF load = '0' OR ( (MFC = '1' AND clk = '0' AND currentCount = "001") OR (clk = '1' AND currentCount = "000") ) THEN
-        ramRead <= '0';
-      ELSE
-        ramRead <= '1';
+        internalFinishedReading <= internalFinishedReading;
       END IF;
 
-	    -- if load='0' then
-      --   ramRead<='0';
-      -- elsif load='1' AND currentCount/=zeros then
-      --   ramRead<='1';
-      -- end if;
       if MFC='1' AND load = '1' THEN
         finishedOneRead<='1';
         enableTristate<='1';
