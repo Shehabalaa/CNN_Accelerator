@@ -187,6 +187,11 @@ BEGIN
                 dmaInitRamBaseAddress <= '0';
                 dmaCountIn<=dmaCountIn;
                 -- reset the baseAddressRegister to RamBaseAddress value
+                IF isFilter = '1' THEN
+                    dmaInitRamBaseAddress <= '1';
+                ELSE
+                    dmaInitRamBaseAddress <= '0';
+                END IF;
                 dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                 resetAddressReg <= '1'; -- open the reset register to enable writing..
                 addressRegIn <= ramBasedAddress; -- ..and put the base value to it
@@ -232,11 +237,14 @@ BEGIN
                 nextState <= fetchState; -- transition logic
                 IF loadNextWordList = '1' THEN
                     resetUnitNumberReg <= '1';
-                    dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                     if isFilter = '0' THEN
+                        -- i am window
                         nextState <= incState; -- transition logic
+                        dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                     ELSE
-                        dmaInitRamBaseAddress <= '1';
+                        -- i am filter
+                        dmaInitAddress <= '0';
+                        dmaInitRamBaseAddress <= '0';
                     END IF;
                     dmaCountIn <= filterSize(2 DOWNTO 0);
                 -- TODO: optimization -> remove elseif and make it else, it is impossible to be here and the two loads signals is 0 

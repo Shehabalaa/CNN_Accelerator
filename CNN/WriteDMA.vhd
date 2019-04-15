@@ -41,6 +41,7 @@ architecture WriteDMAArch of WriteDMA is
     signal enableCounter:std_logic; 
 
     SIGNAL internalWriteComplete: std_logic;
+
     begin
         -- mapping internal signals to port signals
         writeComplete <= internalWriteComplete;
@@ -51,22 +52,14 @@ architecture WriteDMAArch of WriteDMA is
         
         enableCounter <= MFC or initCounter;
         writeCompleteOne <= MFC AND writeToRam;
-        process(clk, MFC,writeToRam,currentCount,internalBus,initCounter, initAddress)
+        ramWrite <= writeToRam;
+        ramDataOutBus <= internalBus;
+        process(clk, MFC,writeToRam,currentCount)
         begin
-            ramDataOutBus<=(others=>'0');
             IF MFC='1' AND writeToRam = '1' AND clk = '0' AND currentCount = ones THEN
                 internalWriteComplete <= '1';
             ELSIF MFC = '0' THEN
                 internalWriteComplete <= '0';
-            ELSE
-                internalWriteComplete <= internalWriteComplete;
             END IF;
-            
-            if writeToRam='1' then
-                ramWrite<='1';
-                ramDataOutBus<=internalBus;
-            else
-                ramWrite<='0';
-            end if;
     end process;
 end architecture;

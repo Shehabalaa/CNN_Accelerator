@@ -52,26 +52,17 @@ BEGIN
   tristateLabel:Entity work.Tristate Generic Map(internalBusSize) PORT MAP(ramDataInBus,enableTristate,internalBus);
   finishedReading <= internalFinishedReading;
   ramRead <= load;
-  process(MFC, load, ramDataInBus, currentCount, initCounter, clk)
-    begin
-      -- reset all
-      finishedOneRead <= '0';
-      enableTristate<='0';
 
+  enableCount <= MFC or initCounter;
+  enableTristate <= MFC AND load;
+  finishedOneRead <= MFC AND load;
+  process(MFC, load, currentCount, clk)
+    begin
       -- finishedReading <= MFC AND ( (clk AND currentCount = "000") OR ((NOT clk) AND currentCount="001") );
       IF MFC = '1' AND load = '1' AND ( clk = '0' AND currentCount = "001") THEN
         internalFinishedReading <= '1';
       ELSIF MFC = '0' THEN
         internalFinishedReading <= '0';
-      ELSE
-        internalFinishedReading <= internalFinishedReading;
       END IF;
-
-      if MFC='1' AND load = '1' THEN
-        finishedOneRead<='1';
-        enableTristate<='1';
-        --internalBus<=ramDataInBus;
-      end if;
-      enableCount<= MFC or initCounter;
-      end process;
+    end process;
 END ARCHITECTURE;

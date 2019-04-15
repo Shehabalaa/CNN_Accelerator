@@ -52,7 +52,8 @@ ENTITY DMAController IS
     loadNextFilter: IN STD_LOGIC; -- signal to specify to me to start reading the filter, here we keep track of the next address to read from
     loadNextWindow: IN STD_LOGIC; -- same as above but for window
     loadNextRow: IN STD_LOGIC; -- same as above but for one row
-    loadWord: IN STD_LOGIC; -- same as above but for read config from filter ram
+    loadOneWord: IN STD_LOGIC; -- same as above but for read config from filter ram
+    loadTwoWord: IN STD_LOGIC; -- same as above but for read config from filter ram
     layerFinished: IN STD_LOGIC;
     write: IN STD_LOGIC; -- signal to specify write the current data in internal bus
 
@@ -90,7 +91,13 @@ SIGNAL resetLogics: STD_LOGIC;
 
 SIGNAL weightsSizeForWindow: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
 SIGNAL weightsSizeForFilter: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
+
+SIGNAL loadWord: STD_LOGIC;
+SIGNAL filterStep: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
+
 begin
+    loadWord <= loadOneWord OR loadTwoWord;
+    filterStep <= (0 => '1', others => '0') WHEN loadOneWord = '1' ELSE (1 => '1', others => '0') WHEN loadTwoWord = '1' ELSE weightsSizeForFilter;
     -- map weightsSizeType to bits
     weightsSizeForWindow <= (0 => '1', 1 => '1', others => '0') WHEN weightsSizeType = '0' 
     ELSE (0 => '1', 2 => '1', others => '0');
@@ -177,7 +184,7 @@ begin
       MFC => MFCWeightsRam,
 
       -- CONFIG
-      inputSize => weightsSizeForFilter,
+      inputSize => filterStep,
       filterSize => weightsSizeForFilter,
       isFilter => '1',
       
