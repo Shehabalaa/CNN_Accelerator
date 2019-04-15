@@ -18,10 +18,11 @@ sim:/dmacontroller/MFCWeightsRam \
 sim:/dmacontroller/loadNextFilter \
 sim:/dmacontroller/loadNextWindow \
 sim:/dmacontroller/loadNextRow \
-sim:/dmacontroller/loadWord \
+sim:/dmacontroller/loadOneWord \
+sim:/dmacontroller/loadTwoWord \
 sim:/dmacontroller/layerFinished \
 sim:/dmacontroller/write \
-sim:/dmacontroller/filterSize \
+sim:/dmacontroller/weightsSizeType \
 sim:/dmacontroller/inputSize \
 sim:/dmacontroller/outputSize \
 sim:/dmacontroller/windowRamBaseAddress1 \
@@ -41,9 +42,7 @@ sim:/dmacontroller/windowInternalBusWLogic \
 sim:/dmacontroller/readLogicRamAddress \
 sim:/dmacontroller/writeLogicRamAddress \
 sim:/dmacontroller/ramBaseAddressSelector \
-sim:/dmacontroller/switchRam\
-sim:/dmacontroller/*
-
+sim:/dmacontroller/switchRam
 
 ##########################################################################
 # add wave  \
@@ -82,9 +81,9 @@ sim:/dmacontroller/*
 # sim:/dmacontroller/filterReadLogicEnt/isFilter \
 # sim:/dmacontroller/filterReadLogicEnt/baseAddressCounterClk \
 # sim:/dmacontroller/filterReadLogicEnt/aluNumberCounterClk
-##########################################################################
+#########################################################################
 
-# ##########################################################################
+##########################################################################
 # add wave  \
 # sim:/dmacontroller/filterReadLogicEnt/dma/initialCount \
 # sim:/dmacontroller/filterReadLogicEnt/dma/readBaseAddress \
@@ -215,7 +214,7 @@ sim:/dmacontroller/*
 ############################################################################
 
 
-force -freeze sim:/dmacontroller/clk 0 0, 1 {5000 ps} -r {10 ns}
+force -freeze sim:/dmacontroller/clk 0 0, 1 {50 ps} -r 100
 
 # reset all
 force -freeze sim:/dmacontroller/MFCWeightsRam 0 0
@@ -224,51 +223,52 @@ force -freeze sim:/dmacontroller/layerFinished 0 0
 force -freeze sim:/dmacontroller/loadNextFilter 0 0
 force -freeze sim:/dmacontroller/loadNextWindow 0 0
 force -freeze sim:/dmacontroller/loadNextRow 0 0
-force -freeze sim:/dmacontroller/loadWord 0 0
+force -freeze sim:/dmacontroller/loadTwoWord 0 0
+force -freeze sim:/dmacontroller/loadOneWord 0 0
 force -freeze sim:/dmacontroller/write 0 0
 
-force -freeze sim:/dmacontroller/windowRamBaseAddress1 1111000000000000 0
-force -freeze sim:/dmacontroller/windowRamBaseAddress2 0000000001100000 0
-force -freeze sim:/dmacontroller/filterRamBaseAddress 0000111100000000 0
-force -freeze sim:/dmacontroller/filterSize 0000000000000011 0
-force -freeze sim:/dmacontroller/inputSize 0000000000000111 0
-force -freeze sim:/dmacontroller/outputSize 0000000000000100 0
-
+force -freeze sim:/dmacontroller/windowRamBaseAddress1 000F 0
+force -freeze sim:/dmacontroller/windowRamBaseAddress2 000A 0
+force -freeze sim:/dmacontroller/filterRamBaseAddress 001 0
+force -freeze sim:/dmacontroller/weightsSizeType 0 0
+force -freeze sim:/dmacontroller/inputSize 0111 0
+force -freeze sim:/dmacontroller/outputSize 0100 0
 
 
 
 force -freeze sim:/dmacontroller/reset 1 0
 run
 force -freeze sim:/dmacontroller/reset 0 0
-force -freeze sim:/dmacontroller/loadWord 1 0
+force -freeze sim:/dmacontroller/loadOneWord 1 0
 run
 run
 run
 run
 force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
-force -freeze sim:/dmacontroller/weightsRamDataInBus 1010100010101000 0
+force -freeze sim:/dmacontroller/weightsRamDataInBus FF000000FF 0
 run
 force -freeze sim:/dmacontroller/MFCWeightsRam 0 0
-force -freeze sim:/dmacontroller/loadWord 0 0
+force -freeze sim:/dmacontroller/loadOneWord 0 0
 force -freeze sim:/dmacontroller/loadNextFilter 1 0
 force -freeze sim:/dmacontroller/loadNextWindow 1 0
 run
 run
 run
-force -freeze sim:/dmacontroller/MFCWindowRam 1 0
-force -freeze sim:/dmacontroller/windowRamDataInBus 0000111100001111 0
-force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
-force -freeze sim:/dmacontroller/weightsRamDataInBus 1111000011110000 0
 run
 force -freeze sim:/dmacontroller/MFCWindowRam 1 0
-force -freeze sim:/dmacontroller/windowRamDataInBus 1111000011110000 0
+force -freeze sim:/dmacontroller/windowRamDataInBus FFFFFFFF000000000000 0
 force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
-force -freeze sim:/dmacontroller/weightsRamDataInBus 0000111100001111 0
+force -freeze sim:/dmacontroller/weightsRamDataInBus FF00000000 0
 run
 force -freeze sim:/dmacontroller/MFCWindowRam 1 0
-force -freeze sim:/dmacontroller/windowRamDataInBus 0000111100001111 0
+force -freeze sim:/dmacontroller/windowRamDataInBus 00FFFFFF000000000000 0
 force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
-force -freeze sim:/dmacontroller/weightsRamDataInBus 1111000011110000 0
+force -freeze sim:/dmacontroller/weightsRamDataInBus FFFF000000 0
+run
+force -freeze sim:/dmacontroller/MFCWindowRam 1 0
+force -freeze sim:/dmacontroller/windowRamDataInBus FFFFFFFF000000000000 0
+force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
+force -freeze sim:/dmacontroller/weightsRamDataInBus FF00000000 0
 run
 force -freeze sim:/dmacontroller/MFCWeightsRam 0 0
 force -freeze sim:/dmacontroller/MFCWindowRam 0 0
@@ -278,7 +278,7 @@ run
 force -freeze sim:/dmacontroller/loadNextFilter 0 0
 force -freeze sim:/dmacontroller/loadNextWindow 0 0
 force -freeze sim:/dmacontroller/write 1 0
-force -freeze sim:/dmacontroller/windowInternalBus 1111000000000001 0
+force -freeze sim:/dmacontroller/windowInternalBus FF00FF00FF0000 0
 run
 run
 run
@@ -324,35 +324,38 @@ force -freeze sim:/dmacontroller/layerFinished 1 0
 run
 force -freeze sim:/dmacontroller/layerFinished 0 0
 
-force -freeze sim:/dmacontroller/loadWord 1 0
+
+
+force -freeze sim:/dmacontroller/loadTwoWord 1 0
 run
 run
 run
 run
 force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
-force -freeze sim:/dmacontroller/weightsRamDataInBus 1010100010101000 0
+force -freeze sim:/dmacontroller/weightsRamDataInBus FF000000FF 0
 run
 force -freeze sim:/dmacontroller/MFCWeightsRam 0 0
-force -freeze sim:/dmacontroller/loadWord 0 0
+force -freeze sim:/dmacontroller/loadTwoWord 0 0
 force -freeze sim:/dmacontroller/loadNextFilter 1 0
 force -freeze sim:/dmacontroller/loadNextWindow 1 0
 run
 run
 run
-force -freeze sim:/dmacontroller/MFCWindowRam 1 0
-force -freeze sim:/dmacontroller/windowRamDataInBus 0000111100001111 0
-force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
-force -freeze sim:/dmacontroller/weightsRamDataInBus 1111000011110000 0
 run
 force -freeze sim:/dmacontroller/MFCWindowRam 1 0
-force -freeze sim:/dmacontroller/windowRamDataInBus 1111000011110000 0
+force -freeze sim:/dmacontroller/windowRamDataInBus FFFFFFFF000000000000 0
 force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
-force -freeze sim:/dmacontroller/weightsRamDataInBus 0000111100001111 0
+force -freeze sim:/dmacontroller/weightsRamDataInBus FF00000000 0
 run
 force -freeze sim:/dmacontroller/MFCWindowRam 1 0
-force -freeze sim:/dmacontroller/windowRamDataInBus 0000111100001111 0
+force -freeze sim:/dmacontroller/windowRamDataInBus 00FFFFFF000000000000 0
 force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
-force -freeze sim:/dmacontroller/weightsRamDataInBus 1111000011110000 0
+force -freeze sim:/dmacontroller/weightsRamDataInBus FFFF000000 0
+run
+force -freeze sim:/dmacontroller/MFCWindowRam 1 0
+force -freeze sim:/dmacontroller/windowRamDataInBus FFFFFFFF000000000000 0
+force -freeze sim:/dmacontroller/MFCWeightsRam 1 0
+force -freeze sim:/dmacontroller/weightsRamDataInBus FF00000000 0
 run
 force -freeze sim:/dmacontroller/MFCWeightsRam 0 0
 force -freeze sim:/dmacontroller/MFCWindowRam 0 0
@@ -362,7 +365,7 @@ run
 force -freeze sim:/dmacontroller/loadNextFilter 0 0
 force -freeze sim:/dmacontroller/loadNextWindow 0 0
 force -freeze sim:/dmacontroller/write 1 0
-force -freeze sim:/dmacontroller/windowInternalBus 1111000000000001 0
+force -freeze sim:/dmacontroller/windowInternalBus FF00FF00FF0000 0
 run
 run
 run
@@ -381,6 +384,17 @@ run
 run
 run
 force -freeze sim:/dmacontroller/MFCWindowRam 1 0
+run
+run
+run
+run
+run
+force -freeze sim:/dmacontroller/MFCWindowRam 0 0
+force -freeze sim:/dmacontroller/write 0 0
+run
+run
+run
+run
 run
 run
 run
