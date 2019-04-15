@@ -13,11 +13,26 @@ ENTITY CNNModule IS
         windowSize: INTEGER := 16;
         numUnits: INTEGER := 5;
         numRows: INTEGER := 5;
-        decoderSize: INTEGER := 3
+        decoderSize: INTEGER := 3;
+        weightsAddressSize: INTEGER := 12;
+        windowAddressSize: INTEGER := 13
     );
     PORT (
         startCNN, clk, rst, layerType, filterType: IN STD_LOGIC;
-
+        
+        -- Two Rams interface
+        
+        weightsRamDataInBus: IN STD_LOGIC_VECTOR((filterSize * numUnits)-1 DOWNTO 0);
+        windowRamDataInBus: IN STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
+        MFCWindowRam: IN STD_LOGIC;
+        MFCWeightsRam: IN STD_LOGIC;
+        weightsRamAddress: OUT STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
+        windowRamAddress: OUT STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
+        weightsRamRead: OUT STD_LOGIC;
+        windowRamRead: OUT STD_LOGIC;
+        windowRamWrite: OUT STD_LOGIC;
+        windowRamDataOutBus: OUT STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
+        
         finishNetwork: OUT STD_LOGIC
     );
 END CNNModule;
@@ -31,11 +46,11 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
     SIGNAL filterBus: STD_LOGIC_VECTOR((numUnits*filterSize)-1 DOWNTO 0);
     SIGNAL windowBus: STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
     SIGNAL decoderRow: STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
-    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish: STD_LOGIC;
+    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, loadWord: STD_LOGIC;
     SIGNAL sumOutCores: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 
     -- DMA Signals
-    SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadBias, loadWindow, loadFilter,readNextCol: STD_LOGIC;
+    SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadBias, loadWindow, loadFilter, readNextCol: STD_LOGIC;
 
     -- Signals comes from DMA after reading from RAM
     SIGNAL layersNumber : STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -87,6 +102,65 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             shift1To2, shift2To1, readNextCol, addToOutputBuffer, outputBufferEn, saveToRAM,
             currentPage,
             finishNetwork
+        );
+
+        loadWord <= loadBias or loadLayerConfig or loadNetworkConfig or loadFilterConfig;
+
+
+        -- DMA Mapping
+        DMAControllerMap: ENTITY work.ControlUnit GENERIC MAP(
+            weightsAddressSize, 
+            windowAddressSize, 
+            filterSize, 
+            windowSize, 
+            numUnits
+            ) PORT MAP (
+            clk => clk,
+            reset => rst,
+
+            -- internal buses
+            weightsInternalBus => filterBus,
+            windowInternalBus => windowBus,
+            
+            -- Two Rams interface
+            weightsRamAddress => weightsRamAddress,
+            windowRamAddress => windowRamAddress,
+            weightsRamDataInBus => weightsRamDataInBus
+            windowRamDataInBus => windowRamDataInBus,  
+            weightsRamRead => weightsRamRead,  
+            windowRamRead => windowRamRead,  
+            windowRamWrite => windowRamWrite,  
+            windowRamDataOutBus => windowRamDataOutBus,  
+            MFCWindowRam => MFCWindowRam,  
+            MFCWeightsRam => MFCWeightsRam,  
+
+            -- input cnt signals
+            loadNextFilter => loadFilter,
+            loadNextWindow => loadWindow,
+            loadNextRow => readNextCol,
+            loadWord =>  
+            layerFinished =>  
+            write =>  
+
+            -- CONFIG
+            weightsSize => 
+            inputSize =>  
+            outputSize =>  
+            windowRamBaseAddress1, windowRamBaseAddress2 =>  
+            filterRamBaseAddress =>  
+            
+            -- o.p cnt signals
+            windowReadOne =>  
+            windowReadFinal =>  
+
+            weightsReadOne =>  
+            weightsReadFinal =>  
+
+            writeDoneAll =>  
+            writeDoneOne =>  
+            
+            filterAluNumber =>  
+            windowAluNumber =>  
         );
 
 
