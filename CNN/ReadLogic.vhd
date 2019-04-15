@@ -37,7 +37,7 @@ ENTITY ReadLogic IS
     
     -- DMA interface: pass it to dma
     internalBus: out STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
-    ramDataInBus: IN STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    ramDataInBus: IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramRead: OUT STD_LOGIC; --
     -- ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     ramAddress: OUT std_logic_vector(addressSize-1 downto 0) ;

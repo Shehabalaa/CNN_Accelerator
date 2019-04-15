@@ -37,7 +37,7 @@ GENERIC (
     -- DMA interface: pass it to dma
     internalBus: IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramWrite: OUT STD_LOGIC; --
-    ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    ramDataOutBus: OUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramAddress: OUT STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0); 
     MFC: IN STD_LOGIC;
 
@@ -54,7 +54,7 @@ GENERIC (
   );
 END WriteLogic ; 
 
-ARCHITECTURE ReadLogicArch OF WriteLogic IS
+ARCHITECTURE WriteLogicArch OF WriteLogic IS
 
 
 -- FSM
@@ -186,7 +186,7 @@ BEGIN
 
                 dmaInitCounter <= '1';
                 dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
-                dmaCountIn <= outputSize;
+                dmaCountIn <= outputSize(maxImageSize-1 DOWNTO 0);
                 
                 -- transition logic
                 nextState <= incState; -- transition logic

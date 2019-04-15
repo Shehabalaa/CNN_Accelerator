@@ -24,7 +24,7 @@ Entity WriteDMA is
         internalBus:IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
         --ram interface
         ramWrite:out std_logic;
-        ramDataOutBus:out STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+        ramDataOutBus:out STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
         ramWriteAddress:out std_logic_vector(addressSize-1 downto 0) ;
         MFC:in std_logic;
 

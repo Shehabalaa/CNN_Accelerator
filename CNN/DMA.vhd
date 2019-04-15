@@ -16,8 +16,6 @@ library ieee ;
 ENTITY DMA IS
 GENERIC (
     addressSize: INTEGER:=16;
-    wordSize : INTEGER := 16;
-    readStepSize:INTEGER :=16;
     internalBusSize: INTEGER:=16
   );
   port (
@@ -32,7 +30,7 @@ GENERIC (
     finishedReading:out std_logic;
     clk:in std_logic;
     -- RAM
-    ramDataInBus: IN STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    ramDataInBus: IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramRead: OUT STD_LOGIC; 
     ramReadAddress:OUT std_logic_vector(addressSize-1 downto 0) ;
     MFC: IN STD_LOGIC
