@@ -11,14 +11,14 @@ ENTITY ControlUnit IS
         filterOutputSize: IN STD_LOGIC_VECTOR(4 DOWNTO 0);
 
         startNetwork: IN STD_LOGIC;
-        convPoolSelect : IN STD_LOGIC;
+        layerType : IN STD_LOGIC;
 
         convFinish,dmaAFinish,dmaBFinish : IN STD_LOGIC;
 
         resetNetwork : IN STD_LOGIC;
 
         loadLayerConfig, loadNetworkConfig, loadFilterConfig : OUT STD_LOGIC;
-        loadBias, loadWindow, loadFilter,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM : OUT STD_LOGIC;
+        loadWindow, loadFilter,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM : OUT STD_LOGIC;
         
 
         finishNetwork : OUT STD_LOGIC
@@ -58,10 +58,10 @@ ARCHITECTURE ControlUnitArch OF ControlUnit IS
 
         oneLayerMap : ENTITY work.LayerController PORT MAP(startOneLayer,dmaAFinish,finishFilter,resetNetwork,clk,filtersNumber,loadLayerConfig,startFilter,finishOneLayer );
 
-        filterMap : ENTITY work.FilterController PORT MAP(startFilter,dmaAFinish,finishSlice,resetNetwork,clk,filterDepth,startSlice,loadFilterConfig,filterLastLayer,finishFilter);
+        filterMap : ENTITY work.FilterController PORT MAP(startFilter,layerType,dmaAFinish,finishSlice,resetNetwork,clk,filterDepth,startSlice,loadFilterConfig,filterLastLayer,finishFilter);
 
-        sliceFilterMap : ENTITY work.SliceFilterController PORT MAP(startSlice,convPoolSelect,filterLastLayer,convFinish,dmaAFinish,dmaBFinish,
-        resetNetwork,clk,filterOutputSize,loadBias,loadFilter,loadWindow,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM,finishSlice);
+        sliceFilterMap : ENTITY work.SliceFilterController PORT MAP(startSlice,layerType,filterLastLayer,convFinish,dmaAFinish,dmaBFinish,
+        resetNetwork,clk,filterOutputSize,loadFilter,loadWindow,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM,finishSlice);
 
 
 

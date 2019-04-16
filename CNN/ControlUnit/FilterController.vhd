@@ -7,6 +7,7 @@ ENTITY FilterController IS
 		-- maxDepth --> Maximum bits to represent depth of the layer 
 	PORT(
 			start, -- Signal to Start applying 1 filter to 1 image
+			layerType, -- Signal to know layer type 0 -> conv , 1->pool 
 			dmaFinish,  -- Signal is sent when DMA finishes desired Operation
             oneConvFinish, -- Signal when One convolution finishes it sends it
             resetState, -- Signal to reset State to idle state
@@ -65,11 +66,16 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 						resetCounter <= '1';
 			
 					-- Set Next State
-						nextState <= loadConfigState; 
+						IF layerType = '0' THEN
+							nextState <= loadConfigState;
+						ELSE
+							nextState <= OneConvState; 
+						END IF;
 
 					-- When Start signal comes Go to specified Next State
 						stateRegEn <= start;
-						loadConfig <= start;
+
+						loadConfig <= start AND ( NOT layerType );
 			------------------------------------------------------------
 			WHEN loadConfigState =>
 					-- Release Reset Signals for Counters

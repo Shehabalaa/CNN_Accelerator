@@ -8,7 +8,7 @@ ENTITY SliceFilterController IS
 			-- maxOutputImage -> Maximum bits to represent the size of output image 
 	PORT(
 			start, -- Signal to Start applying 1 filter to 1 image
-			convPoolSelect, -- Signal to know weather this process is convolution => 0  or Pooling => 1
+			layerType, -- Signal to know weather this process is convolution => 0  or Pooling => 1
 			filterLastLayer, -- Signal to know weather it is the last layer or not to save final result in ram -- in pooling -> always 1 or don't care
 			finishConv, -- Signal to know then convolution finish
 			-- dmaFinish, -- Signal is sent when DMA finishes desired Operation
@@ -19,7 +19,7 @@ ENTITY SliceFilterController IS
 
 			outputSize : IN STD_LOGIC_VECTOR(maxOutputImage-1 downto 0); -- Output Image size Example : 26 --> output image size 26x26
 
-			loadBias, -- Signal is sent to DMA to load Bias from RAM and save into filter buffer
+			-- loadBias, -- Signal is sent to DMA to load Bias from RAM and save into filter buffer
 			loadFilter, -- Signal is sent to DMA to load Filter from RAM
 			loadWindow, -- Signal is sent to DMA to load Window from RAM
 			conv,  -- Signal is sent to Multipliers to start Convolution
@@ -41,7 +41,6 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 	
 	-- Enum for State Machine States
 		TYPE fsmStateMachine IS (	idleState,			
-									loadBiasState,
 									loadFilterWindowState,
 									shiftState,
 									convReadColState,
@@ -77,7 +76,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 	nextPage <= NOT currentPage;
 
-		PROCESS(currentState,start,dmaAFinish,dmaBFinish,finishConv,convPoolSelect,currentPage,filterLastLayer,outputSize,nextPage,innerCounterOut,outerCounterOut)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize)
+		PROCESS(currentState,start,dmaAFinish,dmaBFinish,finishConv,layerType,currentPage,filterLastLayer,outputSize,nextPage,innerCounterOut,outerCounterOut)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize)
 
 			BEGIN
 			CASE currentState IS
@@ -108,53 +107,52 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						resetOuterCounter <= '1';
 			
 					-- Set Next State
-						IF convPoolSelect = '0' THEN
-							nextState <= loadBiasState;
-						ELSE
 							nextState <= loadFilterWindowState; 
-						END IF;
-
+			
 					-- When Start signal comes Go to specified Next State
 						stateRegEn <= start;
-						loadBias <= start AND ( NOT convPoolSelect );
-						loadWindow <= start AND (convPoolSelect);
+						-- loadBias <= start AND ( NOT layerType );
+
+						loadWindow <= start;
+
+						loadFilter <= start AND (NOT layerType); -- 0 => conv  1 => pool
 
 			--------------------------------------------------------------------------------------------------------
-			WHEN loadBiasState =>
-					-- Release Reset Signals for Counters
-						innerCounterEn <= '0';
-						outerCounterEn <= '0';
-						resetInnerCounter <= '0';
-						resetOuterCounter <= '0';
+			-- WHEN loadBiasState =>
+			-- 		-- Release Reset Signals for Counters
+			-- 			innerCounterEn <= '0';
+			-- 			outerCounterEn <= '0';
+			-- 			resetInnerCounter <= '0';
+			-- 			resetOuterCounter <= '0';
 						
-						loadWindow <= '0';
-						loadFilter <= '0';
-						readNextCol <= '0';
-						conv <= '0';
-						pool <= '0';
-						shift12 <= '0';
-						shift21 <= '0';
-						-- currentPage <= '0';
-						-- nextPage <= '1';
-						pageRegEn <= '0';
-						pageRegReset <= '0';
-						addToOutputBuffer <= '0';
-						outputBufferEn <= '0';
-						saveToRam <= '0';
-						finish <= '0';
+			-- 			loadWindow <= '0';
+			-- 			loadFilter <= '0';
+			-- 			readNextCol <= '0';
+			-- 			conv <= '0';
+			-- 			pool <= '0';
+			-- 			shift12 <= '0';
+			-- 			shift21 <= '0';
+			-- 			-- currentPage <= '0';
+			-- 			-- nextPage <= '1';
+			-- 			pageRegEn <= '0';
+			-- 			pageRegReset <= '0';
+			-- 			addToOutputBuffer <= '0';
+			-- 			outputBufferEn <= '0';
+			-- 			saveToRam <= '0';
+			-- 			finish <= '0';
 
-					loadBias <= '1';
+			-- 		loadBias <= '1';
 			
-					-- Set Next State
-						nextState <= loadFilterWindowState; 
+			-- 		-- Set Next State
+			-- 			nextState <= loadFilterWindowState; 
 
-					-- When finish dma signal comes Go to specified Next State
-						stateRegEn <= dmaAFinish;
-			--------------------------------------------------------------------------------------------------------
+			-- 		-- When finish dma signal comes Go to specified Next State
+			-- 			stateRegEn <= dmaAFinish;
+			-- --------------------------------------------------------------------------------------------------------
 			WHEN loadFilterWindowState =>
 
 						-- Release Raised Signals by past state
-							loadBias <= '0';
+							-- loadBias <= '0';
 							conv <= '0';
 							pool <= '0';
 							shift12 <= '0';
@@ -176,7 +174,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 	
 
 						-- Tell DMA A to load Filter from RAM
-							loadFilter <= NOT convPoolSelect; -- 0 => conv  1 => pool
+							loadFilter <= NOT layerType; -- 0 => conv  1 => pool
 
 						-- Tell DMA B to start loading window from RAM
 							loadWindow <= '1';
@@ -186,14 +184,14 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							nextState <= shiftState;
 
 						-- When DMA finishes Go to specified Next State	
-							stateRegEn <= (dmaAFinish OR convPoolSelect) AND dmaBFinish;
+							stateRegEn <= (dmaAFinish OR layerType) AND dmaBFinish;
 
 			--------------------------------------------------------------------------------------------------------
 				WHEN shiftState =>
 						-- Release Signal raised by past state
 							loadFilter <= '0';
 							loadWindow <= '0';
-							loadBias <= '0';
+							-- loadBias <= '0';
 							readNextCol <= '0';
 							addToOutputBuffer <= '0';
 							finish <= '0';
@@ -208,8 +206,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							resetOuterCounter <= '0';
 
 						-- Convolution Start or Pooling
-							conv <= NOT convPoolSelect; -- 0 conv 1 pooling
-							pool <= convPoolSelect;
+							conv <= NOT layerType; -- 0 conv 1 pooling
+							pool <= layerType;
 
 						-- Shift		
 							-- Decide which shift would happen based on current working page
@@ -227,8 +225,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 								-- nextPage <= NOT currentPage;
 
 						-- Save Last output to RAM
-							IF (filterLastLayer = '1' OR convPoolSelect = '1') AND ( (innerCounterOut /= "00000" OR outerCounterOut /= "00000") OR currentPage = "1") THEN
-							-- IF (filterLastLayer = '1' OR convPoolSelect = '1') AND ( NOT (innerCounterOut  = "00000" ) OR  NOT(outerCounterOut = "00000")) THEN
+							IF (filterLastLayer = '1' OR layerType = '1') AND ( (innerCounterOut /= "00000" OR outerCounterOut /= "00000") OR currentPage = "1") THEN
+							-- IF (filterLastLayer = '1' OR layerType = '1') AND ( NOT (innerCounterOut  = "00000" ) OR  NOT(outerCounterOut = "00000")) THEN
 								saveToRAM <= '1';
 							ELSE
 								saveToRAM <= '0';
@@ -251,7 +249,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 								pageRegEn <= '0';
 								pageRegReset <= '0';
 							loadFilter <= '0';
-							loadBias <= '0';
+							-- loadBias <= '0';
 							addToOutputBuffer <= '0';
 							outputBufferEn <= '0';
 							finish <= '0';
@@ -264,8 +262,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 					
 
 						-- Convolution Start or Pooling
-							conv <= NOT convPoolSelect; -- 0 conv 1 pooling
-							pool <= convPoolSelect;
+							conv <= NOT layerType; -- 0 conv 1 pooling
+							pool <= layerType;
 
 				
 						-- Read Column/Window
@@ -286,7 +284,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 								END IF;
 
 						-- Set Next State
-							IF convPoolSelect = '0' THEN
+							IF layerType = '0' THEN
 								nextState <= addState;
 							ELSE
 								nextState <= saveState;
@@ -305,7 +303,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							loadFilter <= '0';
 							readNextCol <= '0';
 							loadWindow <= '0';
-							loadBias <= '0';
+							-- loadBias <= '0';
 							saveToRam <= '0';
 							finish <= '0';
 
@@ -336,7 +334,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							addToOutputBuffer <= '0';		
 							loadFilter <= '0';
 							loadWindow <= '0';
-							loadBias <= '0';
+							-- loadBias <= '0';
 							readNextCol <= '0';
 
 							conv <= '0';
@@ -384,7 +382,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 	
 					loadFilter <= '0';
 					loadWindow <= '0';
-					loadBias <= '0';
+					-- loadBias <= '0';
 					addToOutputBuffer <= '0';
 					outputBufferEn <= '0';
 					readNextCol <= '0';
@@ -404,7 +402,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						resetOuterCounter <= '0';
 				
 
-					saveToRAM <= filterLastLayer OR convPoolSelect;
+					saveToRAM <= filterLastLayer OR layerType;
 
 					-- Raise finish Signal
 						finish <= '1';

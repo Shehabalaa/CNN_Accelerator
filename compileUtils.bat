@@ -6,6 +6,8 @@ vcom Utils\FullAdder.vhd -93
 vcom Utils\NBitAdder.vhd -93
 vcom Utils\Reg.vhd -93
 vcom Utils\Counter2.vhd -93
+vcom Utils\Counter.vhd -93
+vcom Utils\TriState.vhd -93
 vcom Utils\TwosComplement.vhd -93
 vcom Utils\ShiftRegister.vhd -93
 vcom Utils\BoothStep.vhd -93

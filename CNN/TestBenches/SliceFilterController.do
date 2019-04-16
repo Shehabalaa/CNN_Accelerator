@@ -4,7 +4,7 @@ add wave sim:/SliceFilterController/*
 force -freeze sim:/SliceFilterController/clk 0 0, 1 {50 ps} -r 100
 force -freeze sim:/SliceFilterController/outputSize 00001 0
 
-force -freeze sim:/slicefiltercontroller/convPoolSelect 1 0
+force -freeze sim:/slicefiltercontroller/layerType 1 0
 force -freeze sim:/slicefiltercontroller/filterLastLayer 0 0
 force -freeze sim:/slicefiltercontroller/finishConv 0 0
 force -freeze sim:/slicefiltercontroller/dmaAFinish 0 0
