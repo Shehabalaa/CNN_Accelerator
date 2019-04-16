@@ -66,6 +66,7 @@ Signal Count : STD_LOGIC_VECTOR (3 DOWNTO 0);
 Signal InputBcomparator : STD_LOGIC_VECTOR(wordSize-1 downto 0);
 Signal enableReg : STD_LOGIC;
 Signal load: STD_LOGIC_VECTOR(wordSize-1 DOWNTO 0):="1000000000000000";
+signal zeros: std_logic_vector(3 downto 0) := "0000";
 --Signal counterEnable, loadCounter : STD_LOGIC;
   
 BEGIN
@@ -73,11 +74,11 @@ BEGIN
     
     regMaxValue : RegTony generic map(wordSize) port map(regMaxin,load,en,clk,rst,regMaxout);
     regMaxIndex : RegTony generic map(4) port map(indexMaxin,"0000",en,clk,rst,indexMaxout);
-    CounterLabel : CounterUpDown generic map(4) port map((others =>'0'),(others =>'0'),clk,en,rst,'0','0',Count);
+    CounterLabel : CounterUpDown generic map(4) port map(zeros,zeros,clk,en,rst,'0','0',Count);
     ComparatorLabel: Comparator generic map(wordSize) port map(regMaxout,InputBcomparator,ComparatorG,ComparatorEqual);
     
     InputBcomparator <= inputArray(to_integer(unsigned(Count))) when Count <="1001" and rst ='0';
-    done <= '1' when Count = "1001" else '0';
+    done <= '1' when Count = "1010" else '0';
     indexMaxin <= Count when ComparatorG = '1' else indexMaxout;
     
     regMaxin <= ("1000000000000000" ) when rst='1'
