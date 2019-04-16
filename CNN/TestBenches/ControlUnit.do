@@ -14,7 +14,7 @@ force -freeze sim:/controlunit/filterDepth 010 0
 force -freeze sim:/controlunit/filterOutputSize 00010 0
 
 force -freeze sim:/controlunit/startNetwork 0 0
-force -freeze sim:/controlunit/convPoolSelect 0 0
+force -freeze sim:/controlunit/layerType 0 0
 force -freeze sim:/controlunit/convFinish 0 0
 force -freeze sim:/controlunit/dmaAFinish 0 0
 force -freeze sim:/controlunit/dmaBFinish 0 0
