@@ -18,8 +18,8 @@ begin
     variable op1Tests :tests8bits;
     variable op2Tests,answersAccum :tests16bits;
   begin
-    q <= (others=>'0');
-    m <= (others=>'0');
+    --q <= (others=>'0');
+    --m <= (others=>'0');
     start <= '0';
     rst<='1';
     wait for 100 ns;
@@ -46,9 +46,9 @@ begin
 
   process
   begin
-    clk <= '0';
-    wait for 50 ns;
     clk <= '1';
+    wait for 50 ns;
+    clk <= '0';
     wait for 50 ns;
   end process;
 end TestBenchArch;

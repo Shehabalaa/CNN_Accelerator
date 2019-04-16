@@ -49,7 +49,7 @@ with open("out.txt",'w') as f:
     for out in outputfloat:
         f.write(out[0]+'\n')
         for i in range(byte_n):
-            fp = byte_float_bits if(out[0].find('8')!=-1) else 8\word_float_bits
+            fp = byte_float_bits if(out[0].find('8')!=-1) else 8
             f.write(str(toFloat(out[1][i].int,fp))+" ")
         f.write('\n\n')
 

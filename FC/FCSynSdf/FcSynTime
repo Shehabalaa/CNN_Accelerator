@@ -1,0 +1,96 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 44.1 MHz
+	doneMax              : 600.7 MHz
+
+
+                        Critical Path Report
+
+
+Critical path #1, (path slack = -2.9):
+
+NAME                                                        GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------------------------------
+clk (offset)                                                                0.00 (falling edge)
+delay thru clock network                                                    10.00 (worst case)
+pulse width                                                             10.00
+ALUMAP/cmp1/gen_9_cmp/pRegCmp/reg_Q(2)/CLK                  dffr              10.00 (falling edge)
+
+
+ALUMAP/cmp1/gen_9_cmp/pRegCmp/reg_Q(2)/Q                    dffr        0.00  10.53 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/MuxCmp/ix23/Y                         mux21_ni    0.38  10.91 dn             0.04
+ALUMAP/cmp1/gen_9_cmp/BSCmp/reg_nx305/Y                     inv02       0.20  11.11 up             0.04
+ALUMAP/cmp1/gen_9_cmp/BSCmp/reg_carryIn/Y                   aoi21       0.29  11.29 up             0.04
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix302/Y                         nor02ii     0.26  11.55 up             0.01
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix444/Y                         inv02       0.27  11.82 dn             0.12
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix457/Y                         inv01       0.38  12.21 up             0.05
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix406/Y                         mux21       0.15  12.36 dn             0.01
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix35/Y                          nand02      0.24  12.60 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/f0/ix70/Y              xnor2       0.21  12.81 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/f0/ix1/Y               inv01       0.17  12.98 up             0.01
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/f0/ix7/Y               ao22        0.34  13.31 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_1_fx/ix7/Y
+                                                            ao22        0.36  13.67 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_2_fx/ix7/Y
+                                                            ao22        0.36  14.03 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_3_fx/ix7/Y
+                                                            ao22        0.36  14.38 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_4_fx/ix7/Y
+                                                            ao22        0.36  14.74 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_5_fx/ix7/Y
+                                                            ao22        0.36  15.09 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_6_fx/ix7/Y
+                                                            ao22        0.36  15.45 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_7_fx/ix7/Y
+                                                            ao22        0.36  15.81 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_8_fx/ix7/Y
+                                                            ao22        0.38  16.45 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_9_fx/ix7/Y
+                                                            ao22        0.38  16.83 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_10_fx/ix7/Y
+                                                            ao22        0.38  17.21 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_11_fx/ix7/Y
+                                                            ao22        0.38  17.59 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_12_fx/ix7/Y
+                                                            ao22        0.38  17.97 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_13_fx/ix7/Y
+                                                            ao22        0.38  18.35 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_14_fx/ix9/Y
+                                                            xnor2       0.26  18.61 up             0.04
+ALUMAP/cmp2/gen_9_cmp1/loop1_14_fx/ix70/Y                   xnor2       0.27  18.88 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_14_fx/ix1/Y                    inv01       0.17  19.05 up             0.01
+ALUMAP/cmp2/gen_9_cmp1/loop1_14_fx/ix7/Y                    ao22        0.37  18.91 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_15_fx/ix9/Y                    xnor2       0.20  19.11 up             0.02
+MAXIMIZATIONMAP/ix916/Y                                     aoi222      0.27  19.38 dn             0.02
+MAXIMIZATIONMAP/ix117/Y                                     nand04      0.28  19.66 up             0.02
+MAXIMIZATIONMAP/lat_InputBcomparator(15)/Q                  latch       0.40  20.43 dn             0.02
+MAXIMIZATIONMAP/ComparatorLabel/ix632/Y                     inv01       0.30  20.74 up             0.04
+MAXIMIZATIONMAP/ComparatorLabel/ix710/Y                     inv02       0.23  20.97 dn             0.08
+MAXIMIZATIONMAP/ComparatorLabel/ix660/Y                     aoi22       0.35  21.32 up             0.02
+MAXIMIZATIONMAP/ComparatorLabel/ix661/Y                     nor02_2x    0.20  21.52 dn             0.05
+MAXIMIZATIONMAP/ComparatorLabel/ix696/Y                     buf16       0.27  21.79 dn             0.05
+MAXIMIZATIONMAP/ComparatorLabel/ix612/Y                     inv01       0.31  22.10 up             0.05
+MAXIMIZATIONMAP/ComparatorLabel/ix687/Y                     oai332      0.26  22.36 dn             0.01
+MAXIMIZATIONMAP/ComparatorLabel/ix704/Y                     buf02       0.29  22.64 dn             0.02
+MAXIMIZATIONMAP/ComparatorLabel/ix688/Y                     nand02_2x   0.13  22.77 up             0.01
+MAXIMIZATIONMAP/ComparatorLabel/reg_nx188/Y                 nand03_2x   0.09  22.86 dn             0.01
+MAXIMIZATIONMAP/ComparatorLabel/lat_outputG_u1/CLK
+                                                            latchs_ni   0.00  22.86 dn             0.00
+data arrival time                                                             22.86
+
+
+data required time  (default specified - setup time)                           20.00
+-------------------------------------------------------------------------------------------------------
+data required time                                                            20.00
+data arrival time                                                             22.86
+                                                                           ----------
+slack                                                                        -2.86
+-------------------------------------------------------------------------------------------------------
+
+

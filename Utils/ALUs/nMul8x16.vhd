@@ -35,4 +35,4 @@ BEGIN
     CounterCmp : ENTITY work.ShiftReg GENERIC MAP(3) PORT MAP(counter,clk,startAndPause,counterRst);
     firtStartLachCmp : ENTITY work.Reg GENERIC MAP(1) PORT MAP(D(0) => '1',en => '1',clk => start,rst => rst, Q(0) => firstStart);
 
-    END nMul8x16Arch; 
+END nMul8x16Arch; 
