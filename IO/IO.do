@@ -1,5 +1,5 @@
 vsim -gui work.IO
-add wave -position insertpoint  \
+add wave -position ipsertpoint  \
 sim:/io/Din \
 sim:/IO/INTR \
 sim:/IO/INTRDelayed \
@@ -26,12 +26,15 @@ sim:/IO/imageRegisterEnable \
 sim:/IO/result \
 sim:/io/interfaceOutput \
 sim:/IO/rst
-force -freeze sim:/IO/rst 2#1 0, 2#0 50 
-force -freeze sim:/IO/clk 1 0, 0 {25 ns} -r 50
+#force -freeze sim:/IO/rst 2#1 0, 2#0 50 
+force -freeze sim:/IO/rst 1 0
+force -freeze sim:/IO/clk 1 0, 0 {25 ps} -r 50
 force -freeze sim:/IO/INTR 0 0
 force -freeze sim:/IO/result 2'b0000 0 
-run 75
-#Setting up for the first cycle, reading number of runs
+run 50
+force -freeze sim:/IO/rst 0 0
+run 25
+#Setting up for the first cycle, reading number of rups
 force -freeze sim:/IO/INTR 1 0
 force -freeze sim:/IO/Din 2'b000000000000010 0
 force -freeze sim:/IO/processing 0 0

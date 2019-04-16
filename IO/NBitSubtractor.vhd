@@ -23,4 +23,4 @@ Entity NBitSubtractor is
                 fx:Entity work.fullSubtractor  port map(x(i),y(i),temp(i-1),difference(i),temp(i));
                 end generate;
                 borrowOut<=temp(wordSize-1);
-                end NBitSubtractorArch;
+    end NBitSubtractorArch;
