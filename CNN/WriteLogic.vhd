@@ -37,7 +37,7 @@ GENERIC (
     -- DMA interface: pass it to dma
     internalBus: IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramWrite: OUT STD_LOGIC; --
-    ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    ramDataOutBus: OUT STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramAddress: OUT STD_LOGIC_VECTOR(addressSize-1 DOWNTO 0); 
     MFC: IN STD_LOGIC;
 
@@ -54,7 +54,7 @@ GENERIC (
   );
 END WriteLogic ; 
 
-ARCHITECTURE ReadLogicArch OF WriteLogic IS
+ARCHITECTURE WriteLogicArch OF WriteLogic IS
 
 
 -- FSM
@@ -130,8 +130,17 @@ BEGIN
     );
 
   
-    IOLogicCnt: PROCESS(currentState, write, dmaWrite, dmaFinishOneWrite,dmaFinishAll)
+    IOLogicCnt: PROCESS(currentState, write, dmaWrite, dmaFinishOneWrite,dmaFinishAll,ramBasedAddress,outputSize)
     BEGIN
+        dmaWrite <= '0';
+        dmaInitCounter <= '0';
+        dmaInitAddress <= '0';
+        resetAddressReg <= '0';
+        incBaseAddress <= '0';
+        dmaCountIn<=(others=>'0');
+        addressRegIn<=addressRegIn;
+        nextState <= idleState;
+        
         CASE currentState IS
             WHEN switchState =>
                 -- reset all cnt signals you have
@@ -140,7 +149,8 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
-                 
+                dmaCountIn<=(others=>'0');
+
                 -- reset the baseAddressRegister to RamBaseAddress value
                 dmaWrite <= '0';
                 resetAddressReg <= '1'; -- open the reset register to enable writing..
@@ -157,7 +167,8 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
-
+                dmaCountIn<=(others=>'0');
+                addressRegIn<=addressRegIn;
                 -- transition logic
                 stateRegEn <= write; -- to go to init state
                 nextState <= initState;
@@ -170,11 +181,12 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
+                addressRegIn<=addressRegIn;
 
 
                 dmaInitCounter <= '1';
                 dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
-                dmaCountIn <= outputSize;
+                dmaCountIn <= outputSize(maxImageSize-1 DOWNTO 0);
                 
                 -- transition logic
                 nextState <= incState; -- transition logic
@@ -187,6 +199,8 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
+                dmaCountIn<=(others=>'0');
+                addressRegIn<=addressRegIn;
 
                 incBaseAddress <= '1'; -- 
                 -- transition logic
@@ -200,10 +214,22 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
+                dmaCountIn<=(others=>'0');
+                addressRegIn<=addressRegIn;
 
                 dmaWrite <= write;
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
                 -- readFinal <= dmaFinishAll;
+                nextState <= idleState;
+
+            WHEN others =>
+                dmaWrite <= '0';
+                dmaInitCounter <= '0';
+                dmaInitAddress <= '0';
+                resetAddressReg <= '0';
+                incBaseAddress <= '0';
+                dmaCountIn<=(others=>'0');
+                addressRegIn<=addressRegIn;
                 nextState <= idleState;
         END CASE;
     END PROCESS;
@@ -214,14 +240,12 @@ BEGIN
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;
-        ELSIF FALLING_EDGE(clk) THEN -- if reset is equal to 1 set current state to idle state (0)
+        ELSIF FALLING_EDGE(clk) THEN -- Change value only when enable = 1 and rising edge
             IF switchRam ='1' THEN
                 currentState <= switchState;
-            END IF;
-            IF stateRegEn='1' THEN 
+            ELSIF stateRegEn='1' THEN
                 currentState <= nextState;
             END IF;
-
         END IF;
     END PROCESS;
 

@@ -37,7 +37,7 @@ ENTITY ReadLogic IS
     
     -- DMA interface: pass it to dma
     internalBus: out STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
-    ramDataInBus: IN STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
+    ramDataInBus: IN STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
     ramRead: OUT STD_LOGIC; --
     -- ramDataOutBus: OUT STD_LOGIC_VECTOR(weightsBusSize-1 DOWNTO 0);
     ramAddress: OUT std_logic_vector(addressSize-1 downto 0) ;
@@ -106,7 +106,7 @@ BEGIN
     zerosSignal <= (others => '0');
     -- to compile with 93
     baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
-    aluNumberCounterClk <= (clk AND incUnitNumber) OR (resetUnitNumberReg AND clk);
+    aluNumberCounterClk <= (not (clk) AND incUnitNumber) OR (resetUnitNumberReg AND clk);
     -- "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk))
     -- "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk)))
 
@@ -163,6 +163,17 @@ BEGIN
 
     IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead,dmaFinishAll,ramBasedAddress,isFilter,filterSize)
     BEGIN
+        dmaLoad <= '0';
+        dmaInitCounter <= '0';
+        dmaInitAddress <= '0';
+        resetAddressReg <= '0';
+        incBaseAddress <= '0';
+        resetUnitNumberReg <= '0';
+        incUnitNumber <= '0';
+        dmaInitRamBaseAddress <= '0';
+        dmaCountIn<=dmaCountIn;
+        addressRegIn<=addressRegIn;
+
         CASE currentState IS
             WHEN switchState =>
                 -- reset all cnt signals you have
@@ -174,8 +185,13 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
-                
+                dmaCountIn<=dmaCountIn;
                 -- reset the baseAddressRegister to RamBaseAddress value
+                IF isFilter = '1' THEN
+                    dmaInitRamBaseAddress <= '1';
+                ELSE
+                    dmaInitRamBaseAddress <= '0';
+                END IF;
                 dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                 resetAddressReg <= '1'; -- open the reset register to enable writing..
                 addressRegIn <= ramBasedAddress; -- ..and put the base value to it
@@ -196,6 +212,8 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
+                dmaCountIn<=dmaCountIn;
+                addressRegIn<=addressRegIn;
 
                 -- transition logic
                 stateRegEn <= load; -- to go to init state
@@ -212,16 +230,21 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
+                addressRegIn<=(others=>'0');
+                --dmaCountIn<=dmaCountIn;
 
                 dmaInitCounter <= '1';
                 nextState <= fetchState; -- transition logic
                 IF loadNextWordList = '1' THEN
                     resetUnitNumberReg <= '1';
-                    dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                     if isFilter = '0' THEN
+                        -- i am window
                         nextState <= incState; -- transition logic
+                        dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                     ELSE
-                        dmaInitRamBaseAddress <= '1';
+                        -- i am filter
+                        dmaInitAddress <= '0';
+                        dmaInitRamBaseAddress <= '0';
                     END IF;
                     dmaCountIn <= filterSize(2 DOWNTO 0);
                 -- TODO: optimization -> remove elseif and make it else, it is impossible to be here and the two loads signals is 0 
@@ -245,6 +268,8 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
+                dmaCountIn<=dmaCountIn;
+                addressRegIn<=(others=>'0');
 
                 incBaseAddress <= '1'; -- 
                 -- transition logic
@@ -261,6 +286,8 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
+                dmaCountIn<=dmaCountIn;
+                addressRegIn<=(others=>'0');
 
                 dmaLoad <= '1';
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
@@ -268,8 +295,11 @@ BEGIN
                 nextState <= idleState;
                 IF dmaFinishOneRead = '1' AND loadNextWordList = '1' THEN
                     incUnitNumber <= '1';
+                ELSE
+                    incUnitNumber <= '0';
                 END IF;
             when others =>
+                dmaCountIn<=dmaCountIn;--added new
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
@@ -278,6 +308,7 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
+                addressRegIn<=(others=>'0');
         END CASE;
     END PROCESS;
 
