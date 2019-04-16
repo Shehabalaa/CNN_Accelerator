@@ -1,19 +1,3 @@
--- ReadLogic is responsible for:
---    * read word
---    * read window
--- 
--- 
--- 
--- 
--- 
--- onReceiving MFC -> inc unitNumber by one
--- 
--- 
--- optimizations:
---      1- we don't need extra signals of switch state and reset, make the load of the counter => ramBaseAddress and the isLoad => switchRam signal ==> remove all logic of switch ram but keep only when you get switch ram enforce to go to idle like if you have reset 
--- 
---      2- For the state we inc base address counter in, we can inject this increment in the first fetch state and save one cycle
-
 library ieee ;
     use ieee.std_logic_1164.all ;
     use ieee.numeric_std.all ;
@@ -24,7 +8,9 @@ use work.Constants.all;
 ENTITY ReadLogic IS
   GENERIC (
     addressSize: INTEGER := 16;
-    internalBusSize: INTEGER := 16
+    internalBusSize: INTEGER := 16;
+    gIsFilter: BOOLEAN := false
+
   );
   port (
     clk: IN STD_LOGIC; -- System clock
@@ -65,8 +51,7 @@ ARCHITECTURE ReadLogicArch OF ReadLogic IS
 TYPE FSM IS (
     idleState,
     switchState,
-    initState,
-    incState,
+    incFetchState,
     fetchState
 ); -- (idle, reset all signals), (switch, state to reset the addressReg with ram base address), (init, initialize the dma), (inc, increment the counter of the baseAddress), (fetch, fetch the data from dma)
 SIGNAL currentState, nextState: FSM; -- state reg output and input (hold the state info)
@@ -143,6 +128,8 @@ BEGIN
         finishedOneRead => dmaFinishOneRead
     );
 
+
+    Normal_g: if gIsFilter = false generate
     baseAddressCounter: entity work.Counter2 generic map (addressSize) port map (
         load => addressRegIn, -- TODO: set here the value BASE_ADDRESS,,,, think again here
         isLoad => resetAddressReg,
@@ -151,6 +138,8 @@ BEGIN
         -- clk => "and"(clk, "or"(resetAddressReg, incBaseAddress)), -- only count when i set inc signal and count after rising edge
         count => addressRegOut
     );
+    END GENERATE Normal_g;
+
 
     aluNumberCounter: entity work.Counter2 generic map (3) port map (
         load => zerosSignal, -- we don't need this functionality
@@ -161,7 +150,7 @@ BEGIN
         count => unitRegOut
     );
 
-    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead,dmaFinishAll,ramBasedAddress,isFilter,filterSize)
+    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead, dmaFinishAll, ramBasedAddress, filterSize)
     BEGIN
         dmaLoad <= '0';
         dmaInitCounter <= '0';
@@ -171,8 +160,8 @@ BEGIN
         resetUnitNumberReg <= '0';
         incUnitNumber <= '0';
         dmaInitRamBaseAddress <= '0';
-        dmaCountIn<=dmaCountIn;
-        addressRegIn<=addressRegIn;
+        dmaCountIn <= (others => '0');
+        addressRegIn<= (others => '0');
 
         CASE currentState IS
             WHEN switchState =>
@@ -185,9 +174,10 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
-                dmaCountIn<=dmaCountIn;
+                dmaCountIn <= (others => '0');
+
                 -- reset the baseAddressRegister to RamBaseAddress value
-                IF isFilter = '1' THEN
+                IF gIsFilter THEN
                     dmaInitRamBaseAddress <= '1';
                 ELSE
                     dmaInitRamBaseAddress <= '0';
@@ -202,7 +192,7 @@ BEGIN
                 stateRegEn <= '1'; -- to go to init state
                 nextState <= idleState;
 
-            WHEN idleState =>
+            WHEN idleState => -- init when load
                 -- reset all cnt signals you have
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
@@ -212,53 +202,34 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
-                dmaCountIn<=dmaCountIn;
-                addressRegIn<=addressRegIn;
+                addressRegIn <= (others => '0');
 
-                -- transition logic
-                stateRegEn <= load; -- to go to init state
-                nextState <= initState;
 
-            
-            WHEN initState =>
-                -- reset all cnt signals you have
-                dmaLoad <= '0';
-                dmaInitCounter <= '0';
-                dmaInitAddress <= '0';
-                resetAddressReg <= '0';
-                incBaseAddress <= '0';
-                resetUnitNumberReg <= '0';
-                incUnitNumber <= '0';
-                dmaInitRamBaseAddress <= '0';
-                addressRegIn<=(others=>'0');
-                --dmaCountIn<=dmaCountIn;
-
-                dmaInitCounter <= '1';
-                nextState <= fetchState; -- transition logic
+                dmaInitCounter <= load;
+                stateRegEn <= load;
                 IF loadNextWordList = '1' THEN
+                    nextState <= incFetchState; -- transition logic
                     resetUnitNumberReg <= '1';
-                    if isFilter = '0' THEN
+                    if gIsFilter = false THEN
                         -- i am window
-                        nextState <= incState; -- transition logic
+                        nextState <= incFetchState; -- transition logic
                         dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
                     ELSE
                         -- i am filter
+                        nextState <= fetchState;
                         dmaInitAddress <= '0';
-                        dmaInitRamBaseAddress <= '0';
                     END IF;
                     dmaCountIn <= filterSize(2 DOWNTO 0);
                 -- TODO: optimization -> remove elseif and make it else, it is impossible to be here and the two loads signals is 0 
                 ELSIF loadWord = '1' THEN
+                    nextState <= fetchState; -- transition logic
                     dmaCountIn <= (0 => '1', others => '0'); -- TODO: check the syntax to set it to "0000000000001"
                 ELSE
-                    dmaCountIn<=dmaCountIn;
-                    -- TODO: print error message here
+                    dmaCountIn <= (others => '0');
                     nextState <= idleState;
                 END IF;
-                -- transition logic
-                stateRegEn <= '1'; -- always go to nextState (inc or fetch)
 
-            WHEN incState =>
+            WHEN incFetchState =>
                 -- reset all cnt signals you have
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
@@ -268,14 +239,19 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
-                dmaCountIn<=dmaCountIn;
+                dmaCountIn<= (others => '0');
                 addressRegIn<=(others=>'0');
 
+                -- fetch, handle unit number only if loadNextWordList
+                dmaLoad <= '1';
+                incUnitNumber <= dmaFinishOneRead AND loadNextWordList;
+
+                -- increment
                 incBaseAddress <= '1'; -- 
+
                 -- transition logic
                 stateRegEn <= '1'; -- always go to fetch state
                 nextState <= fetchState; -- always take one cycle and doesn't depend on anything
-                
             WHEN fetchState =>
                 -- reset all cnt signals you have
                 dmaLoad <= '0';
@@ -286,7 +262,7 @@ BEGIN
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
-                dmaCountIn<=dmaCountIn;
+                dmaCountIn<= (others => '0');
                 addressRegIn<=(others=>'0');
 
                 dmaLoad <= '1';
@@ -299,7 +275,7 @@ BEGIN
                     incUnitNumber <= '0';
                 END IF;
             when others =>
-                dmaCountIn<=dmaCountIn;--added new
+                dmaCountIn <= (others => '0');--added new
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
@@ -314,7 +290,7 @@ BEGIN
 
 
     -- Process to save state and change to next state when enable = 1
-    PROCESS(nextState,clk, stateRegEn, resetState, switchRam,ramBasedAddress)
+    PROCESS(clk, resetState)
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;

@@ -141,7 +141,7 @@ begin
       en => '1'
     ); 
 
-    windowReadLogicEnt: ENTITY work.ReadLogic GENERIC MAP (windowAddressSize, (windowSize * numUnits)) PORT MAP (
+    windowReadLogicEnt: ENTITY work.ReadLogic GENERIC MAP (windowAddressSize, (windowSize * numUnits), false) PORT MAP (
       clk => clk,
 
       resetState => resetLogics,
@@ -169,7 +169,7 @@ begin
       aluNumber => windowAluNumber
     );
 
-    filterReadLogicEnt: ENTITY work.ReadLogic GENERIC MAP (weightsAddressSize, (filterSize * numUnits)) PORT MAP (
+    filterReadLogicEnt: ENTITY work.ReadLogic GENERIC MAP (weightsAddressSize, (filterSize * numUnits), true) PORT MAP (
       clk => clk,
 
       resetState => resetLogics,

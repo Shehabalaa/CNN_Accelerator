@@ -48,7 +48,7 @@ signal internalFinishedReading: std_logic;
 BEGIN
   addressRegister:Entity work.MultiStepCounter Generic Map(addressSize) PORT MAP(readBaseAddress,tobeAdded,'0',clk,initAddress,MFC,ramReadAddress);
   counter:Entity work.DownCounter Generic Map(3) PORT MAP(initialCount,enableCount ,clk,initCounter,currentCount);
-  readStepRegister:Entity work.Reg Generic Map(addressSize) PORT MAP(readStep,'1',initCounter,'0',tobeAdded);
+  readStepRegister:Entity work.Reg Generic Map(addressSize) PORT MAP(readStep,'1',clk,'0',tobeAdded);
   tristateLabel:Entity work.Tristate Generic Map(internalBusSize) PORT MAP(ramDataInBus,enableTristate,internalBus);
   finishedReading <= internalFinishedReading;
   ramRead <= load;

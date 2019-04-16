@@ -130,7 +130,7 @@ BEGIN
     );
 
   
-    IOLogicCnt: PROCESS(currentState, write, dmaWrite, dmaFinishOneWrite,dmaFinishAll,ramBasedAddress,outputSize)
+    IOLogicCnt: PROCESS(currentState, write, dmaFinishAll, ramBasedAddress, outputSize)
     BEGIN
         dmaWrite <= '0';
         dmaInitCounter <= '0';
@@ -138,7 +138,7 @@ BEGIN
         resetAddressReg <= '0';
         incBaseAddress <= '0';
         dmaCountIn<=(others=>'0');
-        addressRegIn<=addressRegIn;
+        addressRegIn<= (others => '0');
         nextState <= idleState;
         
         CASE currentState IS
@@ -168,7 +168,7 @@ BEGIN
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
-                addressRegIn<=addressRegIn;
+                addressRegIn <= (others => '0');
                 -- transition logic
                 stateRegEn <= write; -- to go to init state
                 nextState <= initState;
@@ -181,7 +181,7 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
-                addressRegIn<=addressRegIn;
+                addressRegIn<= (others => '0');
 
 
                 dmaInitCounter <= '1';
@@ -200,7 +200,7 @@ BEGIN
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
-                addressRegIn<=addressRegIn;
+                addressRegIn<= (others => '0');
 
                 incBaseAddress <= '1'; -- 
                 -- transition logic
@@ -215,7 +215,7 @@ BEGIN
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
-                addressRegIn<=addressRegIn;
+                addressRegIn<= (others => '0');
 
                 dmaWrite <= write;
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
@@ -229,14 +229,14 @@ BEGIN
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
-                addressRegIn<=addressRegIn;
+                addressRegIn <= (others => '0');
                 nextState <= idleState;
         END CASE;
     END PROCESS;
 
 
     -- Process to save state and change to next state when enable = 1
-    PROCESS(nextState,clk, stateRegEn, resetState, switchRam)
+    PROCESS(clk, resetState)
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;
