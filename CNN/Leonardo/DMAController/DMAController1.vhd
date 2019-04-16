@@ -2,10 +2,156 @@
 -- 
 -- Definition of  DMAController
 -- 
---      Mon Apr 15 15:36:53 2019
+--      Tue Apr 16 16:42:59 2019
 --      
 --      LeonardoSpectrum Level 3, 2018a.2
 -- 
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
+
+entity Counter2_13 is
+   port (
+      load : IN std_logic_vector (12 DOWNTO 0) ;
+      reset : IN std_logic ;
+      clk : IN std_logic ;
+      isLoad : IN std_logic ;
+      count : OUT std_logic_vector (12 DOWNTO 0)) ;
+end Counter2_13 ;
+
+architecture Counter2Arch_unfold_4027 of Counter2_13 is
+   signal count_12_EXMPLR, count_10_EXMPLR, count_9_EXMPLR, count_8_EXMPLR, 
+      count_7_EXMPLR, count_6_EXMPLR, count_5_EXMPLR, count_4_EXMPLR, 
+      count_3_EXMPLR, count_2_EXMPLR, count_1_EXMPLR, count_0_EXMPLR, nx10, 
+      nx24, nx38, nx42, nx52, nx56, nx66, nx80, nx94, nx98, nx108, nx122, 
+      nx136, nx150, nx164, nx168, nx178, nx43, nx45, nx47, nx49, nx55, nx57, 
+      nx59, nx63, nx67, nx69, nx73, nx77, nx79, nx81, nx85, nx89, nx91, nx95, 
+      nx101, nx103, nx107, nx111, nx113, nx115, nx119, nx123, nx125, nx129, 
+      nx135, nx137, nx141, nx145, nx147, nx149, nx153, nx157, nx159, nx163, 
+      nx169, nx171, nx175, nx179, nx181, nx189, nx191, nx193, nx195, nx197, 
+      nx199, nx201, nx203, nx205, nx207, nx209, nx211, nx213, nx215, nx217, 
+      nx219, nx221, nx223, nx225: std_logic ;
+
+begin
+   count(12) <= count_12_EXMPLR ;
+   count(10) <= count_10_EXMPLR ;
+   count(9) <= count_9_EXMPLR ;
+   count(8) <= count_8_EXMPLR ;
+   count(7) <= count_7_EXMPLR ;
+   count(6) <= count_6_EXMPLR ;
+   count(5) <= count_5_EXMPLR ;
+   count(4) <= count_4_EXMPLR ;
+   count(3) <= count_3_EXMPLR ;
+   count(2) <= count_2_EXMPLR ;
+   count(1) <= count_1_EXMPLR ;
+   count(0) <= count_0_EXMPLR ;
+   ix11 : nand02 port map ( Y=>nx10, A0=>nx43, A1=>nx45);
+   ix44 : nand02 port map ( Y=>nx43, A0=>load(0), A1=>nx219);
+   ix46 : nand02 port map ( Y=>nx45, A0=>nx47, A1=>nx49);
+   ix48 : inv01 port map ( Y=>nx47, A=>isLoad);
+   counterReg_reg_Q_0 : dff port map ( Q=>count_0_EXMPLR, QB=>nx49, D=>nx10, 
+      CLK=>nx215);
+   counterReg_reg_Q_1 : dff port map ( Q=>count_1_EXMPLR, QB=>nx59, D=>nx24, 
+      CLK=>nx215);
+   ix25 : oai21 port map ( Y=>nx24, A0=>nx219, A1=>nx55, B0=>nx57);
+   ix58 : nand02 port map ( Y=>nx57, A0=>load(1), A1=>nx219);
+   counterReg_reg_Q_2 : dff port map ( Q=>count_2_EXMPLR, QB=>nx69, D=>nx38, 
+      CLK=>nx215);
+   ix39 : oai21 port map ( Y=>nx38, A0=>nx219, A1=>nx63, B0=>nx67);
+   ix68 : nand02 port map ( Y=>nx67, A0=>load(2), A1=>nx219);
+   counterReg_reg_Q_3 : dff port map ( Q=>count_3_EXMPLR, QB=>nx81, D=>nx52, 
+      CLK=>nx215);
+   ix53 : oai21 port map ( Y=>nx52, A0=>nx219, A1=>nx73, B0=>nx79);
+   ix43 : nor02_2x port map ( Y=>nx42, A0=>nx69, A1=>nx77);
+   ix78 : nand02 port map ( Y=>nx77, A0=>count_1_EXMPLR, A1=>count_0_EXMPLR
+   );
+   ix80 : nand02 port map ( Y=>nx79, A0=>load(3), A1=>nx219);
+   counterReg_reg_Q_4 : dff port map ( Q=>count_4_EXMPLR, QB=>nx91, D=>nx66, 
+      CLK=>nx215);
+   ix67 : oai21 port map ( Y=>nx66, A0=>nx221, A1=>nx85, B0=>nx89);
+   ix57 : nor03_2x port map ( Y=>nx56, A0=>nx81, A1=>nx69, A2=>nx77);
+   ix90 : nand02 port map ( Y=>nx89, A0=>load(4), A1=>nx221);
+   counterReg_reg_Q_5 : dff port map ( Q=>count_5_EXMPLR, QB=>nx103, D=>nx80, 
+      CLK=>nx215);
+   ix81 : oai21 port map ( Y=>nx80, A0=>nx221, A1=>nx95, B0=>nx101);
+   ix102 : nand02 port map ( Y=>nx101, A0=>load(5), A1=>nx221);
+   counterReg_reg_Q_6 : dff port map ( Q=>count_6_EXMPLR, QB=>nx115, D=>nx94, 
+      CLK=>nx215);
+   ix95 : oai21 port map ( Y=>nx94, A0=>nx221, A1=>nx107, B0=>nx113);
+   ix112 : nand04 port map ( Y=>nx111, A0=>count_3_EXMPLR, A1=>
+      count_2_EXMPLR, A2=>count_1_EXMPLR, A3=>count_0_EXMPLR);
+   ix114 : nand02 port map ( Y=>nx113, A0=>load(6), A1=>nx221);
+   counterReg_reg_Q_7 : dff port map ( Q=>count_7_EXMPLR, QB=>nx125, D=>
+      nx108, CLK=>nx217);
+   ix109 : oai21 port map ( Y=>nx108, A0=>nx221, A1=>nx119, B0=>nx123);
+   ix99 : nor04 port map ( Y=>nx98, A0=>nx115, A1=>nx103, A2=>nx91, A3=>
+      nx111);
+   ix124 : nand02 port map ( Y=>nx123, A0=>load(7), A1=>nx223);
+   counterReg_reg_Q_8 : dff port map ( Q=>count_8_EXMPLR, QB=>nx137, D=>
+      nx122, CLK=>nx217);
+   ix123 : oai21 port map ( Y=>nx122, A0=>nx223, A1=>nx129, B0=>nx135);
+   ix136 : nand02 port map ( Y=>nx135, A0=>load(8), A1=>nx223);
+   counterReg_reg_Q_9 : dff port map ( Q=>count_9_EXMPLR, QB=>nx149, D=>
+      nx136, CLK=>nx217);
+   ix137 : oai21 port map ( Y=>nx136, A0=>nx223, A1=>nx141, B0=>nx147);
+   ix146 : inv01 port map ( Y=>nx145, A=>nx98);
+   ix148 : nand02 port map ( Y=>nx147, A0=>load(9), A1=>nx223);
+   counterReg_reg_Q_10 : dff port map ( Q=>count_10_EXMPLR, QB=>nx159, D=>
+      nx150, CLK=>nx217);
+   ix151 : oai21 port map ( Y=>nx150, A0=>nx223, A1=>nx153, B0=>nx157);
+   ix158 : nand02 port map ( Y=>nx157, A0=>load(10), A1=>nx223);
+   counterReg_reg_Q_11 : dff port map ( Q=>count(11), QB=>nx171, D=>nx164, 
+      CLK=>nx217);
+   ix165 : oai21 port map ( Y=>nx164, A0=>nx225, A1=>nx163, B0=>nx169);
+   ix170 : nand02 port map ( Y=>nx169, A0=>load(11), A1=>nx225);
+   counterReg_reg_Q_12 : dff port map ( Q=>count_12_EXMPLR, QB=>OPEN, D=>
+      nx178, CLK=>nx217);
+   ix179 : oai21 port map ( Y=>nx178, A0=>nx225, A1=>nx175, B0=>nx181);
+   ix176 : xnor2 port map ( Y=>nx175, A0=>count_12_EXMPLR, A1=>nx168);
+   ix169 : nor04 port map ( Y=>nx168, A0=>nx171, A1=>nx159, A2=>nx149, A3=>
+      nx179);
+   ix180 : nand03 port map ( Y=>nx179, A0=>count_8_EXMPLR, A1=>
+      count_7_EXMPLR, A2=>nx98);
+   ix182 : nand02 port map ( Y=>nx181, A0=>nx225, A1=>load(12));
+   ix56 : xnor2 port map ( Y=>nx55, A0=>nx59, A1=>nx49);
+   ix64 : xnor2 port map ( Y=>nx63, A0=>nx69, A1=>nx189);
+   ix29 : nand02 port map ( Y=>nx189, A0=>count_1_EXMPLR, A1=>count_0_EXMPLR
+   );
+   ix74 : xnor2 port map ( Y=>nx73, A0=>nx81, A1=>nx191);
+   ix190 : inv01 port map ( Y=>nx191, A=>nx42);
+   ix86 : xnor2 port map ( Y=>nx85, A0=>nx91, A1=>nx193);
+   ix192 : inv01 port map ( Y=>nx193, A=>nx56);
+   ix96 : xnor2 port map ( Y=>nx95, A0=>nx103, A1=>nx195);
+   ix71 : nand03 port map ( Y=>nx195, A0=>count_4_EXMPLR, A1=>count_3_EXMPLR, 
+      A2=>nx197);
+   ix100 : nor03_2x port map ( Y=>nx197, A0=>nx69, A1=>nx59, A2=>nx49);
+   ix108 : xnor2 port map ( Y=>nx107, A0=>nx115, A1=>nx199);
+   ix85 : nand03 port map ( Y=>nx199, A0=>count_5_EXMPLR, A1=>count_4_EXMPLR, 
+      A2=>nx201);
+   ix200 : inv01 port map ( Y=>nx201, A=>nx111);
+   ix120 : xnor2 port map ( Y=>nx119, A0=>nx125, A1=>nx145);
+   ix130 : xnor2 port map ( Y=>nx129, A0=>nx137, A1=>nx203);
+   ix113 : nand04 port map ( Y=>nx203, A0=>count_7_EXMPLR, A1=>
+      count_6_EXMPLR, A2=>count_5_EXMPLR, A3=>nx205);
+   ix134 : nor02_2x port map ( Y=>nx205, A0=>nx91, A1=>nx193);
+   ix142 : xnor2 port map ( Y=>nx141, A0=>nx149, A1=>nx207);
+   ix127 : nand03 port map ( Y=>nx207, A0=>count_8_EXMPLR, A1=>
+      count_7_EXMPLR, A2=>nx98);
+   ix154 : xnor2 port map ( Y=>nx153, A0=>nx159, A1=>nx209);
+   ix141 : nand04 port map ( Y=>nx209, A0=>count_9_EXMPLR, A1=>
+      count_8_EXMPLR, A2=>count_7_EXMPLR, A3=>nx98);
+   ix164 : xnor2 port map ( Y=>nx163, A0=>nx171, A1=>nx211);
+   ix155 : nand04 port map ( Y=>nx211, A0=>count_10_EXMPLR, A1=>
+      count_9_EXMPLR, A2=>count_8_EXMPLR, A3=>nx213);
+   ix168 : nor02_2x port map ( Y=>nx213, A0=>nx125, A1=>nx145);
+   ix214 : buf02 port map ( Y=>nx215, A=>clk);
+   ix216 : buf02 port map ( Y=>nx217, A=>clk);
+   ix218 : inv02 port map ( Y=>nx219, A=>nx47);
+   ix220 : inv02 port map ( Y=>nx221, A=>nx47);
+   ix222 : inv02 port map ( Y=>nx223, A=>nx47);
+   ix224 : inv02 port map ( Y=>nx225, A=>nx47);
+end Counter2Arch_unfold_4027 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -264,464 +410,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use work.adk_components.all;
 
-entity DMA_13_80 is
-   port (
-      initialCount : IN std_logic_vector (2 DOWNTO 0) ;
-      readBaseAddress : IN std_logic_vector (12 DOWNTO 0) ;
-      readStep : IN std_logic_vector (12 DOWNTO 0) ;
-      initAddress : IN std_logic ;
-      initCounter : IN std_logic ;
-      load : IN std_logic ;
-      internalBus : OUT std_logic_vector (79 DOWNTO 0) ;
-      finishedOneRead : OUT std_logic ;
-      finishedReading : OUT std_logic ;
-      clk : IN std_logic ;
-      ramDataInBus : IN std_logic_vector (79 DOWNTO 0) ;
-      ramRead : OUT std_logic ;
-      ramReadAddress : OUT std_logic_vector (12 DOWNTO 0) ;
-      MFC : IN std_logic) ;
-end DMA_13_80 ;
-
-architecture DMAArch_unfold_1492 of DMA_13_80 is
-   component MultiStepCounter_13
-      port (
-         load : IN std_logic_vector (12 DOWNTO 0) ;
-         toBeAdded : IN std_logic_vector (12 DOWNTO 0) ;
-         reset : IN std_logic ;
-         clk : IN std_logic ;
-         isLoad : IN std_logic ;
-         MFC : IN std_logic ;
-         count : OUT std_logic_vector (12 DOWNTO 0)) ;
-   end component ;
-   signal tobeAdded_12, tobeAdded_11, tobeAdded_10, tobeAdded_9, tobeAdded_8, 
-      tobeAdded_7, tobeAdded_6, tobeAdded_5, tobeAdded_4, tobeAdded_3, 
-      tobeAdded_2, tobeAdded_1, tobeAdded_0, finishedOneRead_EXMPLR, GND, 
-      currentCount_0, nx82, currentCount_2, currentCount_1, nx100, nx120, 
-      nx136, nx148, nx162, nx50, nx60, nx70, nx83, nx85, nx88, nx91, nx101, 
-      nx103, nx105, nx107, nx109, nx111, nx114, nx119, nx123, nx128, nx130, 
-      nx133, nx137, nx139, nx147, nx261, nx263, nx265, nx267, nx269, nx271, 
-      nx273, nx275, nx277, nx279, nx281, nx283, nx289, nx295, nx297, nx299, 
-      nx301: std_logic ;
-
-begin
-   finishedOneRead <= finishedOneRead_EXMPLR ;
-   addressRegister : MultiStepCounter_13 port map ( load(12)=>
-      readBaseAddress(12), load(11)=>readBaseAddress(11), load(10)=>
-      readBaseAddress(10), load(9)=>readBaseAddress(9), load(8)=>
-      readBaseAddress(8), load(7)=>readBaseAddress(7), load(6)=>
-      readBaseAddress(6), load(5)=>readBaseAddress(5), load(4)=>
-      readBaseAddress(4), load(3)=>readBaseAddress(3), load(2)=>
-      readBaseAddress(2), load(1)=>readBaseAddress(1), load(0)=>
-      readBaseAddress(0), toBeAdded(12)=>tobeAdded_12, toBeAdded(11)=>
-      tobeAdded_11, toBeAdded(10)=>tobeAdded_10, toBeAdded(9)=>tobeAdded_9, 
-      toBeAdded(8)=>tobeAdded_8, toBeAdded(7)=>tobeAdded_7, toBeAdded(6)=>
-      tobeAdded_6, toBeAdded(5)=>tobeAdded_5, toBeAdded(4)=>tobeAdded_4, 
-      toBeAdded(3)=>tobeAdded_3, toBeAdded(2)=>tobeAdded_2, toBeAdded(1)=>
-      tobeAdded_1, toBeAdded(0)=>tobeAdded_0, reset=>GND, clk=>clk, isLoad=>
-      initAddress, MFC=>MFC, count(12)=>ramReadAddress(12), count(11)=>
-      ramReadAddress(11), count(10)=>ramReadAddress(10), count(9)=>
-      ramReadAddress(9), count(8)=>ramReadAddress(8), count(7)=>
-      ramReadAddress(7), count(6)=>ramReadAddress(6), count(5)=>
-      ramReadAddress(5), count(4)=>ramReadAddress(4), count(3)=>
-      ramReadAddress(3), count(2)=>ramReadAddress(2), count(1)=>
-      ramReadAddress(1), count(0)=>ramReadAddress(0));
-   ix9 : fake_gnd port map ( Y=>GND);
-   ix155 : nor02_2x port map ( Y=>ramRead, A0=>nx83, A1=>nx130);
-   ix84 : nor03_2x port map ( Y=>nx83, A0=>nx85, A1=>clk, A2=>nx136);
-   ix86 : inv01 port map ( Y=>nx85, A=>MFC);
-   ix137 : nand03 port map ( Y=>nx136, A0=>nx88, A1=>nx114, A2=>
-      currentCount_0);
-   ix61 : oai21 port map ( Y=>nx60, A0=>nx91, A1=>nx105, B0=>nx111);
-   ix92 : aoi21 port map ( Y=>nx91, A0=>initialCount(1), A1=>nx297, B0=>
-      nx100);
-   ix101 : oai22 port map ( Y=>nx100, A0=>nx88, A1=>nx82, B0=>nx297, B1=>
-      nx109);
-   ix83 : nand02 port map ( Y=>nx82, A0=>currentCount_0, A1=>nx107);
-   ix51 : mux21 port map ( Y=>nx50, A0=>nx101, A1=>nx103, S0=>nx105);
-   ix102 : nor02_2x port map ( Y=>nx101, A0=>nx103, A1=>nx297);
-   counter_counterReg_reg_Q_0 : dff port map ( Q=>currentCount_0, QB=>nx103, 
-      D=>nx50, CLK=>clk);
-   ix106 : nor02_2x port map ( Y=>nx105, A0=>MFC, A1=>nx297);
-   ix108 : inv01 port map ( Y=>nx107, A=>initCounter);
-   ix110 : nand02 port map ( Y=>nx109, A0=>nx88, A1=>nx103);
-   ix112 : nand02 port map ( Y=>nx111, A0=>currentCount_1, A1=>nx105);
-   counter_counterReg_reg_Q_1 : dff port map ( Q=>currentCount_1, QB=>nx88, 
-      D=>nx60, CLK=>clk);
-   ix71 : oai21 port map ( Y=>nx70, A0=>nx119, A1=>nx105, B0=>nx128);
-   ix120 : aoi21 port map ( Y=>nx119, A0=>initialCount(2), A1=>nx297, B0=>
-      nx120);
-   ix121 : nor02_2x port map ( Y=>nx120, A0=>nx297, A1=>nx123);
-   counter_counterReg_reg_Q_2 : dff port map ( Q=>currentCount_2, QB=>nx114, 
-      D=>nx70, CLK=>clk);
-   ix129 : nand02 port map ( Y=>nx128, A0=>currentCount_2, A1=>nx105);
-   ix131 : oai21 port map ( Y=>nx130, A0=>nx109, A1=>nx133, B0=>load);
-   ix134 : nand02 port map ( Y=>nx133, A0=>clk, A1=>nx114);
-   ix167 : nor02_2x port map ( Y=>finishedReading, A0=>nx137, A1=>nx139);
-   ix138 : nand02 port map ( Y=>nx137, A0=>load, A1=>MFC);
-   ix140 : nor02_2x port map ( Y=>nx139, A0=>nx162, A1=>nx148);
-   ix163 : nor02_2x port map ( Y=>nx162, A0=>clk, A1=>nx136);
-   ix149 : nor03_2x port map ( Y=>nx148, A0=>currentCount_1, A1=>
-      currentCount_0, A2=>nx133);
-   ix157 : nor02_2x port map ( Y=>finishedOneRead_EXMPLR, A0=>nx147, A1=>
-      nx85);
-   ix148 : inv01 port map ( Y=>nx147, A=>load);
-   readStepRegister_reg_Q_0 : dff port map ( Q=>tobeAdded_0, QB=>OPEN, D=>
-      readStep(0), CLK=>nx297);
-   readStepRegister_reg_Q_1 : dff port map ( Q=>tobeAdded_1, QB=>OPEN, D=>
-      readStep(1), CLK=>nx299);
-   readStepRegister_reg_Q_2 : dff port map ( Q=>tobeAdded_2, QB=>OPEN, D=>
-      readStep(2), CLK=>nx299);
-   readStepRegister_reg_Q_3 : dff port map ( Q=>tobeAdded_3, QB=>OPEN, D=>
-      readStep(3), CLK=>nx299);
-   readStepRegister_reg_Q_4 : dff port map ( Q=>tobeAdded_4, QB=>OPEN, D=>
-      readStep(4), CLK=>nx299);
-   readStepRegister_reg_Q_5 : dff port map ( Q=>tobeAdded_5, QB=>OPEN, D=>
-      readStep(5), CLK=>nx299);
-   readStepRegister_reg_Q_6 : dff port map ( Q=>tobeAdded_6, QB=>OPEN, D=>
-      readStep(6), CLK=>nx299);
-   readStepRegister_reg_Q_7 : dff port map ( Q=>tobeAdded_7, QB=>OPEN, D=>
-      readStep(7), CLK=>nx299);
-   readStepRegister_reg_Q_8 : dff port map ( Q=>tobeAdded_8, QB=>OPEN, D=>
-      readStep(8), CLK=>nx301);
-   readStepRegister_reg_Q_9 : dff port map ( Q=>tobeAdded_9, QB=>OPEN, D=>
-      readStep(9), CLK=>nx301);
-   readStepRegister_reg_Q_10 : dff port map ( Q=>tobeAdded_10, QB=>OPEN, D=>
-      readStep(10), CLK=>nx301);
-   readStepRegister_reg_Q_11 : dff port map ( Q=>tobeAdded_11, QB=>OPEN, D=>
-      readStep(11), CLK=>nx301);
-   readStepRegister_reg_Q_12 : dff port map ( Q=>tobeAdded_12, QB=>OPEN, D=>
-      readStep(12), CLK=>nx301);
-   tristateLabel_tri_output_0 : trib04 port map ( Y=>internalBus(0), A=>
-      ramDataInBus(0), E=>nx261);
-   tristateLabel_tri_output_1 : trib04 port map ( Y=>internalBus(1), A=>
-      ramDataInBus(1), E=>nx261);
-   tristateLabel_tri_output_2 : trib04 port map ( Y=>internalBus(2), A=>
-      ramDataInBus(2), E=>nx261);
-   tristateLabel_tri_output_3 : trib04 port map ( Y=>internalBus(3), A=>
-      ramDataInBus(3), E=>nx261);
-   tristateLabel_tri_output_4 : trib04 port map ( Y=>internalBus(4), A=>
-      ramDataInBus(4), E=>nx261);
-   tristateLabel_tri_output_5 : trib04 port map ( Y=>internalBus(5), A=>
-      ramDataInBus(5), E=>nx261);
-   tristateLabel_tri_output_6 : trib04 port map ( Y=>internalBus(6), A=>
-      ramDataInBus(6), E=>nx261);
-   tristateLabel_tri_output_7 : trib04 port map ( Y=>internalBus(7), A=>
-      ramDataInBus(7), E=>nx263);
-   tristateLabel_tri_output_8 : trib04 port map ( Y=>internalBus(8), A=>
-      ramDataInBus(8), E=>nx263);
-   tristateLabel_tri_output_9 : trib04 port map ( Y=>internalBus(9), A=>
-      ramDataInBus(9), E=>nx263);
-   tristateLabel_tri_output_10 : trib04 port map ( Y=>internalBus(10), A=>
-      ramDataInBus(10), E=>nx263);
-   tristateLabel_tri_output_11 : trib04 port map ( Y=>internalBus(11), A=>
-      ramDataInBus(11), E=>nx263);
-   tristateLabel_tri_output_12 : trib04 port map ( Y=>internalBus(12), A=>
-      ramDataInBus(12), E=>nx263);
-   tristateLabel_tri_output_13 : trib04 port map ( Y=>internalBus(13), A=>
-      ramDataInBus(13), E=>nx263);
-   tristateLabel_tri_output_14 : trib04 port map ( Y=>internalBus(14), A=>
-      ramDataInBus(14), E=>nx265);
-   tristateLabel_tri_output_15 : trib04 port map ( Y=>internalBus(15), A=>
-      ramDataInBus(15), E=>nx265);
-   tristateLabel_tri_output_16 : trib04 port map ( Y=>internalBus(16), A=>
-      ramDataInBus(16), E=>nx265);
-   tristateLabel_tri_output_17 : trib04 port map ( Y=>internalBus(17), A=>
-      ramDataInBus(17), E=>nx265);
-   tristateLabel_tri_output_18 : trib04 port map ( Y=>internalBus(18), A=>
-      ramDataInBus(18), E=>nx265);
-   tristateLabel_tri_output_19 : trib04 port map ( Y=>internalBus(19), A=>
-      ramDataInBus(19), E=>nx265);
-   tristateLabel_tri_output_20 : trib04 port map ( Y=>internalBus(20), A=>
-      ramDataInBus(20), E=>nx265);
-   tristateLabel_tri_output_21 : trib04 port map ( Y=>internalBus(21), A=>
-      ramDataInBus(21), E=>nx267);
-   tristateLabel_tri_output_22 : trib04 port map ( Y=>internalBus(22), A=>
-      ramDataInBus(22), E=>nx267);
-   tristateLabel_tri_output_23 : trib04 port map ( Y=>internalBus(23), A=>
-      ramDataInBus(23), E=>nx267);
-   tristateLabel_tri_output_24 : trib04 port map ( Y=>internalBus(24), A=>
-      ramDataInBus(24), E=>nx267);
-   tristateLabel_tri_output_25 : trib04 port map ( Y=>internalBus(25), A=>
-      ramDataInBus(25), E=>nx267);
-   tristateLabel_tri_output_26 : trib04 port map ( Y=>internalBus(26), A=>
-      ramDataInBus(26), E=>nx267);
-   tristateLabel_tri_output_27 : trib04 port map ( Y=>internalBus(27), A=>
-      ramDataInBus(27), E=>nx267);
-   tristateLabel_tri_output_28 : trib04 port map ( Y=>internalBus(28), A=>
-      ramDataInBus(28), E=>nx269);
-   tristateLabel_tri_output_29 : trib04 port map ( Y=>internalBus(29), A=>
-      ramDataInBus(29), E=>nx269);
-   tristateLabel_tri_output_30 : trib04 port map ( Y=>internalBus(30), A=>
-      ramDataInBus(30), E=>nx269);
-   tristateLabel_tri_output_31 : trib04 port map ( Y=>internalBus(31), A=>
-      ramDataInBus(31), E=>nx269);
-   tristateLabel_tri_output_32 : trib04 port map ( Y=>internalBus(32), A=>
-      ramDataInBus(32), E=>nx269);
-   tristateLabel_tri_output_33 : trib04 port map ( Y=>internalBus(33), A=>
-      ramDataInBus(33), E=>nx269);
-   tristateLabel_tri_output_34 : trib04 port map ( Y=>internalBus(34), A=>
-      ramDataInBus(34), E=>nx269);
-   tristateLabel_tri_output_35 : trib04 port map ( Y=>internalBus(35), A=>
-      ramDataInBus(35), E=>nx271);
-   tristateLabel_tri_output_36 : trib04 port map ( Y=>internalBus(36), A=>
-      ramDataInBus(36), E=>nx271);
-   tristateLabel_tri_output_37 : trib04 port map ( Y=>internalBus(37), A=>
-      ramDataInBus(37), E=>nx271);
-   tristateLabel_tri_output_38 : trib04 port map ( Y=>internalBus(38), A=>
-      ramDataInBus(38), E=>nx271);
-   tristateLabel_tri_output_39 : trib04 port map ( Y=>internalBus(39), A=>
-      ramDataInBus(39), E=>nx271);
-   tristateLabel_tri_output_40 : trib04 port map ( Y=>internalBus(40), A=>
-      ramDataInBus(40), E=>nx271);
-   tristateLabel_tri_output_41 : trib04 port map ( Y=>internalBus(41), A=>
-      ramDataInBus(41), E=>nx271);
-   tristateLabel_tri_output_42 : trib04 port map ( Y=>internalBus(42), A=>
-      ramDataInBus(42), E=>nx273);
-   tristateLabel_tri_output_43 : trib04 port map ( Y=>internalBus(43), A=>
-      ramDataInBus(43), E=>nx273);
-   tristateLabel_tri_output_44 : trib04 port map ( Y=>internalBus(44), A=>
-      ramDataInBus(44), E=>nx273);
-   tristateLabel_tri_output_45 : trib04 port map ( Y=>internalBus(45), A=>
-      ramDataInBus(45), E=>nx273);
-   tristateLabel_tri_output_46 : trib04 port map ( Y=>internalBus(46), A=>
-      ramDataInBus(46), E=>nx273);
-   tristateLabel_tri_output_47 : trib04 port map ( Y=>internalBus(47), A=>
-      ramDataInBus(47), E=>nx273);
-   tristateLabel_tri_output_48 : trib04 port map ( Y=>internalBus(48), A=>
-      ramDataInBus(48), E=>nx273);
-   tristateLabel_tri_output_49 : trib04 port map ( Y=>internalBus(49), A=>
-      ramDataInBus(49), E=>nx275);
-   tristateLabel_tri_output_50 : trib04 port map ( Y=>internalBus(50), A=>
-      ramDataInBus(50), E=>nx275);
-   tristateLabel_tri_output_51 : trib04 port map ( Y=>internalBus(51), A=>
-      ramDataInBus(51), E=>nx275);
-   tristateLabel_tri_output_52 : trib04 port map ( Y=>internalBus(52), A=>
-      ramDataInBus(52), E=>nx275);
-   tristateLabel_tri_output_53 : trib04 port map ( Y=>internalBus(53), A=>
-      ramDataInBus(53), E=>nx275);
-   tristateLabel_tri_output_54 : trib04 port map ( Y=>internalBus(54), A=>
-      ramDataInBus(54), E=>nx275);
-   tristateLabel_tri_output_55 : trib04 port map ( Y=>internalBus(55), A=>
-      ramDataInBus(55), E=>nx275);
-   tristateLabel_tri_output_56 : trib04 port map ( Y=>internalBus(56), A=>
-      ramDataInBus(56), E=>nx277);
-   tristateLabel_tri_output_57 : trib04 port map ( Y=>internalBus(57), A=>
-      ramDataInBus(57), E=>nx277);
-   tristateLabel_tri_output_58 : trib04 port map ( Y=>internalBus(58), A=>
-      ramDataInBus(58), E=>nx277);
-   tristateLabel_tri_output_59 : trib04 port map ( Y=>internalBus(59), A=>
-      ramDataInBus(59), E=>nx277);
-   tristateLabel_tri_output_60 : trib04 port map ( Y=>internalBus(60), A=>
-      ramDataInBus(60), E=>nx277);
-   tristateLabel_tri_output_61 : trib04 port map ( Y=>internalBus(61), A=>
-      ramDataInBus(61), E=>nx277);
-   tristateLabel_tri_output_62 : trib04 port map ( Y=>internalBus(62), A=>
-      ramDataInBus(62), E=>nx277);
-   tristateLabel_tri_output_63 : trib04 port map ( Y=>internalBus(63), A=>
-      ramDataInBus(63), E=>nx279);
-   tristateLabel_tri_output_64 : trib04 port map ( Y=>internalBus(64), A=>
-      ramDataInBus(64), E=>nx279);
-   tristateLabel_tri_output_65 : trib04 port map ( Y=>internalBus(65), A=>
-      ramDataInBus(65), E=>nx279);
-   tristateLabel_tri_output_66 : trib04 port map ( Y=>internalBus(66), A=>
-      ramDataInBus(66), E=>nx279);
-   tristateLabel_tri_output_67 : trib04 port map ( Y=>internalBus(67), A=>
-      ramDataInBus(67), E=>nx279);
-   tristateLabel_tri_output_68 : trib04 port map ( Y=>internalBus(68), A=>
-      ramDataInBus(68), E=>nx279);
-   tristateLabel_tri_output_69 : trib04 port map ( Y=>internalBus(69), A=>
-      ramDataInBus(69), E=>nx279);
-   tristateLabel_tri_output_70 : trib04 port map ( Y=>internalBus(70), A=>
-      ramDataInBus(70), E=>nx281);
-   tristateLabel_tri_output_71 : trib04 port map ( Y=>internalBus(71), A=>
-      ramDataInBus(71), E=>nx281);
-   tristateLabel_tri_output_72 : trib04 port map ( Y=>internalBus(72), A=>
-      ramDataInBus(72), E=>nx281);
-   tristateLabel_tri_output_73 : trib04 port map ( Y=>internalBus(73), A=>
-      ramDataInBus(73), E=>nx281);
-   tristateLabel_tri_output_74 : trib04 port map ( Y=>internalBus(74), A=>
-      ramDataInBus(74), E=>nx281);
-   tristateLabel_tri_output_75 : trib04 port map ( Y=>internalBus(75), A=>
-      ramDataInBus(75), E=>nx281);
-   tristateLabel_tri_output_76 : trib04 port map ( Y=>internalBus(76), A=>
-      ramDataInBus(76), E=>nx281);
-   tristateLabel_tri_output_77 : trib04 port map ( Y=>internalBus(77), A=>
-      ramDataInBus(77), E=>nx283);
-   tristateLabel_tri_output_78 : trib04 port map ( Y=>internalBus(78), A=>
-      ramDataInBus(78), E=>nx283);
-   tristateLabel_tri_output_79 : trib04 port map ( Y=>internalBus(79), A=>
-      ramDataInBus(79), E=>nx283);
-   ix260 : buf02 port map ( Y=>nx261, A=>nx289);
-   ix262 : buf02 port map ( Y=>nx263, A=>nx289);
-   ix264 : buf02 port map ( Y=>nx265, A=>nx289);
-   ix266 : buf02 port map ( Y=>nx267, A=>nx289);
-   ix268 : buf02 port map ( Y=>nx269, A=>nx289);
-   ix270 : buf02 port map ( Y=>nx271, A=>nx289);
-   ix272 : buf02 port map ( Y=>nx273, A=>nx289);
-   ix274 : buf02 port map ( Y=>nx275, A=>finishedOneRead_EXMPLR);
-   ix276 : buf02 port map ( Y=>nx277, A=>finishedOneRead_EXMPLR);
-   ix278 : buf02 port map ( Y=>nx279, A=>finishedOneRead_EXMPLR);
-   ix280 : buf02 port map ( Y=>nx281, A=>finishedOneRead_EXMPLR);
-   ix282 : buf02 port map ( Y=>nx283, A=>finishedOneRead_EXMPLR);
-   ix288 : nor02_2x port map ( Y=>nx289, A0=>nx147, A1=>nx85);
-   ix124 : xnor2 port map ( Y=>nx123, A0=>nx114, A1=>nx295);
-   ix115 : nand02 port map ( Y=>nx295, A0=>nx88, A1=>nx103);
-   ix296 : inv02 port map ( Y=>nx297, A=>nx107);
-   ix298 : inv02 port map ( Y=>nx299, A=>nx107);
-   ix300 : inv02 port map ( Y=>nx301, A=>nx107);
-end DMAArch_unfold_1492 ;
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use work.adk_components.all;
-
-entity Counter2_13 is
-   port (
-      load : IN std_logic_vector (12 DOWNTO 0) ;
-      reset : IN std_logic ;
-      clk : IN std_logic ;
-      isLoad : IN std_logic ;
-      count : OUT std_logic_vector (12 DOWNTO 0)) ;
-end Counter2_13 ;
-
-architecture Counter2Arch_unfold_2979 of Counter2_13 is
-   signal count_12_EXMPLR, count_10_EXMPLR, count_9_EXMPLR, count_8_EXMPLR, 
-      count_7_EXMPLR, count_6_EXMPLR, count_5_EXMPLR, count_4_EXMPLR, 
-      count_3_EXMPLR, count_2_EXMPLR, count_1_EXMPLR, count_0_EXMPLR, nx10, 
-      nx24, nx38, nx42, nx52, nx56, nx66, nx80, nx94, nx98, nx108, nx122, 
-      nx136, nx150, nx164, nx168, nx178, nx43, nx45, nx47, nx49, nx55, nx57, 
-      nx59, nx63, nx67, nx69, nx73, nx77, nx79, nx81, nx85, nx89, nx91, nx95, 
-      nx101, nx103, nx107, nx111, nx113, nx115, nx119, nx123, nx125, nx129, 
-      nx135, nx137, nx141, nx145, nx147, nx149, nx153, nx157, nx159, nx163, 
-      nx169, nx171, nx175, nx179, nx181, nx189, nx191, nx193, nx195, nx197, 
-      nx199, nx201, nx203, nx205, nx207, nx209, nx211, nx213, nx215, nx217, 
-      nx219, nx221, nx223, nx225: std_logic ;
-
-begin
-   count(12) <= count_12_EXMPLR ;
-   count(10) <= count_10_EXMPLR ;
-   count(9) <= count_9_EXMPLR ;
-   count(8) <= count_8_EXMPLR ;
-   count(7) <= count_7_EXMPLR ;
-   count(6) <= count_6_EXMPLR ;
-   count(5) <= count_5_EXMPLR ;
-   count(4) <= count_4_EXMPLR ;
-   count(3) <= count_3_EXMPLR ;
-   count(2) <= count_2_EXMPLR ;
-   count(1) <= count_1_EXMPLR ;
-   count(0) <= count_0_EXMPLR ;
-   ix11 : nand02 port map ( Y=>nx10, A0=>nx43, A1=>nx45);
-   ix44 : nand02 port map ( Y=>nx43, A0=>load(0), A1=>nx215);
-   ix46 : nand02 port map ( Y=>nx45, A0=>nx47, A1=>nx49);
-   ix48 : inv01 port map ( Y=>nx47, A=>isLoad);
-   counterReg_reg_Q_0 : dff port map ( Q=>count_0_EXMPLR, QB=>nx49, D=>nx10, 
-      CLK=>nx223);
-   counterReg_reg_Q_1 : dff port map ( Q=>count_1_EXMPLR, QB=>nx59, D=>nx24, 
-      CLK=>nx223);
-   ix25 : oai21 port map ( Y=>nx24, A0=>nx215, A1=>nx55, B0=>nx57);
-   ix58 : nand02 port map ( Y=>nx57, A0=>load(1), A1=>nx215);
-   counterReg_reg_Q_2 : dff port map ( Q=>count_2_EXMPLR, QB=>nx69, D=>nx38, 
-      CLK=>nx223);
-   ix39 : oai21 port map ( Y=>nx38, A0=>nx215, A1=>nx63, B0=>nx67);
-   ix68 : nand02 port map ( Y=>nx67, A0=>load(2), A1=>nx215);
-   counterReg_reg_Q_3 : dff port map ( Q=>count_3_EXMPLR, QB=>nx81, D=>nx52, 
-      CLK=>nx223);
-   ix53 : oai21 port map ( Y=>nx52, A0=>nx215, A1=>nx73, B0=>nx79);
-   ix43 : nor02_2x port map ( Y=>nx42, A0=>nx69, A1=>nx77);
-   ix78 : nand02 port map ( Y=>nx77, A0=>count_1_EXMPLR, A1=>count_0_EXMPLR
-   );
-   ix80 : nand02 port map ( Y=>nx79, A0=>load(3), A1=>nx215);
-   counterReg_reg_Q_4 : dff port map ( Q=>count_4_EXMPLR, QB=>nx91, D=>nx66, 
-      CLK=>nx223);
-   ix67 : oai21 port map ( Y=>nx66, A0=>nx217, A1=>nx85, B0=>nx89);
-   ix57 : nor03_2x port map ( Y=>nx56, A0=>nx81, A1=>nx69, A2=>nx77);
-   ix90 : nand02 port map ( Y=>nx89, A0=>load(4), A1=>nx217);
-   counterReg_reg_Q_5 : dff port map ( Q=>count_5_EXMPLR, QB=>nx103, D=>nx80, 
-      CLK=>nx223);
-   ix81 : oai21 port map ( Y=>nx80, A0=>nx217, A1=>nx95, B0=>nx101);
-   ix102 : nand02 port map ( Y=>nx101, A0=>load(5), A1=>nx217);
-   counterReg_reg_Q_6 : dff port map ( Q=>count_6_EXMPLR, QB=>nx115, D=>nx94, 
-      CLK=>nx223);
-   ix95 : oai21 port map ( Y=>nx94, A0=>nx217, A1=>nx107, B0=>nx113);
-   ix112 : nand04 port map ( Y=>nx111, A0=>count_3_EXMPLR, A1=>
-      count_2_EXMPLR, A2=>count_1_EXMPLR, A3=>count_0_EXMPLR);
-   ix114 : nand02 port map ( Y=>nx113, A0=>load(6), A1=>nx217);
-   counterReg_reg_Q_7 : dff port map ( Q=>count_7_EXMPLR, QB=>nx125, D=>
-      nx108, CLK=>nx225);
-   ix109 : oai21 port map ( Y=>nx108, A0=>nx217, A1=>nx119, B0=>nx123);
-   ix99 : nor04 port map ( Y=>nx98, A0=>nx115, A1=>nx103, A2=>nx91, A3=>
-      nx111);
-   ix124 : nand02 port map ( Y=>nx123, A0=>load(7), A1=>nx219);
-   counterReg_reg_Q_8 : dff port map ( Q=>count_8_EXMPLR, QB=>nx137, D=>
-      nx122, CLK=>nx225);
-   ix123 : oai21 port map ( Y=>nx122, A0=>nx219, A1=>nx129, B0=>nx135);
-   ix136 : nand02 port map ( Y=>nx135, A0=>load(8), A1=>nx219);
-   counterReg_reg_Q_9 : dff port map ( Q=>count_9_EXMPLR, QB=>nx149, D=>
-      nx136, CLK=>nx225);
-   ix137 : oai21 port map ( Y=>nx136, A0=>nx219, A1=>nx141, B0=>nx147);
-   ix146 : inv01 port map ( Y=>nx145, A=>nx98);
-   ix148 : nand02 port map ( Y=>nx147, A0=>load(9), A1=>nx219);
-   counterReg_reg_Q_10 : dff port map ( Q=>count_10_EXMPLR, QB=>nx159, D=>
-      nx150, CLK=>nx225);
-   ix151 : oai21 port map ( Y=>nx150, A0=>nx219, A1=>nx153, B0=>nx157);
-   ix158 : nand02 port map ( Y=>nx157, A0=>load(10), A1=>nx219);
-   counterReg_reg_Q_11 : dff port map ( Q=>count(11), QB=>nx171, D=>nx164, 
-      CLK=>nx225);
-   ix165 : oai21 port map ( Y=>nx164, A0=>nx221, A1=>nx163, B0=>nx169);
-   ix170 : nand02 port map ( Y=>nx169, A0=>load(11), A1=>nx221);
-   counterReg_reg_Q_12 : dff port map ( Q=>count_12_EXMPLR, QB=>OPEN, D=>
-      nx178, CLK=>nx225);
-   ix179 : oai21 port map ( Y=>nx178, A0=>nx221, A1=>nx175, B0=>nx181);
-   ix176 : xnor2 port map ( Y=>nx175, A0=>count_12_EXMPLR, A1=>nx168);
-   ix169 : nor04 port map ( Y=>nx168, A0=>nx171, A1=>nx159, A2=>nx149, A3=>
-      nx179);
-   ix180 : nand03 port map ( Y=>nx179, A0=>count_8_EXMPLR, A1=>
-      count_7_EXMPLR, A2=>nx98);
-   ix182 : nand02 port map ( Y=>nx181, A0=>nx221, A1=>load(12));
-   ix56 : xnor2 port map ( Y=>nx55, A0=>nx59, A1=>nx49);
-   ix64 : xnor2 port map ( Y=>nx63, A0=>nx69, A1=>nx189);
-   ix29 : nand02 port map ( Y=>nx189, A0=>count_1_EXMPLR, A1=>count_0_EXMPLR
-   );
-   ix74 : xnor2 port map ( Y=>nx73, A0=>nx81, A1=>nx191);
-   ix190 : inv01 port map ( Y=>nx191, A=>nx42);
-   ix86 : xnor2 port map ( Y=>nx85, A0=>nx91, A1=>nx193);
-   ix192 : inv01 port map ( Y=>nx193, A=>nx56);
-   ix96 : xnor2 port map ( Y=>nx95, A0=>nx103, A1=>nx195);
-   ix71 : nand03 port map ( Y=>nx195, A0=>count_4_EXMPLR, A1=>count_3_EXMPLR, 
-      A2=>nx197);
-   ix100 : nor03_2x port map ( Y=>nx197, A0=>nx69, A1=>nx59, A2=>nx49);
-   ix108 : xnor2 port map ( Y=>nx107, A0=>nx115, A1=>nx199);
-   ix85 : nand03 port map ( Y=>nx199, A0=>count_5_EXMPLR, A1=>count_4_EXMPLR, 
-      A2=>nx201);
-   ix200 : inv01 port map ( Y=>nx201, A=>nx111);
-   ix120 : xnor2 port map ( Y=>nx119, A0=>nx125, A1=>nx145);
-   ix130 : xnor2 port map ( Y=>nx129, A0=>nx137, A1=>nx203);
-   ix113 : nand04 port map ( Y=>nx203, A0=>count_7_EXMPLR, A1=>
-      count_6_EXMPLR, A2=>count_5_EXMPLR, A3=>nx205);
-   ix134 : nor02_2x port map ( Y=>nx205, A0=>nx91, A1=>nx193);
-   ix142 : xnor2 port map ( Y=>nx141, A0=>nx149, A1=>nx207);
-   ix127 : nand03 port map ( Y=>nx207, A0=>count_8_EXMPLR, A1=>
-      count_7_EXMPLR, A2=>nx98);
-   ix154 : xnor2 port map ( Y=>nx153, A0=>nx159, A1=>nx209);
-   ix141 : nand04 port map ( Y=>nx209, A0=>count_9_EXMPLR, A1=>
-      count_8_EXMPLR, A2=>count_7_EXMPLR, A3=>nx98);
-   ix164 : xnor2 port map ( Y=>nx163, A0=>nx171, A1=>nx211);
-   ix155 : nand04 port map ( Y=>nx211, A0=>count_10_EXMPLR, A1=>
-      count_9_EXMPLR, A2=>count_8_EXMPLR, A3=>nx213);
-   ix168 : nor02_2x port map ( Y=>nx213, A0=>nx125, A1=>nx145);
-   ix214 : inv02 port map ( Y=>nx215, A=>nx47);
-   ix216 : inv02 port map ( Y=>nx217, A=>nx47);
-   ix218 : inv02 port map ( Y=>nx219, A=>nx47);
-   ix220 : inv02 port map ( Y=>nx221, A=>nx47);
-   ix222 : buf02 port map ( Y=>nx223, A=>clk);
-   ix224 : buf02 port map ( Y=>nx225, A=>clk);
-end Counter2Arch_unfold_2979 ;
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use work.adk_components.all;
-
-entity ReadLogic_13_80 is
+entity ReadLogic_13_80_false is
    port (
       clk : IN std_logic ;
       resetState : IN std_logic ;
@@ -740,26 +429,9 @@ entity ReadLogic_13_80 is
       readOne : OUT std_logic ;
       readFinal : OUT std_logic ;
       aluNumber : OUT std_logic_vector (2 DOWNTO 0)) ;
-end ReadLogic_13_80 ;
+end ReadLogic_13_80_false ;
 
-architecture ReadLogicArch_unfold_3077 of ReadLogic_13_80 is
-   component DMA_13_80
-      port (
-         initialCount : IN std_logic_vector (2 DOWNTO 0) ;
-         readBaseAddress : IN std_logic_vector (12 DOWNTO 0) ;
-         readStep : IN std_logic_vector (12 DOWNTO 0) ;
-         initAddress : IN std_logic ;
-         initCounter : IN std_logic ;
-         load : IN std_logic ;
-         internalBus : OUT std_logic_vector (79 DOWNTO 0) ;
-         finishedOneRead : OUT std_logic ;
-         finishedReading : OUT std_logic ;
-         clk : IN std_logic ;
-         ramDataInBus : IN std_logic_vector (79 DOWNTO 0) ;
-         ramRead : OUT std_logic ;
-         ramReadAddress : OUT std_logic_vector (12 DOWNTO 0) ;
-         MFC : IN std_logic) ;
-   end component ;
+architecture ReadLogicArch_unfold_3077 of ReadLogic_13_80_false is
    component Counter2_13
       port (
          load : IN std_logic_vector (12 DOWNTO 0) ;
@@ -768,434 +440,403 @@ architecture ReadLogicArch_unfold_3077 of ReadLogic_13_80 is
          isLoad : IN std_logic ;
          count : OUT std_logic_vector (12 DOWNTO 0)) ;
    end component ;
-   signal readOne_EXMPLR, readFinal_EXMPLR, aluNumber_2_EXMPLR, 
-      aluNumber_0_EXMPLR, currentState_4, currentState_2, currentState_1, 
-      dmaCountIn_2, dmaCountIn_1, addressRegOut_12, addressRegOut_11, 
-      addressRegOut_10, addressRegOut_9, addressRegOut_8, addressRegOut_7, 
-      addressRegOut_6, addressRegOut_5, addressRegOut_4, addressRegOut_3, 
-      addressRegOut_2, addressRegOut_1, addressRegOut_0, addressRegIn_12, 
+   component MultiStepCounter_13
+      port (
+         load : IN std_logic_vector (12 DOWNTO 0) ;
+         toBeAdded : IN std_logic_vector (12 DOWNTO 0) ;
+         reset : IN std_logic ;
+         clk : IN std_logic ;
+         isLoad : IN std_logic ;
+         MFC : IN std_logic ;
+         count : OUT std_logic_vector (12 DOWNTO 0)) ;
+   end component ;
+   signal readOne_EXMPLR, aluNumber_2_EXMPLR, aluNumber_0_EXMPLR, 
+      ramRead_EXMPLR, addressRegOut_12, addressRegOut_11, addressRegOut_10, 
+      addressRegOut_9, addressRegOut_8, addressRegOut_7, addressRegOut_6, 
+      addressRegOut_5, addressRegOut_4, addressRegOut_3, addressRegOut_2, 
+      addressRegOut_1, addressRegOut_0, resetUnitNumberReg, 
+      baseAddressCounterClk, resetAddressReg, addressRegIn_12, 
       addressRegIn_11, addressRegIn_10, addressRegIn_9, addressRegIn_8, 
       addressRegIn_7, addressRegIn_6, addressRegIn_5, addressRegIn_4, 
       addressRegIn_3, addressRegIn_2, addressRegIn_1, addressRegIn_0, 
-      resetUnitNumberReg, baseAddressCounterClk, PWR, zerosSignal_2, 
-      currentState_0, nx65, NOT_clk, nx20, nx22, nx28, nx44, nx52, nx56, 
-      currentState_3, nx64, nx74, nx94, nx100, nx104, nx114, nx122, nx126, 
-      nx136, nx144, nx152, nx160, nx168, nx176, nx184, nx192, nx200, nx208, 
-      nx216, nx224, nx232, nx240, nx248, nx72, nx83, nx93, nx103, nx113, 
-      nx125, nx129, nx133, nx137, nx140, nx147, nx151, nx153, nx156, nx163, 
-      nx165, nx167, nx169, nx171, nx173, nx177, nx179, nx181, nx187, nx191, 
-      nx196, nx201, nx205, nx209, nx213, nx217, nx221, nx225, nx229, nx233, 
-      nx237, nx241, nx245, nx251, nx256, nx259, nx261, nx263, nx266, nx268, 
-      nx271, nx280, nx282, nx284, nx286, nx288, nx290, nx296, nx298, nx300, 
-      nx302: std_logic ;
+      dma_tobeAdded_12, dma_tobeAdded_11, dma_tobeAdded_10, dma_tobeAdded_9, 
+      dma_tobeAdded_8, dma_tobeAdded_7, dma_tobeAdded_6, dma_tobeAdded_5, 
+      dma_tobeAdded_4, dma_tobeAdded_3, dma_tobeAdded_2, dma_tobeAdded_1, 
+      dma_tobeAdded_0, dmaInitRamBaseAddress, NOT_clk, nx14, NOT_MFC, 
+      dma_currentCount_1, nx50, dma_currentCount_0, nx68, dma_currentCount_2, 
+      nx108, nx132, nx164, nx168, nx178, nx186, nx190, nx265, nx267, nx277, 
+      nx287, nx297, nx307, nx344, nx346, nx350, nx353, nx355, nx362, nx366, 
+      nx368, nx370, nx372, nx379, nx381, nx383, nx386, nx390, nx392, nx394, 
+      nx396, nx399, nx401, nx404, nx406, nx409, nx412, nx415, nx417, nx419, 
+      nx421, nx424, nx427, nx430, nx433, nx436, nx439, nx442, nx445, nx448, 
+      nx451, nx454, nx457, nx461, nx463, nx466, nx471, nx473, nx475, nx478, 
+      nx480, nx483, nx573, nx575, nx577, nx579, nx581, nx583, nx585, nx587, 
+      nx589, nx591, nx593, nx595, nx597, nx599, nx601, nx603, nx605, nx607, 
+      nx613, nx615, nx617, nx623, nx5: std_logic ;
 
 begin
+   ramRead <= ramRead_EXMPLR ;
    readOne <= readOne_EXMPLR ;
-   readFinal <= readFinal_EXMPLR ;
    aluNumber(2) <= aluNumber_2_EXMPLR ;
    aluNumber(0) <= aluNumber_0_EXMPLR ;
-   dma : DMA_13_80 port map ( initialCount(2)=>dmaCountIn_2, initialCount(1)
-      =>dmaCountIn_1, initialCount(0)=>PWR, readBaseAddress(12)=>
-      addressRegOut_12, readBaseAddress(11)=>addressRegOut_11, 
-      readBaseAddress(10)=>addressRegOut_10, readBaseAddress(9)=>
-      addressRegOut_9, readBaseAddress(8)=>addressRegOut_8, 
-      readBaseAddress(7)=>addressRegOut_7, readBaseAddress(6)=>
-      addressRegOut_6, readBaseAddress(5)=>addressRegOut_5, 
-      readBaseAddress(4)=>addressRegOut_4, readBaseAddress(3)=>
-      addressRegOut_3, readBaseAddress(2)=>addressRegOut_2, 
-      readBaseAddress(1)=>addressRegOut_1, readBaseAddress(0)=>
-      addressRegOut_0, readStep(12)=>inputSize(12), readStep(11)=>
-      inputSize(11), readStep(10)=>inputSize(10), readStep(9)=>inputSize(9), 
-      readStep(8)=>inputSize(8), readStep(7)=>inputSize(7), readStep(6)=>
-      inputSize(6), readStep(5)=>inputSize(5), readStep(4)=>inputSize(4), 
-      readStep(3)=>inputSize(3), readStep(2)=>inputSize(2), readStep(1)=>
-      inputSize(1), readStep(0)=>inputSize(0), initAddress=>
-      resetUnitNumberReg, initCounter=>currentState_2, load=>currentState_4, 
-      internalBus(79)=>internalBus(79), internalBus(78)=>internalBus(78), 
-      internalBus(77)=>internalBus(77), internalBus(76)=>internalBus(76), 
-      internalBus(75)=>internalBus(75), internalBus(74)=>internalBus(74), 
-      internalBus(73)=>internalBus(73), internalBus(72)=>internalBus(72), 
-      internalBus(71)=>internalBus(71), internalBus(70)=>internalBus(70), 
-      internalBus(69)=>internalBus(69), internalBus(68)=>internalBus(68), 
-      internalBus(67)=>internalBus(67), internalBus(66)=>internalBus(66), 
-      internalBus(65)=>internalBus(65), internalBus(64)=>internalBus(64), 
-      internalBus(63)=>internalBus(63), internalBus(62)=>internalBus(62), 
-      internalBus(61)=>internalBus(61), internalBus(60)=>internalBus(60), 
-      internalBus(59)=>internalBus(59), internalBus(58)=>internalBus(58), 
-      internalBus(57)=>internalBus(57), internalBus(56)=>internalBus(56), 
-      internalBus(55)=>internalBus(55), internalBus(54)=>internalBus(54), 
-      internalBus(53)=>internalBus(53), internalBus(52)=>internalBus(52), 
-      internalBus(51)=>internalBus(51), internalBus(50)=>internalBus(50), 
-      internalBus(49)=>internalBus(49), internalBus(48)=>internalBus(48), 
-      internalBus(47)=>internalBus(47), internalBus(46)=>internalBus(46), 
-      internalBus(45)=>internalBus(45), internalBus(44)=>internalBus(44), 
-      internalBus(43)=>internalBus(43), internalBus(42)=>internalBus(42), 
-      internalBus(41)=>internalBus(41), internalBus(40)=>internalBus(40), 
-      internalBus(39)=>internalBus(39), internalBus(38)=>internalBus(38), 
-      internalBus(37)=>internalBus(37), internalBus(36)=>internalBus(36), 
-      internalBus(35)=>internalBus(35), internalBus(34)=>internalBus(34), 
-      internalBus(33)=>internalBus(33), internalBus(32)=>internalBus(32), 
-      internalBus(31)=>internalBus(31), internalBus(30)=>internalBus(30), 
-      internalBus(29)=>internalBus(29), internalBus(28)=>internalBus(28), 
-      internalBus(27)=>internalBus(27), internalBus(26)=>internalBus(26), 
-      internalBus(25)=>internalBus(25), internalBus(24)=>internalBus(24), 
-      internalBus(23)=>internalBus(23), internalBus(22)=>internalBus(22), 
-      internalBus(21)=>internalBus(21), internalBus(20)=>internalBus(20), 
-      internalBus(19)=>internalBus(19), internalBus(18)=>internalBus(18), 
-      internalBus(17)=>internalBus(17), internalBus(16)=>internalBus(16), 
-      internalBus(15)=>internalBus(15), internalBus(14)=>internalBus(14), 
-      internalBus(13)=>internalBus(13), internalBus(12)=>internalBus(12), 
-      internalBus(11)=>internalBus(11), internalBus(10)=>internalBus(10), 
-      internalBus(9)=>internalBus(9), internalBus(8)=>internalBus(8), 
-      internalBus(7)=>internalBus(7), internalBus(6)=>internalBus(6), 
-      internalBus(5)=>internalBus(5), internalBus(4)=>internalBus(4), 
-      internalBus(3)=>internalBus(3), internalBus(2)=>internalBus(2), 
-      internalBus(1)=>internalBus(1), internalBus(0)=>internalBus(0), 
-      finishedOneRead=>readOne_EXMPLR, finishedReading=>readFinal_EXMPLR, 
-      clk=>clk, ramDataInBus(79)=>ramDataInBus(79), ramDataInBus(78)=>
-      ramDataInBus(78), ramDataInBus(77)=>ramDataInBus(77), ramDataInBus(76)
-      =>ramDataInBus(76), ramDataInBus(75)=>ramDataInBus(75), 
-      ramDataInBus(74)=>ramDataInBus(74), ramDataInBus(73)=>ramDataInBus(73), 
-      ramDataInBus(72)=>ramDataInBus(72), ramDataInBus(71)=>ramDataInBus(71), 
-      ramDataInBus(70)=>ramDataInBus(70), ramDataInBus(69)=>ramDataInBus(69), 
-      ramDataInBus(68)=>ramDataInBus(68), ramDataInBus(67)=>ramDataInBus(67), 
-      ramDataInBus(66)=>ramDataInBus(66), ramDataInBus(65)=>ramDataInBus(65), 
-      ramDataInBus(64)=>ramDataInBus(64), ramDataInBus(63)=>ramDataInBus(63), 
-      ramDataInBus(62)=>ramDataInBus(62), ramDataInBus(61)=>ramDataInBus(61), 
-      ramDataInBus(60)=>ramDataInBus(60), ramDataInBus(59)=>ramDataInBus(59), 
-      ramDataInBus(58)=>ramDataInBus(58), ramDataInBus(57)=>ramDataInBus(57), 
-      ramDataInBus(56)=>ramDataInBus(56), ramDataInBus(55)=>ramDataInBus(55), 
-      ramDataInBus(54)=>ramDataInBus(54), ramDataInBus(53)=>ramDataInBus(53), 
-      ramDataInBus(52)=>ramDataInBus(52), ramDataInBus(51)=>ramDataInBus(51), 
-      ramDataInBus(50)=>ramDataInBus(50), ramDataInBus(49)=>ramDataInBus(49), 
-      ramDataInBus(48)=>ramDataInBus(48), ramDataInBus(47)=>ramDataInBus(47), 
-      ramDataInBus(46)=>ramDataInBus(46), ramDataInBus(45)=>ramDataInBus(45), 
-      ramDataInBus(44)=>ramDataInBus(44), ramDataInBus(43)=>ramDataInBus(43), 
-      ramDataInBus(42)=>ramDataInBus(42), ramDataInBus(41)=>ramDataInBus(41), 
-      ramDataInBus(40)=>ramDataInBus(40), ramDataInBus(39)=>ramDataInBus(39), 
-      ramDataInBus(38)=>ramDataInBus(38), ramDataInBus(37)=>ramDataInBus(37), 
-      ramDataInBus(36)=>ramDataInBus(36), ramDataInBus(35)=>ramDataInBus(35), 
-      ramDataInBus(34)=>ramDataInBus(34), ramDataInBus(33)=>ramDataInBus(33), 
-      ramDataInBus(32)=>ramDataInBus(32), ramDataInBus(31)=>ramDataInBus(31), 
-      ramDataInBus(30)=>ramDataInBus(30), ramDataInBus(29)=>ramDataInBus(29), 
-      ramDataInBus(28)=>ramDataInBus(28), ramDataInBus(27)=>ramDataInBus(27), 
-      ramDataInBus(26)=>ramDataInBus(26), ramDataInBus(25)=>ramDataInBus(25), 
-      ramDataInBus(24)=>ramDataInBus(24), ramDataInBus(23)=>ramDataInBus(23), 
-      ramDataInBus(22)=>ramDataInBus(22), ramDataInBus(21)=>ramDataInBus(21), 
-      ramDataInBus(20)=>ramDataInBus(20), ramDataInBus(19)=>ramDataInBus(19), 
-      ramDataInBus(18)=>ramDataInBus(18), ramDataInBus(17)=>ramDataInBus(17), 
-      ramDataInBus(16)=>ramDataInBus(16), ramDataInBus(15)=>ramDataInBus(15), 
-      ramDataInBus(14)=>ramDataInBus(14), ramDataInBus(13)=>ramDataInBus(13), 
-      ramDataInBus(12)=>ramDataInBus(12), ramDataInBus(11)=>ramDataInBus(11), 
-      ramDataInBus(10)=>ramDataInBus(10), ramDataInBus(9)=>ramDataInBus(9), 
-      ramDataInBus(8)=>ramDataInBus(8), ramDataInBus(7)=>ramDataInBus(7), 
-      ramDataInBus(6)=>ramDataInBus(6), ramDataInBus(5)=>ramDataInBus(5), 
-      ramDataInBus(4)=>ramDataInBus(4), ramDataInBus(3)=>ramDataInBus(3), 
-      ramDataInBus(2)=>ramDataInBus(2), ramDataInBus(1)=>ramDataInBus(1), 
-      ramDataInBus(0)=>ramDataInBus(0), ramRead=>ramRead, ramReadAddress(12)
-      =>ramAddress(12), ramReadAddress(11)=>ramAddress(11), 
-      ramReadAddress(10)=>ramAddress(10), ramReadAddress(9)=>ramAddress(9), 
-      ramReadAddress(8)=>ramAddress(8), ramReadAddress(7)=>ramAddress(7), 
-      ramReadAddress(6)=>ramAddress(6), ramReadAddress(5)=>ramAddress(5), 
-      ramReadAddress(4)=>ramAddress(4), ramReadAddress(3)=>ramAddress(3), 
-      ramReadAddress(2)=>ramAddress(2), ramReadAddress(1)=>ramAddress(1), 
-      ramReadAddress(0)=>ramAddress(0), MFC=>MFC);
-   baseAddressCounter : Counter2_13 port map ( load(12)=>addressRegIn_12, 
-      load(11)=>addressRegIn_11, load(10)=>addressRegIn_10, load(9)=>
-      addressRegIn_9, load(8)=>addressRegIn_8, load(7)=>addressRegIn_7, 
-      load(6)=>addressRegIn_6, load(5)=>addressRegIn_5, load(4)=>
-      addressRegIn_4, load(3)=>addressRegIn_3, load(2)=>addressRegIn_2, 
-      load(1)=>addressRegIn_1, load(0)=>addressRegIn_0, reset=>zerosSignal_2, 
-      clk=>baseAddressCounterClk, isLoad=>currentState_1, count(12)=>
-      addressRegOut_12, count(11)=>addressRegOut_11, count(10)=>
-      addressRegOut_10, count(9)=>addressRegOut_9, count(8)=>addressRegOut_8, 
-      count(7)=>addressRegOut_7, count(6)=>addressRegOut_6, count(5)=>
-      addressRegOut_5, count(4)=>addressRegOut_4, count(3)=>addressRegOut_3, 
-      count(2)=>addressRegOut_2, count(1)=>addressRegOut_1, count(0)=>
-      addressRegOut_0);
-   ix22 : fake_gnd port map ( Y=>zerosSignal_2);
-   ix20 : fake_vcc port map ( Y=>PWR);
-   ix263 : mux21 port map ( Y=>baseAddressCounterClk, A0=>nx286, A1=>nx177, 
-      S0=>clk);
-   reg_currentState_1 : dff port map ( Q=>currentState_1, QB=>OPEN, D=>nx72, 
+   Normal_g_baseAddressCounter : Counter2_13 port map ( load(12)=>
+      addressRegIn_12, load(11)=>addressRegIn_11, load(10)=>addressRegIn_10, 
+      load(9)=>addressRegIn_9, load(8)=>addressRegIn_8, load(7)=>
+      addressRegIn_7, load(6)=>addressRegIn_6, load(5)=>addressRegIn_5, 
+      load(4)=>addressRegIn_4, load(3)=>addressRegIn_3, load(2)=>
+      addressRegIn_2, load(1)=>addressRegIn_1, load(0)=>addressRegIn_0, 
+      reset=>dmaInitRamBaseAddress, clk=>baseAddressCounterClk, isLoad=>
+      resetAddressReg, count(12)=>addressRegOut_12, count(11)=>
+      addressRegOut_11, count(10)=>addressRegOut_10, count(9)=>
+      addressRegOut_9, count(8)=>addressRegOut_8, count(7)=>addressRegOut_7, 
+      count(6)=>addressRegOut_6, count(5)=>addressRegOut_5, count(4)=>
+      addressRegOut_4, count(3)=>addressRegOut_3, count(2)=>addressRegOut_2, 
+      count(1)=>addressRegOut_1, count(0)=>addressRegOut_0);
+   dma_addressRegister : MultiStepCounter_13 port map ( load(12)=>
+      addressRegOut_12, load(11)=>addressRegOut_11, load(10)=>
+      addressRegOut_10, load(9)=>addressRegOut_9, load(8)=>addressRegOut_8, 
+      load(7)=>addressRegOut_7, load(6)=>addressRegOut_6, load(5)=>
+      addressRegOut_5, load(4)=>addressRegOut_4, load(3)=>addressRegOut_3, 
+      load(2)=>addressRegOut_2, load(1)=>addressRegOut_1, load(0)=>
+      addressRegOut_0, toBeAdded(12)=>dma_tobeAdded_12, toBeAdded(11)=>
+      dma_tobeAdded_11, toBeAdded(10)=>dma_tobeAdded_10, toBeAdded(9)=>
+      dma_tobeAdded_9, toBeAdded(8)=>dma_tobeAdded_8, toBeAdded(7)=>
+      dma_tobeAdded_7, toBeAdded(6)=>dma_tobeAdded_6, toBeAdded(5)=>
+      dma_tobeAdded_5, toBeAdded(4)=>dma_tobeAdded_4, toBeAdded(3)=>
+      dma_tobeAdded_3, toBeAdded(2)=>dma_tobeAdded_2, toBeAdded(1)=>
+      dma_tobeAdded_1, toBeAdded(0)=>dma_tobeAdded_0, reset=>
+      dmaInitRamBaseAddress, clk=>clk, isLoad=>resetUnitNumberReg, MFC=>MFC, 
+      count(12)=>ramAddress(12), count(11)=>ramAddress(11), count(10)=>
+      ramAddress(10), count(9)=>ramAddress(9), count(8)=>ramAddress(8), 
+      count(7)=>ramAddress(7), count(6)=>ramAddress(6), count(5)=>
+      ramAddress(5), count(4)=>ramAddress(4), count(3)=>ramAddress(3), 
+      count(2)=>ramAddress(2), count(1)=>ramAddress(1), count(0)=>
+      ramAddress(0));
+   ix208 : fake_gnd port map ( Y=>dmaInitRamBaseAddress);
+   dma_readStepRegister_reg_Q_0 : dff port map ( Q=>dma_tobeAdded_0, QB=>
+      OPEN, D=>inputSize(0), CLK=>clk);
+   dma_readStepRegister_reg_Q_1 : dff port map ( Q=>dma_tobeAdded_1, QB=>
+      OPEN, D=>inputSize(1), CLK=>clk);
+   dma_readStepRegister_reg_Q_2 : dff port map ( Q=>dma_tobeAdded_2, QB=>
+      OPEN, D=>inputSize(2), CLK=>clk);
+   dma_readStepRegister_reg_Q_3 : dff port map ( Q=>dma_tobeAdded_3, QB=>
+      OPEN, D=>inputSize(3), CLK=>clk);
+   dma_readStepRegister_reg_Q_4 : dff port map ( Q=>dma_tobeAdded_4, QB=>
+      OPEN, D=>inputSize(4), CLK=>clk);
+   dma_readStepRegister_reg_Q_5 : dff port map ( Q=>dma_tobeAdded_5, QB=>
+      OPEN, D=>inputSize(5), CLK=>clk);
+   dma_readStepRegister_reg_Q_6 : dff port map ( Q=>dma_tobeAdded_6, QB=>
+      OPEN, D=>inputSize(6), CLK=>clk);
+   dma_readStepRegister_reg_Q_7 : dff port map ( Q=>dma_tobeAdded_7, QB=>
+      OPEN, D=>inputSize(7), CLK=>clk);
+   dma_readStepRegister_reg_Q_8 : dff port map ( Q=>dma_tobeAdded_8, QB=>
+      OPEN, D=>inputSize(8), CLK=>clk);
+   dma_readStepRegister_reg_Q_9 : dff port map ( Q=>dma_tobeAdded_9, QB=>
+      OPEN, D=>inputSize(9), CLK=>clk);
+   dma_readStepRegister_reg_Q_10 : dff port map ( Q=>dma_tobeAdded_10, QB=>
+      OPEN, D=>inputSize(10), CLK=>clk);
+   dma_readStepRegister_reg_Q_11 : dff port map ( Q=>dma_tobeAdded_11, QB=>
+      OPEN, D=>inputSize(11), CLK=>clk);
+   dma_readStepRegister_reg_Q_12 : dff port map ( Q=>dma_tobeAdded_12, QB=>
+      OPEN, D=>inputSize(12), CLK=>clk);
+   ix277 : nor02_2x port map ( Y=>addressRegIn_0, A0=>nx344, A1=>nx605);
+   ix345 : inv01 port map ( Y=>nx344, A=>ramBasedAddress(0));
+   ix347 : nand02 port map ( Y=>nx346, A0=>nx601, A1=>nx615);
+   ix268 : inv01 port map ( Y=>nx267, A=>nx350);
+   ix351 : nor02ii port map ( Y=>nx350, A0=>nx265, A1=>nx421);
+   ix266 : oai221 port map ( Y=>nx265, A0=>loadNextWordList, A1=>nx353, B0=>
+      nx601, B1=>nx615, C0=>nx370);
+   ix354 : oai21 port map ( Y=>nx353, A0=>loadNextWordList, A1=>loadWord, B0
+      =>nx355);
+   reg_currentState_0 : dff port map ( Q=>OPEN, QB=>nx355, D=>nx267, CLK=>
+      NOT_clk);
+   ix358 : inv01 port map ( Y=>NOT_clk, A=>clk);
+   ix308 : oai21 port map ( Y=>nx307, A0=>switchRam, A1=>nx362, B0=>nx368);
+   ix363 : aoi21 port map ( Y=>nx362, A0=>nx355, A1=>nx597, B0=>nx14);
+   reg_currentState_1 : dff port map ( Q=>ramRead_EXMPLR, QB=>OPEN, D=>nx307, 
       CLK=>NOT_clk);
-   ix74 : oai21 port map ( Y=>nx72, A0=>nx286, A1=>nx65, B0=>nx300);
-   ix59 : nand03 port map ( Y=>nx65, A0=>nx125, A1=>nx156, A2=>nx165);
-   ix126 : inv01 port map ( Y=>nx125, A=>nx56);
-   ix57 : nand02 port map ( Y=>nx56, A0=>nx129, A1=>nx300);
-   ix130 : nand02 port map ( Y=>nx129, A0=>readFinal_EXMPLR, A1=>
-      currentState_4);
-   ix114 : oai21 port map ( Y=>nx113, A0=>nx133, A1=>nx153, B0=>nx181);
-   ix134 : oai21 port map ( Y=>nx133, A0=>nx74, A1=>currentState_3, B0=>
-      nx300);
-   ix75 : nor02_2x port map ( Y=>nx74, A0=>nx64, A1=>nx173);
-   ix65 : nor03_2x port map ( Y=>nx64, A0=>nx137, A1=>switchRam, A2=>nx171);
-   reg_currentState_2 : dff port map ( Q=>currentState_2, QB=>nx137, D=>nx83, 
-      CLK=>NOT_clk);
-   ix84 : mux21 port map ( Y=>nx83, A0=>nx137, A1=>nx140, S0=>nx65);
-   ix141 : nand02 port map ( Y=>nx140, A0=>nx300, A1=>currentState_0);
-   ix94 : oai21 port map ( Y=>nx93, A0=>nx147, A1=>nx153, B0=>nx167);
-   ix148 : oai21 port map ( Y=>nx147, A0=>nx28, A1=>currentState_4, B0=>
-      nx300);
-   ix29 : oai21 port map ( Y=>nx28, A0=>nx137, A1=>nx20, B0=>nx286);
-   ix21 : inv01 port map ( Y=>nx20, A=>nx151);
-   ix152 : nor02_2x port map ( Y=>nx151, A0=>loadNextWordList, A1=>loadWord
+   ix15 : nor02_2x port map ( Y=>nx14, A0=>nx601, A1=>nx366);
+   ix367 : nor02_2x port map ( Y=>nx366, A0=>loadNextWordList, A1=>loadWord
    );
-   ix154 : nor02_2x port map ( Y=>nx153, A0=>nx56, A1=>nx52);
-   ix53 : nand02 port map ( Y=>nx52, A0=>nx156, A1=>nx165);
-   ix157 : nand02 port map ( Y=>nx156, A0=>nx280, A1=>nx163);
-   reg_currentState_0 : dff port map ( Q=>currentState_0, QB=>OPEN, D=>nx93, 
-      CLK=>NOT_clk);
-   ix162 : inv02 port map ( Y=>NOT_clk, A=>clk);
-   reg_currentState_4 : dff port map ( Q=>currentState_4, QB=>nx163, D=>
-      nx113, CLK=>NOT_clk);
-   ix166 : oai21 port map ( Y=>nx165, A0=>loadNextWordList, A1=>loadWord, B0
-      =>currentState_0);
-   ix168 : nand04 port map ( Y=>nx167, A0=>currentState_0, A1=>nx129, A2=>
-      nx300, A3=>nx169);
-   ix170 : nor02_2x port map ( Y=>nx169, A0=>loadNextWordList, A1=>loadWord
+   ix369 : nand04 port map ( Y=>nx368, A0=>nx597, A1=>nx370, A2=>nx601, A3=>
+      nx372);
+   ix371 : inv01 port map ( Y=>nx370, A=>switchRam);
+   ix375 : inv16 port map ( Y=>NOT_MFC, A=>MFC);
+   ix133 : nor03_2x port map ( Y=>nx132, A0=>dma_currentCount_1, A1=>nx404, 
+      A2=>nx419);
+   dma_counter_counterReg_reg_Q_1 : dff port map ( Q=>dma_currentCount_1, QB
+      =>OPEN, D=>nx287, CLK=>clk);
+   ix288 : oai21 port map ( Y=>nx287, A0=>nx379, A1=>nx392, B0=>nx401);
+   ix380 : aoi322 port map ( Y=>nx379, A0=>filterSize(1), A1=>
+      loadNextWordList, A2=>nx381, B0=>dma_currentCount_1, B1=>nx383, C0=>
+      nx68, C1=>nx399);
+   ix382 : nor02_2x port map ( Y=>nx381, A0=>nx597, A1=>nx601);
+   ix51 : nor03_2x port map ( Y=>nx50, A0=>nx597, A1=>nx601, A2=>nx386);
+   ix387 : nor02_2x port map ( Y=>nx386, A0=>loadNextWordList, A1=>loadWord
    );
-   ix172 : inv01 port map ( Y=>nx171, A=>loadNextWordList);
-   ix174 : oai21 port map ( Y=>nx173, A0=>loadNextWordList, A1=>loadWord, B0
-      =>currentState_2);
-   ix104 : mux21 port map ( Y=>nx103, A0=>nx177, A1=>nx179, S0=>nx65);
-   reg_currentState_3 : dff port map ( Q=>currentState_3, QB=>nx177, D=>
-      nx103, CLK=>NOT_clk);
-   ix180 : nand03 port map ( Y=>nx179, A0=>currentState_2, A1=>nx300, A2=>
-      loadNextWordList);
-   ix45 : nor02_2x port map ( Y=>nx44, A0=>nx280, A1=>nx169);
-   ix97 : nand02 port map ( Y=>resetUnitNumberReg, A0=>nx187, A1=>nx286);
-   ix188 : nand02 port map ( Y=>nx187, A0=>loadNextWordList, A1=>
-      currentState_2);
-   lat_addressRegIn_0 : latch port map ( Q=>addressRegIn_0, D=>nx136, CLK=>
-      nx280);
-   ix137 : nor02_2x port map ( Y=>nx136, A0=>nx191, A1=>nx286);
-   ix192 : inv01 port map ( Y=>nx191, A=>ramBasedAddress(0));
-   lat_addressRegIn_1 : latch port map ( Q=>addressRegIn_1, D=>nx144, CLK=>
-      nx280);
-   ix145 : nor02_2x port map ( Y=>nx144, A0=>nx196, A1=>nx286);
-   ix197 : inv01 port map ( Y=>nx196, A=>ramBasedAddress(1));
-   lat_addressRegIn_2 : latch port map ( Q=>addressRegIn_2, D=>nx152, CLK=>
-      nx280);
-   ix153 : nor02_2x port map ( Y=>nx152, A0=>nx201, A1=>nx286);
-   ix202 : inv01 port map ( Y=>nx201, A=>ramBasedAddress(2));
-   lat_addressRegIn_3 : latch port map ( Q=>addressRegIn_3, D=>nx160, CLK=>
-      nx280);
-   ix161 : nor02_2x port map ( Y=>nx160, A0=>nx205, A1=>nx288);
-   ix206 : inv01 port map ( Y=>nx205, A=>ramBasedAddress(3));
-   lat_addressRegIn_4 : latch port map ( Q=>addressRegIn_4, D=>nx168, CLK=>
-      nx280);
-   ix169 : nor02_2x port map ( Y=>nx168, A0=>nx209, A1=>nx288);
-   ix210 : inv01 port map ( Y=>nx209, A=>ramBasedAddress(4));
-   lat_addressRegIn_5 : latch port map ( Q=>addressRegIn_5, D=>nx176, CLK=>
-      nx282);
-   ix177 : nor02_2x port map ( Y=>nx176, A0=>nx213, A1=>nx288);
-   ix214 : inv01 port map ( Y=>nx213, A=>ramBasedAddress(5));
-   lat_addressRegIn_6 : latch port map ( Q=>addressRegIn_6, D=>nx184, CLK=>
-      nx282);
-   ix185 : nor02_2x port map ( Y=>nx184, A0=>nx217, A1=>nx288);
-   ix218 : inv01 port map ( Y=>nx217, A=>ramBasedAddress(6));
-   lat_addressRegIn_7 : latch port map ( Q=>addressRegIn_7, D=>nx192, CLK=>
-      nx282);
-   ix193 : nor02_2x port map ( Y=>nx192, A0=>nx221, A1=>nx288);
-   ix222 : inv01 port map ( Y=>nx221, A=>ramBasedAddress(7));
-   lat_addressRegIn_8 : latch port map ( Q=>addressRegIn_8, D=>nx200, CLK=>
-      nx282);
-   ix201 : nor02_2x port map ( Y=>nx200, A0=>nx225, A1=>nx288);
-   ix226 : inv01 port map ( Y=>nx225, A=>ramBasedAddress(8));
-   lat_addressRegIn_9 : latch port map ( Q=>addressRegIn_9, D=>nx208, CLK=>
-      nx282);
-   ix209 : nor02_2x port map ( Y=>nx208, A0=>nx229, A1=>nx288);
-   ix230 : inv01 port map ( Y=>nx229, A=>ramBasedAddress(9));
-   lat_addressRegIn_10 : latch port map ( Q=>addressRegIn_10, D=>nx216, CLK
-      =>nx282);
-   ix217 : nor02_2x port map ( Y=>nx216, A0=>nx233, A1=>nx290);
-   ix234 : inv01 port map ( Y=>nx233, A=>ramBasedAddress(10));
-   lat_addressRegIn_11 : latch port map ( Q=>addressRegIn_11, D=>nx224, CLK
-      =>nx282);
-   ix225 : nor02_2x port map ( Y=>nx224, A0=>nx237, A1=>nx290);
-   ix238 : inv01 port map ( Y=>nx237, A=>ramBasedAddress(11));
-   lat_addressRegIn_12 : latch port map ( Q=>addressRegIn_12, D=>nx232, CLK
-      =>nx284);
-   ix233 : nor02_2x port map ( Y=>nx232, A0=>nx241, A1=>nx290);
-   ix242 : inv01 port map ( Y=>nx241, A=>ramBasedAddress(12));
-   lat_dmaCountIn_1 : latch port map ( Q=>dmaCountIn_1, D=>nx240, CLK=>nx22
+   ix278 : nand02 port map ( Y=>nx277, A0=>nx390, A1=>nx394);
+   ix391 : nand02 port map ( Y=>nx390, A0=>dma_currentCount_0, A1=>nx392);
+   ix395 : aoi21 port map ( Y=>nx394, A0=>nx396, A1=>MFC, B0=>nx50);
+   dma_counter_counterReg_reg_Q_0 : dff port map ( Q=>dma_currentCount_0, QB
+      =>nx396, D=>nx277, CLK=>clk);
+   ix69 : nor02_2x port map ( Y=>nx68, A0=>dma_currentCount_1, A1=>
+      dma_currentCount_0);
+   ix400 : inv01 port map ( Y=>nx399, A=>nx50);
+   ix402 : nand02 port map ( Y=>nx401, A0=>dma_currentCount_1, A1=>nx392);
+   ix405 : nand02 port map ( Y=>nx404, A0=>NOT_clk, A1=>nx406);
+   ix298 : oai21 port map ( Y=>nx297, A0=>nx409, A1=>nx392, B0=>nx417);
+   ix410 : nor02ii port map ( Y=>nx409, A0=>nx108, A1=>nx415);
+   ix109 : nor02_2x port map ( Y=>nx108, A0=>nx412, A1=>nx50);
+   dma_counter_counterReg_reg_Q_2 : dff port map ( Q=>dma_currentCount_2, QB
+      =>nx406, D=>nx297, CLK=>clk);
+   ix416 : nand04 port map ( Y=>nx415, A0=>filterSize(2), A1=>
+      loadNextWordList, A2=>nx615, A3=>nx355);
+   ix418 : nand02 port map ( Y=>nx417, A0=>dma_currentCount_2, A1=>nx392);
+   ix420 : nand03 port map ( Y=>nx419, A0=>dma_currentCount_0, A1=>MFC, A2=>
+      nx597);
+   ix422 : nand04 port map ( Y=>nx421, A0=>nx601, A1=>nx370, A2=>nx597, A3=>
+      nx372);
+   ix279 : nor02_2x port map ( Y=>addressRegIn_1, A0=>nx424, A1=>nx605);
+   ix425 : inv01 port map ( Y=>nx424, A=>ramBasedAddress(1));
+   ix281 : nor02_2x port map ( Y=>addressRegIn_2, A0=>nx427, A1=>nx605);
+   ix428 : inv01 port map ( Y=>nx427, A=>ramBasedAddress(2));
+   ix283 : nor02_2x port map ( Y=>addressRegIn_3, A0=>nx430, A1=>nx605);
+   ix431 : inv01 port map ( Y=>nx430, A=>ramBasedAddress(3));
+   ix285 : nor02_2x port map ( Y=>addressRegIn_4, A0=>nx433, A1=>nx605);
+   ix434 : inv01 port map ( Y=>nx433, A=>ramBasedAddress(4));
+   ix287 : nor02_2x port map ( Y=>addressRegIn_5, A0=>nx436, A1=>nx605);
+   ix437 : inv01 port map ( Y=>nx436, A=>ramBasedAddress(5));
+   ix289 : nor02_2x port map ( Y=>addressRegIn_6, A0=>nx439, A1=>nx605);
+   ix440 : inv01 port map ( Y=>nx439, A=>ramBasedAddress(6));
+   ix291 : nor02_2x port map ( Y=>addressRegIn_7, A0=>nx442, A1=>nx607);
+   ix443 : inv01 port map ( Y=>nx442, A=>ramBasedAddress(7));
+   ix293 : nor02_2x port map ( Y=>addressRegIn_8, A0=>nx445, A1=>nx607);
+   ix446 : inv01 port map ( Y=>nx445, A=>ramBasedAddress(8));
+   ix295 : nor02_2x port map ( Y=>addressRegIn_9, A0=>nx448, A1=>nx607);
+   ix449 : inv01 port map ( Y=>nx448, A=>ramBasedAddress(9));
+   ix297 : nor02_2x port map ( Y=>addressRegIn_10, A0=>nx451, A1=>nx607);
+   ix452 : inv01 port map ( Y=>nx451, A=>ramBasedAddress(10));
+   ix299 : nor02_2x port map ( Y=>addressRegIn_11, A0=>nx454, A1=>nx607);
+   ix455 : inv01 port map ( Y=>nx454, A=>ramBasedAddress(11));
+   ix301 : nor02_2x port map ( Y=>addressRegIn_12, A0=>nx457, A1=>nx607);
+   ix458 : inv01 port map ( Y=>nx457, A=>ramBasedAddress(12));
+   ix39 : nor02_2x port map ( Y=>resetAddressReg, A0=>nx355, A1=>nx597);
+   ix309 : nand02 port map ( Y=>baseAddressCounterClk, A0=>nx461, A1=>nx463
    );
-   ix241 : nor02_2x port map ( Y=>nx240, A0=>nx245, A1=>nx171);
-   ix246 : inv01 port map ( Y=>nx245, A=>filterSize(1));
-   ix23 : nor02_2x port map ( Y=>nx22, A0=>nx137, A1=>nx151);
-   lat_dmaCountIn_2 : latch port map ( Q=>dmaCountIn_2, D=>nx248, CLK=>nx22
-   );
-   ix249 : nor02_2x port map ( Y=>nx248, A0=>nx251, A1=>nx171);
-   ix252 : inv01 port map ( Y=>nx251, A=>filterSize(2));
+   ix462 : nand03 port map ( Y=>nx461, A0=>NOT_clk, A1=>nx603, A2=>nx615);
+   ix464 : nand03 port map ( Y=>nx463, A0=>clk, A1=>nx355, A2=>nx599);
+   ix161 : inv01 port map ( Y=>resetUnitNumberReg, A=>nx466);
+   ix467 : oai21 port map ( Y=>nx466, A0=>loadNextWordList, A1=>nx603, B0=>
+      nx615);
    aluNumberCounter_counterReg_reg_Q_0 : dff port map ( Q=>
-      aluNumber_0_EXMPLR, QB=>nx263, D=>nx104, CLK=>nx100);
-   ix105 : nand03 port map ( Y=>nx104, A0=>nx187, A1=>nx290, A2=>
-      aluNumber_0_EXMPLR);
-   ix101 : oai22 port map ( Y=>nx100, A0=>NOT_clk, A1=>nx256, B0=>nx259, B1
-      =>nx261);
-   ix95 : nor02_2x port map ( Y=>nx94, A0=>nx171, A1=>nx137);
-   ix260 : nand02 port map ( Y=>nx259, A0=>loadNextWordList, A1=>
-      readOne_EXMPLR);
-   ix262 : nand02 port map ( Y=>nx261, A0=>NOT_clk, A1=>currentState_4);
+      aluNumber_0_EXMPLR, QB=>nx475, D=>nx168, CLK=>nx164);
+   ix169 : nand02 port map ( Y=>nx168, A0=>nx466, A1=>aluNumber_0_EXMPLR);
+   ix165 : oai22 port map ( Y=>nx164, A0=>nx471, A1=>nx473, B0=>NOT_clk, B1
+      =>nx466);
+   ix472 : nand02 port map ( Y=>nx471, A0=>loadNextWordList, A1=>NOT_clk);
+   ix474 : nand02 port map ( Y=>nx473, A0=>nx599, A1=>MFC);
    aluNumberCounter_counterReg_reg_Q_1 : dff port map ( Q=>aluNumber(1), QB
-      =>nx268, D=>nx114, CLK=>nx100);
-   ix115 : nand02 port map ( Y=>nx114, A0=>nx256, A1=>nx266);
+      =>nx480, D=>nx178, CLK=>nx164);
+   ix179 : nand02 port map ( Y=>nx178, A0=>nx466, A1=>nx478);
    aluNumberCounter_counterReg_reg_Q_2 : dff port map ( Q=>
-      aluNumber_2_EXMPLR, QB=>OPEN, D=>nx126, CLK=>nx100);
-   ix127 : nand02 port map ( Y=>nx126, A0=>nx256, A1=>nx271);
-   ix272 : xnor2 port map ( Y=>nx271, A0=>aluNumber_2_EXMPLR, A1=>nx122);
-   ix123 : nor02_2x port map ( Y=>nx122, A0=>nx263, A1=>nx268);
-   ix279 : inv02 port map ( Y=>nx280, A=>currentState_0);
-   ix281 : inv02 port map ( Y=>nx282, A=>currentState_0);
-   ix283 : inv02 port map ( Y=>nx284, A=>currentState_0);
-   ix285 : inv02 port map ( Y=>nx286, A=>currentState_1);
-   ix287 : inv02 port map ( Y=>nx288, A=>currentState_1);
-   ix289 : inv02 port map ( Y=>nx290, A=>currentState_1);
-   ix110 : nand04 port map ( Y=>nx181, A0=>currentState_4, A1=>nx296, A2=>
-      nx302, A3=>nx298);
-   ix295 : inv01 port map ( Y=>nx296, A=>readFinal_EXMPLR);
-   ix297 : inv01 port map ( Y=>nx298, A=>nx44);
-   ix257 : nor02_2x port map ( Y=>nx256, A0=>nx94, A1=>currentState_1);
-   ix267 : xnor2 port map ( Y=>nx266, A0=>nx268, A1=>nx263);
-   ix299 : inv01 port map ( Y=>nx300, A=>switchRam);
-   ix301 : inv01 port map ( Y=>nx302, A=>switchRam);
+      aluNumber_2_EXMPLR, QB=>OPEN, D=>nx190, CLK=>nx164);
+   ix191 : nand02 port map ( Y=>nx190, A0=>nx466, A1=>nx483);
+   ix484 : xnor2 port map ( Y=>nx483, A0=>aluNumber_2_EXMPLR, A1=>nx186);
+   ix187 : nor02_2x port map ( Y=>nx186, A0=>nx475, A1=>nx480);
+   ix129 : nor02_2x port map ( Y=>readOne_EXMPLR, A0=>NOT_MFC, A1=>nx615);
+   dma_tristateLabel_tri_output_0 : trib04 port map ( Y=>internalBus(0), A=>
+      ramDataInBus(0), E=>nx573);
+   dma_tristateLabel_tri_output_1 : trib04 port map ( Y=>internalBus(1), A=>
+      ramDataInBus(1), E=>nx573);
+   dma_tristateLabel_tri_output_2 : trib04 port map ( Y=>internalBus(2), A=>
+      ramDataInBus(2), E=>nx573);
+   dma_tristateLabel_tri_output_3 : trib04 port map ( Y=>internalBus(3), A=>
+      ramDataInBus(3), E=>nx573);
+   dma_tristateLabel_tri_output_4 : trib04 port map ( Y=>internalBus(4), A=>
+      ramDataInBus(4), E=>nx573);
+   dma_tristateLabel_tri_output_5 : trib04 port map ( Y=>internalBus(5), A=>
+      ramDataInBus(5), E=>nx573);
+   dma_tristateLabel_tri_output_6 : trib04 port map ( Y=>internalBus(6), A=>
+      ramDataInBus(6), E=>nx573);
+   dma_tristateLabel_tri_output_7 : trib04 port map ( Y=>internalBus(7), A=>
+      ramDataInBus(7), E=>nx575);
+   dma_tristateLabel_tri_output_8 : trib04 port map ( Y=>internalBus(8), A=>
+      ramDataInBus(8), E=>nx575);
+   dma_tristateLabel_tri_output_9 : trib04 port map ( Y=>internalBus(9), A=>
+      ramDataInBus(9), E=>nx575);
+   dma_tristateLabel_tri_output_10 : trib04 port map ( Y=>internalBus(10), A
+      =>ramDataInBus(10), E=>nx575);
+   dma_tristateLabel_tri_output_11 : trib04 port map ( Y=>internalBus(11), A
+      =>ramDataInBus(11), E=>nx575);
+   dma_tristateLabel_tri_output_12 : trib04 port map ( Y=>internalBus(12), A
+      =>ramDataInBus(12), E=>nx575);
+   dma_tristateLabel_tri_output_13 : trib04 port map ( Y=>internalBus(13), A
+      =>ramDataInBus(13), E=>nx575);
+   dma_tristateLabel_tri_output_14 : trib04 port map ( Y=>internalBus(14), A
+      =>ramDataInBus(14), E=>nx577);
+   dma_tristateLabel_tri_output_15 : trib04 port map ( Y=>internalBus(15), A
+      =>ramDataInBus(15), E=>nx577);
+   dma_tristateLabel_tri_output_16 : trib04 port map ( Y=>internalBus(16), A
+      =>ramDataInBus(16), E=>nx577);
+   dma_tristateLabel_tri_output_17 : trib04 port map ( Y=>internalBus(17), A
+      =>ramDataInBus(17), E=>nx577);
+   dma_tristateLabel_tri_output_18 : trib04 port map ( Y=>internalBus(18), A
+      =>ramDataInBus(18), E=>nx577);
+   dma_tristateLabel_tri_output_19 : trib04 port map ( Y=>internalBus(19), A
+      =>ramDataInBus(19), E=>nx577);
+   dma_tristateLabel_tri_output_20 : trib04 port map ( Y=>internalBus(20), A
+      =>ramDataInBus(20), E=>nx577);
+   dma_tristateLabel_tri_output_21 : trib04 port map ( Y=>internalBus(21), A
+      =>ramDataInBus(21), E=>nx579);
+   dma_tristateLabel_tri_output_22 : trib04 port map ( Y=>internalBus(22), A
+      =>ramDataInBus(22), E=>nx579);
+   dma_tristateLabel_tri_output_23 : trib04 port map ( Y=>internalBus(23), A
+      =>ramDataInBus(23), E=>nx579);
+   dma_tristateLabel_tri_output_24 : trib04 port map ( Y=>internalBus(24), A
+      =>ramDataInBus(24), E=>nx579);
+   dma_tristateLabel_tri_output_25 : trib04 port map ( Y=>internalBus(25), A
+      =>ramDataInBus(25), E=>nx579);
+   dma_tristateLabel_tri_output_26 : trib04 port map ( Y=>internalBus(26), A
+      =>ramDataInBus(26), E=>nx579);
+   dma_tristateLabel_tri_output_27 : trib04 port map ( Y=>internalBus(27), A
+      =>ramDataInBus(27), E=>nx579);
+   dma_tristateLabel_tri_output_28 : trib04 port map ( Y=>internalBus(28), A
+      =>ramDataInBus(28), E=>nx581);
+   dma_tristateLabel_tri_output_29 : trib04 port map ( Y=>internalBus(29), A
+      =>ramDataInBus(29), E=>nx581);
+   dma_tristateLabel_tri_output_30 : trib04 port map ( Y=>internalBus(30), A
+      =>ramDataInBus(30), E=>nx581);
+   dma_tristateLabel_tri_output_31 : trib04 port map ( Y=>internalBus(31), A
+      =>ramDataInBus(31), E=>nx581);
+   dma_tristateLabel_tri_output_32 : trib04 port map ( Y=>internalBus(32), A
+      =>ramDataInBus(32), E=>nx581);
+   dma_tristateLabel_tri_output_33 : trib04 port map ( Y=>internalBus(33), A
+      =>ramDataInBus(33), E=>nx581);
+   dma_tristateLabel_tri_output_34 : trib04 port map ( Y=>internalBus(34), A
+      =>ramDataInBus(34), E=>nx581);
+   dma_tristateLabel_tri_output_35 : trib04 port map ( Y=>internalBus(35), A
+      =>ramDataInBus(35), E=>nx583);
+   dma_tristateLabel_tri_output_36 : trib04 port map ( Y=>internalBus(36), A
+      =>ramDataInBus(36), E=>nx583);
+   dma_tristateLabel_tri_output_37 : trib04 port map ( Y=>internalBus(37), A
+      =>ramDataInBus(37), E=>nx583);
+   dma_tristateLabel_tri_output_38 : trib04 port map ( Y=>internalBus(38), A
+      =>ramDataInBus(38), E=>nx583);
+   dma_tristateLabel_tri_output_39 : trib04 port map ( Y=>internalBus(39), A
+      =>ramDataInBus(39), E=>nx583);
+   dma_tristateLabel_tri_output_40 : trib04 port map ( Y=>internalBus(40), A
+      =>ramDataInBus(40), E=>nx583);
+   dma_tristateLabel_tri_output_41 : trib04 port map ( Y=>internalBus(41), A
+      =>ramDataInBus(41), E=>nx583);
+   dma_tristateLabel_tri_output_42 : trib04 port map ( Y=>internalBus(42), A
+      =>ramDataInBus(42), E=>nx585);
+   dma_tristateLabel_tri_output_43 : trib04 port map ( Y=>internalBus(43), A
+      =>ramDataInBus(43), E=>nx585);
+   dma_tristateLabel_tri_output_44 : trib04 port map ( Y=>internalBus(44), A
+      =>ramDataInBus(44), E=>nx585);
+   dma_tristateLabel_tri_output_45 : trib04 port map ( Y=>internalBus(45), A
+      =>ramDataInBus(45), E=>nx585);
+   dma_tristateLabel_tri_output_46 : trib04 port map ( Y=>internalBus(46), A
+      =>ramDataInBus(46), E=>nx585);
+   dma_tristateLabel_tri_output_47 : trib04 port map ( Y=>internalBus(47), A
+      =>ramDataInBus(47), E=>nx585);
+   dma_tristateLabel_tri_output_48 : trib04 port map ( Y=>internalBus(48), A
+      =>ramDataInBus(48), E=>nx585);
+   dma_tristateLabel_tri_output_49 : trib04 port map ( Y=>internalBus(49), A
+      =>ramDataInBus(49), E=>nx587);
+   dma_tristateLabel_tri_output_50 : trib04 port map ( Y=>internalBus(50), A
+      =>ramDataInBus(50), E=>nx587);
+   dma_tristateLabel_tri_output_51 : trib04 port map ( Y=>internalBus(51), A
+      =>ramDataInBus(51), E=>nx587);
+   dma_tristateLabel_tri_output_52 : trib04 port map ( Y=>internalBus(52), A
+      =>ramDataInBus(52), E=>nx587);
+   dma_tristateLabel_tri_output_53 : trib04 port map ( Y=>internalBus(53), A
+      =>ramDataInBus(53), E=>nx587);
+   dma_tristateLabel_tri_output_54 : trib04 port map ( Y=>internalBus(54), A
+      =>ramDataInBus(54), E=>nx587);
+   dma_tristateLabel_tri_output_55 : trib04 port map ( Y=>internalBus(55), A
+      =>ramDataInBus(55), E=>nx587);
+   dma_tristateLabel_tri_output_56 : trib04 port map ( Y=>internalBus(56), A
+      =>ramDataInBus(56), E=>nx589);
+   dma_tristateLabel_tri_output_57 : trib04 port map ( Y=>internalBus(57), A
+      =>ramDataInBus(57), E=>nx589);
+   dma_tristateLabel_tri_output_58 : trib04 port map ( Y=>internalBus(58), A
+      =>ramDataInBus(58), E=>nx589);
+   dma_tristateLabel_tri_output_59 : trib04 port map ( Y=>internalBus(59), A
+      =>ramDataInBus(59), E=>nx589);
+   dma_tristateLabel_tri_output_60 : trib04 port map ( Y=>internalBus(60), A
+      =>ramDataInBus(60), E=>nx589);
+   dma_tristateLabel_tri_output_61 : trib04 port map ( Y=>internalBus(61), A
+      =>ramDataInBus(61), E=>nx589);
+   dma_tristateLabel_tri_output_62 : trib04 port map ( Y=>internalBus(62), A
+      =>ramDataInBus(62), E=>nx589);
+   dma_tristateLabel_tri_output_63 : trib04 port map ( Y=>internalBus(63), A
+      =>ramDataInBus(63), E=>nx591);
+   dma_tristateLabel_tri_output_64 : trib04 port map ( Y=>internalBus(64), A
+      =>ramDataInBus(64), E=>nx591);
+   dma_tristateLabel_tri_output_65 : trib04 port map ( Y=>internalBus(65), A
+      =>ramDataInBus(65), E=>nx591);
+   dma_tristateLabel_tri_output_66 : trib04 port map ( Y=>internalBus(66), A
+      =>ramDataInBus(66), E=>nx591);
+   dma_tristateLabel_tri_output_67 : trib04 port map ( Y=>internalBus(67), A
+      =>ramDataInBus(67), E=>nx591);
+   dma_tristateLabel_tri_output_68 : trib04 port map ( Y=>internalBus(68), A
+      =>ramDataInBus(68), E=>nx591);
+   dma_tristateLabel_tri_output_69 : trib04 port map ( Y=>internalBus(69), A
+      =>ramDataInBus(69), E=>nx591);
+   dma_tristateLabel_tri_output_70 : trib04 port map ( Y=>internalBus(70), A
+      =>ramDataInBus(70), E=>nx593);
+   dma_tristateLabel_tri_output_71 : trib04 port map ( Y=>internalBus(71), A
+      =>ramDataInBus(71), E=>nx593);
+   dma_tristateLabel_tri_output_72 : trib04 port map ( Y=>internalBus(72), A
+      =>ramDataInBus(72), E=>nx593);
+   dma_tristateLabel_tri_output_73 : trib04 port map ( Y=>internalBus(73), A
+      =>ramDataInBus(73), E=>nx593);
+   dma_tristateLabel_tri_output_74 : trib04 port map ( Y=>internalBus(74), A
+      =>ramDataInBus(74), E=>nx593);
+   dma_tristateLabel_tri_output_75 : trib04 port map ( Y=>internalBus(75), A
+      =>ramDataInBus(75), E=>nx593);
+   dma_tristateLabel_tri_output_76 : trib04 port map ( Y=>internalBus(76), A
+      =>ramDataInBus(76), E=>nx593);
+   dma_tristateLabel_tri_output_77 : trib04 port map ( Y=>internalBus(77), A
+      =>ramDataInBus(77), E=>nx595);
+   dma_tristateLabel_tri_output_78 : trib04 port map ( Y=>internalBus(78), A
+      =>ramDataInBus(78), E=>nx595);
+   dma_tristateLabel_tri_output_79 : trib04 port map ( Y=>internalBus(79), A
+      =>ramDataInBus(79), E=>nx595);
+   ix572 : buf02 port map ( Y=>nx573, A=>nx613);
+   ix574 : buf02 port map ( Y=>nx575, A=>nx613);
+   ix576 : buf02 port map ( Y=>nx577, A=>nx613);
+   ix578 : buf02 port map ( Y=>nx579, A=>nx613);
+   ix580 : buf02 port map ( Y=>nx581, A=>nx613);
+   ix582 : buf02 port map ( Y=>nx583, A=>nx613);
+   ix584 : buf02 port map ( Y=>nx585, A=>nx613);
+   ix586 : buf02 port map ( Y=>nx587, A=>readOne_EXMPLR);
+   ix588 : buf02 port map ( Y=>nx589, A=>readOne_EXMPLR);
+   ix590 : buf02 port map ( Y=>nx591, A=>readOne_EXMPLR);
+   ix592 : buf02 port map ( Y=>nx593, A=>readOne_EXMPLR);
+   ix594 : buf02 port map ( Y=>nx595, A=>readOne_EXMPLR);
+   ix596 : inv02 port map ( Y=>nx597, A=>nx615);
+   ix598 : inv02 port map ( Y=>nx599, A=>nx617);
+   ix600 : inv02 port map ( Y=>nx601, A=>nx355);
+   ix602 : inv02 port map ( Y=>nx603, A=>nx355);
+   ix604 : buf02 port map ( Y=>nx605, A=>nx346);
+   ix606 : buf02 port map ( Y=>nx607, A=>nx346);
+   ix612 : nor02_2x port map ( Y=>nx613, A0=>NOT_MFC, A1=>nx617);
+   ix614 : inv02 port map ( Y=>nx615, A=>ramRead_EXMPLR);
+   ix616 : inv02 port map ( Y=>nx617, A=>ramRead_EXMPLR);
+   ix384 : nor02_2x port map ( Y=>nx383, A0=>nx50, A1=>nx396);
+   ix393 : nor02_2x port map ( Y=>nx392, A0=>nx50, A1=>MFC);
+   ix413 : xnor2 port map ( Y=>nx412, A0=>nx406, A1=>nx623);
+   ix622 : inv01 port map ( Y=>nx623, A=>nx68);
+   ix479 : xnor2 port map ( Y=>nx478, A0=>nx480, A1=>nx475);
+   dma_lat_internalFinishedReading_u1 : latchs_ni port map ( QB=>nx5, D=>
+      dmaInitRamBaseAddress, CLK=>NOT_MFC, S=>nx132);
+   dma_lat_internalFinishedReading_u2 : inv02 port map ( Y=>readFinal, A=>
+      nx5);
+   dma_lat_internalFinishedReading_u3 : buf02 port map ( Y=>nx372, A=>nx5);
+
 end ReadLogicArch_unfold_3077 ;
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use work.adk_components.all;
-
-entity Counter2_12 is
-   port (
-      load : IN std_logic_vector (11 DOWNTO 0) ;
-      reset : IN std_logic ;
-      clk : IN std_logic ;
-      isLoad : IN std_logic ;
-      count : OUT std_logic_vector (11 DOWNTO 0)) ;
-end Counter2_12 ;
-
-architecture Counter2Arch_unfold_2974 of Counter2_12 is
-   signal count_11_EXMPLR, count_9_EXMPLR, count_8_EXMPLR, count_7_EXMPLR, 
-      count_6_EXMPLR, count_5_EXMPLR, count_4_EXMPLR, count_3_EXMPLR, 
-      count_2_EXMPLR, count_1_EXMPLR, count_0_EXMPLR, nx10, nx24, nx38, nx42, 
-      nx52, nx56, nx66, nx80, nx94, nx98, nx108, nx122, nx136, nx150, nx154, 
-      nx164, nx39, nx41, nx43, nx45, nx49, nx51, nx53, nx57, nx61, nx63, 
-      nx67, nx71, nx73, nx75, nx79, nx83, nx85, nx89, nx95, nx97, nx101, 
-      nx105, nx107, nx109, nx113, nx117, nx119, nx123, nx129, nx131, nx135, 
-      nx139, nx141, nx143, nx147, nx151, nx153, nx157, nx161, nx163, nx171, 
-      nx173, nx175, nx177, nx179, nx181, nx183, nx185, nx187, nx189, nx191, 
-      nx193, nx195, nx197, nx199, nx201, nx203: std_logic ;
-
-begin
-   count(11) <= count_11_EXMPLR ;
-   count(9) <= count_9_EXMPLR ;
-   count(8) <= count_8_EXMPLR ;
-   count(7) <= count_7_EXMPLR ;
-   count(6) <= count_6_EXMPLR ;
-   count(5) <= count_5_EXMPLR ;
-   count(4) <= count_4_EXMPLR ;
-   count(3) <= count_3_EXMPLR ;
-   count(2) <= count_2_EXMPLR ;
-   count(1) <= count_1_EXMPLR ;
-   count(0) <= count_0_EXMPLR ;
-   ix11 : nand02 port map ( Y=>nx10, A0=>nx39, A1=>nx41);
-   ix40 : nand02 port map ( Y=>nx39, A0=>load(0), A1=>nx193);
-   ix42 : nand02 port map ( Y=>nx41, A0=>nx43, A1=>nx45);
-   ix44 : inv01 port map ( Y=>nx43, A=>isLoad);
-   counterReg_reg_Q_0 : dff port map ( Q=>count_0_EXMPLR, QB=>nx45, D=>nx10, 
-      CLK=>nx201);
-   counterReg_reg_Q_1 : dff port map ( Q=>count_1_EXMPLR, QB=>nx53, D=>nx24, 
-      CLK=>nx201);
-   ix25 : oai21 port map ( Y=>nx24, A0=>nx193, A1=>nx49, B0=>nx51);
-   ix52 : nand02 port map ( Y=>nx51, A0=>load(1), A1=>nx193);
-   counterReg_reg_Q_2 : dff port map ( Q=>count_2_EXMPLR, QB=>nx63, D=>nx38, 
-      CLK=>nx201);
-   ix39 : oai21 port map ( Y=>nx38, A0=>nx193, A1=>nx57, B0=>nx61);
-   ix62 : nand02 port map ( Y=>nx61, A0=>load(2), A1=>nx193);
-   counterReg_reg_Q_3 : dff port map ( Q=>count_3_EXMPLR, QB=>nx75, D=>nx52, 
-      CLK=>nx201);
-   ix53 : oai21 port map ( Y=>nx52, A0=>nx193, A1=>nx67, B0=>nx73);
-   ix43 : nor02_2x port map ( Y=>nx42, A0=>nx63, A1=>nx71);
-   ix72 : nand02 port map ( Y=>nx71, A0=>count_1_EXMPLR, A1=>count_0_EXMPLR
-   );
-   ix74 : nand02 port map ( Y=>nx73, A0=>load(3), A1=>nx193);
-   counterReg_reg_Q_4 : dff port map ( Q=>count_4_EXMPLR, QB=>nx85, D=>nx66, 
-      CLK=>nx201);
-   ix67 : oai21 port map ( Y=>nx66, A0=>nx195, A1=>nx79, B0=>nx83);
-   ix57 : nor03_2x port map ( Y=>nx56, A0=>nx75, A1=>nx63, A2=>nx71);
-   ix84 : nand02 port map ( Y=>nx83, A0=>load(4), A1=>nx195);
-   counterReg_reg_Q_5 : dff port map ( Q=>count_5_EXMPLR, QB=>nx97, D=>nx80, 
-      CLK=>nx201);
-   ix81 : oai21 port map ( Y=>nx80, A0=>nx195, A1=>nx89, B0=>nx95);
-   ix96 : nand02 port map ( Y=>nx95, A0=>load(5), A1=>nx195);
-   counterReg_reg_Q_6 : dff port map ( Q=>count_6_EXMPLR, QB=>nx109, D=>nx94, 
-      CLK=>nx201);
-   ix95 : oai21 port map ( Y=>nx94, A0=>nx195, A1=>nx101, B0=>nx107);
-   ix106 : nand04 port map ( Y=>nx105, A0=>count_3_EXMPLR, A1=>
-      count_2_EXMPLR, A2=>count_1_EXMPLR, A3=>count_0_EXMPLR);
-   ix108 : nand02 port map ( Y=>nx107, A0=>load(6), A1=>nx195);
-   counterReg_reg_Q_7 : dff port map ( Q=>count_7_EXMPLR, QB=>nx119, D=>
-      nx108, CLK=>nx203);
-   ix109 : oai21 port map ( Y=>nx108, A0=>nx195, A1=>nx113, B0=>nx117);
-   ix99 : nor04 port map ( Y=>nx98, A0=>nx109, A1=>nx97, A2=>nx85, A3=>nx105
-   );
-   ix118 : nand02 port map ( Y=>nx117, A0=>load(7), A1=>nx197);
-   counterReg_reg_Q_8 : dff port map ( Q=>count_8_EXMPLR, QB=>nx131, D=>
-      nx122, CLK=>nx203);
-   ix123 : oai21 port map ( Y=>nx122, A0=>nx197, A1=>nx123, B0=>nx129);
-   ix130 : nand02 port map ( Y=>nx129, A0=>load(8), A1=>nx197);
-   counterReg_reg_Q_9 : dff port map ( Q=>count_9_EXMPLR, QB=>nx143, D=>
-      nx136, CLK=>nx203);
-   ix137 : oai21 port map ( Y=>nx136, A0=>nx197, A1=>nx135, B0=>nx141);
-   ix140 : inv01 port map ( Y=>nx139, A=>nx98);
-   ix142 : nand02 port map ( Y=>nx141, A0=>load(9), A1=>nx197);
-   counterReg_reg_Q_10 : dff port map ( Q=>count(10), QB=>nx153, D=>nx150, 
-      CLK=>nx203);
-   ix151 : oai21 port map ( Y=>nx150, A0=>nx197, A1=>nx147, B0=>nx151);
-   ix152 : nand02 port map ( Y=>nx151, A0=>load(10), A1=>nx197);
-   counterReg_reg_Q_11 : dff port map ( Q=>count_11_EXMPLR, QB=>OPEN, D=>
-      nx164, CLK=>nx203);
-   ix165 : oai21 port map ( Y=>nx164, A0=>nx199, A1=>nx157, B0=>nx163);
-   ix158 : xnor2 port map ( Y=>nx157, A0=>count_11_EXMPLR, A1=>nx154);
-   ix155 : nor04 port map ( Y=>nx154, A0=>nx153, A1=>nx143, A2=>nx131, A3=>
-      nx161);
-   ix162 : nand02 port map ( Y=>nx161, A0=>count_7_EXMPLR, A1=>nx98);
-   ix164 : nand02 port map ( Y=>nx163, A0=>nx199, A1=>load(11));
-   ix50 : xnor2 port map ( Y=>nx49, A0=>nx53, A1=>nx45);
-   ix58 : xnor2 port map ( Y=>nx57, A0=>nx63, A1=>nx171);
-   ix29 : nand02 port map ( Y=>nx171, A0=>count_1_EXMPLR, A1=>count_0_EXMPLR
-   );
-   ix68 : xnor2 port map ( Y=>nx67, A0=>nx75, A1=>nx173);
-   ix172 : inv01 port map ( Y=>nx173, A=>nx42);
-   ix80 : xnor2 port map ( Y=>nx79, A0=>nx85, A1=>nx175);
-   ix174 : inv01 port map ( Y=>nx175, A=>nx56);
-   ix90 : xnor2 port map ( Y=>nx89, A0=>nx97, A1=>nx177);
-   ix71 : nand03 port map ( Y=>nx177, A0=>count_4_EXMPLR, A1=>count_3_EXMPLR, 
-      A2=>nx179);
-   ix94 : nor03_2x port map ( Y=>nx179, A0=>nx63, A1=>nx53, A2=>nx45);
-   ix102 : xnor2 port map ( Y=>nx101, A0=>nx109, A1=>nx181);
-   ix85 : nand03 port map ( Y=>nx181, A0=>count_5_EXMPLR, A1=>count_4_EXMPLR, 
-      A2=>nx183);
-   ix182 : inv01 port map ( Y=>nx183, A=>nx105);
-   ix114 : xnor2 port map ( Y=>nx113, A0=>nx119, A1=>nx139);
-   ix124 : xnor2 port map ( Y=>nx123, A0=>nx131, A1=>nx185);
-   ix113 : nand04 port map ( Y=>nx185, A0=>count_7_EXMPLR, A1=>
-      count_6_EXMPLR, A2=>count_5_EXMPLR, A3=>nx187);
-   ix128 : nor02_2x port map ( Y=>nx187, A0=>nx85, A1=>nx175);
-   ix136 : xnor2 port map ( Y=>nx135, A0=>nx143, A1=>nx189);
-   ix127 : nand03 port map ( Y=>nx189, A0=>count_8_EXMPLR, A1=>
-      count_7_EXMPLR, A2=>nx98);
-   ix148 : xnor2 port map ( Y=>nx147, A0=>nx153, A1=>nx191);
-   ix141 : nand04 port map ( Y=>nx191, A0=>count_9_EXMPLR, A1=>
-      count_8_EXMPLR, A2=>count_7_EXMPLR, A3=>nx98);
-   ix192 : inv02 port map ( Y=>nx193, A=>nx43);
-   ix194 : inv02 port map ( Y=>nx195, A=>nx43);
-   ix196 : inv02 port map ( Y=>nx197, A=>nx43);
-   ix198 : inv02 port map ( Y=>nx199, A=>nx43);
-   ix200 : buf02 port map ( Y=>nx201, A=>clk);
-   ix202 : buf02 port map ( Y=>nx203, A=>clk);
-end Counter2Arch_unfold_2974 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -1214,19 +855,18 @@ end MultiStepCounter_12 ;
 
 architecture MultiStepCounterArch_unfold_2949 of MultiStepCounter_12 is
    signal count_10_EXMPLR, count_9_EXMPLR, count_8_EXMPLR, count_7_EXMPLR, 
-      count_6_EXMPLR, count_5_EXMPLR, count_4_EXMPLR, count_3_EXMPLR, 
-      count_2_EXMPLR, count_1_EXMPLR, count_0_EXMPLR, nx14, nx20, nx28, nx40, 
-      nx52, nx54, nx60, nx62, nx66, nx74, nx76, nx78, nx84, nx86, nx90, nx98, 
-      nx104, nx106, nx110, nx118, nx124, nx126, nx130, nx144, nx146, nx150, 
-      nx158, nx164, nx166, nx170, nx184, nx186, nx190, nx204, nx206, nx210, 
-      nx224, nx226, nx230, nx244, nx246, nx250, nx45, nx49, nx53, nx55, nx61, 
-      nx65, nx67, nx69, nx71, nx73, nx79, nx81, nx83, nx85, nx89, nx95, nx99, 
-      nx101, nx105, nx113, nx116, nx119, nx121, nx125, nx127, nx131, nx136, 
-      nx139, nx145, nx149, nx155, nx159, nx161, nx165, nx173, nx176, nx179, 
-      nx183, nx191, nx194, nx196, nx199, nx207, nx211, nx213, nx216, nx223, 
-      nx227, nx229, nx233, nx239, nx243, nx245, nx249, nx258, nx260, nx262, 
-      nx268, nx270, nx272, nx274, nx276, nx278, nx280, nx282, nx284, nx286, 
-      nx288, nx290, nx292, nx294, nx296, nx298, nx300: std_logic ;
+      count_6_EXMPLR, count_5_EXMPLR, count_4_EXMPLR, count_2_EXMPLR, 
+      count_1_EXMPLR, count_0_EXMPLR, nx6, nx14, nx20, nx42, nx50, nx54, 
+      nx56, nx62, nx64, nx68, nx80, nx86, nx88, nx92, nx100, nx106, nx108, 
+      nx112, nx126, nx128, nx132, nx142, nx152, nx160, nx166, nx168, nx172, 
+      nx180, nx186, nx188, nx192, nx206, nx208, nx212, nx222, nx232, nx240, 
+      nx246, nx248, nx252, nx46, nx48, nx51, nx53, nx55, nx57, nx63, nx65, 
+      nx67, nx69, nx71, nx75, nx79, nx83, nx85, nx89, nx96, nx99, nx103, 
+      nx105, nx107, nx111, nx117, nx121, nx123, nx127, nx135, nx141, nx145, 
+      nx153, nx156, nx159, nx165, nx169, nx173, nx178, nx181, nx183, nx187, 
+      nx195, nx198, nx201, nx209, nx213, nx218, nx221, nx225, nx235, nx237, 
+      nx244, nx247, nx249, nx251, nx253, nx255, nx257, nx259, nx261, nx263, 
+      nx265, nx267: std_logic ;
 
 begin
    count(10) <= count_10_EXMPLR ;
@@ -1236,156 +876,142 @@ begin
    count(6) <= count_6_EXMPLR ;
    count(5) <= count_5_EXMPLR ;
    count(4) <= count_4_EXMPLR ;
-   count(3) <= count_3_EXMPLR ;
    count(2) <= count_2_EXMPLR ;
    count(1) <= count_1_EXMPLR ;
    count(0) <= count_0_EXMPLR ;
-   ix21 : nand03 port map ( Y=>nx20, A0=>nx45, A1=>nx49, A2=>nx53);
-   ix46 : nand02 port map ( Y=>nx45, A0=>count_0_EXMPLR, A1=>nx14);
-   ix15 : nor02_2x port map ( Y=>nx14, A0=>MFC, A1=>nx298);
-   ix50 : nand03 port map ( Y=>nx49, A0=>load(0), A1=>nx258, A2=>nx298);
-   ix54 : nand02 port map ( Y=>nx53, A0=>MFC, A1=>nx55);
-   counterReg_reg_Q_0 : dff port map ( Q=>count_0_EXMPLR, QB=>nx55, D=>nx20, 
+   ix21 : oai222 port map ( Y=>nx20, A0=>nx46, A1=>nx48, B0=>nx235, B1=>nx53, 
+      C0=>nx55, C1=>nx237);
+   counterReg_reg_Q_0 : dff port map ( Q=>count_0_EXMPLR, QB=>nx46, D=>nx20, 
       CLK=>clk);
-   ix41 : oai222 port map ( Y=>nx40, A0=>nx258, A1=>nx61, B0=>nx67, B1=>nx69, 
-      C0=>nx71, C1=>nx262);
-   ix66 : inv01 port map ( Y=>nx65, A=>toBeAdded(1));
-   counterReg_reg_Q_1 : dff port map ( Q=>count_1_EXMPLR, QB=>nx67, D=>nx40, 
+   ix49 : inv01 port map ( Y=>nx48, A=>nx14);
+   ix15 : nor02_2x port map ( Y=>nx14, A0=>MFC, A1=>nx265);
+   ix52 : inv01 port map ( Y=>nx51, A=>MFC);
+   ix56 : inv01 port map ( Y=>nx55, A=>load(0));
+   ix58 : nand02 port map ( Y=>nx57, A0=>nx235, A1=>nx265);
+   ix43 : oai222 port map ( Y=>nx42, A0=>nx235, A1=>nx63, B0=>nx69, B1=>nx48, 
+      C0=>nx71, C1=>nx237);
+   ix64 : xnor2 port map ( Y=>nx63, A0=>nx65, A1=>nx67);
+   ix66 : nand02 port map ( Y=>nx65, A0=>toBeAdded(0), A1=>count_0_EXMPLR);
+   counterReg_reg_Q_1 : dff port map ( Q=>count_1_EXMPLR, QB=>nx69, D=>nx42, 
       CLK=>clk);
-   ix70 : inv01 port map ( Y=>nx69, A=>nx14);
    ix72 : inv01 port map ( Y=>nx71, A=>load(1));
-   ix74 : nand02 port map ( Y=>nx73, A0=>nx258, A1=>nx298);
-   ix67 : oai21 port map ( Y=>nx66, A0=>nx258, A1=>nx79, B0=>nx85);
-   ix80 : xnor2 port map ( Y=>nx79, A0=>nx81, A1=>nx83);
-   ix82 : aoi22 port map ( Y=>nx81, A0=>toBeAdded(1), A1=>count_1_EXMPLR, B0
-      =>nx28, B1=>count_0_EXMPLR);
-   ix86 : nor02_2x port map ( Y=>nx85, A0=>nx62, A1=>nx60);
-   ix63 : nor03_2x port map ( Y=>nx62, A0=>nx89, A1=>MFC, A2=>nx298);
-   counterReg_reg_Q_2 : dff port map ( Q=>count_2_EXMPLR, QB=>nx89, D=>nx66, 
+   ix69 : oai21 port map ( Y=>nx68, A0=>nx235, A1=>nx75, B0=>nx85);
+   ix76 : xnor2 port map ( Y=>nx75, A0=>nx54, A1=>nx56);
+   ix55 : oai22 port map ( Y=>nx54, A0=>nx65, A1=>nx67, B0=>nx79, B1=>nx69);
+   ix80 : inv01 port map ( Y=>nx79, A=>toBeAdded(1));
+   ix84 : inv01 port map ( Y=>nx83, A=>toBeAdded(2));
+   ix86 : nor02_2x port map ( Y=>nx85, A0=>nx64, A1=>nx62);
+   ix65 : nor03_2x port map ( Y=>nx64, A0=>nx89, A1=>MFC, A2=>nx265);
+   counterReg_reg_Q_2 : dff port map ( Q=>count_2_EXMPLR, QB=>nx89, D=>nx68, 
       CLK=>clk);
-   ix61 : nor02ii port map ( Y=>nx60, A0=>nx262, A1=>load(2));
-   ix91 : oai21 port map ( Y=>nx90, A0=>nx258, A1=>nx95, B0=>nx101);
-   ix79 : oai21 port map ( Y=>nx78, A0=>nx81, A1=>nx83, B0=>nx99);
-   ix100 : nand02 port map ( Y=>nx99, A0=>toBeAdded(2), A1=>count_2_EXMPLR);
-   ix102 : nor02_2x port map ( Y=>nx101, A0=>nx86, A1=>nx84);
-   ix87 : nor03_2x port map ( Y=>nx86, A0=>nx105, A1=>MFC, A2=>nx298);
-   counterReg_reg_Q_3 : dff port map ( Q=>count_3_EXMPLR, QB=>nx105, D=>nx90, 
+   ix63 : nor02ii port map ( Y=>nx62, A0=>nx237, A1=>load(2));
+   ix93 : oai21 port map ( Y=>nx92, A0=>nx235, A1=>nx96, B0=>nx107);
+   ix81 : oai21 port map ( Y=>nx80, A0=>nx99, A1=>nx103, B0=>nx105);
+   ix100 : aoi21 port map ( Y=>nx99, A0=>toBeAdded(1), A1=>count_1_EXMPLR, 
+      B0=>nx50);
+   ix51 : nor02_2x port map ( Y=>nx50, A0=>nx65, A1=>nx67);
+   ix106 : nand02 port map ( Y=>nx105, A0=>toBeAdded(2), A1=>count_2_EXMPLR
+   );
+   ix108 : nor02_2x port map ( Y=>nx107, A0=>nx88, A1=>nx86);
+   ix89 : nor03_2x port map ( Y=>nx88, A0=>nx111, A1=>MFC, A2=>nx265);
+   counterReg_reg_Q_3 : dff port map ( Q=>count(3), QB=>nx111, D=>nx92, CLK
+      =>clk);
+   ix87 : nor02ii port map ( Y=>nx86, A0=>nx237, A1=>load(3));
+   ix113 : oai21 port map ( Y=>nx112, A0=>nx51, A1=>nx117, B0=>nx123);
+   ix122 : aoi22 port map ( Y=>nx121, A0=>toBeAdded(2), A1=>count_2_EXMPLR, 
+      B0=>nx54, B1=>nx56);
+   ix124 : nor02_2x port map ( Y=>nx123, A0=>nx108, A1=>nx106);
+   ix109 : nor03_2x port map ( Y=>nx108, A0=>nx127, A1=>MFC, A2=>nx265);
+   counterReg_reg_Q_4 : dff port map ( Q=>count_4_EXMPLR, QB=>nx127, D=>
+      nx112, CLK=>clk);
+   ix107 : nor02ii port map ( Y=>nx106, A0=>nx237, A1=>load(4));
+   ix133 : oai21 port map ( Y=>nx132, A0=>nx51, A1=>nx135, B0=>nx141);
+   ix142 : nor02_2x port map ( Y=>nx141, A0=>nx128, A1=>nx126);
+   ix129 : nor03_2x port map ( Y=>nx128, A0=>nx145, A1=>MFC, A2=>nx265);
+   counterReg_reg_Q_5 : dff port map ( Q=>count_5_EXMPLR, QB=>nx145, D=>
+      nx132, CLK=>clk);
+   ix127 : nor02ii port map ( Y=>nx126, A0=>nx237, A1=>load(5));
+   counterReg_reg_Q_6 : dff port map ( Q=>count_6_EXMPLR, QB=>OPEN, D=>nx152, 
       CLK=>clk);
-   ix85 : nor02ii port map ( Y=>nx84, A0=>nx262, A1=>load(3));
-   ix111 : oai21 port map ( Y=>nx110, A0=>nx258, A1=>nx113, B0=>nx127);
-   ix117 : aoi22 port map ( Y=>nx116, A0=>toBeAdded(2), A1=>count_2_EXMPLR, 
-      B0=>nx52, B1=>nx54);
-   ix53 : oai21 port map ( Y=>nx52, A0=>nx119, A1=>nx55, B0=>nx121);
-   ix122 : nand02 port map ( Y=>nx121, A0=>toBeAdded(1), A1=>count_1_EXMPLR
-   );
-   ix126 : inv01 port map ( Y=>nx125, A=>toBeAdded(2));
-   ix128 : nor02_2x port map ( Y=>nx127, A0=>nx106, A1=>nx104);
-   ix107 : nor03_2x port map ( Y=>nx106, A0=>nx131, A1=>MFC, A2=>nx298);
-   counterReg_reg_Q_4 : dff port map ( Q=>count_4_EXMPLR, QB=>nx131, D=>
-      nx110, CLK=>clk);
-   ix105 : nor02ii port map ( Y=>nx104, A0=>nx262, A1=>load(4));
-   ix131 : oai21 port map ( Y=>nx130, A0=>nx258, A1=>nx136, B0=>nx145);
-   ix140 : oai21 port map ( Y=>nx139, A0=>nx76, A1=>nx74, B0=>count_3_EXMPLR
-   );
-   ix77 : nor02_2x port map ( Y=>nx76, A0=>nx125, A1=>nx89);
-   ix75 : nor02ii port map ( Y=>nx74, A0=>nx81, A1=>nx54);
-   ix146 : nor02_2x port map ( Y=>nx145, A0=>nx126, A1=>nx124);
-   ix127 : nor03_2x port map ( Y=>nx126, A0=>nx149, A1=>MFC, A2=>nx298);
-   counterReg_reg_Q_5 : dff port map ( Q=>count_5_EXMPLR, QB=>nx149, D=>
-      nx130, CLK=>clk);
-   ix125 : nor02ii port map ( Y=>nx124, A0=>nx262, A1=>load(5));
-   ix151 : oai21 port map ( Y=>nx150, A0=>nx260, A1=>nx155, B0=>nx161);
-   ix160 : nand03 port map ( Y=>nx159, A0=>nx78, A1=>count_3_EXMPLR, A2=>
-      count_4_EXMPLR);
-   ix162 : nor02_2x port map ( Y=>nx161, A0=>nx146, A1=>nx144);
-   ix147 : nor03_2x port map ( Y=>nx146, A0=>nx165, A1=>MFC, A2=>nx300);
-   counterReg_reg_Q_6 : dff port map ( Q=>count_6_EXMPLR, QB=>nx165, D=>
-      nx150, CLK=>clk);
-   ix145 : nor02ii port map ( Y=>nx144, A0=>nx262, A1=>load(6));
-   ix171 : oai21 port map ( Y=>nx170, A0=>nx260, A1=>nx173, B0=>nx179);
-   ix177 : nand04 port map ( Y=>nx176, A0=>nx78, A1=>count_3_EXMPLR, A2=>
-      count_4_EXMPLR, A3=>count_5_EXMPLR);
-   ix180 : nor02_2x port map ( Y=>nx179, A0=>nx166, A1=>nx164);
-   ix167 : nor03_2x port map ( Y=>nx166, A0=>nx183, A1=>MFC, A2=>nx300);
-   counterReg_reg_Q_7 : dff port map ( Q=>count_7_EXMPLR, QB=>nx183, D=>
-      nx170, CLK=>clk);
-   ix165 : nor02ii port map ( Y=>nx164, A0=>nx262, A1=>load(7));
-   ix191 : oai21 port map ( Y=>nx190, A0=>nx260, A1=>nx191, B0=>nx196);
-   ix195 : nand04 port map ( Y=>nx194, A0=>nx98, A1=>count_4_EXMPLR, A2=>
+   ix153 : inv01 port map ( Y=>nx152, A=>nx153);
+   ix154 : aoi222 port map ( Y=>nx153, A0=>count_6_EXMPLR, A1=>nx14, B0=>
+      load(6), B1=>nx6, C0=>MFC, C1=>nx142);
+   ix7 : nor02_2x port map ( Y=>nx6, A0=>MFC, A1=>nx156);
+   ix157 : inv01 port map ( Y=>nx156, A=>isLoad);
+   ix143 : xnor2 port map ( Y=>nx142, A0=>count_6_EXMPLR, A1=>nx159);
+   ix160 : nand03 port map ( Y=>nx159, A0=>nx100, A1=>count_4_EXMPLR, A2=>
+      count_5_EXMPLR);
+   ix173 : oai21 port map ( Y=>nx172, A0=>nx51, A1=>nx165, B0=>nx169);
+   ix161 : nor02ii port map ( Y=>nx160, A0=>nx159, A1=>count_6_EXMPLR);
+   ix170 : nor02_2x port map ( Y=>nx169, A0=>nx168, A1=>nx166);
+   ix169 : nor03_2x port map ( Y=>nx168, A0=>nx173, A1=>MFC, A2=>nx265);
+   counterReg_reg_Q_7 : dff port map ( Q=>count_7_EXMPLR, QB=>nx173, D=>
+      nx172, CLK=>clk);
+   ix167 : nor02ii port map ( Y=>nx166, A0=>nx237, A1=>load(7));
+   ix193 : oai21 port map ( Y=>nx192, A0=>nx51, A1=>nx178, B0=>nx183);
+   ix182 : nand04 port map ( Y=>nx181, A0=>nx100, A1=>count_4_EXMPLR, A2=>
       count_5_EXMPLR, A3=>count_6_EXMPLR);
-   ix197 : nor02_2x port map ( Y=>nx196, A0=>nx186, A1=>nx184);
-   ix187 : nor03_2x port map ( Y=>nx186, A0=>nx199, A1=>MFC, A2=>nx300);
-   counterReg_reg_Q_8 : dff port map ( Q=>count_8_EXMPLR, QB=>nx199, D=>
-      nx190, CLK=>clk);
-   ix185 : nor02ii port map ( Y=>nx184, A0=>nx73, A1=>load(8));
-   ix211 : oai21 port map ( Y=>nx210, A0=>nx260, A1=>nx207, B0=>nx213);
-   ix212 : nand04 port map ( Y=>nx211, A0=>nx118, A1=>count_5_EXMPLR, A2=>
-      count_6_EXMPLR, A3=>count_7_EXMPLR);
-   ix214 : nor02_2x port map ( Y=>nx213, A0=>nx206, A1=>nx204);
-   ix207 : nor03_2x port map ( Y=>nx206, A0=>nx216, A1=>MFC, A2=>nx300);
-   counterReg_reg_Q_9 : dff port map ( Q=>count_9_EXMPLR, QB=>nx216, D=>
-      nx210, CLK=>clk);
-   ix205 : nor02ii port map ( Y=>nx204, A0=>nx73, A1=>load(9));
-   ix231 : oai21 port map ( Y=>nx230, A0=>nx260, A1=>nx223, B0=>nx229);
-   ix228 : nand03 port map ( Y=>nx227, A0=>nx158, A1=>count_7_EXMPLR, A2=>
-      count_8_EXMPLR);
-   ix230 : nor02_2x port map ( Y=>nx229, A0=>nx226, A1=>nx224);
-   ix227 : nor03_2x port map ( Y=>nx226, A0=>nx233, A1=>MFC, A2=>nx300);
-   counterReg_reg_Q_10 : dff port map ( Q=>count_10_EXMPLR, QB=>nx233, D=>
-      nx230, CLK=>clk);
-   ix225 : nor02ii port map ( Y=>nx224, A0=>nx73, A1=>load(10));
-   ix251 : oai21 port map ( Y=>nx250, A0=>nx260, A1=>nx239, B0=>nx245);
-   ix244 : nand04 port map ( Y=>nx243, A0=>nx158, A1=>count_7_EXMPLR, A2=>
-      count_8_EXMPLR, A3=>count_9_EXMPLR);
-   ix246 : nor02_2x port map ( Y=>nx245, A0=>nx246, A1=>nx244);
-   ix247 : nor03_2x port map ( Y=>nx246, A0=>nx249, A1=>MFC, A2=>nx300);
-   counterReg_reg_Q_11 : dff port map ( Q=>count(11), QB=>nx249, D=>nx250, 
+   ix184 : nor02_2x port map ( Y=>nx183, A0=>nx188, A1=>nx186);
+   ix189 : nor03_2x port map ( Y=>nx188, A0=>nx187, A1=>MFC, A2=>nx267);
+   counterReg_reg_Q_8 : dff port map ( Q=>count_8_EXMPLR, QB=>nx187, D=>
+      nx192, CLK=>clk);
+   ix187 : nor02ii port map ( Y=>nx186, A0=>nx57, A1=>load(8));
+   ix213 : oai21 port map ( Y=>nx212, A0=>nx51, A1=>nx195, B0=>nx198);
+   ix199 : nor02_2x port map ( Y=>nx198, A0=>nx208, A1=>nx206);
+   ix209 : nor03_2x port map ( Y=>nx208, A0=>nx201, A1=>MFC, A2=>nx267);
+   counterReg_reg_Q_9 : dff port map ( Q=>count_9_EXMPLR, QB=>nx201, D=>
+      nx212, CLK=>clk);
+   ix207 : nor02ii port map ( Y=>nx206, A0=>nx57, A1=>load(9));
+   counterReg_reg_Q_10 : dff port map ( Q=>count_10_EXMPLR, QB=>OPEN, D=>
+      nx232, CLK=>clk);
+   ix233 : inv01 port map ( Y=>nx232, A=>nx209);
+   ix210 : aoi222 port map ( Y=>nx209, A0=>count_10_EXMPLR, A1=>nx14, B0=>
+      load(10), B1=>nx6, C0=>MFC, C1=>nx222);
+   ix223 : xnor2 port map ( Y=>nx222, A0=>count_10_EXMPLR, A1=>nx213);
+   ix214 : nand03 port map ( Y=>nx213, A0=>nx180, A1=>count_8_EXMPLR, A2=>
+      count_9_EXMPLR);
+   ix253 : oai21 port map ( Y=>nx252, A0=>nx51, A1=>nx218, B0=>nx221);
+   ix241 : nor02ii port map ( Y=>nx240, A0=>nx213, A1=>count_10_EXMPLR);
+   ix222 : nor02_2x port map ( Y=>nx221, A0=>nx248, A1=>nx246);
+   ix249 : nor03_2x port map ( Y=>nx248, A0=>nx225, A1=>MFC, A2=>nx267);
+   counterReg_reg_Q_11 : dff port map ( Q=>count(11), QB=>nx225, D=>nx252, 
       CLK=>clk);
-   ix245 : nor02ii port map ( Y=>nx244, A0=>nx73, A1=>load(11));
-   ix257 : inv02 port map ( Y=>nx258, A=>MFC);
-   ix259 : inv02 port map ( Y=>nx260, A=>MFC);
-   ix261 : nand02 port map ( Y=>nx262, A0=>nx258, A1=>nx300);
-   ix62 : xnor2 port map ( Y=>nx61, A0=>nx55, A1=>nx268);
-   ix267 : inv01 port map ( Y=>nx268, A=>nx28);
-   ix29 : xnor2 port map ( Y=>nx28, A0=>nx67, A1=>toBeAdded(1));
-   ix84 : xnor2 port map ( Y=>nx83, A0=>nx89, A1=>nx125);
-   ix96 : xnor2 port map ( Y=>nx95, A0=>nx105, A1=>nx270);
-   ix269 : inv01 port map ( Y=>nx270, A=>nx78);
-   ix114 : xnor2 port map ( Y=>nx113, A0=>nx131, A1=>nx272);
-   ix271 : inv01 port map ( Y=>nx272, A=>nx98);
-   ix99 : nor02_2x port map ( Y=>nx98, A0=>nx116, A1=>nx105);
-   ix120 : xnor2 port map ( Y=>nx119, A0=>nx67, A1=>nx65);
-   ix55 : xnor2 port map ( Y=>nx54, A0=>nx89, A1=>toBeAdded(2));
-   ix137 : xnor2 port map ( Y=>nx136, A0=>nx149, A1=>nx274);
-   ix273 : inv01 port map ( Y=>nx274, A=>nx118);
-   ix119 : nor02_2x port map ( Y=>nx118, A0=>nx139, A1=>nx131);
-   ix156 : xnor2 port map ( Y=>nx155, A0=>nx165, A1=>nx276);
-   ix139 : nand02 port map ( Y=>nx276, A0=>nx278, A1=>count_5_EXMPLR);
-   ix277 : inv01 port map ( Y=>nx278, A=>nx159);
-   ix174 : xnor2 port map ( Y=>nx173, A0=>nx183, A1=>nx280);
-   ix279 : inv01 port map ( Y=>nx280, A=>nx158);
-   ix159 : nor02_2x port map ( Y=>nx158, A0=>nx176, A1=>nx165);
-   ix192 : xnor2 port map ( Y=>nx191, A0=>nx199, A1=>nx282);
-   ix179 : nand02 port map ( Y=>nx282, A0=>nx284, A1=>count_7_EXMPLR);
-   ix283 : inv01 port map ( Y=>nx284, A=>nx194);
-   ix208 : xnor2 port map ( Y=>nx207, A0=>nx216, A1=>nx286);
-   ix199 : nand02 port map ( Y=>nx286, A0=>nx288, A1=>count_8_EXMPLR);
-   ix287 : inv01 port map ( Y=>nx288, A=>nx211);
-   ix224 : xnor2 port map ( Y=>nx223, A0=>nx233, A1=>nx290);
-   ix219 : nand02 port map ( Y=>nx290, A0=>nx292, A1=>count_9_EXMPLR);
-   ix291 : inv01 port map ( Y=>nx292, A=>nx227);
-   ix240 : xnor2 port map ( Y=>nx239, A0=>nx249, A1=>nx294);
-   ix239 : nand02 port map ( Y=>nx294, A0=>nx296, A1=>count_10_EXMPLR);
-   ix295 : inv01 port map ( Y=>nx296, A=>nx243);
-   ix297 : buf02 port map ( Y=>nx298, A=>isLoad);
-   ix299 : buf02 port map ( Y=>nx300, A=>isLoad);
+   ix247 : nor02ii port map ( Y=>nx246, A0=>nx57, A1=>load(11));
+   ix234 : inv01 port map ( Y=>nx235, A=>MFC);
+   ix236 : nand02 port map ( Y=>nx237, A0=>nx235, A1=>nx267);
+   ix54 : xnor2 port map ( Y=>nx53, A0=>nx46, A1=>nx244);
+   ix243 : inv01 port map ( Y=>nx244, A=>toBeAdded(0));
+   ix68 : xnor2 port map ( Y=>nx67, A0=>nx69, A1=>nx79);
+   ix57 : xnor2 port map ( Y=>nx56, A0=>nx89, A1=>toBeAdded(2));
+   ix97 : xnor2 port map ( Y=>nx96, A0=>nx111, A1=>nx247);
+   ix245 : inv01 port map ( Y=>nx247, A=>nx80);
+   ix104 : xnor2 port map ( Y=>nx103, A0=>nx89, A1=>nx83);
+   ix118 : xnor2 port map ( Y=>nx117, A0=>nx127, A1=>nx249);
+   ix248 : inv01 port map ( Y=>nx249, A=>nx100);
+   ix101 : nor02_2x port map ( Y=>nx100, A0=>nx121, A1=>nx111);
+   ix136 : xnor2 port map ( Y=>nx135, A0=>nx145, A1=>nx251);
+   ix121 : nand02 port map ( Y=>nx251, A0=>nx253, A1=>count_4_EXMPLR);
+   ix139 : nor02_2x port map ( Y=>nx253, A0=>nx247, A1=>nx111);
+   ix166 : xnor2 port map ( Y=>nx165, A0=>nx173, A1=>nx255);
+   ix254 : inv01 port map ( Y=>nx255, A=>nx160);
+   ix179 : xnor2 port map ( Y=>nx178, A0=>nx187, A1=>nx257);
+   ix256 : inv01 port map ( Y=>nx257, A=>nx180);
+   ix181 : nor02_2x port map ( Y=>nx180, A0=>nx181, A1=>nx173);
+   ix196 : xnor2 port map ( Y=>nx195, A0=>nx201, A1=>nx259);
+   ix201 : nand03 port map ( Y=>nx259, A0=>nx261, A1=>count_7_EXMPLR, A2=>
+      count_8_EXMPLR);
+   ix260 : inv01 port map ( Y=>nx261, A=>nx181);
+   ix219 : xnor2 port map ( Y=>nx218, A0=>nx225, A1=>nx263);
+   ix262 : inv01 port map ( Y=>nx263, A=>nx240);
+   ix264 : inv02 port map ( Y=>nx265, A=>nx156);
+   ix266 : inv02 port map ( Y=>nx267, A=>nx156);
 end MultiStepCounterArch_unfold_2949 ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use work.adk_components.all;
 
-entity ReadLogic_12_40 is
+entity ReadLogic_12_40_true is
    port (
       clk : IN std_logic ;
       resetState : IN std_logic ;
@@ -1404,17 +1030,9 @@ entity ReadLogic_12_40 is
       readOne : OUT std_logic ;
       readFinal : OUT std_logic ;
       aluNumber : OUT std_logic_vector (2 DOWNTO 0)) ;
-end ReadLogic_12_40 ;
+end ReadLogic_12_40_true ;
 
-architecture ReadLogicArch_unfold_3059 of ReadLogic_12_40 is
-   component Counter2_12
-      port (
-         load : IN std_logic_vector (11 DOWNTO 0) ;
-         reset : IN std_logic ;
-         clk : IN std_logic ;
-         isLoad : IN std_logic ;
-         count : OUT std_logic_vector (11 DOWNTO 0)) ;
-   end component ;
+architecture ReadLogicArch_unfold_3059 of ReadLogic_12_40_true is
    component MultiStepCounter_12
       port (
          load : IN std_logic_vector (11 DOWNTO 0) ;
@@ -1425,52 +1043,29 @@ architecture ReadLogicArch_unfold_3059 of ReadLogic_12_40 is
          MFC : IN std_logic ;
          count : OUT std_logic_vector (11 DOWNTO 0)) ;
    end component ;
-   signal readOne_EXMPLR, aluNumber_2_EXMPLR, aluNumber_0_EXMPLR, 
-      currentState_1, addressRegOut_11, addressRegOut_10, addressRegOut_9, 
-      addressRegOut_8, addressRegOut_7, addressRegOut_6, addressRegOut_5, 
-      addressRegOut_4, addressRegOut_3, addressRegOut_2, addressRegOut_1, 
-      addressRegOut_0, addressRegIn_11, addressRegIn_10, addressRegIn_9, 
-      addressRegIn_8, addressRegIn_7, addressRegIn_6, addressRegIn_5, 
-      addressRegIn_4, addressRegIn_3, addressRegIn_2, addressRegIn_1, 
-      addressRegIn_0, resetUnitNumberReg, dmaReadBaseAddress_11, 
+   signal readOne_EXMPLR, readFinal_EXMPLR, aluNumber_2_EXMPLR, 
+      aluNumber_0_EXMPLR, ramRead_EXMPLR, dmaReadBaseAddress_11, 
       dmaReadBaseAddress_10, dmaReadBaseAddress_9, dmaReadBaseAddress_8, 
       dmaReadBaseAddress_7, dmaReadBaseAddress_6, dmaReadBaseAddress_5, 
       dmaReadBaseAddress_4, dmaReadBaseAddress_3, dmaReadBaseAddress_2, 
-      dmaReadBaseAddress_1, dmaReadBaseAddress_0, baseAddressCounterClk, 
-      dma_tobeAdded_2, dma_tobeAdded_1, PWR, zerosSignal_2, currentState_4, 
-      currentState_0, nx160, nx161, nx14, nx18, nx26, nx44, nx50, 
-      dma_currentCount_2, nx54, nx162, dma_currentCount_1, dmaCountIn_1, 
-      nx56, dma_currentCount_0, nx86, nx108, nx110, nx118, nx132, nx138, 
-      nx144, nx156, nx176, nx180, nx190, nx198, nx202, nx228, nx232, nx336, 
-      nx344, nx352, nx360, nx368, nx376, nx384, nx392, nx400, nx408, nx416, 
-      nx424, nx171, nx181, nx191, nx201, nx211, nx221, nx231, nx245, nx249, 
-      nx251, nx259, nx263, nx265, nx267, nx273, nx279, nx283, nx287, nx289, 
-      nx293, nx295, nx299, nx301, nx303, nx309, nx313, nx315, nx319, nx323, 
-      nx327, nx331, nx335, nx339, nx343, nx347, nx349, nx353, nx356, nx358, 
-      nx364, nx372, nx374, nx377, nx379, nx382, nx385, nx388, nx390, nx393, 
-      nx395, nx398, nx401, nx404, nx406, nx409, nx411, nx414, nx417, nx420, 
-      nx422, nx425, nx427, nx430, nx432, nx463, nx466, nx468, nx470, nx473, 
-      nx475, nx478, nx483, nx486, nx491, nx538, nx540, nx542, nx544, nx546, 
-      nx548, nx550, nx552, nx554, nx556, nx558, nx560, nx562, nx564, nx566, 
-      nx568, nx570, nx572, nx574, nx580, nx586, nx592, nx598, nx604, nx610, 
-      nx0, nx5: std_logic ;
+      dmaReadBaseAddress_1, dmaReadBaseAddress_0, dmaInitRamBaseAddress, 
+      dma_tobeAdded_2, dma_tobeAdded_1, dma_tobeAdded_0, addressRegOut_11, 
+      NOT_clk, currentState_0, nx147, nx14, NOT_MFC, dma_currentCount_1, 
+      nx36, dma_currentCount_0, nx54, dma_currentCount_2, nx94, nx118, nx152, 
+      nx156, nx166, nx174, nx178, nx155, nx165, nx175, nx185, nx195, nx213, 
+      nx217, nx223, nx231, nx233, nx237, nx241, nx243, nx245, nx248, nx252, 
+      nx254, nx256, nx258, nx261, nx263, nx266, nx268, nx271, nx274, nx277, 
+      nx279, nx281, nx283, nx286, nx289, nx291, nx294, nx297, nx300, nx303, 
+      nx306, nx309, nx312, nx315, nx318, nx321, nx324, nx328, nx331, nx333, 
+      nx335, nx338, nx340, nx343, nx393, nx395, nx397, nx399, nx401, nx403, 
+      nx405, nx407, nx413, nx5: std_logic ;
 
 begin
+   ramRead <= ramRead_EXMPLR ;
    readOne <= readOne_EXMPLR ;
+   readFinal <= readFinal_EXMPLR ;
    aluNumber(2) <= aluNumber_2_EXMPLR ;
    aluNumber(0) <= aluNumber_0_EXMPLR ;
-   baseAddressCounter : Counter2_12 port map ( load(11)=>addressRegIn_11, 
-      load(10)=>addressRegIn_10, load(9)=>addressRegIn_9, load(8)=>
-      addressRegIn_8, load(7)=>addressRegIn_7, load(6)=>addressRegIn_6, 
-      load(5)=>addressRegIn_5, load(4)=>addressRegIn_4, load(3)=>
-      addressRegIn_3, load(2)=>addressRegIn_2, load(1)=>addressRegIn_1, 
-      load(0)=>addressRegIn_0, reset=>zerosSignal_2, clk=>
-      baseAddressCounterClk, isLoad=>currentState_1, count(11)=>
-      addressRegOut_11, count(10)=>addressRegOut_10, count(9)=>
-      addressRegOut_9, count(8)=>addressRegOut_8, count(7)=>addressRegOut_7, 
-      count(6)=>addressRegOut_6, count(5)=>addressRegOut_5, count(4)=>
-      addressRegOut_4, count(3)=>addressRegOut_3, count(2)=>addressRegOut_2, 
-      count(1)=>addressRegOut_1, count(0)=>addressRegOut_0);
    dma_addressRegister : MultiStepCounter_12 port map ( load(11)=>
       dmaReadBaseAddress_11, load(10)=>dmaReadBaseAddress_10, load(9)=>
       dmaReadBaseAddress_9, load(8)=>dmaReadBaseAddress_8, load(7)=>
@@ -1478,320 +1073,235 @@ begin
       dmaReadBaseAddress_5, load(4)=>dmaReadBaseAddress_4, load(3)=>
       dmaReadBaseAddress_3, load(2)=>dmaReadBaseAddress_2, load(1)=>
       dmaReadBaseAddress_1, load(0)=>dmaReadBaseAddress_0, toBeAdded(11)=>
-      zerosSignal_2, toBeAdded(10)=>zerosSignal_2, toBeAdded(9)=>
-      zerosSignal_2, toBeAdded(8)=>zerosSignal_2, toBeAdded(7)=>
-      zerosSignal_2, toBeAdded(6)=>zerosSignal_2, toBeAdded(5)=>
-      zerosSignal_2, toBeAdded(4)=>zerosSignal_2, toBeAdded(3)=>
-      zerosSignal_2, toBeAdded(2)=>dma_tobeAdded_2, toBeAdded(1)=>
-      dma_tobeAdded_1, toBeAdded(0)=>PWR, reset=>zerosSignal_2, clk=>clk, 
-      isLoad=>resetUnitNumberReg, MFC=>MFC, count(11)=>ramAddress(11), 
-      count(10)=>ramAddress(10), count(9)=>ramAddress(9), count(8)=>
-      ramAddress(8), count(7)=>ramAddress(7), count(6)=>ramAddress(6), 
-      count(5)=>ramAddress(5), count(4)=>ramAddress(4), count(3)=>
-      ramAddress(3), count(2)=>ramAddress(2), count(1)=>ramAddress(1), 
-      count(0)=>ramAddress(0));
-   ix105 : fake_gnd port map ( Y=>zerosSignal_2);
-   ix103 : fake_vcc port map ( Y=>PWR);
+      addressRegOut_11, toBeAdded(10)=>addressRegOut_11, toBeAdded(9)=>
+      addressRegOut_11, toBeAdded(8)=>addressRegOut_11, toBeAdded(7)=>
+      addressRegOut_11, toBeAdded(6)=>addressRegOut_11, toBeAdded(5)=>
+      addressRegOut_11, toBeAdded(4)=>addressRegOut_11, toBeAdded(3)=>
+      addressRegOut_11, toBeAdded(2)=>dma_tobeAdded_2, toBeAdded(1)=>
+      dma_tobeAdded_1, toBeAdded(0)=>dma_tobeAdded_0, reset=>
+      addressRegOut_11, clk=>clk, isLoad=>dmaInitRamBaseAddress, MFC=>MFC, 
+      count(11)=>ramAddress(11), count(10)=>ramAddress(10), count(9)=>
+      ramAddress(9), count(8)=>ramAddress(8), count(7)=>ramAddress(7), 
+      count(6)=>ramAddress(6), count(5)=>ramAddress(5), count(4)=>
+      ramAddress(4), count(3)=>ramAddress(3), count(2)=>ramAddress(2), 
+      count(1)=>ramAddress(1), count(0)=>ramAddress(0));
+   ix114 : fake_gnd port map ( Y=>addressRegOut_11);
+   dma_readStepRegister_reg_Q_0 : dff port map ( Q=>dma_tobeAdded_0, QB=>
+      OPEN, D=>inputSize(0), CLK=>clk);
    dma_readStepRegister_reg_Q_1 : dff port map ( Q=>dma_tobeAdded_1, QB=>
-      OPEN, D=>inputSize(1), CLK=>nx556);
-   ix182 : mux21 port map ( Y=>nx181, A0=>nx245, A1=>nx249, S0=>nx160);
-   reg_currentState_2 : dff port map ( Q=>OPEN, QB=>nx245, D=>nx181, CLK=>
-      nx550);
-   ix250 : nand02 port map ( Y=>nx249, A0=>nx251, A1=>currentState_0);
-   ix252 : inv01 port map ( Y=>nx251, A=>switchRam);
-   ix192 : mux21 port map ( Y=>nx191, A0=>nx560, A1=>nx259, S0=>nx160);
-   reg_currentState_0 : dff port map ( Q=>currentState_0, QB=>OPEN, D=>nx191, 
-      CLK=>nx550);
-   ix260 : nand02 port map ( Y=>nx259, A0=>nx251, A1=>nx26);
-   ix27 : nand03 port map ( Y=>nx26, A0=>nx263, A1=>nx566, A2=>nx349);
-   ix264 : nand03 port map ( Y=>nx263, A0=>nx554, A1=>nx265, A2=>nx267);
-   ix266 : inv01 port map ( Y=>nx265, A=>loadWord);
-   ix268 : inv01 port map ( Y=>nx267, A=>loadNextWordList);
-   reg_currentState_1 : dff port map ( Q=>currentState_1, QB=>OPEN, D=>nx171, 
-      CLK=>nx550);
-   ix172 : oai21 port map ( Y=>nx171, A0=>nx566, A1=>nx160, B0=>nx251);
-   ix153 : nand03 port map ( Y=>nx160, A0=>nx273, A1=>nx251, A2=>nx358);
-   ix274 : oai21 port map ( Y=>nx273, A0=>nx144, A1=>nx132, B0=>nx538);
-   ix145 : nor02_2x port map ( Y=>nx144, A0=>clk, A1=>nx138);
-   ix139 : nand03 port map ( Y=>nx138, A0=>nx279, A1=>nx319, A2=>
-      dma_currentCount_0);
-   ix212 : nand02 port map ( Y=>nx211, A0=>nx283, A1=>nx289);
-   ix284 : nand02 port map ( Y=>nx283, A0=>dma_currentCount_1, A1=>nx287);
-   dma_counter_counterReg_reg_Q_1 : dff port map ( Q=>dma_currentCount_1, QB
-      =>nx279, D=>nx211, CLK=>clk);
-   ix288 : nor02_2x port map ( Y=>nx287, A0=>nx554, A1=>MFC);
-   ix290 : nand02 port map ( Y=>nx289, A0=>nx86, A1=>nx54);
-   ix87 : nand03 port map ( Y=>nx86, A0=>nx293, A1=>nx301, A2=>nx303);
-   ix294 : nand03 port map ( Y=>nx293, A0=>nx245, A1=>nx279, A2=>nx295);
-   dma_counter_counterReg_reg_Q_0 : dff port map ( Q=>dma_currentCount_0, QB
-      =>nx295, D=>nx201, CLK=>clk);
-   ix202 : mux21 port map ( Y=>nx201, A0=>nx299, A1=>nx295, S0=>nx287);
-   ix300 : nor02_2x port map ( Y=>nx299, A0=>nx295, A1=>nx554);
-   ix302 : nand03 port map ( Y=>nx301, A0=>dma_currentCount_1, A1=>
-      dma_currentCount_0, A2=>nx245);
-   ix304 : nand02 port map ( Y=>nx303, A0=>nx554, A1=>dmaCountIn_1);
-   lat_dmaCountIn_1 : latch port map ( Q=>dmaCountIn_1, D=>nx56, CLK=>nx558
-   );
-   ix57 : nor02_2x port map ( Y=>nx56, A0=>nx309, A1=>nx267);
-   ix310 : inv01 port map ( Y=>nx309, A=>inputSize(1));
-   ix19 : nand02 port map ( Y=>nx18, A0=>nx313, A1=>nx572);
-   ix314 : nand02 port map ( Y=>nx313, A0=>loadWord, A1=>nx554);
-   ix316 : nand02 port map ( Y=>nx315, A0=>loadNextWordList, A1=>nx554);
-   ix55 : inv01 port map ( Y=>nx54, A=>nx287);
-   ix222 : nand02 port map ( Y=>nx221, A0=>nx323, A1=>nx327);
-   ix324 : nand02 port map ( Y=>nx323, A0=>dma_currentCount_2, A1=>nx287);
-   dma_counter_counterReg_reg_Q_2 : dff port map ( Q=>dma_currentCount_2, QB
-      =>nx319, D=>nx221, CLK=>clk);
-   ix328 : oai21 port map ( Y=>nx327, A0=>nx118, A1=>nx108, B0=>nx54);
-   ix119 : nor02_2x port map ( Y=>nx118, A0=>nx245, A1=>nx331);
-   ix111 : nor02_2x port map ( Y=>nx110, A0=>nx335, A1=>nx267);
-   ix336 : inv01 port map ( Y=>nx335, A=>inputSize(2));
-   ix110 : nor02_2x port map ( Y=>nx108, A0=>nx554, A1=>nx339);
-   ix133 : nor02_2x port map ( Y=>nx132, A0=>nx550, A1=>nx343);
-   ix344 : nand03 port map ( Y=>nx343, A0=>nx319, A1=>nx279, A2=>nx295);
-   ix165 : nor02_2x port map ( Y=>readOne_EXMPLR, A0=>nx347, A1=>nx349);
-   ix348 : inv01 port map ( Y=>nx347, A=>MFC);
-   reg_currentState_4 : dff port map ( Q=>currentState_4, QB=>nx349, D=>
-      nx231, CLK=>nx550);
-   ix232 : mux21 port map ( Y=>nx231, A0=>nx349, A1=>nx353, S0=>nx160);
-   ix354 : inv01 port map ( Y=>nx353, A=>nx156);
-   ix157 : nor02_2x port map ( Y=>nx156, A0=>switchRam, A1=>nx356);
-   ix357 : oai21 port map ( Y=>nx356, A0=>loadWord, A1=>loadNextWordList, B0
-      =>nx556);
-   ix359 : nor02_2x port map ( Y=>nx358, A0=>nx50, A1=>nx44);
-   ix51 : nor02_2x port map ( Y=>nx50, A0=>currentState_4, A1=>nx161);
-   ix41 : nor02_2x port map ( Y=>nx161, A0=>switchRam, A1=>nx560);
-   ix45 : nor03_2x port map ( Y=>nx44, A0=>switchRam, A1=>nx560, A2=>nx364);
-   ix365 : nor02_2x port map ( Y=>nx364, A0=>loadNextWordList, A1=>loadWord
-   );
+      OPEN, D=>inputSize(1), CLK=>clk);
    dma_readStepRegister_reg_Q_2 : dff port map ( Q=>dma_tobeAdded_2, QB=>
-      OPEN, D=>inputSize(2), CLK=>nx556);
-   ix435 : nor02_2x port map ( Y=>baseAddressCounterClk, A0=>clk, A1=>nx566
+      OPEN, D=>inputSize(2), CLK=>clk);
+   ix25 : nor02_2x port map ( Y=>dmaInitRamBaseAddress, A0=>nx213, A1=>
+      ramRead_EXMPLR);
+   ix156 : nand03 port map ( Y=>nx155, A0=>nx217, A1=>nx283, A2=>nx243);
+   ix218 : nand04 port map ( Y=>nx217, A0=>currentState_0, A1=>nx223, A2=>
+      ramRead_EXMPLR, A3=>nx243);
+   reg_currentState_0 : dff port map ( Q=>currentState_0, QB=>nx213, D=>
+      nx155, CLK=>NOT_clk);
+   ix222 : inv01 port map ( Y=>NOT_clk, A=>clk);
+   ix226 : inv16 port map ( Y=>NOT_MFC, A=>MFC);
+   ix119 : nor03_2x port map ( Y=>nx118, A0=>dma_currentCount_1, A1=>nx266, 
+      A2=>nx281);
+   dma_counter_counterReg_reg_Q_1 : dff port map ( Q=>dma_currentCount_1, QB
+      =>OPEN, D=>nx175, CLK=>clk);
+   ix176 : oai21 port map ( Y=>nx175, A0=>nx231, A1=>nx254, B0=>nx263);
+   ix232 : aoi322 port map ( Y=>nx231, A0=>filterSize(1), A1=>
+      loadNextWordList, A2=>nx233, B0=>dma_currentCount_1, B1=>nx245, C0=>
+      nx54, C1=>nx261);
+   ix234 : nor02_2x port map ( Y=>nx233, A0=>ramRead_EXMPLR, A1=>
+      currentState_0);
+   ix196 : oai33 port map ( Y=>nx195, A0=>nx237, A1=>readFinal_EXMPLR, A2=>
+      nx147, B0=>switchRam, B1=>currentState_0, B2=>nx241);
+   reg_currentState_1 : dff port map ( Q=>ramRead_EXMPLR, QB=>nx237, D=>
+      nx195, CLK=>NOT_clk);
+   ix21 : oai21 port map ( Y=>nx147, A0=>currentState_0, A1=>nx241, B0=>
+      nx243);
+   ix242 : nor03_2x port map ( Y=>nx241, A0=>loadNextWordList, A1=>loadWord, 
+      A2=>ramRead_EXMPLR);
+   ix244 : inv01 port map ( Y=>nx243, A=>switchRam);
+   ix37 : nor03_2x port map ( Y=>nx36, A0=>ramRead_EXMPLR, A1=>
+      currentState_0, A2=>nx248);
+   ix249 : nor02_2x port map ( Y=>nx248, A0=>loadNextWordList, A1=>loadWord
    );
-   ix245 : mux21 port map ( Y=>dmaReadBaseAddress_0, A0=>nx372, A1=>nx374, 
-      S0=>nx572);
-   ix373 : inv01 port map ( Y=>nx372, A=>ramBasedAddress(0));
-   ix375 : inv01 port map ( Y=>nx374, A=>addressRegOut_0);
-   ix253 : mux21 port map ( Y=>dmaReadBaseAddress_1, A0=>nx377, A1=>nx379, 
-      S0=>nx572);
-   ix378 : inv01 port map ( Y=>nx377, A=>ramBasedAddress(1));
-   ix380 : inv01 port map ( Y=>nx379, A=>addressRegOut_1);
-   ix261 : mux21 port map ( Y=>dmaReadBaseAddress_2, A0=>nx382, A1=>nx385, 
-      S0=>nx572);
-   ix383 : inv01 port map ( Y=>nx382, A=>ramBasedAddress(2));
-   ix386 : inv01 port map ( Y=>nx385, A=>addressRegOut_2);
-   ix269 : mux21 port map ( Y=>dmaReadBaseAddress_3, A0=>nx388, A1=>nx390, 
-      S0=>nx572);
-   ix389 : inv01 port map ( Y=>nx388, A=>ramBasedAddress(3));
-   ix391 : inv01 port map ( Y=>nx390, A=>addressRegOut_3);
-   ix277 : mux21 port map ( Y=>dmaReadBaseAddress_4, A0=>nx393, A1=>nx395, 
-      S0=>nx572);
-   ix394 : inv01 port map ( Y=>nx393, A=>ramBasedAddress(4));
-   ix396 : inv01 port map ( Y=>nx395, A=>addressRegOut_4);
-   ix285 : mux21 port map ( Y=>dmaReadBaseAddress_5, A0=>nx398, A1=>nx401, 
-      S0=>nx572);
-   ix399 : inv01 port map ( Y=>nx398, A=>ramBasedAddress(5));
-   ix402 : inv01 port map ( Y=>nx401, A=>addressRegOut_5);
-   ix293 : mux21 port map ( Y=>dmaReadBaseAddress_6, A0=>nx404, A1=>nx406, 
-      S0=>nx574);
-   ix405 : inv01 port map ( Y=>nx404, A=>ramBasedAddress(6));
-   ix407 : inv01 port map ( Y=>nx406, A=>addressRegOut_6);
-   ix301 : mux21 port map ( Y=>dmaReadBaseAddress_7, A0=>nx409, A1=>nx411, 
-      S0=>nx574);
-   ix410 : inv01 port map ( Y=>nx409, A=>ramBasedAddress(7));
-   ix412 : inv01 port map ( Y=>nx411, A=>addressRegOut_7);
-   ix309 : mux21 port map ( Y=>dmaReadBaseAddress_8, A0=>nx414, A1=>nx417, 
-      S0=>nx574);
-   ix415 : inv01 port map ( Y=>nx414, A=>ramBasedAddress(8));
-   ix418 : inv01 port map ( Y=>nx417, A=>addressRegOut_8);
-   ix317 : mux21 port map ( Y=>dmaReadBaseAddress_9, A0=>nx420, A1=>nx422, 
-      S0=>nx574);
-   ix421 : inv01 port map ( Y=>nx420, A=>ramBasedAddress(9));
-   ix423 : inv01 port map ( Y=>nx422, A=>addressRegOut_9);
-   ix325 : mux21 port map ( Y=>dmaReadBaseAddress_10, A0=>nx425, A1=>nx427, 
-      S0=>nx574);
-   ix426 : inv01 port map ( Y=>nx425, A=>ramBasedAddress(10));
-   ix428 : inv01 port map ( Y=>nx427, A=>addressRegOut_10);
-   ix333 : mux21 port map ( Y=>dmaReadBaseAddress_11, A0=>nx430, A1=>nx432, 
-      S0=>nx574);
-   ix431 : inv01 port map ( Y=>nx430, A=>ramBasedAddress(11));
-   ix433 : inv01 port map ( Y=>nx432, A=>addressRegOut_11);
-   ix173 : oai21 port map ( Y=>resetUnitNumberReg, A0=>nx267, A1=>nx245, B0
-      =>nx566);
-   lat_addressRegIn_0 : latch port map ( Q=>addressRegIn_0, D=>nx336, CLK=>
-      nx560);
-   ix337 : nor02_2x port map ( Y=>nx336, A0=>nx372, A1=>nx566);
-   lat_addressRegIn_1 : latch port map ( Q=>addressRegIn_1, D=>nx344, CLK=>
-      nx560);
-   ix345 : nor02_2x port map ( Y=>nx344, A0=>nx377, A1=>nx566);
-   lat_addressRegIn_2 : latch port map ( Q=>addressRegIn_2, D=>nx352, CLK=>
-      nx560);
-   ix353 : nor02_2x port map ( Y=>nx352, A0=>nx382, A1=>nx566);
-   lat_addressRegIn_3 : latch port map ( Q=>addressRegIn_3, D=>nx360, CLK=>
-      nx560);
-   ix361 : nor02_2x port map ( Y=>nx360, A0=>nx388, A1=>nx568);
-   lat_addressRegIn_4 : latch port map ( Q=>addressRegIn_4, D=>nx368, CLK=>
-      nx562);
-   ix369 : nor02_2x port map ( Y=>nx368, A0=>nx393, A1=>nx568);
-   lat_addressRegIn_5 : latch port map ( Q=>addressRegIn_5, D=>nx376, CLK=>
-      nx562);
-   ix377 : nor02_2x port map ( Y=>nx376, A0=>nx398, A1=>nx568);
-   lat_addressRegIn_6 : latch port map ( Q=>addressRegIn_6, D=>nx384, CLK=>
-      nx562);
-   ix385 : nor02_2x port map ( Y=>nx384, A0=>nx404, A1=>nx568);
-   lat_addressRegIn_7 : latch port map ( Q=>addressRegIn_7, D=>nx392, CLK=>
-      nx562);
-   ix393 : nor02_2x port map ( Y=>nx392, A0=>nx409, A1=>nx568);
-   lat_addressRegIn_8 : latch port map ( Q=>addressRegIn_8, D=>nx400, CLK=>
-      nx562);
-   ix401 : nor02_2x port map ( Y=>nx400, A0=>nx414, A1=>nx568);
-   lat_addressRegIn_9 : latch port map ( Q=>addressRegIn_9, D=>nx408, CLK=>
-      nx562);
-   ix409 : nor02_2x port map ( Y=>nx408, A0=>nx420, A1=>nx568);
-   lat_addressRegIn_10 : latch port map ( Q=>addressRegIn_10, D=>nx416, CLK
-      =>nx562);
-   ix417 : nor02_2x port map ( Y=>nx416, A0=>nx425, A1=>nx570);
-   lat_addressRegIn_11 : latch port map ( Q=>addressRegIn_11, D=>nx424, CLK
-      =>nx564);
-   ix425 : nor02_2x port map ( Y=>nx424, A0=>nx430, A1=>nx570);
+   ix166 : nand02 port map ( Y=>nx165, A0=>nx252, A1=>nx256);
+   ix253 : nand02 port map ( Y=>nx252, A0=>dma_currentCount_0, A1=>nx254);
+   ix257 : aoi21 port map ( Y=>nx256, A0=>nx258, A1=>MFC, B0=>nx36);
+   dma_counter_counterReg_reg_Q_0 : dff port map ( Q=>dma_currentCount_0, QB
+      =>nx258, D=>nx165, CLK=>clk);
+   ix55 : nor02_2x port map ( Y=>nx54, A0=>dma_currentCount_1, A1=>
+      dma_currentCount_0);
+   ix262 : inv01 port map ( Y=>nx261, A=>nx36);
+   ix264 : nand02 port map ( Y=>nx263, A0=>dma_currentCount_1, A1=>nx254);
+   ix267 : nand02 port map ( Y=>nx266, A0=>NOT_clk, A1=>nx268);
+   ix186 : oai21 port map ( Y=>nx185, A0=>nx271, A1=>nx254, B0=>nx279);
+   ix272 : nor02ii port map ( Y=>nx271, A0=>nx94, A1=>nx277);
+   ix95 : nor02_2x port map ( Y=>nx94, A0=>nx274, A1=>nx36);
+   dma_counter_counterReg_reg_Q_2 : dff port map ( Q=>dma_currentCount_2, QB
+      =>nx268, D=>nx185, CLK=>clk);
+   ix278 : nand04 port map ( Y=>nx277, A0=>filterSize(2), A1=>
+      loadNextWordList, A2=>nx237, A3=>nx213);
+   ix280 : nand02 port map ( Y=>nx279, A0=>dma_currentCount_2, A1=>nx254);
+   ix282 : nand03 port map ( Y=>nx281, A0=>dma_currentCount_0, A1=>MFC, A2=>
+      ramRead_EXMPLR);
+   ix284 : nand02 port map ( Y=>nx283, A0=>nx213, A1=>nx14);
+   ix15 : nand02 port map ( Y=>nx14, A0=>nx286, A1=>nx237);
+   ix287 : nor02_2x port map ( Y=>nx286, A0=>loadNextWordList, A1=>loadWord
+   );
+   ix205 : nor02_2x port map ( Y=>dmaReadBaseAddress_0, A0=>nx289, A1=>nx405
+   );
+   ix290 : inv01 port map ( Y=>nx289, A=>ramBasedAddress(0));
+   ix292 : nand02 port map ( Y=>nx291, A0=>currentState_0, A1=>nx237);
+   ix207 : nor02_2x port map ( Y=>dmaReadBaseAddress_1, A0=>nx294, A1=>nx405
+   );
+   ix295 : inv01 port map ( Y=>nx294, A=>ramBasedAddress(1));
+   ix209 : nor02_2x port map ( Y=>dmaReadBaseAddress_2, A0=>nx297, A1=>nx405
+   );
+   ix298 : inv01 port map ( Y=>nx297, A=>ramBasedAddress(2));
+   ix211 : nor02_2x port map ( Y=>dmaReadBaseAddress_3, A0=>nx300, A1=>nx405
+   );
+   ix301 : inv01 port map ( Y=>nx300, A=>ramBasedAddress(3));
+   ix213 : nor02_2x port map ( Y=>dmaReadBaseAddress_4, A0=>nx303, A1=>nx405
+   );
+   ix304 : inv01 port map ( Y=>nx303, A=>ramBasedAddress(4));
+   ix215 : nor02_2x port map ( Y=>dmaReadBaseAddress_5, A0=>nx306, A1=>nx405
+   );
+   ix307 : inv01 port map ( Y=>nx306, A=>ramBasedAddress(5));
+   ix217 : nor02_2x port map ( Y=>dmaReadBaseAddress_6, A0=>nx309, A1=>nx405
+   );
+   ix310 : inv01 port map ( Y=>nx309, A=>ramBasedAddress(6));
+   ix219 : nor02_2x port map ( Y=>dmaReadBaseAddress_7, A0=>nx312, A1=>nx407
+   );
+   ix313 : inv01 port map ( Y=>nx312, A=>ramBasedAddress(7));
+   ix221 : nor02_2x port map ( Y=>dmaReadBaseAddress_8, A0=>nx315, A1=>nx407
+   );
+   ix316 : inv01 port map ( Y=>nx315, A=>ramBasedAddress(8));
+   ix223 : nor02_2x port map ( Y=>dmaReadBaseAddress_9, A0=>nx318, A1=>nx407
+   );
+   ix319 : inv01 port map ( Y=>nx318, A=>ramBasedAddress(9));
+   ix225 : nor02_2x port map ( Y=>dmaReadBaseAddress_10, A0=>nx321, A1=>
+      nx407);
+   ix322 : inv01 port map ( Y=>nx321, A=>ramBasedAddress(10));
+   ix227 : nor02_2x port map ( Y=>dmaReadBaseAddress_11, A0=>nx324, A1=>
+      nx407);
+   ix325 : inv01 port map ( Y=>nx324, A=>ramBasedAddress(11));
    aluNumberCounter_counterReg_reg_Q_0 : dff port map ( Q=>
-      aluNumber_0_EXMPLR, QB=>nx470, D=>nx180, CLK=>nx176);
-   ix181 : nand03 port map ( Y=>nx180, A0=>nx570, A1=>nx574, A2=>
-      aluNumber_0_EXMPLR);
-   ix177 : oai22 port map ( Y=>nx176, A0=>nx550, A1=>nx463, B0=>nx466, B1=>
-      nx468);
-   ix464 : nor02_2x port map ( Y=>nx463, A0=>currentState_1, A1=>nx14);
-   ix15 : nor02_2x port map ( Y=>nx14, A0=>nx267, A1=>nx245);
-   ix467 : nand02 port map ( Y=>nx466, A0=>MFC, A1=>currentState_4);
-   ix469 : nand02 port map ( Y=>nx468, A0=>loadNextWordList, A1=>nx550);
+      aluNumber_0_EXMPLR, QB=>nx335, D=>nx156, CLK=>nx152);
+   ix157 : nand02 port map ( Y=>nx156, A0=>aluNumber_0_EXMPLR, A1=>nx328);
+   ix329 : oai21 port map ( Y=>nx328, A0=>loadNextWordList, A1=>
+      currentState_0, B0=>nx237);
+   ix153 : oai22 port map ( Y=>nx152, A0=>nx331, A1=>nx333, B0=>NOT_clk, B1
+      =>nx328);
+   ix332 : nand02 port map ( Y=>nx331, A0=>loadNextWordList, A1=>NOT_clk);
+   ix334 : nand02 port map ( Y=>nx333, A0=>ramRead_EXMPLR, A1=>MFC);
    aluNumberCounter_counterReg_reg_Q_1 : dff port map ( Q=>aluNumber(1), QB
-      =>nx475, D=>nx190, CLK=>nx176);
-   ix191 : nand02 port map ( Y=>nx190, A0=>nx463, A1=>nx473);
+      =>nx340, D=>nx166, CLK=>nx152);
+   ix167 : nand02 port map ( Y=>nx166, A0=>nx338, A1=>nx328);
    aluNumberCounter_counterReg_reg_Q_2 : dff port map ( Q=>
-      aluNumber_2_EXMPLR, QB=>OPEN, D=>nx202, CLK=>nx176);
-   ix203 : nand02 port map ( Y=>nx202, A0=>nx463, A1=>nx478);
-   ix479 : xnor2 port map ( Y=>nx478, A0=>aluNumber_2_EXMPLR, A1=>nx198);
-   ix199 : nor02_2x port map ( Y=>nx198, A0=>nx470, A1=>nx475);
-   ix149 : nor02_2x port map ( Y=>readFinal, A0=>nx466, A1=>nx483);
-   ix484 : nor02_2x port map ( Y=>nx483, A0=>nx144, A1=>nx132);
-   ix237 : nor02_2x port map ( Y=>ramRead, A0=>nx349, A1=>nx486);
-   ix487 : nor02_2x port map ( Y=>nx486, A0=>nx232, A1=>nx228);
-   ix233 : nor02_2x port map ( Y=>nx232, A0=>nx552, A1=>nx162);
-   ix131 : nor03_2x port map ( Y=>nx162, A0=>dma_currentCount_2, A1=>
-      dma_currentCount_1, A2=>dma_currentCount_0);
-   ix229 : nor02_2x port map ( Y=>nx228, A0=>clk, A1=>nx491);
-   ix492 : nor02_2x port map ( Y=>nx491, A0=>nx466, A1=>nx138);
+      aluNumber_2_EXMPLR, QB=>OPEN, D=>nx178, CLK=>nx152);
+   ix179 : nand02 port map ( Y=>nx178, A0=>nx343, A1=>nx328);
+   ix344 : xnor2 port map ( Y=>nx343, A0=>aluNumber_2_EXMPLR, A1=>nx174);
+   ix175 : nor02_2x port map ( Y=>nx174, A0=>nx335, A1=>nx340);
+   ix115 : nor02_2x port map ( Y=>readOne_EXMPLR, A0=>NOT_MFC, A1=>nx237);
    dma_tristateLabel_tri_output_0 : trib04 port map ( Y=>internalBus(0), A=>
-      ramDataInBus(0), E=>nx538);
+      ramDataInBus(0), E=>nx393);
    dma_tristateLabel_tri_output_1 : trib04 port map ( Y=>internalBus(1), A=>
-      ramDataInBus(1), E=>nx538);
+      ramDataInBus(1), E=>nx393);
    dma_tristateLabel_tri_output_2 : trib04 port map ( Y=>internalBus(2), A=>
-      ramDataInBus(2), E=>nx538);
+      ramDataInBus(2), E=>nx393);
    dma_tristateLabel_tri_output_3 : trib04 port map ( Y=>internalBus(3), A=>
-      ramDataInBus(3), E=>nx538);
+      ramDataInBus(3), E=>nx393);
    dma_tristateLabel_tri_output_4 : trib04 port map ( Y=>internalBus(4), A=>
-      ramDataInBus(4), E=>nx538);
+      ramDataInBus(4), E=>nx393);
    dma_tristateLabel_tri_output_5 : trib04 port map ( Y=>internalBus(5), A=>
-      ramDataInBus(5), E=>nx538);
+      ramDataInBus(5), E=>nx393);
    dma_tristateLabel_tri_output_6 : trib04 port map ( Y=>internalBus(6), A=>
-      ramDataInBus(6), E=>nx540);
+      ramDataInBus(6), E=>nx393);
    dma_tristateLabel_tri_output_7 : trib04 port map ( Y=>internalBus(7), A=>
-      ramDataInBus(7), E=>nx540);
+      ramDataInBus(7), E=>nx395);
    dma_tristateLabel_tri_output_8 : trib04 port map ( Y=>internalBus(8), A=>
-      ramDataInBus(8), E=>nx540);
+      ramDataInBus(8), E=>nx395);
    dma_tristateLabel_tri_output_9 : trib04 port map ( Y=>internalBus(9), A=>
-      ramDataInBus(9), E=>nx540);
+      ramDataInBus(9), E=>nx395);
    dma_tristateLabel_tri_output_10 : trib04 port map ( Y=>internalBus(10), A
-      =>ramDataInBus(10), E=>nx540);
+      =>ramDataInBus(10), E=>nx395);
    dma_tristateLabel_tri_output_11 : trib04 port map ( Y=>internalBus(11), A
-      =>ramDataInBus(11), E=>nx540);
+      =>ramDataInBus(11), E=>nx395);
    dma_tristateLabel_tri_output_12 : trib04 port map ( Y=>internalBus(12), A
-      =>ramDataInBus(12), E=>nx540);
+      =>ramDataInBus(12), E=>nx395);
    dma_tristateLabel_tri_output_13 : trib04 port map ( Y=>internalBus(13), A
-      =>ramDataInBus(13), E=>nx542);
+      =>ramDataInBus(13), E=>nx395);
    dma_tristateLabel_tri_output_14 : trib04 port map ( Y=>internalBus(14), A
-      =>ramDataInBus(14), E=>nx542);
+      =>ramDataInBus(14), E=>nx397);
    dma_tristateLabel_tri_output_15 : trib04 port map ( Y=>internalBus(15), A
-      =>ramDataInBus(15), E=>nx542);
+      =>ramDataInBus(15), E=>nx397);
    dma_tristateLabel_tri_output_16 : trib04 port map ( Y=>internalBus(16), A
-      =>ramDataInBus(16), E=>nx542);
+      =>ramDataInBus(16), E=>nx397);
    dma_tristateLabel_tri_output_17 : trib04 port map ( Y=>internalBus(17), A
-      =>ramDataInBus(17), E=>nx542);
+      =>ramDataInBus(17), E=>nx397);
    dma_tristateLabel_tri_output_18 : trib04 port map ( Y=>internalBus(18), A
-      =>ramDataInBus(18), E=>nx542);
+      =>ramDataInBus(18), E=>nx397);
    dma_tristateLabel_tri_output_19 : trib04 port map ( Y=>internalBus(19), A
-      =>ramDataInBus(19), E=>nx542);
+      =>ramDataInBus(19), E=>nx397);
    dma_tristateLabel_tri_output_20 : trib04 port map ( Y=>internalBus(20), A
-      =>ramDataInBus(20), E=>nx544);
+      =>ramDataInBus(20), E=>nx397);
    dma_tristateLabel_tri_output_21 : trib04 port map ( Y=>internalBus(21), A
-      =>ramDataInBus(21), E=>nx544);
+      =>ramDataInBus(21), E=>nx399);
    dma_tristateLabel_tri_output_22 : trib04 port map ( Y=>internalBus(22), A
-      =>ramDataInBus(22), E=>nx544);
+      =>ramDataInBus(22), E=>nx399);
    dma_tristateLabel_tri_output_23 : trib04 port map ( Y=>internalBus(23), A
-      =>ramDataInBus(23), E=>nx544);
+      =>ramDataInBus(23), E=>nx399);
    dma_tristateLabel_tri_output_24 : trib04 port map ( Y=>internalBus(24), A
-      =>ramDataInBus(24), E=>nx544);
+      =>ramDataInBus(24), E=>nx399);
    dma_tristateLabel_tri_output_25 : trib04 port map ( Y=>internalBus(25), A
-      =>ramDataInBus(25), E=>nx544);
+      =>ramDataInBus(25), E=>nx399);
    dma_tristateLabel_tri_output_26 : trib04 port map ( Y=>internalBus(26), A
-      =>ramDataInBus(26), E=>nx544);
+      =>ramDataInBus(26), E=>nx399);
    dma_tristateLabel_tri_output_27 : trib04 port map ( Y=>internalBus(27), A
-      =>ramDataInBus(27), E=>nx546);
+      =>ramDataInBus(27), E=>nx399);
    dma_tristateLabel_tri_output_28 : trib04 port map ( Y=>internalBus(28), A
-      =>ramDataInBus(28), E=>nx546);
+      =>ramDataInBus(28), E=>nx401);
    dma_tristateLabel_tri_output_29 : trib04 port map ( Y=>internalBus(29), A
-      =>ramDataInBus(29), E=>nx546);
+      =>ramDataInBus(29), E=>nx401);
    dma_tristateLabel_tri_output_30 : trib04 port map ( Y=>internalBus(30), A
-      =>ramDataInBus(30), E=>nx546);
+      =>ramDataInBus(30), E=>nx401);
    dma_tristateLabel_tri_output_31 : trib04 port map ( Y=>internalBus(31), A
-      =>ramDataInBus(31), E=>nx546);
+      =>ramDataInBus(31), E=>nx401);
    dma_tristateLabel_tri_output_32 : trib04 port map ( Y=>internalBus(32), A
-      =>ramDataInBus(32), E=>nx546);
+      =>ramDataInBus(32), E=>nx401);
    dma_tristateLabel_tri_output_33 : trib04 port map ( Y=>internalBus(33), A
-      =>ramDataInBus(33), E=>nx546);
+      =>ramDataInBus(33), E=>nx401);
    dma_tristateLabel_tri_output_34 : trib04 port map ( Y=>internalBus(34), A
-      =>ramDataInBus(34), E=>nx548);
+      =>ramDataInBus(34), E=>nx401);
    dma_tristateLabel_tri_output_35 : trib04 port map ( Y=>internalBus(35), A
-      =>ramDataInBus(35), E=>nx548);
+      =>ramDataInBus(35), E=>nx403);
    dma_tristateLabel_tri_output_36 : trib04 port map ( Y=>internalBus(36), A
-      =>ramDataInBus(36), E=>nx548);
+      =>ramDataInBus(36), E=>nx403);
    dma_tristateLabel_tri_output_37 : trib04 port map ( Y=>internalBus(37), A
-      =>ramDataInBus(37), E=>nx548);
+      =>ramDataInBus(37), E=>nx403);
    dma_tristateLabel_tri_output_38 : trib04 port map ( Y=>internalBus(38), A
-      =>ramDataInBus(38), E=>nx548);
+      =>ramDataInBus(38), E=>nx403);
    dma_tristateLabel_tri_output_39 : trib04 port map ( Y=>internalBus(39), A
-      =>ramDataInBus(39), E=>nx548);
-   ix537 : buf02 port map ( Y=>nx538, A=>readOne_EXMPLR);
-   ix539 : buf02 port map ( Y=>nx540, A=>readOne_EXMPLR);
-   ix541 : buf02 port map ( Y=>nx542, A=>readOne_EXMPLR);
-   ix543 : buf02 port map ( Y=>nx544, A=>readOne_EXMPLR);
-   ix545 : buf02 port map ( Y=>nx546, A=>readOne_EXMPLR);
-   ix547 : buf02 port map ( Y=>nx548, A=>readOne_EXMPLR);
-   ix549 : inv02 port map ( Y=>nx550, A=>clk);
-   ix551 : inv02 port map ( Y=>nx552, A=>clk);
-   ix553 : inv02 port map ( Y=>nx554, A=>nx245);
-   ix555 : inv02 port map ( Y=>nx556, A=>nx245);
-   ix557 : buf02 port map ( Y=>nx558, A=>nx580);
-   ix559 : inv02 port map ( Y=>nx560, A=>currentState_0);
-   ix561 : inv02 port map ( Y=>nx562, A=>currentState_0);
-   ix563 : inv02 port map ( Y=>nx564, A=>currentState_0);
-   ix565 : inv02 port map ( Y=>nx566, A=>currentState_1);
-   ix567 : inv02 port map ( Y=>nx568, A=>currentState_1);
-   ix569 : inv02 port map ( Y=>nx570, A=>currentState_1);
-   ix571 : buf02 port map ( Y=>nx572, A=>nx315);
-   ix573 : buf02 port map ( Y=>nx574, A=>nx315);
-   ix579 : buf02 port map ( Y=>nx580, A=>nx586);
-   ix585 : buf02 port map ( Y=>nx586, A=>nx592);
-   ix591 : buf02 port map ( Y=>nx592, A=>nx598);
-   ix597 : buf02 port map ( Y=>nx598, A=>nx604);
-   ix603 : buf02 port map ( Y=>nx604, A=>nx18);
-   ix340 : xnor2 port map ( Y=>nx339, A0=>nx319, A1=>nx610);
-   ix99 : nand02 port map ( Y=>nx610, A0=>nx279, A1=>nx295);
-   ix474 : xnor2 port map ( Y=>nx473, A0=>nx475, A1=>nx470);
-   lat_dmaCountIn_2_u1 : latchr port map ( QB=>nx5, D=>nx110, CLK=>nx18, R=>
-      zerosSignal_2);
-   lat_dmaCountIn_2_u2 : inv01 port map ( Y=>nx0, A=>nx5);
-   lat_dmaCountIn_2_u3 : buf02 port map ( Y=>nx331, A=>nx5);
+      =>ramDataInBus(39), E=>nx403);
+   ix392 : buf02 port map ( Y=>nx393, A=>readOne_EXMPLR);
+   ix394 : buf02 port map ( Y=>nx395, A=>readOne_EXMPLR);
+   ix396 : buf02 port map ( Y=>nx397, A=>readOne_EXMPLR);
+   ix398 : buf02 port map ( Y=>nx399, A=>readOne_EXMPLR);
+   ix400 : buf02 port map ( Y=>nx401, A=>readOne_EXMPLR);
+   ix402 : buf02 port map ( Y=>nx403, A=>readOne_EXMPLR);
+   ix404 : buf02 port map ( Y=>nx405, A=>nx291);
+   ix406 : buf02 port map ( Y=>nx407, A=>nx291);
+   ix246 : nor02_2x port map ( Y=>nx245, A0=>nx36, A1=>nx258);
+   ix255 : nor02_2x port map ( Y=>nx254, A0=>nx36, A1=>MFC);
+   ix275 : xnor2 port map ( Y=>nx274, A0=>nx268, A1=>nx413);
+   ix412 : inv01 port map ( Y=>nx413, A=>nx54);
+   ix339 : xnor2 port map ( Y=>nx338, A0=>nx340, A1=>nx335);
+   dma_lat_internalFinishedReading_u1 : latchs_ni port map ( QB=>nx5, D=>
+      addressRegOut_11, CLK=>NOT_MFC, S=>nx118);
+   dma_lat_internalFinishedReading_u2 : inv02 port map ( Y=>readFinal_EXMPLR, 
+      A=>nx5);
+   dma_lat_internalFinishedReading_u3 : buf02 port map ( Y=>nx223, A=>nx5);
+
 end ReadLogicArch_unfold_3059 ;
 
 library IEEE;
@@ -1829,26 +1339,96 @@ architecture WriteDMAArch_unfold_1966 of WriteDMA_13_80 is
    end component ;
    signal toBeAdded_12, toBeAdded_11, toBeAdded_10, toBeAdded_9, toBeAdded_8, 
       toBeAdded_7, toBeAdded_6, toBeAdded_5, toBeAdded_4, toBeAdded_3, 
-      toBeAdded_2, toBeAdded_1, toBeAdded_0, GND, currentCount_2, nx190, 
-      currentCount_1, currentCount_0, nx210, nx240, currentCount_3, nx246, 
-      nx260, nx278, nx280, currentCount_4, nx292, nx300, nx135, nx145, nx155, 
-      nx165, nx175, nx187, nx191, nx197, nx199, nx201, nx205, nx211, nx213, 
-      nx217, nx223, nx227, nx229, nx233, nx235, nx239, nx241, nx242, nx245, 
-      nx247, nx249, nx251, nx255, nx257, nx264, nx267, nx271, nx275, nx277, 
-      nx281, nx287, nx317, nx320, nx323, nx326, nx329, nx332, nx335, nx338, 
-      nx341, nx344, nx347, nx350, nx353, nx356, nx359, nx362, nx365, nx368, 
-      nx371, nx374, nx377, nx380, nx383, nx386, nx389, nx392, nx395, nx398, 
-      nx401, nx404, nx407, nx410, nx413, nx416, nx419, nx422, nx425, nx428, 
-      nx431, nx434, nx437, nx440, nx443, nx446, nx449, nx452, nx455, nx458, 
-      nx461, nx464, nx467, nx470, nx473, nx476, nx479, nx482, nx485, nx488, 
-      nx491, nx494, nx497, nx500, nx503, nx506, nx509, nx512, nx515, nx518, 
-      nx521, nx524, nx527, nx530, nx533, nx536, nx539, nx542, nx545, nx548, 
-      nx551, nx554, nx561, nx563, nx565, nx567, nx569, nx571, nx573, nx575, 
-      nx577, nx579, nx581, nx583, nx589, nx591, nx593, nx595, nx597, nx599, 
-      nx601, nx603, nx605, nx607: std_logic ;
+      toBeAdded_2, toBeAdded_1, toBeAdded_0, GND, NOT_MFC, currentCount_4, 
+      nx82, currentCount_3, nx50, currentCount_2, currentCount_1, 
+      currentCount_0, nx106, nx136, nx160, nx180, nx192, nx210, nx59, nx69, 
+      nx79, nx89, nx99, nx113, nx147, nx155, nx157, nx159, nx163, nx168, 
+      nx171, nx175, nx183, nx185, nx188, nx196, nx199, nx201, nx205, nx207, 
+      nx211, nx213, nx214, nx217, nx218, nx220, nx221, nx223, nx226, nx238, 
+      nx240, nx1, nx5, nx242, nx244, nx246, nx248, nx250: std_logic ;
 
 begin
    ramWrite <= GND ;
+   ramDataOutBus(79) <= GND ;
+   ramDataOutBus(78) <= GND ;
+   ramDataOutBus(77) <= GND ;
+   ramDataOutBus(76) <= GND ;
+   ramDataOutBus(75) <= GND ;
+   ramDataOutBus(74) <= GND ;
+   ramDataOutBus(73) <= GND ;
+   ramDataOutBus(72) <= GND ;
+   ramDataOutBus(71) <= GND ;
+   ramDataOutBus(70) <= GND ;
+   ramDataOutBus(69) <= GND ;
+   ramDataOutBus(68) <= GND ;
+   ramDataOutBus(67) <= GND ;
+   ramDataOutBus(66) <= GND ;
+   ramDataOutBus(65) <= GND ;
+   ramDataOutBus(64) <= GND ;
+   ramDataOutBus(63) <= GND ;
+   ramDataOutBus(62) <= GND ;
+   ramDataOutBus(61) <= GND ;
+   ramDataOutBus(60) <= GND ;
+   ramDataOutBus(59) <= GND ;
+   ramDataOutBus(58) <= GND ;
+   ramDataOutBus(57) <= GND ;
+   ramDataOutBus(56) <= GND ;
+   ramDataOutBus(55) <= GND ;
+   ramDataOutBus(54) <= GND ;
+   ramDataOutBus(53) <= GND ;
+   ramDataOutBus(52) <= GND ;
+   ramDataOutBus(51) <= GND ;
+   ramDataOutBus(50) <= GND ;
+   ramDataOutBus(49) <= GND ;
+   ramDataOutBus(48) <= GND ;
+   ramDataOutBus(47) <= GND ;
+   ramDataOutBus(46) <= GND ;
+   ramDataOutBus(45) <= GND ;
+   ramDataOutBus(44) <= GND ;
+   ramDataOutBus(43) <= GND ;
+   ramDataOutBus(42) <= GND ;
+   ramDataOutBus(41) <= GND ;
+   ramDataOutBus(40) <= GND ;
+   ramDataOutBus(39) <= GND ;
+   ramDataOutBus(38) <= GND ;
+   ramDataOutBus(37) <= GND ;
+   ramDataOutBus(36) <= GND ;
+   ramDataOutBus(35) <= GND ;
+   ramDataOutBus(34) <= GND ;
+   ramDataOutBus(33) <= GND ;
+   ramDataOutBus(32) <= GND ;
+   ramDataOutBus(31) <= GND ;
+   ramDataOutBus(30) <= GND ;
+   ramDataOutBus(29) <= GND ;
+   ramDataOutBus(28) <= GND ;
+   ramDataOutBus(27) <= GND ;
+   ramDataOutBus(26) <= GND ;
+   ramDataOutBus(25) <= GND ;
+   ramDataOutBus(24) <= GND ;
+   ramDataOutBus(23) <= GND ;
+   ramDataOutBus(22) <= GND ;
+   ramDataOutBus(21) <= GND ;
+   ramDataOutBus(20) <= GND ;
+   ramDataOutBus(19) <= GND ;
+   ramDataOutBus(18) <= GND ;
+   ramDataOutBus(17) <= GND ;
+   ramDataOutBus(16) <= GND ;
+   ramDataOutBus(15) <= GND ;
+   ramDataOutBus(14) <= GND ;
+   ramDataOutBus(13) <= GND ;
+   ramDataOutBus(12) <= GND ;
+   ramDataOutBus(11) <= GND ;
+   ramDataOutBus(10) <= GND ;
+   ramDataOutBus(9) <= GND ;
+   ramDataOutBus(8) <= GND ;
+   ramDataOutBus(7) <= GND ;
+   ramDataOutBus(6) <= GND ;
+   ramDataOutBus(5) <= GND ;
+   ramDataOutBus(4) <= GND ;
+   ramDataOutBus(3) <= GND ;
+   ramDataOutBus(2) <= GND ;
+   ramDataOutBus(1) <= GND ;
+   ramDataOutBus(0) <= GND ;
    writeAddressRegister : MultiStepCounter_13 port map ( load(12)=>
       writeBaseAddress(12), load(11)=>writeBaseAddress(11), load(10)=>
       writeBaseAddress(10), load(9)=>writeBaseAddress(9), load(8)=>
@@ -1862,7 +1442,7 @@ begin
       toBeAdded_6, toBeAdded(5)=>toBeAdded_5, toBeAdded(4)=>toBeAdded_4, 
       toBeAdded(3)=>toBeAdded_3, toBeAdded(2)=>toBeAdded_2, toBeAdded(1)=>
       toBeAdded_1, toBeAdded(0)=>toBeAdded_0, reset=>GND, clk=>clk, isLoad=>
-      nx595, MFC=>MFC, count(12)=>ramWriteAddress(12), count(11)=>
+      nx244, MFC=>MFC, count(12)=>ramWriteAddress(12), count(11)=>
       ramWriteAddress(11), count(10)=>ramWriteAddress(10), count(9)=>
       ramWriteAddress(9), count(8)=>ramWriteAddress(8), count(7)=>
       ramWriteAddress(7), count(6)=>ramWriteAddress(6), count(5)=>
@@ -1870,269 +1450,93 @@ begin
       ramWriteAddress(3), count(2)=>ramWriteAddress(2), count(1)=>
       ramWriteAddress(1), count(0)=>ramWriteAddress(0));
    ix11 : fake_gnd port map ( Y=>GND);
-   ix303 : nor02ii port map ( Y=>writeComplete, A0=>nx187, A1=>nx300);
-   ix188 : nor02_2x port map ( Y=>nx187, A0=>nx280, A1=>nx278);
-   ix281 : nor03_2x port map ( Y=>nx280, A0=>nx191, A1=>currentCount_3, A2=>
-      nx251);
-   ix192 : inv01 port map ( Y=>nx191, A=>clk);
-   writecounter_counterReg_reg_Q_3 : dff port map ( Q=>currentCount_3, QB=>
-      nx249, D=>nx165, CLK=>clk);
-   ix166 : nand02 port map ( Y=>nx165, A0=>nx197, A1=>nx201);
-   ix198 : nand02 port map ( Y=>nx197, A0=>currentCount_3, A1=>nx199);
-   ix200 : nor02_2x port map ( Y=>nx199, A0=>MFC, A1=>nx595);
-   ix202 : nand02 port map ( Y=>nx201, A0=>nx260, A1=>nx190);
-   ix261 : oai21 port map ( Y=>nx260, A0=>nx595, A1=>nx205, B0=>nx247);
-   writecounter_counterReg_reg_Q_2 : dff port map ( Q=>currentCount_2, QB=>
-      nx245, D=>nx155, CLK=>clk);
-   ix156 : nand02 port map ( Y=>nx155, A0=>nx211, A1=>nx213);
-   ix212 : nand02 port map ( Y=>nx211, A0=>currentCount_2, A1=>nx199);
-   ix214 : nand02 port map ( Y=>nx213, A0=>nx240, A1=>nx190);
-   ix241 : oai21 port map ( Y=>nx240, A0=>nx595, A1=>nx217, B0=>nx242);
-   writecounter_counterReg_reg_Q_1 : dff port map ( Q=>currentCount_1, QB=>
-      nx241, D=>nx145, CLK=>clk);
-   ix146 : oai21 port map ( Y=>nx145, A0=>nx223, A1=>nx199, B0=>nx239);
-   ix224 : aoi21 port map ( Y=>nx223, A0=>counter(1), A1=>nx595, B0=>nx210);
-   ix211 : nor02_2x port map ( Y=>nx210, A0=>nx595, A1=>nx227);
-   ix136 : oai21 port map ( Y=>nx135, A0=>nx233, A1=>nx199, B0=>nx235);
-   ix234 : mux21 port map ( Y=>nx233, A0=>nx229, A1=>counter(0), S0=>nx595);
-   ix236 : nand02 port map ( Y=>nx235, A0=>currentCount_0, A1=>nx199);
-   writecounter_counterReg_reg_Q_0 : dff port map ( Q=>currentCount_0, QB=>
-      nx229, D=>nx135, CLK=>clk);
-   ix240 : nand02 port map ( Y=>nx239, A0=>currentCount_1, A1=>nx199);
-   ix243 : nand02 port map ( Y=>nx242, A0=>counter(2), A1=>nx597);
-   ix191 : inv01 port map ( Y=>nx190, A=>nx199);
-   ix248 : nand02 port map ( Y=>nx247, A0=>counter(3), A1=>nx597);
-   ix252 : nand03 port map ( Y=>nx251, A0=>nx245, A1=>nx241, A2=>nx229);
-   ix279 : nor03_2x port map ( Y=>nx278, A0=>currentCount_2, A1=>nx255, A2=>
-      nx257);
-   ix256 : nand02 port map ( Y=>nx255, A0=>nx191, A1=>nx249);
-   ix258 : nand02 port map ( Y=>nx257, A0=>nx241, A1=>currentCount_0);
-   ix301 : nor02_2x port map ( Y=>nx300, A0=>currentCount_4, A1=>nx281);
-   writecounter_counterReg_reg_Q_4 : dff port map ( Q=>currentCount_4, QB=>
-      OPEN, D=>nx175, CLK=>clk);
-   ix176 : nand02 port map ( Y=>nx175, A0=>nx264, A1=>nx267);
-   ix266 : nand02 port map ( Y=>nx264, A0=>currentCount_4, A1=>nx199);
-   ix268 : nand02 port map ( Y=>nx267, A0=>nx292, A1=>nx190);
-   ix293 : oai21 port map ( Y=>nx292, A0=>nx597, A1=>nx271, B0=>nx277);
-   ix272 : xnor2 port map ( Y=>nx271, A0=>currentCount_4, A1=>nx246);
-   ix247 : nor03_2x port map ( Y=>nx246, A0=>currentCount_3, A1=>
-      currentCount_2, A2=>nx275);
-   ix276 : nand02 port map ( Y=>nx275, A0=>nx241, A1=>nx229);
-   ix278 : nand02 port map ( Y=>nx277, A0=>counter(4), A1=>nx597);
-   ix282 : nand02 port map ( Y=>nx281, A0=>nx603, A1=>MFC);
-   ix297 : nor02_2x port map ( Y=>writeCompleteOne, A0=>nx607, A1=>nx287);
-   ix288 : inv01 port map ( Y=>nx287, A=>MFC);
+   ix203 : nor02_2x port map ( Y=>writeCompleteOne, A0=>nx113, A1=>NOT_MFC);
+   ix114 : inv01 port map ( Y=>nx113, A=>writeToRam);
+   ix116 : inv16 port map ( Y=>NOT_MFC, A=>MFC);
    writeStepRegister_reg_Q_0 : dff port map ( Q=>toBeAdded_0, QB=>OPEN, D=>
-      writeStep(0), CLK=>nx597);
+      writeStep(0), CLK=>nx244);
    writeStepRegister_reg_Q_1 : dff port map ( Q=>toBeAdded_1, QB=>OPEN, D=>
-      writeStep(1), CLK=>nx597);
+      writeStep(1), CLK=>nx244);
    writeStepRegister_reg_Q_2 : dff port map ( Q=>toBeAdded_2, QB=>OPEN, D=>
-      writeStep(2), CLK=>nx597);
+      writeStep(2), CLK=>nx244);
    writeStepRegister_reg_Q_3 : dff port map ( Q=>toBeAdded_3, QB=>OPEN, D=>
-      writeStep(3), CLK=>nx599);
+      writeStep(3), CLK=>nx244);
    writeStepRegister_reg_Q_4 : dff port map ( Q=>toBeAdded_4, QB=>OPEN, D=>
-      writeStep(4), CLK=>nx599);
+      writeStep(4), CLK=>nx244);
    writeStepRegister_reg_Q_5 : dff port map ( Q=>toBeAdded_5, QB=>OPEN, D=>
-      writeStep(5), CLK=>nx599);
+      writeStep(5), CLK=>nx244);
    writeStepRegister_reg_Q_6 : dff port map ( Q=>toBeAdded_6, QB=>OPEN, D=>
-      writeStep(6), CLK=>nx599);
+      writeStep(6), CLK=>nx246);
    writeStepRegister_reg_Q_7 : dff port map ( Q=>toBeAdded_7, QB=>OPEN, D=>
-      writeStep(7), CLK=>nx599);
+      writeStep(7), CLK=>nx246);
    writeStepRegister_reg_Q_8 : dff port map ( Q=>toBeAdded_8, QB=>OPEN, D=>
-      writeStep(8), CLK=>nx599);
+      writeStep(8), CLK=>nx246);
    writeStepRegister_reg_Q_9 : dff port map ( Q=>toBeAdded_9, QB=>OPEN, D=>
-      writeStep(9), CLK=>nx599);
+      writeStep(9), CLK=>nx246);
    writeStepRegister_reg_Q_10 : dff port map ( Q=>toBeAdded_10, QB=>OPEN, D
-      =>writeStep(10), CLK=>nx601);
+      =>writeStep(10), CLK=>nx246);
    writeStepRegister_reg_Q_11 : dff port map ( Q=>toBeAdded_11, QB=>OPEN, D
-      =>writeStep(11), CLK=>nx601);
+      =>writeStep(11), CLK=>nx246);
    writeStepRegister_reg_Q_12 : dff port map ( Q=>toBeAdded_12, QB=>OPEN, D
-      =>writeStep(12), CLK=>nx601);
-   ix31 : nor02_2x port map ( Y=>ramDataOutBus(0), A0=>nx317, A1=>nx607);
-   ix318 : inv01 port map ( Y=>nx317, A=>internalBus(0));
-   ix33 : nor02_2x port map ( Y=>ramDataOutBus(1), A0=>nx320, A1=>nx607);
-   ix321 : inv01 port map ( Y=>nx320, A=>internalBus(1));
-   ix35 : nor02_2x port map ( Y=>ramDataOutBus(2), A0=>nx323, A1=>nx607);
-   ix324 : inv01 port map ( Y=>nx323, A=>internalBus(2));
-   ix37 : nor02_2x port map ( Y=>ramDataOutBus(3), A0=>nx326, A1=>nx607);
-   ix327 : inv01 port map ( Y=>nx326, A=>internalBus(3));
-   ix39 : nor02_2x port map ( Y=>ramDataOutBus(4), A0=>nx329, A1=>nx607);
-   ix330 : inv01 port map ( Y=>nx329, A=>internalBus(4));
-   ix41 : nor02_2x port map ( Y=>ramDataOutBus(5), A0=>nx332, A1=>nx607);
-   ix333 : inv01 port map ( Y=>nx332, A=>internalBus(5));
-   ix43 : nor02_2x port map ( Y=>ramDataOutBus(6), A0=>nx335, A1=>nx563);
-   ix336 : inv01 port map ( Y=>nx335, A=>internalBus(6));
-   ix45 : nor02_2x port map ( Y=>ramDataOutBus(7), A0=>nx338, A1=>nx563);
-   ix339 : inv01 port map ( Y=>nx338, A=>internalBus(7));
-   ix47 : nor02_2x port map ( Y=>ramDataOutBus(8), A0=>nx341, A1=>nx563);
-   ix342 : inv01 port map ( Y=>nx341, A=>internalBus(8));
-   ix49 : nor02_2x port map ( Y=>ramDataOutBus(9), A0=>nx344, A1=>nx563);
-   ix345 : inv01 port map ( Y=>nx344, A=>internalBus(9));
-   ix51 : nor02_2x port map ( Y=>ramDataOutBus(10), A0=>nx347, A1=>nx563);
-   ix348 : inv01 port map ( Y=>nx347, A=>internalBus(10));
-   ix53 : nor02_2x port map ( Y=>ramDataOutBus(11), A0=>nx350, A1=>nx563);
-   ix351 : inv01 port map ( Y=>nx350, A=>internalBus(11));
-   ix55 : nor02_2x port map ( Y=>ramDataOutBus(12), A0=>nx353, A1=>nx563);
-   ix354 : inv01 port map ( Y=>nx353, A=>internalBus(12));
-   ix57 : nor02_2x port map ( Y=>ramDataOutBus(13), A0=>nx356, A1=>nx565);
-   ix357 : inv01 port map ( Y=>nx356, A=>internalBus(13));
-   ix59 : nor02_2x port map ( Y=>ramDataOutBus(14), A0=>nx359, A1=>nx565);
-   ix360 : inv01 port map ( Y=>nx359, A=>internalBus(14));
-   ix61 : nor02_2x port map ( Y=>ramDataOutBus(15), A0=>nx362, A1=>nx565);
-   ix363 : inv01 port map ( Y=>nx362, A=>internalBus(15));
-   ix63 : nor02_2x port map ( Y=>ramDataOutBus(16), A0=>nx365, A1=>nx565);
-   ix366 : inv01 port map ( Y=>nx365, A=>internalBus(16));
-   ix65 : nor02_2x port map ( Y=>ramDataOutBus(17), A0=>nx368, A1=>nx565);
-   ix369 : inv01 port map ( Y=>nx368, A=>internalBus(17));
-   ix67 : nor02_2x port map ( Y=>ramDataOutBus(18), A0=>nx371, A1=>nx565);
-   ix372 : inv01 port map ( Y=>nx371, A=>internalBus(18));
-   ix69 : nor02_2x port map ( Y=>ramDataOutBus(19), A0=>nx374, A1=>nx565);
-   ix375 : inv01 port map ( Y=>nx374, A=>internalBus(19));
-   ix71 : nor02_2x port map ( Y=>ramDataOutBus(20), A0=>nx377, A1=>nx567);
-   ix378 : inv01 port map ( Y=>nx377, A=>internalBus(20));
-   ix73 : nor02_2x port map ( Y=>ramDataOutBus(21), A0=>nx380, A1=>nx567);
-   ix381 : inv01 port map ( Y=>nx380, A=>internalBus(21));
-   ix75 : nor02_2x port map ( Y=>ramDataOutBus(22), A0=>nx383, A1=>nx567);
-   ix384 : inv01 port map ( Y=>nx383, A=>internalBus(22));
-   ix77 : nor02_2x port map ( Y=>ramDataOutBus(23), A0=>nx386, A1=>nx567);
-   ix387 : inv01 port map ( Y=>nx386, A=>internalBus(23));
-   ix79 : nor02_2x port map ( Y=>ramDataOutBus(24), A0=>nx389, A1=>nx567);
-   ix390 : inv01 port map ( Y=>nx389, A=>internalBus(24));
-   ix81 : nor02_2x port map ( Y=>ramDataOutBus(25), A0=>nx392, A1=>nx567);
-   ix393 : inv01 port map ( Y=>nx392, A=>internalBus(25));
-   ix83 : nor02_2x port map ( Y=>ramDataOutBus(26), A0=>nx395, A1=>nx567);
-   ix396 : inv01 port map ( Y=>nx395, A=>internalBus(26));
-   ix85 : nor02_2x port map ( Y=>ramDataOutBus(27), A0=>nx398, A1=>nx569);
-   ix399 : inv01 port map ( Y=>nx398, A=>internalBus(27));
-   ix87 : nor02_2x port map ( Y=>ramDataOutBus(28), A0=>nx401, A1=>nx569);
-   ix402 : inv01 port map ( Y=>nx401, A=>internalBus(28));
-   ix89 : nor02_2x port map ( Y=>ramDataOutBus(29), A0=>nx404, A1=>nx569);
-   ix405 : inv01 port map ( Y=>nx404, A=>internalBus(29));
-   ix91 : nor02_2x port map ( Y=>ramDataOutBus(30), A0=>nx407, A1=>nx569);
-   ix408 : inv01 port map ( Y=>nx407, A=>internalBus(30));
-   ix93 : nor02_2x port map ( Y=>ramDataOutBus(31), A0=>nx410, A1=>nx569);
-   ix411 : inv01 port map ( Y=>nx410, A=>internalBus(31));
-   ix95 : nor02_2x port map ( Y=>ramDataOutBus(32), A0=>nx413, A1=>nx569);
-   ix414 : inv01 port map ( Y=>nx413, A=>internalBus(32));
-   ix97 : nor02_2x port map ( Y=>ramDataOutBus(33), A0=>nx416, A1=>nx569);
-   ix417 : inv01 port map ( Y=>nx416, A=>internalBus(33));
-   ix99 : nor02_2x port map ( Y=>ramDataOutBus(34), A0=>nx419, A1=>nx571);
-   ix420 : inv01 port map ( Y=>nx419, A=>internalBus(34));
-   ix101 : nor02_2x port map ( Y=>ramDataOutBus(35), A0=>nx422, A1=>nx571);
-   ix423 : inv01 port map ( Y=>nx422, A=>internalBus(35));
-   ix103 : nor02_2x port map ( Y=>ramDataOutBus(36), A0=>nx425, A1=>nx571);
-   ix426 : inv01 port map ( Y=>nx425, A=>internalBus(36));
-   ix105 : nor02_2x port map ( Y=>ramDataOutBus(37), A0=>nx428, A1=>nx571);
-   ix429 : inv01 port map ( Y=>nx428, A=>internalBus(37));
-   ix107 : nor02_2x port map ( Y=>ramDataOutBus(38), A0=>nx431, A1=>nx571);
-   ix432 : inv01 port map ( Y=>nx431, A=>internalBus(38));
-   ix109 : nor02_2x port map ( Y=>ramDataOutBus(39), A0=>nx434, A1=>nx571);
-   ix435 : inv01 port map ( Y=>nx434, A=>internalBus(39));
-   ix111 : nor02_2x port map ( Y=>ramDataOutBus(40), A0=>nx437, A1=>nx571);
-   ix438 : inv01 port map ( Y=>nx437, A=>internalBus(40));
-   ix113 : nor02_2x port map ( Y=>ramDataOutBus(41), A0=>nx440, A1=>nx573);
-   ix441 : inv01 port map ( Y=>nx440, A=>internalBus(41));
-   ix115 : nor02_2x port map ( Y=>ramDataOutBus(42), A0=>nx443, A1=>nx573);
-   ix444 : inv01 port map ( Y=>nx443, A=>internalBus(42));
-   ix117 : nor02_2x port map ( Y=>ramDataOutBus(43), A0=>nx446, A1=>nx573);
-   ix447 : inv01 port map ( Y=>nx446, A=>internalBus(43));
-   ix119 : nor02_2x port map ( Y=>ramDataOutBus(44), A0=>nx449, A1=>nx573);
-   ix450 : inv01 port map ( Y=>nx449, A=>internalBus(44));
-   ix121 : nor02_2x port map ( Y=>ramDataOutBus(45), A0=>nx452, A1=>nx573);
-   ix453 : inv01 port map ( Y=>nx452, A=>internalBus(45));
-   ix123 : nor02_2x port map ( Y=>ramDataOutBus(46), A0=>nx455, A1=>nx573);
-   ix456 : inv01 port map ( Y=>nx455, A=>internalBus(46));
-   ix125 : nor02_2x port map ( Y=>ramDataOutBus(47), A0=>nx458, A1=>nx573);
-   ix459 : inv01 port map ( Y=>nx458, A=>internalBus(47));
-   ix127 : nor02_2x port map ( Y=>ramDataOutBus(48), A0=>nx461, A1=>nx575);
-   ix462 : inv01 port map ( Y=>nx461, A=>internalBus(48));
-   ix129 : nor02_2x port map ( Y=>ramDataOutBus(49), A0=>nx464, A1=>nx575);
-   ix465 : inv01 port map ( Y=>nx464, A=>internalBus(49));
-   ix131 : nor02_2x port map ( Y=>ramDataOutBus(50), A0=>nx467, A1=>nx575);
-   ix468 : inv01 port map ( Y=>nx467, A=>internalBus(50));
-   ix133 : nor02_2x port map ( Y=>ramDataOutBus(51), A0=>nx470, A1=>nx575);
-   ix471 : inv01 port map ( Y=>nx470, A=>internalBus(51));
-   ix135 : nor02_2x port map ( Y=>ramDataOutBus(52), A0=>nx473, A1=>nx575);
-   ix474 : inv01 port map ( Y=>nx473, A=>internalBus(52));
-   ix137 : nor02_2x port map ( Y=>ramDataOutBus(53), A0=>nx476, A1=>nx575);
-   ix477 : inv01 port map ( Y=>nx476, A=>internalBus(53));
-   ix139 : nor02_2x port map ( Y=>ramDataOutBus(54), A0=>nx479, A1=>nx575);
-   ix480 : inv01 port map ( Y=>nx479, A=>internalBus(54));
-   ix141 : nor02_2x port map ( Y=>ramDataOutBus(55), A0=>nx482, A1=>nx577);
-   ix483 : inv01 port map ( Y=>nx482, A=>internalBus(55));
-   ix143 : nor02_2x port map ( Y=>ramDataOutBus(56), A0=>nx485, A1=>nx577);
-   ix486 : inv01 port map ( Y=>nx485, A=>internalBus(56));
-   ix145 : nor02_2x port map ( Y=>ramDataOutBus(57), A0=>nx488, A1=>nx577);
-   ix489 : inv01 port map ( Y=>nx488, A=>internalBus(57));
-   ix147 : nor02_2x port map ( Y=>ramDataOutBus(58), A0=>nx491, A1=>nx577);
-   ix492 : inv01 port map ( Y=>nx491, A=>internalBus(58));
-   ix149 : nor02_2x port map ( Y=>ramDataOutBus(59), A0=>nx494, A1=>nx577);
-   ix495 : inv01 port map ( Y=>nx494, A=>internalBus(59));
-   ix151 : nor02_2x port map ( Y=>ramDataOutBus(60), A0=>nx497, A1=>nx577);
-   ix498 : inv01 port map ( Y=>nx497, A=>internalBus(60));
-   ix153 : nor02_2x port map ( Y=>ramDataOutBus(61), A0=>nx500, A1=>nx577);
-   ix501 : inv01 port map ( Y=>nx500, A=>internalBus(61));
-   ix155 : nor02_2x port map ( Y=>ramDataOutBus(62), A0=>nx503, A1=>nx579);
-   ix504 : inv01 port map ( Y=>nx503, A=>internalBus(62));
-   ix157 : nor02_2x port map ( Y=>ramDataOutBus(63), A0=>nx506, A1=>nx579);
-   ix507 : inv01 port map ( Y=>nx506, A=>internalBus(63));
-   ix159 : nor02_2x port map ( Y=>ramDataOutBus(64), A0=>nx509, A1=>nx579);
-   ix510 : inv01 port map ( Y=>nx509, A=>internalBus(64));
-   ix161 : nor02_2x port map ( Y=>ramDataOutBus(65), A0=>nx512, A1=>nx579);
-   ix513 : inv01 port map ( Y=>nx512, A=>internalBus(65));
-   ix163 : nor02_2x port map ( Y=>ramDataOutBus(66), A0=>nx515, A1=>nx579);
-   ix516 : inv01 port map ( Y=>nx515, A=>internalBus(66));
-   ix165 : nor02_2x port map ( Y=>ramDataOutBus(67), A0=>nx518, A1=>nx579);
-   ix519 : inv01 port map ( Y=>nx518, A=>internalBus(67));
-   ix167 : nor02_2x port map ( Y=>ramDataOutBus(68), A0=>nx521, A1=>nx579);
-   ix522 : inv01 port map ( Y=>nx521, A=>internalBus(68));
-   ix169 : nor02_2x port map ( Y=>ramDataOutBus(69), A0=>nx524, A1=>nx581);
-   ix525 : inv01 port map ( Y=>nx524, A=>internalBus(69));
-   ix171 : nor02_2x port map ( Y=>ramDataOutBus(70), A0=>nx527, A1=>nx581);
-   ix528 : inv01 port map ( Y=>nx527, A=>internalBus(70));
-   ix173 : nor02_2x port map ( Y=>ramDataOutBus(71), A0=>nx530, A1=>nx581);
-   ix531 : inv01 port map ( Y=>nx530, A=>internalBus(71));
-   ix175 : nor02_2x port map ( Y=>ramDataOutBus(72), A0=>nx533, A1=>nx581);
-   ix534 : inv01 port map ( Y=>nx533, A=>internalBus(72));
-   ix177 : nor02_2x port map ( Y=>ramDataOutBus(73), A0=>nx536, A1=>nx581);
-   ix537 : inv01 port map ( Y=>nx536, A=>internalBus(73));
-   ix179 : nor02_2x port map ( Y=>ramDataOutBus(74), A0=>nx539, A1=>nx581);
-   ix540 : inv01 port map ( Y=>nx539, A=>internalBus(74));
-   ix181 : nor02_2x port map ( Y=>ramDataOutBus(75), A0=>nx542, A1=>nx581);
-   ix543 : inv01 port map ( Y=>nx542, A=>internalBus(75));
-   ix183 : nor02_2x port map ( Y=>ramDataOutBus(76), A0=>nx545, A1=>nx583);
-   ix546 : inv01 port map ( Y=>nx545, A=>internalBus(76));
-   ix185 : nor02_2x port map ( Y=>ramDataOutBus(77), A0=>nx548, A1=>nx583);
-   ix549 : inv01 port map ( Y=>nx548, A=>internalBus(77));
-   ix187 : nor02_2x port map ( Y=>ramDataOutBus(78), A0=>nx551, A1=>nx583);
-   ix552 : inv01 port map ( Y=>nx551, A=>internalBus(78));
-   ix189 : nor02_2x port map ( Y=>ramDataOutBus(79), A0=>nx554, A1=>nx583);
-   ix555 : inv01 port map ( Y=>nx554, A=>internalBus(79));
-   ix560 : inv02 port map ( Y=>nx561, A=>writeToRam);
-   ix562 : inv02 port map ( Y=>nx563, A=>nx603);
-   ix564 : inv02 port map ( Y=>nx565, A=>nx603);
-   ix566 : inv02 port map ( Y=>nx567, A=>nx603);
-   ix568 : inv02 port map ( Y=>nx569, A=>nx603);
-   ix570 : inv02 port map ( Y=>nx571, A=>nx603);
-   ix572 : inv02 port map ( Y=>nx573, A=>nx603);
-   ix574 : inv02 port map ( Y=>nx575, A=>nx605);
-   ix576 : inv02 port map ( Y=>nx577, A=>nx605);
-   ix578 : inv02 port map ( Y=>nx579, A=>nx605);
-   ix580 : inv02 port map ( Y=>nx581, A=>nx605);
-   ix582 : inv02 port map ( Y=>nx583, A=>nx605);
-   ix206 : xnor2 port map ( Y=>nx205, A0=>nx249, A1=>nx589);
-   ix227 : nand03 port map ( Y=>nx589, A0=>nx245, A1=>nx241, A2=>nx229);
-   ix218 : xnor2 port map ( Y=>nx217, A0=>nx245, A1=>nx591);
-   ix223 : nand02 port map ( Y=>nx591, A0=>nx241, A1=>nx229);
-   ix228 : xnor2 port map ( Y=>nx227, A0=>nx241, A1=>currentCount_0);
-   ix592 : inv01 port map ( Y=>nx593, A=>initCounter);
-   ix594 : inv02 port map ( Y=>nx595, A=>nx593);
-   ix596 : inv02 port map ( Y=>nx597, A=>nx593);
-   ix598 : inv02 port map ( Y=>nx599, A=>nx593);
-   ix600 : inv02 port map ( Y=>nx601, A=>nx593);
-   ix602 : inv02 port map ( Y=>nx603, A=>nx561);
-   ix604 : inv02 port map ( Y=>nx605, A=>nx561);
-   ix606 : inv02 port map ( Y=>nx607, A=>writeToRam);
+      =>writeStep(12), CLK=>nx246);
+   ix211 : nor02_2x port map ( Y=>nx210, A0=>nx147, A1=>nx226);
+   ix148 : nand03 port map ( Y=>nx147, A0=>nx192, A1=>nx220, A2=>nx217);
+   ix193 : nor02_2x port map ( Y=>nx192, A0=>clk, A1=>currentCount_4);
+   writecounter_counterReg_reg_Q_4 : dff port map ( Q=>currentCount_4, QB=>
+      OPEN, D=>nx99, CLK=>clk);
+   ix100 : nand02 port map ( Y=>nx99, A0=>nx155, A1=>nx159);
+   ix156 : nand02 port map ( Y=>nx155, A0=>currentCount_4, A1=>nx157);
+   ix158 : nor02_2x port map ( Y=>nx157, A0=>MFC, A1=>nx248);
+   ix160 : nand02 port map ( Y=>nx159, A0=>nx180, A1=>nx82);
+   ix181 : oai21 port map ( Y=>nx180, A0=>nx248, A1=>nx163, B0=>nx223);
+   ix164 : xnor2 port map ( Y=>nx163, A0=>currentCount_4, A1=>nx50);
+   ix171 : nor03_2x port map ( Y=>nx50, A0=>currentCount_3, A1=>
+      currentCount_2, A2=>nx221);
+   writecounter_counterReg_reg_Q_3 : dff port map ( Q=>currentCount_3, QB=>
+      nx220, D=>nx89, CLK=>clk);
+   ix90 : nand02 port map ( Y=>nx89, A0=>nx168, A1=>nx171);
+   ix170 : nand02 port map ( Y=>nx168, A0=>currentCount_3, A1=>nx157);
+   ix172 : nand02 port map ( Y=>nx171, A0=>nx160, A1=>nx82);
+   ix161 : oai21 port map ( Y=>nx160, A0=>nx248, A1=>nx175, B0=>nx218);
+   writecounter_counterReg_reg_Q_2 : dff port map ( Q=>currentCount_2, QB=>
+      nx217, D=>nx79, CLK=>clk);
+   ix80 : nand02 port map ( Y=>nx79, A0=>nx183, A1=>nx185);
+   ix184 : nand02 port map ( Y=>nx183, A0=>currentCount_2, A1=>nx157);
+   ix186 : nand02 port map ( Y=>nx185, A0=>nx136, A1=>nx82);
+   ix137 : oai21 port map ( Y=>nx136, A0=>nx248, A1=>nx188, B0=>nx214);
+   writecounter_counterReg_reg_Q_1 : dff port map ( Q=>currentCount_1, QB=>
+      nx213, D=>nx69, CLK=>clk);
+   ix70 : oai21 port map ( Y=>nx69, A0=>nx196, A1=>nx157, B0=>nx211);
+   ix197 : aoi21 port map ( Y=>nx196, A0=>counter(1), A1=>nx248, B0=>nx106);
+   ix107 : nor02_2x port map ( Y=>nx106, A0=>nx248, A1=>nx199);
+   ix60 : oai21 port map ( Y=>nx59, A0=>nx205, A1=>nx157, B0=>nx207);
+   ix206 : mux21 port map ( Y=>nx205, A0=>nx201, A1=>counter(0), S0=>nx248);
+   ix208 : nand02 port map ( Y=>nx207, A0=>currentCount_0, A1=>nx157);
+   writecounter_counterReg_reg_Q_0 : dff port map ( Q=>currentCount_0, QB=>
+      nx201, D=>nx59, CLK=>clk);
+   ix212 : nand02 port map ( Y=>nx211, A0=>currentCount_1, A1=>nx157);
+   ix215 : nand02 port map ( Y=>nx214, A0=>counter(2), A1=>nx250);
+   ix83 : inv01 port map ( Y=>nx82, A=>nx157);
+   ix219 : nand02 port map ( Y=>nx218, A0=>counter(3), A1=>nx250);
+   ix222 : nand02 port map ( Y=>nx221, A0=>nx213, A1=>nx201);
+   ix224 : nand02 port map ( Y=>nx223, A0=>counter(4), A1=>nx250);
+   ix227 : nand04 port map ( Y=>nx226, A0=>writeToRam, A1=>MFC, A2=>nx213, 
+      A3=>currentCount_0);
+   ix176 : xnor2 port map ( Y=>nx175, A0=>nx220, A1=>nx238);
+   ix147 : nand03 port map ( Y=>nx238, A0=>nx217, A1=>nx213, A2=>nx201);
+   ix190 : xnor2 port map ( Y=>nx188, A0=>nx217, A1=>nx240);
+   ix123 : nand02 port map ( Y=>nx240, A0=>nx213, A1=>nx201);
+   ix200 : xnor2 port map ( Y=>nx199, A0=>nx213, A1=>currentCount_0);
+   lat_internalWriteComplete_u1 : latchs_ni port map ( QB=>nx5, D=>GND, CLK
+      =>NOT_MFC, S=>nx210);
+   lat_internalWriteComplete_u2 : inv02 port map ( Y=>writeComplete, A=>nx5
+   );
+   lat_internalWriteComplete_u3 : buf02 port map ( Y=>nx1, A=>nx5);
+   ix241 : inv01 port map ( Y=>nx242, A=>initCounter);
+   ix243 : inv02 port map ( Y=>nx244, A=>nx242);
+   ix245 : inv02 port map ( Y=>nx246, A=>nx242);
+   ix247 : inv02 port map ( Y=>nx248, A=>nx242);
+   ix249 : inv02 port map ( Y=>nx250, A=>nx242);
 end WriteDMAArch_unfold_1966 ;
 
 library IEEE;
@@ -2182,24 +1586,106 @@ architecture WriteLogicArch_unfold_2859 of WriteLogic_13_80 is
          isLoad : IN std_logic ;
          count : OUT std_logic_vector (12 DOWNTO 0)) ;
    end component ;
-   signal writeDone_EXMPLR, currentState_2, addressRegOut_12, 
+   signal writeDone_EXMPLR, currentState_2, currentState_1, addressRegOut_12, 
       addressRegOut_11, addressRegOut_10, addressRegOut_9, addressRegOut_8, 
       addressRegOut_7, addressRegOut_6, addressRegOut_5, addressRegOut_4, 
       addressRegOut_3, addressRegOut_2, addressRegOut_1, addressRegOut_0, 
-      addressRegIn_12, addressRegIn_11, addressRegIn_10, addressRegIn_9, 
-      addressRegIn_8, addressRegIn_7, addressRegIn_6, addressRegIn_5, 
-      addressRegIn_4, addressRegIn_3, addressRegIn_2, addressRegIn_1, 
-      addressRegIn_0, baseAddressCounterClk, dmaCountIn_4, dmaCountIn_3, 
-      dmaCountIn_2, dmaCountIn_1, dmaCountIn_0, ramWrite_EXMPLR, nextState_1, 
-      currentState_4, nx44, NOT_clk, currentState_3, currentState_0, nx38, 
-      nx42, nx51, nx61, nx71, nx81, nx91, nx102, nx104, nx107, nx109, nx113, 
-      nx117, nx121, nx125, nx130, nx133, nx135, nx137, nx139, nx143, nx145, 
-      nx148, nx151, nx154, nx157, nx160, nx181, nx183, nx185: std_logic ;
+      baseAddressCounterClk, addressRegIn_12, addressRegIn_11, 
+      addressRegIn_10, addressRegIn_9, addressRegIn_8, addressRegIn_7, 
+      addressRegIn_6, addressRegIn_5, addressRegIn_4, addressRegIn_3, 
+      addressRegIn_2, addressRegIn_1, addressRegIn_0, dmaCountIn_4, 
+      dmaCountIn_3, dmaCountIn_2, dmaCountIn_1, dmaCountIn_0, 
+      ramWrite_EXMPLR, nextState_1, currentState_4, currentState_0, nx31, 
+      NOT_clk, nx22, nx26, currentState_3, nx39, nx49, nx59, nx69, nx79, 
+      nx91, nx93, nx96, nx98, nx102, nx106, nx110, nx119, nx122, nx124, 
+      nx126, nx128, nx132, nx134, nx137, nx140, nx143, nx146, nx149, nx152, 
+      nx155, nx158, nx161, nx164, nx167, nx170, nx173, nx176, nx179, nx182, 
+      nx185, nx188, nx196, nx198, nx200: std_logic ;
    
-   signal DANGLING : std_logic_vector (0 downto 0 );
+   signal DANGLING : std_logic_vector (80 downto 0 );
 
 begin
    ramWrite <= ramWrite_EXMPLR ;
+   ramDataOutBus(79) <= nextState_1 ;
+   ramDataOutBus(78) <= nextState_1 ;
+   ramDataOutBus(77) <= nextState_1 ;
+   ramDataOutBus(76) <= nextState_1 ;
+   ramDataOutBus(75) <= nextState_1 ;
+   ramDataOutBus(74) <= nextState_1 ;
+   ramDataOutBus(73) <= nextState_1 ;
+   ramDataOutBus(72) <= nextState_1 ;
+   ramDataOutBus(71) <= nextState_1 ;
+   ramDataOutBus(70) <= nextState_1 ;
+   ramDataOutBus(69) <= nextState_1 ;
+   ramDataOutBus(68) <= nextState_1 ;
+   ramDataOutBus(67) <= nextState_1 ;
+   ramDataOutBus(66) <= nextState_1 ;
+   ramDataOutBus(65) <= nextState_1 ;
+   ramDataOutBus(64) <= nextState_1 ;
+   ramDataOutBus(63) <= nextState_1 ;
+   ramDataOutBus(62) <= nextState_1 ;
+   ramDataOutBus(61) <= nextState_1 ;
+   ramDataOutBus(60) <= nextState_1 ;
+   ramDataOutBus(59) <= nextState_1 ;
+   ramDataOutBus(58) <= nextState_1 ;
+   ramDataOutBus(57) <= nextState_1 ;
+   ramDataOutBus(56) <= nextState_1 ;
+   ramDataOutBus(55) <= nextState_1 ;
+   ramDataOutBus(54) <= nextState_1 ;
+   ramDataOutBus(53) <= nextState_1 ;
+   ramDataOutBus(52) <= nextState_1 ;
+   ramDataOutBus(51) <= nextState_1 ;
+   ramDataOutBus(50) <= nextState_1 ;
+   ramDataOutBus(49) <= nextState_1 ;
+   ramDataOutBus(48) <= nextState_1 ;
+   ramDataOutBus(47) <= nextState_1 ;
+   ramDataOutBus(46) <= nextState_1 ;
+   ramDataOutBus(45) <= nextState_1 ;
+   ramDataOutBus(44) <= nextState_1 ;
+   ramDataOutBus(43) <= nextState_1 ;
+   ramDataOutBus(42) <= nextState_1 ;
+   ramDataOutBus(41) <= nextState_1 ;
+   ramDataOutBus(40) <= nextState_1 ;
+   ramDataOutBus(39) <= nextState_1 ;
+   ramDataOutBus(38) <= nextState_1 ;
+   ramDataOutBus(37) <= nextState_1 ;
+   ramDataOutBus(36) <= nextState_1 ;
+   ramDataOutBus(35) <= nextState_1 ;
+   ramDataOutBus(34) <= nextState_1 ;
+   ramDataOutBus(33) <= nextState_1 ;
+   ramDataOutBus(32) <= nextState_1 ;
+   ramDataOutBus(31) <= nextState_1 ;
+   ramDataOutBus(30) <= nextState_1 ;
+   ramDataOutBus(29) <= nextState_1 ;
+   ramDataOutBus(28) <= nextState_1 ;
+   ramDataOutBus(27) <= nextState_1 ;
+   ramDataOutBus(26) <= nextState_1 ;
+   ramDataOutBus(25) <= nextState_1 ;
+   ramDataOutBus(24) <= nextState_1 ;
+   ramDataOutBus(23) <= nextState_1 ;
+   ramDataOutBus(22) <= nextState_1 ;
+   ramDataOutBus(21) <= nextState_1 ;
+   ramDataOutBus(20) <= nextState_1 ;
+   ramDataOutBus(19) <= nextState_1 ;
+   ramDataOutBus(18) <= nextState_1 ;
+   ramDataOutBus(17) <= nextState_1 ;
+   ramDataOutBus(16) <= nextState_1 ;
+   ramDataOutBus(15) <= nextState_1 ;
+   ramDataOutBus(14) <= nextState_1 ;
+   ramDataOutBus(13) <= nextState_1 ;
+   ramDataOutBus(12) <= nextState_1 ;
+   ramDataOutBus(11) <= nextState_1 ;
+   ramDataOutBus(10) <= nextState_1 ;
+   ramDataOutBus(9) <= nextState_1 ;
+   ramDataOutBus(8) <= nextState_1 ;
+   ramDataOutBus(7) <= nextState_1 ;
+   ramDataOutBus(6) <= nextState_1 ;
+   ramDataOutBus(5) <= nextState_1 ;
+   ramDataOutBus(4) <= nextState_1 ;
+   ramDataOutBus(3) <= nextState_1 ;
+   ramDataOutBus(2) <= nextState_1 ;
+   ramDataOutBus(1) <= nextState_1 ;
+   ramDataOutBus(0) <= nextState_1 ;
    writeDone <= writeDone_EXMPLR ;
    dma : WriteDMA_13_80 port map ( clk=>clk, writeBaseAddress(12)=>
       addressRegOut_12, writeBaseAddress(11)=>addressRegOut_11, 
@@ -2220,100 +1706,88 @@ begin
       ramWrite_EXMPLR, counter(4)=>dmaCountIn_4, counter(3)=>dmaCountIn_3, 
       counter(2)=>dmaCountIn_2, counter(1)=>dmaCountIn_1, counter(0)=>
       dmaCountIn_0, initCounter=>currentState_2, initAddress=>nextState_1, 
-      internalBus(79)=>internalBus(79), internalBus(78)=>internalBus(78), 
-      internalBus(77)=>internalBus(77), internalBus(76)=>internalBus(76), 
-      internalBus(75)=>internalBus(75), internalBus(74)=>internalBus(74), 
-      internalBus(73)=>internalBus(73), internalBus(72)=>internalBus(72), 
-      internalBus(71)=>internalBus(71), internalBus(70)=>internalBus(70), 
-      internalBus(69)=>internalBus(69), internalBus(68)=>internalBus(68), 
-      internalBus(67)=>internalBus(67), internalBus(66)=>internalBus(66), 
-      internalBus(65)=>internalBus(65), internalBus(64)=>internalBus(64), 
-      internalBus(63)=>internalBus(63), internalBus(62)=>internalBus(62), 
-      internalBus(61)=>internalBus(61), internalBus(60)=>internalBus(60), 
-      internalBus(59)=>internalBus(59), internalBus(58)=>internalBus(58), 
-      internalBus(57)=>internalBus(57), internalBus(56)=>internalBus(56), 
-      internalBus(55)=>internalBus(55), internalBus(54)=>internalBus(54), 
-      internalBus(53)=>internalBus(53), internalBus(52)=>internalBus(52), 
-      internalBus(51)=>internalBus(51), internalBus(50)=>internalBus(50), 
-      internalBus(49)=>internalBus(49), internalBus(48)=>internalBus(48), 
-      internalBus(47)=>internalBus(47), internalBus(46)=>internalBus(46), 
-      internalBus(45)=>internalBus(45), internalBus(44)=>internalBus(44), 
-      internalBus(43)=>internalBus(43), internalBus(42)=>internalBus(42), 
-      internalBus(41)=>internalBus(41), internalBus(40)=>internalBus(40), 
-      internalBus(39)=>internalBus(39), internalBus(38)=>internalBus(38), 
-      internalBus(37)=>internalBus(37), internalBus(36)=>internalBus(36), 
-      internalBus(35)=>internalBus(35), internalBus(34)=>internalBus(34), 
-      internalBus(33)=>internalBus(33), internalBus(32)=>internalBus(32), 
-      internalBus(31)=>internalBus(31), internalBus(30)=>internalBus(30), 
-      internalBus(29)=>internalBus(29), internalBus(28)=>internalBus(28), 
-      internalBus(27)=>internalBus(27), internalBus(26)=>internalBus(26), 
-      internalBus(25)=>internalBus(25), internalBus(24)=>internalBus(24), 
-      internalBus(23)=>internalBus(23), internalBus(22)=>internalBus(22), 
-      internalBus(21)=>internalBus(21), internalBus(20)=>internalBus(20), 
-      internalBus(19)=>internalBus(19), internalBus(18)=>internalBus(18), 
-      internalBus(17)=>internalBus(17), internalBus(16)=>internalBus(16), 
-      internalBus(15)=>internalBus(15), internalBus(14)=>internalBus(14), 
-      internalBus(13)=>internalBus(13), internalBus(12)=>internalBus(12), 
-      internalBus(11)=>internalBus(11), internalBus(10)=>internalBus(10), 
-      internalBus(9)=>internalBus(9), internalBus(8)=>internalBus(8), 
-      internalBus(7)=>internalBus(7), internalBus(6)=>internalBus(6), 
-      internalBus(5)=>internalBus(5), internalBus(4)=>internalBus(4), 
-      internalBus(3)=>internalBus(3), internalBus(2)=>internalBus(2), 
-      internalBus(1)=>internalBus(1), internalBus(0)=>internalBus(0), 
-      ramWrite=>DANGLING(0), ramDataOutBus(79)=>ramDataOutBus(79), 
-      ramDataOutBus(78)=>ramDataOutBus(78), ramDataOutBus(77)=>
-      ramDataOutBus(77), ramDataOutBus(76)=>ramDataOutBus(76), 
-      ramDataOutBus(75)=>ramDataOutBus(75), ramDataOutBus(74)=>
-      ramDataOutBus(74), ramDataOutBus(73)=>ramDataOutBus(73), 
-      ramDataOutBus(72)=>ramDataOutBus(72), ramDataOutBus(71)=>
-      ramDataOutBus(71), ramDataOutBus(70)=>ramDataOutBus(70), 
-      ramDataOutBus(69)=>ramDataOutBus(69), ramDataOutBus(68)=>
-      ramDataOutBus(68), ramDataOutBus(67)=>ramDataOutBus(67), 
-      ramDataOutBus(66)=>ramDataOutBus(66), ramDataOutBus(65)=>
-      ramDataOutBus(65), ramDataOutBus(64)=>ramDataOutBus(64), 
-      ramDataOutBus(63)=>ramDataOutBus(63), ramDataOutBus(62)=>
-      ramDataOutBus(62), ramDataOutBus(61)=>ramDataOutBus(61), 
-      ramDataOutBus(60)=>ramDataOutBus(60), ramDataOutBus(59)=>
-      ramDataOutBus(59), ramDataOutBus(58)=>ramDataOutBus(58), 
-      ramDataOutBus(57)=>ramDataOutBus(57), ramDataOutBus(56)=>
-      ramDataOutBus(56), ramDataOutBus(55)=>ramDataOutBus(55), 
-      ramDataOutBus(54)=>ramDataOutBus(54), ramDataOutBus(53)=>
-      ramDataOutBus(53), ramDataOutBus(52)=>ramDataOutBus(52), 
-      ramDataOutBus(51)=>ramDataOutBus(51), ramDataOutBus(50)=>
-      ramDataOutBus(50), ramDataOutBus(49)=>ramDataOutBus(49), 
-      ramDataOutBus(48)=>ramDataOutBus(48), ramDataOutBus(47)=>
-      ramDataOutBus(47), ramDataOutBus(46)=>ramDataOutBus(46), 
-      ramDataOutBus(45)=>ramDataOutBus(45), ramDataOutBus(44)=>
-      ramDataOutBus(44), ramDataOutBus(43)=>ramDataOutBus(43), 
-      ramDataOutBus(42)=>ramDataOutBus(42), ramDataOutBus(41)=>
-      ramDataOutBus(41), ramDataOutBus(40)=>ramDataOutBus(40), 
-      ramDataOutBus(39)=>ramDataOutBus(39), ramDataOutBus(38)=>
-      ramDataOutBus(38), ramDataOutBus(37)=>ramDataOutBus(37), 
-      ramDataOutBus(36)=>ramDataOutBus(36), ramDataOutBus(35)=>
-      ramDataOutBus(35), ramDataOutBus(34)=>ramDataOutBus(34), 
-      ramDataOutBus(33)=>ramDataOutBus(33), ramDataOutBus(32)=>
-      ramDataOutBus(32), ramDataOutBus(31)=>ramDataOutBus(31), 
-      ramDataOutBus(30)=>ramDataOutBus(30), ramDataOutBus(29)=>
-      ramDataOutBus(29), ramDataOutBus(28)=>ramDataOutBus(28), 
-      ramDataOutBus(27)=>ramDataOutBus(27), ramDataOutBus(26)=>
-      ramDataOutBus(26), ramDataOutBus(25)=>ramDataOutBus(25), 
-      ramDataOutBus(24)=>ramDataOutBus(24), ramDataOutBus(23)=>
-      ramDataOutBus(23), ramDataOutBus(22)=>ramDataOutBus(22), 
-      ramDataOutBus(21)=>ramDataOutBus(21), ramDataOutBus(20)=>
-      ramDataOutBus(20), ramDataOutBus(19)=>ramDataOutBus(19), 
-      ramDataOutBus(18)=>ramDataOutBus(18), ramDataOutBus(17)=>
-      ramDataOutBus(17), ramDataOutBus(16)=>ramDataOutBus(16), 
-      ramDataOutBus(15)=>ramDataOutBus(15), ramDataOutBus(14)=>
-      ramDataOutBus(14), ramDataOutBus(13)=>ramDataOutBus(13), 
-      ramDataOutBus(12)=>ramDataOutBus(12), ramDataOutBus(11)=>
-      ramDataOutBus(11), ramDataOutBus(10)=>ramDataOutBus(10), 
-      ramDataOutBus(9)=>ramDataOutBus(9), ramDataOutBus(8)=>ramDataOutBus(8), 
-      ramDataOutBus(7)=>ramDataOutBus(7), ramDataOutBus(6)=>ramDataOutBus(6), 
-      ramDataOutBus(5)=>ramDataOutBus(5), ramDataOutBus(4)=>ramDataOutBus(4), 
-      ramDataOutBus(3)=>ramDataOutBus(3), ramDataOutBus(2)=>ramDataOutBus(2), 
-      ramDataOutBus(1)=>ramDataOutBus(1), ramDataOutBus(0)=>ramDataOutBus(0), 
-      ramWriteAddress(12)=>ramAddress(12), ramWriteAddress(11)=>
-      ramAddress(11), ramWriteAddress(10)=>ramAddress(10), 
+      internalBus(79)=>nextState_1, internalBus(78)=>nextState_1, 
+      internalBus(77)=>nextState_1, internalBus(76)=>nextState_1, 
+      internalBus(75)=>nextState_1, internalBus(74)=>nextState_1, 
+      internalBus(73)=>nextState_1, internalBus(72)=>nextState_1, 
+      internalBus(71)=>nextState_1, internalBus(70)=>nextState_1, 
+      internalBus(69)=>nextState_1, internalBus(68)=>nextState_1, 
+      internalBus(67)=>nextState_1, internalBus(66)=>nextState_1, 
+      internalBus(65)=>nextState_1, internalBus(64)=>nextState_1, 
+      internalBus(63)=>nextState_1, internalBus(62)=>nextState_1, 
+      internalBus(61)=>nextState_1, internalBus(60)=>nextState_1, 
+      internalBus(59)=>nextState_1, internalBus(58)=>nextState_1, 
+      internalBus(57)=>nextState_1, internalBus(56)=>nextState_1, 
+      internalBus(55)=>nextState_1, internalBus(54)=>nextState_1, 
+      internalBus(53)=>nextState_1, internalBus(52)=>nextState_1, 
+      internalBus(51)=>nextState_1, internalBus(50)=>nextState_1, 
+      internalBus(49)=>nextState_1, internalBus(48)=>nextState_1, 
+      internalBus(47)=>nextState_1, internalBus(46)=>nextState_1, 
+      internalBus(45)=>nextState_1, internalBus(44)=>nextState_1, 
+      internalBus(43)=>nextState_1, internalBus(42)=>nextState_1, 
+      internalBus(41)=>nextState_1, internalBus(40)=>nextState_1, 
+      internalBus(39)=>nextState_1, internalBus(38)=>nextState_1, 
+      internalBus(37)=>nextState_1, internalBus(36)=>nextState_1, 
+      internalBus(35)=>nextState_1, internalBus(34)=>nextState_1, 
+      internalBus(33)=>nextState_1, internalBus(32)=>nextState_1, 
+      internalBus(31)=>nextState_1, internalBus(30)=>nextState_1, 
+      internalBus(29)=>nextState_1, internalBus(28)=>nextState_1, 
+      internalBus(27)=>nextState_1, internalBus(26)=>nextState_1, 
+      internalBus(25)=>nextState_1, internalBus(24)=>nextState_1, 
+      internalBus(23)=>nextState_1, internalBus(22)=>nextState_1, 
+      internalBus(21)=>nextState_1, internalBus(20)=>nextState_1, 
+      internalBus(19)=>nextState_1, internalBus(18)=>nextState_1, 
+      internalBus(17)=>nextState_1, internalBus(16)=>nextState_1, 
+      internalBus(15)=>nextState_1, internalBus(14)=>nextState_1, 
+      internalBus(13)=>nextState_1, internalBus(12)=>nextState_1, 
+      internalBus(11)=>nextState_1, internalBus(10)=>nextState_1, 
+      internalBus(9)=>nextState_1, internalBus(8)=>nextState_1, 
+      internalBus(7)=>nextState_1, internalBus(6)=>nextState_1, 
+      internalBus(5)=>nextState_1, internalBus(4)=>nextState_1, 
+      internalBus(3)=>nextState_1, internalBus(2)=>nextState_1, 
+      internalBus(1)=>nextState_1, internalBus(0)=>nextState_1, ramWrite=>
+      DANGLING(0), ramDataOutBus(79)=>DANGLING(1), ramDataOutBus(78)=>
+      DANGLING(2), ramDataOutBus(77)=>DANGLING(3), ramDataOutBus(76)=>
+      DANGLING(4), ramDataOutBus(75)=>DANGLING(5), ramDataOutBus(74)=>
+      DANGLING(6), ramDataOutBus(73)=>DANGLING(7), ramDataOutBus(72)=>
+      DANGLING(8), ramDataOutBus(71)=>DANGLING(9), ramDataOutBus(70)=>
+      DANGLING(10), ramDataOutBus(69)=>DANGLING(11), ramDataOutBus(68)=>
+      DANGLING(12), ramDataOutBus(67)=>DANGLING(13), ramDataOutBus(66)=>
+      DANGLING(14), ramDataOutBus(65)=>DANGLING(15), ramDataOutBus(64)=>
+      DANGLING(16), ramDataOutBus(63)=>DANGLING(17), ramDataOutBus(62)=>
+      DANGLING(18), ramDataOutBus(61)=>DANGLING(19), ramDataOutBus(60)=>
+      DANGLING(20), ramDataOutBus(59)=>DANGLING(21), ramDataOutBus(58)=>
+      DANGLING(22), ramDataOutBus(57)=>DANGLING(23), ramDataOutBus(56)=>
+      DANGLING(24), ramDataOutBus(55)=>DANGLING(25), ramDataOutBus(54)=>
+      DANGLING(26), ramDataOutBus(53)=>DANGLING(27), ramDataOutBus(52)=>
+      DANGLING(28), ramDataOutBus(51)=>DANGLING(29), ramDataOutBus(50)=>
+      DANGLING(30), ramDataOutBus(49)=>DANGLING(31), ramDataOutBus(48)=>
+      DANGLING(32), ramDataOutBus(47)=>DANGLING(33), ramDataOutBus(46)=>
+      DANGLING(34), ramDataOutBus(45)=>DANGLING(35), ramDataOutBus(44)=>
+      DANGLING(36), ramDataOutBus(43)=>DANGLING(37), ramDataOutBus(42)=>
+      DANGLING(38), ramDataOutBus(41)=>DANGLING(39), ramDataOutBus(40)=>
+      DANGLING(40), ramDataOutBus(39)=>DANGLING(41), ramDataOutBus(38)=>
+      DANGLING(42), ramDataOutBus(37)=>DANGLING(43), ramDataOutBus(36)=>
+      DANGLING(44), ramDataOutBus(35)=>DANGLING(45), ramDataOutBus(34)=>
+      DANGLING(46), ramDataOutBus(33)=>DANGLING(47), ramDataOutBus(32)=>
+      DANGLING(48), ramDataOutBus(31)=>DANGLING(49), ramDataOutBus(30)=>
+      DANGLING(50), ramDataOutBus(29)=>DANGLING(51), ramDataOutBus(28)=>
+      DANGLING(52), ramDataOutBus(27)=>DANGLING(53), ramDataOutBus(26)=>
+      DANGLING(54), ramDataOutBus(25)=>DANGLING(55), ramDataOutBus(24)=>
+      DANGLING(56), ramDataOutBus(23)=>DANGLING(57), ramDataOutBus(22)=>
+      DANGLING(58), ramDataOutBus(21)=>DANGLING(59), ramDataOutBus(20)=>
+      DANGLING(60), ramDataOutBus(19)=>DANGLING(61), ramDataOutBus(18)=>
+      DANGLING(62), ramDataOutBus(17)=>DANGLING(63), ramDataOutBus(16)=>
+      DANGLING(64), ramDataOutBus(15)=>DANGLING(65), ramDataOutBus(14)=>
+      DANGLING(66), ramDataOutBus(13)=>DANGLING(67), ramDataOutBus(12)=>
+      DANGLING(68), ramDataOutBus(11)=>DANGLING(69), ramDataOutBus(10)=>
+      DANGLING(70), ramDataOutBus(9)=>DANGLING(71), ramDataOutBus(8)=>
+      DANGLING(72), ramDataOutBus(7)=>DANGLING(73), ramDataOutBus(6)=>
+      DANGLING(74), ramDataOutBus(5)=>DANGLING(75), ramDataOutBus(4)=>
+      DANGLING(76), ramDataOutBus(3)=>DANGLING(77), ramDataOutBus(2)=>
+      DANGLING(78), ramDataOutBus(1)=>DANGLING(79), ramDataOutBus(0)=>
+      DANGLING(80), ramWriteAddress(12)=>ramAddress(12), ramWriteAddress(11)
+      =>ramAddress(11), ramWriteAddress(10)=>ramAddress(10), 
       ramWriteAddress(9)=>ramAddress(9), ramWriteAddress(8)=>ramAddress(8), 
       ramWriteAddress(7)=>ramAddress(7), ramWriteAddress(6)=>ramAddress(6), 
       ramWriteAddress(5)=>ramAddress(5), ramWriteAddress(4)=>ramAddress(4), 
@@ -2327,87 +1801,88 @@ begin
       load(6)=>addressRegIn_6, load(5)=>addressRegIn_5, load(4)=>
       addressRegIn_4, load(3)=>addressRegIn_3, load(2)=>addressRegIn_2, 
       load(1)=>addressRegIn_1, load(0)=>addressRegIn_0, reset=>nextState_1, 
-      clk=>baseAddressCounterClk, isLoad=>nx181, count(12)=>addressRegOut_12, 
-      count(11)=>addressRegOut_11, count(10)=>addressRegOut_10, count(9)=>
-      addressRegOut_9, count(8)=>addressRegOut_8, count(7)=>addressRegOut_7, 
-      count(6)=>addressRegOut_6, count(5)=>addressRegOut_5, count(4)=>
-      addressRegOut_4, count(3)=>addressRegOut_3, count(2)=>addressRegOut_2, 
-      count(1)=>addressRegOut_1, count(0)=>addressRegOut_0);
+      clk=>baseAddressCounterClk, isLoad=>currentState_1, count(12)=>
+      addressRegOut_12, count(11)=>addressRegOut_11, count(10)=>
+      addressRegOut_10, count(9)=>addressRegOut_9, count(8)=>addressRegOut_8, 
+      count(7)=>addressRegOut_7, count(6)=>addressRegOut_6, count(5)=>
+      addressRegOut_5, count(4)=>addressRegOut_4, count(3)=>addressRegOut_3, 
+      count(2)=>addressRegOut_2, count(1)=>addressRegOut_1, count(0)=>
+      addressRegOut_0);
    ix6 : fake_gnd port map ( Y=>nextState_1);
-   ix75 : nor02_2x port map ( Y=>ramWrite_EXMPLR, A0=>nx102, A1=>nx104);
-   ix103 : inv01 port map ( Y=>nx102, A=>write);
-   ix82 : mux21 port map ( Y=>nx81, A0=>nx107, A1=>nx104, S0=>nx139);
-   ix108 : nand02 port map ( Y=>nx107, A0=>nx109, A1=>currentState_3);
-   ix110 : inv01 port map ( Y=>nx109, A=>switchRam);
-   ix72 : mux21 port map ( Y=>nx71, A0=>nx113, A1=>nx145, S0=>nx139);
-   ix114 : nand02 port map ( Y=>nx113, A0=>nx109, A1=>currentState_2);
-   ix62 : mux21 port map ( Y=>nx61, A0=>nx117, A1=>nx143, S0=>nx139);
-   ix118 : nand02 port map ( Y=>nx117, A0=>nx109, A1=>currentState_0);
-   ix52 : mux21 port map ( Y=>nx51, A0=>nx121, A1=>nx137, S0=>nx139);
-   ix122 : oai21 port map ( Y=>nx121, A0=>nx181, A1=>currentState_4, B0=>
-      nx109);
-   ix92 : oai21 port map ( Y=>nx91, A0=>nx125, A1=>nx44, B0=>nx109);
-   reg_currentState_1 : dff port map ( Q=>OPEN, QB=>nx125, D=>nx91, CLK=>
-      NOT_clk);
-   ix128 : inv01 port map ( Y=>NOT_clk, A=>clk);
-   ix45 : nand04 port map ( Y=>nx44, A0=>nx130, A1=>nx109, A2=>nx133, A3=>
-      nx135);
-   ix131 : nand02 port map ( Y=>nx130, A0=>writeDone_EXMPLR, A1=>
+   ix49 : nor02_2x port map ( Y=>ramWrite_EXMPLR, A0=>nx91, A1=>nx93);
+   ix92 : inv01 port map ( Y=>nx91, A=>write);
+   ix80 : mux21 port map ( Y=>nx79, A0=>nx96, A1=>nx93, S0=>nx128);
+   ix97 : nand02 port map ( Y=>nx96, A0=>nx98, A1=>currentState_3);
+   ix99 : inv01 port map ( Y=>nx98, A=>switchRam);
+   ix70 : mux21 port map ( Y=>nx69, A0=>nx102, A1=>nx134, S0=>nx128);
+   ix103 : nand02 port map ( Y=>nx102, A0=>nx98, A1=>currentState_2);
+   ix60 : mux21 port map ( Y=>nx59, A0=>nx106, A1=>nx132, S0=>nx128);
+   ix107 : nand02 port map ( Y=>nx106, A0=>nx98, A1=>currentState_0);
+   ix50 : mux21 port map ( Y=>nx49, A0=>nx110, A1=>nx126, S0=>nx128);
+   ix111 : oai21 port map ( Y=>nx110, A0=>currentState_1, A1=>currentState_4, 
+      B0=>nx98);
+   ix40 : oai21 port map ( Y=>nx39, A0=>nx196, A1=>nx31, B0=>nx98);
+   reg_currentState_1 : dff port map ( Q=>currentState_1, QB=>OPEN, D=>nx39, 
+      CLK=>NOT_clk);
+   ix117 : inv01 port map ( Y=>NOT_clk, A=>clk);
+   ix29 : nand04 port map ( Y=>nx31, A0=>nx119, A1=>nx98, A2=>nx122, A3=>
+      nx124);
+   ix120 : nand02 port map ( Y=>nx119, A0=>writeDone_EXMPLR, A1=>
       currentState_4);
-   reg_currentState_4 : dff port map ( Q=>currentState_4, QB=>nx104, D=>nx81, 
+   reg_currentState_4 : dff port map ( Q=>currentState_4, QB=>nx93, D=>nx79, 
       CLK=>NOT_clk);
-   ix134 : nand02 port map ( Y=>nx133, A0=>write, A1=>currentState_0);
-   ix136 : nand02 port map ( Y=>nx135, A0=>nx104, A1=>nx137);
-   reg_currentState_0 : dff port map ( Q=>currentState_0, QB=>nx137, D=>nx51, 
+   ix123 : nand02 port map ( Y=>nx122, A0=>write, A1=>currentState_0);
+   ix125 : nand02 port map ( Y=>nx124, A0=>nx93, A1=>nx126);
+   reg_currentState_0 : dff port map ( Q=>currentState_0, QB=>nx126, D=>nx49, 
       CLK=>NOT_clk);
-   ix140 : nor02_2x port map ( Y=>nx139, A0=>nx42, A1=>nx38);
-   ix43 : nand02 port map ( Y=>nx42, A0=>nx130, A1=>nx109);
-   ix39 : nand02 port map ( Y=>nx38, A0=>nx133, A1=>nx135);
-   reg_currentState_2 : dff port map ( Q=>currentState_2, QB=>nx143, D=>nx61, 
+   ix129 : nor02_2x port map ( Y=>nx128, A0=>nx26, A1=>nx22);
+   ix27 : nand02 port map ( Y=>nx26, A0=>nx119, A1=>nx98);
+   ix23 : nand02 port map ( Y=>nx22, A0=>nx122, A1=>nx124);
+   reg_currentState_2 : dff port map ( Q=>currentState_2, QB=>nx132, D=>nx59, 
       CLK=>NOT_clk);
-   reg_currentState_3 : dff port map ( Q=>currentState_3, QB=>nx145, D=>nx71, 
+   reg_currentState_3 : dff port map ( Q=>currentState_3, QB=>nx134, D=>nx69, 
       CLK=>NOT_clk);
-   ix77 : nor02_2x port map ( Y=>dmaCountIn_0, A0=>nx148, A1=>nx143);
-   ix149 : inv01 port map ( Y=>nx148, A=>outputSize(0));
-   ix79 : nor02_2x port map ( Y=>dmaCountIn_1, A0=>nx151, A1=>nx143);
-   ix152 : inv01 port map ( Y=>nx151, A=>outputSize(1));
-   ix81 : nor02_2x port map ( Y=>dmaCountIn_2, A0=>nx154, A1=>nx143);
-   ix155 : inv01 port map ( Y=>nx154, A=>outputSize(2));
-   ix83 : nor02_2x port map ( Y=>dmaCountIn_3, A0=>nx157, A1=>nx143);
-   ix158 : inv01 port map ( Y=>nx157, A=>outputSize(3));
-   ix85 : nor02_2x port map ( Y=>dmaCountIn_4, A0=>nx160, A1=>nx143);
-   ix161 : inv01 port map ( Y=>nx160, A=>outputSize(4));
-   ix93 : mux21 port map ( Y=>baseAddressCounterClk, A0=>nx125, A1=>nx145, 
+   ix51 : nor02_2x port map ( Y=>dmaCountIn_0, A0=>nx137, A1=>nx132);
+   ix138 : inv01 port map ( Y=>nx137, A=>outputSize(0));
+   ix53 : nor02_2x port map ( Y=>dmaCountIn_1, A0=>nx140, A1=>nx132);
+   ix141 : inv01 port map ( Y=>nx140, A=>outputSize(1));
+   ix55 : nor02_2x port map ( Y=>dmaCountIn_2, A0=>nx143, A1=>nx132);
+   ix144 : inv01 port map ( Y=>nx143, A=>outputSize(2));
+   ix57 : nor02_2x port map ( Y=>dmaCountIn_3, A0=>nx146, A1=>nx132);
+   ix147 : inv01 port map ( Y=>nx146, A=>outputSize(3));
+   ix59 : nor02_2x port map ( Y=>dmaCountIn_4, A0=>nx149, A1=>nx132);
+   ix150 : inv01 port map ( Y=>nx149, A=>outputSize(4));
+   ix61 : nor02_2x port map ( Y=>addressRegIn_0, A0=>nx152, A1=>nx196);
+   ix153 : inv01 port map ( Y=>nx152, A=>ramBasedAddress(0));
+   ix63 : nor02_2x port map ( Y=>addressRegIn_1, A0=>nx155, A1=>nx196);
+   ix156 : inv01 port map ( Y=>nx155, A=>ramBasedAddress(1));
+   ix65 : nor02_2x port map ( Y=>addressRegIn_2, A0=>nx158, A1=>nx196);
+   ix159 : inv01 port map ( Y=>nx158, A=>ramBasedAddress(2));
+   ix67 : nor02_2x port map ( Y=>addressRegIn_3, A0=>nx161, A1=>nx196);
+   ix162 : inv01 port map ( Y=>nx161, A=>ramBasedAddress(3));
+   ix69 : nor02_2x port map ( Y=>addressRegIn_4, A0=>nx164, A1=>nx196);
+   ix165 : inv01 port map ( Y=>nx164, A=>ramBasedAddress(4));
+   ix71 : nor02_2x port map ( Y=>addressRegIn_5, A0=>nx167, A1=>nx196);
+   ix168 : inv01 port map ( Y=>nx167, A=>ramBasedAddress(5));
+   ix73 : nor02_2x port map ( Y=>addressRegIn_6, A0=>nx170, A1=>nx198);
+   ix171 : inv01 port map ( Y=>nx170, A=>ramBasedAddress(6));
+   ix75 : nor02_2x port map ( Y=>addressRegIn_7, A0=>nx173, A1=>nx198);
+   ix174 : inv01 port map ( Y=>nx173, A=>ramBasedAddress(7));
+   ix77 : nor02_2x port map ( Y=>addressRegIn_8, A0=>nx176, A1=>nx198);
+   ix177 : inv01 port map ( Y=>nx176, A=>ramBasedAddress(8));
+   ix79 : nor02_2x port map ( Y=>addressRegIn_9, A0=>nx179, A1=>nx198);
+   ix180 : inv01 port map ( Y=>nx179, A=>ramBasedAddress(9));
+   ix81 : nor02_2x port map ( Y=>addressRegIn_10, A0=>nx182, A1=>nx198);
+   ix183 : inv01 port map ( Y=>nx182, A=>ramBasedAddress(10));
+   ix83 : nor02_2x port map ( Y=>addressRegIn_11, A0=>nx185, A1=>nx198);
+   ix186 : inv01 port map ( Y=>nx185, A=>ramBasedAddress(11));
+   ix85 : nor02_2x port map ( Y=>addressRegIn_12, A0=>nx188, A1=>nx198);
+   ix189 : inv01 port map ( Y=>nx188, A=>ramBasedAddress(12));
+   ix93 : mux21 port map ( Y=>baseAddressCounterClk, A0=>nx200, A1=>nx134, 
       S0=>clk);
-   lat_addressRegIn_0 : latch port map ( Q=>addressRegIn_0, D=>
-      ramBasedAddress(0), CLK=>nx181);
-   lat_addressRegIn_1 : latch port map ( Q=>addressRegIn_1, D=>
-      ramBasedAddress(1), CLK=>nx181);
-   lat_addressRegIn_2 : latch port map ( Q=>addressRegIn_2, D=>
-      ramBasedAddress(2), CLK=>nx181);
-   lat_addressRegIn_3 : latch port map ( Q=>addressRegIn_3, D=>
-      ramBasedAddress(3), CLK=>nx181);
-   lat_addressRegIn_4 : latch port map ( Q=>addressRegIn_4, D=>
-      ramBasedAddress(4), CLK=>nx181);
-   lat_addressRegIn_5 : latch port map ( Q=>addressRegIn_5, D=>
-      ramBasedAddress(5), CLK=>nx183);
-   lat_addressRegIn_6 : latch port map ( Q=>addressRegIn_6, D=>
-      ramBasedAddress(6), CLK=>nx183);
-   lat_addressRegIn_7 : latch port map ( Q=>addressRegIn_7, D=>
-      ramBasedAddress(7), CLK=>nx183);
-   lat_addressRegIn_8 : latch port map ( Q=>addressRegIn_8, D=>
-      ramBasedAddress(8), CLK=>nx183);
-   lat_addressRegIn_9 : latch port map ( Q=>addressRegIn_9, D=>
-      ramBasedAddress(9), CLK=>nx183);
-   lat_addressRegIn_10 : latch port map ( Q=>addressRegIn_10, D=>
-      ramBasedAddress(10), CLK=>nx183);
-   lat_addressRegIn_11 : latch port map ( Q=>addressRegIn_11, D=>
-      ramBasedAddress(11), CLK=>nx183);
-   lat_addressRegIn_12 : latch port map ( Q=>addressRegIn_12, D=>
-      ramBasedAddress(12), CLK=>nx185);
-   ix180 : inv02 port map ( Y=>nx181, A=>nx125);
-   ix182 : inv02 port map ( Y=>nx183, A=>nx125);
-   ix184 : inv02 port map ( Y=>nx185, A=>nx125);
+   ix195 : inv02 port map ( Y=>nx196, A=>currentState_1);
+   ix197 : inv02 port map ( Y=>nx198, A=>currentState_1);
+   ix199 : inv02 port map ( Y=>nx200, A=>currentState_1);
 end WriteLogicArch_unfold_2859 ;
 
 library IEEE;
@@ -2433,7 +1908,8 @@ entity DMAController is
       loadNextFilter : IN std_logic ;
       loadNextWindow : IN std_logic ;
       loadNextRow : IN std_logic ;
-      loadWord : IN std_logic ;
+      loadOneWord : IN std_logic ;
+      loadTwoWord : IN std_logic ;
       layerFinished : IN std_logic ;
       write : IN std_logic ;
       weightsSizeType : IN std_logic ;
@@ -2453,7 +1929,7 @@ entity DMAController is
 end DMAController ;
 
 architecture DMAControllerArch of DMAController is
-   component ReadLogic_13_80
+   component ReadLogic_13_80_false
       port (
          clk : IN std_logic ;
          resetState : IN std_logic ;
@@ -2473,7 +1949,7 @@ architecture DMAControllerArch of DMAController is
          readFinal : OUT std_logic ;
          aluNumber : OUT std_logic_vector (2 DOWNTO 0)) ;
    end component ;
-   component ReadLogic_12_40
+   component ReadLogic_12_40_true
       port (
          clk : IN std_logic ;
          resetState : IN std_logic ;
@@ -2531,22 +2007,106 @@ architecture DMAControllerArch of DMAController is
       writeLogicRamAddress_9, writeLogicRamAddress_8, writeLogicRamAddress_7, 
       writeLogicRamAddress_6, writeLogicRamAddress_5, writeLogicRamAddress_4, 
       writeLogicRamAddress_3, writeLogicRamAddress_2, writeLogicRamAddress_1, 
-      writeLogicRamAddress_0, switchRam, NOT_weightsSizeType, 
-      weightsSizeForWindow_0, resetLogics, ramBaseAddressSelector, 
-      NOT_ramBaseAddressSelector, nx741, nx744, nx749, nx752, nx754, nx757, 
-      nx759, nx762, nx764, nx767, nx769, nx772, nx774, nx777, nx779, nx782, 
-      nx784, nx787, nx789, nx792, nx794, nx797, nx799, nx802, nx804, nx807, 
-      nx809, nx812, nx814, nx817, nx819, nx822, nx824, nx827, nx829, nx832, 
-      nx834, nx837, nx839, nx842, nx844, nx847, nx849, nx852, nx854, nx857, 
-      nx859, nx862, nx864, nx867, nx869, nx872, nx874, nx877, nx879, nx884, 
-      nx886, nx889, nx891, nx894, nx896, nx899, nx901, nx904, nx906, nx909, 
-      nx911, nx914, nx916, nx919, nx921, nx924, nx926, nx929, nx931, nx934, 
-      nx936, nx939, nx941, nx948, nx950, nx952, nx954, nx956, nx958, nx960, 
-      nx962, nx964, nx966, nx968: std_logic ;
+      writeLogicRamAddress_0, switchRam, filterStep_2, filterStep_1, 
+      filterStep_0, loadWord, resetLogics, weightsSizeForWindow_0, 
+      ramBaseAddressSelector, NOT_ramBaseAddressSelector, 
+      NOT_weightsSizeType_dup_876, nx882, nx885, nx888, nx892, nx895, nx900, 
+      nx903, nx905, nx908, nx910, nx913, nx915, nx918, nx920, nx923, nx925, 
+      nx928, nx930, nx933, nx935, nx938, nx940, nx943, nx945, nx948, nx950, 
+      nx953, nx955, nx958, nx960, nx963, nx965, nx968, nx970, nx973, nx975, 
+      nx978, nx980, nx983, nx985, nx988, nx990, nx993, nx995, nx998, nx1000, 
+      nx1003, nx1005, nx1008, nx1010, nx1013, nx1015, nx1018, nx1020, nx1023, 
+      nx1025, nx1028, nx1030, nx1035, nx1037, nx1040, nx1042, nx1045, nx1047, 
+      nx1050, nx1052, nx1055, nx1057, nx1060, nx1062, nx1065, nx1067, nx1070, 
+      nx1072, nx1075, nx1077, nx1080, nx1082, nx1085, nx1087, nx1090, nx1092, 
+      nx1099, nx1101, nx1103, nx1105, nx1107, nx1109, nx1111, nx1113, nx1115, 
+      nx1117, nx1119: std_logic ;
+   
+   signal DANGLING : std_logic_vector (79 downto 0 );
 
 begin
-   windowReadLogicEnt : ReadLogic_13_80 port map ( clk=>clk, resetState=>
-      resetLogics, switchRam=>switchRam, ramBasedAddress(12)=>
+   windowRamDataOutBus(79) <= windowInternalBus(79) ;
+   windowRamDataOutBus(78) <= windowInternalBus(78) ;
+   windowRamDataOutBus(77) <= windowInternalBus(77) ;
+   windowRamDataOutBus(76) <= windowInternalBus(76) ;
+   windowRamDataOutBus(75) <= windowInternalBus(75) ;
+   windowRamDataOutBus(74) <= windowInternalBus(74) ;
+   windowRamDataOutBus(73) <= windowInternalBus(73) ;
+   windowRamDataOutBus(72) <= windowInternalBus(72) ;
+   windowRamDataOutBus(71) <= windowInternalBus(71) ;
+   windowRamDataOutBus(70) <= windowInternalBus(70) ;
+   windowRamDataOutBus(69) <= windowInternalBus(69) ;
+   windowRamDataOutBus(68) <= windowInternalBus(68) ;
+   windowRamDataOutBus(67) <= windowInternalBus(67) ;
+   windowRamDataOutBus(66) <= windowInternalBus(66) ;
+   windowRamDataOutBus(65) <= windowInternalBus(65) ;
+   windowRamDataOutBus(64) <= windowInternalBus(64) ;
+   windowRamDataOutBus(63) <= windowInternalBus(63) ;
+   windowRamDataOutBus(62) <= windowInternalBus(62) ;
+   windowRamDataOutBus(61) <= windowInternalBus(61) ;
+   windowRamDataOutBus(60) <= windowInternalBus(60) ;
+   windowRamDataOutBus(59) <= windowInternalBus(59) ;
+   windowRamDataOutBus(58) <= windowInternalBus(58) ;
+   windowRamDataOutBus(57) <= windowInternalBus(57) ;
+   windowRamDataOutBus(56) <= windowInternalBus(56) ;
+   windowRamDataOutBus(55) <= windowInternalBus(55) ;
+   windowRamDataOutBus(54) <= windowInternalBus(54) ;
+   windowRamDataOutBus(53) <= windowInternalBus(53) ;
+   windowRamDataOutBus(52) <= windowInternalBus(52) ;
+   windowRamDataOutBus(51) <= windowInternalBus(51) ;
+   windowRamDataOutBus(50) <= windowInternalBus(50) ;
+   windowRamDataOutBus(49) <= windowInternalBus(49) ;
+   windowRamDataOutBus(48) <= windowInternalBus(48) ;
+   windowRamDataOutBus(47) <= windowInternalBus(47) ;
+   windowRamDataOutBus(46) <= windowInternalBus(46) ;
+   windowRamDataOutBus(45) <= windowInternalBus(45) ;
+   windowRamDataOutBus(44) <= windowInternalBus(44) ;
+   windowRamDataOutBus(43) <= windowInternalBus(43) ;
+   windowRamDataOutBus(42) <= windowInternalBus(42) ;
+   windowRamDataOutBus(41) <= windowInternalBus(41) ;
+   windowRamDataOutBus(40) <= windowInternalBus(40) ;
+   windowRamDataOutBus(39) <= windowInternalBus(39) ;
+   windowRamDataOutBus(38) <= windowInternalBus(38) ;
+   windowRamDataOutBus(37) <= windowInternalBus(37) ;
+   windowRamDataOutBus(36) <= windowInternalBus(36) ;
+   windowRamDataOutBus(35) <= windowInternalBus(35) ;
+   windowRamDataOutBus(34) <= windowInternalBus(34) ;
+   windowRamDataOutBus(33) <= windowInternalBus(33) ;
+   windowRamDataOutBus(32) <= windowInternalBus(32) ;
+   windowRamDataOutBus(31) <= windowInternalBus(31) ;
+   windowRamDataOutBus(30) <= windowInternalBus(30) ;
+   windowRamDataOutBus(29) <= windowInternalBus(29) ;
+   windowRamDataOutBus(28) <= windowInternalBus(28) ;
+   windowRamDataOutBus(27) <= windowInternalBus(27) ;
+   windowRamDataOutBus(26) <= windowInternalBus(26) ;
+   windowRamDataOutBus(25) <= windowInternalBus(25) ;
+   windowRamDataOutBus(24) <= windowInternalBus(24) ;
+   windowRamDataOutBus(23) <= windowInternalBus(23) ;
+   windowRamDataOutBus(22) <= windowInternalBus(22) ;
+   windowRamDataOutBus(21) <= windowInternalBus(21) ;
+   windowRamDataOutBus(20) <= windowInternalBus(20) ;
+   windowRamDataOutBus(19) <= windowInternalBus(19) ;
+   windowRamDataOutBus(18) <= windowInternalBus(18) ;
+   windowRamDataOutBus(17) <= windowInternalBus(17) ;
+   windowRamDataOutBus(16) <= windowInternalBus(16) ;
+   windowRamDataOutBus(15) <= windowInternalBus(15) ;
+   windowRamDataOutBus(14) <= windowInternalBus(14) ;
+   windowRamDataOutBus(13) <= windowInternalBus(13) ;
+   windowRamDataOutBus(12) <= windowInternalBus(12) ;
+   windowRamDataOutBus(11) <= windowInternalBus(11) ;
+   windowRamDataOutBus(10) <= windowInternalBus(10) ;
+   windowRamDataOutBus(9) <= windowInternalBus(9) ;
+   windowRamDataOutBus(8) <= windowInternalBus(8) ;
+   windowRamDataOutBus(7) <= windowInternalBus(7) ;
+   windowRamDataOutBus(6) <= windowInternalBus(6) ;
+   windowRamDataOutBus(5) <= windowInternalBus(5) ;
+   windowRamDataOutBus(4) <= windowInternalBus(4) ;
+   windowRamDataOutBus(3) <= windowInternalBus(3) ;
+   windowRamDataOutBus(2) <= windowInternalBus(2) ;
+   windowRamDataOutBus(1) <= windowInternalBus(1) ;
+   windowRamDataOutBus(0) <= windowInternalBus(0) ;
+   windowReadLogicEnt : ReadLogic_13_80_false port map ( clk=>clk, 
+      resetState=>resetLogics, switchRam=>switchRam, ramBasedAddress(12)=>
       currentReadRamBaseAddress_12, ramBasedAddress(11)=>
       currentReadRamBaseAddress_11, ramBasedAddress(10)=>
       currentReadRamBaseAddress_10, ramBasedAddress(9)=>
@@ -2685,14 +2245,14 @@ begin
       resetLogics, filterSize(9)=>resetLogics, filterSize(8)=>resetLogics, 
       filterSize(7)=>resetLogics, filterSize(6)=>resetLogics, filterSize(5)
       =>resetLogics, filterSize(4)=>resetLogics, filterSize(3)=>resetLogics, 
-      filterSize(2)=>weightsSizeType, filterSize(1)=>NOT_weightsSizeType, 
-      filterSize(0)=>weightsSizeForWindow_0, isFilter=>resetLogics, 
-      loadNextWordList=>loadNextWindow, loadWord=>loadNextRow, readOne=>
-      windowReadOne, readFinal=>windowReadFinal, aluNumber(2)=>
-      windowAluNumber(2), aluNumber(1)=>windowAluNumber(1), aluNumber(0)=>
-      windowAluNumber(0));
-   filterReadLogicEnt : ReadLogic_12_40 port map ( clk=>clk, resetState=>
-      resetLogics, switchRam=>reset, ramBasedAddress(11)=>
+      filterSize(2)=>weightsSizeType, filterSize(1)=>
+      NOT_weightsSizeType_dup_876, filterSize(0)=>weightsSizeForWindow_0, 
+      isFilter=>resetLogics, loadNextWordList=>loadNextWindow, loadWord=>
+      loadNextRow, readOne=>windowReadOne, readFinal=>windowReadFinal, 
+      aluNumber(2)=>windowAluNumber(2), aluNumber(1)=>windowAluNumber(1), 
+      aluNumber(0)=>windowAluNumber(0));
+   filterReadLogicEnt : ReadLogic_12_40_true port map ( clk=>clk, resetState
+      =>resetLogics, switchRam=>reset, ramBasedAddress(11)=>
       filterRamBaseAddress(11), ramBasedAddress(10)=>
       filterRamBaseAddress(10), ramBasedAddress(9)=>filterRamBaseAddress(9), 
       ramBasedAddress(8)=>filterRamBaseAddress(8), ramBasedAddress(7)=>
@@ -2766,18 +2326,17 @@ begin
       =>resetLogics, inputSize(10)=>resetLogics, inputSize(9)=>resetLogics, 
       inputSize(8)=>resetLogics, inputSize(7)=>resetLogics, inputSize(6)=>
       resetLogics, inputSize(5)=>resetLogics, inputSize(4)=>resetLogics, 
-      inputSize(3)=>resetLogics, inputSize(2)=>weightsSizeType, inputSize(1)
-      =>NOT_weightsSizeType, inputSize(0)=>weightsSizeForWindow_0, 
-      filterSize(11)=>resetLogics, filterSize(10)=>resetLogics, 
-      filterSize(9)=>resetLogics, filterSize(8)=>resetLogics, filterSize(7)
-      =>resetLogics, filterSize(6)=>resetLogics, filterSize(5)=>resetLogics, 
-      filterSize(4)=>resetLogics, filterSize(3)=>resetLogics, filterSize(2)
-      =>resetLogics, filterSize(1)=>resetLogics, filterSize(0)=>
-      weightsSizeForWindow_0, isFilter=>weightsSizeForWindow_0, 
-      loadNextWordList=>loadNextFilter, loadWord=>loadWord, readOne=>
-      weightsReadOne, readFinal=>weightsReadFinal, aluNumber(2)=>
-      filterAluNumber(2), aluNumber(1)=>filterAluNumber(1), aluNumber(0)=>
-      filterAluNumber(0));
+      inputSize(3)=>resetLogics, inputSize(2)=>filterStep_2, inputSize(1)=>
+      filterStep_1, inputSize(0)=>filterStep_0, filterSize(11)=>resetLogics, 
+      filterSize(10)=>resetLogics, filterSize(9)=>resetLogics, filterSize(8)
+      =>resetLogics, filterSize(7)=>resetLogics, filterSize(6)=>resetLogics, 
+      filterSize(5)=>resetLogics, filterSize(4)=>resetLogics, filterSize(3)
+      =>resetLogics, filterSize(2)=>weightsSizeType, filterSize(1)=>
+      NOT_weightsSizeType_dup_876, filterSize(0)=>weightsSizeForWindow_0, 
+      isFilter=>weightsSizeForWindow_0, loadNextWordList=>loadNextFilter, 
+      loadWord=>loadWord, readOne=>weightsReadOne, readFinal=>
+      weightsReadFinal, aluNumber(2)=>filterAluNumber(2), aluNumber(1)=>
+      filterAluNumber(1), aluNumber(0)=>filterAluNumber(0));
    writeLogicEnt : WriteLogic_13_80 port map ( clk=>clk, resetState=>
       resetLogics, switchRam=>switchRam, ramBasedAddress(12)=>
       currentWriteRamBaseAddress_12, ramBasedAddress(11)=>
@@ -2792,370 +2351,357 @@ begin
       currentWriteRamBaseAddress_3, ramBasedAddress(2)=>
       currentWriteRamBaseAddress_2, ramBasedAddress(1)=>
       currentWriteRamBaseAddress_1, ramBasedAddress(0)=>
-      currentWriteRamBaseAddress_0, internalBus(79)=>windowInternalBus(79), 
-      internalBus(78)=>windowInternalBus(78), internalBus(77)=>
-      windowInternalBus(77), internalBus(76)=>windowInternalBus(76), 
-      internalBus(75)=>windowInternalBus(75), internalBus(74)=>
-      windowInternalBus(74), internalBus(73)=>windowInternalBus(73), 
-      internalBus(72)=>windowInternalBus(72), internalBus(71)=>
-      windowInternalBus(71), internalBus(70)=>windowInternalBus(70), 
-      internalBus(69)=>windowInternalBus(69), internalBus(68)=>
-      windowInternalBus(68), internalBus(67)=>windowInternalBus(67), 
-      internalBus(66)=>windowInternalBus(66), internalBus(65)=>
-      windowInternalBus(65), internalBus(64)=>windowInternalBus(64), 
-      internalBus(63)=>windowInternalBus(63), internalBus(62)=>
-      windowInternalBus(62), internalBus(61)=>windowInternalBus(61), 
-      internalBus(60)=>windowInternalBus(60), internalBus(59)=>
-      windowInternalBus(59), internalBus(58)=>windowInternalBus(58), 
-      internalBus(57)=>windowInternalBus(57), internalBus(56)=>
-      windowInternalBus(56), internalBus(55)=>windowInternalBus(55), 
-      internalBus(54)=>windowInternalBus(54), internalBus(53)=>
-      windowInternalBus(53), internalBus(52)=>windowInternalBus(52), 
-      internalBus(51)=>windowInternalBus(51), internalBus(50)=>
-      windowInternalBus(50), internalBus(49)=>windowInternalBus(49), 
-      internalBus(48)=>windowInternalBus(48), internalBus(47)=>
-      windowInternalBus(47), internalBus(46)=>windowInternalBus(46), 
-      internalBus(45)=>windowInternalBus(45), internalBus(44)=>
-      windowInternalBus(44), internalBus(43)=>windowInternalBus(43), 
-      internalBus(42)=>windowInternalBus(42), internalBus(41)=>
-      windowInternalBus(41), internalBus(40)=>windowInternalBus(40), 
-      internalBus(39)=>windowInternalBus(39), internalBus(38)=>
-      windowInternalBus(38), internalBus(37)=>windowInternalBus(37), 
-      internalBus(36)=>windowInternalBus(36), internalBus(35)=>
-      windowInternalBus(35), internalBus(34)=>windowInternalBus(34), 
-      internalBus(33)=>windowInternalBus(33), internalBus(32)=>
-      windowInternalBus(32), internalBus(31)=>windowInternalBus(31), 
-      internalBus(30)=>windowInternalBus(30), internalBus(29)=>
-      windowInternalBus(29), internalBus(28)=>windowInternalBus(28), 
-      internalBus(27)=>windowInternalBus(27), internalBus(26)=>
-      windowInternalBus(26), internalBus(25)=>windowInternalBus(25), 
-      internalBus(24)=>windowInternalBus(24), internalBus(23)=>
-      windowInternalBus(23), internalBus(22)=>windowInternalBus(22), 
-      internalBus(21)=>windowInternalBus(21), internalBus(20)=>
-      windowInternalBus(20), internalBus(19)=>windowInternalBus(19), 
-      internalBus(18)=>windowInternalBus(18), internalBus(17)=>
-      windowInternalBus(17), internalBus(16)=>windowInternalBus(16), 
-      internalBus(15)=>windowInternalBus(15), internalBus(14)=>
-      windowInternalBus(14), internalBus(13)=>windowInternalBus(13), 
-      internalBus(12)=>windowInternalBus(12), internalBus(11)=>
-      windowInternalBus(11), internalBus(10)=>windowInternalBus(10), 
-      internalBus(9)=>windowInternalBus(9), internalBus(8)=>
-      windowInternalBus(8), internalBus(7)=>windowInternalBus(7), 
-      internalBus(6)=>windowInternalBus(6), internalBus(5)=>
-      windowInternalBus(5), internalBus(4)=>windowInternalBus(4), 
-      internalBus(3)=>windowInternalBus(3), internalBus(2)=>
-      windowInternalBus(2), internalBus(1)=>windowInternalBus(1), 
-      internalBus(0)=>windowInternalBus(0), ramWrite=>windowRamWrite, 
-      ramDataOutBus(79)=>windowRamDataOutBus(79), ramDataOutBus(78)=>
-      windowRamDataOutBus(78), ramDataOutBus(77)=>windowRamDataOutBus(77), 
-      ramDataOutBus(76)=>windowRamDataOutBus(76), ramDataOutBus(75)=>
-      windowRamDataOutBus(75), ramDataOutBus(74)=>windowRamDataOutBus(74), 
-      ramDataOutBus(73)=>windowRamDataOutBus(73), ramDataOutBus(72)=>
-      windowRamDataOutBus(72), ramDataOutBus(71)=>windowRamDataOutBus(71), 
-      ramDataOutBus(70)=>windowRamDataOutBus(70), ramDataOutBus(69)=>
-      windowRamDataOutBus(69), ramDataOutBus(68)=>windowRamDataOutBus(68), 
-      ramDataOutBus(67)=>windowRamDataOutBus(67), ramDataOutBus(66)=>
-      windowRamDataOutBus(66), ramDataOutBus(65)=>windowRamDataOutBus(65), 
-      ramDataOutBus(64)=>windowRamDataOutBus(64), ramDataOutBus(63)=>
-      windowRamDataOutBus(63), ramDataOutBus(62)=>windowRamDataOutBus(62), 
-      ramDataOutBus(61)=>windowRamDataOutBus(61), ramDataOutBus(60)=>
-      windowRamDataOutBus(60), ramDataOutBus(59)=>windowRamDataOutBus(59), 
-      ramDataOutBus(58)=>windowRamDataOutBus(58), ramDataOutBus(57)=>
-      windowRamDataOutBus(57), ramDataOutBus(56)=>windowRamDataOutBus(56), 
-      ramDataOutBus(55)=>windowRamDataOutBus(55), ramDataOutBus(54)=>
-      windowRamDataOutBus(54), ramDataOutBus(53)=>windowRamDataOutBus(53), 
-      ramDataOutBus(52)=>windowRamDataOutBus(52), ramDataOutBus(51)=>
-      windowRamDataOutBus(51), ramDataOutBus(50)=>windowRamDataOutBus(50), 
-      ramDataOutBus(49)=>windowRamDataOutBus(49), ramDataOutBus(48)=>
-      windowRamDataOutBus(48), ramDataOutBus(47)=>windowRamDataOutBus(47), 
-      ramDataOutBus(46)=>windowRamDataOutBus(46), ramDataOutBus(45)=>
-      windowRamDataOutBus(45), ramDataOutBus(44)=>windowRamDataOutBus(44), 
-      ramDataOutBus(43)=>windowRamDataOutBus(43), ramDataOutBus(42)=>
-      windowRamDataOutBus(42), ramDataOutBus(41)=>windowRamDataOutBus(41), 
-      ramDataOutBus(40)=>windowRamDataOutBus(40), ramDataOutBus(39)=>
-      windowRamDataOutBus(39), ramDataOutBus(38)=>windowRamDataOutBus(38), 
-      ramDataOutBus(37)=>windowRamDataOutBus(37), ramDataOutBus(36)=>
-      windowRamDataOutBus(36), ramDataOutBus(35)=>windowRamDataOutBus(35), 
-      ramDataOutBus(34)=>windowRamDataOutBus(34), ramDataOutBus(33)=>
-      windowRamDataOutBus(33), ramDataOutBus(32)=>windowRamDataOutBus(32), 
-      ramDataOutBus(31)=>windowRamDataOutBus(31), ramDataOutBus(30)=>
-      windowRamDataOutBus(30), ramDataOutBus(29)=>windowRamDataOutBus(29), 
-      ramDataOutBus(28)=>windowRamDataOutBus(28), ramDataOutBus(27)=>
-      windowRamDataOutBus(27), ramDataOutBus(26)=>windowRamDataOutBus(26), 
-      ramDataOutBus(25)=>windowRamDataOutBus(25), ramDataOutBus(24)=>
-      windowRamDataOutBus(24), ramDataOutBus(23)=>windowRamDataOutBus(23), 
-      ramDataOutBus(22)=>windowRamDataOutBus(22), ramDataOutBus(21)=>
-      windowRamDataOutBus(21), ramDataOutBus(20)=>windowRamDataOutBus(20), 
-      ramDataOutBus(19)=>windowRamDataOutBus(19), ramDataOutBus(18)=>
-      windowRamDataOutBus(18), ramDataOutBus(17)=>windowRamDataOutBus(17), 
-      ramDataOutBus(16)=>windowRamDataOutBus(16), ramDataOutBus(15)=>
-      windowRamDataOutBus(15), ramDataOutBus(14)=>windowRamDataOutBus(14), 
-      ramDataOutBus(13)=>windowRamDataOutBus(13), ramDataOutBus(12)=>
-      windowRamDataOutBus(12), ramDataOutBus(11)=>windowRamDataOutBus(11), 
-      ramDataOutBus(10)=>windowRamDataOutBus(10), ramDataOutBus(9)=>
-      windowRamDataOutBus(9), ramDataOutBus(8)=>windowRamDataOutBus(8), 
-      ramDataOutBus(7)=>windowRamDataOutBus(7), ramDataOutBus(6)=>
-      windowRamDataOutBus(6), ramDataOutBus(5)=>windowRamDataOutBus(5), 
-      ramDataOutBus(4)=>windowRamDataOutBus(4), ramDataOutBus(3)=>
-      windowRamDataOutBus(3), ramDataOutBus(2)=>windowRamDataOutBus(2), 
-      ramDataOutBus(1)=>windowRamDataOutBus(1), ramDataOutBus(0)=>
-      windowRamDataOutBus(0), ramAddress(12)=>writeLogicRamAddress_12, 
-      ramAddress(11)=>writeLogicRamAddress_11, ramAddress(10)=>
-      writeLogicRamAddress_10, ramAddress(9)=>writeLogicRamAddress_9, 
-      ramAddress(8)=>writeLogicRamAddress_8, ramAddress(7)=>
-      writeLogicRamAddress_7, ramAddress(6)=>writeLogicRamAddress_6, 
-      ramAddress(5)=>writeLogicRamAddress_5, ramAddress(4)=>
-      writeLogicRamAddress_4, ramAddress(3)=>writeLogicRamAddress_3, 
-      ramAddress(2)=>writeLogicRamAddress_2, ramAddress(1)=>
-      writeLogicRamAddress_1, ramAddress(0)=>writeLogicRamAddress_0, MFC=>
-      MFCWindowRam, outputSize(12)=>outputSize(12), outputSize(11)=>
-      outputSize(11), outputSize(10)=>outputSize(10), outputSize(9)=>
-      outputSize(9), outputSize(8)=>outputSize(8), outputSize(7)=>
-      outputSize(7), outputSize(6)=>outputSize(6), outputSize(5)=>
-      outputSize(5), outputSize(4)=>outputSize(4), outputSize(3)=>
-      outputSize(3), outputSize(2)=>outputSize(2), outputSize(1)=>
-      outputSize(1), outputSize(0)=>outputSize(0), write=>write, writeDone=>
-      writeDoneAll, writeDoneOne=>writeDoneOne);
-   ix678 : fake_gnd port map ( Y=>resetLogics);
-   ix676 : fake_vcc port map ( Y=>weightsSizeForWindow_0);
-   ix739 : inv01 port map ( Y=>NOT_weightsSizeType, A=>weightsSizeType);
-   ix319 : inv01 port map ( Y=>switchRam, A=>nx741);
-   ix742 : nor02_2x port map ( Y=>nx741, A0=>reset, A1=>layerFinished);
-   ix117 : nand02 port map ( Y=>currentWriteRamBaseAddress_0, A0=>nx744, A1
-      =>nx749);
-   ix745 : nand02 port map ( Y=>nx744, A0=>windowRamBaseAddress1(0), A1=>
-      nx948);
+      currentWriteRamBaseAddress_0, internalBus(79)=>resetLogics, 
+      internalBus(78)=>resetLogics, internalBus(77)=>resetLogics, 
+      internalBus(76)=>resetLogics, internalBus(75)=>resetLogics, 
+      internalBus(74)=>resetLogics, internalBus(73)=>resetLogics, 
+      internalBus(72)=>resetLogics, internalBus(71)=>resetLogics, 
+      internalBus(70)=>resetLogics, internalBus(69)=>resetLogics, 
+      internalBus(68)=>resetLogics, internalBus(67)=>resetLogics, 
+      internalBus(66)=>resetLogics, internalBus(65)=>resetLogics, 
+      internalBus(64)=>resetLogics, internalBus(63)=>resetLogics, 
+      internalBus(62)=>resetLogics, internalBus(61)=>resetLogics, 
+      internalBus(60)=>resetLogics, internalBus(59)=>resetLogics, 
+      internalBus(58)=>resetLogics, internalBus(57)=>resetLogics, 
+      internalBus(56)=>resetLogics, internalBus(55)=>resetLogics, 
+      internalBus(54)=>resetLogics, internalBus(53)=>resetLogics, 
+      internalBus(52)=>resetLogics, internalBus(51)=>resetLogics, 
+      internalBus(50)=>resetLogics, internalBus(49)=>resetLogics, 
+      internalBus(48)=>resetLogics, internalBus(47)=>resetLogics, 
+      internalBus(46)=>resetLogics, internalBus(45)=>resetLogics, 
+      internalBus(44)=>resetLogics, internalBus(43)=>resetLogics, 
+      internalBus(42)=>resetLogics, internalBus(41)=>resetLogics, 
+      internalBus(40)=>resetLogics, internalBus(39)=>resetLogics, 
+      internalBus(38)=>resetLogics, internalBus(37)=>resetLogics, 
+      internalBus(36)=>resetLogics, internalBus(35)=>resetLogics, 
+      internalBus(34)=>resetLogics, internalBus(33)=>resetLogics, 
+      internalBus(32)=>resetLogics, internalBus(31)=>resetLogics, 
+      internalBus(30)=>resetLogics, internalBus(29)=>resetLogics, 
+      internalBus(28)=>resetLogics, internalBus(27)=>resetLogics, 
+      internalBus(26)=>resetLogics, internalBus(25)=>resetLogics, 
+      internalBus(24)=>resetLogics, internalBus(23)=>resetLogics, 
+      internalBus(22)=>resetLogics, internalBus(21)=>resetLogics, 
+      internalBus(20)=>resetLogics, internalBus(19)=>resetLogics, 
+      internalBus(18)=>resetLogics, internalBus(17)=>resetLogics, 
+      internalBus(16)=>resetLogics, internalBus(15)=>resetLogics, 
+      internalBus(14)=>resetLogics, internalBus(13)=>resetLogics, 
+      internalBus(12)=>resetLogics, internalBus(11)=>resetLogics, 
+      internalBus(10)=>resetLogics, internalBus(9)=>resetLogics, 
+      internalBus(8)=>resetLogics, internalBus(7)=>resetLogics, 
+      internalBus(6)=>resetLogics, internalBus(5)=>resetLogics, 
+      internalBus(4)=>resetLogics, internalBus(3)=>resetLogics, 
+      internalBus(2)=>resetLogics, internalBus(1)=>resetLogics, 
+      internalBus(0)=>resetLogics, ramWrite=>windowRamWrite, 
+      ramDataOutBus(79)=>DANGLING(0), ramDataOutBus(78)=>DANGLING(1), 
+      ramDataOutBus(77)=>DANGLING(2), ramDataOutBus(76)=>DANGLING(3), 
+      ramDataOutBus(75)=>DANGLING(4), ramDataOutBus(74)=>DANGLING(5), 
+      ramDataOutBus(73)=>DANGLING(6), ramDataOutBus(72)=>DANGLING(7), 
+      ramDataOutBus(71)=>DANGLING(8), ramDataOutBus(70)=>DANGLING(9), 
+      ramDataOutBus(69)=>DANGLING(10), ramDataOutBus(68)=>DANGLING(11), 
+      ramDataOutBus(67)=>DANGLING(12), ramDataOutBus(66)=>DANGLING(13), 
+      ramDataOutBus(65)=>DANGLING(14), ramDataOutBus(64)=>DANGLING(15), 
+      ramDataOutBus(63)=>DANGLING(16), ramDataOutBus(62)=>DANGLING(17), 
+      ramDataOutBus(61)=>DANGLING(18), ramDataOutBus(60)=>DANGLING(19), 
+      ramDataOutBus(59)=>DANGLING(20), ramDataOutBus(58)=>DANGLING(21), 
+      ramDataOutBus(57)=>DANGLING(22), ramDataOutBus(56)=>DANGLING(23), 
+      ramDataOutBus(55)=>DANGLING(24), ramDataOutBus(54)=>DANGLING(25), 
+      ramDataOutBus(53)=>DANGLING(26), ramDataOutBus(52)=>DANGLING(27), 
+      ramDataOutBus(51)=>DANGLING(28), ramDataOutBus(50)=>DANGLING(29), 
+      ramDataOutBus(49)=>DANGLING(30), ramDataOutBus(48)=>DANGLING(31), 
+      ramDataOutBus(47)=>DANGLING(32), ramDataOutBus(46)=>DANGLING(33), 
+      ramDataOutBus(45)=>DANGLING(34), ramDataOutBus(44)=>DANGLING(35), 
+      ramDataOutBus(43)=>DANGLING(36), ramDataOutBus(42)=>DANGLING(37), 
+      ramDataOutBus(41)=>DANGLING(38), ramDataOutBus(40)=>DANGLING(39), 
+      ramDataOutBus(39)=>DANGLING(40), ramDataOutBus(38)=>DANGLING(41), 
+      ramDataOutBus(37)=>DANGLING(42), ramDataOutBus(36)=>DANGLING(43), 
+      ramDataOutBus(35)=>DANGLING(44), ramDataOutBus(34)=>DANGLING(45), 
+      ramDataOutBus(33)=>DANGLING(46), ramDataOutBus(32)=>DANGLING(47), 
+      ramDataOutBus(31)=>DANGLING(48), ramDataOutBus(30)=>DANGLING(49), 
+      ramDataOutBus(29)=>DANGLING(50), ramDataOutBus(28)=>DANGLING(51), 
+      ramDataOutBus(27)=>DANGLING(52), ramDataOutBus(26)=>DANGLING(53), 
+      ramDataOutBus(25)=>DANGLING(54), ramDataOutBus(24)=>DANGLING(55), 
+      ramDataOutBus(23)=>DANGLING(56), ramDataOutBus(22)=>DANGLING(57), 
+      ramDataOutBus(21)=>DANGLING(58), ramDataOutBus(20)=>DANGLING(59), 
+      ramDataOutBus(19)=>DANGLING(60), ramDataOutBus(18)=>DANGLING(61), 
+      ramDataOutBus(17)=>DANGLING(62), ramDataOutBus(16)=>DANGLING(63), 
+      ramDataOutBus(15)=>DANGLING(64), ramDataOutBus(14)=>DANGLING(65), 
+      ramDataOutBus(13)=>DANGLING(66), ramDataOutBus(12)=>DANGLING(67), 
+      ramDataOutBus(11)=>DANGLING(68), ramDataOutBus(10)=>DANGLING(69), 
+      ramDataOutBus(9)=>DANGLING(70), ramDataOutBus(8)=>DANGLING(71), 
+      ramDataOutBus(7)=>DANGLING(72), ramDataOutBus(6)=>DANGLING(73), 
+      ramDataOutBus(5)=>DANGLING(74), ramDataOutBus(4)=>DANGLING(75), 
+      ramDataOutBus(3)=>DANGLING(76), ramDataOutBus(2)=>DANGLING(77), 
+      ramDataOutBus(1)=>DANGLING(78), ramDataOutBus(0)=>DANGLING(79), 
+      ramAddress(12)=>writeLogicRamAddress_12, ramAddress(11)=>
+      writeLogicRamAddress_11, ramAddress(10)=>writeLogicRamAddress_10, 
+      ramAddress(9)=>writeLogicRamAddress_9, ramAddress(8)=>
+      writeLogicRamAddress_8, ramAddress(7)=>writeLogicRamAddress_7, 
+      ramAddress(6)=>writeLogicRamAddress_6, ramAddress(5)=>
+      writeLogicRamAddress_5, ramAddress(4)=>writeLogicRamAddress_4, 
+      ramAddress(3)=>writeLogicRamAddress_3, ramAddress(2)=>
+      writeLogicRamAddress_2, ramAddress(1)=>writeLogicRamAddress_1, 
+      ramAddress(0)=>writeLogicRamAddress_0, MFC=>MFCWindowRam, 
+      outputSize(12)=>outputSize(12), outputSize(11)=>outputSize(11), 
+      outputSize(10)=>outputSize(10), outputSize(9)=>outputSize(9), 
+      outputSize(8)=>outputSize(8), outputSize(7)=>outputSize(7), 
+      outputSize(6)=>outputSize(6), outputSize(5)=>outputSize(5), 
+      outputSize(4)=>outputSize(4), outputSize(3)=>outputSize(3), 
+      outputSize(2)=>outputSize(2), outputSize(1)=>outputSize(1), 
+      outputSize(0)=>outputSize(0), write=>write, writeDone=>writeDoneAll, 
+      writeDoneOne=>writeDoneOne);
+   ix878 : inv01 port map ( Y=>NOT_weightsSizeType_dup_876, A=>
+      weightsSizeType);
+   ix817 : fake_vcc port map ( Y=>weightsSizeForWindow_0);
+   ix815 : fake_gnd port map ( Y=>resetLogics);
+   ix331 : inv01 port map ( Y=>loadWord, A=>nx882);
+   ix883 : nor02_2x port map ( Y=>nx882, A0=>loadOneWord, A1=>loadTwoWord);
+   ix321 : nand02 port map ( Y=>filterStep_0, A0=>nx885, A1=>loadTwoWord);
+   ix886 : inv01 port map ( Y=>nx885, A=>loadOneWord);
+   ix329 : nor02_2x port map ( Y=>filterStep_1, A0=>loadOneWord, A1=>nx888);
+   ix889 : nor02_2x port map ( Y=>nx888, A0=>NOT_weightsSizeType_dup_876, A1
+      =>loadTwoWord);
+   ix335 : nor02_2x port map ( Y=>filterStep_2, A0=>
+      NOT_weightsSizeType_dup_876, A1=>loadWord);
+   ix337 : inv01 port map ( Y=>switchRam, A=>nx892);
+   ix893 : nor02_2x port map ( Y=>nx892, A0=>reset, A1=>layerFinished);
+   ix117 : nand02 port map ( Y=>currentWriteRamBaseAddress_0, A0=>nx895, A1
+      =>nx900);
+   ix896 : nand02 port map ( Y=>nx895, A0=>windowRamBaseAddress1(0), A1=>
+      nx1099);
    reg_ramBaseAddressSelector : dffr port map ( Q=>ramBaseAddressSelector, 
       QB=>NOT_ramBaseAddressSelector, D=>NOT_ramBaseAddressSelector, CLK=>
       layerFinished, R=>reset);
-   ix750 : nand02 port map ( Y=>nx749, A0=>windowRamBaseAddress2(0), A1=>
-      nx956);
-   ix125 : nand02 port map ( Y=>currentWriteRamBaseAddress_1, A0=>nx752, A1
-      =>nx754);
-   ix753 : nand02 port map ( Y=>nx752, A0=>windowRamBaseAddress1(1), A1=>
-      nx948);
-   ix755 : nand02 port map ( Y=>nx754, A0=>windowRamBaseAddress2(1), A1=>
-      nx956);
-   ix133 : nand02 port map ( Y=>currentWriteRamBaseAddress_2, A0=>nx757, A1
-      =>nx759);
-   ix758 : nand02 port map ( Y=>nx757, A0=>windowRamBaseAddress1(2), A1=>
-      nx948);
-   ix760 : nand02 port map ( Y=>nx759, A0=>windowRamBaseAddress2(2), A1=>
-      nx956);
-   ix141 : nand02 port map ( Y=>currentWriteRamBaseAddress_3, A0=>nx762, A1
-      =>nx764);
-   ix763 : nand02 port map ( Y=>nx762, A0=>windowRamBaseAddress1(3), A1=>
-      nx948);
-   ix765 : nand02 port map ( Y=>nx764, A0=>windowRamBaseAddress2(3), A1=>
-      nx956);
-   ix149 : nand02 port map ( Y=>currentWriteRamBaseAddress_4, A0=>nx767, A1
-      =>nx769);
-   ix768 : nand02 port map ( Y=>nx767, A0=>windowRamBaseAddress1(4), A1=>
-      nx948);
-   ix770 : nand02 port map ( Y=>nx769, A0=>windowRamBaseAddress2(4), A1=>
-      nx956);
-   ix157 : nand02 port map ( Y=>currentWriteRamBaseAddress_5, A0=>nx772, A1
-      =>nx774);
-   ix773 : nand02 port map ( Y=>nx772, A0=>windowRamBaseAddress1(5), A1=>
-      nx948);
-   ix775 : nand02 port map ( Y=>nx774, A0=>windowRamBaseAddress2(5), A1=>
-      nx956);
-   ix165 : nand02 port map ( Y=>currentWriteRamBaseAddress_6, A0=>nx777, A1
-      =>nx779);
-   ix778 : nand02 port map ( Y=>nx777, A0=>windowRamBaseAddress1(6), A1=>
-      nx948);
-   ix780 : nand02 port map ( Y=>nx779, A0=>windowRamBaseAddress2(6), A1=>
-      nx956);
-   ix173 : nand02 port map ( Y=>currentWriteRamBaseAddress_7, A0=>nx782, A1
-      =>nx784);
-   ix783 : nand02 port map ( Y=>nx782, A0=>windowRamBaseAddress1(7), A1=>
-      nx950);
-   ix785 : nand02 port map ( Y=>nx784, A0=>windowRamBaseAddress2(7), A1=>
-      nx958);
-   ix181 : nand02 port map ( Y=>currentWriteRamBaseAddress_8, A0=>nx787, A1
-      =>nx789);
-   ix788 : nand02 port map ( Y=>nx787, A0=>windowRamBaseAddress1(8), A1=>
-      nx950);
-   ix790 : nand02 port map ( Y=>nx789, A0=>windowRamBaseAddress2(8), A1=>
-      nx958);
-   ix189 : nand02 port map ( Y=>currentWriteRamBaseAddress_9, A0=>nx792, A1
-      =>nx794);
-   ix793 : nand02 port map ( Y=>nx792, A0=>windowRamBaseAddress1(9), A1=>
-      nx950);
-   ix795 : nand02 port map ( Y=>nx794, A0=>windowRamBaseAddress2(9), A1=>
-      nx958);
-   ix197 : nand02 port map ( Y=>currentWriteRamBaseAddress_10, A0=>nx797, A1
-      =>nx799);
-   ix798 : nand02 port map ( Y=>nx797, A0=>windowRamBaseAddress1(10), A1=>
-      nx950);
-   ix800 : nand02 port map ( Y=>nx799, A0=>windowRamBaseAddress2(10), A1=>
-      nx958);
-   ix205 : nand02 port map ( Y=>currentWriteRamBaseAddress_11, A0=>nx802, A1
-      =>nx804);
-   ix803 : nand02 port map ( Y=>nx802, A0=>windowRamBaseAddress1(11), A1=>
-      nx950);
-   ix805 : nand02 port map ( Y=>nx804, A0=>windowRamBaseAddress2(11), A1=>
-      nx958);
-   ix213 : nand02 port map ( Y=>currentWriteRamBaseAddress_12, A0=>nx807, A1
-      =>nx809);
-   ix808 : nand02 port map ( Y=>nx807, A0=>windowRamBaseAddress1(12), A1=>
-      nx950);
-   ix810 : nand02 port map ( Y=>nx809, A0=>windowRamBaseAddress2(12), A1=>
-      nx958);
-   ix221 : nand02 port map ( Y=>currentReadRamBaseAddress_0, A0=>nx812, A1=>
-      nx814);
-   ix813 : nand02 port map ( Y=>nx812, A0=>windowRamBaseAddress2(0), A1=>
-      nx950);
-   ix815 : nand02 port map ( Y=>nx814, A0=>windowRamBaseAddress1(0), A1=>
-      nx958);
-   ix229 : nand02 port map ( Y=>currentReadRamBaseAddress_1, A0=>nx817, A1=>
-      nx819);
-   ix818 : nand02 port map ( Y=>nx817, A0=>windowRamBaseAddress2(1), A1=>
-      nx952);
-   ix820 : nand02 port map ( Y=>nx819, A0=>windowRamBaseAddress1(1), A1=>
-      nx960);
-   ix237 : nand02 port map ( Y=>currentReadRamBaseAddress_2, A0=>nx822, A1=>
-      nx824);
-   ix823 : nand02 port map ( Y=>nx822, A0=>windowRamBaseAddress2(2), A1=>
-      nx952);
-   ix825 : nand02 port map ( Y=>nx824, A0=>windowRamBaseAddress1(2), A1=>
-      nx960);
-   ix245 : nand02 port map ( Y=>currentReadRamBaseAddress_3, A0=>nx827, A1=>
-      nx829);
-   ix828 : nand02 port map ( Y=>nx827, A0=>windowRamBaseAddress2(3), A1=>
-      nx952);
-   ix830 : nand02 port map ( Y=>nx829, A0=>windowRamBaseAddress1(3), A1=>
-      nx960);
-   ix253 : nand02 port map ( Y=>currentReadRamBaseAddress_4, A0=>nx832, A1=>
-      nx834);
-   ix833 : nand02 port map ( Y=>nx832, A0=>windowRamBaseAddress2(4), A1=>
-      nx952);
-   ix835 : nand02 port map ( Y=>nx834, A0=>windowRamBaseAddress1(4), A1=>
-      nx960);
-   ix261 : nand02 port map ( Y=>currentReadRamBaseAddress_5, A0=>nx837, A1=>
-      nx839);
-   ix838 : nand02 port map ( Y=>nx837, A0=>windowRamBaseAddress2(5), A1=>
-      nx952);
-   ix840 : nand02 port map ( Y=>nx839, A0=>windowRamBaseAddress1(5), A1=>
-      nx960);
-   ix269 : nand02 port map ( Y=>currentReadRamBaseAddress_6, A0=>nx842, A1=>
-      nx844);
-   ix843 : nand02 port map ( Y=>nx842, A0=>windowRamBaseAddress2(6), A1=>
-      nx952);
-   ix845 : nand02 port map ( Y=>nx844, A0=>windowRamBaseAddress1(6), A1=>
-      nx960);
-   ix277 : nand02 port map ( Y=>currentReadRamBaseAddress_7, A0=>nx847, A1=>
-      nx849);
-   ix848 : nand02 port map ( Y=>nx847, A0=>windowRamBaseAddress2(7), A1=>
-      nx952);
-   ix850 : nand02 port map ( Y=>nx849, A0=>windowRamBaseAddress1(7), A1=>
-      nx960);
-   ix285 : nand02 port map ( Y=>currentReadRamBaseAddress_8, A0=>nx852, A1=>
-      nx854);
-   ix853 : nand02 port map ( Y=>nx852, A0=>windowRamBaseAddress2(8), A1=>
-      nx954);
-   ix855 : nand02 port map ( Y=>nx854, A0=>windowRamBaseAddress1(8), A1=>
-      nx962);
-   ix293 : nand02 port map ( Y=>currentReadRamBaseAddress_9, A0=>nx857, A1=>
-      nx859);
-   ix858 : nand02 port map ( Y=>nx857, A0=>windowRamBaseAddress2(9), A1=>
-      nx954);
-   ix860 : nand02 port map ( Y=>nx859, A0=>windowRamBaseAddress1(9), A1=>
-      nx962);
-   ix301 : nand02 port map ( Y=>currentReadRamBaseAddress_10, A0=>nx862, A1
-      =>nx864);
-   ix863 : nand02 port map ( Y=>nx862, A0=>windowRamBaseAddress2(10), A1=>
-      nx954);
-   ix865 : nand02 port map ( Y=>nx864, A0=>windowRamBaseAddress1(10), A1=>
-      nx962);
-   ix309 : nand02 port map ( Y=>currentReadRamBaseAddress_11, A0=>nx867, A1
-      =>nx869);
-   ix868 : nand02 port map ( Y=>nx867, A0=>windowRamBaseAddress2(11), A1=>
-      nx954);
-   ix870 : nand02 port map ( Y=>nx869, A0=>windowRamBaseAddress1(11), A1=>
-      nx962);
-   ix317 : nand02 port map ( Y=>currentReadRamBaseAddress_12, A0=>nx872, A1
-      =>nx874);
-   ix873 : nand02 port map ( Y=>nx872, A0=>windowRamBaseAddress2(12), A1=>
-      nx954);
-   ix875 : nand02 port map ( Y=>nx874, A0=>windowRamBaseAddress1(12), A1=>
-      nx962);
-   ix7 : nand02 port map ( Y=>windowRamAddress(0), A0=>nx877, A1=>nx879);
-   ix878 : nand02 port map ( Y=>nx877, A0=>writeLogicRamAddress_0, A1=>write
-   );
-   ix880 : nand02 port map ( Y=>nx879, A0=>readLogicRamAddress_0, A1=>nx966
-   );
-   ix15 : nand02 port map ( Y=>windowRamAddress(1), A0=>nx884, A1=>nx886);
-   ix885 : nand02 port map ( Y=>nx884, A0=>writeLogicRamAddress_1, A1=>write
-   );
-   ix887 : nand02 port map ( Y=>nx886, A0=>readLogicRamAddress_1, A1=>nx966
-   );
-   ix23 : nand02 port map ( Y=>windowRamAddress(2), A0=>nx889, A1=>nx891);
-   ix890 : nand02 port map ( Y=>nx889, A0=>writeLogicRamAddress_2, A1=>write
-   );
-   ix892 : nand02 port map ( Y=>nx891, A0=>readLogicRamAddress_2, A1=>nx966
-   );
-   ix31 : nand02 port map ( Y=>windowRamAddress(3), A0=>nx894, A1=>nx896);
-   ix895 : nand02 port map ( Y=>nx894, A0=>writeLogicRamAddress_3, A1=>write
-   );
-   ix897 : nand02 port map ( Y=>nx896, A0=>readLogicRamAddress_3, A1=>nx966
-   );
-   ix39 : nand02 port map ( Y=>windowRamAddress(4), A0=>nx899, A1=>nx901);
-   ix900 : nand02 port map ( Y=>nx899, A0=>writeLogicRamAddress_4, A1=>write
-   );
-   ix902 : nand02 port map ( Y=>nx901, A0=>readLogicRamAddress_4, A1=>nx966
-   );
-   ix47 : nand02 port map ( Y=>windowRamAddress(5), A0=>nx904, A1=>nx906);
-   ix905 : nand02 port map ( Y=>nx904, A0=>writeLogicRamAddress_5, A1=>write
-   );
-   ix907 : nand02 port map ( Y=>nx906, A0=>readLogicRamAddress_5, A1=>nx966
-   );
-   ix55 : nand02 port map ( Y=>windowRamAddress(6), A0=>nx909, A1=>nx911);
-   ix910 : nand02 port map ( Y=>nx909, A0=>writeLogicRamAddress_6, A1=>write
-   );
-   ix912 : nand02 port map ( Y=>nx911, A0=>readLogicRamAddress_6, A1=>nx966
-   );
-   ix63 : nand02 port map ( Y=>windowRamAddress(7), A0=>nx914, A1=>nx916);
-   ix915 : nand02 port map ( Y=>nx914, A0=>writeLogicRamAddress_7, A1=>write
-   );
-   ix917 : nand02 port map ( Y=>nx916, A0=>readLogicRamAddress_7, A1=>nx968
-   );
-   ix71 : nand02 port map ( Y=>windowRamAddress(8), A0=>nx919, A1=>nx921);
-   ix920 : nand02 port map ( Y=>nx919, A0=>writeLogicRamAddress_8, A1=>write
-   );
-   ix922 : nand02 port map ( Y=>nx921, A0=>readLogicRamAddress_8, A1=>nx968
-   );
-   ix79 : nand02 port map ( Y=>windowRamAddress(9), A0=>nx924, A1=>nx926);
-   ix925 : nand02 port map ( Y=>nx924, A0=>writeLogicRamAddress_9, A1=>write
-   );
-   ix927 : nand02 port map ( Y=>nx926, A0=>readLogicRamAddress_9, A1=>nx968
-   );
-   ix87 : nand02 port map ( Y=>windowRamAddress(10), A0=>nx929, A1=>nx931);
-   ix930 : nand02 port map ( Y=>nx929, A0=>writeLogicRamAddress_10, A1=>
+   ix901 : nand02 port map ( Y=>nx900, A0=>windowRamBaseAddress2(0), A1=>
+      nx1107);
+   ix125 : nand02 port map ( Y=>currentWriteRamBaseAddress_1, A0=>nx903, A1
+      =>nx905);
+   ix904 : nand02 port map ( Y=>nx903, A0=>windowRamBaseAddress1(1), A1=>
+      nx1099);
+   ix906 : nand02 port map ( Y=>nx905, A0=>windowRamBaseAddress2(1), A1=>
+      nx1107);
+   ix133 : nand02 port map ( Y=>currentWriteRamBaseAddress_2, A0=>nx908, A1
+      =>nx910);
+   ix909 : nand02 port map ( Y=>nx908, A0=>windowRamBaseAddress1(2), A1=>
+      nx1099);
+   ix911 : nand02 port map ( Y=>nx910, A0=>windowRamBaseAddress2(2), A1=>
+      nx1107);
+   ix141 : nand02 port map ( Y=>currentWriteRamBaseAddress_3, A0=>nx913, A1
+      =>nx915);
+   ix914 : nand02 port map ( Y=>nx913, A0=>windowRamBaseAddress1(3), A1=>
+      nx1099);
+   ix916 : nand02 port map ( Y=>nx915, A0=>windowRamBaseAddress2(3), A1=>
+      nx1107);
+   ix149 : nand02 port map ( Y=>currentWriteRamBaseAddress_4, A0=>nx918, A1
+      =>nx920);
+   ix919 : nand02 port map ( Y=>nx918, A0=>windowRamBaseAddress1(4), A1=>
+      nx1099);
+   ix921 : nand02 port map ( Y=>nx920, A0=>windowRamBaseAddress2(4), A1=>
+      nx1107);
+   ix157 : nand02 port map ( Y=>currentWriteRamBaseAddress_5, A0=>nx923, A1
+      =>nx925);
+   ix924 : nand02 port map ( Y=>nx923, A0=>windowRamBaseAddress1(5), A1=>
+      nx1099);
+   ix926 : nand02 port map ( Y=>nx925, A0=>windowRamBaseAddress2(5), A1=>
+      nx1107);
+   ix165 : nand02 port map ( Y=>currentWriteRamBaseAddress_6, A0=>nx928, A1
+      =>nx930);
+   ix929 : nand02 port map ( Y=>nx928, A0=>windowRamBaseAddress1(6), A1=>
+      nx1099);
+   ix931 : nand02 port map ( Y=>nx930, A0=>windowRamBaseAddress2(6), A1=>
+      nx1107);
+   ix173 : nand02 port map ( Y=>currentWriteRamBaseAddress_7, A0=>nx933, A1
+      =>nx935);
+   ix934 : nand02 port map ( Y=>nx933, A0=>windowRamBaseAddress1(7), A1=>
+      nx1101);
+   ix936 : nand02 port map ( Y=>nx935, A0=>windowRamBaseAddress2(7), A1=>
+      nx1109);
+   ix181 : nand02 port map ( Y=>currentWriteRamBaseAddress_8, A0=>nx938, A1
+      =>nx940);
+   ix939 : nand02 port map ( Y=>nx938, A0=>windowRamBaseAddress1(8), A1=>
+      nx1101);
+   ix941 : nand02 port map ( Y=>nx940, A0=>windowRamBaseAddress2(8), A1=>
+      nx1109);
+   ix189 : nand02 port map ( Y=>currentWriteRamBaseAddress_9, A0=>nx943, A1
+      =>nx945);
+   ix944 : nand02 port map ( Y=>nx943, A0=>windowRamBaseAddress1(9), A1=>
+      nx1101);
+   ix946 : nand02 port map ( Y=>nx945, A0=>windowRamBaseAddress2(9), A1=>
+      nx1109);
+   ix197 : nand02 port map ( Y=>currentWriteRamBaseAddress_10, A0=>nx948, A1
+      =>nx950);
+   ix949 : nand02 port map ( Y=>nx948, A0=>windowRamBaseAddress1(10), A1=>
+      nx1101);
+   ix951 : nand02 port map ( Y=>nx950, A0=>windowRamBaseAddress2(10), A1=>
+      nx1109);
+   ix205 : nand02 port map ( Y=>currentWriteRamBaseAddress_11, A0=>nx953, A1
+      =>nx955);
+   ix954 : nand02 port map ( Y=>nx953, A0=>windowRamBaseAddress1(11), A1=>
+      nx1101);
+   ix956 : nand02 port map ( Y=>nx955, A0=>windowRamBaseAddress2(11), A1=>
+      nx1109);
+   ix213 : nand02 port map ( Y=>currentWriteRamBaseAddress_12, A0=>nx958, A1
+      =>nx960);
+   ix959 : nand02 port map ( Y=>nx958, A0=>windowRamBaseAddress1(12), A1=>
+      nx1101);
+   ix961 : nand02 port map ( Y=>nx960, A0=>windowRamBaseAddress2(12), A1=>
+      nx1109);
+   ix221 : nand02 port map ( Y=>currentReadRamBaseAddress_0, A0=>nx963, A1=>
+      nx965);
+   ix964 : nand02 port map ( Y=>nx963, A0=>windowRamBaseAddress2(0), A1=>
+      nx1101);
+   ix966 : nand02 port map ( Y=>nx965, A0=>windowRamBaseAddress1(0), A1=>
+      nx1109);
+   ix229 : nand02 port map ( Y=>currentReadRamBaseAddress_1, A0=>nx968, A1=>
+      nx970);
+   ix969 : nand02 port map ( Y=>nx968, A0=>windowRamBaseAddress2(1), A1=>
+      nx1103);
+   ix971 : nand02 port map ( Y=>nx970, A0=>windowRamBaseAddress1(1), A1=>
+      nx1111);
+   ix237 : nand02 port map ( Y=>currentReadRamBaseAddress_2, A0=>nx973, A1=>
+      nx975);
+   ix974 : nand02 port map ( Y=>nx973, A0=>windowRamBaseAddress2(2), A1=>
+      nx1103);
+   ix976 : nand02 port map ( Y=>nx975, A0=>windowRamBaseAddress1(2), A1=>
+      nx1111);
+   ix245 : nand02 port map ( Y=>currentReadRamBaseAddress_3, A0=>nx978, A1=>
+      nx980);
+   ix979 : nand02 port map ( Y=>nx978, A0=>windowRamBaseAddress2(3), A1=>
+      nx1103);
+   ix981 : nand02 port map ( Y=>nx980, A0=>windowRamBaseAddress1(3), A1=>
+      nx1111);
+   ix253 : nand02 port map ( Y=>currentReadRamBaseAddress_4, A0=>nx983, A1=>
+      nx985);
+   ix984 : nand02 port map ( Y=>nx983, A0=>windowRamBaseAddress2(4), A1=>
+      nx1103);
+   ix986 : nand02 port map ( Y=>nx985, A0=>windowRamBaseAddress1(4), A1=>
+      nx1111);
+   ix261 : nand02 port map ( Y=>currentReadRamBaseAddress_5, A0=>nx988, A1=>
+      nx990);
+   ix989 : nand02 port map ( Y=>nx988, A0=>windowRamBaseAddress2(5), A1=>
+      nx1103);
+   ix991 : nand02 port map ( Y=>nx990, A0=>windowRamBaseAddress1(5), A1=>
+      nx1111);
+   ix269 : nand02 port map ( Y=>currentReadRamBaseAddress_6, A0=>nx993, A1=>
+      nx995);
+   ix994 : nand02 port map ( Y=>nx993, A0=>windowRamBaseAddress2(6), A1=>
+      nx1103);
+   ix996 : nand02 port map ( Y=>nx995, A0=>windowRamBaseAddress1(6), A1=>
+      nx1111);
+   ix277 : nand02 port map ( Y=>currentReadRamBaseAddress_7, A0=>nx998, A1=>
+      nx1000);
+   ix999 : nand02 port map ( Y=>nx998, A0=>windowRamBaseAddress2(7), A1=>
+      nx1103);
+   ix1001 : nand02 port map ( Y=>nx1000, A0=>windowRamBaseAddress1(7), A1=>
+      nx1111);
+   ix285 : nand02 port map ( Y=>currentReadRamBaseAddress_8, A0=>nx1003, A1
+      =>nx1005);
+   ix1004 : nand02 port map ( Y=>nx1003, A0=>windowRamBaseAddress2(8), A1=>
+      nx1105);
+   ix1006 : nand02 port map ( Y=>nx1005, A0=>windowRamBaseAddress1(8), A1=>
+      nx1113);
+   ix293 : nand02 port map ( Y=>currentReadRamBaseAddress_9, A0=>nx1008, A1
+      =>nx1010);
+   ix1009 : nand02 port map ( Y=>nx1008, A0=>windowRamBaseAddress2(9), A1=>
+      nx1105);
+   ix1011 : nand02 port map ( Y=>nx1010, A0=>windowRamBaseAddress1(9), A1=>
+      nx1113);
+   ix301 : nand02 port map ( Y=>currentReadRamBaseAddress_10, A0=>nx1013, A1
+      =>nx1015);
+   ix1014 : nand02 port map ( Y=>nx1013, A0=>windowRamBaseAddress2(10), A1=>
+      nx1105);
+   ix1016 : nand02 port map ( Y=>nx1015, A0=>windowRamBaseAddress1(10), A1=>
+      nx1113);
+   ix309 : nand02 port map ( Y=>currentReadRamBaseAddress_11, A0=>nx1018, A1
+      =>nx1020);
+   ix1019 : nand02 port map ( Y=>nx1018, A0=>windowRamBaseAddress2(11), A1=>
+      nx1105);
+   ix1021 : nand02 port map ( Y=>nx1020, A0=>windowRamBaseAddress1(11), A1=>
+      nx1113);
+   ix317 : nand02 port map ( Y=>currentReadRamBaseAddress_12, A0=>nx1023, A1
+      =>nx1025);
+   ix1024 : nand02 port map ( Y=>nx1023, A0=>windowRamBaseAddress2(12), A1=>
+      nx1105);
+   ix1026 : nand02 port map ( Y=>nx1025, A0=>windowRamBaseAddress1(12), A1=>
+      nx1113);
+   ix7 : nand02 port map ( Y=>windowRamAddress(0), A0=>nx1028, A1=>nx1030);
+   ix1029 : nand02 port map ( Y=>nx1028, A0=>writeLogicRamAddress_0, A1=>
       write);
-   ix932 : nand02 port map ( Y=>nx931, A0=>readLogicRamAddress_10, A1=>nx968
-   );
-   ix95 : nand02 port map ( Y=>windowRamAddress(11), A0=>nx934, A1=>nx936);
-   ix935 : nand02 port map ( Y=>nx934, A0=>writeLogicRamAddress_11, A1=>
+   ix1031 : nand02 port map ( Y=>nx1030, A0=>readLogicRamAddress_0, A1=>
+      nx1117);
+   ix15 : nand02 port map ( Y=>windowRamAddress(1), A0=>nx1035, A1=>nx1037);
+   ix1036 : nand02 port map ( Y=>nx1035, A0=>writeLogicRamAddress_1, A1=>
       write);
-   ix937 : nand02 port map ( Y=>nx936, A0=>readLogicRamAddress_11, A1=>nx968
+   ix1038 : nand02 port map ( Y=>nx1037, A0=>readLogicRamAddress_1, A1=>
+      nx1117);
+   ix23 : nand02 port map ( Y=>windowRamAddress(2), A0=>nx1040, A1=>nx1042);
+   ix1041 : nand02 port map ( Y=>nx1040, A0=>writeLogicRamAddress_2, A1=>
+      write);
+   ix1043 : nand02 port map ( Y=>nx1042, A0=>readLogicRamAddress_2, A1=>
+      nx1117);
+   ix31 : nand02 port map ( Y=>windowRamAddress(3), A0=>nx1045, A1=>nx1047);
+   ix1046 : nand02 port map ( Y=>nx1045, A0=>writeLogicRamAddress_3, A1=>
+      write);
+   ix1048 : nand02 port map ( Y=>nx1047, A0=>readLogicRamAddress_3, A1=>
+      nx1117);
+   ix39 : nand02 port map ( Y=>windowRamAddress(4), A0=>nx1050, A1=>nx1052);
+   ix1051 : nand02 port map ( Y=>nx1050, A0=>writeLogicRamAddress_4, A1=>
+      write);
+   ix1053 : nand02 port map ( Y=>nx1052, A0=>readLogicRamAddress_4, A1=>
+      nx1117);
+   ix47 : nand02 port map ( Y=>windowRamAddress(5), A0=>nx1055, A1=>nx1057);
+   ix1056 : nand02 port map ( Y=>nx1055, A0=>writeLogicRamAddress_5, A1=>
+      write);
+   ix1058 : nand02 port map ( Y=>nx1057, A0=>readLogicRamAddress_5, A1=>
+      nx1117);
+   ix55 : nand02 port map ( Y=>windowRamAddress(6), A0=>nx1060, A1=>nx1062);
+   ix1061 : nand02 port map ( Y=>nx1060, A0=>writeLogicRamAddress_6, A1=>
+      write);
+   ix1063 : nand02 port map ( Y=>nx1062, A0=>readLogicRamAddress_6, A1=>
+      nx1117);
+   ix63 : nand02 port map ( Y=>windowRamAddress(7), A0=>nx1065, A1=>nx1067);
+   ix1066 : nand02 port map ( Y=>nx1065, A0=>writeLogicRamAddress_7, A1=>
+      write);
+   ix1068 : nand02 port map ( Y=>nx1067, A0=>readLogicRamAddress_7, A1=>
+      nx1119);
+   ix71 : nand02 port map ( Y=>windowRamAddress(8), A0=>nx1070, A1=>nx1072);
+   ix1071 : nand02 port map ( Y=>nx1070, A0=>writeLogicRamAddress_8, A1=>
+      write);
+   ix1073 : nand02 port map ( Y=>nx1072, A0=>readLogicRamAddress_8, A1=>
+      nx1119);
+   ix79 : nand02 port map ( Y=>windowRamAddress(9), A0=>nx1075, A1=>nx1077);
+   ix1076 : nand02 port map ( Y=>nx1075, A0=>writeLogicRamAddress_9, A1=>
+      write);
+   ix1078 : nand02 port map ( Y=>nx1077, A0=>readLogicRamAddress_9, A1=>
+      nx1119);
+   ix87 : nand02 port map ( Y=>windowRamAddress(10), A0=>nx1080, A1=>nx1082
    );
-   ix103 : nand02 port map ( Y=>windowRamAddress(12), A0=>nx939, A1=>nx941);
-   ix940 : nand02 port map ( Y=>nx939, A0=>write, A1=>
+   ix1081 : nand02 port map ( Y=>nx1080, A0=>writeLogicRamAddress_10, A1=>
+      write);
+   ix1083 : nand02 port map ( Y=>nx1082, A0=>readLogicRamAddress_10, A1=>
+      nx1119);
+   ix95 : nand02 port map ( Y=>windowRamAddress(11), A0=>nx1085, A1=>nx1087
+   );
+   ix1086 : nand02 port map ( Y=>nx1085, A0=>writeLogicRamAddress_11, A1=>
+      write);
+   ix1088 : nand02 port map ( Y=>nx1087, A0=>readLogicRamAddress_11, A1=>
+      nx1119);
+   ix103 : nand02 port map ( Y=>windowRamAddress(12), A0=>nx1090, A1=>nx1092
+   );
+   ix1091 : nand02 port map ( Y=>nx1090, A0=>write, A1=>
       writeLogicRamAddress_12);
-   ix942 : nand02 port map ( Y=>nx941, A0=>nx968, A1=>readLogicRamAddress_12
-   );
-   ix947 : inv02 port map ( Y=>nx948, A=>nx962);
-   ix949 : inv02 port map ( Y=>nx950, A=>nx962);
-   ix951 : inv02 port map ( Y=>nx952, A=>nx964);
-   ix953 : inv02 port map ( Y=>nx954, A=>nx964);
-   ix955 : inv02 port map ( Y=>nx956, A=>ramBaseAddressSelector);
-   ix957 : inv02 port map ( Y=>nx958, A=>ramBaseAddressSelector);
-   ix959 : inv02 port map ( Y=>nx960, A=>ramBaseAddressSelector);
-   ix961 : inv02 port map ( Y=>nx962, A=>ramBaseAddressSelector);
-   ix963 : inv02 port map ( Y=>nx964, A=>ramBaseAddressSelector);
-   ix965 : inv02 port map ( Y=>nx966, A=>write);
-   ix967 : inv02 port map ( Y=>nx968, A=>write);
+   ix1093 : nand02 port map ( Y=>nx1092, A0=>nx1119, A1=>
+      readLogicRamAddress_12);
+   ix1098 : inv02 port map ( Y=>nx1099, A=>nx1113);
+   ix1100 : inv02 port map ( Y=>nx1101, A=>nx1113);
+   ix1102 : inv02 port map ( Y=>nx1103, A=>nx1115);
+   ix1104 : inv02 port map ( Y=>nx1105, A=>nx1115);
+   ix1106 : inv02 port map ( Y=>nx1107, A=>ramBaseAddressSelector);
+   ix1108 : inv02 port map ( Y=>nx1109, A=>ramBaseAddressSelector);
+   ix1110 : inv02 port map ( Y=>nx1111, A=>ramBaseAddressSelector);
+   ix1112 : inv02 port map ( Y=>nx1113, A=>ramBaseAddressSelector);
+   ix1114 : inv02 port map ( Y=>nx1115, A=>ramBaseAddressSelector);
+   ix1116 : inv02 port map ( Y=>nx1117, A=>write);
+   ix1118 : inv02 port map ( Y=>nx1119, A=>write);
 end DMAControllerArch ;
 
 

@@ -214,7 +214,7 @@ sim:/dmacontroller/switchRam
 ############################################################################
 
 
-force -freeze sim:/dmacontroller/clk 0 0, 1 {50 ps} -r 100
+force -freeze sim:/dmacontroller/clk 0 0, 1 {2500 ps} -r {5 ns}
 
 # reset all
 force -freeze sim:/dmacontroller/MFCWeightsRam 0 0

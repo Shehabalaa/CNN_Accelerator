@@ -22,16 +22,22 @@ constant zeros:std_logic_vector(wordSize-1 downto 0) :=(others =>'0');
 signal ram : ram_type;
 begin
     process(clk,we,reset,address)
-    begin
+        begin
 
-    if reset='1' then
-        ram<=(others=>zeros);
-    ELSIF we='1' THEN
-        IF clk'EVENT AND clk='0' then
-            ram(to_integer(unsigned(address))) <= datain;
-        END IF;
-    end if;
-        dataOut<=ram(to_integer(unsigned(address)))&ram(to_integer(unsigned(address))+1)&ram(to_integer(unsigned(address))+2)&ram(to_integer(unsigned(address))+3)&ram(to_integer(unsigned(address))+4);
+        if reset='1' then
+            ram<=(others=>zeros);
+        ELSIF we='1' THEN
+            IF clk'EVENT AND clk='0' then
+                ram(to_integer(unsigned(address))) <= datain;
+            END IF;
+        end if;
+            
+        
+        dataOut <= ram(to_integer(unsigned(address))+4) 
+                    & ram(to_integer(unsigned(address))+3)
+                    & ram(to_integer(unsigned(address))+2)
+                    & ram(to_integer(unsigned(address))+1)
+                    & ram(to_integer(unsigned(address)));
 
     end PROCESS;            
 

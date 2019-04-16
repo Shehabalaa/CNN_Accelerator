@@ -19,37 +19,36 @@ clock information not specified
 delay thru clock network                                                      0.00 (ideal)
 
 
-windowReadLogicEnt/dma/readStepRegister_reg_Q(1)/Q
-                                                            dff         0.00  0.54 dn             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix90/Y
+writeLogicEnt/dma/writeStepRegister_reg_Q(1)/Q              dff         0.00  0.54 dn             0.03
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix90/Y
                                                             inv01       0.26  0.80 up             0.04
-windowReadLogicEnt/dma/addressRegister/nextCount/ix9/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix9/Y
                                                             oai22       0.27  1.07 dn             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix104/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix104/Y
                                                             aoi22       0.34  1.41 up             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix25/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix25/Y
                                                             oai21       0.28  1.69 dn             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix125/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix125/Y
                                                             aoi22       0.35  2.04 up             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix41/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix41/Y
                                                             oai21       0.28  2.32 dn             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix142/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix142/Y
                                                             aoi22       0.35  2.67 up             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix57/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix57/Y
                                                             oai21       0.28  2.95 dn             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix159/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix159/Y
                                                             aoi22       0.35  3.30 up             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix73/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix73/Y
                                                             oai21       0.28  3.58 dn             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix176/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix176/Y
                                                             aoi22       0.35  3.93 up             0.03
-windowReadLogicEnt/dma/addressRegister/nextCount/ix89/Y
-                                                            oai21       0.26  4.19 dn             0.02
-windowReadLogicEnt/dma/addressRegister/nextCount/ix93/Y
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix89/Y
+                                                            oai21       0.26  4.18 dn             0.02
+writeLogicEnt/dma/writeAddressRegister/nextCount/ix93/Y
                                                             xnor2       0.18  4.36 up             0.01
-windowReadLogicEnt/dma/addressRegister/ix184/Y              nand02      0.11  4.47 dn             0.01
-windowReadLogicEnt/dma/addressRegister/ix211/Y              nand03      0.22  4.69 up             0.02
-windowReadLogicEnt/dma/addressRegister/counterReg_reg_Q(12)/D
+writeLogicEnt/dma/writeAddressRegister/ix184/Y              nand02      0.11  4.47 dn             0.01
+writeLogicEnt/dma/writeAddressRegister/ix211/Y              nand03      0.22  4.69 up             0.02
+writeLogicEnt/dma/writeAddressRegister/counterReg_reg_Q(12)/D
                                                             dff         0.00  4.69 up             0.00
 data arrival time                                                             4.69
 

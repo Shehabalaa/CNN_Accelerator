@@ -46,7 +46,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
     SIGNAL filterBus: STD_LOGIC_VECTOR((numUnits*filterSize)-1 DOWNTO 0);
     SIGNAL windowBus: STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
     SIGNAL decoderRow: STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
-    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, loadWord: STD_LOGIC;
+    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, loadOneWord, loadTwoWord: STD_LOGIC;
     SIGNAL sumOutCores: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 
     -- DMA Signals
@@ -86,6 +86,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         writePage2 <= dmaWindowFinish AND pageTurn;
         writeFilter <= dmaFilterFinish;
 
+
         -- Control Unit Mapping
         controlUnitMap: ENTITY work.ControlUnit PORT MAP(
             clk,
@@ -104,8 +105,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             finishNetwork
         );
 
-        loadWord <= loadBias or loadLayerConfig or loadNetworkConfig or loadFilterConfig;
-
+        loadOneWord <= loadBias or loadNetworkConfig or loadFilterConfig;
+        loadTwoWord <= loadLayerConfig;
 
         -- DMA Mapping
         DMAControllerMap: ENTITY work.ControlUnit GENERIC MAP(
@@ -138,7 +139,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             loadNextFilter => loadFilter,
             loadNextWindow => loadWindow,
             loadNextRow => readNextCol,
-            loadWord =>  
+            loadOneWord => loadOneWord,
+            loadTwoWord => loadTwoWord
             layerFinished =>  
             write =>  
 
