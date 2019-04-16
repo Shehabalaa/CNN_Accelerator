@@ -21,7 +21,7 @@ ENTITY ControlUnit IS
         loadWindow, loadFilter,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM : OUT STD_LOGIC;
         currentPage : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
 
-        finishNetwork : OUT STD_LOGIC
+        finishOneLayer, finishNetwork : OUT STD_LOGIC
     );
 
 END ControlUnit;
@@ -39,7 +39,7 @@ ARCHITECTURE ControlUnitArch OF ControlUnit IS
     -- Network Controller Signals
         
     -- One Layer Signals
-        SIGNAL startOneLayer, finishOneLayer:STD_LOGIC;
+        SIGNAL startOneLayer:STD_LOGIC;
        
 
     -- Filter Signals
@@ -49,14 +49,17 @@ ARCHITECTURE ControlUnitArch OF ControlUnit IS
     -- Slice of filter Signals
         SIGNAL startSlice,finishSlice : STD_LOGIC;
 
+
+    -- finishing one layer
+        SIGNAL oneLayeringFinish: STD_LOGIC;
  
     BEGIN
 
+        finishOneLayer <= oneLayeringFinish;
 
+        networkMap: ENTITY work.NetworkController PORT MAP(startNetwork,dmaAFinish,onelayeringFinish,resetNetwork,clk,layersNumber,loadNetworkConfig,startOneLayer,finishNetwork);
 
-        networkMap: ENTITY work.NetworkController PORT MAP(startNetwork,dmaAFinish,finishOneLayer,resetNetwork,clk,layersNumber,loadNetworkConfig,startOneLayer,finishNetwork);
-
-        oneLayerMap : ENTITY work.LayerController PORT MAP(startOneLayer,dmaAFinish,finishFilter,resetNetwork,clk,filtersNumber,loadLayerConfig,startFilter,finishOneLayer );
+        oneLayerMap : ENTITY work.LayerController PORT MAP(startOneLayer,dmaAFinish,finishFilter,resetNetwork,clk,filtersNumber,loadLayerConfig,startFilter,onelayeringFinish );
 
         filterMap : ENTITY work.FilterController PORT MAP(startFilter,layerType,dmaAFinish,finishSlice,resetNetwork,clk,filterDepth,startSlice,loadFilterConfig,filterLastLayer,finishFilter);
 

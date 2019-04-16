@@ -19,9 +19,9 @@ Entity OutputBuffer is
         clk:in std_logic;
         resetRegisters:in std_logic;
         tristateEnable:in std_logic;
-        counterEnable: in std_logic;
+        counterEnable: in std_logic
         --tristateOutput:out std_logic_vector(internalBusSize-1 downto 0) ;
-        negativeOrPositive:in std_logic
+        --negativeOrPositive:in std_logic
     );
 end OutputBuffer;
 
@@ -35,6 +35,7 @@ architecture OutputBufferArch OF OutputBuffer is
     signal tempTristateOutput:std_logic_vector(wordSize-1 downto 0) ;
     signal enableRegister:std_logic_vector(2**registerSelectorSize-1 downto 0) ;
     signal registerSelector: std_logic_vector(registerSelectorSize-1 downto 0) ;
+    signal notClk: STD_LOGIC;
     constant zeros:std_logic_vector(15 downto 0) := (others =>'0');
    -- constant zeros2:std_logic_vector(80-16-1 downto 0) :=(others =>'0');  --80-16
     
@@ -70,7 +71,7 @@ architecture OutputBufferArch OF OutputBuffer is
         reluMUX:Entity work.MUX2 generic map(wordSize) port map(
           A=>tempSelectedRegisterMuxOutput,
           B=>zeros,
-          S=>negativeOrPositive,
+          S=>tempSelectedRegisterMuxOutput(wordSize-1),
           C=> reluMuxOutuput  
         );
 
@@ -88,9 +89,10 @@ architecture OutputBufferArch OF OutputBuffer is
            
         end process;
 
+        notClk <= not clk;
 
         counterSelector: Entity work.Counter generic map(registerSelectorSize) port map(
-            counterEnable, resetRegisters, clk, registerSelector
+            counterEnable, resetRegisters, notClk, registerSelector
         );
 
     end architecture;

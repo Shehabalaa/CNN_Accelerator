@@ -18,7 +18,7 @@ ENTITY CNNModule IS
         windowAddressSize: INTEGER := 13
     );
     PORT (
-        startCNN, clk, rst, layerType, filterType: IN STD_LOGIC;
+        startCNN, clk, rst: IN STD_LOGIC;
         
         -- Two Rams interface
         
@@ -40,28 +40,43 @@ END CNNModule;
 ARCHITECTURE CNNModuleArch OF CNNModule IS
     
     --SIGNAL startProduct: STD_LOGIC;-- From Control Unit to CNN Module to Conv the dot product operation
-    SIGNAL conv,pool: STD_LOGIC; -- From Control Unit to CNN Module to Conv its operation
+    SIGNAL conv,pool, layerType, filterType: STD_LOGIC; -- From Control Unit to CNN Module to Conv its operation
     SIGNAL currentPage : STD_LOGIC_VECTOR(0 DOWNTO 0);
 
     SIGNAL filterBus: STD_LOGIC_VECTOR((numUnits*filterSize)-1 DOWNTO 0);
     SIGNAL windowBus: STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
     SIGNAL decoderRow: STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
-    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, loadOneWord, loadTwoWord: STD_LOGIC;
+    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, loadOneWord, loadTwoWord, readAllFinish, writeOneFinish: STD_LOGIC;
     SIGNAL sumOutCores: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 
     -- DMA Signals
-    SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadBias, loadWindow, loadFilter, readNextCol: STD_LOGIC;
+    SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadWindow, loadFilter, readNextCol, finishLayer, weightsSize: STD_LOGIC;
+    SIGNAL inputSizeAddress, outputSizeAddress, baseAddressOne, baseAddressTwo: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
+    SIGNAL zeros: STD_LOGIC_VECTOR(windowAddressSize-6 DOWNTO 0);
+    SIGNAL filterRamAddressBase: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
+    SIGNAL finishReadRowWindow, finishReadRowFilter: STD_LOGIC;
+    SIGNAL aluNumberWindow, aluNumberFilter: STD_LOGIC_VECTOR(2 DOWNTO 0);
+
 
     -- Signals comes from DMA after reading from RAM
     SIGNAL layersNumber : STD_LOGIC_VECTOR(1 DOWNTO 0);
-    SIGNAL filtersNumber : STD_LOGIC_VECTOR(2 DOWNTO 0);
-    SIGNAL filterDepth : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL filtersNumber, filterDepth : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL inputSize, outputSize : STD_LOGIC_VECTOR(4 DOWNTO 0);
     SIGNAL filterOutputSize: STD_LOGIC_VECTOR(4 DOWNTO 0);
 
     -- SIGNALS to Output buffer
-    SIGNAL addToOutputBuffer,outputBufferEn, saveToRAM: STD_LOGIC;
+    SIGNAL addToOutputBuffer, outputBufferEn, saveToRAM, allRead: STD_LOGIC;
+    SIGNAL currentRegFromOutBuffer, finalAdderOut: STD_LOGIC_VECTOR(windowSize - 1 DOWNTO 0);
+
+
+    SIGNAL readNumLayers, readLayerConfig: STD_LOGIC;
 
     BEGIN
+
+        zeros <= (others => '0');
+        baseAddressOne <= (others => '0');
+        baseAddressTwo <= "0111100100000";
+        filterRamAddressBase <= (others => '0');
     
         -- CNNCores Mapping
         coresMap: ENTITY work.CNNCores GENERIC MAP(
@@ -82,9 +97,17 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         pageTurn <= '0' WHEN currentPage = "0"
         ELSE '1';
 
-        writePage1 <= dmaWindowFinish AND NOT pageTurn;
-        writePage2 <= dmaWindowFinish AND pageTurn;
+        writePage1 <= finishReadRowWindow AND NOT pageTurn;
+        writePage2 <= finishReadRowWindow AND pageTurn;
         writeFilter <= dmaFilterFinish;
+
+        dmaWindowFinish <= readAllFinish OR writeOneFinish;
+
+        decoderRow <= aluNumberWindow when loadWindow = '1'
+                else "010" when readNextCol = '1' and filterType = '0'
+                else "100" when readNextCol = '1' and filterType = '1';
+
+        
 
 
         -- Control Unit Mapping
@@ -99,17 +122,21 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             doneCores, dmaFilterFinish, dmaWindowFinish,
             rst,
             loadLayerConfig, loadNetworkConfig, loadFilterConfig,
-            loadBias, loadWindow, loadFilter, conv, pool, 
+            loadWindow, loadFilter, conv, pool, 
             shift1To2, shift2To1, readNextCol, addToOutputBuffer, outputBufferEn, saveToRAM,
             currentPage,
-            finishNetwork
+            finishLayer, finishNetwork
         );
 
-        loadOneWord <= loadBias or loadNetworkConfig or loadFilterConfig;
+        loadOneWord <= loadNetworkConfig or loadFilterConfig;
         loadTwoWord <= loadLayerConfig;
 
+
+        inputSizeAddress <= zeros & inputSize;--((4 downto 0) => inputSize, others => '0');
+        outputSizeAddress <= zeros & outputSize;--((4 downto 0) => outputSize, others => '0');
+
         -- DMA Mapping
-        DMAControllerMap: ENTITY work.ControlUnit GENERIC MAP(
+        DMAControllerMap: ENTITY work.DMAController GENERIC MAP(
             weightsAddressSize, 
             windowAddressSize, 
             filterSize, 
@@ -126,7 +153,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             -- Two Rams interface
             weightsRamAddress => weightsRamAddress,
             windowRamAddress => windowRamAddress,
-            weightsRamDataInBus => weightsRamDataInBus
+            weightsRamDataInBus => weightsRamDataInBus,
             windowRamDataInBus => windowRamDataInBus,  
             weightsRamRead => weightsRamRead,  
             windowRamRead => windowRamRead,  
@@ -140,30 +167,63 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             loadNextWindow => loadWindow,
             loadNextRow => readNextCol,
             loadOneWord => loadOneWord,
-            loadTwoWord => loadTwoWord
-            layerFinished =>  
-            write =>  
+            loadTwoWord => loadTwoWord,
+            layerFinished => finishLayer,
+            write => saveToRAM,
 
             -- CONFIG
-            weightsSize => 
-            inputSize =>  
-            outputSize =>  
-            windowRamBaseAddress1, windowRamBaseAddress2 =>  
-            filterRamBaseAddress =>  
+            weightsSizeType => weightsSize,
+            inputSize => inputSizeAddress, 
+            outputSize => outputSizeAddress, 
+            windowRamBaseAddress1 => baseAddressOne,
+            windowRamBaseAddress2 => baseAddressTwo,
+            filterRamBaseAddress => filterRamAddressBase,
             
             -- o.p cnt signals
-            windowReadOne =>  
-            windowReadFinal =>  
+            windowReadOne => finishReadRowWindow,
+            windowReadFinal => readAllFinish,
 
-            weightsReadOne =>  
-            weightsReadFinal =>  
+            weightsReadOne => finishReadRowFilter,
+            weightsReadFinal => dmaFilterFinish,
 
-            writeDoneAll =>  
-            writeDoneOne =>  
+            writeDoneAll => writeOneFinish,
+            --writeDoneOne =>  
             
-            filterAluNumber =>  
-            windowAluNumber =>  
+            filterAluNumber => aluNumberFilter,
+            windowAluNumber => aluNumberWindow
         );
 
+        allRead <= dmaWindowFinish AND loadFilterConfig;
+
+        outbufferMap: ENTITY work.OutputBuffer GENERIC MAP(numUnits * windowSize, 22*22, windowSize, 9) PORT MAP (
+            windowBus, allRead, outputBufferEn,
+            currentRegFromOutBuffer,
+            clk, rst, 
+            saveToRAM, outputBufferEn
+        );
+
+        finalAdderMap: ENTITY work.NBitAdder GENERIC MAP(windowSize) PORT MAP (
+            a => currentRegFromOutBuffer,
+            b => sumOutCores,
+            carryIn => '0',
+            sum => finalAdderOut
+        );
+
+        triFinalSumMap: ENTITY work.Tristate GENERIC MAP(windowSize) PORT MAP(
+            input => finalAdderOut,
+            en => addToOutputBuffer,
+            output => windowBus
+        );
+
+        readNumLayers <= loadNetworkConfig and finishReadRowFilter;
+        readLayerConfig <= loadLayerConfig and finishReadRowFilter;
+
+
+        configMap: ENTITY work.Config GENERIC MAP(filterSize*numUnits) PORT MAP(
+            filterBus, 
+            clk, rst, readNumLayers, readLayerConfig,
+            layersNumber, layerType, filterType, filtersNumber,
+            filterDepth, inputSize, outputSize
+        );
 
 END ARCHITECTURE; 

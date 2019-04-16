@@ -66,6 +66,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 		SIGNAL resetInnerCounter,resetOuterCounter : STD_LOGIC; -- Counter Reset
 
+		SIGNAL savingToRam: STD_LOGIC;
+
 	------------------------------------------------------------
 
 
@@ -79,7 +81,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 	nextPage <= NOT currentPage;
 
-		PROCESS(currentState,start,dmaAFinish,dmaBFinish,finishConv,layerType,currentPage,filterLastLayer,outputSize,nextPage,innerCounterOut,outerCounterOut)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize)
+		PROCESS(currentState,start,dmaAFinish,dmaBFinish,finishConv,layerType,currentPage,filterLastLayer,outputSize,nextPage,innerCounterOut,outerCounterOut,savingtoRam)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize)
 
 			BEGIN
 			CASE currentState IS
@@ -101,6 +103,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						addToOutputBuffer <= '0';
 						outputBufferEn <= '0';
 						saveToRam <= '0';
+						savingToRam <= '0';
 						finish <= '0';
 
 					-- Reset Counters to 0
@@ -168,6 +171,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							addToOutputBuffer <= '0';
 							outputBufferEn <= '0';
 							saveToRam <= '0';
+							savingToRam <= '0';
 							finish <= '0';
 
 							innerCounterEn <= '0';
@@ -231,19 +235,22 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							IF (filterLastLayer = '1' OR layerType = '1') AND ( (innerCounterOut /= "00000" OR outerCounterOut /= "00000") OR currentPage = "1") THEN
 							-- IF (filterLastLayer = '1' OR layerType = '1') AND ( NOT (innerCounterOut  = "00000" ) OR  NOT(outerCounterOut = "00000")) THEN
 								saveToRAM <= '1';
+								savingToRam <= '1';
 							ELSE
 								saveToRAM <= '0';
+								savingToRam <= '0';
 							END IF;
 
 						-- Set Next State
 							nextState <= convReadColState;
 
-						stateRegEn <= '1';
+						stateRegEn <= (dmaBfinish OR (NOT savingToRam)) ;
 			--------------------------------------------------------------------------------------------------------
 				WHEN convReadColState =>
 
 						-- Release Signal raised by past state
 							saveToRAM <= '0';
+							savingToRam <= '0';
 							shift12 <= '0';
 							shift21 <= '0';
 							-- update working page
@@ -308,6 +315,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							loadWindow <= '0';
 							-- loadBias <= '0';
 							saveToRam <= '0';
+							savingToRam <= '0';
 							finish <= '0';
 
 						-- Release Counters Enables and reset for inner counter
@@ -350,6 +358,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 								pageRegEn <= '1';
 								pageRegReset <= '0';
 							saveToRam <= '0';
+							savingToRam <= '0';
 							finish <= '0';
 
 							resetOuterCounter <= '0';
@@ -405,7 +414,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						resetOuterCounter <= '0';
 				
 
-					saveToRAM <= filterLastLayer OR layerType;
+					savingToRam <= filterLastLayer OR layerType;
+					saveToRAM <= savingToRam;
 
 					-- Raise finish Signal
 						finish <= '1';
