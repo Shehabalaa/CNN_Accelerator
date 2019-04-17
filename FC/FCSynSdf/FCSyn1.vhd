@@ -9,6 +9,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity RisingHolderFullCycle is
    port (
@@ -30,6 +31,7 @@ end RisingHolderFullCycleArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity FullAdder is
    port (
@@ -52,6 +54,7 @@ end FullAdderArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity NBitAdder_16 is
    port (
@@ -112,6 +115,7 @@ end NBitAdderArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity CounterUpDown_16 is
    port (
@@ -325,6 +329,7 @@ end CounterUpDownArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Mux2_16 is
    port (
@@ -362,6 +367,7 @@ end Mux2Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 use IEEE.numeric_std.all;
 
 entity Ram_16_80 is
@@ -374,7 +380,7 @@ entity Ram_16_80 is
 end Ram_16_80 ;
 
 architecture RamArch of Ram_16_80 is
-	TYPE RamType IS ARRAY(0 TO (2**addressBits) - 1) OF STD_LOGIC_VECTOR(wordSize - 1 DOWNTO 0);
+	TYPE RamType IS ARRAY(0 TO (2**16) - 1) OF STD_LOGIC_VECTOR(80 - 1 DOWNTO 0);
 	SIGNAL Ram : RamType ;
 	BEGIN
 		PROCESS(clk) IS
@@ -392,6 +398,7 @@ end RamArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity RegTony_16 is
    port (
@@ -648,6 +655,7 @@ end RegTonyArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity RegTony_4 is
    port (
@@ -725,6 +733,7 @@ end RegTonyArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity NBitAdder_4 is
    port (
@@ -759,6 +768,7 @@ end NBitAdderArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity CounterUpDown_4 is
    port (
@@ -837,6 +847,7 @@ end CounterUpDownArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Comparator_16 is
    port (
@@ -1137,6 +1148,7 @@ end ComparatorArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity ngetMax_16_10 is
    port (
@@ -1750,6 +1762,7 @@ end GetMaxArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_33 is
    port (
@@ -2184,6 +2197,7 @@ end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_16 is
    port (
@@ -2387,6 +2401,7 @@ end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_8 is
    port (
@@ -2496,6 +2511,7 @@ end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity BinaryMux_33 is
    port (
@@ -2552,6 +2568,7 @@ end BinaryMuxArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity NBitAdder_24 is
    port (
@@ -2629,6 +2646,7 @@ end NBitAdderArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity BoothStep is
    port (
@@ -2809,6 +2827,7 @@ end BoothStepArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Mul8x16 is
    port (
@@ -3012,6 +3031,7 @@ end Mul8x16Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity RisingHolderHalfCycle is
    port (
@@ -3034,6 +3054,7 @@ end RisingHolderHalfCycleArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity ShiftReg_3 is
    port (
@@ -3064,6 +3085,7 @@ end ShiftRegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_1 is
    port (
@@ -3093,6 +3115,7 @@ end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity nMul8x16_10 is
    port (
@@ -3687,6 +3710,7 @@ end nMul8x16Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Accumulator_10 is
    port (
@@ -4349,6 +4373,7 @@ end AccumulatorArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Alus8x16_10 is
    port (
@@ -5712,6 +5737,7 @@ end Alus8x16Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity FlibFlob is
    port (
@@ -5740,6 +5766,7 @@ end FlibFlobArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity ShiftRegSynRst_2 is
    port (
@@ -5767,6 +5794,7 @@ end ShiftRegSynRstArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Dma_1_16 is
    port (
@@ -5839,6 +5867,7 @@ end DmaArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_4 is
    port (
@@ -5903,6 +5932,7 @@ end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity FcMain is
    port (
@@ -7297,4 +7327,5 @@ begin
    ix21 : and02 port map ( Y=>nx20, A0=>nx1378, A1=>state_0);
    ix167 : nor02ii port map ( Y=>nx166, A0=>nx1346, A1=>nx152);
 end FcMainArch ;
+
 

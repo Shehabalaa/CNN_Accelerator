@@ -6,6 +6,7 @@
 	Clock                : Frequency
       ------------------------------------
 
+	cnnDone              : 2123.3 MHz
 	clk                  : 44.1 MHz
 	doneMax              : 600.7 MHz
 
