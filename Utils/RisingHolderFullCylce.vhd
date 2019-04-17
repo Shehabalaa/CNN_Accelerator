@@ -4,20 +4,20 @@ USE ieee.numeric_std.ALL;
 
 -- this circuit detect transition of an input and output one till next rising edge if clk is inverted or till next falling edge if clk isn't
 -- and it detect transition but there should be speration betweem tranisions of input with one clkcylcle
-ENTITY TransitionDetector IS
+ENTITY RisingHolderFullCycle IS
     PORT (
         edge,clk,rst : IN STD_LOGIC;
         f : INOUT STD_LOGIC
     );
-END TransitionDetector;
+END RisingHolderFullCycle;
 
 
-ARCHITECTURE TransitionDetectorArch OF TransitionDetector IS
+ARCHITECTURE RisingHolderFullCycleArch OF RisingHolderFullCycle IS
     signal d : STD_LOGIC;
 BEGIN
     process(clk)
     begin
-        IF clk'EVENT AND clk ='0' THEN
+        IF clk'EVENT AND clk ='1' THEN
             d <= f;
         END IF;
     end process;
@@ -30,4 +30,4 @@ BEGIN
             f <= '1' ;
         END IF;
     end process;
-END TransitionDetectorArch; 
+END RisingHolderFullCycleArch; 

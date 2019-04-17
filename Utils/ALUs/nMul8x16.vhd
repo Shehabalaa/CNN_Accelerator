@@ -31,7 +31,7 @@ BEGIN
     counterRst <= rst OR restartDetection;
     clkInv <= NOT clk;
 
-    StartCaptuerCmp : ENTITY work.TransitionDetector PORT MAP(start,clk,rst,restartDetection);
+    StartCaptuerCmp : ENTITY work.RisingHolderHalfCycle PORT MAP(start,clk,rst,restartDetection);
     CounterCmp : ENTITY work.ShiftReg GENERIC MAP(3) PORT MAP(counter,clk,startAndPause,counterRst);
     firtStartLachCmp : ENTITY work.Reg GENERIC MAP(1) PORT MAP(D(0) => '1',en => '1',clk => start,rst => rst, Q(0) => firstStart);
 
