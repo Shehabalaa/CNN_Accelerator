@@ -70,7 +70,7 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
         port map(
             clk, weightsRamRead, '0', rst,
             weightsRamAddress,
-            "000000000000",
+            "00000000",
             weightsRamDataInBus,
             MFCWeightsRam
         );
