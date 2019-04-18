@@ -53,7 +53,7 @@ ENTITY DMAController IS
     loadNextWindow: IN STD_LOGIC; -- same as above but for window
     loadNextRow: IN STD_LOGIC; -- same as above but for one row
     loadOneWord: IN STD_LOGIC; -- same as above but for read config from filter ram
-    loadTwoWord: IN STD_LOGIC; -- same as above but for read config from filter ram
+    loadThreeWord: IN STD_LOGIC; -- same as above but for read config from filter ram
     layerFinished: IN STD_LOGIC;
     write: IN STD_LOGIC; -- signal to specify write the current data in internal bus
 
@@ -96,8 +96,8 @@ SIGNAL loadWord: STD_LOGIC;
 SIGNAL filterStep: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
 
 begin
-    loadWord <= loadOneWord OR loadTwoWord;
-    filterStep <= (0 => '1', others => '0') WHEN loadOneWord = '1' ELSE (1 => '1', others => '0') WHEN loadTwoWord = '1' ELSE weightsSizeForFilter;
+    loadWord <= loadOneWord OR loadThreeWord;
+    filterStep <= (0 => '1', others => '0') WHEN loadOneWord = '1' ELSE (1 => '1', 0 => '1', others => '0') WHEN loadThreeWord = '1' ELSE weightsSizeForFilter;
     -- map weightsSizeType to bits
     weightsSizeForWindow <= (0 => '1', 1 => '1', others => '0') WHEN weightsSizeType = '0' 
     ELSE (0 => '1', 2 => '1', others => '0');
