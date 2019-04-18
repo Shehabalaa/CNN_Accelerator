@@ -21,7 +21,7 @@ ENTITY ControlUnit IS
         loadWindow, loadFilter,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM : OUT STD_LOGIC;
         currentPage : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
 
-        finishOneLayer, finishNetwork : OUT STD_LOGIC
+        finishCurrentSlice, finishOneLayer, finishNetwork : OUT STD_LOGIC
     );
 
 END ControlUnit;
@@ -56,6 +56,7 @@ ARCHITECTURE ControlUnitArch OF ControlUnit IS
     BEGIN
 
         finishOneLayer <= oneLayeringFinish;
+        finishCurrentSlice <= finishSlice;
 
         networkMap: ENTITY work.NetworkController PORT MAP(startNetwork,dmaAFinish,onelayeringFinish,resetNetwork,clk,layersNumber,loadNetworkConfig,startOneLayer,finishNetwork);
 

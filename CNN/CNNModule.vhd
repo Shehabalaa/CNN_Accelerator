@@ -50,7 +50,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
     SIGNAL sumOutCores: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 
     -- DMA Signals
-    SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadWindow, loadFilter, readNextCol, finishLayer, weightsSize: STD_LOGIC;
+    SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadWindow, loadFilter, readNextCol, finishLayer, weightsSize, finishSlice: STD_LOGIC;
     SIGNAL inputSizeAddress, outputSizeAddress, baseAddressOne, baseAddressTwo, outputSizeAddressForDMA: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL zeros: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL filterRamAddressBase: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
@@ -125,7 +125,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             loadWindow, loadFilter, conv, pool, 
             shift1To2, shift2To1, readNextCol, addToOutputBuffer, outputBufferEn, saveToRAM,
             currentPage,
-            finishLayer, finishNetwork
+            finishSlice, finishLayer, finishNetwork
         );
 
         loadOneWord <= loadNetworkConfig or loadFilterConfig;
@@ -171,12 +171,12 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             loadNextWindow => loadWindow,
             loadNextRow => readNextCol,
             loadOneWord => loadOneWord,
-            loadTwoWord => loadTwoWord,
+            loadThreeWord => loadTwoWord,
             layerFinished => finishLayer,
             write => saveToRAM,
 
             -- CONFIG
-            weightsSizeType => weightsSize,
+            weightsSizeType => filterType,
             inputSize => inputSizeAddress, 
             outputSize => outputSizeAddressForDMA, 
             windowRamBaseAddress1 => baseAddressOne,
@@ -199,8 +199,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         
         allRead <= dmaFilterFinish AND loadFilterConfig;
 
-        outbufferMap: ENTITY work.OutputBuffer GENERIC MAP(numUnits * windowSize, 22*22, windowSize, 9) PORT MAP (
-            windowBus, allRead, outputBufferEn,
+        outbufferMap: ENTITY work.OutputBuffer GENERIC MAP(numUnits * windowSize, numUnits*filterSize, 22*22, windowSize, filterSize, 9, 6) PORT MAP (
+            windowBus, filterBus, allRead, outputBufferEn,
             currentRegFromOutBuffer,
             clk, finishSlice, rst,
             saveToRAM, outputBufferEn
@@ -216,7 +216,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         
         triFinalSumMap: ENTITY work.Tristate GENERIC MAP(windowSize) PORT MAP(
             input => finalAdderOut,
-            en => addToOutputBuffer,
+            en => outputBufferEn,
             output => windowBus(windowSize-1 DOWNTO 0)
         );
        

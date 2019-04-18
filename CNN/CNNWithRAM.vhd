@@ -80,7 +80,7 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
     port map(
         clk, windowRamRead, windowRamWrite, rst,
         windowRamAddress,
-        windowRamDataOutBus,
+        windowRamDataOutBus(windowSize-1 DOWNTO 0),
         windowRamDataInBus,
         MFCWindowRam
     );

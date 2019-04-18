@@ -35,7 +35,7 @@ USE IEEE.numeric_std.all;
          counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, '1', clk, '0', currentCount);
         nextCount: ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(currentCount, zerosSignal, '1', countAdded);
         muxloadOrCurrent: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(resetOrCurrent, load, isLoad, counterInput);
-        muxInput: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(countAdded, onesSignal, reset, resetOrCurrent);
+        muxInput: ENTITY work.mux2 GENERIC MAP(n) PORT MAP(countAdded, zerosSignal, reset, resetOrCurrent);
         count <= currentCount;
 
  END ARCHITECTURE; 

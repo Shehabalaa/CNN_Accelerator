@@ -150,7 +150,7 @@ BEGIN
         count => unitRegOut
     );
 
-    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead, dmaFinishAll, ramBasedAddress, filterSize)
+    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead, dmaFinishAll, ramBasedAddress, filterSize, clk)
     BEGIN
         dmaLoad <= '0';
         dmaInitCounter <= '0';
@@ -269,7 +269,7 @@ BEGIN
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
                 -- readFinal <= dmaFinishAll;
                 nextState <= idleState;
-                IF dmaFinishOneRead = '1' AND loadNextWordList = '1' THEN
+                IF dmaFinishOneRead = '1' AND loadNextWordList = '1' AND clk = '1' THEN
                     incUnitNumber <= '1';
                 ELSE
                     incUnitNumber <= '0';
