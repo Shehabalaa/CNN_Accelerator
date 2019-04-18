@@ -17,6 +17,7 @@ Entity OutputBuffer is
         enableDecoder:in std_logic;      
         selectedRegisterMuxOutput:out std_logic_vector(wordSize-1 downto 0) ;
         clk:in std_logic;
+        finishSlice : IN STD_LOGIC;
         resetRegisters:in std_logic;
         tristateEnable:in std_logic;
         counterEnable: in std_logic
@@ -36,6 +37,8 @@ architecture OutputBufferArch OF OutputBuffer is
     signal enableRegister:std_logic_vector(2**registerSelectorSize-1 downto 0) ;
     signal registerSelector: std_logic_vector(registerSelectorSize-1 downto 0) ;
     signal notClk: STD_LOGIC;
+    SIGNAL resetCounter : STD_LOGIC;
+    SIGNAL othersAllRead: std_logic_vector(2**registerSelectorSize-1  downto 0);
     constant zeros:std_logic_vector(15 downto 0) := (others =>'0');
    -- constant zeros2:std_logic_vector(80-16-1 downto 0) :=(others =>'0');  --80-16
     
@@ -61,7 +64,7 @@ architecture OutputBufferArch OF OutputBuffer is
             Q=>registerOutputs(i)
         );
         end generate;
-
+        
         selectedRegisterMUX:Entity work.Mux generic map(512) port map(
             inputs=>registerOutputs,
             selectionLines=>registerSelector,
@@ -80,19 +83,26 @@ architecture OutputBufferArch OF OutputBuffer is
             en=>tristateEnable,
             output=>tempTristateOutput
         );
+        -- mai momkn others=>all read wa b3den n3ml decoderoutput or all read
         
-        process(registerSelector)
-        begin
-            loop1 : for i in 0 to 2**registerSelectorSize-1 loop
-                enableRegister(i) <= decoderOutput(i) OR AllRead; 
-            end loop ; -- loop
+        -- process(registerSelector)
+        -- begin
+        --     loop1 : for i in 0 to 2**registerSelectorSize-1 loop
+        --         enableRegister(i) <= decoderOutput(i) OR AllRead; 
+        --     end loop ; -- loop
            
-        end process;
+        -- end process;
+
+        othersAllRead <= (others => AllRead);
+
+        enableRegister <= decoderOutput OR othersAllRead;
 
         notClk <= not clk;
 
+        resetCounter <= finishSlice OR resetRegisters;
+
         counterSelector: Entity work.Counter generic map(registerSelectorSize) port map(
-            counterEnable, resetRegisters, notClk, registerSelector
+            counterEnable, resetCounter, notClk, registerSelector
         );
 
     end architecture;

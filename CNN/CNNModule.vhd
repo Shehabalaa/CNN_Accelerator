@@ -196,13 +196,13 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             filterAluNumber => aluNumberFilter,
             windowAluNumber => aluNumberWindow
         );
-
-        allRead <= dmaWindowFinish AND loadFilterConfig;
+        
+        allRead <= dmaFilterFinish AND loadFilterConfig;
 
         outbufferMap: ENTITY work.OutputBuffer GENERIC MAP(numUnits * windowSize, 22*22, windowSize, 9) PORT MAP (
             windowBus, allRead, outputBufferEn,
             currentRegFromOutBuffer,
-            clk, rst, 
+            clk, finishSlice, rst,
             saveToRAM, outputBufferEn
         );
 
@@ -213,12 +213,13 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             sum => finalAdderOut
         );
 
+        
         triFinalSumMap: ENTITY work.Tristate GENERIC MAP(windowSize) PORT MAP(
             input => finalAdderOut,
             en => addToOutputBuffer,
             output => windowBus(windowSize-1 DOWNTO 0)
         );
-
+       
         readNumLayers <= loadNetworkConfig and finishReadRowFilter;
         readLayerConfig <= loadLayerConfig and finishReadRowFilter;
 

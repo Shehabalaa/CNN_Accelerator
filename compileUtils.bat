@@ -2,6 +2,7 @@
 vcom Utils\Mux2.vhd -93
 vcom Utils\Mux4.vhd -93
 vcom Utils\Mux.vhd -93
+vcom Utils\Decoder.vhd -93
 vcom Utils\FullAdder.vhd -93
 vcom Utils\NBitAdder.vhd -93
 vcom Utils\Reg.vhd -93
