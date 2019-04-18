@@ -51,8 +51,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
     -- DMA Signals
     SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadWindow, loadFilter, readNextCol, finishLayer, weightsSize: STD_LOGIC;
-    SIGNAL inputSizeAddress, outputSizeAddress, baseAddressOne, baseAddressTwo: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
-    SIGNAL zeros: STD_LOGIC_VECTOR(windowAddressSize-6 DOWNTO 0);
+    SIGNAL inputSizeAddress, outputSizeAddress, baseAddressOne, baseAddressTwo, outputSizeAddressForDMA: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
+    SIGNAL zeros: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL filterRamAddressBase: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
     SIGNAL finishReadRowWindow, finishReadRowFilter: STD_LOGIC;
     SIGNAL aluNumberWindow, aluNumberFilter: STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -132,8 +132,12 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         loadTwoWord <= loadLayerConfig;
 
 
-        inputSizeAddress <= zeros & inputSize;--((4 downto 0) => inputSize, others => '0');
-        outputSizeAddress <= zeros & outputSize;--((4 downto 0) => outputSize, others => '0');
+        inputSizeAddress <= zeros(windowAddressSize-6 DOWNTO 0) & inputSize;--((4 downto 0) => inputSize, others => '0');
+        outputSizeAddress <= zeros(windowAddressSize-6 DOWNTO 0) & outputSize;--((4 downto 0) => outputSize, others => '0');
+
+        outputSizeAddMap: ENTITY work.NBitAdder GENERIC MAP(windowAddressSize) PORT MAP (
+            outputSizeAddress, zeros, '1', outputSizeAddressForDMA
+        );
 
         -- DMA Mapping
         DMAControllerMap: ENTITY work.DMAController GENERIC MAP(
@@ -174,7 +178,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             -- CONFIG
             weightsSizeType => weightsSize,
             inputSize => inputSizeAddress, 
-            outputSize => outputSizeAddress, 
+            outputSize => outputSizeAddressForDMA, 
             windowRamBaseAddress1 => baseAddressOne,
             windowRamBaseAddress2 => baseAddressTwo,
             filterRamBaseAddress => filterRamAddressBase,
@@ -212,10 +216,10 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         
         triFinalSumMap: ENTITY work.Tristate GENERIC MAP(windowSize) PORT MAP(
             input => finalAdderOut,
-            en => outputBufferEn,
-            output => windowBus
+            en => addToOutputBuffer,
+            output => windowBus(windowSize-1 DOWNTO 0)
         );
-*       
+       
         readNumLayers <= loadNetworkConfig and finishReadRowFilter;
         readLayerConfig <= loadLayerConfig and finishReadRowFilter;
 
