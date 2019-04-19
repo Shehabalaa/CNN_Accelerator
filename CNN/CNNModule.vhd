@@ -99,7 +99,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
         writePage1 <= finishReadRowWindow AND NOT pageTurn;
         writePage2 <= finishReadRowWindow AND pageTurn;
-        writeFilter <= dmaFilterFinish;
+        writeFilter <= finishReadRowFilter AND loadFilter;
 
         dmaWindowFinish <= readAllFinish OR writeOneFinish;
 

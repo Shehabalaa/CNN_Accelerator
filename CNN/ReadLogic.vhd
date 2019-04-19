@@ -84,7 +84,8 @@ SIGNAL
 : STD_LOGIC;
 
 -- after compiling with 93
-SIGNAL baseAddressCounterClk, aluNumberCounterClk: STD_LOGIC;
+SIGNAL baseAddressCounterClk, aluNumberCounterClk, notClk: STD_LOGIC;
+SIGNAL aluCounterOut: STD_LOGIC_VECTOR(2 downto 0);
 SIGNAL dmaReadBaseAddress: STD_LOGIC_VECTOR(addressSize-1 downto 0);
 SIGNAL zerosSignal: STD_LOGIC_VECTOR(2 DOWNTO 0);
 BEGIN
@@ -92,10 +93,11 @@ BEGIN
     -- to compile with 93
     baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
     -- aluNumberCounterClk <= (not(clk) AND incUnitNumber) OR (resetUnitNumberReg AND clk);
-    aluNumberCounterClk <= ( incUnitNumber) OR (resetAddressReg AND (not clk));
+    aluNumberCounterClk <= ( clk AND incUnitNumber) OR (resetAddressReg AND (not clk));
     -- aluNumberCounterClk <=  ( incUnitNumber OR resetUnitNumberReg) WHEN rising_edge(clk);
     -- "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk))
     -- "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk)))
+    notClk <= not clk;
 
     dmaReadBaseAddressMux: ENTITY work.MUX2 GENERIC MAP (addressSize) PORT MAP (
         A => addressRegOut,
@@ -149,7 +151,13 @@ BEGIN
         reset => resetUnitNumberReg, -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
         -- clk => "AND"(clk, "or"(incUnitNumber, resetUnitNumberReg)), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
         clk => aluNumberCounterClk,
-        count => unitRegOut
+        count => aluCounterOut
+    );
+
+    regCounterOut: ENTITY work.Reg GENERIC MAP (3) PORT MAP (
+        aluCounterOut,
+        '1', notClk, '0',
+        unitRegOut
     );
 
     IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead, dmaFinishAll, ramBasedAddress, filterSize, clk)
@@ -271,7 +279,7 @@ BEGIN
                 stateRegEn <= dmaFinishAll; -- still in the same state till finishing all
                 -- readFinal <= dmaFinishAll;
                 nextState <= idleState;
-                IF dmaFinishOneRead = '1' AND loadNextWordList = '1' AND clk = '1' THEN
+                IF dmaFinishOneRead = '1' AND loadNextWordList = '1' THEN
                     incUnitNumber <= '1';
                 ELSE
                     incUnitNumber <= '0';
