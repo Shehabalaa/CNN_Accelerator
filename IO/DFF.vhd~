@@ -16,7 +16,7 @@ BEGIN
 		IF (rst = '1') THEN 
 			Q <= '0';
 		ELSIF (rising_edge(clk)) THEN 
-			IF (en = '1') THEN
+			IF (en = '1')
 			Q <= D;
 			END IF;
 		END IF;

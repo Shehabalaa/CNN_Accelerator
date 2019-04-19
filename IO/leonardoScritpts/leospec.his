@@ -1,42 +1,86 @@
 #
 #
 # 
-# Wed Apr 17 22:02:11 2019
-set_working_dir /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/leonardoScritpts
-set_working_dir /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/leonardoScritptsload_library tsmc035_typ
-set_working_dir /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/leonardoScritpts
-read -technology "tsmc035_typ"  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Decompressor.vhd}
-pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize 
-pre_optimize -extract 
-pre_optimize .work.Decompressor.DecompressorArchitecture -common_logic -unused_logic -boundary -xor_comparator_optimize 
-pre_optimize .work.Decompressor.DecompressorArchitecture -extract 
-optimize .work.Decompressor.DecompressorArchitecture -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
-optimize_timing .work.Decompressor.DecompressorArchitecture 
-report_area DecompressorAreaReport.txt -cell_usage -hierarchy -all_leafs 
-report_delay DecompressorDelayReport.txt -num_paths 1 -longest_path -clock_frequency
-set novendor_constraint_file FALSE
-auto_write -format Verilog Decompressor.v
-set novendor_constraint_file FALSE
-auto_write -format SDF Decompressor.sdf
-
+# Fri Apr 19 13:01:34 2019
+set_working_dir /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
 ### Previous Command Failed
 
-load_library tsmc035_typ
-set_working_dir /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/leonardoScritpts
-read -technology "tsmc035_typ"  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Decompressor.vhd}
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
+### Previous Command Failed
+
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
+
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/UpCounterAsyncLoad.vhd }
+### Previous Command Failed
+
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullAdder.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/UpCounterAsyncLoad.vhd }
+### Previous Command Failed
+
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullAdder.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/UpCounterAsyncLoad.vhd }
+### Previous Command Failed
+
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullAdder.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitAdder.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/UpCounterAsyncLoad.vhd }
+read  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Controller.vhd }
 pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize 
 pre_optimize -extract 
-pre_optimize .work.Decompressor.DecompressorArchitecture -common_logic -unused_logic -boundary -xor_comparator_optimize 
-pre_optimize .work.Decompressor.DecompressorArchitecture -extract 
-optimize .work.Decompressor.DecompressorArchitecture -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
-optimize_timing .work.Decompressor.DecompressorArchitecture 
-report_area DecompressorAreaReport.txt -cell_usage -hierarchy -all_leafs 
-report_delay DecompressorDelayReport.txt -num_paths 1 -longest_path -clock_frequency
+load_library tsmc035_typ
+read -technology "tsmc035_typ"  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd }
+### Previous Command Failed
+
+set resource_sharing FALSE
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullAdder.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitAdder.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/UpCounterAsyncLoad.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Controller.vhd }
+load_library tsmc035_typ
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullAdder.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitAdder.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/UpCounterAsyncLoad.vhd }
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Controller.vhd }
+pre_optimize .work.Controller.ControllerArch -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize .work.Controller.ControllerArch -extract 
+optimize .work.Controller.ControllerArch -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
+ set wire_table "" 
+optimize_timing .work.Controller.ControllerArch 
+report_area ControllerArea.txt -cell_usage -hierarchy -all_leafs 
+report_delay ControllerDelay.txt -num_paths 1 -longest_path -clock_frequency
 set novendor_constraint_file FALSE
-auto_write -format Verilog Decompressor.v
+auto_write ControllerSynthesized.vhd
 set novendor_constraint_file FALSE
-auto_write -format SDF Decompressor.sdf
+auto_write -format SDF ControllerSynthesized.sdf
+load_library tsmc035_typ
+set_working_dir /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/leonardoScritpts
+read -technology "tsmc035_typ" -dont_elaborate  { /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullAdder.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitAdder.vhd  /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DFF.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/UpCounterAsyncLoad.vhd /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Controller.vhd}
+pre_optimize .work.Controller.ControllerArch -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize .work.Controller.ControllerArch -extract 
+optimize .work.Controller.ControllerArch -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
+optimize_timing .work.Controller.ControllerArch 
+report_area ControllerArea.txt -cell_usage -hierarchy -all_leafs 
+report_delay ControllerDelay.txt -num_paths 1 -longest_path -clock_frequency
+set novendor_constraint_file FALSE
+auto_write ControllerSynthesized.vhd
+set novendor_constraint_file FALSE
+auto_write -format SDF ControllerSynthesized.sdf
 
  set wire_table "" 
-set novendor_constraint_file FALSE
-auto_write -format VHDL Decompressor.vhd
