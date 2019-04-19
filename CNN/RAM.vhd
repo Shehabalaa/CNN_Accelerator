@@ -33,7 +33,7 @@ begin
         if reset='1' then
             ram<=(others=>zeros);
         ELSIF we='1' THEN
-            IF clk'EVENT AND clk='0' then
+            IF clk'EVENT AND clk='0' AND currentCount = "00" then
                 ram(to_integer(unsigned(address))) <= datain;
             END IF;
         end if;

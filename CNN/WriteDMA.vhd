@@ -29,7 +29,7 @@ Entity WriteDMA is
         MFC:in std_logic;
 
         writeComplete:out std_logic;
-        writeCompleteOne:out std_logic
+        writeCompleteOneOut:out std_logic
     );
 END WriteDMA;
 
@@ -40,6 +40,7 @@ architecture WriteDMAArch of WriteDMA is
     constant ones:std_logic_vector(maxImageSize-1 downto 0) :=(0 => '1', others => '0');
     signal enableCounter:std_logic; 
 
+    signal writeCompleteOne: std_logic;
     SIGNAL internalWriteComplete: std_logic;
 
     begin
@@ -47,11 +48,12 @@ architecture WriteDMAArch of WriteDMA is
         writeComplete <= internalWriteComplete;
 
         writeStepRegister:Entity work.Reg Generic Map(addressSize) PORT MAP(writeStep,'1',initCounter,'0',tobeAdded);
-        writeAddressRegister:Entity work.MultiStepCounter  Generic map(addressSize) port map(writeBaseAddress,tobeAdded,'0',clk,initAddress,MFC,ramWriteAddress);
+        writeAddressRegister:Entity work.MultiStepCounter  Generic map(addressSize) port map(writeBaseAddress,tobeAdded,'0',clk,initAddress,writeCompleteOne,ramWriteAddress);
         writecounter:Entity work.DownCounter Generic map(maxImageSize) port map(counter,enableCounter,clk,initCounter,currentCount); 
         
-        enableCounter <= MFC or initCounter;
+        enableCounter <= (MFC AND writeToRam) or initCounter;
         writeCompleteOne <= MFC AND writeToRam;
+        writeCompleteOneOut <= writeCompleteOne;
         ramWrite <= writeToRam;
         ramDataOutBus <= internalBus;
         process(clk, MFC,writeToRam,currentCount)

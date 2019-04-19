@@ -93,7 +93,7 @@ BEGIN
     -- to compile with 93
     baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
     -- aluNumberCounterClk <= (not(clk) AND incUnitNumber) OR (resetUnitNumberReg AND clk);
-    aluNumberCounterClk <= ( clk AND incUnitNumber) OR (resetAddressReg AND (not clk));
+    aluNumberCounterClk <= ( clk AND incUnitNumber) OR (resetUnitNumberReg AND clk);
     -- aluNumberCounterClk <=  ( incUnitNumber OR resetUnitNumberReg) WHEN rising_edge(clk);
     -- "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk))
     -- "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk)))
@@ -129,7 +129,7 @@ BEGIN
         initAddress => dmaInitAddress,
         clk => clk,
         finishedReading => dmaFinishAll,
-        finishedOneRead => dmaFinishOneRead
+        finishedOneReadOut => dmaFinishOneRead
     );
 
 
@@ -209,17 +209,18 @@ BEGIN
                 dmaInitAddress <= '0';
                 resetAddressReg <= '0';
                 incBaseAddress <= '0';
-                resetUnitNumberReg <= '0';
+                -- resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
                 dmaInitRamBaseAddress <= '0';
                 addressRegIn <= (others => '0');
+                resetUnitNumberReg <= '1';
 
 
                 dmaInitCounter <= load;
                 stateRegEn <= load;
                 IF loadNextWordList = '1' THEN
                     nextState <= incFetchState; -- transition logic
-                    resetUnitNumberReg <= '1';
+                    -- resetUnitNumberReg <= '1';
                     if gIsFilter = false THEN
                         -- i am window
                         nextState <= incFetchState; -- transition logic

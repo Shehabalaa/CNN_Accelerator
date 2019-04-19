@@ -46,6 +46,7 @@ architecture OutputBufferArch OF OutputBuffer is
     SIGNAL othersAllRead: std_logic_vector(2**registerSelectorSize-1  downto 0);
     SIGNAL weightsInputMux: std_logic_vector(windowSize-1 downto 0);
     SIGNAL zeros:std_logic_vector(windowSize-1 downto 0);
+    SIGNAL outToRam: std_logic_vector(windowSize-1 downto 0);
    -- constant zeros2:std_logic_vector(80-16-1 downto 0) :=(others =>'0');  --80-16
     
    begin
@@ -91,9 +92,9 @@ architecture OutputBufferArch OF OutputBuffer is
         );
 
         reluMUX:Entity work.MUX2 generic map(windowSize) port map(
-          A=>tempSelectedRegisterMuxOutput,
+          A=>outToRam,
           B=>zeros,
-          S=>tempSelectedRegisterMuxOutput(windowSize-1),
+          S=>outToRam(windowSize-1),
           C=> reluMuxOutuput  
         );
 
@@ -122,6 +123,15 @@ architecture OutputBufferArch OF OutputBuffer is
 
         counterSelector: Entity work.Counter generic map(registerSelectorSize) port map(
             counterEnable, resetCounter, notClk, registerSelector
+        );
+
+
+        outputRegMap: Entity work.Reg generic map(windowSize) port map(
+            D=>windowBus(windowSize-1 DOWNTO 0),
+            en=>enableDecoder,
+            clk=>clk,
+            rst=>resetRegisters,
+            Q=>outToRam
         );
 
     end architecture;

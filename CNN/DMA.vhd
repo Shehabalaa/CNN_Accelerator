@@ -26,7 +26,8 @@ GENERIC (
     initCounter:in std_logic;
     load: in std_logic;
     internalBus: out STD_LOGIC_VECTOR(internalBusSize-1 DOWNTO 0);
-    finishedOneRead:out std_logic ;
+    -- finishedOneRead:out std_logic ;
+    finishedOneReadOut:out std_logic ;
     finishedReading:out std_logic;
     clk:in std_logic;
     -- RAM
@@ -42,11 +43,11 @@ Signal currentCount:std_logic_vector(2 downto 0) ;
 Signal tobeAdded:std_logic_vector(addressSize-1 downto 0) ;
 signal enableCount:std_logic;
 signal enableTristate:std_logic;
-
+signal finishedOneRead : std_logic;
 signal internalFinishedReading: std_logic;
 
 BEGIN
-  addressRegister:Entity work.MultiStepCounter Generic Map(addressSize) PORT MAP(readBaseAddress,tobeAdded,'0',clk,initAddress,MFC,ramReadAddress);
+  addressRegister:Entity work.MultiStepCounter Generic Map(addressSize) PORT MAP(readBaseAddress,tobeAdded,'0',clk,initAddress,finishedOneRead,ramReadAddress);
   counter:Entity work.DownCounter Generic Map(3) PORT MAP(initialCount,enableCount ,clk,initCounter,currentCount);
   readStepRegister:Entity work.Reg Generic Map(addressSize) PORT MAP(readStep,'1',clk,'0',tobeAdded);
   tristateLabel:Entity work.Tristate Generic Map(internalBusSize) PORT MAP(ramDataInBus,enableTristate,internalBus);
@@ -56,6 +57,7 @@ BEGIN
   enableCount <= MFC or initCounter;
   enableTristate <= MFC AND load;
   finishedOneRead <= MFC AND load;
+  finishedOneReadOut <= finishedOneRead;
   process(MFC, load, currentCount, clk)
     begin
       -- finishedReading <= MFC AND ( (clk AND currentCount = "000") OR ((NOT clk) AND currentCount="001") );

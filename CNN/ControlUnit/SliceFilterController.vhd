@@ -56,7 +56,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 	----------------------------------
 
-		SIGNAL pageRegReset,pageRegEn : STD_LOGIC; -- Current Filling Page 1 or 2 -- Next Page to be filled
+		SIGNAL pageRegReset,pageRegEn,finalPageRegEn,changePage : STD_LOGIC; -- Current Filling Page 1 or 2 -- Next Page to be filled -- signal to know weather it is valid to change page or not ( not in case of load window )
 		SIGNAL currentPage, nextPage : STD_LOGIC_VECTOR(0 DOWNTO 0);
 
 	-- Counters Signals
@@ -81,6 +81,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 	nextPage <= NOT currentPage;
 
+	saveToRAM <= savingToRam;
+
 		PROCESS(currentState,start,dmaAFinish,dmaBFinish,finishConv,layerType,currentPage,filterLastLayer,outputSize,nextPage,innerCounterOut,outerCounterOut,savingtoRam)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize)
 
 			BEGIN
@@ -98,11 +100,12 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						-- currentPage <= '0';
 						-- nextPage <= '1';
 						pageRegEn <= '1';
+						-- changePage <= '1';
 						pageRegReset <= '1';
 						readNextCol <= '0';
 						addToOutputBuffer <= '0';
 						outputBufferEn <= '0';
-						saveToRam <= '0';
+						-- saveToRam <= '0';
 						savingToRam <= '0';
 						finish <= '0';
 
@@ -144,7 +147,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 			-- 			pageRegReset <= '0';
 			-- 			addToOutputBuffer <= '0';
 			-- 			outputBufferEn <= '0';
-			-- 			saveToRam <= '0';
+						-- saveToRam <= '0';
 			-- 			finish <= '0';
 
 			-- 		loadBias <= '1';
@@ -166,11 +169,12 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							-- currentPage <= '0';
 							-- nextPage <= '1';
 							pageRegEn <= '0';
+							-- changePage <= '0';
 							pageRegReset <= '0';
 							readNextCol <= '0';
 							addToOutputBuffer <= '0';
 							outputBufferEn <= '0';
-							saveToRam <= '0';
+							-- saveToRam <= '0';
 							savingToRam <= '0';
 							finish <= '0';
 
@@ -227,6 +231,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 								END IF;
 								
 								pageRegEn <= '0';
+								-- changePage <= '0';
 								pageRegReset <= '0';
 								-- currentPage <= currentPage;
 								-- nextPage <= NOT currentPage;
@@ -234,10 +239,10 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						-- Save Last output to RAM
 							IF (filterLastLayer = '1' OR layerType = '1') AND ( (innerCounterOut /= "00000" OR outerCounterOut /= "00000") OR currentPage = "1") THEN
 							-- IF (filterLastLayer = '1' OR layerType = '1') AND ( NOT (innerCounterOut  = "00000" ) OR  NOT(outerCounterOut = "00000")) THEN
-								saveToRAM <= '1';
+								-- saveToRAM <= '1';
 								savingToRam <= '1';
 							ELSE
-								saveToRAM <= '0';
+								-- saveToRAM <= '0';
 								savingToRam <= '0';
 							END IF;
 
@@ -249,7 +254,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 				WHEN convReadColState =>
 
 						-- Release Signal raised by past state
-							saveToRAM <= '0';
+							-- saveToRAM <= '0';
 							savingToRam <= '0';
 							shift12 <= '0';
 							shift21 <= '0';
@@ -282,14 +287,17 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 									-- Load Window only
 									loadWindow <= '1'; 
 									readNextCol <= '0';
+									changePage <= '0';
 								ELSE IF outerCounterOut = outputSize AND innerCounterOut = outputSize THEN
 										-- THE LAST TIME , No window or column loading
 										loadWindow <= '0'; 
 										readNextCol <= '0';
+										changePage <= '1';
 									ELSE
 										-- Load Column only
 										loadWindow <= '0';
 										readNextCol <= '1';
+										changePage <= '0';
 									END IF;
 								END IF;
 
@@ -301,7 +309,11 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							END IF;
 
 						-- When DMA finishes Go to specified Next State	
-							stateRegEn <= (finishConv AND dmaBFinish);
+							IF ( ( dmaBFinish ='1' OR  (outerCounterOut = outputSize AND innerCounterOut = outputSize)) AND  finishConv = '1') THEN
+								stateRegEn <= '1';
+							ELSE
+								stateRegEn <= '0';
+							END IF;
 
 			--------------------------------------------------------------------------------------------------------
 				WHEN addState =>
@@ -314,7 +326,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							readNextCol <= '0';
 							loadWindow <= '0';
 							-- loadBias <= '0';
-							saveToRam <= '0';
+							-- saveToRam <= '0';
 							savingToRam <= '0';
 							finish <= '0';
 
@@ -357,7 +369,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 								-- nextPage <= nextPage;
 								pageRegEn <= '1';
 								pageRegReset <= '0';
-							saveToRam <= '0';
+							-- saveToRam <= '0';
 							savingToRam <= '0';
 							finish <= '0';
 
@@ -415,14 +427,15 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 				
 
 					savingToRam <= filterLastLayer OR layerType;
-					saveToRAM <= savingToRam;
+					-- saveToRAM <= savingToRam;
 
 					-- Raise finish Signal
-						finish <= '1';
+						finish <= dmaBFinish OR NOT (filterLastLayer OR layerType);
 					-- Set Next State
 						nextState <= idleState; -- Get back to 0 state (idle state)
 
-						stateRegEn <= '1';
+						stateRegEn <= dmaBFinish OR NOT (filterLastLayer OR layerType);
+
 
 			END CASE;
 	END PROCESS;
@@ -442,7 +455,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 	-- Counter to stop when finish image
 		outerCounterMap : ENTITY work.Counter GENERIC MAP (maxOutputImage) PORT MAP ( outerCounterEn,resetOuterCounter,clk,altOuterCounterOut);
 		
-		pageRegMap : ENTITY work.Reg GENERIC MAP(1) PORT MAP (nextPage,pageRegEn,clk,pageRegReset,currentPage);
+		finalPageRegEn <= pageRegEn AND changePage;
+		pageRegMap : ENTITY work.Reg GENERIC MAP(1) PORT MAP (nextPage,finalPageRegEn,clk,pageRegReset,currentPage);
 
 	-- Process to save state and change to next state when enable = 1
 		PROCESS(nextState,clk, stateRegEn, resetState)

@@ -116,7 +116,7 @@ BEGIN
         initAddress => dmaInitAddress,
         clk => clk,
         writeComplete => dmaFinishAll,
-        writeCompleteOne => dmaFinishOneWrite,
+        writeCompleteOneOut => dmaFinishOneWrite,
         ramWriteAddress=>ramAddress
     );
 

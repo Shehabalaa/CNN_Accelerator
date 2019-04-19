@@ -97,8 +97,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         pageTurn <= '0' WHEN currentPage = "0"
         ELSE '1';
 
-        writePage1 <= finishReadRowWindow AND NOT pageTurn;
-        writePage2 <= finishReadRowWindow AND pageTurn;
+        writePage1 <= finishReadRowWindow AND ( (NOT pageTurn AND loadWindow) OR (pageTurn AND readNextCol)  );
+        writePage2 <=finishReadRowWindow AND ( ( pageTurn AND loadWindow) OR (NOT pageTurn AND readNextCol)  );
         writeFilter <= finishReadRowFilter AND loadFilter;
 
         dmaWindowFinish <= readAllFinish OR writeOneFinish;
@@ -191,7 +191,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             weightsReadOne => finishReadRowFilter,
             weightsReadFinal => dmaFilterFinish,
 
-            writeDoneAll => writeOneFinish,
+            writeDoneOne => writeOneFinish,
             --writeDoneOne =>  
             
             filterAluNumber => aluNumberFilter,
