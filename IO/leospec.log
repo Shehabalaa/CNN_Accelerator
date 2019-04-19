@@ -1,0 +1,149 @@
+LeonardoSpectrum Level 3 - 2018a.2 (Release Production Release, compiled Nov  1 2018 at 10:14:57)
+Copyright 1990-2018 Mentor Graphics.  All rights reserved.
+Portions copyright 1991-2018 Compuware Corporation
+
+Session history will be logged to file '/home/ayman/Desktop/leospec.his'
+--
+-- Welcome to LeonardoSpectrum Level 3
+-- Run Started On Wed Apr 17 21:53:02 EET 2019
+--
+Reading library file `/home/ayman/mgc/LeonardoSpectrum/lib/tsmc035_typ.syn`...
+Library version = 3.0 Release : Patch (a) : 09/13/04
+Delays assume: Process=typical Temp= 27.0 C  Voltage=3.30 V  
+Info: setting encoding to auto
+Info, Working Directory is now '/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO'
+Info, History file moved to new working directory
+Info, Log file moved to new working directory
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
+-- Loading package standard into library std
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/std_1164.vhd for unit std_logic_1164
+-- Loading package std_logic_1164 into library IEEE
+-- Loading entity Mux2 into library work
+-- Loading architecture Mux2Arch of Mux2 into library work
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd into library work
+-- Loading entity Reg into library work
+-- Loading architecture RegArch of Reg into library work
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd into library work
+-- Loading entity RegWithLoad into library work
+-- Loading architecture RegWithLoadArch of RegWithLoad into library work
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd into library work
+-- Searching for SYNOPSYS package STD_LOGIC_ARITH..
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/syn_arit.vhd for unit STD_LOGIC_ARITH
+-- Loading package std_logic_arith into library IEEE
+-- Searching for SYNOPSYS package STD_LOGIC_UNSIGNED..
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/syn_unsi.vhd for unit STD_LOGIC_UNSIGNED
+-- Loading package STD_LOGIC_UNSIGNED into library IEEE
+-- Loading entity FullSubtractor into library work
+-- Loading architecture Behavioral of FullSubtractor into library work
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/numeric_std.vhd for unit numeric_std
+-- Loading package NUMERIC_STD into library IEEE
+-- Loading entity NBitSubtractor into library work
+-- Loading architecture NBitSubtractorArch of NBitSubtractor into library work
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd into library work
+-- Loading entity DownCounterAsyncLoad into library work
+-- Loading architecture DownCounterAsyncLoadArch of DownCounterAsyncLoad into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 20: Warning, signal outBorrow is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 21: Warning, signal outS is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 21: Warning, signal outS is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Decompressor.vhd into library work
+-- Loading entity Decompressor into library work
+-- Loading architecture DecompressorArchitecture of Decompressor into library work
+-- Compiling root entity Decompressor(DecompressorArchitecture)
+-- Compiling entity DownCounterAsyncLoad_6(DownCounterAsyncLoadArch)
+-- Compiling entity RegWithLoad_6(RegWithLoadArch)
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd",line 7: Error, target expects 6 elements, expression has 16 elements.
+-- Compiling entity NBitSubtractor_6(NBitSubtractorArch)
+Info, Library tsmc035_typ is already loaded. Setting it as target
+Info: setting encoding to auto
+Info, Working Directory is now '/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO'
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd into library work
+-- Loading entity Mux2 into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd",line 9: Warning, replacing Mux2 in HDL library work.
+-- Loading architecture Mux2Arch of Mux2 into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd",line 23: Warning, replacing Mux2Arch of entity Mux2.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd into library work
+-- Loading entity Reg into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd",line 6: Warning, replacing Reg in HDL library work.
+-- Loading architecture RegArch of Reg into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd",line 20: Warning, replacing RegArch of entity Reg.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd into library work
+-- Loading entity RegWithLoad into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd",line 6: Warning, replacing RegWithLoad in HDL library work.
+-- Loading architecture RegWithLoadArch of RegWithLoad into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd",line 20: Warning, replacing RegWithLoadArch of entity RegWithLoad.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd into library work
+-- Loading entity FullSubtractor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd",line 5: Warning, replacing FullSubtractor in HDL library work.
+-- Loading architecture Behavioral of FullSubtractor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd",line 13: Warning, replacing Behavioral of entity FullSubtractor.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd into library work
+-- Loading entity NBitSubtractor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd",line 4: Warning, replacing NBitSubtractor in HDL library work.
+-- Loading architecture NBitSubtractorArch of NBitSubtractor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd",line 17: Warning, replacing NBitSubtractorArch of entity NBitSubtractor.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd into library work
+-- Loading entity DownCounterAsyncLoad into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 10: Warning, replacing DownCounterAsyncLoad in HDL library work.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 24: Error, type error in expression.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 20: Warning, signal outBorrow is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 20: Warning, signal outBorrow is never assigned a value.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 21: Warning, signal counterInput is never assigned a value.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 21: Warning, signal subtractorOutput is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 21: Warning, signal subtractorOutput is never assigned a value.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 21: Warning, signal dummyInput is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 21: Warning, signal currentCount is never assigned a value.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 13: Warning, input loadData is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 14: Warning, input en is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 14: Warning, input load is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 14: Warning, input rst is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 14: Warning, input clk is never used.
+Error in file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd.
+-- Error found in VHDL source
+unknown command "(others"
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd into library work
+-- Loading entity Mux2 into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd",line 9: Warning, replacing Mux2 in HDL library work.
+-- Loading architecture Mux2Arch of Mux2 into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Mux2.vhd",line 23: Warning, replacing Mux2Arch of entity Mux2.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd into library work
+-- Loading entity Reg into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd",line 6: Warning, replacing Reg in HDL library work.
+-- Loading architecture RegArch of Reg into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Reg.vhd",line 20: Warning, replacing RegArch of entity Reg.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd into library work
+-- Loading entity RegWithLoad into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd",line 6: Warning, replacing RegWithLoad in HDL library work.
+-- Loading architecture RegWithLoadArch of RegWithLoad into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/RegWithLoad.vhd",line 20: Warning, replacing RegWithLoadArch of entity RegWithLoad.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd into library work
+-- Loading entity FullSubtractor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd",line 5: Warning, replacing FullSubtractor in HDL library work.
+-- Loading architecture Behavioral of FullSubtractor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/FullSubtractor.vhd",line 13: Warning, replacing Behavioral of entity FullSubtractor.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd into library work
+-- Loading entity NBitSubtractor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd",line 4: Warning, replacing NBitSubtractor in HDL library work.
+-- Loading architecture NBitSubtractorArch of NBitSubtractor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/NBitSubtractor.vhd",line 17: Warning, replacing NBitSubtractorArch of entity NBitSubtractor.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd into library work
+-- Loading entity DownCounterAsyncLoad into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 10: Warning, replacing DownCounterAsyncLoad in HDL library work.
+-- Loading architecture DownCounterAsyncLoadArch of DownCounterAsyncLoad into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 20: Warning, signal outBorrow is never used.
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd",line 19: Warning, replacing DownCounterAsyncLoadArch of entity DownCounterAsyncLoad.
+-- Reading vhdl file /home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Decompressor.vhd into library work
+-- Loading entity Decompressor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Decompressor.vhd",line 6: Warning, replacing Decompressor in HDL library work.
+-- Loading architecture DecompressorArchitecture of Decompressor into library work
+"/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/Decompressor.vhd",line 17: Warning, replacing DecompressorArchitecture of entity Decompressor.
+-- Compiling root entity Decompressor(DecompressorArchitecture)
+-- Compiling entity DownCounterAsyncLoad_6(DownCounterAsyncLoadArch)
+-- Compiling entity RegWithLoad_6(RegWithLoadArch)
+-- Info, replacing RegWithLoad_6(RegWithLoadArch)
+-- Compiling entity NBitSubtractor_6(NBitSubtractorArch)
+-- Compiling entity FullSubtractor(Behavioral)
+-- Compiling entity Mux2_6(Mux2Arch)
+-- Compiling entity Reg_8(RegArch)
+Info, Command 'read' finished successfully

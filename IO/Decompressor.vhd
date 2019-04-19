@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Decompressor Entity
 -- Receives data from Multiplexer then sends it to the DMA.
-ENTITY Decompressor IS
+ENTITY Decompressor1 IS
 
 PORT    (
 		dataIn: IN STD_LOGIC_VECTOR(5 DOWNTO 0);
@@ -14,7 +14,7 @@ PORT    (
 
 END ENTITY;
 
-ARCHITECTURE DecompressorArchitecture of Decompressor IS
+ARCHITECTURE DecompressorArchitecture1 of Decompressor1 IS
 signal countOut: STD_LOGIC_VECTOR(5 downto 0);
 signal registerIn: STD_LOGIC_VECTOR(7 downto 0);
 BEGIN
