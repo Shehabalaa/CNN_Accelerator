@@ -1,0 +1,21 @@
+load_library tsmc035_typ
+
+read -technology "tsmc035_typ"  { "/home/ayman/Desktop/Project/vlsi/IO/Reg.vhd" "/home/ayman/Desktop/Project/vlsi/IO/Mux2.vhd" "/home/ayman/Desktop/Project/vlsi/IO/FullAdder.vhd" "/home/ayman/Desktop/Project/vlsi/IO/InverseMux.vhd" "/home/ayman/Desktop/Project/vlsi/IO/NBitAdder.vhd" "/home/ayman/Desktop/Project/vlsi/IO/Counter.vhd" "/home/ayman/Desktop/Project/vlsi/IO/ModuloCounter.vhd" "/home/ayman/Desktop/Project/vlsi/IO/FCDMA.vhd"}
+
+pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize -extract 
+optimize .work.FCDMA.FCDMAArch -target tsmc035_typ -macro -delay -effort standard -hierarchy flatten 
+optimize_timing .work.FCDMA.FCDMAArch 
+report_area AreaReport -cell_usage -all_leafs 
+report_delay DelayReport -num_paths 1 -critical_paths -clock_frequency
+set sdf_names_style verilog
+set novendor_constraint_file FALSE
+auto_write -format Verilog FCDMA_0.v
+set novendor_constraint_file FALSE
+auto_write -format SDF FCDMA.sdf
+
+
+
+
+
+

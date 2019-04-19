@@ -1,0 +1,35 @@
+
+*******************************************************
+
+Cell: IO    View: IOArch    Library: work
+
+*******************************************************
+
+
+ Cell               Library  References     Total Area
+
+IOInterface_16_4    work            1 x      1      1 fake_gnd
+                                             1      1 fake_vcc
+                                           410    410 gates
+and02               tsmc035_typ     1 x      1      1 gates
+aoi21               tsmc035_typ     2 x      1      2 gates
+dffr                tsmc035_typ     5 x      6     28 gates
+fake_gnd            tsmc035_typ     1 x      1      1 fake_gnd
+inv01               tsmc035_typ     4 x      1      3 gates
+mux21_ni            tsmc035_typ     1 x      2      2 gates
+nand02              tsmc035_typ     4 x      1      4 gates
+nor02ii             tsmc035_typ     4 x      1      5 gates
+nor03_2x            tsmc035_typ     1 x      1      1 gates
+or02                tsmc035_typ     1 x      1      1 gates
+xor2                tsmc035_typ     2 x      2      4 gates
+
+ Number of ports :                      56
+ Number of nets :                       73
+ Number of instances :                  27
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of fake_gnd :                    2
+ Number of fake_vcc :                    1
+ Number of gates :                     463
+ Number of accumulated instances :     217

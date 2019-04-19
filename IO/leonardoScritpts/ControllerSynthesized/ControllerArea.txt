@@ -1,50 +1,33 @@
 
 *******************************************************
 
-Cell: UpCounterAsyncLoad_2    View: UpCounterAsyncLoad    Library: work
-
-*******************************************************
-
-
- Number of ports :                       8
- Number of nets :                        0
- Number of instances :                   0
- Number of references to this view :     1
-
-Total accumulated area : 
- Black Box UpCounterAsyncLoad_2 :        1
-
-*******************************************************
-
 Cell: Controller    View: ControllerArch    Library: work
 
 *******************************************************
 
 
- Cell                   Library  References     Total Area
+ Cell       Library  References     Total Area
 
-UpCounterAsyncLoad_2    work            1 x      1      1 UpCounterAsyncLoad_2
-and02                   tsmc035_typ     3 x      1      4 gates
-and03                   tsmc035_typ     1 x      2      2 gates
-and04                   tsmc035_typ     1 x      2      2 gates
-aoi21                   tsmc035_typ     2 x      1      2 gates
-dffr                    tsmc035_typ     4 x      6     22 gates
-fake_gnd                tsmc035_typ     1 x      1      1 fake_gnd
-inv01                   tsmc035_typ     5 x      1      4 gates
-nand02                  tsmc035_typ     3 x      1      3 gates
-nand03                  tsmc035_typ     1 x      1      1 gates
-nor02ii                 tsmc035_typ     5 x      1      6 gates
-nor03_2x                tsmc035_typ     1 x      1      1 gates
-oai21                   tsmc035_typ     2 x      1      2 gates
-or02                    tsmc035_typ     1 x      1      1 gates
+and02       tsmc035_typ     3 x      1      4 gates
+and04       tsmc035_typ     1 x      2      2 gates
+aoi21       tsmc035_typ     2 x      1      2 gates
+dffr        tsmc035_typ     6 x      6     33 gates
+inv01       tsmc035_typ     6 x      1      5 gates
+mux21       tsmc035_typ     1 x      2      2 gates
+nand02      tsmc035_typ     4 x      1      4 gates
+nand03      tsmc035_typ     1 x      1      1 gates
+nor02ii     tsmc035_typ     4 x      1      5 gates
+nor03_2x    tsmc035_typ     2 x      1      2 gates
+oai21       tsmc035_typ     2 x      1      2 gates
+or02        tsmc035_typ     1 x      1      1 gates
+xnor2       tsmc035_typ     1 x      2      2 gates
+xor2        tsmc035_typ     1 x      2      2 gates
 
  Number of ports :                      27
- Number of nets :                       44
- Number of instances :                  31
+ Number of nets :                       47
+ Number of instances :                  35
  Number of references to this view :     0
 
 Total accumulated area : 
- Black Box UpCounterAsyncLoad_2 :        1
- Number of fake_gnd :                    1
- Number of gates :                      51
- Number of accumulated instances :      31
+ Number of gates :                      68
+ Number of accumulated instances :      35

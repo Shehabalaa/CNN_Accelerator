@@ -1,0 +1,24 @@
+
+
+
+
+
+                        Critical Path Report
+
+Critical path #1, (unconstrained path)
+NAME                                GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------
+ix227/Y                             fake_gnd    0.00  0.00 up             0.04
+io_Interface_tri_result(3)/Y          tri01       0.17  0.17 up             0.00
+dout(3)/                                        0.00  0.17 up             0.00
+data arrival time                                     0.17
+
+data required time                                 not specified
+-------------------------------------------------------------------------------
+data required time                                 not specified
+data arrival time                                     0.17
+                                                   ----------
+                                                unconstrained path
+-------------------------------------------------------------------------------
+
+

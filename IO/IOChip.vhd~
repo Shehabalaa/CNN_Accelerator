@@ -13,7 +13,7 @@ PORT    (
 
 END ENTITY;
 
-ARCHITECTURE IOChipArch of IOChip IS
+ARCHITECTURE IOChipArchitecture of IOChip IS
 signal doneDMAFC, doneDMACNN, doneDMAImage, doneDecomp,decompZeroState,doneWithPhase, 
 			 CNNCounterEnable, decompDecrementorEnable, CNNRegisterEnable, imageCounterEnable, imageRegisterEnable,
 			 toCNN, toFC,imageLoad, INTRDelayed, busy: std_logic;

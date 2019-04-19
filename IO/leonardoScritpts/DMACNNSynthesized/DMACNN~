@@ -1,0 +1,4 @@
+load_library tsmc035_typ
+set_working_dir /home/ayman/Desktop/Project/vlsi/IO/leonardoScritpts
+read -technology "tsmc035_typ" { /home/ayman/Desktop/Project/vlsi/IO/Mux2.vhd /home/ayman/Desktop/Project/vlsi/IO/Reg.vhd /home/ayman/Desktop/Project/vlsi/IO/FullAdder.vhd /home/ayman/Desktop/Project/vlsi/IO/NBitAdder.vhd  /home/ayman/Desktop/Project/vlsi/IO/RegWithLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/UpCounterAsyncLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/DMACNN.vhd}
+

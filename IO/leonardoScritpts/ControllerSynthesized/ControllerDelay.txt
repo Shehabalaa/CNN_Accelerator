@@ -6,7 +6,7 @@
 	Clock                : Frequency
       ------------------------------------
 
-	clk                  : 824.9 MHz
+	clk                  : 573.5 MHz
 
 
                         Critical Path Report
@@ -14,19 +14,21 @@
 Critical path #1, (unconstrained path)
 NAME                                              GATE              ARRIVAL              LOAD
 ---------------------------------------------------------------------------------------------
-doneDMAImage/                                                 0.00  0.00 dn             0.04
-ix116/Y                                           aoi21       0.25  0.25 up             0.01
-ix114/Y                                           nor02ii     0.29  0.54 up             0.02
-ix23/Y                                            nor02ii     0.12  0.66 dn             0.01
-ix73/Y                                            and02       0.19  0.85 dn             0.00
-stateCounter/en                                   GENERIC_BLACK_BOX  0.00  0.85 dn             0.00
-data arrival time                                                   0.85
+clock information not specified
+delay thru clock network                                            0.00 (ideal)
+
+
+stateCounter_counterReg_reg_Q(1)/QB               dffr        0.00  0.55 up             0.07
+ix155/Y                                           xor2        0.45  1.00 dn             0.01
+ix122/Y                                           mux21       0.27  1.27 up             0.02
+stateCounter_counterReg_reg_Q(1)/D                dffr        0.00  1.27 up             0.00
+data arrival time                                                   1.27
 
 
 data required time                                               not specified
 ---------------------------------------------------------------------------------------------
 data required time                                               not specified
-data arrival time                                                   0.85
+data arrival time                                                   1.27
                                                                  ----------
                                                               unconstrained path
 ---------------------------------------------------------------------------------------------

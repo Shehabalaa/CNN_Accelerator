@@ -1,0 +1,48 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 208.7 MHz
+
+
+                        Critical Path Report
+
+Critical path #1, (unconstrained path)
+NAME                                               GATE              ARRIVAL              LOAD
+----------------------------------------------------------------------------------------------
+clock information not specified
+delay thru clock network                                             0.00 (ideal)
+
+
+addressCounter_counterReg/reg_Q(0)/Q               dffr        0.00  0.58 dn             0.09
+ix314/Y                                            nand04      0.29  0.87 up             0.03
+ix71/Y                                             nor02ii     0.24  1.11 dn             0.04
+ix319/Y                                            nand02      0.26  1.37 up             0.03
+ix75/Y                                             nor02ii     0.23  1.60 dn             0.04
+ix324/Y                                            nand02      0.26  1.87 up             0.03
+ix79/Y                                             nor02ii     0.23  2.10 dn             0.04
+ix329/Y                                            nand02      0.26  2.36 up             0.03
+ix83/Y                                             nor02ii     0.23  2.60 dn             0.04
+ix334/Y                                            nand02      0.26  2.86 up             0.03
+ix87/Y                                             nor02ii     0.23  3.09 dn             0.04
+ix339/Y                                            nand02      0.26  3.35 up             0.03
+ix91/Y                                             nor02ii     0.19  3.55 dn             0.03
+ix93/Y                                             xor2        0.48  4.03 up             0.01
+addressCounter_counterReg/ix277/Y                  mux21_ni    0.29  4.32 up             0.02
+addressCounter_counterReg/reg_Q(15)/D              dffr        0.00  4.32 up             0.00
+data arrival time                                                    4.32
+
+
+data required time                                                not specified
+----------------------------------------------------------------------------------------------
+data required time                                                not specified
+data arrival time                                                    4.32
+                                                                  ----------
+                                                               unconstrained path
+----------------------------------------------------------------------------------------------
+
+

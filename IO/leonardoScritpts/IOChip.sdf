@@ -1,0 +1,58 @@
+(DELAYFILE
+ (SDFVERSION "2.0")
+ (DESIGN "IOChip")
+ (DATE "Fri Apr 19 18:00:10 2019")
+ (VENDOR "Exemplar Logic, Inc., Alameda")
+ (PROGRAM "LeonardoSpectrum Level 3")
+ (VERSION "2018a.2")
+ (DIVIDER /)
+ (VOLTAGE)
+ (PROCESS)
+ (TEMPERATURE)
+ (TIMESCALE 1 ns)
+(CELL
+ (CELLTYPE "tri01")
+ (INSTANCE io_Interface_tri_result_0)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (::0.00) (::0.00))
+   (PORT E (::0.00) (::0.00))
+   (IOPATH A Y (::0.13) (::0.13))
+   (IOPATH E Y (::0.17) (::0.17)))))
+(CELL
+ (CELLTYPE "tri01")
+ (INSTANCE io_Interface_tri_result_1)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (::0.00) (::0.00))
+   (PORT E (::0.00) (::0.00))
+   (IOPATH A Y (::0.13) (::0.13))
+   (IOPATH E Y (::0.17) (::0.17)))))
+(CELL
+ (CELLTYPE "tri01")
+ (INSTANCE io_Interface_tri_result_2)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (::0.00) (::0.00))
+   (PORT E (::0.00) (::0.00))
+   (IOPATH A Y (::0.13) (::0.13))
+   (IOPATH E Y (::0.17) (::0.17)))))
+(CELL
+ (CELLTYPE "tri01")
+ (INSTANCE io_Interface_tri_result_3)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (::0.00) (::0.00))
+   (PORT E (::0.00) (::0.00))
+   (IOPATH A Y (::0.13) (::0.13))
+   (IOPATH E Y (::0.17) (::0.17)))))
+(CELL
+ (CELLTYPE "tri01")
+ (INSTANCE tri_donePhase)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (::0.00) (::0.00))
+   (PORT E (::0.00) (::0.00))
+   (IOPATH A Y (::0.13) (::0.13))
+   (IOPATH E Y (::0.17) (::0.17)))))
+)

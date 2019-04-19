@@ -1,0 +1,50 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 141.2 MHz
+
+
+                        Critical Path Report
+
+Critical path #1, (unconstrained path)
+NAME                                                        GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------------------------------
+clock information not specified
+delay thru clock network                                                      0.00 (ideal)
+
+
+Interface/GlobalCounter/counterReg/reg_Q(0)/Q               dffsr_ni    0.00  1.16 dn             0.13
+Interface/GlobalCounter/ix49/Y                              nor04       0.30  1.46 up             0.03
+Interface/GlobalCounter/ix67/Y                              nor02ii     0.37  1.83 up             0.03
+Interface/GlobalCounter/ix88/Y                              nor02ii     0.37  2.20 up             0.03
+Interface/GlobalCounter/ix103/Y                             nor02ii     0.37  2.57 up             0.03
+Interface/GlobalCounter/ix121/Y                             nor02ii     0.37  2.93 up             0.03
+Interface/GlobalCounter/ix139/Y                             nor02ii     0.37  3.30 up             0.03
+Interface/GlobalCounter/ix157/Y                             nor02ii     0.37  3.67 up             0.03
+Interface/GlobalCounter/ix175/Y                             nor02ii     0.37  4.03 up             0.03
+Interface/GlobalCounter/ix193/Y                             nor02ii     0.37  4.40 up             0.03
+Interface/GlobalCounter/ix211/Y                             nor02ii     0.37  4.76 up             0.03
+Interface/GlobalCounter/ix229/Y                             nor02ii     0.37  5.13 up             0.03
+Interface/GlobalCounter/ix247/Y                             nor02ii     0.33  5.46 up             0.03
+Interface/GlobalCounter/ix263/Y                             xor2        0.43  5.89 dn             0.01
+Interface/GlobalCounter/ix271/Y                             mux21_ni    0.34  6.23 dn             0.03
+Interface/GlobalCounter/counterReg/ix701/Y                  inv01       0.20  6.43 up             0.02
+Interface/GlobalCounter/counterReg/ix195/Y                  nor03_2x    0.16  6.59 dn             0.01
+Interface/GlobalCounter/counterReg/reg_Q(15)/S              dffsr_ni    0.00  6.59 dn             0.00
+data arrival time                                                             6.59
+
+
+data required time                                                         not specified
+-------------------------------------------------------------------------------------------------------
+data required time                                                         not specified
+data arrival time                                                             6.59
+                                                                           ----------
+                                                                        unconstrained path
+-------------------------------------------------------------------------------------------------------
+
+
