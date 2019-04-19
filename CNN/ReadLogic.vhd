@@ -91,7 +91,9 @@ BEGIN
     zerosSignal <= (others => '0');
     -- to compile with 93
     baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
-    aluNumberCounterClk <= (not (clk) AND incUnitNumber) OR (resetUnitNumberReg AND clk);
+    -- aluNumberCounterClk <= (not(clk) AND incUnitNumber) OR (resetUnitNumberReg AND clk);
+    aluNumberCounterClk <= ( incUnitNumber) OR (resetAddressReg AND (not clk));
+    -- aluNumberCounterClk <=  ( incUnitNumber OR resetUnitNumberReg) WHEN rising_edge(clk);
     -- "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk))
     -- "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk)))
 

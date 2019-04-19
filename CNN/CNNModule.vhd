@@ -62,7 +62,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
     SIGNAL layersNumber : STD_LOGIC_VECTOR(1 DOWNTO 0);
     SIGNAL filtersNumber, filterDepth : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL inputSize, outputSize : STD_LOGIC_VECTOR(4 DOWNTO 0);
-    SIGNAL filterOutputSize: STD_LOGIC_VECTOR(4 DOWNTO 0);
+    -- SIGNAL filterOutputSize: STD_LOGIC_VECTOR(4 DOWNTO 0);
 
     -- SIGNALS to Output buffer
     SIGNAL addToOutputBuffer, outputBufferEn, saveToRAM, allRead: STD_LOGIC;
@@ -116,7 +116,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             layersNumber,
             filtersNumber,
             filterDepth,
-            filterOutputSize,
+            -- filterOutputSize,
+            outputSize,
             startCNN,
             layerType,
             doneCores, dmaFilterFinish, dmaWindowFinish,

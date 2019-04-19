@@ -1,4 +1,4 @@
-vsim -gui work.cnnwithram
+vsim -gui work.CNNWithRam
 
 add wave -position insertpoint sim:/cnnwithram/*
 add wave -position insertpoint sim:/cnnwithram/CNNMap/coresMap/*
@@ -19,8 +19,8 @@ sim:/cnnwithram/CNNMap/DMAControllerMap/windowReadLogicEnt/aluNumberCounterClk
 add wave -position insertpoint  \
 sim:/cnnwithram/CNNMap/DMAControllerMap/windowReadLogicEnt/incUnitNumber
 
-add wave -position insertpoint  \
-sim:/cnnwithram/CNNMap/DMAControllerMap/windowReadLogicEnt/realIncUnitNumber
+#add wave -position insertpoint  \
+#sim:/cnnwithram/CNNMap/DMAControllerMap/windowReadLogicEnt/realIncUnitNumber
 
 add wave -position insertpoint  \
 sim:/cnnwithram/CNNMap/DMAControllerMap/windowReadLogicEnt/currentState
@@ -651,3 +651,24 @@ run
 run
 
 #readBias
+
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
