@@ -21,7 +21,7 @@ ENTITY ControlUnit IS
         loadWindow, loadFilter,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM : OUT STD_LOGIC;
         currentPage : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
 
-        finishCurrentSlice, finishOneLayer, finishNetwork : OUT STD_LOGIC
+        finishCurrentSlice, finishFilter, finishOneLayer, finishNetwork : OUT STD_LOGIC
     );
 
 END ControlUnit;
@@ -43,7 +43,7 @@ ARCHITECTURE ControlUnitArch OF ControlUnit IS
        
 
     -- Filter Signals
-        SIGNAL startFilter,filterLastLayer ,finishFilter:STD_LOGIC;
+        SIGNAL startFilter,filterLastLayer ,internalFinishFilter:STD_LOGIC;
 
 
     -- Slice of filter Signals
@@ -57,12 +57,13 @@ ARCHITECTURE ControlUnitArch OF ControlUnit IS
 
         finishOneLayer <= oneLayeringFinish;
         finishCurrentSlice <= finishSlice;
+        finishFilter <= internalFinishFilter;
 
         networkMap: ENTITY work.NetworkController PORT MAP(startNetwork,dmaAFinish,onelayeringFinish,resetNetwork,clk,layersNumber,loadNetworkConfig,startOneLayer,finishNetwork);
 
-        oneLayerMap : ENTITY work.LayerController PORT MAP(startOneLayer,dmaAFinish,finishFilter,resetNetwork,clk,filtersNumber,loadLayerConfig,startFilter,onelayeringFinish );
+        oneLayerMap : ENTITY work.LayerController PORT MAP(startOneLayer,dmaAFinish,internalFinishFilter,resetNetwork,clk,filtersNumber,loadLayerConfig,startFilter,onelayeringFinish );
 
-        filterMap : ENTITY work.FilterController PORT MAP(startFilter,layerType,dmaAFinish,finishSlice,resetNetwork,clk,filterDepth,startSlice,loadFilterConfig,filterLastLayer,finishFilter);
+        filterMap : ENTITY work.FilterController PORT MAP(startFilter,layerType,dmaAFinish,finishSlice,resetNetwork,clk,filterDepth,startSlice,loadFilterConfig,filterLastLayer,internalFinishFilter);
 
         sliceFilterMap : ENTITY work.SliceFilterController PORT MAP(startSlice,layerType,filterLastLayer,convFinish,dmaAFinish,dmaBFinish,
         resetNetwork,clk,filterOutputSize,currentPage,loadFilter,loadWindow,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM,finishSlice);
