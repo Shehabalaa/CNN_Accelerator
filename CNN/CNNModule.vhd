@@ -70,6 +70,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
 
     SIGNAL readNumLayers, readLayerConfig: STD_LOGIC;
+    SIGNAL finishFilter: STD_LOGIC;
 
     BEGIN
 
@@ -126,7 +127,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             loadWindow, loadFilter, conv, pool, 
             shift1To2, shift2To1, readNextCol, addToOutputBuffer, outputBufferEn, saveToRAM,
             currentPage,
-            finishSlice, finishLayer, finishNetwork
+            finishSlice, finishFilter, finishLayer, finishNetwork
         );
 
         loadOneWord <= loadNetworkConfig or loadFilterConfig;
@@ -173,6 +174,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             loadNextRow => readNextCol,
             loadOneWord => loadOneWord,
             loadThreeWord => loadTwoWord,
+            sliceFinished => finishSlice,
+            filterFinished => finishFilter,
             layerFinished => finishLayer,
             write => saveToRAM,
 

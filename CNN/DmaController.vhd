@@ -54,6 +54,8 @@ ENTITY DMAController IS
     loadNextRow: IN STD_LOGIC; -- same as above but for one row
     loadOneWord: IN STD_LOGIC; -- same as above but for read config from filter ram
     loadThreeWord: IN STD_LOGIC; -- same as above but for read config from filter ram
+    filterFinished: IN STD_LOGIC;
+    sliceFinished: IN STD_LOGIC;
     layerFinished: IN STD_LOGIC;
     write: IN STD_LOGIC; -- signal to specify write the current data in internal bus
 
@@ -88,7 +90,7 @@ SIGNAL windowInternalBusRLogic, windowInternalBusWLogic: STD_LOGIC_VECTOR((windo
 -- internal cnt signals
 SIGNAL switchRam: STD_LOGIC;
 SIGNAL resetLogics: STD_LOGIC;
-
+SIGNAL windowRLSwitchRam: STD_LOGIC;
 SIGNAL weightsSizeForWindow: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
 SIGNAL weightsSizeForFilter: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
 
@@ -107,6 +109,7 @@ begin
 
     -- ramBaseAddressSelector <= '0' WHEN reset = '1' ELSE '1';
     switchRam <= reset OR layerFinished;
+    windowRLSwitchRam <= switchRam OR filterFinished;
     resetLogics <= '0'; -- till now we always switch ram with reset
     readRamMux: ENTITY work.Mux2 GENERIC MAP(windowAddressSize) PORT MAP(
       A => windowRamBaseAddress1,
@@ -145,7 +148,7 @@ begin
       clk => clk,
 
       resetState => resetLogics,
-      switchRam => switchRam,
+      switchRam => windowRLSwitchRam,
       ramBasedAddress => currentReadRamBaseAddress,
       
       -- Ram and internal bus
@@ -163,6 +166,7 @@ begin
       -- input cnt signals
       loadNextWordList => loadNextWindow,
       loadWord => loadNextRow,
+      finishSlice => sliceFinished,
       -- output cnt signals
       readOne => windowReadOne,
       readFinal => windowReadFinal,
@@ -191,6 +195,8 @@ begin
       -- input cnt signals
       loadNextWordList => loadNextFilter,
       loadWord => loadWord,
+      finishSlice => '0',
+
       -- output cnt signals
       readOne => weightsReadOne,
       readFinal => weightsReadFinal,
@@ -218,7 +224,7 @@ begin
       
       -- input cnt signals
       write => write, -- signal to take the data at internal bus and put it into the ram in the next write address
-
+      finishFilter => filterFinished,
       -- output cnt signals
       writeDone => writeDoneAll, -- output signal set when any write is done
       writeDoneOne => writeDoneOne -- output signal set when any write is done

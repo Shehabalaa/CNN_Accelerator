@@ -37,6 +37,7 @@ ENTITY ReadLogic IS
     -- input cnt signals
     loadNextWordList: IN STD_LOGIC; -- signal to specify to me to start reading the filter, here we keep track of the next address to read from
     loadWord: IN STD_LOGIC; -- same as above but for one row
+    finishSlice: IN STD_LOGIC;
     -- output cnt signals
     readOne: OUT STD_LOGIC; -- output signal set when one row when loading window is available on internal buses
     readFinal: OUT STD_LOGIC;-- // // // // when final input is available on the internal data bus
@@ -61,7 +62,7 @@ SIGNAL load: STD_LOGIC;
 
 
 SIGNAL dmaCountIn: STD_LOGIC_VECTOR(2 downto 0);
-SIGNAL addressRegOut, addressRegIn: STD_LOGIC_VECTOR(addressSize-1 downto 0); -- two signals of the baseRegister (windowBaseAddress, filterBaseAddress)
+SIGNAL addressRegOut, addressRegIn, addressRegInFinal: STD_LOGIC_VECTOR(addressSize-1 downto 0); -- two signals of the baseRegister (windowBaseAddress, filterBaseAddress)
 
 SIGNAL unitRegOut: STD_LOGIC_VECTOR(2 downto 0); -- unit reg output (we don't need to init with special value, so we don't have input)
 
@@ -88,8 +89,13 @@ SIGNAL baseAddressCounterClk, aluNumberCounterClk, notClk: STD_LOGIC;
 SIGNAL aluCounterOut: STD_LOGIC_VECTOR(2 downto 0);
 SIGNAL dmaReadBaseAddress: STD_LOGIC_VECTOR(addressSize-1 downto 0);
 SIGNAL zerosSignal: STD_LOGIC_VECTOR(2 DOWNTO 0);
+SIGNAL internalRamAddress, ramAddressKeeperOut, ramAddressKeeperOutPlusFS, zeros: STD_LOGIC_VECTOR(addressSize -1 DOWNTO 0);
+SIGNAL internalRamRead: STD_LOGIC;
 BEGIN
     zerosSignal <= (others => '0');
+    zeros <= (others => '0');
+    ramAddress <= internalRamAddress;
+    ramRead <= internalRamRead;
     -- to compile with 93
     baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
     -- aluNumberCounterClk <= (not(clk) AND incUnitNumber) OR (resetUnitNumberReg AND clk);
@@ -121,8 +127,8 @@ BEGIN
         readStep => inputSize,
         internalBus => internalBus,
         ramDataInBus => ramDataInBus,
-        ramRead => ramRead,
-        ramReadAddress => ramAddress,
+        ramRead => internalRamRead,
+        ramReadAddress => internalRamAddress,
         MFC => MFC,
         load => dmaLoad,
         initCounter => dmaInitCounter,
@@ -131,18 +137,34 @@ BEGIN
         finishedReading => dmaFinishAll,
         finishedOneReadOut => dmaFinishOneRead
     );
-
-
-    Normal_g: if gIsFilter = false generate
-    baseAddressCounter: entity work.Counter2 generic map (addressSize) port map (
-        load => addressRegIn, -- TODO: set here the value BASE_ADDRESS,,,, think again here
-        isLoad => resetAddressReg,
-        reset => '0', -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
-        clk => baseAddressCounterClk,-- only count when i set inc signal and count after rising edge
-        -- clk => "and"(clk, "or"(resetAddressReg, incBaseAddress)), -- only count when i set inc signal and count after rising edge
-        count => addressRegOut
-    );
-    END GENERATE Normal_g;
+    window_g: if gIsFilter = false generate
+        ramAddressIncrement: ENTITY work.NBitAdder GENERIC MAP(addressSize) PORT MAP (
+            ramAddressKeeperOut, filterSize, '0', ramAddressKeeperOutPlusFS
+        );
+        baseAddressLoadMux: ENTITY work.Mux2 GENERIC MAP(addressSize) PORT MAP(
+            A => addressRegIn,
+            B => ramAddressKeeperOutPlusFS,
+            S => finishSlice,
+            C => addressRegInFinal
+        );
+        baseAddressCounter: entity work.Counter2 generic map (addressSize) port map (
+            load => addressRegInFinal, -- TODO: set here the value BASE_ADDRESS,,,, think again here
+            isLoad => resetAddressReg,
+            reset => '0', -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
+            clk => baseAddressCounterClk,-- only count when i set inc signal and count after rising edge
+            -- clk => "and"(clk, "or"(resetAddressReg, incBaseAddress)), -- only count when i set inc signal and count after rising edge
+            count => addressRegOut
+        );
+        resetAddressReg <= '1' when currentState = switchState ELSE finishSlice;
+        ramAddressKeeper: ENTITY work.reg GENERIC MAP (addressSize) PORT MAP (
+            internalRamAddress,
+            internalRamRead, clk, '0',
+            ramAddressKeeperOut
+        );
+    END GENERATE window_g;
+    -- filter_g: if gIsFilter generate
+    --     resetAddressReg <= '1' when currentState = switchState ELSE '0';
+    -- end generate filter_g;
 
 
     aluNumberCounter: entity work.Counter2 generic map (3) port map (
@@ -165,7 +187,7 @@ BEGIN
         dmaLoad <= '0';
         dmaInitCounter <= '0';
         dmaInitAddress <= '0';
-        resetAddressReg <= '0';
+        -- resetAddressReg <= '0';
         incBaseAddress <= '0';
         resetUnitNumberReg <= '0';
         incUnitNumber <= '0';
@@ -179,7 +201,7 @@ BEGIN
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
@@ -193,7 +215,7 @@ BEGIN
                     dmaInitRamBaseAddress <= '0';
                 END IF;
                 dmaInitAddress <= '1'; -- dmaReg(startAddress) = baseAddressReg(windowBaseAddress)
-                resetAddressReg <= '1'; -- open the reset register to enable writing..
+                -- resetAddressReg <= '1'; -- open the reset register to enable writing..
                 addressRegIn <= ramBasedAddress; -- ..and put the base value to it
                 resetUnitNumberReg <= '1';
                 -- unitRegOut <= (others => '0');
@@ -207,7 +229,7 @@ BEGIN
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 -- resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
@@ -245,7 +267,7 @@ BEGIN
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
@@ -268,7 +290,7 @@ BEGIN
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';
@@ -290,7 +312,7 @@ BEGIN
                 dmaLoad <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 resetUnitNumberReg <= '0';
                 incUnitNumber <= '0';

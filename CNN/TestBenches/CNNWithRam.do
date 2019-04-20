@@ -47,8 +47,8 @@ force -freeze sim:/cnnwithram/start 0 0
 
 run
 
-mem load -i S:/Faculty/3B/VLSI/CNN_Accelerator/CNN/RAMs/windowRAM.mem -format mti /cnnwithram/windowRam/ram
-mem load -i S:/Faculty/3B/VLSI/CNN_Accelerator/CNN/RAMs/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
+mem load -i ./CNN/RAMs/windowRAM.mem -format mti /cnnwithram/windowRam/ram
+mem load -i ./CNN/RAMs/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
 
 
 

@@ -47,6 +47,7 @@ GENERIC (
     
     -- input cnt signals
     write: IN STD_LOGIC; -- signal to take the data at internal bus and put it into the ram in the next write address
+    finishFilter: IN STD_LOGIC;
 
     -- output cnt signals
     writeDone: OUT STD_LOGIC; -- output signal set when all the write is done
@@ -70,7 +71,7 @@ SIGNAL currentState, nextState: FSM; -- state reg output and input (hold the sta
 
 
 SIGNAL dmaCountIn: STD_LOGIC_VECTOR(maxImageSize-1 downto 0);
-SIGNAL addressRegOut, addressRegIn: STD_LOGIC_VECTOR(addressSize-1 downto 0); -- two signals of the baseRegister (windowBaseAddress, filterBaseAddress)
+SIGNAL addressRegOut, addressRegIn, addressRegInFinal: STD_LOGIC_VECTOR(addressSize-1 downto 0); -- two signals of the baseRegister (windowBaseAddress, filterBaseAddress)
 
 
 -- internal cnt signals
@@ -89,10 +90,12 @@ SIGNAL
 : STD_LOGIC;
 
 -- after compiling with 93
-SIGNAL baseAddressCounterClk: STD_LOGIC;
-
-
+SIGNAL baseAddressCounterClk, internalRamWrite: STD_LOGIC;
+SIGNAL internalRamAddress, ramAddressKeeperOut, ramAddressKeeperOutPlus1, zeros: STD_LOGIC_VECTOR(addressSize -1 DOWNTO 0);
 BEGIN
+    zeros <= (others => '0');
+    ramAddress <= internalRamAddress;
+    ramWrite <= internalRamWrite;
     -- after compiling with 93 mapping
     baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
     --clk => "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk))) -- only count when i set inc signal and count after rising edge
@@ -102,6 +105,12 @@ BEGIN
     writeDone <= dmaFinishAll;
     writeDoneOne <= dmaFinishOneWrite;
 
+    resetAddressReg <= '1' when currentState = switchState ELSE finishFilter;
+    ramAddressKeeper: ENTITY work.reg GENERIC MAP (addressSize) PORT MAP (
+        internalRamAddress,
+        internalRamWrite, clk, '0',
+        ramAddressKeeperOut
+    );
     -- aluNumber <= unitRegOut;
     dma: ENTITY work.WriteDMA GENERIC MAP(addressSize, internalBusSize) PORT MAP (
         counter => dmaCountIn,
@@ -109,7 +118,7 @@ BEGIN
         writeStep => outputSize,
         internalBus => internalBus,
         ramDataOutBus => ramDataOutBus,
-        ramWrite => ramWrite,
+        ramWrite => internalRamWrite,
         MFC => MFC,
         writeToRam => dmaWrite,
         initCounter => dmaInitCounter,
@@ -117,11 +126,20 @@ BEGIN
         clk => clk,
         writeComplete => dmaFinishAll,
         writeCompleteOneOut => dmaFinishOneWrite,
-        ramWriteAddress=>ramAddress
+        ramWriteAddress=>internalRamAddress
     );
 
+    ramAddressIncrement: ENTITY work.NBitAdder GENERIC MAP(addressSize) PORT MAP (
+        ramAddressKeeperOut, zeros, '1', ramAddressKeeperOutPlus1
+    );
+    baseAddressLoadMux: ENTITY work.Mux2 GENERIC MAP(addressSize) PORT MAP(
+      A => addressRegIn,
+      B => ramAddressKeeperOutPlus1,
+      S => finishFilter,
+      C => addressRegInFinal
+    );
     baseAddressCounter: entity work.Counter2 generic map (addressSize) port map (
-        load => addressRegIn, -- TODO: set here the value BASE_ADDRESS,,,, think again here
+        load => addressRegInFinal, -- TODO: set here the value BASE_ADDRESS,,,, think again here
         isLoad => resetAddressReg,
         reset => '0', -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
         clk => baseAddressCounterClk, -- only count when i set inc signal and count after rising edge
@@ -135,7 +153,7 @@ BEGIN
         dmaWrite <= '0';
         dmaInitCounter <= '0';
         dmaInitAddress <= '0';
-        resetAddressReg <= '0';
+        -- resetAddressReg <= '0';
         incBaseAddress <= '0';
         dmaCountIn<=(others=>'0');
         addressRegIn<= (others => '0');
@@ -147,13 +165,13 @@ BEGIN
                 dmaWrite <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
 
                 -- reset the baseAddressRegister to RamBaseAddress value
                 dmaWrite <= '0';
-                resetAddressReg <= '1'; -- open the reset register to enable writing..
+                -- resetAddressReg <= '1'; -- open the reset register to enable writing..
                 addressRegIn <= ramBasedAddress; -- ..and put the base value to it
 
                 -- transition logic
@@ -165,7 +183,7 @@ BEGIN
                 dmaWrite <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
                 addressRegIn <= (others => '0');
@@ -179,7 +197,7 @@ BEGIN
                 dmaWrite <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 addressRegIn<= (others => '0');
 
@@ -197,7 +215,7 @@ BEGIN
                 dmaWrite <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
                 addressRegIn<= (others => '0');
@@ -212,7 +230,7 @@ BEGIN
                 dmaWrite <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
                 addressRegIn<= (others => '0');
@@ -226,7 +244,7 @@ BEGIN
                 dmaWrite <= '0';
                 dmaInitCounter <= '0';
                 dmaInitAddress <= '0';
-                resetAddressReg <= '0';
+                -- resetAddressReg <= '0';
                 incBaseAddress <= '0';
                 dmaCountIn<=(others=>'0');
                 addressRegIn <= (others => '0');
