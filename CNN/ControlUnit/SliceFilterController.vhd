@@ -169,7 +169,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							-- currentPage <= '0';
 							-- nextPage <= '1';
 							pageRegEn <= '0';
-							-- changePage <= '0';
+							-- changePage <= '1';
 							pageRegReset <= '0';
 							readNextCol <= '0';
 							addToOutputBuffer <= '0';
@@ -287,17 +287,17 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 									-- Load Window only
 									loadWindow <= '1'; 
 									readNextCol <= '0';
-									changePage <= '0';
+									-- changePage <= '0';
 								ELSE IF outerCounterOut = outputSize AND innerCounterOut = outputSize THEN
 										-- THE LAST TIME , No window or column loading
 										loadWindow <= '0'; 
 										readNextCol <= '0';
-										changePage <= '1';
+										-- changePage <= '1';
 									ELSE
 										-- Load Column only
 										loadWindow <= '0';
 										readNextCol <= '1';
-										changePage <= '0';
+										-- changePage <= '0';
 									END IF;
 								END IF;
 
@@ -455,7 +455,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 	-- Counter to stop when finish image
 		outerCounterMap : ENTITY work.Counter GENERIC MAP (maxOutputImage) PORT MAP ( outerCounterEn,resetOuterCounter,clk,altOuterCounterOut);
 		
-		finalPageRegEn <= pageRegEn AND changePage;
+		finalPageRegEn <= pageRegEn;-- AND changePage;
 		pageRegMap : ENTITY work.Reg GENERIC MAP(1) PORT MAP (nextPage,finalPageRegEn,clk,pageRegReset,currentPage);
 
 	-- Process to save state and change to next state when enable = 1
