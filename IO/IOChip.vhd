@@ -5,18 +5,25 @@ use IEEE.STD_LOGIC_1164.ALL;
 ENTITY IOChip IS
 
 PORT    (
+	  din: in std_logic_vector(15 downto 0);
 		clk, rst, imageOrCNN, INTR, load, processing: in std_logic;
-		donePhase: out std_logic;
-		din: in std_logic_vector(15 downto 0);
+		donePhase, busy: out std_logic;
+		doneDMAFC, doneDMACNN, doneDMAImage: in std_logic;
+		imgRamWrite, CNNRamWrite, FCRamWrite: out std_logic;
+		imgRamAddress: out std_logic_vector(12 DOWNTO 0);
+		imgRamDin: out std_logic_vector(15 DOWNTO 0);
+		CNNRamAddress: out std_logic_vector(12 DOWNTO 0);
+		CNNRamDin: out std_logic_vector(15 DOWNTO 0);
+		FCRamAddress: out std_logic_vector(15 DOWNTO 0);
+		FCRamDin: out std_logic_vector(79 DOWNTO 0);
 		result: out std_logic_vector(3 downto 0)
 	);
 
 END ENTITY;
 
 ARCHITECTURE IOChipArchitecture of IOChip IS
-signal doneDMAFC, doneDMACNN, doneDMAImage, doneDecomp,decompZeroState,doneWithPhase, 
-			 CNNCounterEnable, decompDecrementorEnable, CNNRegisterEnable, imageCounterEnable, imageRegisterEnable,
-			 toCNN, toFC,imageLoad, INTRDelayed, busy: std_logic;
+signal decompZeroState,doneWithPhase, CNNCounterEnable, decompDecrementorEnable, CNNRegisterEnable, 
+			 imageCounterEnable, imageRegisterEnable, toCNN, toFC,imageLoad, INTRDelayed: std_logic;
 signal interfaceOutput,CNNDMADataOut, CNNDMAAddressOut,imageDMAAddressOut,imageDMADataOut: std_logic_vector(15 downto 0);
 signal decompDataOut: std_logic_vector(7 downto 0);
 signal decompDataIn: std_logic_vector(5 downto 0);

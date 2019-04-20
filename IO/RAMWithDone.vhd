@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.Numeric_Std.all;
 
-Entity RAM is
+Entity RAMWithDone is
     generic(
         addressSize:INTEGER :=13;
         wordSize:Integer:=16;
@@ -15,9 +15,9 @@ Entity RAM is
         dataOut:OUT std_logic_vector(internalBusSize-1 downto 0);
         MFC: OUT std_logic
     );
-end RAM;
+end RAMWithDone;
 
-architecture RAMArch of RAM IS
+architecture RAMWithDoneArch of RAMWithDone IS
 type ram_type is array (0 to (2**addressSize)-1) of std_logic_vector(wordSize-1 downto 0);
 constant zeros:std_logic_vector(wordSize-1 downto 0) :=(others =>'0'); 
 signal ram : ram_type;
@@ -50,7 +50,7 @@ begin
     counterEnable <= rd or we;
     notClk <= not clk;
     
-    counterMFC: Entity work.Counter generic map(2) port map(
+    counterMFC: Entity work.Counter2 generic map(2) port map(
             counterEnable, reset, notClk, currentCount
         );
 
