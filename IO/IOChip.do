@@ -40,17 +40,17 @@ force -freeze sim:/IOChip/decompZeroState 1 0
 force -freeze sim:/IOChip/doneDMAFC 0 0
 force -freeze sim:/IOChip/doneDMACNN 0 0
 force -freeze sim:/IOChip/doneDMAImage 0 0
-run 25
+run 35
 noforce sim:/IOChip/Din 
 force -freeze sim:/IOChip/INTR 0 0
-run 25
+run 15
 #1st real input
 force -freeze sim:/IOChip/INTR 1 0
 force -freeze sim:/IOChip/Din 2'b0001100010000010 0 
-run 25
+run 35
 noforce sim:/IOChip/Din 
 force -freeze sim:/IOChip/INTR 0 0
-run 25
+run 15
 run 25
 #Now decompressor read 1st run
 force -freeze sim:/IOChip/decompZeroState 0 0
@@ -58,17 +58,19 @@ run 50
 #Now it's in DMA's register
 run 50
 #Should be done writing to RAM
+run 110
 force -freeze sim:/IOChip/doneDMAImage 1 0
 run 25
 noforce sim:/IOChip/Din 
 force -freeze sim:/IOChip/INTR 0 0
-run 25
+run 15
 noforce sim:/IOChip/Din 
 force -freeze sim:/IOChip/INTR 0 0
 force -freeze sim:/IOChip/doneDMAImage 0 0
 #2nd white pixel in run
-run 75
+run 210
 force -freeze sim:/IOChip/doneDMAImage 1 0
+run 15
 force -freeze sim:/IOChip/decompZeroState 1 0
 run 25
 force -freeze sim:/IOChip/doneDMAImage 0 0
@@ -76,10 +78,10 @@ run 25
 #Start second run
 force -freeze sim:/IOChip/INTR 1 0
 force -freeze sim:/IOChip/Din 2'b0001111101000001 0
-run 25
+run 35
 noforce sim:/IOChip/Din 
 force -freeze sim:/IOChip/INTR 0 0
-run 25
+run 15
 run 25
 #At rising edge now, decomp read the value
 run 50
@@ -95,16 +97,16 @@ run 25
 force -freeze sim:/IOChip/imageOrCNN 1 0
 force -freeze sim:/IOChip/INTR 1 0
 force -freeze sim:/IOChip/Din 2'b0000001011100000 0
-run 25
+run 35
 force -freeze sim:/IOChip/INTR 0 0
 noforce sim:/IOChip/Din 
-run 25
+run 15
 force -freeze sim:/IOChip/INTR 1 0
 force -freeze sim:/IOChip/Din 2'b0001111101000111 0
-run 25
+run 35
 force -freeze sim:/IOChip/INTR 0 0
 noforce sim:/IOChip/Din 
-run 25
+run 15
 run 50
 run 50
 force -freeze sim:/IOChip/doneDMACNN 1 0
