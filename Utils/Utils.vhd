@@ -4,6 +4,7 @@ USE IEEE.STD_LOGIC_1164.ALL;
 package Utiles is
 	
 	type genericArrayofVector16bit is array (natural range <>) of std_logic_vector(15 downto 0);
+	type genericArrayofVector8bit is array (natural range <>) of std_logic_vector(7 downto 0);
 
 
 end Utiles;

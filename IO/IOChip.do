@@ -1,23 +1,17 @@
 vsim -gui work.IOChip
-add wave -position ipsertpoint  \
+add wave -position insertpoint  \
 sim:/IOChip/Din \
 sim:/IOChip/INTR \
 sim:/IOChip/INTRDelayed \
 sim:/IOChip/clk \
 sim:/IOChip/processing \
 sim:/IOChip/imageOrCNN \
-sim:/IOChip/zeroState \
 sim:/IOChip/decompZeroState \
 sim:/IOChip/load \
 sim:/IOChip/busy \
-sim:/IOChip/interfaceRegEnable \
-sim:/IOChip/globalCounterLoad \
-sim:/IOChip/globalCounterEnable \
-sim:/IOChip/Interface/GlobalCounter/counterOutput \
 sim:/IOChip/doneDMAFC \
 sim:/IOChip/doneDMACNN \
 sim:/IOChip/doneDMAImage \
-sim:/IOChip/Controller/doneDecomp \
 sim:/IOChip/doneWithPhase \
 sim:/IOChip/CNNCounterEnable \
 sim:/IOChip/CNNRegisterEnable \
@@ -25,6 +19,8 @@ sim:/IOChip/imageCounterEnable \
 sim:/IOChip/imageRegisterEnable \
 sim:/IOChip/result \
 sim:/IOChip/interfaceOutput \
+sim:/iochip/io/Interface/GlobalCounter/counterOutput \
+sim:/iochip/io/Controller/stateCounter/counterOutput \
 sim:/IOChip/rst
 #force -freeze sim:/IOChip/rst 2#1 0, 2#0 50 
 force -freeze sim:/IOChip/rst 1 0

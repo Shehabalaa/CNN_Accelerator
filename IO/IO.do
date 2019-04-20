@@ -1,5 +1,5 @@
 vsim -gui work.IO
-add wave -position ipsertpoint  \
+add wave -position insertpoint  \
 sim:/io/Din \
 sim:/IO/INTR \
 sim:/IO/INTRDelayed \

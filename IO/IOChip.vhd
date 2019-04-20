@@ -8,7 +8,7 @@ PORT    (
 		clk, rst, imageOrCNN, INTR, load, processing: in std_logic;
 		donePhase: out std_logic;
 		din: in std_logic_vector(15 downto 0);
-		dout: out std_logic_vector(3 downto 0)
+		result: out std_logic_vector(3 downto 0)
 	);
 
 END ENTITY;
@@ -25,7 +25,7 @@ BEGIN
 io: Entity work.IO GENERIC MAP(16,4) 
 					 PORT MAP(Din, doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, rst, processing, imageOrCNN, 
 					 decompZeroState, doneWithPhase, CNNCounterEnable, CNNRegisterEnable, imageCounterEnable,
-					 decompDecrementorEnable, imageRegisterEnable, busy, toCNN, toFC, INTRDelayed, imageLoad, interfaceOutput, dout);
+					 decompDecrementorEnable, imageRegisterEnable, busy, toCNN, toFC, INTRDelayed, imageLoad, interfaceOutput, result);
 decompDataIn <= interfaceOutput(5 downto 0);
 imageDmaAddress <= interfaceOutput(15 downto 6);
 

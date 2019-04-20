@@ -1,5 +1,5 @@
 vsim -gui work.Controller
-add wave -position ipsertpoint  \
+add wave -position insertpoint  \
 sim:/controller/INTR \
 sim:/controller/clk \
 sim:/controller/processing \
