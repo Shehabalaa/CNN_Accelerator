@@ -45,6 +45,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
     SIGNAL filterBus: STD_LOGIC_VECTOR((numUnits*filterSize)-1 DOWNTO 0);
     SIGNAL windowBus: STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
+    SIGNAL writeBus: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
     SIGNAL decoderRow: STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
     SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, loadOneWord, loadTwoWord, readAllFinish, writeOneFinish: STD_LOGIC;
     SIGNAL sumOutCores: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
@@ -204,10 +205,10 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         allRead <= dmaFilterFinish AND loadFilterConfig;
 
         outbufferMap: ENTITY work.OutputBuffer GENERIC MAP(numUnits * windowSize, numUnits*filterSize, 22*22, windowSize, filterSize, 9, 6) PORT MAP (
-            windowBus, filterBus, allRead, outputBufferEn,
+            windowBus, filterBus, writeBus, allRead, outputBufferEn,
             currentRegFromOutBuffer,
             clk, finishSlice, rst,
-            saveToRAM, outputBufferEn
+            saveToRAM, outputBufferEn, layerType
         );
 
         finalAdderMap: ENTITY work.NBitAdder GENERIC MAP(windowSize) PORT MAP (

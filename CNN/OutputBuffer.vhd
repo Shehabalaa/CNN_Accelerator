@@ -15,8 +15,9 @@ Entity OutputBuffer is
     );
     
     port(
-        windowBus: INOUT std_logic_vector(windowBusSize-1 downto 0);
+        windowBus: IN std_logic_vector(windowBusSize-1 downto 0);
         weightsBus: IN std_logic_vector(weightsBusSize-1 downto 0);
+        writeBus: OUT STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
         AllRead:in std_logic;
         enableDecoder:in std_logic;      
         selectedRegisterMuxOutput:out std_logic_vector(windowSize-1 downto 0) ;
@@ -24,7 +25,8 @@ Entity OutputBuffer is
         finishSlice : IN STD_LOGIC;
         resetRegisters:in std_logic;
         tristateEnable:in std_logic;
-        counterEnable: in std_logic
+        counterEnable: in std_logic;
+        isPool: in STD_LOGIC
         --tristateOutput:out std_logic_vector(internalBusSize-1 downto 0) ;
         --negativeOrPositive:in std_logic
     );
@@ -47,11 +49,12 @@ architecture OutputBufferArch OF OutputBuffer is
     SIGNAL weightsInputMux: std_logic_vector(windowSize-1 downto 0);
     SIGNAL zeros:std_logic_vector(windowSize-1 downto 0);
     SIGNAL outToRam: std_logic_vector(windowSize-1 downto 0);
+    SIGNAL isRelu: STD_LOGIC;
    -- constant zeros2:std_logic_vector(80-16-1 downto 0) :=(others =>'0');  --80-16
     
    begin
         selectedRegisterMuxOutput <= tempSelectedRegisterMuxOutput;
-        windowBus(windowSize-1 downto 0)<=tempTristateOutput;
+        writeBus <= tempTristateOutput;
         zeros <= (others => '0');
 
         weightsInputMux(filterSize+1 DOWNTO filterSize-filterDecimal) <= weightsBus(filterSize-1 DOWNTO 0);
@@ -91,10 +94,12 @@ architecture OutputBufferArch OF OutputBuffer is
             output=>tempSelectedRegisterMuxOutput
         );
 
+        isRelu <= outToRam(windowSize-1) and NOT isPool;
+
         reluMUX:Entity work.MUX2 generic map(windowSize) port map(
           A=>outToRam,
           B=>zeros,
-          S=>outToRam(windowSize-1),
+          S=>isRelu,
           C=> reluMuxOutuput  
         );
 
