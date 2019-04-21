@@ -37,22 +37,25 @@ ENTITY Controller IS
   GENERIC (chipInputSize: integer :=16;
            chipOutputSize: integer :=4);
   PORT(
-      doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, processing, imageOrCNN, 
+      doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, processing, imageOrCNN, 
       zeroState, decompZeroState, rst: in std_logic;
-      INTRDelayed, load, globalCounterLoad, imageLoad: inout std_logic;
+      INTRDelayed, globalCounterLoad, imageLoad, imageRegisterEnable, imageRamEnable,
+      CNNRegisterEnable, CNNRamEnable, FCRegisterEnable, FCRamEnable: inout std_logic;
       busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, 
-      CNNCounterEnable, CNNRegisterEnable, decompDecrementorEnable, imageCounterEnable, 
-      imageRegisterEnable, globalCounterEnable, toCNN, toFC: out std_logic
+      CNNCounterEnable, FCCounterEnable, decompDecrementorEnable, imageCounterEnable,
+      globalCounterEnable, toCNN, toFC: out std_logic
   );
 END ENTITY;
 
 ARCHITECTURE ControllerArch OF Controller IS
-SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp,
-       CNNLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, INTRDelayedSq, INTRFFD,
-       stateCounterEnable, stateCounterLoad, CNNOrFC, busyRst: std_logic;
+SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp, imageRamLatchD, CNNRamLatchD, FCRamLatchD,
+       CNNRamRst, imageRamRst, FCRamRst, CNNLoad, FCLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, zeroStateDelayed,
+       INTRDelayedSq, INTRFFD,stateCounterEnable, stateCounterLoad, CNNOrFC, busyRst, doneDMAImageDelayed: std_logic;
 SIGNAL stateCounterQ, stateCounterD, zeros: std_logic_vector(1 DOWNTO 0);
 SIGNAL high: std_logic := '1';
+SIGNAL notClk: std_logic;
 BEGIN
+  notClk <= NOT clk;
   --Temporary initialization values for state counter, might change if we wanna handle multiple images for single CNN
   zeros <= (others => '0');
   stateCounterLoad <= '0';
@@ -73,19 +76,30 @@ BEGIN
                        PORT MAP(zeros, stateCounterEnable, stateCounterLoad, rst, clk, stateCounterQ);
   CNNOrFC <= stateCounterQ(1);
 
+  --zeroState latch
+  zeroLatch: ENTITY work.DFF PORT MAP(zeroState, notClk, rst, high, zeroStateDelayed);
+
   --INTR and INTR delayed FF
-  INTRFFD <= INTR AND (NOT zeroState);
-  INTRFF1: ENTITY work.DFF PORT MAP(INTRFFD, clk, rst, high, INTRDelayed);
-  INTRFF2: ENTITY work.DFF PORT MAP(INTRDelayed, clk, rst, high, INTRDELAYEDSq);
+  INTRFFD <= INTR AND (NOT zeroStateDelayed);
+  INTRFF1: ENTITY work.DFF PORT MAP(INTRFFD, notClk, rst, high, INTRDelayed);
+  INTRFF2: ENTITY work.DFF PORT MAP(INTRDelayed, notClk, rst, high, INTRDelayedSq);
 
   --Image phase signals
-  DMAImageOrINTRDelayed <= doneDMAImage OR INTRDelayed;
-  DMAImageOrINTRDelayedSq <= doneDMAImage OR INTRDelayedSq;
+  DMAImageOrINTRDelayed <= doneDMAImageDelayed OR INTRDelayed;
+  DMAImageOrINTRDelayedSq <= doneDMAImageDelayed OR INTRDelayedSq;
   imageLoad <= load AND (NOT imageOrCNN);
   imageCounterEnable <= DMAImageOrINTRDelayed AND (NOT zeroState);
   imageRegisterEnable <= imageLoad AND DMAImageOrINTRDelayedSq;
   decompDecrementorEnable <= imageLoad AND DMAImageOrINTRDelayed;
   doneDecomp <= doneDMAImage AND decompZeroState;
+
+  --Image done latcher
+  imgLatcher: ENTITY work.DFF PORT MAP(doneDMAImage, notClk, rst, high, doneDMAImageDelayed);
+
+  --Image Ram enable latch
+  imageRamLatchD <= imageRegisterEnable OR imageRamEnable;
+  imageRamRst <= rst OR doneDMAImageDelayed;
+  imageRamEn: ENTITY work.DFF PORT MAP(imageRamLatchD, clk, imageRamRst, high, imageRamEnable);
 
   --IO Interface signals
   interfaceMuxEnable <= load;
@@ -95,10 +109,25 @@ BEGIN
   globalCounterEnable <= globalCounterLoad OR anyDone;
 
   --CNN signals
-  CNNLoad <= load AND imageOrCNN AND CNNOrFC;
+  CNNLoad <= load AND imageOrCNN AND (NOT CNNOrFC);
   CNNCounterEnable <= CNNLoad AND doneDMACNN;
   CNNRegisterEnable <= CNNLoad AND INTRDelayed AND (NOT zeroState);
-  
+
+  --CNN Ram enable latch
+  CNNRamLatchD <= CNNRegisterEnable OR CNNRamEnable;
+  CNNRamRst <= rst OR doneDMACNN;
+  CNNRamEn: ENTITY work.DFF PORT MAP(CNNRamLatchD, clk, CNNRamRst, high, CNNRamEnable);
+
+  --FC signals
+  FCLoad <= load AND imageOrCNN AND CNNOrFC;
+  FCCounterEnable <= FCLoad and doneDMAFC;
+  FCRegisterEnable <= FCLoad AND INTRDelayed AND (NOT zeroState);
+
+  --FC Ram enable latch
+  FCRamLatchD <= FCRegisterEnable OR FCRamEnable;
+  FCRamRst <= rst OR doneDMAFC;
+  FCRamEn: ENTITY work.DFF PORT MAP(FCRamLatchD, clk, FCRamRst, high, FCRamEnable);
+
   --Done output signals
   --Legacy line, keeping in case future problems encountered
   --anyDone <= (doneDMAFC OR doneDMACNN OR doneDecomp) AND zeroState;

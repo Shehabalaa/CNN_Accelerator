@@ -7,13 +7,13 @@ ENTITY IOChip IS
 PORT    (
 	  din: in std_logic_vector(15 downto 0);
 		clk, rst, imageOrCNN, INTR, load, processing: in std_logic;
-		donePhase, busy: out std_logic;
+		doneWithPhase, busy: out std_logic;
 		doneDMAFC, doneDMACNN, doneDMAImage: in std_logic;
-		imgRamWrite, CNNRamWrite, FCRamWrite: out std_logic;
-		imgRamAddress: out std_logic_vector(12 DOWNTO 0);
-		imgRamDin: out std_logic_vector(15 DOWNTO 0);
-		CNNRamAddress: out std_logic_vector(12 DOWNTO 0);
-		CNNRamDin: out std_logic_vector(15 DOWNTO 0);
+		imgRamWrite, CNNRamWrite, FCRamWrite: inout std_logic;
+		imageDMAAddressOut: out std_logic_vector(12 DOWNTO 0);
+		imageDMADataOut: out std_logic_vector(15 DOWNTO 0);
+		CNNDMAAddressOut: out std_logic_vector(12 DOWNTO 0);
+		CNNDMADataOut: out std_logic_vector(15 DOWNTO 0);
 		FCRamAddress: out std_logic_vector(15 DOWNTO 0);
 		FCRamDin: out std_logic_vector(79 DOWNTO 0);
 		result: out std_logic_vector(3 downto 0)
@@ -22,17 +22,18 @@ PORT    (
 END ENTITY;
 
 ARCHITECTURE IOChipArchitecture of IOChip IS
-signal decompZeroState,doneWithPhase, CNNCounterEnable, decompDecrementorEnable, CNNRegisterEnable, 
-			 imageCounterEnable, imageRegisterEnable, toCNN, toFC,imageLoad, INTRDelayed: std_logic;
-signal interfaceOutput,CNNDMADataOut, CNNDMAAddressOut,imageDMAAddressOut,imageDMADataOut: std_logic_vector(15 downto 0);
+signal decompZeroState, CNNCounterEnable, decompDecrementorEnable, CNNRegisterEnable, imageCounterEnable, 
+			 imageRegisterEnable, FCCounterEnable, FCRegisterEnable, toCNN, toFC,imageLoad, INTRDelayed: std_logic;
+signal interfaceOutput: std_logic_vector(15 downto 0);
 signal decompDataOut: std_logic_vector(7 downto 0);
 signal decompDataIn: std_logic_vector(5 downto 0);
 signal imageDMAAddress:std_logic_vector(9 downto 0);
 BEGIN
 io: Entity work.IO GENERIC MAP(16,4) 
-					 PORT MAP(Din, doneDMAFC, doneDMACNN, doneDMAImage, INTR, clk, rst, processing, imageOrCNN, 
-					 decompZeroState, doneWithPhase, CNNCounterEnable, CNNRegisterEnable, imageCounterEnable,
-					 decompDecrementorEnable, imageRegisterEnable, busy, toCNN, toFC, INTRDelayed, imageLoad, interfaceOutput, result);
+					 PORT MAP(Din, doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, rst, processing, imageOrCNN, 
+					 decompZeroState, doneWithPhase, CNNCounterEnable, imageCounterEnable, FCCounterEnable,
+					 decompDecrementorEnable, busy, toCNN, toFC, INTRDelayed, imageLoad, imageRegisterEnable, CNNRegisterEnable, 
+					 FCRegisterEnable, imgRamWrite, CNNRamWrite, FCRamWrite, interfaceOutput, result);
 decompDataIn <= interfaceOutput(5 downto 0);
 imageDmaAddress <= interfaceOutput(15 downto 6);
 

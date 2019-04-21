@@ -24,3 +24,7 @@ vcom Ram.vhd
 vcom RAMWithDone.vhd
 vcom IOChip.vhd
 vcom Accelerator.vhd
+
+vcom Controller.vhd IO.vhd IOChip.vhd Accelerator.vhd
+vsim -do Accelerator.do
+
