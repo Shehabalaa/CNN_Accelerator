@@ -48,7 +48,7 @@ ENTITY Controller IS
 END ENTITY;
 
 ARCHITECTURE ControllerArch OF Controller IS
-SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp, imageRamLatchD, CNNRamLatchD, FCRamLatchD,
+SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp, imageRamLatchD, CNNRamLatchD, FCRamLatchD, DMAImageNotDelayedOrINTRDelayed,
        CNNRamRst, imageRamRst, FCRamRst, CNNLoad, FCLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, zeroStateDelayed,
        INTRDelayedSq, INTRFFD,stateCounterEnable, stateCounterLoad, CNNOrFC, busyRst, doneDMAImageDelayed: std_logic;
 SIGNAL stateCounterQ, stateCounterD, zeros: std_logic_vector(1 DOWNTO 0);
@@ -73,7 +73,7 @@ BEGIN
   --State counter
   stateCounterEnable <= imageOrCNN AND zeroState AND anyDone;
   stateCounter: ENTITY work.UpCounterAsyncLoad GENERIC MAP(2) 
-                       PORT MAP(zeros, stateCounterEnable, stateCounterLoad, rst, clk, stateCounterQ);
+                       PORT MAP(zeros, stateCounterEnable, stateCounterLoad, rst, notClk, stateCounterQ);
   CNNOrFC <= stateCounterQ(1);
 
   --zeroState latch
@@ -87,10 +87,12 @@ BEGIN
   --Image phase signals
   DMAImageOrINTRDelayed <= doneDMAImageDelayed OR INTRDelayed;
   DMAImageOrINTRDelayedSq <= doneDMAImageDelayed OR INTRDelayedSq;
+  DMAImageNotDelayedOrINTRDelayed <= doneDMAImage OR INTRDelayed;
   imageLoad <= load AND (NOT imageOrCNN);
   imageCounterEnable <= DMAImageOrINTRDelayed AND (NOT zeroState);
   imageRegisterEnable <= imageLoad AND DMAImageOrINTRDelayedSq;
-  decompDecrementorEnable <= imageLoad AND DMAImageOrINTRDelayed;
+  --decompDecrementorEnable <= imageLoad AND DMAImageOrINTRDelayed;
+  decompDecrementorEnable <= imageLoad AND DMAImageNotDelayedOrINTRDelayed;
   doneDecomp <= doneDMAImageDelayed AND decompZeroState;
 
   --Image done latcher
