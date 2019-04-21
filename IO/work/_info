@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/Owner/GitHubRepos/CNN_Accelerator/IO
 Eaccelerator
-Z1 w1555860575
+Z1 w1555864775
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
@@ -21,25 +21,26 @@ VTIzj::5TUgeDP1:E<dRDU2
 !s100 n4oDOOhGeO@bEATBhz`@W3
 Z6 OV;C;10.5b;63
 32
-Z7 !s110 1555864080
+Z7 !s110 1555865066
 !i10b 1
-Z8 !s108 1555864080.000000
-Z9 !s90 Accelerator.vhd|
-Z10 !s107 Accelerator.vhd|
+Z8 !s108 1555865066.000000
+Z9 !s90 Controller.vhd|IO.vhd|IOChip.vhd|Accelerator.vhd|
+Z10 !s107 Accelerator.vhd|IOChip.vhd|IO.vhd|Controller.vhd|
 !i113 1
 Z11 tExplicit 1 CvgOpt 0
 Aacceleratorarch
-Z12 DEx4 work 3 ram 0 22 X^?9M1FL_UP56ZlRc2XCn0
-Z13 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z14 DEx4 work 11 ramwithdone 0 22 9[UZfe4WhRAEPk104<Q0d1
-DEx4 work 6 iochip 0 22 c2AP0kTe3^]4k?9PdShJJ0
+Z12 DEx4 work 3 dff 0 22 DgE9[LjUl_eG3aF50c0Dg2
+Z13 DEx4 work 3 ram 0 22 X^?9M1FL_UP56ZlRc2XCn0
+Z14 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z15 DEx4 work 11 ramwithdone 0 22 9[UZfe4WhRAEPk104<Q0d1
+Z16 DEx4 work 6 iochip 0 22 c2AP0kTe3^]4k?9PdShJJ0
 R2
 R3
-DEx4 work 11 accelerator 0 22 TIzj::5TUgeDP1:E<dRDU2
-l25
+Z17 DEx4 work 11 accelerator 0 22 TIzj::5TUgeDP1:E<dRDU2
+l27
 L16
-V4mhPNU`95A_CnmVL5X`4f2
-!s100 dGjBMl]4XgZ@4_fJczG>Y2
+Z18 VOZXPhfFQ<2jGGUd6:l`Yo1
+Z19 !s100 GaQiY1Dk]?U2=E9I3`bYI1
 R6
 32
 R7
@@ -54,8 +55,8 @@ R1
 R2
 R3
 R0
-Z15 8Controller.vhd
-Z16 FController.vhd
+Z20 8Controller.vhd
+Z21 FController.vhd
 l0
 L36
 VC=PAnEdS`=>TAU[kPGi_`3
@@ -65,333 +66,333 @@ R6
 R7
 !i10b 1
 R8
-Z17 !s90 Controller.vhd|IO.vhd|IOChip.vhd|Accelerator.vhd|
-Z18 !s107 Accelerator.vhd|IOChip.vhd|IO.vhd|Controller.vhd|
+R9
+R10
 !i113 1
 R11
 Acontrollerarch
-Z19 DEx4 work 18 upcounterasyncload 0 22 O3X0@J^en`MH6Hdga9U4]2
-Z20 DEx4 work 3 dff 0 22 DgE9[LjUl_eG3aF50c0Dg2
+Z22 DEx4 work 18 upcounterasyncload 0 22 O3X0@J^en`MH6Hdga9U4]2
+R12
 R2
 R3
-Z21 DEx4 work 10 controller 0 22 C=PAnEdS`=>TAU[kPGi_`3
+Z23 DEx4 work 10 controller 0 22 C=PAnEdS`=>TAU[kPGi_`3
 l57
 L50
-Z22 VBfMdKZ>@F9cQg?Wz7m]HF1
-Z23 !s100 bQ[f@<kV:C@eGT4o@6;920
+Z24 V@oCPkMgM<^SP>PU_3PlN_1
+Z25 !s100 5OcSbiSJaX8;6eUEmD>2G2
 R6
 32
 R7
 !i10b 1
 R8
-R17
-R18
+R9
+R10
 !i113 1
 R11
 Ecounter
-R1
-R13
+Z26 w1555860575
+R14
 R2
 R3
 R0
-Z24 8Counter.vhd
-Z25 FCounter.vhd
+Z27 8Counter.vhd
+Z28 FCounter.vhd
 l0
 L12
 VAPO@TLM9_Z?UnDVZnH9B_1
 !s100 lBjCbHNf`7@:[j9FYD?5F2
 R6
 32
-Z26 !s110 1555864078
+Z29 !s110 1555865063
 !i10b 1
-Z27 !s108 1555864078.000000
-Z28 !s90 Counter.vhd|
-Z29 !s107 Counter.vhd|
+Z30 !s108 1555865063.000000
+Z31 !s90 Counter.vhd|
+Z32 !s107 Counter.vhd|
 !i113 1
 R11
 Acounterarch
-Z30 DEx4 work 4 mux2 0 22 In2SAKz5082Wd91Jf_]ef1
-Z31 DEx4 work 9 nbitadder 0 22 @O>?LjQUW[zF2Q8Ion0el2
-Z32 DEx4 work 3 reg 0 22 Wil:_e203[[T2H>[M;@lo3
-R13
+Z33 DEx4 work 4 mux2 0 22 In2SAKz5082Wd91Jf_]ef1
+Z34 DEx4 work 9 nbitadder 0 22 @O>?LjQUW[zF2Q8Ion0el2
+Z35 DEx4 work 3 reg 0 22 Wil:_e203[[T2H>[M;@lo3
+R14
 R2
 R3
-Z33 DEx4 work 7 counter 0 22 APO@TLM9_Z?UnDVZnH9B_1
+Z36 DEx4 work 7 counter 0 22 APO@TLM9_Z?UnDVZnH9B_1
 l29
 L25
 VGoP>?_A?`>R3Yc::XOjn?1
 !s100 <oLi^KA_?O;VLJlWhmBf?2
 R6
 32
-R26
-!i10b 1
-R27
-R28
 R29
+!i10b 1
+R30
+R31
+R32
 !i113 1
 R11
 Ecounter2
-R1
-R13
+R26
+R14
 R2
 R3
 R0
-Z34 8Counter2.vhd
-Z35 FCounter2.vhd
+Z37 8Counter2.vhd
+Z38 FCounter2.vhd
 l0
 L11
 VB^c9?lAfQ78SOTi9<5C:h1
 !s100 7nJSSF741[Q2PKB2SS^9Y2
 R6
 32
-R26
+Z39 !s110 1555865064
 !i10b 1
-R27
-Z36 !s90 Counter2.vhd|
-Z37 !s107 Counter2.vhd|
+Z40 !s108 1555865064.000000
+Z41 !s90 Counter2.vhd|
+Z42 !s107 Counter2.vhd|
 !i113 1
 R11
 Acounter2arch
-R31
-R32
-R13
+R34
+R35
+R14
 R2
 R3
-Z38 DEx4 work 8 counter2 0 22 B^c9?lAfQ78SOTi9<5C:h1
+Z43 DEx4 work 8 counter2 0 22 B^c9?lAfQ78SOTi9<5C:h1
 l29
 L23
 VEM^iT1`Xk9<KSgzQ:d41A3
 !s100 n_WY<C9^@`fO^CU2Tj]d02
 R6
 32
-R26
+R39
 !i10b 1
-R27
-R36
-R37
+R40
+R41
+R42
 !i113 1
 R11
 Edecompressor
-R1
+R26
 R2
 R3
 R0
-Z39 8Decompressor.vhd
-Z40 FDecompressor.vhd
+Z44 8Decompressor.vhd
+Z45 FDecompressor.vhd
 l0
 L6
 V_`X25C]F6A0YglFkE[I2T0
 !s100 E0]Q_LWFD@ZNA;U=AW`:=0
 R6
 32
-Z41 !s110 1555864079
+Z46 !s110 1555865065
 !i10b 1
-Z42 !s108 1555864079.000000
-Z43 !s90 Decompressor.vhd|
-Z44 !s107 Decompressor.vhd|
+Z47 !s108 1555865065.000000
+Z48 !s90 Decompressor.vhd|
+Z49 !s107 Decompressor.vhd|
 !i113 1
 R11
 Adecompressorarchitecture
-R32
-Z45 DEx4 work 20 downcounterasyncload 0 22 [O5]b?MCUJkzA0jNB[;[?1
+R35
+Z50 DEx4 work 20 downcounterasyncload 0 22 [O5]b?MCUJkzA0jNB[;[?1
 R2
 R3
-DEx4 work 12 decompressor 0 22 _`X25C]F6A0YglFkE[I2T0
+Z51 DEx4 work 12 decompressor 0 22 _`X25C]F6A0YglFkE[I2T0
 l20
 L17
 VJOdMSz_KIKTO;fHS:h9FF3
 !s100 h17?R_]?ah2E]`9od]1mM3
 R6
 32
-R41
+R46
 !i10b 1
-R42
-R43
-R44
+R47
+R48
+R49
 !i113 1
 R11
 Edff
-R1
+R26
 R2
 R3
 R0
-Z46 8DFF.vhd
-Z47 FDFF.vhd
+Z52 8DFF.vhd
+Z53 FDFF.vhd
 l0
 L4
 VDgE9[LjUl_eG3aF50c0Dg2
 !s100 8cHH5D4lZTgz2LdhjMoh40
 R6
 32
-Z48 !s110 1555864077
+Z54 !s110 1555865062
 !i10b 1
-Z49 !s108 1555864075.000000
-Z50 !s90 DFF.vhd|
-Z51 !s107 DFF.vhd|
+Z55 !s108 1555865062.000000
+Z56 !s90 DFF.vhd|
+Z57 !s107 DFF.vhd|
 !i113 1
 R11
 Adffarch
 R2
 R3
-R20
+R12
 l13
 L12
 VdLF87V[KQCSO@DWE5>=2W2
 !s100 kZ]Wilcb8GK@ZMXL97P]e2
 R6
 32
-R48
+R54
 !i10b 1
-R49
-R50
-R51
+R55
+R56
+R57
 !i113 1
 R11
 Edmacnn
-Z52 w1555863844
+Z58 w1555863844
 R2
 R3
 R0
-Z53 8DMACNN.vhd
-Z54 FDMACNN.vhd
+Z59 8DMACNN.vhd
+Z60 FDMACNN.vhd
 l0
 L5
 V_GdYU8DLT8b@@D<d131>02
 !s100 PIi;`IE7]nEUf]Y76WFlh0
 R6
 32
-R41
+R46
 !i10b 1
-R42
-Z55 !s90 DMACNN.vhd|
-Z56 !s107 DMACNN.vhd|
+R47
+Z61 !s90 DMACNN.vhd|
+Z62 !s107 DMACNN.vhd|
 !i113 1
 R11
 Admacnn
-R32
-R19
+R35
+R22
 R2
 R3
-DEx4 work 6 dmacnn 0 22 _GdYU8DLT8b@@D<d131>02
+Z63 DEx4 work 6 dmacnn 0 22 _GdYU8DLT8b@@D<d131>02
 l18
 L16
 V47O[m?J[]7jl2k<dUM=2D2
 !s100 Aeb_i8:HaWTd;;?]zPbLX3
 R6
 32
-R41
+R46
 !i10b 1
-R42
-R55
-R56
+R47
+R61
+R62
 !i113 1
 R11
 Edmaimage
-R1
+R26
 R2
 R3
 R0
-Z57 8DMAImage.vhd
-Z58 FDMAImage.vhd
+Z64 8DMAImage.vhd
+Z65 FDMAImage.vhd
 l0
 L5
 VonbR5ONZiG]D]75CHJ9m32
 !s100 dnaW9fZkMO<^ahgKfn^R=2
 R6
 32
-R41
+R46
 !i10b 1
-R42
-Z59 !s90 DMAImage.vhd|
-Z60 !s107 DMAImage.vhd|
+R47
+Z66 !s90 DMAImage.vhd|
+Z67 !s107 DMAImage.vhd|
 !i113 1
 R11
 Admaimagearchitecture
-R32
-R19
+R35
+R22
 R2
 R3
-DEx4 work 8 dmaimage 0 22 onbR5ONZiG]D]75CHJ9m32
+Z68 DEx4 work 8 dmaimage 0 22 onbR5ONZiG]D]75CHJ9m32
 l20
 L17
 VW^QMTWN9[>Oa>G0nAkh>80
 !s100 8jdX6X`Q[laO2]H;z;FDb1
 R6
 32
-R41
+R46
 !i10b 1
-R42
-R59
-R60
+R47
+R66
+R67
 !i113 1
 R11
 Edowncounterasyncload
-R1
+R26
 R2
 R3
 R0
-Z61 8DownCounterAsyncLoad.vhd
-Z62 FDownCounterAsyncLoad.vhd
+Z69 8DownCounterAsyncLoad.vhd
+Z70 FDownCounterAsyncLoad.vhd
 l0
 L10
 V[O5]b?MCUJkzA0jNB[;[?1
 !s100 e3edXa@@Z60nBVR7[N1e?3
 R6
 32
-R26
+R39
 !i10b 1
-R27
-Z63 !s90 DownCounterAsyncLoad.vhd|
-Z64 !s107 DownCounterAsyncLoad.vhd|
+R40
+Z71 !s90 DownCounterAsyncLoad.vhd|
+Z72 !s107 DownCounterAsyncLoad.vhd|
 !i113 1
 R11
 Adowncounterasyncloadarch
-R30
-R13
-Z65 DEx4 work 14 nbitsubtractor 0 22 5n2D23i0<2hhV_PzYT?gL2
-Z66 DEx4 work 11 regwithload 0 22 P5zH`g5R_cTgnX@g1T_^C2
+R33
+R14
+Z73 DEx4 work 14 nbitsubtractor 0 22 5n2D23i0<2hhV_PzYT?gL2
+Z74 DEx4 work 11 regwithload 0 22 P5zH`g5R_cTgnX@g1T_^C2
 R2
 R3
-R45
+R50
 l22
 L19
 VKQ3>BSLQaJ@m^=cmkh1@Q1
 !s100 MF3YPGJ7H<KVNQAbff:6X2
 R6
 32
-R26
+R39
 !i10b 1
-R27
-R63
-R64
+R40
+R71
+R72
 !i113 1
 R11
 Efcdma
-R1
+R26
 R2
 R3
 R0
-Z67 8FCDMA.vhd
-Z68 FFCDMA.vhd
+Z75 8FCDMA.vhd
+Z76 FFCDMA.vhd
 l0
 L6
 V^V]JmGT<_L[4`?NoWX`gU2
 !s100 <g93KDUZV:HR4I=Fi2__12
 R6
 32
-R7
+R46
 !i10b 1
-R42
-Z69 !s90 FCDMA.vhd|
-Z70 !s107 FCDMA.vhd|
+R47
+Z77 !s90 FCDMA.vhd|
+Z78 !s107 FCDMA.vhd|
 !i113 1
 R11
 Afcdmaarch
-R33
-Z71 DEx4 work 10 inversemux 0 22 43oMP;Rd[QN0:F?dGGlmH3
-R13
-Z72 DEx4 work 13 modulocounter 0 22 ]WTQRV;bVeYmQPTW]=Zg]0
-R32
+R36
+Z79 DEx4 work 10 inversemux 0 22 43oMP;Rd[QN0:F?dGGlmH3
+R14
+Z80 DEx4 work 13 modulocounter 0 22 ]WTQRV;bVeYmQPTW]=Zg]0
+R35
 R2
 R3
 DEx4 work 5 fcdma 0 22 ^V]JmGT<_L[4`?NoWX`gU2
@@ -401,135 +402,135 @@ V[;4I^olRSGX8obB:OnnZ]3
 !s100 0S4En2>C<AE`zSZ6JA?Z12
 R6
 32
-R7
+R46
 !i10b 1
-R42
-R69
-R70
+R47
+R77
+R78
 !i113 1
 R11
 Efulladder
-R1
+R26
 R2
 R3
 R0
-Z73 8FullAdder.vhd
-Z74 FFullAdder.vhd
+Z81 8FullAdder.vhd
+Z82 FFullAdder.vhd
 l0
 L5
 Vi_`zoAVidS<oE;Q>V4[m71
 !s100 5CkHQd_@[D]85L[XOE:@M3
 R6
 32
-R48
+R29
 !i10b 1
-Z75 !s108 1555864077.000000
-Z76 !s90 FullAdder.vhd|
-Z77 !s107 FullAdder.vhd|
+R30
+Z83 !s90 FullAdder.vhd|
+Z84 !s107 FullAdder.vhd|
 !i113 1
 R11
 Afulladderarch
 R2
 R3
-Z78 DEx4 work 9 fulladder 0 22 i_`zoAVidS<oE;Q>V4[m71
+Z85 DEx4 work 9 fulladder 0 22 i_`zoAVidS<oE;Q>V4[m71
 l18
 L16
 VDm[]4AG8OHQBb<<8JNmc12
 !s100 2L>zXdeQTEim^LCmaCT:71
 R6
 32
-R48
+R29
 !i10b 1
-R75
-R76
-R77
+R30
+R83
+R84
 !i113 1
 R11
 Efullsubtractor
-R1
-Z79 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z80 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R26
+Z86 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z87 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 R2
 R3
 R0
-Z81 8FullSubtractor.vhd
-Z82 FFullSubtractor.vhd
+Z88 8FullSubtractor.vhd
+Z89 FFullSubtractor.vhd
 l0
 L5
 VH9A=gXBV3Az0i;nJ74@So0
 !s100 o1g_c`LH7;_BXO6kC>ci]0
 R6
 32
-R48
+R29
 !i10b 1
-R75
-Z83 !s90 FullSubtractor.vhd|
-Z84 !s107 FullSubtractor.vhd|
+R30
+Z90 !s90 FullSubtractor.vhd|
+Z91 !s107 FullSubtractor.vhd|
 !i113 1
 R11
 Abehavioral
-R79
-R80
+R86
+R87
 R2
 R3
-Z85 DEx4 work 14 fullsubtractor 0 22 H9A=gXBV3Az0i;nJ74@So0
+Z92 DEx4 work 14 fullsubtractor 0 22 H9A=gXBV3Az0i;nJ74@So0
 l14
 L13
 VB9kcPKhYUERM3Y0g_nH`02
 !s100 `c;?8GZM>0zW1YLZ=[[oP3
 R6
 32
-R48
+R29
 !i10b 1
-R75
-R83
-R84
+R30
+R90
+R91
 !i113 1
 R11
 Einversemux
-R1
+R26
 R2
 R3
 R0
-Z86 8InverseMux.vhd
-Z87 FInverseMux.vhd
+Z93 8InverseMux.vhd
+Z94 FInverseMux.vhd
 l0
 L5
 V43oMP;Rd[QN0:F?dGGlmH3
 !s100 8d_Pi9GdX?]mYbVBdE]n30
 R6
 32
-R41
+R39
 !i10b 1
-R42
-Z88 !s90 InverseMux.vhd|
-Z89 !s107 InverseMux.vhd|
+R40
+Z95 !s90 InverseMux.vhd|
+Z96 !s107 InverseMux.vhd|
 !i113 1
 R11
 Ainversemuxarchitecture
 R2
 R3
-R71
+R79
 l25
 L22
 Vz4a>:BAaMRNf^Q0`ZhG1j3
 !s100 1dCVXo7LY_FC9[MJg7RTX1
 R6
 32
-R41
+R39
 !i10b 1
-R42
-R88
-R89
+R40
+R95
+R96
 !i113 1
 R11
 Eio
-R1
+R26
 R2
 R3
 R0
-Z90 8IO.vhd
-Z91 FIO.vhd
+Z97 8IO.vhd
+Z98 FIO.vhd
 l0
 L5
 VjfBDQ`0[BofJzQ<ScUOkW0
@@ -539,36 +540,36 @@ R6
 R7
 !i10b 1
 R8
-R17
-R18
+R9
+R10
 !i113 1
 R11
 Aioarch
-R21
-Z92 DEx4 work 11 iointerface 0 22 b`dQTofTIXk>4F6[LX<UY1
+R23
+Z99 DEx4 work 11 iointerface 0 22 b`dQTofTIXk>4F6[LX<UY1
 R2
 R3
-Z93 DEx4 work 2 io 0 22 jfBDQ`0[BofJzQ<ScUOkW0
+Z100 DEx4 work 2 io 0 22 jfBDQ`0[BofJzQ<ScUOkW0
 l26
 L23
-Z94 V1=I6NOeJ>adT95[]Q9:Q42
-Z95 !s100 4;Y`kU^0A:mA3JGUa7JL22
+Z101 V1=I6NOeJ>adT95[]Q9:Q42
+Z102 !s100 4;Y`kU^0A:mA3JGUa7JL22
 R6
 32
 R7
 !i10b 1
 R8
-R17
-R18
+R9
+R10
 !i113 1
 R11
 Eiochip
-R1
+Z103 w1555865000
 R2
 R3
 R0
-8IOChip.vhd
-FIOChip.vhd
+Z104 8IOChip.vhd
+Z105 FIOChip.vhd
 l0
 L5
 Vc2AP0kTe3^]4k?9PdShJJ0
@@ -578,256 +579,277 @@ R6
 R7
 !i10b 1
 R8
-R17
-R18
+R9
+R10
+!i113 1
+R11
+Aiochiparchitecture
+R63
+R68
+R51
+R100
+R2
+R3
+R16
+l31
+L24
+Z106 V8LPVZ729N:`JIBVG4TzAO3
+Z107 !s100 Oac`a1cfOO<eXJmo6OaDL1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
 !i113 1
 R11
 Eiointerface
-R1
+R26
 R2
 R3
 R0
-Z96 8IOInterface.vhd
-Z97 FIOInterface.vhd
+Z108 8IOInterface.vhd
+Z109 FIOInterface.vhd
 l0
 L12
 Vb`dQTofTIXk>4F6[LX<UY1
 !s100 `bl5GBH<8RZTTk7[S=56h0
 R6
 32
-R41
+R46
 !i10b 1
-R42
-Z98 !s90 IOInterface.vhd|
-Z99 !s107 IOInterface.vhd|
+R40
+Z110 !s90 IOInterface.vhd|
+Z111 !s107 IOInterface.vhd|
 !i113 1
 R11
 Aiointerfacearch
-R32
-R45
+R35
+R50
 R2
 R3
-R92
+R99
 l27
 L24
 VUJ3akJSP_PFnb1MjJiC3a2
 !s100 U^`OS`V@Lif[O;:58k@zZ3
 R6
 32
-R41
+R46
 !i10b 1
-R42
-R98
-R99
+R40
+R110
+R111
 !i113 1
 R11
 Emodulocounter
-R1
-R13
+R26
+R14
 R2
 R3
 R0
-Z100 8ModuloCounter.vhd
-Z101 FModuloCounter.vhd
+Z112 8ModuloCounter.vhd
+Z113 FModuloCounter.vhd
 l0
 L6
 V]WTQRV;bVeYmQPTW]=Zg]0
 !s100 ?1RNIR<Ki6@SK2iBzB]Rz1
 R6
 32
-R26
+R39
 !i10b 1
-R27
-Z102 !s90 ModuloCounter.vhd|
-Z103 !s107 ModuloCounter.vhd|
+R40
+Z114 !s90 ModuloCounter.vhd|
+Z115 !s107 ModuloCounter.vhd|
 !i113 1
 R11
 Amodulocounterarch
-R30
-R31
-R32
-R13
+R33
+R34
+R35
+R14
 R2
 R3
-R72
+R80
 l20
 L17
 V55A]hDGzI;H>m2O7^[BEm2
 !s100 h0[dEzGAQ3h^mRLKH;m2Z0
 R6
 32
-R26
+R39
 !i10b 1
-R27
-R102
-R103
+R40
+R114
+R115
 !i113 1
 R11
 Emux2
-R1
+R26
 R2
 R3
 R0
-Z104 8Mux2.vhd
-Z105 FMux2.vhd
+Z116 8Mux2.vhd
+Z117 FMux2.vhd
 l0
 L9
 VIn2SAKz5082Wd91Jf_]ef1
 !s100 ?z6@F`WU[<RURUjz<FX=80
 R6
 32
-R48
+R54
 !i10b 1
-R75
-Z106 !s90 Mux2.vhd|
-Z107 !s107 Mux2.vhd|
+R55
+Z118 !s90 Mux2.vhd|
+Z119 !s107 Mux2.vhd|
 !i113 1
 R11
 Amux2arch
 R2
 R3
-R30
+R33
 l25
 L23
 VzB?zg<J;N1VGPlWjk8_^;2
 !s100 X?>ZnDPVEJTZjnf`SiW;d2
 R6
 32
-R48
+R54
 !i10b 1
-R75
-R106
-R107
+R55
+R118
+R119
 !i113 1
 R11
 Enbitadder
-R1
+R26
 R2
 R3
 R0
-Z108 8NBitAdder.vhd
-Z109 FNBitAdder.vhd
+Z120 8NBitAdder.vhd
+Z121 FNBitAdder.vhd
 l0
 L6
 V@O>?LjQUW[zF2Q8Ion0el2
 !s100 l53EhgVdEA1KV[@^eR]GS1
 R6
 32
-R26
+R29
 !i10b 1
-R27
-Z110 !s90 NBitAdder.vhd|
-Z111 !s107 NBitAdder.vhd|
+R30
+Z122 !s90 NBitAdder.vhd|
+Z123 !s107 NBitAdder.vhd|
 !i113 1
 R11
 Anbitadderarch
-R78
+R85
 R2
 R3
-R31
+R34
 l27
 L21
 VX<N24F]kgB@Q9_bSF:b0a0
 !s100 i;[nd7HhdW3U:hjJL>=o_3
 R6
 32
-R26
+R29
 !i10b 1
-R27
-R110
-R111
+R30
+R122
+R123
 !i113 1
 R11
 Enbitsubtractor
-R1
-R13
+R26
+R14
 R2
 R3
 R0
-Z112 8NBitSubtractor.vhd
-Z113 FNBitSubtractor.vhd
+Z124 8NBitSubtractor.vhd
+Z125 FNBitSubtractor.vhd
 l0
 L4
 V5n2D23i0<2hhV_PzYT?gL2
 !s100 W[MM[F<Vm@zdB=T[j?I?a0
 R6
 32
-R26
+R29
 !i10b 1
-R27
-Z114 !s90 NBitSubtractor.vhd|
-Z115 !s107 NBitSubtractor.vhd|
+R30
+Z126 !s90 NBitSubtractor.vhd|
+Z127 !s107 NBitSubtractor.vhd|
 !i113 1
 R11
 Anbitsubtractorarch
-R79
-R80
-R85
-R13
+R86
+R87
+R92
+R14
 R2
 R3
-R65
+R73
 l19
 L17
 V48U4Vb@>DV4]RB^akF0P?3
 !s100 ;FCAl3P;6RD909]c:2ZjM2
 R6
 32
-R26
+R29
 !i10b 1
-R27
-R114
-R115
+R30
+R126
+R127
 !i113 1
 R11
 Eram
-R1
-R13
+R26
+R14
 R2
 R3
 R0
-Z116 8Ram.vhd
-Z117 FRam.vhd
+Z128 8Ram.vhd
+Z129 FRam.vhd
 l0
 L5
 VX^?9M1FL_UP56ZlRc2XCn0
 !s100 cjZh9<b[`O`^6`WSNo9ad0
 R6
 32
-R7
+R46
 !i10b 1
-R8
-Z118 !s90 Ram.vhd|
-Z119 !s107 Ram.vhd|
+R47
+Z130 !s90 Ram.vhd|
+Z131 !s107 Ram.vhd|
 !i113 1
 R11
 Aramarch
-R38
-R13
+R43
+R14
 R2
 R3
-R12
+R13
 l34
 L23
 VYoeBMmj<98kzdY4NfMkb_0
 !s100 8cQCM83^cIP9HE^T_[XS00
 R6
 32
-R7
+R46
 !i10b 1
-R8
-R118
-R119
+R47
+R130
+R131
 !i113 1
 R11
 Eramwithdone
-R1
-R13
+R26
+R14
 R2
 R3
 R0
-Z120 8RAMWithDone.vhd
-Z121 FRAMWithDone.vhd
+Z132 8RAMWithDone.vhd
+Z133 FRAMWithDone.vhd
 l0
 L5
 V9[UZfe4WhRAEPk104<Q0d1
@@ -836,17 +858,17 @@ R6
 32
 R7
 !i10b 1
-R8
-Z122 !s90 RAMWithDone.vhd|
-Z123 !s107 RAMWithDone.vhd|
+R47
+Z134 !s90 RAMWithDone.vhd|
+Z135 !s107 RAMWithDone.vhd|
 !i113 1
 R11
 Aramwithdonearch
-R38
-R13
+R43
+R14
 R2
 R3
-R14
+R15
 l29
 L20
 VP;4W3TZe0286:OS7E5K=z0
@@ -855,122 +877,122 @@ R6
 32
 R7
 !i10b 1
-R8
-R122
-R123
+R47
+R134
+R135
 !i113 1
 R11
 Ereg
-R1
+R26
 R2
 R3
 R0
-Z124 8Reg.vhd
-Z125 FReg.vhd
+Z136 8Reg.vhd
+Z137 FReg.vhd
 l0
 L6
 VWil:_e203[[T2H>[M;@lo3
 !s100 USJ;Hg1Q:dQ?H`3>^5?g_2
 R6
 32
-R48
+R29
 !i10b 1
-R75
-Z126 !s90 Reg.vhd|
-Z127 !s107 Reg.vhd|
+R30
+Z138 !s90 Reg.vhd|
+Z139 !s107 Reg.vhd|
 !i113 1
 R11
 Aregarch
 R2
 R3
-R32
+R35
 l22
 L20
 VO^b?MJh8J=k@hIBgH32DN1
 !s100 ^l>^XQ]GV>nU6:A71I6N:3
 R6
 32
-R48
+R29
 !i10b 1
-R75
-R126
-R127
+R30
+R138
+R139
 !i113 1
 R11
 Eregwithload
-R1
+R26
 R2
 R3
 R0
-Z128 8RegWithLoad.vhd
-Z129 FRegWithLoad.vhd
+Z140 8RegWithLoad.vhd
+Z141 FRegWithLoad.vhd
 l0
 L6
 VP5zH`g5R_cTgnX@g1T_^C2
 !s100 3AQcdN8oLj9V1lD:_Q7PV1
 R6
 32
-R48
+R29
 !i10b 1
-R75
-Z130 !s90 RegWithLoad.vhd|
-Z131 !s107 RegWithLoad.vhd|
+R30
+Z142 !s90 RegWithLoad.vhd|
+Z143 !s107 RegWithLoad.vhd|
 !i113 1
 R11
 Aregwithloadarch
 R2
 R3
-R66
+R74
 l22
 L20
 VYSP<RkVgEC]IQgRS>>:e`2
 !s100 6_:3lfcl@P21GIoV=mlV]3
 R6
 32
-R48
+R29
 !i10b 1
-R75
-R130
-R131
+R30
+R142
+R143
 !i113 1
 R11
 Eupcounterasyncload
-R1
+R26
 R2
 R3
 R0
-Z132 8UpCounterAsyncLoad.vhd
-Z133 FUpCounterAsyncLoad.vhd
+Z144 8UpCounterAsyncLoad.vhd
+Z145 FUpCounterAsyncLoad.vhd
 l0
 L8
 VO3X0@J^en`MH6Hdga9U4]2
 !s100 @T83<3m1:]Te_Q[0Rc3`X2
 R6
 32
-R26
+R39
 !i10b 1
-R27
-Z134 !s90 UpCounterAsyncLoad.vhd|
-Z135 !s107 UpCounterAsyncLoad.vhd|
+R40
+Z146 !s90 UpCounterAsyncLoad.vhd|
+Z147 !s107 UpCounterAsyncLoad.vhd|
 !i113 1
 R11
 Aupcounterasyncload
-R30
-R31
-R66
+R33
+R34
+R74
 R2
 R3
-R19
+R22
 l20
 L17
 Va<_=VNWRh@zKCLjKXoGCm0
 !s100 _83SD4P]TIc]I?kN`oTV52
 R6
 32
-R26
+R39
 !i10b 1
-R27
-R134
-R135
+R40
+R146
+R147
 !i113 1
 R11

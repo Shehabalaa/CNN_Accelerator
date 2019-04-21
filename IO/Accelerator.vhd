@@ -22,7 +22,10 @@ SIGNAL FCRamDin, FCRamDout: std_logic_vector(79 DOWNTO 0);
 SIGNAL FCRamAddress: std_logic_vector(15 DOWNTO 0);
 SIGNAL CNNRamAddress: std_logic_vector(12 DOWNTO 0);
 SIGNAL imgRamAddress: std_logic_vector(12 DOWNTO 0);
+
+SIGNAL doneDMAImageOld, notClk: std_logic;
 BEGIN
+	notClk <= NOT clk;
 	high <= '1';
 	low <= '0';
 	IOChip: Entity work.IOChip 
@@ -30,6 +33,8 @@ BEGIN
 							 doneDMACNN, doneDMAImage, imgRamWrite, CNNRamWrite, FCRamWrite, imgRamAddress, imgRamDin, 
 							 CNNRamAddress, CNNRamDin, FCRamAddress, FCRamDin, result);
 	Weights: Entity work.RAMWithDone PORT MAP(clk, low, CNNRamWrite, rst, CNNRamAddress, CNNRamDin, CNNRamDout, doneDMACNN);
-	Image: Entity work.RAMWithDone PORT MAP(clk, low, imgRamWrite, rst, imgRamAddress, imgRamDin, imgRamDout, doneDMAImage);
+	Image: Entity work.RAMWithDone PORT MAP(clk, low, imgRamWrite, rst, imgRamAddress, imgRamDin, imgRamDout, doneDMAImageOld);
 	FC: Entity work.Ram PORT MAP(clk, FCRamWrite, rst, FCRamAddress, FCRamDin, FCRamDout, doneDMAFC);
+
+	MFCLatch: Entity work.DFF PORT MAP(doneDMAImageOld, notClk, rst, high, doneDMAImage);
 END ARCHITECTURE;
