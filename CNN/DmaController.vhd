@@ -34,11 +34,13 @@ ENTITY DMAController IS
     reset: IN STD_LOGIC;
     -- internal buses
     weightsInternalBus: out STD_LOGIC_VECTOR((filterSize * numUnits)-1 DOWNTO 0);
-    windowInternalBus: INOUT STD_LOGIC_VECTOR((windowSize* numUnits)-1 DOWNTO 0);
+    windowInternalBus: OUT STD_LOGIC_VECTOR((windowSize* numUnits)-1 DOWNTO 0);
+    writeInternalBus: IN STD_LOGIC_VECTOR(windowSize - 1 DOWNTO 0);
     
     -- Two Rams interface
     weightsRamAddress: OUT STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
-    windowRamAddress: OUT STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
+    windowRamAddressRead: OUT STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
+    windowRamAddressWrite: OUT STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     weightsRamDataInBus: IN STD_LOGIC_VECTOR((filterSize * numUnits)-1 DOWNTO 0);
     windowRamDataInBus: IN STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
     weightsRamRead: OUT STD_LOGIC; --
@@ -57,6 +59,7 @@ ENTITY DMAController IS
     filterFinished: IN STD_LOGIC;
     sliceFinished: IN STD_LOGIC;
     layerFinished: IN STD_LOGIC;
+    layerType: IN STD_LOGIC;
     write: IN STD_LOGIC; -- signal to specify write the current data in internal bus
 
     -- CONFIG
@@ -96,8 +99,9 @@ SIGNAL weightsSizeForFilter: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
 
 SIGNAL loadWord: STD_LOGIC;
 SIGNAL filterStep: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
-
+SIGNAL writeFinishFilter: STD_LOGIC;
 begin
+    writeFinishFilter <= finishFilter OR (layerType AND sliceFinished);
     loadWord <= loadOneWord OR loadThreeWord;
     filterStep <= (0 => '1', others => '0') WHEN loadOneWord = '1' ELSE (1 => '1', 0 => '1', others => '0') WHEN loadThreeWord = '1' ELSE weightsSizeForFilter;
     -- map weightsSizeType to bits
@@ -138,8 +142,8 @@ begin
       output => windowInternalBus,
       en => '1'
     ); 
-    writeLogicTri: ENTITY work.Tristate GENERIC MAP(windowSize * numUnits) PORT MAP (
-      input => windowInternalBus,
+    writeLogicTri: ENTITY work.Tristate GENERIC MAP(windowSize - 1 DOWNTO 0) PORT MAP (
+      input => writeInternalBus,
       output => windowInternalBusWLogic,
       en => '1'
     ); 
@@ -155,7 +159,7 @@ begin
       internalBus => windowInternalBusRLogic,
       ramDataInBus => windowRamDataInBus,
       ramRead => windowRamRead,
-      ramAddress => readLogicRamAddress,
+      ramAddress => windowRamAddressRead,
       MFC => MFCWindowRam,
 
       -- CONFIG
@@ -203,7 +207,7 @@ begin
       aluNumber => filterAluNumber
     );
 
-    writeLogicEnt: ENTITY work.WriteLogic GENERIC MAP (windowAddressSize, (windowSize * numUnits)) PORT MAP (
+    writeLogicEnt: ENTITY work.WriteLogic GENERIC MAP (windowAddressSize, windowSize) PORT MAP (
       clk => clk,
 
       resetState => resetLogics,
@@ -215,7 +219,7 @@ begin
       internalBus => windowInternalBusWLogic,
       ramWrite => windowRamWrite,
       ramDataOutBus => windowRamDataOutBus,
-      ramAddress => writeLogicRamAddress,
+      ramAddress => windowRamAddressWrite,
       MFC => MFCWindowRam,
 
       -- CONFIG
@@ -224,7 +228,7 @@ begin
       
       -- input cnt signals
       write => write, -- signal to take the data at internal bus and put it into the ram in the next write address
-      finishFilter => filterFinished,
+      finishFilter => writeFinishFilter, -- finishFilter || finishSlice & pool
       -- output cnt signals
       writeDone => writeDoneAll, -- output signal set when any write is done
       writeDoneOne => writeDoneOne -- output signal set when any write is done

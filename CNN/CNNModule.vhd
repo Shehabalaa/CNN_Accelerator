@@ -27,7 +27,7 @@ ENTITY CNNModule IS
         MFCWindowRam: IN STD_LOGIC;
         MFCWeightsRam: IN STD_LOGIC;
         weightsRamAddress: OUT STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
-        windowRamAddress: OUT STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
+        windowRamAddressRead, windowRamAddressWrite: OUT STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
         weightsRamRead: OUT STD_LOGIC;
         windowRamRead: OUT STD_LOGIC;
         windowRamWrite: OUT STD_LOGIC;
@@ -154,11 +154,13 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
             -- internal buses
             weightsInternalBus => filterBus,
-            windowInternalBus => windowBus,
+            windowInternalBusRead => windowBus,
+            windowInternalBusWrite => writeBus,
             
             -- Two Rams interface
             weightsRamAddress => weightsRamAddress,
-            windowRamAddress => windowRamAddress,
+            windowRamAddressRead => windowRamAddressRead,
+            windowRamAddressWrite => windowRamAddressWrite,
             weightsRamDataInBus => weightsRamDataInBus,
             windowRamDataInBus => windowRamDataInBus,  
             weightsRamRead => weightsRamRead,  
