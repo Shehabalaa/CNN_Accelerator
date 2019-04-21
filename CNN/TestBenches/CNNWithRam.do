@@ -47,8 +47,8 @@ force -freeze sim:/cnnwithram/start 0 0
 
 run
 
-mem load -i ./CNN/RAMs/windowRAM.mem -format mti /cnnwithram/windowRam/ram
-mem load -i ./CNN/RAMs/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
+mem load -i ./CNN/RAMs/2_1Layer1Filter20x20/windowRAM.mem -format mti /cnnwithram/windowRam/ram
+mem load -i ./CNN/RAMs/2_1Layer1Filter20x20/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
 
 
 
@@ -76,23 +76,6 @@ run
 
 #readBias
 
+run -all
 
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
-#run
+#mem save -o ./CNN/RAMs/2_1Layer1Filter20x20/actualOutput.mem -f mti -data binary -addr hex -startaddress 3872 -endaddress 4160 -wordsperline 1 /cnnwithram/windowRam/ram
