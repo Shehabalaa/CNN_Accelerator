@@ -1,0 +1,24 @@
+
+*******************************************************
+
+Cell: DMAImage    View: DMAImage    Library: work
+
+*******************************************************
+
+
+ Cell                    Library  References     Total Area
+
+UpCounterAsyncLoad_16    work            1 x    269    269 gates
+dffr                     tsmc035_typ     8 x      6     45 gates
+fake_gnd                 tsmc035_typ     1 x      1      1 fake_gnd
+mux21_ni                 tsmc035_typ     8 x      2     14 gates
+
+ Number of ports :                      55
+ Number of nets :                       56
+ Number of instances :                  18
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of gates :                     328
+ Number of accumulated instances :     171

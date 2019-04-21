@@ -1,7 +1,7 @@
 (DELAYFILE
  (SDFVERSION "2.0")
  (DESIGN "Controller")
- (DATE "Fri Apr 19 13:20:33 2019")
+ (DATE "Fri Apr 19 15:45:12 2019")
  (VENDOR "Exemplar Logic, Inc., Alameda")
  (PROGRAM "LeonardoSpectrum Level 3")
  (VERSION "2018a.2")
@@ -11,44 +11,8 @@
  (TEMPERATURE)
  (TIMESCALE 1 ns)
 (CELL
- (CELLTYPE "and02")
- (INSTANCE ix73)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.13) (::0.13))
-   (IOPATH A1 Y (::0.15) (::0.15)))))
-(CELL
- (CELLTYPE "inv01")
- (INSTANCE ix112)
- (DELAY
-  (ABSOLUTE
-   (PORT A (::0.00) (::0.00))
-   (IOPATH A Y (::0.09) (::0.09)))))
-(CELL
- (CELLTYPE "nor02ii")
- (INSTANCE ix114)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.18) (::0.18))
-   (IOPATH A1 Y (::0.29) (::0.29)))))
-(CELL
- (CELLTYPE "aoi21")
- (INSTANCE ix116)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (PORT B0 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.20) (::0.20))
-   (IOPATH A1 Y (::0.25) (::0.25))
-   (IOPATH B0 Y (::0.09) (::0.09)))))
-(CELL
  (CELLTYPE "or02")
- (INSTANCE ix81)
+ (INSTANCE ix93)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -72,7 +36,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE ix75)
+ (INSTANCE ix87)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -80,24 +44,73 @@
    (IOPATH A0 Y (::0.16) (::0.16))
    (IOPATH A1 Y (::0.16) (::0.16)))))
 (CELL
- (CELLTYPE "and03")
- (INSTANCE ix11)
+ (CELLTYPE "nor02ii")
+ (INSTANCE ix135)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
    (PORT A1 (::0.00) (::0.00))
-   (PORT A2 (::0.00) (::0.00))
    (IOPATH A0 Y (::0.18) (::0.18))
-   (IOPATH A1 Y (::0.20) (::0.20))
-   (IOPATH A2 Y (::0.22) (::0.22)))))
+   (IOPATH A1 Y (::0.29) (::0.29)))))
+(CELL
+ (CELLTYPE "aoi21")
+ (INSTANCE ix137)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (::0.00) (::0.00))
+   (PORT A1 (::0.00) (::0.00))
+   (PORT B0 (::0.00) (::0.00))
+   (IOPATH A0 Y (::0.20) (::0.20))
+   (IOPATH A1 Y (::0.25) (::0.25))
+   (IOPATH B0 Y (::0.09) (::0.09)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE ix139)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (::0.00) (::0.00))
+   (IOPATH A Y (::0.09) (::0.09)))))
+(CELL
+ (CELLTYPE "dffr")
+ (INSTANCE stateCounter_counterReg_reg_Q_0)
+ (DELAY
+  (ABSOLUTE
+   (PORT D (::0.00) (::0.00))
+   (PORT CLK (::0.00) (::0.00))
+   (PORT R (::0.00) (::0.00))
+   (IOPATH CLK Q (::0.49) (::0.49))
+   (IOPATH R Q (::0.00) (::0.00))
+   (IOPATH CLK QB (::0.39) (::0.39))
+   (IOPATH R QB (::0.44) (::0.44))))
+ (TIMINGCHECK
+   (SETUP D (posedge CLK) (0.47))
+   (HOLD D (posedge CLK) (-0.06))))
+(CELL
+ (CELLTYPE "xnor2")
+ (INSTANCE ix112)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (::0.00) (::0.00))
+   (PORT A1 (::0.00) (::0.00))
+   (IOPATH A0 Y (::0.19) (::0.19))
+   (IOPATH A1 Y (::0.19) (::0.19)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE ix3)
+ (INSTANCE ix145)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
    (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.15) (::0.15))
+   (IOPATH A0 Y (::0.21) (::0.21))
+   (IOPATH A1 Y (::0.27) (::0.27)))))
+(CELL
+ (CELLTYPE "nand02")
+ (INSTANCE ix19)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (::0.00) (::0.00))
+   (PORT A1 (::0.00) (::0.00))
+   (IOPATH A0 Y (::0.17) (::0.17))
    (IOPATH A1 Y (::0.15) (::0.15)))))
 (CELL
  (CELLTYPE "dffr")
@@ -107,23 +120,49 @@
    (PORT D (::0.00) (::0.00))
    (PORT CLK (::0.00) (::0.00))
    (PORT R (::0.00) (::0.00))
-   (IOPATH CLK Q (::0.38) (::0.38))
+   (IOPATH CLK Q (::0.35) (::0.35))
    (IOPATH R Q (::0.00) (::0.00))
-   (IOPATH CLK QB (::0.41) (::0.41))
-   (IOPATH R QB (::0.46) (::0.46))))
+   (IOPATH CLK QB (::0.46) (::0.46))
+   (IOPATH R QB (::0.51) (::0.51))))
+ (TIMINGCHECK
+   (SETUP D (posedge CLK) (0.47))
+   (HOLD D (posedge CLK) (-0.06))))
+(CELL
+ (CELLTYPE "mux21")
+ (INSTANCE ix122)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (::0.00) (::0.00))
+   (PORT A1 (::0.00) (::0.00))
+   (PORT S0 (::0.00) (::0.00))
+   (IOPATH A0 Y (::0.27) (::0.27))
+   (IOPATH A1 Y (::0.30) (::0.30))
+   (IOPATH S0 Y (::0.25) (::0.25)))))
+(CELL
+ (CELLTYPE "dffr")
+ (INSTANCE stateCounter_counterReg_reg_Q_1)
+ (DELAY
+  (ABSOLUTE
+   (PORT D (::0.00) (::0.00))
+   (PORT CLK (::0.00) (::0.00))
+   (PORT R (::0.00) (::0.00))
+   (IOPATH CLK Q (::0.41) (::0.41))
+   (IOPATH R Q (::0.00) (::0.00))
+   (IOPATH CLK QB (::0.55) (::0.55))
+   (IOPATH R QB (::0.60) (::0.60))))
  (TIMINGCHECK
    (SETUP D (posedge CLK) (0.47))
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE ix128)
+ (INSTANCE ix160)
  (DELAY
   (ABSOLUTE
    (PORT A (::0.00) (::0.00))
    (IOPATH A Y (::0.09) (::0.09)))))
 (CELL
  (CELLTYPE "and02")
- (INSTANCE ix45)
+ (INSTANCE ix59)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -132,14 +171,14 @@
    (IOPATH A1 Y (::0.19) (::0.19)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE ix65)
+ (INSTANCE ix79)
  (DELAY
   (ABSOLUTE
    (PORT A (::0.00) (::0.00))
    (IOPATH A Y (::0.08) (::0.08)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE ix135)
+ (INSTANCE ix167)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -180,7 +219,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "nor02ii")
- (INSTANCE ix53)
+ (INSTANCE ix67)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -189,7 +228,7 @@
    (IOPATH A1 Y (::0.26) (::0.26)))))
 (CELL
  (CELLTYPE "aoi21")
- (INSTANCE ix71)
+ (INSTANCE ix85)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -200,14 +239,14 @@
    (IOPATH B0 Y (::0.06) (::0.06)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE ix57)
+ (INSTANCE ix71)
  (DELAY
   (ABSOLUTE
    (PORT A (::0.00) (::0.00))
    (IOPATH A Y (::0.08) (::0.08)))))
 (CELL
  (CELLTYPE "oai21")
- (INSTANCE ix147)
+ (INSTANCE ix179)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -218,7 +257,7 @@
    (IOPATH B0 Y (::0.21) (::0.21)))))
 (CELL
  (CELLTYPE "nor03_2x")
- (INSTANCE ix41)
+ (INSTANCE ix55)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -229,18 +268,18 @@
    (IOPATH A2 Y (::0.09) (::0.09)))))
 (CELL
  (CELLTYPE "nand03")
- (INSTANCE ix150)
+ (INSTANCE ix182)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
    (PORT A1 (::0.00) (::0.00))
    (PORT A2 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.13) (::0.13))
+   (IOPATH A0 Y (::0.16) (::0.16))
    (IOPATH A1 Y (::0.16) (::0.16))
    (IOPATH A2 Y (::0.19) (::0.19)))))
 (CELL
  (CELLTYPE "and04")
- (INSTANCE ix43)
+ (INSTANCE ix57)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -248,12 +287,12 @@
    (PORT A2 (::0.00) (::0.00))
    (PORT A3 (::0.00) (::0.00))
    (IOPATH A0 Y (::0.18) (::0.18))
-   (IOPATH A1 Y (::0.22) (::0.22))
+   (IOPATH A1 Y (::0.23) (::0.23))
    (IOPATH A2 Y (::0.25) (::0.25))
    (IOPATH A3 Y (::0.26) (::0.26)))))
 (CELL
  (CELLTYPE "and02")
- (INSTANCE ix49)
+ (INSTANCE ix63)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -261,8 +300,26 @@
    (IOPATH A0 Y (::0.13) (::0.13))
    (IOPATH A1 Y (::0.15) (::0.15)))))
 (CELL
+ (CELLTYPE "nor03_2x")
+ (INSTANCE ix33)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (::0.00) (::0.00))
+   (PORT A1 (::0.00) (::0.00))
+   (PORT A2 (::0.00) (::0.00))
+   (IOPATH A0 Y (::0.15) (::0.15))
+   (IOPATH A1 Y (::0.13) (::0.13))
+   (IOPATH A2 Y (::0.11) (::0.11)))))
+(CELL
+ (CELLTYPE "inv01")
+ (INSTANCE ix189)
+ (DELAY
+  (ABSOLUTE
+   (PORT A (::0.00) (::0.00))
+   (IOPATH A Y (::0.19) (::0.19)))))
+(CELL
  (CELLTYPE "nor02ii")
- (INSTANCE ix23)
+ (INSTANCE ix7)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -270,17 +327,26 @@
    (IOPATH A0 Y (::0.15) (::0.15))
    (IOPATH A1 Y (::0.20) (::0.20)))))
 (CELL
- (CELLTYPE "nor02ii")
- (INSTANCE ix15)
+ (CELLTYPE "xor2")
+ (INSTANCE ix155)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
    (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.06) (::0.06))
-   (IOPATH A1 Y (::0.14) (::0.14)))))
+   (IOPATH A0 Y (::0.45) (::0.45))
+   (IOPATH A1 Y (::0.49) (::0.49)))))
+(CELL
+ (CELLTYPE "and02")
+ (INSTANCE ix37)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (::0.00) (::0.00))
+   (PORT A1 (::0.00) (::0.00))
+   (IOPATH A0 Y (::0.13) (::0.13))
+   (IOPATH A1 Y (::0.15) (::0.15)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE ix47)
+ (INSTANCE ix61)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -289,14 +355,14 @@
    (IOPATH A1 Y (::0.13) (::0.13)))))
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE ix157)
+ (INSTANCE ix191)
  (DELAY
   (ABSOLUTE
    (PORT A (::0.00) (::0.00))
    (IOPATH A Y (::0.10) (::0.10)))))
 (CELL
  (CELLTYPE "nor02ii")
- (INSTANCE ix31)
+ (INSTANCE ix45)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))

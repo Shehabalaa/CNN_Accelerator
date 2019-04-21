@@ -1,0 +1,14 @@
+load_library tsmc035_typ
+
+read -technology "tsmc035_typ"  { "/home/ayman/Desktop/Project/vlsi/IO/Reg.vhd" "/home/ayman/Desktop/Project/vlsi/IO/Mux2.vhd" "/home/ayman/Desktop/Project/vlsi/IO/FullAdder.vhd" "/home/ayman/Desktop/Project/vlsi/IO/InverseMux.vhd" "/home/ayman/Desktop/Project/vlsi/IO/NBitAdder.vhd" "/home/ayman/Desktop/Project/vlsi/IO/Counter.vhd" "/home/ayman/Desktop/Project/vlsi/IO/ModuloCounter.vhd" "/home/ayman/Desktop/Project/vlsi/IO/FCDMA.vhd"}
+
+pre_optimize .work.FCDMA.FCDMAArch -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize .work.FCDMA.FCDMAArch -extract 
+optimize .work.FCDMA.FCDMAArch -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
+optimize_timing .work.FCDMA.FCDMAArch 
+report_area DMAFCArea.txt -cell_usage -all_leafs 
+report_delay DMAFCDelay.txt -num_paths 1 -critical_paths -clock_frequency
+set novendor_constraint_file FALSE
+auto_write DMAFC.vhd
+set novendor_constraint_file FALSE
+auto_write -format SDF DMAFC.sdf

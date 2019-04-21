@@ -1,14 +1,14 @@
-#
-#
-# 
-# Fri Apr 19 18:00:56 2019
 load_library tsmc035_typ
 set_working_dir /home/ayman/Desktop/Project/vlsi/IO/leonardoScritpts
 read -technology "tsmc035_typ" {/home/ayman/Desktop/Project/vlsi/IO/Mux2.vhd /home/ayman/Desktop/Project/vlsi/IO/Reg.vhd /home/ayman/Desktop/Project/vlsi/IO/FullAdder.vhd /home/ayman/Desktop/Project/vlsi/IO/FullSubtractor.vhd /home/ayman/Desktop/Project/vlsi/IO/InverseMux.vhd /home/ayman/Desktop/Project/vlsi/IO/NBitAdder.vhd /home/ayman/Desktop/Project/vlsi/IO/NBitSubtractor.vhd /home/ayman/Desktop/Project/vlsi/IO/RegWithLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/Counter.vhd /home/ayman/Desktop/Project/vlsi/IO/DFF.vhd /home/ayman/Desktop/Project/vlsi/IO/ModuloCounter.vhd /home/ayman/Desktop/Project/vlsi/IO/UpCounterAsyncLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/DownCounterAsyncLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/Controller.vhd /home/ayman/Desktop/Project/vlsi/IO/IOInterface.vhd /home/ayman/Desktop/Project/vlsi/IO/IO.vhd /home/ayman/Desktop/Project/vlsi/IO/Decompressor.vhd /home/ayman/Desktop/Project/vlsi/IO/DMACNN.vhd /home/ayman/Desktop/Project/vlsi/IO/FCDMA.vhd /home/ayman/Desktop/Project/vlsi/IO/DMAImage.vhd /home/ayman/Desktop/Project/vlsi/IO/IOChip.vhd}
-
-pre_optimize .work.IOChip.IOChipArch -common_logic -boundary -xor_comparator_optimize 
+pre_optimize .work.IOChip.IOChipArch -common_logic -unused_logic -boundary -xor_comparator_optimize 
 pre_optimize .work.IOChip.IOChipArch -extract 
 optimize .work.IOChip.IOChipArch -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
- set wire_table "" 
 optimize_timing .work.IOChip.IOChipArch 
-report_area AreaReport.txt -cell_usage -hierarchy -all_leafs 
+report_area IOChipArea.txt -cell_usage -all_leafs 
+report_delay IOChipDelay.txt -num_paths 1 -longest_path -clock_frequency
+set novendor_constraint_file FALSE
+auto_write IOChip.vhd
+set novendor_constraint_file FALSE
+auto_write -format SDF IOChip.sdf
+

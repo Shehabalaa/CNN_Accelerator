@@ -1,0 +1,15 @@
+load_library tsmc035_typ
+set_working_dir /home/ayman/Desktop/Project/vlsi/IO/leonardoScritpts
+read -technology "tsmc035_typ" { /home/ayman/Desktop/Project/vlsi/IO/Mux2.vhd /home/ayman/Desktop/Project/vlsi/IO/Reg.vhd /home/ayman/Desktop/Project/vlsi/IO/FullAdder.vhd /home/ayman/Desktop/Project/vlsi/IO/NBitAdder.vhd  /home/ayman/Desktop/Project/vlsi/IO/RegWithLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/UpCounterAsyncLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/DMACNN.vhd}
+
+pre_optimize .work.DMACNN.DMACNN -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize .work.DMACNN.DMACNN -extract 
+optimize .work.DMACNN.DMACNN -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
+optimize_timing .work.DMACNN.DMACNN 
+report_area DMACNNArea.txt -cell_usage -all_leafs 
+report_delay DMACNNDelay.txt -num_paths 1 -critical_paths -clock_frequency
+set novendor_constraint_file FALSE
+auto_write -format VHDL DMACNN.vhd
+set novendor_constraint_file FALSE
+auto_write -format SDF DMACNN.sdf
+

@@ -1,0 +1,24 @@
+
+*******************************************************
+
+Cell: IOChip    View: IOChipArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+fake_gnd    tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc    tsmc035_typ     1 x      1      1 fake_vcc
+tri01       tsmc035_typ     5 x      1      6 gates
+
+ Number of ports :                      27
+ Number of nets :                        7
+ Number of instances :                   7
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                       6
+ Number of accumulated instances :       7
