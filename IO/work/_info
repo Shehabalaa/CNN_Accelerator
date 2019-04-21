@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 dC:\D\PDFS\College\3rd year\2nd term\VLSI\Project\CNN_Accelerator\IO
 Eaccelerator
-Z1 w1555856668
+Z1 w1555860449
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
 Z4 dC:\D\PDFS\College\3rd year\2nd term\VLSI\Project\CNN_Accelerator\IO
@@ -17,23 +17,24 @@ V5T]@<75^8h<BPV=ca<2;a0
 Z7 OV;C;10.1d;51
 32
 !i10b 1
-Z8 !s108 1555858887.678000
+Z8 !s108 1555862336.230000
 Z9 !s90 Controller.vhd|IO.vhd|IOChip.vhd|Accelerator.vhd|
 Z10 !s107 Accelerator.vhd|IOChip.vhd|IO.vhd|Controller.vhd|
 o-O0
 Z11 tExplicit 1
 Aacceleratorarch
-Z12 DEx4 work 3 ram 0 22 S8l]UFRcF2cCcZDz]Hm<12
-Z13 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
-Z14 DEx4 work 11 ramwithdone 0 22 @[3Se0f:oIY7^>P?m1;DB3
-Z15 DEx4 work 6 iochip 0 22 2o@E8I7:D?nZQz?=jHCdA3
+Z12 DEx4 work 3 dff 0 22 EDI?84W]OC9?lm<D?CIJa2
+Z13 DEx4 work 3 ram 0 22 S8l]UFRcF2cCcZDz]Hm<12
+Z14 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z15 DEx4 work 11 ramwithdone 0 22 @[3Se0f:oIY7^>P?m1;DB3
+Z16 DEx4 work 6 iochip 0 22 2o@E8I7:D?nZQz?=jHCdA3
 R2
 R3
-Z16 DEx4 work 11 accelerator 0 22 5T]@<75^8h<BPV=ca<2;a0
-l25
+Z17 DEx4 work 11 accelerator 0 22 5T]@<75^8h<BPV=ca<2;a0
+l27
 L16
-Z17 VZI4G;gMD8JhKoiALG5z1]3
-Z18 !s100 7W?CGPYlaNDB66agz4kX83
+Z18 VI1cOaV2BQjFS]z<`3=MjX3
+Z19 !s100 Ja[WAC0o;Y3b4khoHdD]<2
 R7
 32
 !i10b 1
@@ -43,12 +44,12 @@ R10
 o-O0
 R11
 Econtroller
-Z19 w1555858868
+Z20 w1555862313
 R2
 R3
 R4
-Z20 8Controller.vhd
-Z21 FController.vhd
+Z21 8Controller.vhd
+Z22 FController.vhd
 l0
 L36
 VBW;o444_fLl@j;<`K_WcZ2
@@ -62,15 +63,15 @@ R10
 o-O0
 R11
 Acontrollerarch
-Z22 DEx4 work 18 upcounterasyncload 0 22 8=9Hd[2n7<bY3gj<2@_VX2
-Z23 DEx4 work 3 dff 0 22 EDI?84W]OC9?lm<D?CIJa2
+Z23 DEx4 work 18 upcounterasyncload 0 22 8=9Hd[2n7<bY3gj<2@_VX2
+R12
 R2
 R3
 Z24 DEx4 work 10 controller 0 22 BW;o444_fLl@j;<`K_WcZ2
 l57
 L50
-VSK1h3an<i`=7iF^Ao2U1c0
-!s100 7:_Z1>HQM3Nc>5eK5lSfc3
+VDG?=oQBkjdnL0aNoY[9[g2
+!s100 kiG^`[No336MWX]l9n1>E3
 R7
 32
 !i10b 1
@@ -81,7 +82,7 @@ o-O0
 R11
 Ecounter
 Z25 w1555769202
-R13
+R14
 R2
 R3
 R4
@@ -103,7 +104,7 @@ Acounterarch
 Z31 DEx4 work 4 mux2 0 22 Zb>0l1GVI@QaB?;HcPGAN3
 Z32 DEx4 work 9 nbitadder 0 22 EnkIfB8Yf>YKm7P6oC:fm1
 Z33 DEx4 work 3 reg 0 22 E;QP2DkmTNY6>EEzzc8O<0
-R13
+R14
 R2
 R3
 Z34 DEx4 work 7 counter 0 22 hoAWIh]X<hVJJfXnma9Ag2
@@ -121,7 +122,7 @@ R11
 !i10b 1
 Ecounter2
 Z35 w1555778946
-R13
+R14
 R2
 R3
 R4
@@ -142,7 +143,7 @@ R11
 Acounter2arch
 R32
 R33
-R13
+R14
 R2
 R3
 Z41 DEx4 work 8 counter2 0 22 7TTm`id7J2IUbSzQ:GgX92
@@ -182,7 +183,7 @@ R33
 Z48 DEx4 work 20 downcounterasyncload 0 22 ldgnfaJl8J^PlX>?fX<n91
 R2
 R3
-Z49 DEx4 work 12 decompressor 0 22 n7BW0iSIC@>_2Q5]:DXjQ2
+DEx4 work 12 decompressor 0 22 n7BW0iSIC@>_2Q5]:DXjQ2
 l20
 L17
 VBPCMDUKEYH:dX]nA]F9GW0
@@ -207,7 +208,7 @@ L6
 VJTdM3RQ_NcNA=6]V8>FhC3
 R7
 32
-Z50 !s108 1555779906.275000
+Z49 !s108 1555779906.275000
 R46
 R47
 o-O0
@@ -219,13 +220,13 @@ R33
 R48
 R2
 R3
-DEx4 work 13 decompressor1 0 22 JTdM3RQ_NcNA=6]V8>FhC3
+Z50 DEx4 work 13 decompressor1 0 22 JTdM3RQ_NcNA=6]V8>FhC3
 l20
 L17
 VJX>gW0PkC`i@XlG2bTSjM0
 R7
 32
-R50
+R49
 R46
 R47
 o-O0
@@ -254,7 +255,7 @@ R11
 Adffarch
 R2
 R3
-R23
+R12
 l13
 L12
 V2joZLmo]jahLAPZ`jj2J90
@@ -288,7 +289,7 @@ R11
 !i10b 1
 Admacnn
 R33
-R22
+R23
 R2
 R3
 Z62 DEx4 work 6 dmacnn 0 22 j^3O?0]jQ;MC1Ij:_>hnf0
@@ -325,7 +326,7 @@ R11
 !i10b 1
 Admaimagearchitecture
 R33
-R22
+R23
 R2
 R3
 Z69 DEx4 work 8 dmaimage 0 22 <4j9>hloei8g>RUI@@i>I2
@@ -362,7 +363,7 @@ R11
 !i10b 1
 Adowncounterasyncloadarch
 R31
-R13
+R14
 Z75 DEx4 work 14 nbitsubtractor 0 22 z^Cz?K:l90CVhkk;@EB7I0
 Z76 DEx4 work 11 regwithload 0 22 f<FMOER@G8h6WHY2dE4<h2
 R2
@@ -402,7 +403,7 @@ R11
 Afcdmaarch
 R34
 Z82 DEx4 work 10 inversemux 0 22 NnK5XU@Ho??0[FKYBL22X2
-R13
+R14
 Z83 DEx4 work 13 modulocounter 0 22 c;UzQ5lHnPfLfYmfo2;o=3
 R33
 R2
@@ -567,7 +568,7 @@ R10
 o-O0
 R11
 Eiochip
-Z110 w1555857149
+Z110 w1555859653
 R2
 R3
 R4
@@ -588,15 +589,15 @@ R11
 Aiochiparchitecture
 R62
 R69
-R49
+R50
 R107
 R2
 R3
-R15
+R16
 l31
 L24
-Z113 V==8>W=?T1cQmGiS??3k:=1
-Z114 !s100 N=3AKez3N@h9dbnDkHMbn2
+Z113 V2GoCMVi@?hDmPL^?4U?kn3
+Z114 !s100 ikO6=I7dW4@3CSHBH`WM22
 R7
 32
 !i10b 1
@@ -644,7 +645,7 @@ R11
 !i10b 1
 Emodulocounter
 R25
-R13
+R14
 R2
 R3
 R4
@@ -666,7 +667,7 @@ Amodulocounterarch
 R31
 R32
 R33
-R13
+R14
 R2
 R3
 R83
@@ -755,7 +756,7 @@ R11
 !i10b 1
 Enbitsubtractor
 R25
-R13
+R14
 R2
 R3
 R4
@@ -777,7 +778,7 @@ Anbitsubtractorarch
 R90
 R91
 R97
-R13
+R14
 R2
 R3
 R75
@@ -795,7 +796,7 @@ R11
 !i10b 1
 Eram
 Z140 w1555789006
-R13
+R14
 R2
 R3
 R4
@@ -815,10 +816,10 @@ R11
 !i10b 1
 Aramarch
 R41
-R13
+R14
 R2
 R3
-R12
+R13
 l34
 L23
 V?EEBgKc6=OWkl538WCKk40
@@ -833,7 +834,7 @@ R11
 !i10b 1
 Eramwithdone
 Z146 w1555778921
-R13
+R14
 R2
 R3
 R4
@@ -853,10 +854,10 @@ R11
 !i10b 1
 Aramwithdonearch
 R41
-R13
+R14
 R2
 R3
-R14
+R15
 l29
 L20
 Vc?@daVIZI1IjV`@2bgzP]3
@@ -964,7 +965,7 @@ R32
 R76
 R2
 R3
-R22
+R23
 l20
 L17
 VBzGACm8_;V>@TmK[RIaFX2

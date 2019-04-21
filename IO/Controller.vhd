@@ -98,7 +98,8 @@ BEGIN
 
   --Image Ram enable latch
   imageRamLatchD <= imageRegisterEnable OR imageRamEnable;
-  imageRamRst <= rst OR doneDMAImageDelayed;
+  --imageRamRst <= rst OR doneDMAImageDelayed;
+  imageRamRst <= (rst OR doneDMAImage) OR decompZeroState;
   imageRamEn: ENTITY work.DFF PORT MAP(imageRamLatchD, clk, imageRamRst, high, imageRamEnable);
 
   --IO Interface signals
