@@ -101,7 +101,7 @@ SIGNAL loadWord: STD_LOGIC;
 SIGNAL filterStep: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
 SIGNAL writeFinishFilter: STD_LOGIC;
 begin
-    writeFinishFilter <= finishFilter OR (layerType AND sliceFinished);
+    writeFinishFilter <= filterFinished OR (layerType AND sliceFinished);
     loadWord <= loadOneWord OR loadThreeWord;
     filterStep <= (0 => '1', others => '0') WHEN loadOneWord = '1' ELSE (1 => '1', 0 => '1', others => '0') WHEN loadThreeWord = '1' ELSE weightsSizeForFilter;
     -- map weightsSizeType to bits
@@ -129,12 +129,12 @@ begin
     );
 
     -- mux to select which address should enter to the window ram, address from write or address from read
-    windowRamAddressMux: ENTITY work.Mux2 GENERIC MAP(windowAddressSize) PORT MAP(
-      A => readLogicRamAddress,
-      B => writeLogicRamAddress,
-      S => write,
-      C => windowRamAddress
-    );
+--    windowRamAddressMux: ENTITY work.Mux2 GENERIC MAP(windowAddressSize) PORT MAP(
+--      A => readLogicRamAddress,
+--      B => writeLogicRamAddress,
+--      S => write,
+--      C => windowRamAddress
+--    );
 
     -- tristate for window internal bus
     readLogicTri: ENTITY work.Tristate GENERIC MAP(windowSize * numUnits) PORT MAP (
@@ -142,7 +142,7 @@ begin
       output => windowInternalBus,
       en => '1'
     ); 
-    writeLogicTri: ENTITY work.Tristate GENERIC MAP(windowSize - 1 DOWNTO 0) PORT MAP (
+    writeLogicTri: ENTITY work.Tristate GENERIC MAP(windowSize) PORT MAP (
       input => writeInternalBus,
       output => windowInternalBusWLogic,
       en => '1'

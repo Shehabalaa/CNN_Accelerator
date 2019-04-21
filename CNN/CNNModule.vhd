@@ -155,8 +155,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
             -- internal buses
             weightsInternalBus => filterBus,
-            windowInternalBusRead => windowBus,
-            windowInternalBusWrite => writeBus,
+            windowInternalBus => windowBus,
+            writeInternalBus => writeBus,
             
             -- Two Rams interface
             weightsRamAddress => weightsRamAddress,
@@ -180,6 +180,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             sliceFinished => finishSlice,
             filterFinished => finishFilter,
             layerFinished => finishLayer,
+            layerType => layerType,
             write => saveToRAM,
 
             -- CONFIG

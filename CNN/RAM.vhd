@@ -33,7 +33,7 @@ begin
         if reset='1' then
             ram<=(others=>zeros);
         ELSIF we='1' THEN
-            IF clk'EVENT AND clk='0' AND currentCount = "00" then
+            IF clk'EVENT AND clk='0' AND currentCountWrite = "00" then
                 ram(to_integer(unsigned(addressWrite))) <= datain;
             END IF;
         end if;
@@ -57,7 +57,7 @@ begin
     else '0';
 
     
-    counterMFC: Entity work.Counter generic map(2) port map(
+    counterMFCWrite: Entity work.Counter generic map(2) port map(
             we, reset, notClk, currentCountWrite
         );
 

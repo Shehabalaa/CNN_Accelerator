@@ -28,7 +28,7 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
     SIGNAL MFCWindowRam: STD_LOGIC;
     SIGNAL MFCWeightsRam: STD_LOGIC;
     SIGNAL weightsRamAddress: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
-    SIGNAL windowRamAddress: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
+    SIGNAL windowRamAddressRead, windowRamAddressWrite: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL weightsRamRead: STD_LOGIC;
     SIGNAL windowRamRead: STD_LOGIC;
     SIGNAL windowRamWrite: STD_LOGIC;
@@ -56,7 +56,8 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
             MFCWindowRam => MFCWindowRam,
             MFCWeightsRam => MFCWeightsRam,
             weightsRamAddress => weightsRamAddress,
-            windowRamAddress => windowRamAddress,
+            windowRamAddressRead => windowRamAddressRead,
+            windowRamAddressWrite => windowRamAddressWrite,
             weightsRamRead => weightsRamRead,
             windowRamRead => windowRamRead,
             windowRamWrite => windowRamWrite,
@@ -69,7 +70,7 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
         generic map(weightsAddressSize, filterSize, filterSize * 5)
         port map(
             clk, weightsRamRead, '0', rst,
-            weightsRamAddress,
+            weightsRamAddress, windowRamAddressWrite, --address write here is for IO
             "00000000",
             weightsRamDataInBus,
             MFCWeightsRam
@@ -79,7 +80,7 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
     generic map(windowAddressSize, windowSize, windowSize * 5)
     port map(
         clk, windowRamRead, windowRamWrite, rst,
-        windowRamAddress,
+        windowRamAddressRead, windowRamAddressWrite,
         windowRamDataOutBus(windowSize-1 DOWNTO 0),
         windowRamDataInBus,
         MFCWindowRam
