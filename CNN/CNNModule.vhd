@@ -46,7 +46,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
     SIGNAL filterBus: STD_LOGIC_VECTOR((numUnits*filterSize)-1 DOWNTO 0);
     SIGNAL windowBus: STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
     SIGNAL decoderRow: STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
-    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, loadOneWord, loadTwoWord, readAllFinish, writeOneFinish: STD_LOGIC;
+    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, dmaRamFinish, loadOneWord, loadTwoWord, readAllFinish, writeOneFinish: STD_LOGIC;
     SIGNAL sumOutCores: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 
     -- DMA Signals
@@ -121,7 +121,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             outputSize,
             startCNN,
             layerType,
-            doneCores, dmaFilterFinish, dmaWindowFinish,
+            doneCores, dmaFilterFinish, dmaWindowFinish,dmaRamFinish,
             rst,
             loadLayerConfig, loadNetworkConfig, loadFilterConfig,
             loadWindow, loadFilter, conv, pool, 
