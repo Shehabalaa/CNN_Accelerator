@@ -13,7 +13,7 @@ ENTITY ControlUnit IS
         startNetwork: IN STD_LOGIC;
         layerType : IN STD_LOGIC;
 
-        convFinish,dmaAFinish,dmaBFinish : IN STD_LOGIC;
+        convFinish,dmaAFinish,dmaBFinish,dmaCFinish : IN STD_LOGIC;
 
         resetNetwork : IN STD_LOGIC;
 
@@ -65,7 +65,7 @@ ARCHITECTURE ControlUnitArch OF ControlUnit IS
 
         filterMap : ENTITY work.FilterController PORT MAP(startFilter,layerType,dmaAFinish,finishSlice,resetNetwork,clk,filterDepth,startSlice,loadFilterConfig,filterLastLayer,internalFinishFilter);
 
-        sliceFilterMap : ENTITY work.SliceFilterController PORT MAP(startSlice,layerType,filterLastLayer,convFinish,dmaAFinish,dmaBFinish,
+        sliceFilterMap : ENTITY work.SliceFilterController PORT MAP(startSlice,layerType,filterLastLayer,convFinish,dmaAFinish,dmaBFinish,dmaCFinish,
         resetNetwork,clk,filterOutputSize,currentPage,loadFilter,loadWindow,conv,pool,shift12,shift21,readNextCol,addToOutputBuffer,outputBufferEn,saveToRAM,finishSlice);
 
 
