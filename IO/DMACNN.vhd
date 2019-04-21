@@ -13,16 +13,8 @@ PORT    (
 
 END ENTITY;
 
-<<<<<<< HEAD
 ARCHITECTURE DMACNN of DMACNN IS
 signal addressCounterIn: STD_LOGIC_VECTOR(12 downto 0);
-||||||| merged common ancestors
-ARCHITECTURE DMACNN of DMACNN IS
-signal addressCounterIn: STD_LOGIC_VECTOR(15 downto 0);
-=======
-ARCHITECTURE DMACNNArch of DMACNN IS
-signal addressCounterIn: STD_LOGIC_VECTOR(15 downto 0);
->>>>>>> 7471632a1f4d6c4ea3fba18229deda238a1de02a
 BEGIN
 	addressCounterIn <= "0000000000000";
 	addressCounter: Entity work.UpCounterAsyncLoad GENERIC MAP(13) PORT MAP(addressCounterIn, enableCNNCounter, '0' , rst, clk, addressOut);
