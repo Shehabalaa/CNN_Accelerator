@@ -33,7 +33,7 @@
     sim:/Accelerator/rst
 
     # $file will contain the file pointer to test.txt (file must exist)
-    set file [open input.txt]
+    set file [open testCNN.txt]
 
     # $input will contain the contents of the file
     set input [read $file]
@@ -43,6 +43,7 @@
 
     # $runTime will be the period of the clk cycle
     set runTime 50
+    set halfRunTime [expr {$runTime / 2}]
 
 
     force -freeze sim:/Accelerator/rst 1 0
@@ -51,9 +52,14 @@
     force -freeze sim:/Accelerator/result 2'b0000 0 
     run $runTime
     force -freeze sim:/Accelerator/rst 0 0
-    run $runTime / 2
+    run $halfRunTime
 
-    for {set i 0} {$i < 3} {incr i} {
+
+    force -freeze sim:/Accelerator/processing 0 0
+    force -freeze sim:/Accelerator/load 1 0 
+    force -freeze sim:/Accelerator/imageOrCNN 0 0
+
+    for {set i 0} {$i < 1} {incr i} {
         if { $i == 0} {
             force -freeze sim:/Accelerator/processing 0 0
             force -freeze sim:/Accelerator/load 1 0 
@@ -67,25 +73,36 @@
             force -freeze sim:/Accelerator/load 1 0 
             force -freeze sim:/Accelerator/imageOrCNN 1 0
         }
-    }
+        force -freeze sim:/Accelerator/INTR 1 0
+        force -freeze sim:/Accelerator/Din $line 0
+        run $runTime
+        noforce sim:/Accelerator/Din 
+        force -freeze sim:/Accelerator/INTR 0 0
+        run $runTime
         foreach line $lines {
             force -freeze sim:/Accelerator/INTR 1 0
             force -freeze sim:/Accelerator/Din $line 0
             run $runTime
             noforce sim:/Accelerator/Din 
             force -freeze sim:/Accelerator/INTR 0 0
+            set busy [examine -binary /Accelerator/busy] 
+            while { $busy } {
+            set busy [examine -binary /Accelerator/busy]
+            run $halfRunTime
+            }
+            run $halfRunTime
 
         set donePhase [examine -binary /Accelerator/doneWithPhase]
         if { $donePhase == 1 } {
                 puts "doneWithPhase"
+                force -freeze sim:/Accelerator/imageOrCNN 1 0
+                run $runTime
+                run $runTime
                 break;
             } else {	
                 puts "taking another input"
                 puts $line
             }
         }
-
-
-    } 
-
+    }
     close $file
