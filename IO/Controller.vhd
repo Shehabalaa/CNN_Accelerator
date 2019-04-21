@@ -49,7 +49,7 @@ END ENTITY;
 
 ARCHITECTURE ControllerArch OF Controller IS
 SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp, imageRamLatchD, CNNRamLatchD, FCRamLatchD, DMAImageNotDelayedOrINTRDelayed,
-       CNNRamRst, imageRamRst, FCRamRst, CNNLoad, FCLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, zeroStateDelayed,
+       CNNRamRst, imageRamRst, FCRamRst, CNNLoad, FCLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, zeroStateDelayed, zeroStateDelayedSq,
        INTRDelayedSq, INTRFFD,stateCounterEnable, stateCounterLoad, CNNOrFC, busyRst, doneDMAImageDelayed: std_logic;
 SIGNAL stateCounterQ, stateCounterD, zeros: std_logic_vector(1 DOWNTO 0);
 SIGNAL high: std_logic := '1';
@@ -67,7 +67,7 @@ BEGIN
   --Busy latch
   busyFFD <= INTR OR busyFFQ;
   busy <= busyFFQ OR INTR;
-  busyRst <= anyDone OR zeroState;
+  busyRst <= anyDone OR zeroStateDelayedSq;
   busyFF: ENTITY work.DFF PORT MAP(busyFFD, clk, busyRst, high, busyFFQ);
 
   --State counter
@@ -78,6 +78,9 @@ BEGIN
 
   --zeroState latch
   zeroLatch: ENTITY work.DFF PORT MAP(zeroState, notClk, rst, high, zeroStateDelayed);
+
+  --zeroStateDelayed latch
+  zeroDelayedLatch: ENTITY work.DFF PORT MAP(zeroStateDelayed, notClk, rst, high, zeroStateDelayedSq);
 
   --INTR and INTR delayed FF
   INTRFFD <= INTR AND (NOT zeroStateDelayed);
