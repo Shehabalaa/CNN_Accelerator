@@ -55,55 +55,12 @@ force -freeze sim:/Accelerator/Din 2'b0001100010000010 0
 run 50
 noforce sim:/Accelerator/Din 
 force -freeze sim:/Accelerator/INTR 0 0
-run 15
-run 25
+run 50
 #Now decompressor read 1st run
 run 50
 #Now it's in DMA's register
 run 50
 #Should be done writing to RAM
-run 500
-noforce sim:/Accelerator/Din 
-force -freeze sim:/Accelerator/INTR 0 0
-run 15
-noforce sim:/Accelerator/Din 
-force -freeze sim:/Accelerator/INTR 0 0
-#2nd white pixel in run
-run 210
-run 15
-run 25
-run 25
-#Start second run
-force -freeze sim:/Accelerator/INTR 1 0
-force -freeze sim:/Accelerator/Din 2'b0001111101000001 0
-run 35
-noforce sim:/Accelerator/Din 
-force -freeze sim:/Accelerator/INTR 0 0
-run 15
-run 25
-#At rising edge now, decomp read the value
-run 50
-#DMA read the value
-run 50
-#Now we're at the beginning of the write cycle
-run 25
-#Half way through the cycle, RAM is done
-run 25
-run 25
-force -freeze sim:/Accelerator/imageOrCNN 1 0
-force -freeze sim:/Accelerator/INTR 1 0
-force -freeze sim:/Accelerator/Din 2'b0000001011100000 0
-run 35
-force -freeze sim:/Accelerator/INTR 0 0
-noforce sim:/Accelerator/Din 
-run 15
-force -freeze sim:/Accelerator/INTR 1 0
-force -freeze sim:/Accelerator/Din 2'b0001111101000111 0
-run 35
-force -freeze sim:/Accelerator/INTR 0 0
-noforce sim:/Accelerator/Din 
-run 15
-run 50
-run 50
-run 25
-run 50
+run 375
+#Idle time
+run 150

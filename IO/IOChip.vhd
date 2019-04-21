@@ -37,7 +37,7 @@ io: Entity work.IO GENERIC MAP(16,4)
 decompDataIn <= interfaceOutput(5 downto 0);
 imageDmaAddress <= interfaceOutput(15 downto 6);
 
-decomp: Entity work.Decompressor1 PORT MAP(decompDataIn,clk,decompDecrementorEnable,rst,imageLoad,INTRDelayed,
+decomp: Entity work.Decompressor PORT MAP(decompDataIn,clk,decompDecrementorEnable,rst,imageLoad,INTRDelayed,
 decompZeroState,decompDataOut);
 
 imageDMA: Entity work.DMAImage PORT MAP(decompDataOut,imageDmaAddress,clk,imageCounterEnable,imageRegisterEnable,

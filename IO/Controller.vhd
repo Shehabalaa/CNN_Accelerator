@@ -91,7 +91,7 @@ BEGIN
   imageCounterEnable <= DMAImageOrINTRDelayed AND (NOT zeroState);
   imageRegisterEnable <= imageLoad AND DMAImageOrINTRDelayedSq;
   decompDecrementorEnable <= imageLoad AND DMAImageOrINTRDelayed;
-  doneDecomp <= doneDMAImage AND decompZeroState;
+  doneDecomp <= doneDMAImageDelayed AND decompZeroState;
 
   --Image done latcher
   imgLatcher: ENTITY work.DFF PORT MAP(doneDMAImage, notClk, rst, high, doneDMAImageDelayed);
