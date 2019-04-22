@@ -1,5 +1,27 @@
-#
-#
-# 
-# Sun Apr 21 22:34:40 2019
+set resource_sharing FALSE
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/Types.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/Mux2.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/Reg.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/RegUnit.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/RegRow.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/Decoder.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/RegFile.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/FullAdder.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/NBitAdder.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/BinaryMux.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/ShiftRegister.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/TransitionDetector.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/ALUs/BoothStep.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/Utils/ALUs/Mul8X16.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/CNNMuls.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/Adder4Values.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/Adder8Values.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/CNNAdders.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/CNNShifter.vhd }
+read -technology "tsmc035_typ"  { /media/sf_CNN_Accelerator/CNN/CNNCores.vhd }
+optimize .work.CNNCores.CNNCoresArch -target tsmc035_typ -macro -auto -effort quick -hierarchy preserve 
  set wire_table "" 
+optimize_timing .work.CNNCores.CNNCoresArch 
+optimize .work.CNNCores.CNNCoresArch -target tsmc035_typ -macro -delay -effort quick -hierarchy preserve 
+ set wire_table "" 
+optimize_timing .work.CNNCores.CNNCoresArch 

@@ -26,12 +26,13 @@ ENTITY CNNModule IS
         windowRamDataInBus: IN STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
         MFCWindowRam: IN STD_LOGIC;
         MFCWeightsRam: IN STD_LOGIC;
+        MFCWrite: IN STD_LOGIC;
         weightsRamAddress: OUT STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
         windowRamAddressRead, windowRamAddressWrite: OUT STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
         weightsRamRead: OUT STD_LOGIC;
         windowRamRead: OUT STD_LOGIC;
         windowRamWrite: OUT STD_LOGIC;
-        windowRamDataOutBus: OUT STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
+        windowRamDataOutBus: OUT STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
         
         finishNetwork: OUT STD_LOGIC
     );
@@ -103,7 +104,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         writePage2 <=finishReadRowWindow AND ( ( pageTurn AND loadWindow AND loadFilter ) OR (NOT pageTurn AND (readNextCol OR loadWindow) )  );
         writeFilter <= finishReadRowFilter AND loadFilter;
 
-        dmaWindowFinish <= readAllFinish OR writeOneFinish;
+        -- dmaWindowFinish <= readAllFinish OR writeOneFinish;
 
         decoderRow <= aluNumberWindow when loadWindow = '1'
                 else "010" when readNextCol = '1' and filterType = '0'
@@ -122,7 +123,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             outputSize,
             startCNN,
             layerType,
-            doneCores, dmaFilterFinish, dmaWindowFinish,dmaRamFinish,
+            doneCores, dmaFilterFinish, readAllFinish, writeOneFinish,
             rst,
             loadLayerConfig, loadNetworkConfig, loadFilterConfig,
             loadWindow, loadFilter, conv, pool, 
@@ -169,6 +170,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             windowRamWrite => windowRamWrite,  
             windowRamDataOutBus => windowRamDataOutBus,  
             MFCWindowRam => MFCWindowRam,  
+            MFCWrite => MFCWrite,
             MFCWeightsRam => MFCWeightsRam,  
 
             -- input cnt signals

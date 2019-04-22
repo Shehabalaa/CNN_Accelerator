@@ -13,7 +13,7 @@ Entity RAM is
         addressRead, addressWrite:IN std_logic_vector(addressSize-1 downto 0) ;
         dataIn:IN std_logic_vector(wordSize-1 downto 0) ;
         dataOut:OUT std_logic_vector(internalBusSize-1 downto 0);
-        MFCRead, MFCWrite: OUT std_logic
+        MFCReadOut, MFCWriteOut: OUT std_logic
     );
 end RAM;
 
@@ -26,7 +26,30 @@ signal notClk: STD_LOGIC;
 
 Signal currentCountRead, currentCountWrite: STD_LOGIC_VECTOR(1 downto 0);
 
+SIGNAL MFCRead, MFCWrite, counterMFCReadEn, counterMFCWriteEn: STD_LOGIC;
+
 begin
+
+    --process(clk)
+    --   begin
+--
+    --        IF clk'EVENT AND clk='0' then
+    --            if ((rd = '1') and (we = '1') and  (reset = '0') and (addressRead = addressWrite)) then
+    --                dataOut <= (others=>'0');
+    --                MFCReadOut <= '1';
+    --                MFCWriteOut <= '0';
+    --            else
+    --                dataOut <= (others=>'0');
+    --                MFCReadOut <= '0';
+    --                MFCWriteOut <= '1';
+    --            end if;
+    --        end if;
+    --end PROCESS;
+
+
+
+    MFCReadOut <= MFCRead;
+    MFCWriteOut <= MFCWrite;
     process(clk, we, reset, addressRead, addressWrite)
         begin
 
@@ -44,21 +67,24 @@ begin
                     & ram(to_integer(unsigned(addressRead))+2)
                     & ram(to_integer(unsigned(addressRead))+1)
                     & ram(to_integer(unsigned(addressRead)));
-
+    
     end PROCESS;    
 
     notClk <= not clk;
+
+    counterMFCReadEn <= rd OR MFCRead;
     
     counterMFCRead: Entity work.Counter generic map(2) port map(
-            rd, reset, notClk, currentCountRead
+            counterMFCReadEn, reset, notClk, currentCountRead
         );
 
     MFCRead <= '1' when currentCountRead = "11"
     else '0';
 
-    
+    counterMFCWriteEn <= we OR MFCWrite;
+
     counterMFCWrite: Entity work.Counter generic map(2) port map(
-            we, reset, notClk, currentCountWrite
+            counterMFCWriteEn, reset, notClk, currentCountWrite
         );
 
     MFCWrite <= '1' when currentCountWrite = "11"

@@ -9,10 +9,17 @@ sim:/cnnwithram/CNNMap/controlUnitMap/filterMap/currentState
 add wave -position insertpoint  \
 sim:/cnnwithram/CNNMap/controlUnitMap/sliceFilterMap/currentState
 
+add wave -position insertpoint  \
+sim:/cnnwithram/CNNMap/finalAdderMap/sum
+
 
 add wave -position insertpoint sim:/cnnwithram/*
 add wave -position insertpoint sim:/cnnwithram/CNNMap/coresMap/*
 add wave -position insertpoint sim:/cnnwithram/CNNMap/controlUnitMap/*
+add wave -position insertpoint  \
+sim:/cnnwithram/CNNMap/controlUnitMap/sliceFilterMap/finalDMAAFinish \
+sim:/cnnwithram/CNNMap/controlUnitMap/sliceFilterMap/finalDMABFinish \
+sim:/cnnwithram/CNNMap/controlUnitMap/sliceFilterMap/finalDMACFinish
 add wave -position insertpoint sim:/cnnwithram/CNNMap/DMAControllerMap/*
 add wave -position insertpoint sim:/cnnwithram/CNNMap/outbufferMap/*
 add wave -position insertpoint sim:/cnnwithram/CNNMap/configMap/*
@@ -47,8 +54,8 @@ force -freeze sim:/cnnwithram/start 0 0
 
 run
 
-mem load -i ./CNN/RAMs/2_1Layer1Filter20x20/windowRAM.mem -format mti /cnnwithram/windowRam/ram
-mem load -i ./CNN/RAMs/2_1Layer1Filter20x20/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
+mem load -i ./CNN/RAMs/1layer2filter3x3/windowRAM.mem -format mti /cnnwithram/windowRam/ram
+mem load -i ./CNN/RAMs/1layer2filter3x3/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
 
 
 
@@ -76,6 +83,8 @@ run
 
 #readBias
 
-run -all
+#run -all
 
-#mem save -o ./CNN/RAMs/2_1Layer1Filter20x20/actualOutput.mem -f mti -data binary -addr hex -startaddress 3872 -endaddress 4160 -wordsperline 1 /cnnwithram/windowRam/ram
+#mem save -o ./CNN/RAMs/1_1Layer1Filter10x10/cnnOutput2.mem -f mti -data binary -addr hex -wordsperline 1 /cnnwithram/windowRam/ram
+
+#mem save -o ./CNN/RAMs/1layer2filter3x3/cnnOutput.mem -f mti -data binary -addr hex -startaddress 3872 -endaddress 8191 -wordsperline 1 /cnnwithram/windowRam/ram
