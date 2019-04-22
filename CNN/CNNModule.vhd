@@ -56,7 +56,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
     SIGNAL inputSizeAddress, outputSizeAddress, baseAddressOne, baseAddressTwo, outputSizeAddressForDMA: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL zeros: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL filterRamAddressBase: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
-    SIGNAL finishReadRowWindow, finishReadRowFilter: STD_LOGIC;
+    SIGNAL finishReadRowWindow, finishReadRowFilter, writeDoneAll: STD_LOGIC;
     SIGNAL aluNumberWindow, aluNumberFilter: STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 
@@ -72,7 +72,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
 
     SIGNAL readNumLayers, readLayerConfig: STD_LOGIC;
-    SIGNAL finishFilter: STD_LOGIC;
+    SIGNAL finishFilter, Dangling2: STD_LOGIC;
 
     BEGIN
 
@@ -201,7 +201,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             weightsReadFinal => dmaFilterFinish,
 
             writeDoneOne => writeOneFinish,
-            --writeDoneOne =>  
+            writeDoneAll => writeDoneAll,  
             
             filterAluNumber => aluNumberFilter,
             windowAluNumber => aluNumberWindow
@@ -220,7 +220,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             a => currentRegFromOutBuffer,
             b => sumOutCores,
             carryIn => '0',
-            sum => finalAdderOut
+            sum => finalAdderOut,
+            carryOut => Dangling2
         );
 
         
