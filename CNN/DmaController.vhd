@@ -103,42 +103,42 @@ SIGNAL filterStep: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
 SIGNAL windowInternalBusWLogic: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 SIGNAL writeFinishFilter: STD_LOGIC;
 
-SIGNAL zeros11: STD_LOGIC_VECTOR(10 DOWNTO 0);
-SIGNAL zeros10: STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL zeros9: STD_LOGIC_VECTOR(8 DOWNTO 0);
+-- SIGNAL zeros11: STD_LOGIC_VECTOR(10 DOWNTO 0);
+-- SIGNAL zeros10: STD_LOGIC_VECTOR(9 DOWNTO 0);
+-- SIGNAL zeros9: STD_LOGIC_VECTOR(8 DOWNTO 0);
 
 begin
 
-    zeros11 <= "00000000000";
-    zeros10 <= "0000000000";
+    -- zeros11 <= "00000000000";
+    -- zeros10 <= "0000000000";
     
     writeFinishFilter <= filterFinished OR (layerType AND sliceFinished);
 
     loadWord <= loadOneWord OR loadThreeWord;
     
     -- Size = 12
-    -- filterStep <= (0 => '1', others => '0') WHEN loadOneWord = '1'
-    -- ELSE (1 => '1', 0 => '1', others => '0') WHEN loadThreeWord = '1'
-    -- ELSE weightsSizeForFilter;
-
-    filterStep <= zeros11&'1' WHEN loadOneWord = '1'
-    ELSE zeros10&"11" WHEN loadThreeWord = '1'
+    filterStep <= (0 => '1', others => '0') WHEN loadOneWord = '1'
+    ELSE (1 => '1', 0 => '1', others => '0') WHEN loadThreeWord = '1'
     ELSE weightsSizeForFilter;
+
+    -- filterStep <= zeros11&'1' WHEN loadOneWord = '1'
+    -- ELSE zeros10&"11" WHEN loadThreeWord = '1'
+    -- ELSE weightsSizeForFilter;
 
     -- Size = 13
     -- map weightsSizeType to bits
-    -- weightsSizeForWindow <= (0 => '1', 1 => '1', others => '0') WHEN weightsSizeType = '0' 
-    -- ELSE (0 => '1', 2 => '1', others => '0');
+    weightsSizeForWindow <= (0 => '1', 1 => '1', others => '0') WHEN weightsSizeType = '0' 
+    ELSE (0 => '1', 2 => '1', others => '0');
 
-    weightsSizeForWindow <= zeros11&"11" WHEN weightsSizeType = '0' 
-    ELSE zeros10&"101";
+    -- weightsSizeForWindow <= zeros11&"11" WHEN weightsSizeType = '0' 
+    -- ELSE zeros10&"101";
 
     -- size = 12
-    -- weightsSizeForFilter <= (0 => '1', 1 => '1', others => '0') WHEN weightsSizeType = '0' 
-    -- ELSE (0 => '1', 2 => '1', others => '0');
+    weightsSizeForFilter <= (0 => '1', 1 => '1', others => '0') WHEN weightsSizeType = '0' 
+    ELSE (0 => '1', 2 => '1', others => '0');
 
-    weightsSizeForFilter <= zeros10&"11" WHEN weightsSizeType = '0' 
-    ELSE zeros9&"101";
+    -- weightsSizeForFilter <= zeros10&"11" WHEN weightsSizeType = '0' 
+    -- ELSE zeros9&"101";
 
     -- ramBaseAddressSelector <= '0' WHEN reset = '1' ELSE '1';
     switchRam <= reset OR layerFinished;

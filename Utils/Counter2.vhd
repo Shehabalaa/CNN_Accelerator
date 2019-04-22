@@ -24,7 +24,7 @@ USE IEEE.numeric_std.all;
 
  ARCHITECTURE Counter2Arch OF Counter2 IS
 
-     SIGNAL counterInput, countAdded, currentCount, resetOrCurrent, zerosSignal, onesSignal: std_logic_vector(n-1 DOWNTO 0);
+     SIGNAL counterInput, countAdded, currentCount, resetOrCurrent, zerosSignal: std_logic_vector(n-1 DOWNTO 0);
 
 
      BEGIN

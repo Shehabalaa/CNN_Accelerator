@@ -22,19 +22,22 @@ ENTITY CNNMuls IS
         window :IN ARRAYOFREGS16(n-1 downto 0); 
         outputs :OUT ARRAYOFREGS16(n-1 downto 0);
         clk,start,rst :IN STD_LOGIC;
-        done :OUT STD_LOGIC; 
-        working :OUT STD_LOGIC
+        doneOut :OUT STD_LOGIC; 
+        workingOut :OUT STD_LOGIC
     );
 END CNNMuls;
 
 ARCHITECTURE CNNMulsArch OF CNNMuls IS
     SIGNAL counter :STD_LOGIC_VECTOR(3 DOWNTO 0);
-    SIGNAL counterRst,restartDetection,startAndPause,firstStart,clkInv :STD_LOGIC;
+    SIGNAL counterRst,restartDetection,startAndPause,firstStart,clkInv, done, working:STD_LOGIC;
 BEGIN
     gen: FOR i IN n-1 DOWNTO 0  GENERATE
     BEGIN
         cmp: ENTITY work.Mul8x16 PORT MAP (filter(i), window(i), outputs(i),clkInv,start,rst,counter(0),startAndPause);
     END GENERATE;
+
+    doneOut <= done;
+    workingOut <= working;
 
     done <= counter(3);
     startAndPause <= working;
