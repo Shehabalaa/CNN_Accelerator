@@ -43,7 +43,7 @@ finalOutputSize = int(f1[2])
 
 startindex = 3872
 
-if layersNumber+1 % 2 == 0:
+if layersNumber % 2 == 0:
     startindex = 0
 
 ##################################### BITS #########################################
@@ -126,7 +126,11 @@ while windowRAMCount <= windowRAMMemSize:
 
 
 def convolution(inputImage,filterMat,outputSize,filterBias,currentFilterDepth):
+    print(inputImage)
+    print(filterBias)
+    print(filterMat)
     outputImage = np.zeros([outputSize,outputSize])
+    print(outputImage)
     outputImage[:,:] = filterBias
     # print(outputSize)
     # print(inputImage)
@@ -138,7 +142,7 @@ def convolution(inputImage,filterMat,outputSize,filterBias,currentFilterDepth):
     for k in range(currentFilterDepth+1):
         for j in range(outputSize):
             for i in range(outputSize):
-                mat = inputImage[i:i+filterMat.shape[0],j : j+filterMat.shape[0]] 
+                mat = inputImage[k][i:i+filterMat.shape[0],j : j+filterMat.shape[0]] 
                 mult =(mat * filterMat)
                 # print(mult)
 
@@ -169,18 +173,19 @@ weightsRAM.write("// format=mti addressradix=h dataradix=b version=1.0 wordsperl
 
 
 # 0: layersNumber
-weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+(format(layersNumber,'02b'))+"000000"+"\n")
+weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+(format(layersNumber-1,'02b'))+"000000"+"\n")
 weightsRAMCount += 1
 
 lineNumber = 3
 
 
 inputs = []
-outputs = []
 
 inputs.append(image)
 
-for layer in range(layersNumber+1):
+for layer in range(layersNumber):
+
+    outputs = []
 
     filtersFile.write("Layer #"+str(layer+1)+"\n")
 
@@ -199,7 +204,7 @@ for layer in range(layersNumber+1):
 
     toWrite = ""
 
-    if filterType == "conv":
+    if filterType == "conv\n":
         toWrite += "0"
     else:
         toWrite += "1"
@@ -207,9 +212,9 @@ for layer in range(layersNumber+1):
     if filterSize == 3:
         toWrite += "0"
     else:
-        toWrite += "0"
+        toWrite += "1"
         
-    toWrite += format(filtersNumber, '03b')
+    toWrite += format(filtersNumber-1, '03b')
     toWrite += format(filterDepth,'03b')
 
     weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+toWrite+"\n")
@@ -225,7 +230,7 @@ for layer in range(layersNumber+1):
 
 
 
-    for filter in range(filtersNumber+1):
+    for filter in range(filtersNumber):
         filtersFile.write("Filter #"+str(filter+1)+"\n")
 
         filter = np.zeros([filterSize,filterSize])
@@ -252,7 +257,13 @@ for layer in range(layersNumber+1):
             
             filtersFile.write("\n")
         # print(convolution(inputs[0],filter,outputImageSize,bias,filterDepth))
-        outputs.append(convolution(inputs[0],filter,outputImageSize,bias,filterDepth))
+        outputs.append(convolution(inputs,filter,outputImageSize,bias,filterDepth))
+        # print(outputs)
+        # print(inputs)
+    inputs = outputs
+    print("intermediate = ")
+    print(inputs)
+    
 
 
     
@@ -265,13 +276,12 @@ while weightsRAMCount <= weightsRAMMemSize:
 
 ################################### Generate Output #######################################
 
-
-# print(outputs)
-
-for i in range(outputs[0].shape[0]):
-    for j in range(outputs[0].shape[1]):
-        outputFile.write(str(format(startindex, 'x'))+": "+ str(floatToBitStreamWord(outputs[0][i,j]).bin) +"\n")
-        startindex += 1
+print(len(inputs))
+for k in range(len(inputs)):
+    for i in range(inputs[k].shape[0]):
+        for j in range(inputs[k].shape[1]):
+            outputFile.write(str(format(startindex, 'x'))+": "+ str(floatToBitStreamWord(inputs[0][i,j]).bin) +"\n")
+            startindex += 1
 
 ##########################################################################################
 

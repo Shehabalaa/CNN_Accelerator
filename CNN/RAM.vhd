@@ -13,7 +13,7 @@ Entity RAM is
         addressRead, addressWrite:IN std_logic_vector(addressSize-1 downto 0) ;
         dataIn:IN std_logic_vector(wordSize-1 downto 0) ;
         dataOut:OUT std_logic_vector(internalBusSize-1 downto 0);
-        MFCRead, MFCWrite: OUT std_logic
+        MFCReadOut, MFCWriteOut: OUT std_logic
     );
 end RAM;
 
@@ -26,7 +26,11 @@ signal notClk: STD_LOGIC;
 
 Signal currentCountRead, currentCountWrite: STD_LOGIC_VECTOR(1 downto 0);
 
+SIGNAL MFCRead, MFCWrite, counterMFCReadEn, counterMFCWriteEn: STD_LOGIC;
+
 begin
+    MFCReadOut <= MFCRead;
+    MFCWriteOut <= MFCWrite;
     process(clk, we, reset, addressRead, addressWrite)
         begin
 
@@ -48,17 +52,20 @@ begin
     end PROCESS;    
 
     notClk <= not clk;
+
+    counterMFCReadEn <= rd OR MFCRead;
     
     counterMFCRead: Entity work.Counter generic map(2) port map(
-            rd, reset, notClk, currentCountRead
+            counterMFCReadEn, reset, notClk, currentCountRead
         );
 
     MFCRead <= '1' when currentCountRead = "11"
     else '0';
 
-    
+    counterMFCWriteEn <= we OR MFCWrite;
+
     counterMFCWrite: Entity work.Counter generic map(2) port map(
-            we, reset, notClk, currentCountWrite
+            counterMFCWriteEn, reset, notClk, currentCountWrite
         );
 
     MFCWrite <= '1' when currentCountWrite = "11"

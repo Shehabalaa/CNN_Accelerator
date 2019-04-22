@@ -332,11 +332,12 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						
 							IF (filterLastLayer = '1' OR layerType = '1') AND ( NOT (innerCounterOut  = "00000" ) OR  NOT(outerCounterOut = "00000")) THEN
 								-- saveToRAM <= '1';
-								savingToRam <= NOT finalDMACFinish;
+								savingToRam <= (NOT finalDMACFinish); --AND (NOT clk);
 							ELSE
 								-- saveToRAM <= '0';
 								savingToRam <= '0';
 							END IF;
+
 						-- Set Next State
 							IF layerType = '0' THEN
 								nextState <= addState;
