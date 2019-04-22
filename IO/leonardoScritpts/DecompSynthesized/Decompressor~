@@ -10,6 +10,6 @@ optimize_timing .work.Decompressor.DecompressorArchitecture
 report_area DecompressorAreaReport.txt -cell_usage -hierarchy -all_leafs 
 report_delay DecompressorDelayReport.txt -num_paths 1 -longest_path -clock_frequency
 set novendor_constraint_file FALSE
-auto_write -format VHDL Decompressor.vhd
+auto_write -format Verilog Decompressor.vhd
 set novendor_constraint_file FALSE
 auto_write -format SDF Decompressor.sdf

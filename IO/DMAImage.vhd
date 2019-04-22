@@ -14,7 +14,7 @@ PORT    (
 
 END ENTITY;
 
-ARCHITECTURE DMAImageArchitecture of DMAImage IS
+ARCHITECTURE DMAImage of DMAImage IS
 signal addressCounterIn: STD_LOGIC_VECTOR(12 downto 0);
 signal registerIn: STD_LOGIC_VECTOR(15 downto 0);
 BEGIN
