@@ -5,7 +5,7 @@ use work.Types.all;
 
 Entity OutputBuffer is
     generic(
-        windowBusSize:INTEGER:=16*5;
+        --windowBusSize:INTEGER:=16*5;
         weightsBusSize:INTEGER:=8*5;
         numRegisters:INTEGER :=22*22;
         windowSize:INTEGER :=16;
@@ -15,7 +15,8 @@ Entity OutputBuffer is
     );
     
     port(
-        windowBus: IN std_logic_vector(windowBusSize-1 downto 0);
+        --windowBus: IN std_logic_vector(windowBusSize-1 downto 0);
+        sumInput: IN STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
         weightsBus: IN std_logic_vector(weightsBusSize-1 downto 0);
         writeBus: OUT STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
         AllRead:in std_logic;
@@ -73,7 +74,7 @@ architecture OutputBufferArch OF OutputBuffer is
         GENERATE
 
         y: ENTITY work.Mux2 GENERIC MAP(windowSize) PORT MAP(
-            A=>windowBus(windowSize-1 DOWNTO 0),
+            A=>sumInput,
             B=>weightsInputMux,
             S=>Allread,
             C=>inputRegisters(i)
@@ -132,7 +133,7 @@ architecture OutputBufferArch OF OutputBuffer is
 
 
         outputRegMap: Entity work.Reg generic map(windowSize) port map(
-            D=>windowBus(windowSize-1 DOWNTO 0),
+            D=>sumInput,
             en=>enableDecoder,
             clk=>clk,
             rst=>resetRegisters,

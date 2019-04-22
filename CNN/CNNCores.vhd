@@ -53,7 +53,7 @@ ARCHITECTURE CNNCoresArch OF CNNCores IS
 
 	SIGNAL currentPage, outMuls, addersInputs: ARRAYOFREGS16(0 TO (numUnits*numRows)-1);
 	SIGNAL filter: ARRAYOFREGS8(0 TO (numUnits*numRows)-1);
-	SIGNAL doneMul: STD_LOGIC;
+	SIGNAL doneMul, isConv: STD_LOGIC;
 	SIGNAL outAdder, outShifter: STD_LOGIC_VECTOR(15 DOWNTO 0);
     
 	BEGIN
@@ -85,6 +85,8 @@ ARCHITECTURE CNNCoresArch OF CNNCores IS
 
 		done <= layerType or doneMul;
 
+		isConv <= not layerType;
+
 		---------------------------------------------------
 		--        Let's keep it like that for now   	 --
 		---------------------------------------------------
@@ -115,7 +117,7 @@ ARCHITECTURE CNNCoresArch OF CNNCores IS
 
 		--final output
 		finalOutMap: ENTITY work.Mux2 GENERIC MAP(windowSize) PORT MAP(
-			outAdder, outShifter, layerType, finalSum
+			outShifter, outAdder, isConv, finalSum
 			);
 
 END ARCHITECTURE;

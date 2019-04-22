@@ -39,16 +39,13 @@ Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN'
 -- Loading entity Counter2 into library work
 -- Loading architecture Counter2Arch of Counter2 into library work
 "/media/sf_CNN_Accelerator/Utils/Counter2.vhd",line 27: Warning, signal onesSignal is never used.
+"/media/sf_CNN_Accelerator/Utils/Counter2.vhd",line 27: Warning, signal onesSignal is never assigned a value.
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Counter.vhd into library work
 -- Loading entity Counter into library work
 -- Loading architecture CounterArch of Counter into library work
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/TriState.vhd into library work
 -- Loading entity Tristate into library work
 -- Loading architecture TriStateArch of Tristate into library work
--- Reading vhdl file /media/sf_CNN_Accelerator/Utils/TwosComplement.vhd into library work
--- Loading entity TwosComplement into library work
--- Loading architecture TwosComplementArch of TwosComplement into library work
-"/media/sf_CNN_Accelerator/Utils/TwosComplement.vhd",line 24: Warning, signal outC is never used.
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/ShiftRegister.vhd into library work
 -- Loading entity ShiftReg into library work
 -- Loading architecture ShiftRegArch of ShiftReg into library work
@@ -89,7 +86,6 @@ Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN'
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/CNNMuls.vhd into library work
 -- Loading entity CNNMuls into library work
 -- Loading architecture CNNMulsArch of CNNMuls into library work
-"/media/sf_CNN_Accelerator/CNN/CNNMuls.vhd",line 23: Warning, inout outputs is used as output only.
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd into library work
 -- Loading entity SliceFilterController into library work
 "/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 45: Info, Enumerated type fsmStateMachine with 7 elements encoded as onehot.
@@ -105,9 +101,6 @@ convReadColState  ---1---
        endState  1------
 
 -- Loading architecture SliceFilterControllerArch of SliceFilterController into library work
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 60: Warning, signal changePage is never used.
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 60: Warning, signal changePage is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 76: Warning, signal finalDMAAFinish is never used.
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/ControlUnit/FilterController.vhd into library work
 -- Loading entity FilterController into library work
 "/media/sf_CNN_Accelerator/CNN/ControlUnit/FilterController.vhd",line 32: Info, Enumerated type fsmStateMachine with 4 elements encoded as binary.
@@ -231,8 +224,10 @@ Encodings for FSM values
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 51: Warning, signal dmaRamFinish is never assigned a value.
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 55: Warning, signal weightsSize is never used.
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 55: Warning, signal weightsSize is never assigned a value.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 59: Warning, signal writeDoneAll is never used.
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 60: Warning, signal aluNumberFilter is never used.
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 70: Warning, signal addToOutputBuffer is never used.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 75: Warning, signal Dangling2 is never used.
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/Ram.vhd into library work
 -- Loading entity RAM into library work
 -- Loading architecture RAMArch of RAM into library work
@@ -277,10 +272,7 @@ Encodings for FSM values
 -- Compiling entity Reg_3(RegArch)
 -- Compiling entity NBitAdder_3(NBitAdderArch)
 -- Compiling entity FilterController_3(FilterControllerArch)
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/FilterController.vhd",line 69: Warning, layerType should be declared on the sensitivity list of the process.
 -- Compiling entity SliceFilterController_5(SliceFilterControllerArch)
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 74: Warning, resetFinishes is not always assigned. Storage may be needed..
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 78: Warning, finalDMAEn is not always assigned. Storage may be needed..
 -- Compiling entity Counter_5(CounterArch)
 -- Compiling entity Reg_5(RegArch)
 -- Compiling entity NBitAdder_5(NBitAdderArch)
@@ -324,22 +316,22 @@ Encodings for FSM values
 -- Compiling entity Reg_9(RegArch)
 -- Compiling entity NBitAdder_9(NBitAdderArch)
 -- Compiling entity Config_40(ConfigArch)
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
 -- Compiling entity RAM_12_8_40(RAMArch)
 -- Compiling entity RAM_13_16_80(RAMArch)
 -- Compiling root entity CNNWithRAM(CNNWithRAMArch)
@@ -409,11 +401,8 @@ Encodings for FSM values
 -- Info, replacing Counter_3(CounterArch)
 -- Info, replacing LayerController_3(LayerControllerArch)
 -- Compiling entity FilterController_3(FilterControllerArch)
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/FilterController.vhd",line 69: Warning, layerType should be declared on the sensitivity list of the process.
 -- Info, replacing FilterController_3(FilterControllerArch)
 -- Compiling entity SliceFilterController_5(SliceFilterControllerArch)
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 74: Warning, resetFinishes is not always assigned. Storage may be needed..
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 78: Warning, finalDMAEn is not always assigned. Storage may be needed..
 -- Compiling entity Counter_5(CounterArch)
 -- Compiling entity Reg_5(RegArch)
 -- Info, replacing Reg_5(RegArch)
@@ -496,22 +485,22 @@ Encodings for FSM values
 -- Info, replacing OutputBuffer_80_40_484_16_8_9_6(OutputBufferArch)
 -- Compiling entity Config_40(ConfigArch)
 -- Info, replacing Config_40(ConfigArch)
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 230.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 159: Warning, Multiple drivers on windowBus : also line 231.
 -- Info, replacing CNNModule_8_16_5_5_3_12_13(CNNModuleArch)
 -- Compiling entity RAM_12_8_40(RAMArch)
 -- Info, replacing RAM_12_8_40(RAMArch)
@@ -533,19 +522,16 @@ NO wire table is found
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.Reg_16.RegArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.Reg_8.RegArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.RegUnit_8_16.RegUnitArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -568,13 +554,11 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.BinaryMux_33.BinaryMuxArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.FullAdder.FullAdderArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -643,7 +627,6 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.CNNCores_8_16_5_5_3.CNNCoresArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -694,6 +677,7 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
 -- Optimizing netlist .work.Reg_5.RegArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -715,12 +699,6 @@ Re-checking DRC after adjustments
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-WARNING: some DRC violation on net may remain
 -- Optimizing netlist .work.ControlUnit.ControlUnitArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -736,7 +714,6 @@ WARNING: some DRC violation on net may remain
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.Tristate_80.TriStateArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -752,7 +729,6 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.MultiStepCounter_13.MultiStepCounterArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -805,13 +781,11 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.Reg_12.RegArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.NBitAdder_12.NBitAdderArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -871,26 +845,23 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.Decoder_9.DecoderArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.Mux_512.MuxArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
--- CPU Time used :   00:05 Mapping
+-- CPU Time used :   00:11 Mapping
 Re-checking DRC after adjustments
 -- Optimizing netlist .work.Reg_9.RegArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.NBitAdder_9.NBitAdderArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -906,7 +877,7 @@ Re-checking DRC after adjustments
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
--- CPU Time used :   00:00 Mapping
+-- CPU Time used :   00:01 Mapping
 Re-checking DRC after adjustments
 -- Optimizing netlist .work.Config_40.ConfigArch
 -- Matching combinational logic..
@@ -943,154 +914,135 @@ Re-checking DRC after adjustments
 Re-checking DRC after adjustments
 Re-checking DRC after adjustments
 Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(15)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(15)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(14)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(14)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(13)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(13)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(12)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(12)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(11)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(11)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(10)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(10)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(9)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(9)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(8)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(8)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(7)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(7)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(6)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(6)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(5)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(5)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(4)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(4)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(3)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(3)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(2)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(2)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(1)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(1)
+ constraint: 1.000 actual: 64.919 driving cell: 
+Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(0)
+ constraint: 8.000 actual: 495.000 driving cell: 
+Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(0)
+ constraint: 1.000 actual: 64.919 driving cell: 
 Re-checking DRC after adjustments
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(15)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(15)
- constraint: 1.000 actual: 50.031 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(14)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(14)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(13)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(13)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(12)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(12)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(11)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(11)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(10)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(10)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(9)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(9)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(8)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(8)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(7)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(7)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(6)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(6)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(5)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(5)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(4)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(4)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(3)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(3)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(2)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(2)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(1)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(1)
- constraint: 1.000 actual: 35.164 driving cell: 
+ constraint: 1.000 actual: 64.919 driving cell: 
 Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(0)
  constraint: 8.000 actual: 495.000 driving cell: 
 Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(0)
- constraint: 1.000 actual: 35.164 driving cell: 
-Re-checking DRC after adjustments
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(15)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(15)
- constraint: 1.000 actual: 50.031 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(14)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(14)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(13)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(13)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(12)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(12)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(11)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(11)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(10)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(10)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(9)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(9)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(8)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(8)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(7)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(7)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(6)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(6)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(5)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(5)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(4)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(4)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(3)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(3)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(2)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(2)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(1)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(1)
- constraint: 1.000 actual: 35.164 driving cell: 
-Fanout DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(0)
- constraint: 8.000 actual: 495.000 driving cell: 
-Transition time DRC violation can not be fixed on net .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch.windowBus(0)
- constraint: 1.000 actual: 35.164 driving cell: 
--- Start timing optimization for design .work.Decoder_3.DecoderArch
-Starting Timing Characterization...
-Starting Timing Analysis...
-NO wire table is found
-Timing analysis done, time = 5 CPU secs.
-Timing characterization done, time = 5 CPU secs.
+ constraint: 1.000 actual: 64.919 driving cell: 
 NO wire table is found
 Info: setting novendor_constraint_file to FALSE
 AutoWrite args are : -format Verilog CNNWithRAM.v
