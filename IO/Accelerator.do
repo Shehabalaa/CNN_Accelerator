@@ -41,7 +41,7 @@ force -freeze sim:/Accelerator/rst 0 0
 run 25
 #Setting up for the first cycle, reading number of rups
 force -freeze sim:/Accelerator/INTR 1 0
-force -freeze sim:/Accelerator/Din 2'b000000000000010 0
+force -freeze sim:/Accelerator/Din 2'b0000000000000010 0
 force -freeze sim:/Accelerator/processing 0 0
 force -freeze sim:/Accelerator/load 1 0 
 force -freeze sim:/Accelerator/imageOrCNN 0 0
@@ -61,6 +61,32 @@ run 50
 #Now it's in DMA's register
 run 50
 #Should be done writing to RAM
-run 375
+run 50
+run 50
+run 50
+run 50
+run 50
+run 50
+run 50
 #Idle time
-run 150
+run 50
+run 50
+run 50
+run 50
+run 100
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0001111101000001 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+run 275
+force -freeze sim:/Accelerator/imageOrCNN 1 0
+run 125
+#Checking CNN
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000001011100000 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
