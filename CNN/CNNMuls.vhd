@@ -20,10 +20,10 @@ ENTITY CNNMuls IS
     PORT (
         filter :IN ARRAYOFREGS8(n-1 downto 0);
         window :IN ARRAYOFREGS16(n-1 downto 0); 
-        outputs :INOUT ARRAYOFREGS16(n-1 downto 0);
+        outputs :OUT ARRAYOFREGS16(n-1 downto 0);
         clk,start,rst :IN STD_LOGIC;
-        done :INOUT STD_LOGIC; 
-        working :INOUT STD_LOGIC
+        done :OUT STD_LOGIC; 
+        working :OUT STD_LOGIC
     );
 END CNNMuls;
 

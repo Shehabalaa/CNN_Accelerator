@@ -30,7 +30,7 @@ USE IEEE.numeric_std.all;
      BEGIN
 
      zerosSignal <= (others => '0');
-     onesSignal <= (others => '1');
+     --onesSignal <= (others => '1');
 
          counterReg: ENTITY work.Reg GENERIC MAP(n) PORT MAP(counterInput, '1', clk, '0', currentCount);
         nextCount: ENTITY work.NBitAdder GENERIC MAP(n) PORT MAP(currentCount, zerosSignal, '1', countAdded);
