@@ -1,0 +1,103 @@
+
+*******************************************************
+
+Cell: Mux_512    View: MuxArch_unfold_2793    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+aoi21       tsmc035_typ    16 x      1     20 gates
+aoi22       tsmc035_typ   304 x      1    450 gates
+aoi32       tsmc035_typ    46 x      2     80 gates
+aoi322      tsmc035_typ     1 x      2      2 gates
+buf02       tsmc035_typ    35 x      1     36 gates
+inv01       tsmc035_typ  1743 x      1   1325 gates
+inv02       tsmc035_typ  2203 x      1   1674 gates
+mux21       tsmc035_typ  3209 x      2   5872 gates
+nand02      tsmc035_typ  1082 x      1   1082 gates
+nand03      tsmc035_typ    68 x      1     84 gates
+nand04      tsmc035_typ   121 x      1    179 gates
+nor02_2x    tsmc035_typ  4230 x      1   4230 gates
+nor02ii     tsmc035_typ    19 x      1     24 gates
+nor03_2x    tsmc035_typ   734 x      1    912 gates
+nor04       tsmc035_typ    15 x      1     22 gates
+oai21       tsmc035_typ   948 x      1   1176 gates
+oai22       tsmc035_typ  1102 x      1   1631 gates
+oai221      tsmc035_typ    16 x      2     32 gates
+oai33       tsmc035_typ    15 x      2     30 gates
+
+ Number of ports :                    8217
+ Number of nets :                    23660
+ Number of instances :               15907
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                   18860
+ Number of accumulated instances :   15907
+
+*******************************************************
+
+Cell: Decoder_9    View: DecoderArch_unfold_2547    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+fake_gnd    tsmc035_typ     1 x      1      1 fake_gnd
+inv01       tsmc035_typ    53 x      1     40 gates
+inv02       tsmc035_typ   184 x      1    140 gates
+nand02      tsmc035_typ     9 x      1      9 gates
+nand03      tsmc035_typ    18 x      1     22 gates
+nand04      tsmc035_typ    22 x      1     33 gates
+nor02_2x    tsmc035_typ   503 x      1    503 gates
+nor03_2x    tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                     522
+ Number of nets :                      801
+ Number of instances :                 791
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of gates :                     748
+ Number of accumulated instances :     791
+
+*******************************************************
+
+Cell: OutputBuffer    View: OutputBufferArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+Decoder_9    work            1 x    748    748 gates
+                                      1      1 fake_gnd
+Mux_512      work            1 x  18860  18860 gates
+buf02        tsmc035_typ     8 x      1      8 gates
+dffr         tsmc035_typ  7769 x      6  43351 gates
+fake_gnd     tsmc035_typ     1 x      1      1 fake_gnd
+inv01        tsmc035_typ   530 x      1    403 gates
+inv02        tsmc035_typ  3698 x      1   2810 gates
+mux21        tsmc035_typ    14 x      2     26 gates
+nand02       tsmc035_typ  8760 x      1   8760 gates
+nand03       tsmc035_typ   970 x      1   1203 gates
+nand04       tsmc035_typ     2 x      1      3 gates
+nor02_2x     tsmc035_typ   503 x      1    503 gates
+nor02ii      tsmc035_typ     3 x      1      4 gates
+oai21        tsmc035_typ  6796 x      1   8427 gates
+tri01        tsmc035_typ    16 x      1     19 gates
+xnor2        tsmc035_typ     9 x      2     17 gates
+
+ Number of ports :                     160
+ Number of nets :                    29628
+ Number of instances :               29081
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of fake_gnd :                    2
+ Number of gates :                   85142
+ Number of accumulated instances :   45777

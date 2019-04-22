@@ -1,0 +1,52 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 242.7 MHz
+
+
+                        Critical Path Report
+
+Critical path #1, (unconstrained path)
+NAME                                                    GATE              ARRIVAL              LOAD
+---------------------------------------------------------------------------------------------------
+clock information not specified
+delay thru clock network                                                  0.00 (ideal)
+
+
+counterSelector_counterReg_reg_Q(2)/Q                   dffr        0.00  0.45 up             0.01
+ix161050/Y                                              buf02       0.36  0.81 up             0.10
+selectedRegisterMUX/ix37128/Y                           inv02       0.30  1.11 dn             0.12
+selectedRegisterMUX/ix40946/Y                           inv02       0.31  1.42 up             0.08
+selectedRegisterMUX/ix40858/Y                           inv02       0.24  1.66 dn             0.09
+selectedRegisterMUX/ix39344/Y                           inv02       0.32  1.98 up             0.09
+selectedRegisterMUX/ix37130/Y                           inv02       0.25  2.24 dn             0.09
+selectedRegisterMUX/ix1165/Y                            nor02_2x    0.32  2.56 up             0.07
+selectedRegisterMUX/ix9420/Y                            nand04      0.17  2.73 dn             0.01
+selectedRegisterMUX/ix37440/Y                           inv02       0.31  3.04 up             0.09
+selectedRegisterMUX/ix37444/Y                           inv02       0.26  3.30 dn             0.10
+selectedRegisterMUX/ix9391/Y                            oai22       0.27  3.58 up             0.02
+selectedRegisterMUX/ix12948/Y                           nor02_2x    0.09  3.66 dn             0.01
+selectedRegisterMUX/ix9401/Y                            nand02      0.18  3.84 up             0.02
+selectedRegisterMUX/ix12944/Y                           nor03_2x    0.19  4.03 dn             0.02
+selectedRegisterMUX/ix9407/Y                            nor02_2x    0.14  4.17 up             0.02
+selectedRegisterMUX/ix12940/Y                           nor02_2x    0.13  4.30 dn             0.02
+selectedRegisterMUX/ix9413/Y                            nor02_2x    0.11  4.41 up             0.01
+selectedRegisterMUX/ix12936/Y                           oai21       0.18  4.59 dn             0.01
+selectedRegisterMUX/ix11149/Y                           nand04      0.20  4.79 up             0.00
+selectedRegisterMuxOutput(2)/                                       0.00  4.79 up             0.00
+data arrival time                                                         4.79
+
+data required time                                                     not specified
+---------------------------------------------------------------------------------------------------
+data required time                                                     not specified
+data arrival time                                                         4.79
+                                                                       ----------
+                                                                    unconstrained path
+---------------------------------------------------------------------------------------------------
+
+
