@@ -124,6 +124,42 @@ while windowRAMCount <= windowRAMMemSize:
 
 ###################################### Filters Generation #############################################
 
+def pooling(inputImage,currentFilterSize,outputSize,currentFilterDepth):
+    outputImage = np.zeros([outputSize,outputSize])
+
+    outputImage[:,:] = 0.0
+
+    for l in range(currentFilterDepth):
+        for m in range(outputSize):
+            for n in range(outputSize):
+                mat = inputImage[l][n:n+currentFilterSize,m : m+currentFilterSize] 
+
+                sum = 0
+                for num1 in range(currentFilterSize):
+                    for num2 in range(currentFilterSize):
+                        # num =  toFloatWord(mul8x16(floatToBitStreamByte(filterMat[l][num1,num2]) ,floatToBitStreamWord(mat[num1,num2])))
+                        sum = toFloatWord(sum16(floatToBitStreamWord(sum),floatToBitStreamWord(mat[num1][num2])))
+                        
+                finalResult = toFloatWord(sum16(floatToBitStreamWord(outputImage[n,m]),floatToBitStreamWord(sum)))
+                
+
+                print(floatToBitStreamWord(finalResult).bin)
+
+                for shift in range(currentFilterSize):
+                    finalResult /= (2)
+
+                print(floatToBitStreamWord(finalResult).bin)
+                print()
+                
+
+                if (finalResult < 0):
+                    outputImage[n,m] = 0
+                else:
+                    outputImage[n,m] = finalResult
+
+    return outputImage
+
+
 
 def convolution(inputImage,filterMat,outputSize,filterBias,currentFilterDepth):
 
@@ -230,8 +266,9 @@ for layer in range(layersNumber):
     weightsRAMCount += 1
 
 
-
-    for currentFilter in range(filtersNumber):
+    currentFilter = 0
+    # for currentFilter in range(filtersNumber):
+    while currentFilter < filtersNumber and filterType == "conv\n":
         filtersFile.write("Filter #"+str(currentFilter+1)+"\n")
 
         filtersArray = []
@@ -265,9 +302,13 @@ for layer in range(layersNumber):
             filtersArray.append(filterArray)
 
         outputs.append(convolution(inputs,filtersArray,outputImageSize,bias,filterDepth))
+        currentFilter += 1
         print("outputs = ")
         print(outputs)
 
+    if filterType != "conv\n":
+        outputs.append(pooling(inputs,filterSize,outputImageSize,filterDepth))
+    
     inputs = outputs
 
     
