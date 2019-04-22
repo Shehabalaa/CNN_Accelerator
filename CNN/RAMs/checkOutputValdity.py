@@ -15,6 +15,7 @@ CNNLines = CNNOutput.readlines()
 
 trueLines = trueOutput.readlines()
 
+identical = False
 
 for i in range(len(trueLines)):
 #     print("before = " +CNNLines[i])
@@ -22,6 +23,9 @@ for i in range(len(trueLines)):
 #     print("after = " +CNNLines[i])
     trueLines[i] = trueLines[i].replace(" ","")
     if (CNNLines[i+3] != trueLines[i]):
-        print("ERROR in Line #"+str(i)+" CNN = "+CNNLines[i+3]+" true = "+trueLines[i] )
-
-print("If nothing printed then identical :D")
+        print("ERROR in Line #"+str(i)+"\n CNN = "+CNNLines[i+3]+" true = "+trueLines[i] )
+        break
+    else:
+        identical = True
+if (identical == True):
+    print("If nothing printed then identical :D")

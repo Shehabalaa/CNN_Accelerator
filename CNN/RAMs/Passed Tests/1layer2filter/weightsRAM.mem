@@ -1,0 +1,17 @@
+// memory data file (do not edit the following line - required for mem load use
+// instance=/cnnwithram/weightsRam/ram
+// format=mti addressradix=h dataradix=b version=1.0 wordsperline=5
+0: 00000000
+1: 00001000
+2: 11000000
+3: 10101000
+4: 01101110
+5: 00001011
+6: 01010111
+7: 00101010
+8: 01011010
+9: 00100000
+a: 01010100
+b: 00100000
+c: 01100001
+d: 01011111

@@ -39,7 +39,7 @@ f1 = f.readlines()
 
 layersNumber = int(f1[0])
 inputImageSize = int(f1[1])
-finalOutputSize = int(f1[2])
+# finalOutputSize = int(f1[2])
 
 startindex = 3872
 
@@ -92,7 +92,7 @@ def generateRandom8():
 
 windowRAM.write("// memory data file (do not edit the following line - required for mem load use)"+"\n")
 windowRAM.write("// instance=/cnnwithram/windowRAM/ram\n")
-windowRAM.write("// format=mti addressradix=h dataradix=b version=1.0 wordsperline="+str(finalOutputSize)+"\n")
+windowRAM.write("// format=mti addressradix=h dataradix=b version=1.0 wordsperline=1"+"\n")
 
 
 # Generate Image First
@@ -126,41 +126,40 @@ while windowRAMCount <= windowRAMMemSize:
 
 
 def convolution(inputImage,filterMat,outputSize,filterBias,currentFilterDepth):
-    print(inputImage)
-    print(filterBias)
-    print(filterMat)
+
+    print("CONVOLUUUUUTTTTTION")
     outputImage = np.zeros([outputSize,outputSize])
-    print(outputImage)
+
     outputImage[:,:] = filterBias
-    # print(outputSize)
-    # print(inputImage)
-    # print("\n")
-    # print(filterMat)
-    # print("\n")
-    # print("\n")
-    # print(currentFilterDepth,outputSize,outputSize)
-    for k in range(currentFilterDepth+1):
-        for j in range(outputSize):
-            for i in range(outputSize):
-                mat = inputImage[k][i:i+filterMat.shape[0],j : j+filterMat.shape[0]] 
-                mult =(mat * filterMat)
-                # print(mult)
+
+    for l in range(currentFilterDepth):
+        print("filter = ")
+        print(filterMat[l])
+        print("Image = ")
+        print(inputImage[l])
+        for m in range(outputSize):
+            for n in range(outputSize):
+                # print(inputImage[l])
+                # print(filterMat)
+                mat = inputImage[l][n:n+filterMat[l].shape[0],m : m+filterMat[l].shape[0]] 
+                # mult =(mat * filterMat)
+                # # print(mult)
+                # print("n={} m={}".format(n, m))
+                # print("mat = ")
+                # print(mat)
 
                 sum = 0
-                for num1 in range(filterMat.shape[0]):
-                    for num2 in range(filterMat.shape[0]):
-                        num =  toFloatWord(mul8x16(floatToBitStreamByte(mat[num1,num2]) ,floatToBitStreamWord(filterMat[num1,num2])))
-                        # print(num)
+                for num1 in range(filterMat[l].shape[0]):
+                    for num2 in range(filterMat[l].shape[0]):
+                        num =  toFloatWord(mul8x16(floatToBitStreamByte(filterMat[l][num1,num2]) ,floatToBitStreamWord(mat[num1,num2])))
                         sum = toFloatWord(sum16(floatToBitStreamWord(sum),floatToBitStreamWord(num)))
-                        # sum += (num)
                         
-                # print("mine = ",sum)
-                # print("np = ",np.sum(mult))
-
-                finalResult = toFloatWord(sum16(floatToBitStreamWord(outputImage[i,j]),floatToBitStreamWord(sum)))
-                # print("mine = ",finalResult)
-                # print("np = ",(outputImage[i,j]+np.sum(mult)))
-                outputImage[i,j] = finalResult
+                finalResult = toFloatWord(sum16(floatToBitStreamWord(outputImage[n,m]),floatToBitStreamWord(sum)))
+                
+                if (finalResult < 0):
+                    outputImage[n,m] = 0
+                else:
+                    outputImage[n,m] = finalResult
 
     return outputImage
 
@@ -176,7 +175,7 @@ weightsRAM.write("// format=mti addressradix=h dataradix=b version=1.0 wordsperl
 weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+(format(layersNumber-1,'02b'))+"000000"+"\n")
 weightsRAMCount += 1
 
-lineNumber = 3
+lineNumber = 2
 
 
 inputs = []
@@ -189,6 +188,8 @@ for layer in range(layersNumber):
 
     filtersFile.write("Layer #"+str(layer+1)+"\n")
 
+    layerInputImageSize = int(f1[lineNumber])
+    lineNumber += 1
     filtersNumber = int(f1[lineNumber])
     lineNumber += 1
     filterSize = int(f1[lineNumber])
@@ -215,13 +216,13 @@ for layer in range(layersNumber):
         toWrite += "1"
         
     toWrite += format(filtersNumber-1, '03b')
-    toWrite += format(filterDepth,'03b')
+    toWrite += format(filterDepth-1,'03b')
 
     weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+toWrite+"\n")
     weightsRAMCount += 1
 
     #2: Input size
-    weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+(format(inputImageSize,'05b'))+"000"+"\n")
+    weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+(format(layerInputImageSize,'05b'))+"000"+"\n")
     weightsRAMCount += 1
 
     #3: OutputSize
@@ -230,10 +231,12 @@ for layer in range(layersNumber):
 
 
 
-    for filter in range(filtersNumber):
-        filtersFile.write("Filter #"+str(filter+1)+"\n")
+    for currentFilter in range(filtersNumber):
+        filtersFile.write("Filter #"+str(currentFilter+1)+"\n")
 
-        filter = np.zeros([filterSize,filterSize])
+        filtersArray = []
+
+   
 
         #4: Bias
         bias = generateRandom8()
@@ -243,26 +246,30 @@ for layer in range(layersNumber):
         weightsRAMCount += 1
 
         #5: Filter
-        for i in range(filterSize):
-            for j in range(filterSize):
+        for k in range(filterDepth):
+            filterArray = np.zeros([filterSize,filterSize])
+            for i in range(filterSize):
+                for j in range(filterSize):
+
+                                       
+                    filterArray[i,j] = generateRandom8()
+                    
+                    filtersFile.write(str(filterArray[i,j])+" \t")
+
+                    weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+ str(floatToBitStreamByte(filterArray[i,j]).bin) +"\n")
+                    weightsRAMCount += 1
+
+
                 
-                filter[i,j] = generateRandom8()
-                
-                filtersFile.write(str(filter[i,j])+" \t")
+                filtersFile.write("\n")
+            filtersArray.append(filterArray)
 
-                weightsRAM.write(str(format(weightsRAMCount, 'x'))+": "+ str(floatToBitStreamByte(filter[i,j]).bin) +"\n")
-                weightsRAMCount += 1
+        outputs.append(convolution(inputs,filtersArray,outputImageSize,bias,filterDepth))
+        print("outputs = ")
+        print(outputs)
 
-
-            
-            filtersFile.write("\n")
-        # print(convolution(inputs[0],filter,outputImageSize,bias,filterDepth))
-        outputs.append(convolution(inputs,filter,outputImageSize,bias,filterDepth))
-        # print(outputs)
-        # print(inputs)
     inputs = outputs
-    print("intermediate = ")
-    print(inputs)
+
     
 
 
@@ -276,11 +283,11 @@ while weightsRAMCount <= weightsRAMMemSize:
 
 ################################### Generate Output #######################################
 
-print(len(inputs))
+# print(len(inputs))
 for k in range(len(inputs)):
     for i in range(inputs[k].shape[0]):
         for j in range(inputs[k].shape[1]):
-            outputFile.write(str(format(startindex, 'x'))+": "+ str(floatToBitStreamWord(inputs[0][i,j]).bin) +"\n")
+            outputFile.write(str(format(startindex, 'x'))+": "+ str(floatToBitStreamWord(inputs[k][i,j]).bin) +"\n")
             startindex += 1
 
 ##########################################################################################
