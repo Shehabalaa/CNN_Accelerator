@@ -27,8 +27,8 @@ ARCHITECTURE CNNShifterArch OF CNNShifter IS
 
 
     BEGIN
-
-        shiftedOut <= "000" & A(wordSize-1 DOWNTO 3) when filterSize = '0'
-        else "00000" & A(wordSize-1 DOWNTO 5);
+        -- TODO: take care of the sign ya samir
+        shiftedOut <= A(wordSize-1)&A(wordSize-1)&A(wordSize-1) & A(wordSize-1 DOWNTO 3) when filterSize = '0'
+        else A(wordSize-1)&A(wordSize-1)&A(wordSize-1)&A(wordSize-1)&A(wordSize-1) & A(wordSize-1 DOWNTO 5);
 
 END ARCHITECTURE;

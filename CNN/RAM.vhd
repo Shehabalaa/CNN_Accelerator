@@ -44,7 +44,7 @@ begin
                     & ram(to_integer(unsigned(addressRead))+2)
                     & ram(to_integer(unsigned(addressRead))+1)
                     & ram(to_integer(unsigned(addressRead)));
-
+    
     end PROCESS;    
 
     notClk <= not clk;

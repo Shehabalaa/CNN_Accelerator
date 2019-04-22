@@ -27,12 +27,14 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
     SIGNAL windowRamDataInBus: STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
     SIGNAL MFCWindowRam: STD_LOGIC;
     SIGNAL MFCWeightsRam: STD_LOGIC;
+    SIGNAL MFCWrite: STD_LOGIC;
     SIGNAL weightsRamAddress: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
     SIGNAL windowRamAddressRead, windowRamAddressWrite: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL weightsRamRead: STD_LOGIC;
     SIGNAL windowRamRead: STD_LOGIC;
     SIGNAL windowRamWrite: STD_LOGIC;
-    SIGNAL windowRamDataOutBus: STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
+    SIGNAL MFCWrite2: STD_LOGIC;
+    SIGNAL windowRamDataOutBus: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 
 
     BEGIN
@@ -55,6 +57,7 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
             windowRamDataInBus => windowRamDataInBus,
             MFCWindowRam => MFCWindowRam,
             MFCWeightsRam => MFCWeightsRam,
+            MFCWrite => MFCWrite,
             weightsRamAddress => weightsRamAddress,
             windowRamAddressRead => windowRamAddressRead,
             windowRamAddressWrite => windowRamAddressWrite,
@@ -70,10 +73,11 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
         generic map(weightsAddressSize, filterSize, filterSize * 5)
         port map(
             clk, weightsRamRead, '0', rst,
-            weightsRamAddress, windowRamAddressWrite, --address write here is for IO
+            weightsRamAddress, weightsRamAddress, --address write here is for IO
             "00000000",
             weightsRamDataInBus,
-            MFCWeightsRam
+            MFCWeightsRam,
+            MFCWrite2
         );
 
     windowRam: ENTITY work.RAM 
@@ -81,9 +85,10 @@ ARCHITECTURE CNNWithRAMArch OF CNNWithRAM IS
     port map(
         clk, windowRamRead, windowRamWrite, rst,
         windowRamAddressRead, windowRamAddressWrite,
-        windowRamDataOutBus(windowSize-1 DOWNTO 0),
+        windowRamDataOutBus,
         windowRamDataInBus,
-        MFCWindowRam
+        MFCWindowRam,
+        MFCWrite
     );
 
 END ARCHITECTURE;

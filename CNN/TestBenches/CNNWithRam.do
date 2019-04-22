@@ -10,9 +10,13 @@ add wave -position insertpoint  \
 sim:/cnnwithram/CNNMap/controlUnitMap/sliceFilterMap/currentState
 
 
-add wave -position insertpoint sim:/cnnwithram/*
-add wave -position insertpoint sim:/cnnwithram/CNNMap/coresMap/*
+#add wave -position insertpoint sim:/cnnwithram/*
+#add wave -position insertpoint sim:/cnnwithram/CNNMap/coresMap/*
 add wave -position insertpoint sim:/cnnwithram/CNNMap/controlUnitMap/*
+add wave -position insertpoint  \
+sim:/cnnwithram/CNNMap/controlUnitMap/sliceFilterMap/finalDMAAFinish \
+sim:/cnnwithram/CNNMap/controlUnitMap/sliceFilterMap/finalDMABFinish \
+sim:/cnnwithram/CNNMap/controlUnitMap/sliceFilterMap/finalDMACFinish
 add wave -position insertpoint sim:/cnnwithram/CNNMap/DMAControllerMap/*
 add wave -position insertpoint sim:/cnnwithram/CNNMap/outbufferMap/*
 add wave -position insertpoint sim:/cnnwithram/CNNMap/configMap/*
@@ -76,6 +80,6 @@ run
 
 #readBias
 
-run -all
+#run -all
 
 #mem save -o ./CNN/RAMs/2_1Layer1Filter20x20/actualOutput.mem -f mti -data binary -addr hex -startaddress 3872 -endaddress 4160 -wordsperline 1 /cnnwithram/windowRam/ram

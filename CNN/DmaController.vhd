@@ -46,9 +46,10 @@ ENTITY DMAController IS
     weightsRamRead: OUT STD_LOGIC; --
     windowRamRead: OUT STD_LOGIC; --
     windowRamWrite: OUT STD_LOGIC; --
-    windowRamDataOutBus: OUT STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
+    windowRamDataOutBus: OUT STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
     MFCWindowRam: IN STD_LOGIC;
     MFCWeightsRam: IN STD_LOGIC;
+    MFCWrite: IN STD_LOGIC;
 
     -- input cnt signals
     loadNextFilter: IN STD_LOGIC; -- signal to specify to me to start reading the filter, here we keep track of the next address to read from
@@ -89,7 +90,7 @@ ARCHITECTURE DMAControllerArch OF DMAController IS
 SIGNAL currentReadRamBaseAddress, currentWriteRamBaseAddress: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
 SIGNAL readLogicRamAddress, writeLogicRamAddress: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
 SIGNAL ramBaseAddressSelector: STD_LOGIC; -- 0 selects address1, 1 selects address 2
-SIGNAL windowInternalBusRLogic, windowInternalBusWLogic: STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
+SIGNAL windowInternalBusRLogic: STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
 -- internal cnt signals
 SIGNAL switchRam: STD_LOGIC;
 SIGNAL resetLogics: STD_LOGIC;
@@ -99,6 +100,7 @@ SIGNAL weightsSizeForFilter: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
 
 SIGNAL loadWord: STD_LOGIC;
 SIGNAL filterStep: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
+SIGNAL windowInternalBusWLogic: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 SIGNAL writeFinishFilter: STD_LOGIC;
 begin
     writeFinishFilter <= filterFinished OR (layerType AND sliceFinished);
@@ -220,7 +222,7 @@ begin
       ramWrite => windowRamWrite,
       ramDataOutBus => windowRamDataOutBus,
       ramAddress => windowRamAddressWrite,
-      MFC => MFCWindowRam,
+      MFC => MFCWrite,
 
       -- CONFIG
       outputSize => outputSize,

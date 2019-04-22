@@ -75,6 +75,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 		SIGNAL finalDMAAFinish,finalDMABFinish,finalDMACFinish: STD_LOGIC;
 
+		SIGNAL finalDMAEn: STD_LOGIC;
+
 	------------------------------------------------------------
 
 
@@ -90,7 +92,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 	saveToRAM <= savingToRam;
 
-		PROCESS(currentState,start, finalDMAAFinish, finalDMABFinish, finalDMACFinish ,finishConv,layerType,currentPage,filterLastLayer,outputSize,nextPage,innerCounterOut,outerCounterOut,savingtoRam)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize)
+		PROCESS(currentState,start, finalDMAAFinish, finalDMABFinish, finalDMACFinish,dmaAFinish,dmaBFinish,dmaCFinish ,finishConv,layerType,currentPage,filterLastLayer,outputSize,nextPage,innerCounterOut,outerCounterOut,savingtoRam)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize)
 
 			BEGIN
 			CASE currentState IS
@@ -124,6 +126,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 					-- Reset finishes
 						resetFinishes <= '1';
+						finalDMAEn <= '1';
 						
 			
 					-- Set Next State
@@ -213,6 +216,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							stateRegEn <= (dmaAFinish OR layerType) AND dmaBFinish;
 
 							resetFinishes <= '0';
+							finalDMAEn <= '0';
 
 			--------------------------------------------------------------------------------------------------------
 				WHEN shiftState =>
@@ -271,7 +275,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						-- stateRegEn <= (dmaBFinish OR (NOT savingToRam)) ;
 						stateRegEn <= '1';
 
-						resetFinishes <= '1' ;
+						resetFinishes <= '0' ;
+						finalDMAEn <= '0';
 			--------------------------------------------------------------------------------------------------------
 				WHEN convReadColState =>
 
@@ -308,7 +313,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							-- Check to know weather to load Window or Column or nothing
 								IF innerCounterOut = outputSize AND outerCounterOut /= outputSize THEN
 									-- Load Window only
-									loadWindow <= '1'; 
+									loadWindow <= NOT finalDMABFinish; 
 									readNextCol <= '0';
 									-- changePage <= '0';
 								ELSE IF outerCounterOut = outputSize AND innerCounterOut = outputSize THEN
@@ -319,15 +324,19 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 									ELSE
 										-- Load Column only
 										loadWindow <= '0';
-										readNextCol <= '1';
+										readNextCol <= NOT finalDMABFinish;
 										-- changePage <= '0';
 									END IF;
 								END IF;
 
 						
-		
-							
-
+							IF (filterLastLayer = '1' OR layerType = '1') AND ( NOT (innerCounterOut  = "00000" ) OR  NOT(outerCounterOut = "00000")) THEN
+								-- saveToRAM <= '1';
+								savingToRam <= NOT finalDMACFinish;
+							ELSE
+								-- saveToRAM <= '0';
+								savingToRam <= '0';
+							END IF;
 						-- Set Next State
 							IF layerType = '0' THEN
 								nextState <= addState;
@@ -336,9 +345,10 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							END IF;
 
 							resetFinishes <= '0';
+							finalDMAEn <= '1';
 
 						-- When DMA finishes Go to specified Next State	
-							IF ( ( finalDMABFinish ='1' OR  (outerCounterOut = outputSize AND innerCounterOut = outputSize)) AND  finishConv = '1' AND (finalDMACFinish='1' OR filterLastLayer='0') ) THEN
+							IF ( ( finalDMABFinish ='1' OR  (outerCounterOut = outputSize AND innerCounterOut = outputSize)) AND  finishConv = '1' AND ( ( finalDMACFinish='1' OR savingToRam = '0') OR filterLastLayer='0') ) THEN
 								stateRegEn <= '1';
 								-- resetFinishes <= '1';
 							ELSE
@@ -368,6 +378,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							resetOuterCounter <= '0';
 
 						resetFinishes <= '1';
+						finalDMAEn <= '1';
 
 						addToOutputBuffer <= '1';
 						outputBufferEn <= '0';
@@ -405,7 +416,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							savingToRam <= '0';
 							finish <= '0';
 
-							resetFinishes <= '1';
+							resetFinishes <= '0';
+							finalDMAEn <= '0';
 
 
 							resetOuterCounter <= '0';
@@ -465,11 +477,11 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 					-- saveToRAM <= savingToRam;
 
 					-- Raise finish Signal
-						finish <= finalDMABFinish OR NOT (filterLastLayer OR layerType);
+						finish <= dmaCFinish OR NOT (filterLastLayer OR layerType);
 					-- Set Next State
 						nextState <= idleState; -- Get back to 0 state (idle state)
 
-						stateRegEn <= dmaBFinish OR NOT (filterLastLayer OR layerType);
+						stateRegEn <= dmaCFinish OR NOT (filterLastLayer );
 
 
 			END CASE;
@@ -501,8 +513,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 			BEGIN
 				IF resetFinishes ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					finalDMAAFinish <= '0';
-				ELSIF FALLING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
-					IF dmaAFinish='1' THEN
+				ELSIF RISING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
+					IF dmaAFinish='1'AND finalDMAEn = '1' THEN
 						finalDMAAFinish <= '1';
 					END IF;
 				END IF;
@@ -516,8 +528,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 			BEGIN
 				IF resetFinishes ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					finalDMABFinish <= '0';
-				ELSIF FALLING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
-					IF dmaBFinish='1' THEN
+				ELSIF RISING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
+					IF dmaBFinish='1' AND finalDMAEn = '1' THEN
 						finalDMABFinish <= '1';
 					END IF;
 				END IF;
@@ -531,8 +543,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 			BEGIN
 				IF resetFinishes ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					finalDMACFinish <= '0';
-				ELSIF FALLING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
-					IF dmaCFinish='1' THEN
+				ELSIF RISING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
+					IF dmaCFinish='1' AND finalDMAEn = '1' THEN
 						finalDMACFinish <= '1';
 					END IF;
 				END IF;
