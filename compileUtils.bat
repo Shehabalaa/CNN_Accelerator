@@ -17,15 +17,15 @@ vcom Utils\Mux.vhd -93 -check_synthesis
 vcom Utils\BinaryMux.vhd -93 -check_synthesis
 vcom Utils\ALUs\Mul8x16.vhd -93 -check_synthesis
 vcom Utils\TransitionDetector.vhd -93 -check_synthesis
+
 vcom CNN/RegUnit.vhd -93 -check_synthesis
 vcom CNN/RegRow.vhd -93 -check_synthesis
 vcom CNN/RegFile.vhd -93 -check_synthesis
 vcom CNN/CNNMuls.vhd -93 -check_synthesis
-vcom CNN/ControlUnit/NetworkController.vhd -93 -check_synthesis
-vcom CNN/ControlUnit/LayerController.vhd -93 -check_synthesis
-vcom CNN/ControlUnit/FilterController.vhd -93 -check_synthesis
 vcom CNN/ControlUnit/SliceFilterController.vhd -93 -check_synthesis
-vcom CNN/RegUnit.vhd -93 -check_synthesis
+vcom CNN/ControlUnit/FilterController.vhd -93 -check_synthesis
+vcom CNN/ControlUnit/LayerController.vhd -93 -check_synthesis
+vcom CNN/ControlUnit/NetworkController.vhd -93 -check_synthesis
 vcom CNN/ControlUnit/ControlUnit.vhd -93 -check_synthesis
 vcom Utils\MultiStepCounter.vhd -93 -check_synthesis
 vcom Utils\FullSubtractor.vhd -93 -check_synthesis
@@ -47,8 +47,8 @@ vcom CNN\DmaController.vhd -93 -check_synthesis
 vcom CNN\Ram.vhd -93 -check_synthesis
 
 vcom CNN\CNNShifter.vhd -93 -check_synthesis
-vcom CNN\Adder4Values.vhd
-vcom CNN\Adder8Values.vhd
+vcom CNN\Adder4Values.vhd -93 -check_synthesis
+vcom CNN\Adder8Values.vhd -93 -check_synthesis
 vcom CNN\CNNAdders.vhd -93 -check_synthesis
 vcom CNN\CNNCores.vhd -93 -check_synthesis
 vcom CNN\OutputBuffer.vhd -93 -check_synthesis

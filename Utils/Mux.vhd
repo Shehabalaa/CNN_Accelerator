@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.numeric_std.all;
-USE IEEE.math_real.all;
+--USE IEEE.math_real.all;
 USE work.Types.ARRAYOFREGS16;
 
 -- Mux Entity
@@ -9,11 +9,11 @@ USE work.Types.ARRAYOFREGS16;
 ENTITY Mux IS
 
     GENERIC (
-        inputNum : integer := 2
+        inputNum : integer := 512
         );
     PORT(
             inputs : IN ARRAYOFREGS16(0 to inputNum-1);
-            selectionLines : IN std_logic_vector (integer(ceil(log2(real(inputNum))))-1 downto 0);
+            selectionLines : IN std_logic_vector (8 downto 0);
             output : OUT std_logic_vector(15 DOWNTO 0)
         );
 

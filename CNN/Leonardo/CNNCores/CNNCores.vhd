@@ -2,7 +2,7 @@
 -- 
 -- Definition of  CNNCores
 -- 
---      Thu Apr 11 17:37:24 2019
+--      Sun Apr 21 22:35:38 2019
 --      
 --      LeonardoSpectrum Level 3, 2018a.2
 -- 

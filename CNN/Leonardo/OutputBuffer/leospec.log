@@ -1,0 +1,169 @@
+/home/ayman/mgc/LeonardoSpectrum/bin/Linux/spectrum -file script.tcl 
+-------------------------------------------------
+LeonardoSpectrum Level 3 - 2018a.2 (Release Production Release, compiled Nov  1 2018 at 10:14:57)
+Copyright 1990-2018 Mentor Graphics.  All rights reserved.
+Portions copyright 1991-2018 Compuware Corporation
+
+Checking Security ...
+Reading library file `/home/ayman/mgc/LeonardoSpectrum/lib/tsmc035_typ.syn`...
+Library version = 3.0 Release : Patch (a) : 09/13/04
+Delays assume: Process=typical Temp= 27.0 C  Voltage=3.30 V  
+Info: setting encoding to auto
+Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/OutputBuffer'
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
+-- Loading package standard into library std
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Types.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/std_1164.vhd for unit STD_LOGIC_1164
+-- Loading package std_logic_1164 into library IEEE
+-- Loading package Types into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Decoder.vhd into library work
+"/media/sf_CNN_Accelerator/Utils/Decoder.vhd",line 3: Warning, math_real is not declared in library IEEE.
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/numeric_std.vhd for unit numeric_std
+-- Loading package NUMERIC_STD into library IEEE
+-- Loading entity Decoder into library work
+-- Loading architecture DecoderArch of Decoder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Mux2.vhd into library work
+-- Loading entity Mux2 into library work
+-- Loading architecture Mux2Arch of Mux2 into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Reg.vhd into library work
+-- Loading entity Reg into library work
+-- Loading architecture RegArch of Reg into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Mux.vhd into library work
+-- Loading entity Mux into library work
+-- Loading architecture MuxArch of Mux into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/TriState.vhd into library work
+-- Loading entity Tristate into library work
+-- Loading architecture TriStateArch of Tristate into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/FullAdder.vhd into library work
+-- Loading entity FullAdder into library work
+-- Loading architecture FullAdderArch of FullAdder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/NBitAdder.vhd into library work
+-- Loading entity NBitAdder into library work
+-- Loading architecture NBitAdderArch of NBitAdder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Counter.vhd into library work
+-- Loading entity Counter into library work
+-- Loading architecture CounterArch of Counter into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/OutputBuffer.vhd into library work
+-- Loading entity OutputBuffer into library work
+-- Loading architecture OutputBufferArch of OutputBuffer into library work
+-- Compiling root entity OutputBuffer(OutputBufferArch)
+-- Compiling entity Decoder_9(DecoderArch)
+-- Compiling entity Mux2_16(Mux2Arch)
+-- Compiling entity Reg_16(RegArch)
+-- Compiling entity Mux_512(MuxArch)
+-- Compiling entity Tristate_16(TriStateArch)
+-- Compiling entity Counter_9(CounterArch)
+-- Compiling entity Reg_9(RegArch)
+-- Compiling entity NBitAdder_9(NBitAdderArch)
+-- Compiling entity FullAdder(FullAdderArch)
+-- Compiling root entity OutputBuffer(OutputBufferArch)
+-- Compiling entity Decoder_9(DecoderArch)
+-- Info, replacing Decoder_9(DecoderArch)
+-- Compiling entity Mux2_16(Mux2Arch)
+-- Info, replacing Mux2_16(Mux2Arch)
+-- Compiling entity Reg_16(RegArch)
+-- Info, replacing Reg_16(RegArch)
+-- Compiling entity Mux_512(MuxArch)
+-- Info, replacing Mux_512(MuxArch)
+-- Compiling entity Tristate_16(TriStateArch)
+-- Info, replacing Tristate_16(TriStateArch)
+-- Compiling entity Counter_9(CounterArch)
+-- Compiling entity Reg_9(RegArch)
+-- Info, replacing Reg_9(RegArch)
+-- Compiling entity NBitAdder_9(NBitAdderArch)
+-- Compiling entity FullAdder(FullAdderArch)
+-- Info, replacing FullAdder(FullAdderArch)
+-- Info, replacing NBitAdder_9(NBitAdderArch)
+-- Info, replacing Counter_9(CounterArch)
+-- Info, replacing OutputBuffer(OutputBufferArch)
+Info: setting sdf_type to combined
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Start pre-optimization for design .work.Decoder_9.DecoderArch_unfold_2547
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch_unfold_2053
+-- Start pre-optimization for design .work.Reg_16.RegArch
+-- Start pre-optimization for design .work.Mux_512.MuxArch_unfold_2793
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch_unfold_1957
+-- Start pre-optimization for design .work.Tristate_16.TriStateArch
+-- Start pre-optimization for design .work.Reg_9.RegArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1706
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2252
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2259
+-- Start pre-optimization for design .work.NBitAdder_9.NBitAdderArch_unfold_2217
+-- Start pre-optimization for design .work.Counter_9.CounterArch
+-- Start pre-optimization for design .work.OutputBuffer.OutputBufferArch
+-- Start pre-optimization for design .work.Decoder_9.DecoderArch_unfold_2547
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch_unfold_2053
+-- Start pre-optimization for design .work.Reg_16.RegArch
+-- Start pre-optimization for design .work.Mux_512.MuxArch_unfold_2793
+-- Start pre-optimization for design .work.Mux2_16.Mux2Arch_unfold_1957
+-- Start pre-optimization for design .work.Tristate_16.TriStateArch
+-- Start pre-optimization for design .work.Reg_9.RegArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1706
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2252
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2259
+-- Start pre-optimization for design .work.NBitAdder_9.NBitAdderArch_unfold_2217
+-- Start pre-optimization for design .work.Counter_9.CounterArch
+-- Start pre-optimization for design .work.OutputBuffer.OutputBufferArch
+Info, Instances dissolved by autodissolve in View .work.NBitAdder_9.NBitAdderArch_unfold_2217
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 29: f0 (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_1_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_2_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_3_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_4_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_5_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_6_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_7_fx (FullAdder)
+"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_8_fx (FullAdder)
+Info, Instances dissolved by autodissolve in View .work.Counter_9.CounterArch
+"/media/sf_CNN_Accelerator/Utils/Counter.vhd", line 35: counterReg (Reg_9)
+"/media/sf_CNN_Accelerator/Utils/Counter.vhd", line 36: nextCount (NBitAdder_9)
+Info, Instances dissolved by autodissolve in View .work.OutputBuffer.OutputBufferArch
+Info, Many instances (>16) were flattened in this view. Not printing all the instance names....
+->set wire_table "" 
+Session history will be logged to file '/media/sf_CNN_Accelerator/CNN/Leonardo/OutputBuffer/leospec.his'
+Info: setting wire_table to 
+NO wire table is found
+-- Optimizing netlist .work.Decoder_9.DecoderArch_unfold_2547
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.Mux_512.MuxArch_unfold_2793
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:09 Mapping
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.OutputBuffer.OutputBufferArch
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:09 Mapping
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+-- Final Design Rule Check..
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+-- Start timing optimization for design .work.Decoder_9.DecoderArch_unfold_2547
+Starting Timing Characterization...
+Starting Timing Analysis...
+NO wire table is found
+Timing analysis done, time = 11 CPU secs.
+Timing characterization done, time = 12 CPU secs.
+NO wire table is found
+Info: setting novendor_constraint_file to FALSE
+AutoWrite args are : -format Verilog OutputBuffer.v
+-- Writing file OutputBuffer.v
+Info: setting novendor_constraint_file to FALSE
+AutoWrite args are : -format VHDL OutputBuffer.vhd
+-- Writing file OutputBuffer.vhd
+Info: setting novendor_constraint_file to FALSE
+AutoWrite args are : -format SDF OutputBuffer.sdf
+-- Writing file OutputBuffer.sdf
+NO wire table is found

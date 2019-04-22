@@ -29,6 +29,25 @@ Signal currentCountRead, currentCountWrite: STD_LOGIC_VECTOR(1 downto 0);
 SIGNAL MFCRead, MFCWrite, counterMFCReadEn, counterMFCWriteEn: STD_LOGIC;
 
 begin
+
+    --process(clk)
+    --   begin
+--
+    --        IF clk'EVENT AND clk='0' then
+    --            if ((rd = '1') and (we = '1') and  (reset = '0') and (addressRead = addressWrite)) then
+    --                dataOut <= (others=>'0');
+    --                MFCReadOut <= '1';
+    --                MFCWriteOut <= '0';
+    --            else
+    --                dataOut <= (others=>'0');
+    --                MFCReadOut <= '0';
+    --                MFCWriteOut <= '1';
+    --            end if;
+    --        end if;
+    --end PROCESS;
+
+
+
     MFCReadOut <= MFCRead;
     MFCWriteOut <= MFCWrite;
     process(clk, we, reset, addressRead, addressWrite)
