@@ -137,7 +137,7 @@ ARCHITECTURE NetworkControllerArch OF NetworkController IS
 	-- Counter to stop when finish depth of filter
 		counterMap : ENTITY work.Counter GENERIC MAP (maxLayer) PORT MAP (counterEn,resetCounter, clk ,altCounterOut);
 	-- Process to save state and change to next state when enable = 1
-		PROCESS(nextState,clk, stateRegEn, resetState)
+		PROCESS(clk, resetState)--, stateRegEn,nextState,
 			BEGIN
 				IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					currentState <= idleState;

@@ -44,7 +44,7 @@ vcom CNN\ReadLogic.vhd -93 -check_synthesis
 vcom CNN\DmaController.vhd -93 -check_synthesis
 
 
-vcom CNN\Ram.vhd -93 -check_synthesis
+vcom CNN\Ram.vhd -93 
 
 vcom CNN\CNNShifter.vhd -93 -check_synthesis
 vcom CNN\Adder4Values.vhd -93 -check_synthesis

@@ -50,7 +50,7 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 
 		counterOut <= altCounterOut when rising_edge(clk);	
 
-		PROCESS(start,currentState,oneConvFinish,dmaFinish,depth,counterOut)
+		PROCESS(start,currentState,oneConvFinish,dmaFinish,depth,counterOut,layerType)
 
 			BEGIN
 			CASE currentState IS
@@ -154,7 +154,7 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
 		counterMap : ENTITY work.Counter GENERIC MAP (maxDepth) PORT MAP (counterEn,resetCounter, clk ,altCounterOut);
 
 	-- Process to save state and change to next state when enable = 1
-		PROCESS(nextState,clk, stateRegEn, resetState)
+		PROCESS(clk, resetState)--nextState,stateRegEn,
 			BEGIN
 				IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					currentState <= idleState;

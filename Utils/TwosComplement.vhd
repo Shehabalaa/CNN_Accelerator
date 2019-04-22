@@ -26,8 +26,8 @@ ARCHITECTURE TwosComplementArch of TwosComplement is
   BEGIN
 
     inA <= NOT input;
-    inB <= (0=>'1', OTHERS=>'0'); 
-    inC <= '0';
+    inB <= ( OTHERS=>'0'); 
+    inC <= '1';
     fx: ENTITY work.NBitAdder GENERIC MAP(wordSize) PORT MAP(inA,inB,inC,output,outC);
 
   END ARCHITECTURE;

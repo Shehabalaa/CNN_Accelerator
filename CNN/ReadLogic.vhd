@@ -182,7 +182,7 @@ BEGIN
         unitRegOut
     );
 
-    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead, dmaFinishAll, ramBasedAddress, filterSize, clk)
+    IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead, dmaFinishAll, ramBasedAddress, filterSize)--, clk)
     BEGIN
         dmaLoad <= '0';
         dmaInitCounter <= '0';

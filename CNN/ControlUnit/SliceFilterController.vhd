@@ -57,7 +57,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 	----------------------------------
 
-		SIGNAL pageRegReset,pageRegEn,finalPageRegEn,changePage : STD_LOGIC; -- Current Filling Page 1 or 2 -- Next Page to be filled -- signal to know weather it is valid to change page or not ( not in case of load window )
+		SIGNAL pageRegReset,pageRegEn,finalPageRegEn : STD_LOGIC; -- Current Filling Page 1 or 2 -- Next Page to be filled -- signal to know weather it is valid to change page or not ( not in case of load window )
+		-- ,changePage
 		SIGNAL currentPage, nextPage : STD_LOGIC_VECTOR(0 DOWNTO 0);
 
 	-- Counters Signals
@@ -73,7 +74,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 		SIGNAL resetFinishes : STD_LOGIC;
 
-		SIGNAL finalDMAAFinish,finalDMABFinish,finalDMACFinish: STD_LOGIC;
+		SIGNAL finalDMABFinish,finalDMACFinish: STD_LOGIC; --finalDMAAFinish,
 
 		SIGNAL finalDMAEn: STD_LOGIC;
 
@@ -92,7 +93,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 	saveToRAM <= savingToRam;
 
-		PROCESS(currentState,start, finalDMAAFinish, finalDMABFinish, finalDMACFinish,dmaAFinish,dmaBFinish,dmaCFinish ,finishConv,layerType,currentPage,filterLastLayer,outputSize,nextPage,innerCounterOut,outerCounterOut,savingtoRam)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize)
+		PROCESS(currentState,start, finalDMABFinish, finalDMACFinish,dmaAFinish,dmaBFinish,dmaCFinish ,finishConv,layerType,currentPage,filterLastLayer,outputSize,innerCounterOut,outerCounterOut,savingtoRam)--,outerCounterOut,innerCounterOut)--,page,counterOut,outputSize),nextPage , finalDMAAFinish,
 
 			BEGIN
 			CASE currentState IS
@@ -213,7 +214,9 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							nextState <= shiftState;
 
 						-- When DMA finishes Go to specified Next State	
-							stateRegEn <= (dmaAFinish OR layerType) AND dmaBFinish;
+							
+
+							stateRegEn <= (dmaAFinish OR layerType ) AND dmaBFinish;
 
 							resetFinishes <= '0';
 							finalDMAEn <= '0';
@@ -477,6 +480,9 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 					savingToRam <= filterLastLayer OR layerType;
 					-- saveToRAM <= savingToRam;
 
+					resetFinishes <= '0';
+					finalDMAEn <= '0';
+
 					-- Raise finish Signal
 						finish <= dmaCFinish OR NOT (filterLastLayer OR layerType);
 					-- Set Next State
@@ -510,22 +516,23 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 		-- dmaAFinishReg : ENTITY work.Reg GENERIC MAP(1) PORT MAP ("1",dmaAFinish,clk,resetFinishes,finalDMAAFinish);
 
 	-- Process to save state and change to next state when enable = 1
-		PROCESS(clk, dmaAFinish, resetFinishes)
-			BEGIN
-				IF resetFinishes ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
-					finalDMAAFinish <= '0';
-				ELSIF RISING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
-					IF dmaAFinish='1'AND finalDMAEn = '1' THEN
-						finalDMAAFinish <= '1';
-					END IF;
-				END IF;
 
-		END PROCESS;
+		-- PROCESS(clk, resetFinishes) -- dmaAFinish,
+		-- 	BEGIN
+		-- 		IF resetFinishes ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
+		-- 			finalDMAAFinish <= '0';
+		-- 		ELSIF RISING_EDGE(clk)  THEN -- Change value only when enable = 1 and rising edge
+		-- 			IF dmaAFinish='1'AND finalDMAEn = '1' THEN
+		-- 				finalDMAAFinish <= '1';
+		-- 			END IF;
+		-- 		END IF;
+
+		-- END PROCESS;
 
 		-- dmaBFinishReg : ENTITY work.Reg GENERIC MAP(1) PORT MAP ("1",dmaBFinish,clk,resetFinishes,finalDMABFinish);
 
 	-- Process to save state and change to next state when enable = 1
-		PROCESS(clk, dmaBFinish, resetFinishes)
+		PROCESS(clk, resetFinishes)--dmaBFinish
 			BEGIN
 				IF resetFinishes ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					finalDMABFinish <= '0';
@@ -540,7 +547,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 		-- dmaCFinishReg : ENTITY work.Reg GENERIC MAP(1) PORT MAP ("1",dmaCFinish,clk,resetFinishes,finalDMACinish);
 
 	-- Process to save state and change to next state when enable = 1
-		PROCESS(clk, dmaCFinish, resetFinishes)
+		PROCESS(clk, resetFinishes) --dmaCFinish
 			BEGIN
 				IF resetFinishes ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					finalDMACFinish <= '0';
@@ -553,7 +560,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 		END PROCESS;
 		
 	-- Process to save state and change to next state when enable = 1
-		PROCESS(nextState,clk, stateRegEn, resetState)
+		PROCESS(clk,  resetState)--nextState,stateRegEn,
 			BEGIN
 				IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
 					currentState <= idleState;
