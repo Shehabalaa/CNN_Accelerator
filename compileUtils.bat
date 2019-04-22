@@ -17,24 +17,21 @@ vcom Utils\Mux.vhd -93
 vcom Utils\BinaryMux.vhd -93
 vcom Utils\ALUs\Mul8x16.vhd -93
 vcom Utils\TransitionDetector.vhd -93
-vcom Utils/*.vhd -93
+
 vcom CNN/RegUnit.vhd -93
 vcom CNN/RegRow.vhd -93
 vcom CNN/RegFile.vhd -93
 vcom CNN/CNNMuls.vhd -93
-vcom CNN/ControlUnit/NetworkController.vhd -93
-vcom CNN/ControlUnit/LayerController.vhd -93
-vcom CNN/ControlUnit/FilterController.vhd -93
 vcom CNN/ControlUnit/SliceFilterController.vhd -93
-vcom CNN/RegUnit.vhd -93
-vcom CNN/ControlUnit/*.vhd -93
+vcom CNN/ControlUnit/FilterController.vhd -93
+vcom CNN/ControlUnit/LayerController.vhd -93
+vcom CNN/ControlUnit/NetworkController.vhd -93
 vcom CNN/ControlUnit/ControlUnit.vhd -93
 vcom Utils\MultiStepCounter.vhd -93
 vcom Utils\FullSubtractor.vhd -93
 vcom Utils\NbitSubtractor.vhd -93
 vcom Utils\DownCounter.vhd -93
 
-vcom Utils/*.vhd -93
 
 REM # CNN
 vcom CNN\Constants.vhd -93
@@ -46,7 +43,6 @@ vcom CNN\ReadLogic.vhd -93
 
 vcom CNN\DmaController.vhd -93
 
-REM vcom CNN/*.vhd -93
 
 vcom CNN\Ram.vhd -93
 
@@ -59,4 +55,3 @@ vcom CNN\OutputBuffer.vhd -93
 vcom CNN\Config.vhd -93
 vcom CNN\CNNModule.vhd -93
 vcom CNN\CNNWithRAM.vhd -93
-vcom CNN/*.vhd -93
