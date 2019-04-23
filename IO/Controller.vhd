@@ -38,7 +38,7 @@ ENTITY Controller IS
            chipOutputSize: integer :=4);
   PORT(
       doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, processing, imageOrCNN, 
-      zeroState, decompZeroState, rst, FCRamWriteOld: in std_logic;
+      zeroState, decompZeroState, rst, FCRamWriteOld, moduloCounterZeroState: in std_logic;
       INTRDelayed, globalCounterLoad, imageLoad, imageRegisterEnable, imageRamEnable,
       CNNRegisterEnable, CNNRamEnable, FCRegisterEnable, FCRamEnable: inout std_logic;
       busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, 
@@ -126,8 +126,11 @@ BEGIN
 
   --FC signals
   FCLoad <= load AND imageOrCNN AND CNNOrFC;
-  FCCounterEnable <= FCLoad and doneDMAFC;
+  --FCCounterEnable <= FCLoad and doneDMAFC;
   FCRegisterEnable <= FCLoad AND INTRDelayed AND (NOT zeroState);
+
+  --FC Register Enable latch (modulo counter enable)
+  FCModuloCounterEn: ENTITY work.DFF PORT MAP(FCRegisterEnable, clk, rst, high, FCCounterEnable);
 
   --FC Ram enable latch
   FCRamLatchD <= FCRamWriteOld OR FCRamEnable;

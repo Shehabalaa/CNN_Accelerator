@@ -10,7 +10,7 @@ ENTITY FCDMA IS
 		clk,rst,en,delayedInt: IN STD_LOGIC;
 		address: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		dataOut: OUT STD_LOGIC_VECTOR(5*(n)-1 DOWNTO 0);
-		write: OUT STD_LOGIC
+		write, moduloCounterZeroState: OUT STD_LOGIC
 	); 
 END ENTITY FCDMA;
 
@@ -25,10 +25,10 @@ SIGNAL registersOut: RegistersType;
 SIGNAL enArray: enableType;
 SIGNAL moduloCounterSignal: STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL zeros: STD_LOGIC_VECTOR(15 DOWNTO 0);
-
+SIGNAL notClk: STD_LOGIC;
 
 BEGIN
-	
+	notClk <= NOT clk;
 	
 	loop1: FOR i IN 0 TO 4
 	GENERATE 
@@ -38,7 +38,7 @@ BEGIN
 
 	END GENERATE;
 	
-	ModuloCounter: ENTITY work.ModuloCounter GENERIC MAP(3) PORT MAP("101",delayedInt,rst,clk,moduloCounterSignal);
+	ModuloCounter: ENTITY work.ModuloCounter GENERIC MAP(3) PORT MAP("101",delayedInt,rst,notClk,moduloCounterSignal);
 	InverseMux: ENTITY work.InverseMux GENERIC MAP(n) PORT MAP(dataIn,moduloCounterSignal,en,rst,registersIn(0),registersIn(1),registersIn(2), registersIn(3), registersIn(4));
 	MAR: ENTITY work.Counter GENERIC MAP(16) PORT MAP(zeros,rst,clk,'0',address);
 
