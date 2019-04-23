@@ -151,6 +151,8 @@ sim:/cnnwithram/CNNMap/configMap/inputSize \
 sim:/cnnwithram/CNNMap/configMap/outputSize
 
 
+add wave -position insertpoint sim:/cnnwithram/CNNMap/DMAControllerMap/filterReadLogicEnt/dma/*
+add wave -position insertpoint sim:/cnnwithram/CNNMap/DMAControllerMap/filterReadLogicEnt/*
 
 
 force -freeze sim:/cnnwithram/clk 0 0, 1 {25000 ps} -r {50 ns}
