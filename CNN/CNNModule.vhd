@@ -57,7 +57,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
     SIGNAL zeros: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL filterRamAddressBase: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
     SIGNAL finishReadRowWindow, finishReadRowFilter, writeDoneAll: STD_LOGIC;
-    SIGNAL aluNumberWindow, aluNumberFilter: STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL aluNumberWindow, aluNumberFilter, decoderRowWindow: STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 
     -- Signals comes from DMA after reading from RAM
@@ -106,13 +106,16 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
         -- dmaWindowFinish <= readAllFinish OR writeOneFinish;
 
-        decoderRow <= aluNumberWindow when loadWindow = '1'
+        decoderRow <= decoderRowWindow when loadWindow = '1'
                 else "010" when readNextCol = '1' and filterType = '0'
                 else "100" when readNextCol = '1' and filterType = '1';
 
+
+        decoderMap: ENTITY work.RowDecoder PORT MAP(
+            loadWindow, finishReadRowWindow, clk, decoderRowWindow
+        );
+
         
-
-
         -- Control Unit Mapping
         controlUnitMap: ENTITY work.ControlUnit PORT MAP(
             clk,

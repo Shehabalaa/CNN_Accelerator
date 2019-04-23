@@ -18,10 +18,12 @@ vcom Utils\BinaryMux.vhd -93 -check_synthesis
 vcom Utils\ALUs\Mul8x16.vhd -93 -check_synthesis
 vcom Utils\TransitionDetector.vhd -93 -check_synthesis
 
+
 vcom CNN/RegUnit.vhd -93 -check_synthesis
 vcom CNN/RegRow.vhd -93 -check_synthesis
 vcom CNN/RegFile.vhd -93 -check_synthesis
 vcom CNN/CNNMuls.vhd -93 -check_synthesis
+vcom CNN/RowDecoder.vhd -93 -check_synthesis
 vcom CNN/ControlUnit/SliceFilterController.vhd -93 -check_synthesis
 vcom CNN/ControlUnit/FilterController.vhd -93 -check_synthesis
 vcom CNN/ControlUnit/LayerController.vhd -93 -check_synthesis
