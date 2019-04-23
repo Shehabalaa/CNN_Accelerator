@@ -17,20 +17,22 @@ weightsRAMCount = 0
 
 ################################CreateFiles#########################################
 
-inputFileName = input("Enter input file name without .txt:")
+# inputFileName = input("Enter input file name without .txt:")
+inputFileName = "Test"
+outputFileName = input("Enter output folder name: ")
 
 try:
-    if not os.path.exists(inputFileName):
-        os.makedirs(inputFileName)
+    if not os.path.exists(outputFileName):
+        os.makedirs(outputFileName)
 except OSError:
-    print ('Error: Creating directory. ' +  inputFileName)
+    print ('Error: Creating directory. ' +  outputFileName)
 
 
-imageFile = open(inputFileName+"/image.txt","w+")
-weightsRAM = open(inputFileName+"/weightsRAM.mem","w+")
-windowRAM = open(inputFileName+"/windowRAM.mem","w+")
-filtersFile = open(inputFileName+"/filters.txt","w+")
-outputFile = open(inputFileName+"/expectedOutput.txt","w+")
+imageFile = open(outputFileName+"/image.txt","w+")
+weightsRAM = open(outputFileName+"/weightsRAM.mem","w+")
+windowRAM = open(outputFileName+"/windowRAM.mem","w+")
+filtersFile = open(outputFileName+"/filters.txt","w+")
+outputFile = open(outputFileName+"/expectedOutput.txt","w+")
 
 
 f = open(inputFileName+".txt", "r")
