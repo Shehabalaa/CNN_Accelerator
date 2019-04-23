@@ -59,7 +59,9 @@
     force -freeze sim:/Accelerator/load 1 0 
     force -freeze sim:/Accelerator/imageOrCNN 0 0
 
+
     for {set i 0} {$i < 1} {incr i} {
+        set boolean 1
         if { $i == 0} {
             force -freeze sim:/Accelerator/processing 0 0
             force -freeze sim:/Accelerator/load 1 0 
@@ -74,13 +76,18 @@
             force -freeze sim:/Accelerator/imageOrCNN 1 0
         }
         foreach line $lines {
-                    
-            force -freeze sim:/Accelerator/INTR 1 0
-            force -freeze sim:/Accelerator/Din $line 0
-            run $runTime
-            noforce sim:/Accelerator/Din 
-            force -freeze sim:/Accelerator/INTR 0 0
-            run $runTime
+            puts $boolean
+            if { $boolean == 1} {        
+                force -freeze sim:/Accelerator/INTR 1 0
+                force -freeze sim:/Accelerator/Din $line 0
+                run $runTime
+                noforce sim:/Accelerator/Din 
+                force -freeze sim:/Accelerator/INTR 0 0
+                run $runTime
+                set boolean 0
+                puts "continue"
+                continue
+            }
             force -freeze sim:/Accelerator/INTR 1 0
             force -freeze sim:/Accelerator/Din $line 0
             run $runTime
@@ -91,6 +98,7 @@
             run $halfRunTime
             set busy [examine -binary /Accelerator/busy]
             }
+            run $runTime
         set donePhase [examine -binary /Accelerator/doneWithPhase]
         if { $donePhase == 1 } {
                 puts "doneWithPhase"
