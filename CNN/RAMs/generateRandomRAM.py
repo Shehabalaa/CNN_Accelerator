@@ -127,39 +127,49 @@ while windowRAMCount <= windowRAMMemSize:
 ###################################### Filters Generation #############################################
 
 def pooling(inputImage,currentFilterSize,outputSize,currentFilterDepth):
-    outputImage = np.zeros([outputSize,outputSize])
 
-    outputImage[:,:] = 0.0
+    print("POOOOLING")
+    # print(inputImage)
+
+    finalOutputImage = []
+
+    
+
+    
 
     for l in range(currentFilterDepth):
+        outputImage = np.zeros([outputSize,outputSize])
+        outputImage[:,:] = 0.0
         for m in range(outputSize):
             for n in range(outputSize):
+                # print(l,m,n)
+                # print(inputImage[l])
                 mat = inputImage[l][n:n+currentFilterSize,m : m+currentFilterSize] 
 
                 sum = 0
                 for num1 in range(currentFilterSize):
                     for num2 in range(currentFilterSize):
                         # num =  toFloatWord(mul8x16(floatToBitStreamByte(filterMat[l][num1,num2]) ,floatToBitStreamWord(mat[num1,num2])))
+
                         sum = toFloatWord(sum16(floatToBitStreamWord(sum),floatToBitStreamWord(mat[num1][num2])))
                         
                 finalResult = toFloatWord(sum16(floatToBitStreamWord(outputImage[n,m]),floatToBitStreamWord(sum)))
                 
 
-                print(floatToBitStreamWord(finalResult).bin)
+                # print(floatToBitStreamWord(finalResult).bin)
 
                 for shift in range(currentFilterSize):
                     finalResult /= (2)
 
-                print(floatToBitStreamWord(finalResult).bin)
-                print()
+                # print(floatToBitStreamWord(finalResult).bin)
+                # print()
                 
 
-                if (finalResult < 0):
-                    outputImage[n,m] = 0
-                else:
-                    outputImage[n,m] = finalResult
+                outputImage[n,m] = finalResult
+        print(outputImage)
+        finalOutputImage.append(np.copy(outputImage))
 
-    return outputImage
+    return finalOutputImage
 
 
 
@@ -309,9 +319,13 @@ for layer in range(layersNumber):
         print(outputs)
 
     if filterType != "conv\n":
-        outputs.append(pooling(inputs,filterSize,outputImageSize,filterDepth))
+        print(inputs)
+        print(filterSize,outputImageSize,filterDepth)
+        outputs = pooling(inputs,filterSize,outputImageSize,filterDepth)
     
     inputs = outputs
+    print("End of Layer loop")
+    print(inputs)
 
     
 
@@ -341,3 +355,5 @@ weightsRAM.close()
 imageFile.close()
 filtersFile.close()
 outputFile.close()
+
+convolution( np.array([[2.0,2.0,2.0],[2.0,2.0,2.0],[2.0,2.0,2.0]]) ,np.array( [ [ [1.0,1.0,1.0],[1.0,1.0,1.0],[1.0,1.0,1.0] ] ), [ [0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5] ],[[0.25,0.25,0.25],[0.25,0.25,0.25],[0.25,0.25,0.25]] ],1,0.0,3)
