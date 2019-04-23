@@ -6,7 +6,7 @@
 	Clock                : Frequency
       ------------------------------------
 
-	clk                  : 180.9 MHz
+	clk                  : 201.8 MHz
 
 
                         Critical Path Report
@@ -19,30 +19,27 @@ delay thru clock network                                             0.00 (ideal
 
 
 addressCounter/counterReg/reg_Q(0)/Q               dffsr_ni    0.00  1.17 up             0.08
-addressCounter/ix90/Y                              nand04      0.19  1.36 dn             0.02
+addressCounter/ix82/Y                              nand04      0.19  1.36 dn             0.02
 addressCounter/ix7/Y                               nor02ii     0.40  1.76 up             0.05
-addressCounter/ix108/Y                             nand02      0.11  1.88 dn             0.02
+addressCounter/ix100/Y                             nand02      0.11  1.88 dn             0.02
 addressCounter/ix11/Y                              nor02ii     0.39  2.27 up             0.05
-addressCounter/ix124/Y                             nand02      0.11  2.38 dn             0.02
+addressCounter/ix116/Y                             nand02      0.11  2.38 dn             0.02
 addressCounter/ix15/Y                              nor02ii     0.39  2.78 up             0.05
-addressCounter/ix138/Y                             nand02      0.11  2.89 dn             0.02
+addressCounter/ix130/Y                             nand02      0.11  2.89 dn             0.02
 addressCounter/ix21/Y                              nor02ii     0.39  3.28 up             0.05
-addressCounter/ix150/Y                             nand02      0.11  3.40 dn             0.02
-addressCounter/ix45/Y                              nor02ii     0.39  3.79 up             0.05
-addressCounter/ix164/Y                             nand02      0.11  3.90 dn             0.02
-addressCounter/ix69/Y                              nor02ii     0.39  4.30 up             0.05
-addressCounter/ix170/Y                             xnor2       0.20  4.50 dn             0.02
-addressCounter/ix83/Y                              nor02_2x    0.19  4.68 up             0.03
-addressCounter/counterReg/ix701/Y                  inv01       0.14  4.83 dn             0.02
-addressCounter/counterReg/ix195/Y                  nor03_2x    0.17  5.00 up             0.01
-addressCounter/counterReg/reg_Q(15)/S              dffsr_ni    0.00  5.00 up             0.00
-data arrival time                                                    5.00
+addressCounter/ix142/Y                             nand02      0.16  3.45 dn             0.03
+addressCounter/ix140/Y                             xor2        0.54  3.99 up             0.02
+addressCounter/ix47/Y                              nor02_2x    0.13  4.12 dn             0.03
+addressCounter/counterReg/ix598/Y                  inv01       0.18  4.30 up             0.02
+addressCounter/counterReg/ix159/Y                  nor03_2x    0.16  4.46 dn             0.01
+addressCounter/counterReg/reg_Q(12)/S              dffsr_ni    0.00  4.46 dn             0.00
+data arrival time                                                    4.46
 
 
 data required time                                                not specified
 ----------------------------------------------------------------------------------------------
 data required time                                                not specified
-data arrival time                                                    5.00
+data arrival time                                                    4.46
                                                                   ----------
                                                                unconstrained path
 ----------------------------------------------------------------------------------------------
