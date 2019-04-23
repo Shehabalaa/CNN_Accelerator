@@ -9,7 +9,8 @@ ENTITY FCDMA IS
 		dataIn: IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
 		clk,rst,en,delayedInt: IN STD_LOGIC;
 		address: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		dataOut: OUT STD_LOGIC_VECTOR(5*(n)-1 DOWNTO 0)
+		dataOut: OUT STD_LOGIC_VECTOR(5*(n)-1 DOWNTO 0);
+		write: OUT STD_LOGIC
 	); 
 END ENTITY FCDMA;
 
@@ -23,7 +24,7 @@ SIGNAL registersIn : RegistersType;
 SIGNAL registersOut: RegistersType;
 SIGNAL enArray: enableType;
 SIGNAL moduloCounterSignal: STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL zeros: STD_LOGIC_VECTOR(11 DOWNTO 0);
+SIGNAL zeros: STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 
 BEGIN
@@ -39,7 +40,7 @@ BEGIN
 	
 	ModuloCounter: ENTITY work.ModuloCounter GENERIC MAP(3) PORT MAP("101",delayedInt,rst,clk,moduloCounterSignal);
 	InverseMux: ENTITY work.InverseMux GENERIC MAP(n) PORT MAP(dataIn,moduloCounterSignal,en,rst,registersIn(0),registersIn(1),registersIn(2), registersIn(3), registersIn(4));
-	MAR: ENTITY work.Counter GENERIC MAP(12) PORT MAP(zeros,rst,clk,'0',address);
+	MAR: ENTITY work.Counter GENERIC MAP(16) PORT MAP(zeros,rst,clk,'0',address);
 
 	enArray(0) <= '1' WHEN moduloCounterSignal ="000"
 	ELSE '0';
@@ -53,6 +54,7 @@ BEGIN
 	ELSE '0';
 	
 	dataOut <= registersIn(4)&registersIn(3)&registersIn(2)&registersIn(1)&registersIn(0) WHEN moduloCounterSignal = "101";
+	write <= '1' WHEN moduloCounterSignal = "101" ELSE '0';
 	zeros <= (OTHERS => '0');
 
 END ARCHITECTURE;

@@ -15,6 +15,7 @@ ENTITY IO IS
       INTRDelayed, imageLoad, imageRegisterEnable, CNNRegisterEnable, FCRegisterEnable,
       imageRamEnable, CNNRamEnable, FCRamEnable: inout std_logic;
       interfaceOutput: inout std_logic_vector(chipInputSize - 1 DOWNTO 0);
+      FCRamWriteOld: in std_logic;
       result: out std_logic_vector(chipOutputSize - 1 DOWNTO 0)
   );
 END ENTITY;
@@ -29,7 +30,7 @@ ARCHITECTURE IOArch OF IO IS
                       globalCounterLoad, zeroState, interfaceOutput, result);
     Controller: ENTITY work.Controller GENERIC MAP(chipInputSize, chipOutputSize) 
                       PORT MAP(doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, processing, imageOrCNN, zeroState,
-                      decompZeroState, rst, INTRDelayed, globalCounterLoad, imageLoad, imageRegisterEnable, 
+                      decompZeroState, rst, FCRamWriteOld, INTRDelayed, globalCounterLoad, imageLoad, imageRegisterEnable, 
                       imageRamEnable, CNNRegisterEnable, CNNRamEnable, FCRegisterEnable, FCRamEnable, busy, 
                       doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, CNNCounterEnable, 
                       FCCounterEnable, decompDecrementorEnable, imageCounterEnable, globalCounterEnable, toCNN, toFC);

@@ -38,7 +38,7 @@ ENTITY Controller IS
            chipOutputSize: integer :=4);
   PORT(
       doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, processing, imageOrCNN, 
-      zeroState, decompZeroState, rst: in std_logic;
+      zeroState, decompZeroState, rst, FCRamWriteOld: in std_logic;
       INTRDelayed, globalCounterLoad, imageLoad, imageRegisterEnable, imageRamEnable,
       CNNRegisterEnable, CNNRamEnable, FCRegisterEnable, FCRamEnable: inout std_logic;
       busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, 
@@ -130,7 +130,7 @@ BEGIN
   FCRegisterEnable <= FCLoad AND INTRDelayed AND (NOT zeroState);
 
   --FC Ram enable latch
-  FCRamLatchD <= FCRegisterEnable OR FCRamEnable;
+  FCRamLatchD <= FCRamWriteOld OR FCRamEnable;
   FCRamRst <= rst OR doneDMAFC;
   FCRamEn: ENTITY work.DFF PORT MAP(FCRamLatchD, clk, FCRamRst, high, FCRamEnable);
 

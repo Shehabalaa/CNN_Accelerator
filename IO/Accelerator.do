@@ -2,17 +2,15 @@ vsim -gui work.Accelerator
 add wave -position insertpoint  \
 sim:/Accelerator/Din \
 sim:/Accelerator/INTR \
-sim:/Accelerator/processing \
+sim:/Accelerator/clk \
 sim:/Accelerator/imageOrCNN \
 sim:/Accelerator/load \
 sim:/Accelerator/busy \
 sim:/Accelerator/doneDMAFC \
-sim:/Accelerator/doneDMACNN \
-sim:/Accelerator/doneDMAImage \
-sim:/accelerator/IOChip/io/Controller/doneDMAImageDelayed \
-sim:/Accelerator/doneWithPhase \
 sim:/accelerator/IOChip/io/Controller/anyDone \
-sim:/accelerator/imgRamWrite \
+sim:/Accelerator/doneWithPhase \
+sim:/accelerator/FCRamWrite \
+sim:/accelerator/IOChip/fcDMA/moduloCounterSignal \
 sim:/accelerator/IOChip/io/Controller/INTRDelayedSq \
 sim:/accelerator/IOChip/io/Controller/INTRDelayed \
 sim:/Accelerator/iochip/interfaceOutput \
@@ -21,16 +19,6 @@ sim:/accelerator/IOChip/io/Interface/zeroState \
 sim:/accelerator/IOChip/io/Controller/zeroStateDelayed \
 sim:/accelerator/IOChip/io/Controller/zeroStateDelayedSq \
 sim:/Accelerator/iochip/io/Controller/stateCounter/counterOutput \
-sim:/accelerator/IOChip/decomp/countOut \
-sim:/accelerator/IOChip/io/Controller/decompDecrementorEnable \
-sim:/accelerator/IOChip/decompZeroState \
-sim:/accelerator/Image/address \
-sim:/accelerator/Image/dataIn \
-sim:/accelerator/IOChip/imageDMA/enableImageRegister \
-sim:/accelerator/Image/currentCount \
-sim:/accelerator/IOChip/io/Controller/DMAImageOrINTRDelayed \
-sim:/accelerator/IOChip/io/Controller/DMAImageOrINTRDelayedSq \
-sim:/Accelerator/clk \
 sim:/Accelerator/rst
 #force -freeze sim:/Accelerator/rst 2#1 0, 2#0 50 
 force -freeze sim:/Accelerator/rst 1 0
@@ -86,7 +74,7 @@ force -freeze sim:/Accelerator/imageOrCNN 1 0
 run 125
 #Checking CNN
 force -freeze sim:/Accelerator/INTR 1 0
-force -freeze sim:/Accelerator/Din 2'b0000000001101010 0
+force -freeze sim:/Accelerator/Din 2'b0000000000000010 0
 run 50
 force -freeze sim:/Accelerator/INTR 0 0
 noforce sim:/Accelerator/Din 
@@ -99,7 +87,64 @@ noforce sim:/Accelerator/Din
 run 250
 force -freeze sim:/Accelerator/INTR 1 0
 force -freeze sim:/Accelerator/Din 2'b1100000011111100 0
- run 50
+run 50
 force -freeze sim:/Accelerator/INTR 0 0
 noforce sim:/Accelerator/Din 
 run 250
+#Checking FC
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000010010000001 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000010010000001 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000000000000000 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000000000000000 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000000000000000 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000000000000000 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+run 250
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b1111111000000101 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000000111111111 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b1111110000000001 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 50
+run 300
