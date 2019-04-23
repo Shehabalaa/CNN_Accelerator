@@ -21,7 +21,7 @@ delay thru clock network                                                      0.
 
 
 CNNMap/configMap/layerTypeRegMap/reg_Q(0)/Q                 dffr        0.00  0.40 up             0.02
-CNNMap/ix651/Y                                              buf02       0.32  0.72 up             0.08
+CNNMap/ix619/Y                                              buf02       0.32  0.72 up             0.08
 CNNMap/DMAControllerMap/ix608/Y                             inv01       0.27  0.99 dn             0.06
 CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_ramAddressIncrement/loop1_1_fx/ix70/Y
                                                             xnor2       0.24  1.24 up             0.03
