@@ -27,4 +27,5 @@ transcript*
 sc_dpiheader.h
 vsim.dbg
 
+work/
 # End of https://www.gitignore.io/api/modelsim

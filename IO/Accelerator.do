@@ -19,6 +19,7 @@ sim:/Accelerator/iochip/interfaceOutput \
 sim:/Accelerator/iochip/io/Interface/GlobalCounter/counterOutput \
 sim:/accelerator/IOChip/io/Interface/zeroState \
 sim:/accelerator/IOChip/io/Controller/zeroStateDelayed \
+sim:/accelerator/IOChip/io/Controller/zeroStateDelayedSq \
 sim:/Accelerator/iochip/io/Controller/stateCounter/counterOutput \
 sim:/accelerator/IOChip/decomp/countOut \
 sim:/accelerator/IOChip/io/Controller/decompDecrementorEnable \
@@ -85,8 +86,20 @@ force -freeze sim:/Accelerator/imageOrCNN 1 0
 run 125
 #Checking CNN
 force -freeze sim:/Accelerator/INTR 1 0
-force -freeze sim:/Accelerator/Din 2'b0000001011100000 0
+force -freeze sim:/Accelerator/Din 2'b0000000001101010 0
 run 50
 force -freeze sim:/Accelerator/INTR 0 0
 noforce sim:/Accelerator/Din 
 run 50
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b0000001011100000 0
+run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 250
+force -freeze sim:/Accelerator/INTR 1 0
+force -freeze sim:/Accelerator/Din 2'b1100000011111100 0
+ run 50
+force -freeze sim:/Accelerator/INTR 0 0
+noforce sim:/Accelerator/Din 
+run 250

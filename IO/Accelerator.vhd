@@ -23,7 +23,7 @@ SIGNAL FCRamAddress: std_logic_vector(15 DOWNTO 0);
 SIGNAL CNNRamAddress: std_logic_vector(12 DOWNTO 0);
 SIGNAL imgRamAddress: std_logic_vector(12 DOWNTO 0);
 
-SIGNAL doneDMAImageOld, notClk: std_logic;
+SIGNAL doneDMAImageOld, notClk, doneDMACNNOld, doneDMAFCOld: std_logic;
 BEGIN
 	notClk <= NOT clk;
 	high <= '1';
@@ -32,9 +32,11 @@ BEGIN
 			PORT MAP(din, clk, rst, imageOrCNN, INTR, load, processing, doneWithPhase, busy, doneDMAFC, 
 							 doneDMACNN, doneDMAImage, imgRamWrite, CNNRamWrite, FCRamWrite, imgRamAddress, imgRamDin, 
 							 CNNRamAddress, CNNRamDin, FCRamAddress, FCRamDin, result);
-	Weights: Entity work.RAMWithDone PORT MAP(clk, low, CNNRamWrite, rst, CNNRamAddress, CNNRamDin, CNNRamDout, doneDMACNN);
+	Weights: Entity work.RAMWithDone PORT MAP(clk, low, CNNRamWrite, rst, CNNRamAddress, CNNRamDin, CNNRamDout, doneDMACNNOld);
 	Image: Entity work.RAMWithDone PORT MAP(clk, low, imgRamWrite, rst, imgRamAddress, imgRamDin, imgRamDout, doneDMAImageOld);
-	FC: Entity work.Ram PORT MAP(clk, FCRamWrite, rst, FCRamAddress, FCRamDin, FCRamDout, doneDMAFC);
+	FC: Entity work.RAMWithDone PORT MAP(clk, low, FCRamWrite, rst, FCRamAddress, FCRamDin, FCRamDout, doneDMAFCOld);
 
-	MFCLatch: Entity work.DFF PORT MAP(doneDMAImageOld, notClk, rst, high, doneDMAImage);
+	imageMFCLatch: Entity work.DFF PORT MAP(doneDMAImageOld, notClk, rst, high, doneDMAImage);
+	CNNMFCLatch: Entity work.DFF PORT MAP(doneDMACNNOld, notClk, rst, high, doneDMACNN);
+	FCMFCLatch: Entity work.DFF PORT MAP(doneDMAFCOld, notClk, rst, high, doneDMAFC);
 END ARCHITECTURE;

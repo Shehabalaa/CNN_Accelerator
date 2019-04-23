@@ -7,11 +7,9 @@ ENTITY FCDMA IS
 	GENERIC(n: integer := 16);
 	PORT(
 		dataIn: IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
-		clk,rst,en,ramDone,delayedInt: IN STD_LOGIC;
-		address: OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
-		dataOut: OUT STD_LOGIC_VECTOR(5*(n)-1 DOWNTO 0);
-		wrt: OUT STD_LOGIC
-
+		clk,rst,en,delayedInt: IN STD_LOGIC;
+		address: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		dataOut: OUT STD_LOGIC_VECTOR(5*(n)-1 DOWNTO 0)
 	); 
 END ENTITY FCDMA;
 
