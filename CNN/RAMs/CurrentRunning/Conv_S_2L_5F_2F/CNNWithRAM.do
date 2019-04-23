@@ -50,8 +50,8 @@ force -freeze sim:/cnnwithram/rst 1 0
 force -freeze sim:/cnnwithram/start 0 0
 
 run
-mem load -i ./CNN/RAMs/CurrentRunning/Pool_L_2L2F31F3/windowRAM.mem -format mti /cnnwithram/windowRam/ram 
-mem load -i ./CNN/RAMs/CurrentRunning/Pool_L_2L2F31F3/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram 
+mem load -i ./CNN/RAMs/CurrentRunning/Conv_S_2L_5F_2F/windowRAM.mem -format mti /cnnwithram/windowRam/ram 
+mem load -i ./CNN/RAMs/CurrentRunning/Conv_S_2L_5F_2F/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram 
 force -freeze sim:/cnnwithram/rst 0 0
 force -freeze sim:/cnnwithram/start 1 0
 
@@ -60,6 +60,10 @@ force -freeze sim:/cnnwithram/start 0 0
 
 run
 
-#run -all
+run -all
+set finish[examine CNNWithRAM/finishNetwork]
+if { $finish } {
+    break
+}
 
-mai mem save -o ./CNN/RAMs/CurrentRunning/Pool_L_2L2F31F3/cnnOutput.mem -f mti -data binary -addr hex -wordsperline 1 /cnnwithram/windowRam/ram 
+mem save -o ./CNN/RAMs/CurrentRunning/Conv_S_2L_5F_2F/cnnOutput.mem -f mti -data binary -addr hex -wordsperline 1 /cnnwithram/windowRam/ram 
