@@ -1,4 +1,4 @@
-    #vsim -gui work.Accelerator
+    vsim work.Accelerator
     add wave -position insertpoint  \
     sim:/Accelerator/Din \
     sim:/Accelerator/INTR \
