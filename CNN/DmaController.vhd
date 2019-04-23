@@ -77,7 +77,7 @@ ENTITY DMAController IS
     weightsReadOne: OUT STD_LOGIC; -- output signal set when one row when loading window is available on internal buses
     weightsReadFinal: OUT STD_LOGIC; -- // // // // when final input is available on the internal data bus
 
-    writeDoneAll: OUT STD_LOGIC;
+    -- writeDoneAll: OUT STD_LOGIC;
     writeDoneOne: OUT STD_LOGIC;
     
     filterAluNumber: OUT STD_LOGIC_VECTOR(2 downto 0); -- 5 bits to say where to set the data within which ALU when fetching Filter
@@ -88,7 +88,7 @@ END DMAController ;
 ARCHITECTURE DMAControllerArch OF DMAController IS
 
 SIGNAL currentReadRamBaseAddress, currentWriteRamBaseAddress: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
-SIGNAL readLogicRamAddress, writeLogicRamAddress: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
+-- SIGNAL readLogicRamAddress, writeLogicRamAddress: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0)حغح;
 SIGNAL ramBaseAddressSelector: STD_LOGIC; -- 0 selects address1, 1 selects address 2
 SIGNAL windowInternalBusRLogic: STD_LOGIC_VECTOR((windowSize * numUnits)-1 DOWNTO 0);
 -- internal cnt signals
@@ -194,7 +194,7 @@ begin
       -- CONFIG
       inputSize => inputSize,
       filterSize => weightsSizeForWindow,
-      isFilter => '0',
+      -- isFilter => '0',
       
       -- input cnt signals
       loadNextWordList => loadNextWindow,
@@ -223,7 +223,7 @@ begin
       -- CONFIG
       inputSize => filterStep,
       filterSize => weightsSizeForFilter,
-      isFilter => '1',
+      -- isFilter => '1',
       
       -- input cnt signals
       loadNextWordList => loadNextFilter,
@@ -259,7 +259,7 @@ begin
       write => write, -- signal to take the data at internal bus and put it into the ram in the next write address
       finishFilter => writeFinishFilter, -- finishFilter || finishSlice & pool
       -- output cnt signals
-      writeDone => writeDoneAll, -- output signal set when any write is done
+      -- writeDone => writeDoneAll, -- output signal set when any write is done
       writeDoneOne => writeDoneOne -- output signal set when any write is done
     );
   

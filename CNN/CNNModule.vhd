@@ -48,11 +48,11 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
     SIGNAL windowBus: STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
     SIGNAL writeBus: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
     SIGNAL decoderRow: STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
-    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, dmaWindowFinish, dmaRamFinish, loadOneWord, loadTwoWord, readAllFinish, writeOneFinish: STD_LOGIC;
+    SIGNAL writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, doneCores, startConv, dmaFilterFinish, loadOneWord, loadTwoWord, readAllFinish, writeOneFinish: STD_LOGIC;--, dmaWindowFinish, dmaRamFinish
     SIGNAL sumOutCores: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
 
     -- DMA Signals
-    SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadWindow, loadFilter, readNextCol, finishLayer, weightsSize, finishSlice: STD_LOGIC;
+    SIGNAL loadLayerConfig, loadNetworkConfig, loadFilterConfig, loadWindow, loadFilter, readNextCol, finishLayer, finishSlice: STD_LOGIC; --, weightsSize
     SIGNAL inputSizeAddress, outputSizeAddress, baseAddressOne, baseAddressTwo, outputSizeAddressForDMA: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL zeros: STD_LOGIC_VECTOR(windowAddressSize-1 DOWNTO 0);
     SIGNAL filterRamAddressBase: STD_LOGIC_VECTOR(weightsAddressSize-1 DOWNTO 0);
@@ -202,7 +202,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             weightsReadFinal => dmaFilterFinish,
 
             writeDoneOne => writeOneFinish,
-            writeDoneAll => writeDoneAll,  
+            -- writeDoneAll => writeDoneAll,  
             
             filterAluNumber => aluNumberFilter,
             windowAluNumber => aluNumberWindow

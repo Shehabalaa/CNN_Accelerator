@@ -32,7 +32,7 @@ ENTITY ReadLogic IS
     -- CONFIG
     inputSize: IN STD_LOGIC_VECTOR(addressSize-1 downto 0);
     filterSize: IN STD_LOGIC_VECTOR(addressSize-1 downto 0);
-    isFilter: IN STD_LOGIC;
+    -- isFilter: IN STD_LOGIC;
     
     -- input cnt signals
     loadNextWordList: IN STD_LOGIC; -- signal to specify to me to start reading the filter, here we keep track of the next address to read from
@@ -89,11 +89,11 @@ SIGNAL baseAddressCounterClk, aluNumberCounterClk, notClk: STD_LOGIC;
 SIGNAL aluCounterOut: STD_LOGIC_VECTOR(2 downto 0);
 SIGNAL dmaReadBaseAddress: STD_LOGIC_VECTOR(addressSize-1 downto 0);
 SIGNAL zerosSignal: STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL internalRamAddress, ramAddressKeeperOut, ramAddressKeeperOutPlusFS, zeros: STD_LOGIC_VECTOR(addressSize -1 DOWNTO 0);
+SIGNAL internalRamAddress, ramAddressKeeperOut, ramAddressKeeperOutPlusFS: STD_LOGIC_VECTOR(addressSize -1 DOWNTO 0); --, zeros
 SIGNAL internalRamRead: STD_LOGIC;
 BEGIN
     zerosSignal <= (others => '0');
-    zeros <= (others => '0');
+    -- zeros <= (others => '0');
     ramAddress <= internalRamAddress;
     ramRead <= internalRamRead;
     -- to compile with 93

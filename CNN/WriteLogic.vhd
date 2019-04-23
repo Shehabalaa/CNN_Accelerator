@@ -50,7 +50,7 @@ GENERIC (
     finishFilter: IN STD_LOGIC;
 
     -- output cnt signals
-    writeDone: OUT STD_LOGIC; -- output signal set when all the write is done
+    -- writeDone: OUT STD_LOGIC; -- output signal set when all the write is done
     writeDoneOne: OUT STD_LOGIC
   );
 END WriteLogic ; 
@@ -102,7 +102,7 @@ BEGIN
 
     -- mapping from internal signals to output port
     -- TODO: should be removed and bind these port signals directly
-    writeDone <= dmaFinishAll;
+    -- writeDone <= dmaFinishAll;
     writeDoneOne <= dmaFinishOneWrite;
 
     resetAddressReg <= '1' when currentState = switchState ELSE finishFilter;
