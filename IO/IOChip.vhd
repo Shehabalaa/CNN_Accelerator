@@ -48,7 +48,7 @@ rst,INTRDelayed,imageDMADataOut,imageDMAAddressOut);
 cnnDMA: Entity work.DMACNN PORT MAP(interfaceOutput,clk,CNNCounterEnable,CNNRegisterEnable,rst,CNNDMADataOut,
 CNNDMAAddressOut);
 
-fcDMA: Entity work.FCDMA PORT MAP(interfaceOutput,clk, rst, high, FCCounterEnable, FCDMAAddressOut, 
+fcDMA: Entity work.FCDMA PORT MAP(interfaceOutput,clk, rst, FCCounterEnable, FCRegisterEnable, doneDMAFC, FCDMAAddressOut, 
 												 FCDMADataOut, FCRamWriteOld, moduloCounterZeroState);
 
 END ARCHITECTURE;
