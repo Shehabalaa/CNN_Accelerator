@@ -117,7 +117,7 @@ ARCHITECTURE CNNCoresArch OF CNNCores IS
 
 		--final output
 		finalOutMap: ENTITY work.Mux2 GENERIC MAP(windowSize) PORT MAP(
-			outShifter, outAdder, done, finalSum
+			outAdder, outShifter, layerType, finalSum
 			);
 
 

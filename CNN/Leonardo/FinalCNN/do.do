@@ -1,4 +1,5 @@
 vsim -gui work.CNNWithRam
+#vsim -gui work.cnnwithram -sdfnoerror -sdfnowarn -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf
 
 add wave -position insertpoint  \
 sim:/cnnwithram/clk \
@@ -151,7 +152,7 @@ sim:/cnnwithram/CNNMap/configMap/outputSize
 
 
 
-force -freeze sim:/cnnwithram/clk 0 0, 1 {50 ps} -r 100
+force -freeze sim:/cnnwithram/clk 0 0, 1 {25000 ps} -r {50 ns}
 force -freeze sim:/cnnwithram/rst 1 0
 force -freeze sim:/cnnwithram/start 0 0
 
@@ -165,7 +166,7 @@ mem load -i /media/sf_CNN_Accelerator/CNN/RAMs/PassedTests/1layer2filter3x3/weig
 
 force -freeze sim:/cnnwithram/rst 0 0
 force -freeze sim:/cnnwithram/start 1 0
-
+run
 run
 force -freeze sim:/cnnwithram/start 0 0
 
