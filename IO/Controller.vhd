@@ -38,7 +38,7 @@ ENTITY Controller IS
            chipOutputSize: integer :=4);
   PORT(
       doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, processing, imageOrCNN, 
-      zeroState, decompZeroState, rst, FCRamWriteOld: in std_logic;
+      zeroState, decompZeroState, rst, FCRamWriteOld, moduloCounterZeroState: in std_logic;
       INTRDelayed, globalCounterLoad, imageLoad, imageRegisterEnable, imageRamEnable,
       CNNRegisterEnable, CNNRamEnable, FCRegisterEnable, FCRamEnable: inout std_logic;
       busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, 

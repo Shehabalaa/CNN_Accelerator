@@ -28,14 +28,14 @@ signal interfaceOutput: std_logic_vector(15 downto 0);
 signal decompDataOut: std_logic_vector(7 downto 0);
 signal decompDataIn: std_logic_vector(5 downto 0);
 signal imageDMAAddress: std_logic_vector(9 downto 0);
-signal high, FCRamWriteOld: std_logic;
+signal high, FCRamWriteOld, moduloCounterZeroState: std_logic;
 BEGIN
 high <= '1';
 io: Entity work.IO GENERIC MAP(16,4) 
 					 PORT MAP(Din, doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, rst, processing, imageOrCNN, 
 					 decompZeroState, doneWithPhase, CNNCounterEnable, imageCounterEnable, FCCounterEnable,
 					 decompDecrementorEnable, busy, toCNN, toFC, INTRDelayed, imageLoad, imageRegisterEnable, CNNRegisterEnable, 
-					 FCRegisterEnable, imgRamWrite, CNNRamWrite, FCRamWrite, interfaceOutput, FCRamWriteOld, result);
+					 FCRegisterEnable, imgRamWrite, CNNRamWrite, FCRamWrite, interfaceOutput, FCRamWriteOld, moduloCounterZeroState, result);
 decompDataIn <= interfaceOutput(5 downto 0);
 imageDmaAddress <= interfaceOutput(15 downto 6);
 
@@ -48,6 +48,7 @@ rst,INTRDelayed,imageDMADataOut,imageDMAAddressOut);
 cnnDMA: Entity work.DMACNN PORT MAP(interfaceOutput,clk,CNNCounterEnable,CNNRegisterEnable,rst,CNNDMADataOut,
 CNNDMAAddressOut);
 
-fcDMA: Entity work.FCDMA PORT MAP(interfaceOutput,clk, rst, high, INTRDelayed, FCDMAAddressOut, FCDMADataOut, FCRamWriteOld);
+fcDMA: Entity work.FCDMA PORT MAP(interfaceOutput,clk, rst, FCCounterEnable, FCRegisterEnable, doneDMAFC, FCDMAAddressOut, 
+												 FCDMADataOut, FCRamWriteOld, moduloCounterZeroState);
 
 END ARCHITECTURE;
