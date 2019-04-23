@@ -1,5 +1,6 @@
 vsim -gui work.CNNWithRam
 #vsim -gui work.cnnwithram -sdfnoerror -sdfnowarn -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf
+#vsim -gui -sdfnoerror -sdfnowarn -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf work.cnnwithram -noglitch
 
 add wave -position insertpoint  \
 sim:/cnnwithram/clk \
