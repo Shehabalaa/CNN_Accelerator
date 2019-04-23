@@ -1,6 +1,6 @@
 load_library tsmc035_typ
 
-read -technology "tsmc035_typ"  { "/home/ayman/Desktop/Project/vlsi/IO/Reg.vhd" "/home/ayman/Desktop/Project/vlsi/IO/Mux2.vhd" "/home/ayman/Desktop/Project/vlsi/IO/FullAdder.vhd" "/home/ayman/Desktop/Project/vlsi/IO/InverseMux.vhd" "/home/ayman/Desktop/Project/vlsi/IO/NBitAdder.vhd" "/home/ayman/Desktop/Project/vlsi/IO/Counter.vhd" "/home/ayman/Desktop/Project/vlsi/IO/ModuloCounter.vhd" "/home/ayman/Desktop/Project/vlsi/IO/FCDMA.vhd"}
+read -technology "tsmc035_typ"  { "/home/ayman/Desktop/CNN_Accelerator-IO/IO/Reg.vhd" "/home/ayman/Desktop/CNN_Accelerator-IO/IO/Mux2.vhd" "/home/ayman/Desktop/CNN_Accelerator-IO/IO/FullAdder.vhd" "/home/ayman/Desktop/CNN_Accelerator-IO/IO/InverseMux.vhd" "/home/ayman/Desktop/CNN_Accelerator-IO/IO/NBitAdder.vhd" "/home/ayman/Desktop/CNN_Accelerator-IO/IO/Counter.vhd" "/home/ayman/Desktop/CNN_Accelerator-IO/IO/ModuloCounter.vhd" "/home/ayman/Desktop/CNN_Accelerator-IO/IO/FCDMA.vhd"}
 
 pre_optimize .work.FCDMA.FCDMAArch -common_logic -unused_logic -boundary -xor_comparator_optimize 
 pre_optimize .work.FCDMA.FCDMAArch -extract 

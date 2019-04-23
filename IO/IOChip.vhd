@@ -21,7 +21,7 @@ PORT    (
 
 END ENTITY;
 
-ARCHITECTURE IOChipArchitecture of IOChip IS
+ARCHITECTURE IOChipArch of IOChip IS
 signal decompZeroState, CNNCounterEnable, decompDecrementorEnable, CNNRegisterEnable, imageCounterEnable, 
 			 imageRegisterEnable, FCCounterEnable, FCRegisterEnable, toCNN, toFC,imageLoad, INTRDelayed: std_logic;
 signal interfaceOutput: std_logic_vector(15 downto 0);

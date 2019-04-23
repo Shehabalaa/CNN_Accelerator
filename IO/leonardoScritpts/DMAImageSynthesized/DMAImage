@@ -1,15 +1,13 @@
 load_library tsmc035_typ
-set_working_dir /home/ayman/Desktop/Project/vlsi/IO/leonardoScritpts
-read -technology "tsmc035_typ" { /home/ayman/Desktop/Project/vlsi/IO/Mux2.vhd /home/ayman/Desktop/Project/vlsi/IO/Reg.vhd /home/ayman/Desktop/Project/vlsi/IO/FullAdder.vhd /home/ayman/Desktop/Project/vlsi/IO/NBitAdder.vhd  /home/ayman/Desktop/Project/vlsi/IO/RegWithLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/UpCounterAsyncLoad.vhd /home/ayman/Desktop/Project/vlsi/IO/DMAImage.vhd}
-
+set_working_dir /home/ayman/Desktop/CNN_Accelerator-IO/IO/leonardoScritpts
+read -technology "tsmc035_typ" { /home/ayman/Desktop/CNN_Accelerator-IO/IO/Mux2.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/Reg.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/FullAdder.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/NBitAdder.vhd  /home/ayman/Desktop/CNN_Accelerator-IO/IO/RegWithLoad.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/UpCounterAsyncLoad.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/DMAImage.vhd}
 pre_optimize .work.DMAImage.DMAImage -common_logic -unused_logic -boundary -xor_comparator_optimize 
 pre_optimize .work.DMAImage.DMAImage -extract 
 optimize .work.DMAImage.DMAImage -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
 optimize_timing .work.DMAImage.DMAImage 
-report_area DMAImageArea.txt -cell_usage -all_leafs 
-report_delay DMAImageDelay.txt -num_paths 1 -critical_paths -clock_frequency
-set novendor_constraint_file FALSE
-auto_write -format VHDL DMAImage.vhd
+report_area DMAImage.txt -cell_usage -all_leafs 
+report_delay DMAImageDelay.txt -num_paths 1 -longest_path -clock_frequency
 set novendor_constraint_file FALSE
 auto_write -format SDF DMAImage.sdf
-
+set novendor_constraint_file FALSE
+auto_write -format VHDL DMAImage.vhd

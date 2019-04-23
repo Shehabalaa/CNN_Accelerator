@@ -2,13 +2,14 @@
 -- 
 -- Definition of  Decompressor
 -- 
---      Wed Apr 17 22:31:18 2019
+--      Mon Apr 22 17:51:45 2019
 --      
 --      LeonardoSpectrum Level 3, 2018a.2
 -- 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity DownCounterAsyncLoad_6 is
    port (
@@ -112,6 +113,7 @@ end DownCounterAsyncLoadArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Decompressor is
    port (
@@ -164,4 +166,5 @@ begin
    ix66 : or03 port map ( Y=>nx65, A0=>countOut_0, A1=>countOut_2, A2=>
       countOut_1);
 end DecompressorArchitecture ;
+
 

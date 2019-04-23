@@ -28,3 +28,7 @@ vcom Accelerator.vhd
 vcom Controller.vhd IO.vhd IOChip.vhd Accelerator.vhd
 vsim -do Accelerator.do
 
+
+
+
+mem save -o bassel.mem -f mti -noaddress -data decimal -addr decimal -startaddress 0 -endaddress 784 -wordsperline 1 /accelerator/Image/ram

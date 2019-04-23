@@ -1,7 +1,7 @@
 (DELAYFILE
  (SDFVERSION "2.0")
  (DESIGN "DMACNN")
- (DATE "Fri Apr 19 16:03:50 2019")
+ (DATE "Mon Apr 22 17:13:56 2019")
  (VENDOR "Exemplar Logic, Inc., Alameda")
  (PROGRAM "LeonardoSpectrum Level 3")
  (VERSION "2018a.2")
@@ -12,14 +12,14 @@
  (TIMESCALE 1 ns)
 (CELL
  (CELLTYPE "inv01")
- (INSTANCE ix304)
+ (INSTANCE ix300)
  (DELAY
   (ABSOLUTE
    (PORT A (::0.00) (::0.00))
    (IOPATH A Y (::0.15) (::0.15)))))
 (CELL
  (CELLTYPE "xor2")
- (INSTANCE ix177)
+ (INSTANCE ix153)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -28,7 +28,7 @@
    (IOPATH A1 Y (::0.49) (::0.49)))))
 (CELL
  (CELLTYPE "xnor2")
- (INSTANCE ix171)
+ (INSTANCE ix147)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -37,7 +37,7 @@
    (IOPATH A1 Y (::0.15) (::0.15)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE ix308)
+ (INSTANCE ix304)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -46,7 +46,7 @@
    (IOPATH A1 Y (::0.24) (::0.24)))))
 (CELL
  (CELLTYPE "xnor2")
- (INSTANCE ix165)
+ (INSTANCE ix141)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -55,7 +55,7 @@
    (IOPATH A1 Y (::0.15) (::0.15)))))
 (CELL
  (CELLTYPE "nand03")
- (INSTANCE ix311)
+ (INSTANCE ix307)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -66,7 +66,7 @@
    (IOPATH A2 Y (::0.27) (::0.27)))))
 (CELL
  (CELLTYPE "xnor2")
- (INSTANCE ix159)
+ (INSTANCE ix135)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -75,7 +75,7 @@
    (IOPATH A1 Y (::0.17) (::0.17)))))
 (CELL
  (CELLTYPE "nand04")
- (INSTANCE ix314)
+ (INSTANCE ix310)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -88,7 +88,7 @@
    (IOPATH A3 Y (::0.29) (::0.29)))))
 (CELL
  (CELLTYPE "xor2")
- (INSTANCE ix153)
+ (INSTANCE ix129)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -106,78 +106,6 @@
    (IOPATH A1 Y (::0.37) (::0.37)))))
 (CELL
  (CELLTYPE "xnor2")
- (INSTANCE ix147)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.16) (::0.16))
-   (IOPATH A1 Y (::0.15) (::0.15)))))
-(CELL
- (CELLTYPE "nand02")
- (INSTANCE ix319)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.20) (::0.20))
-   (IOPATH A1 Y (::0.26) (::0.26)))))
-(CELL
- (CELLTYPE "xor2")
- (INSTANCE ix141)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.39) (::0.39))
-   (IOPATH A1 Y (::0.50) (::0.50)))))
-(CELL
- (CELLTYPE "nor02ii")
- (INSTANCE ix75)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.32) (::0.32))
-   (IOPATH A1 Y (::0.37) (::0.37)))))
-(CELL
- (CELLTYPE "xnor2")
- (INSTANCE ix135)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.16) (::0.16))
-   (IOPATH A1 Y (::0.15) (::0.15)))))
-(CELL
- (CELLTYPE "nand02")
- (INSTANCE ix324)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.20) (::0.20))
-   (IOPATH A1 Y (::0.26) (::0.26)))))
-(CELL
- (CELLTYPE "xor2")
- (INSTANCE ix129)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.39) (::0.39))
-   (IOPATH A1 Y (::0.50) (::0.50)))))
-(CELL
- (CELLTYPE "nor02ii")
- (INSTANCE ix79)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.32) (::0.32))
-   (IOPATH A1 Y (::0.37) (::0.37)))))
-(CELL
- (CELLTYPE "xnor2")
  (INSTANCE ix123)
  (DELAY
   (ABSOLUTE
@@ -187,7 +115,7 @@
    (IOPATH A1 Y (::0.15) (::0.15)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE ix329)
+ (INSTANCE ix315)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -205,7 +133,7 @@
    (IOPATH A1 Y (::0.50) (::0.50)))))
 (CELL
  (CELLTYPE "nor02ii")
- (INSTANCE ix83)
+ (INSTANCE ix75)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -223,7 +151,7 @@
    (IOPATH A1 Y (::0.15) (::0.15)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE ix334)
+ (INSTANCE ix320)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -241,7 +169,7 @@
    (IOPATH A1 Y (::0.50) (::0.50)))))
 (CELL
  (CELLTYPE "nor02ii")
- (INSTANCE ix87)
+ (INSTANCE ix82)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -259,7 +187,7 @@
    (IOPATH A1 Y (::0.15) (::0.15)))))
 (CELL
  (CELLTYPE "nand02")
- (INSTANCE ix339)
+ (INSTANCE ix325)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -274,16 +202,34 @@
    (PORT A0 (::0.00) (::0.00))
    (PORT A1 (::0.00) (::0.00))
    (IOPATH A0 Y (::0.39) (::0.39))
-   (IOPATH A1 Y (::0.48) (::0.48)))))
+   (IOPATH A1 Y (::0.50) (::0.50)))))
 (CELL
  (CELLTYPE "nor02ii")
- (INSTANCE ix91)
+ (INSTANCE ix84)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
    (PORT A1 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.27) (::0.27))
-   (IOPATH A1 Y (::0.31) (::0.31)))))
+   (IOPATH A0 Y (::0.32) (::0.32))
+   (IOPATH A1 Y (::0.37) (::0.37)))))
+(CELL
+ (CELLTYPE "xnor2")
+ (INSTANCE ix87)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (::0.00) (::0.00))
+   (PORT A1 (::0.00) (::0.00))
+   (IOPATH A0 Y (::0.15) (::0.15))
+   (IOPATH A1 Y (::0.15) (::0.15)))))
+(CELL
+ (CELLTYPE "nand02")
+ (INSTANCE ix330)
+ (DELAY
+  (ABSOLUTE
+   (PORT A0 (::0.00) (::0.00))
+   (PORT A1 (::0.00) (::0.00))
+   (IOPATH A0 Y (::0.19) (::0.19))
+   (IOPATH A1 Y (::0.25) (::0.25)))))
 (CELL
  (CELLTYPE "dffr")
  (INSTANCE MyReg_reg_Q_0)
@@ -301,7 +247,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix144)
+ (INSTANCE ix140)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -327,7 +273,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix154)
+ (INSTANCE ix150)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -353,7 +299,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix164)
+ (INSTANCE ix160)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -379,7 +325,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix174)
+ (INSTANCE ix170)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -405,7 +351,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix184)
+ (INSTANCE ix180)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -431,7 +377,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix194)
+ (INSTANCE ix190)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -457,7 +403,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix204)
+ (INSTANCE ix200)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -483,7 +429,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix214)
+ (INSTANCE ix210)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -509,7 +455,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix224)
+ (INSTANCE ix220)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -535,7 +481,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix234)
+ (INSTANCE ix230)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -561,7 +507,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix244)
+ (INSTANCE ix240)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -587,7 +533,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix254)
+ (INSTANCE ix250)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -613,7 +559,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix264)
+ (INSTANCE ix260)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -639,7 +585,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix274)
+ (INSTANCE ix270)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -665,7 +611,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix284)
+ (INSTANCE ix280)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -691,7 +637,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE ix294)
+ (INSTANCE ix290)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -717,7 +663,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix127)
+ (INSTANCE addressCounter_counterReg/ix121)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -743,7 +689,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix137)
+ (INSTANCE addressCounter_counterReg/ix131)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -769,7 +715,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix147)
+ (INSTANCE addressCounter_counterReg/ix141)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -795,7 +741,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix157)
+ (INSTANCE addressCounter_counterReg/ix151)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -821,7 +767,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix167)
+ (INSTANCE addressCounter_counterReg/ix161)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -847,7 +793,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix177)
+ (INSTANCE addressCounter_counterReg/ix171)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -873,7 +819,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix187)
+ (INSTANCE addressCounter_counterReg/ix181)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -899,7 +845,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix197)
+ (INSTANCE addressCounter_counterReg/ix191)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -925,7 +871,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix207)
+ (INSTANCE addressCounter_counterReg/ix201)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -951,7 +897,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix217)
+ (INSTANCE addressCounter_counterReg/ix211)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -977,7 +923,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix227)
+ (INSTANCE addressCounter_counterReg/ix221)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -1003,7 +949,7 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix237)
+ (INSTANCE addressCounter_counterReg/ix231)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
@@ -1020,84 +966,6 @@
    (PORT D (::0.00) (::0.00))
    (PORT CLK (::0.00) (::0.00))
    (PORT R (::0.00) (::0.00))
-   (IOPATH CLK Q (::0.45) (::0.45))
-   (IOPATH R Q (::0.00) (::0.00))
-   (IOPATH CLK QB (::0.39) (::0.39))
-   (IOPATH R QB (::0.44) (::0.44))))
- (TIMINGCHECK
-   (SETUP D (posedge CLK) (0.47))
-   (HOLD D (posedge CLK) (-0.06))))
-(CELL
- (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix247)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (PORT S0 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.30) (::0.30))
-   (IOPATH A1 Y (::0.30) (::0.30))
-   (IOPATH S0 Y (::0.36) (::0.36)))))
-(CELL
- (CELLTYPE "dffr")
- (INSTANCE addressCounter_counterReg/reg_Q_13)
- (DELAY
-  (ABSOLUTE
-   (PORT D (::0.00) (::0.00))
-   (PORT CLK (::0.00) (::0.00))
-   (PORT R (::0.00) (::0.00))
-   (IOPATH CLK Q (::0.46) (::0.46))
-   (IOPATH R Q (::0.00) (::0.00))
-   (IOPATH CLK QB (::0.39) (::0.39))
-   (IOPATH R QB (::0.44) (::0.44))))
- (TIMINGCHECK
-   (SETUP D (posedge CLK) (0.47))
-   (HOLD D (posedge CLK) (-0.06))))
-(CELL
- (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix257)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (PORT S0 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.30) (::0.30))
-   (IOPATH A1 Y (::0.29) (::0.29))
-   (IOPATH S0 Y (::0.36) (::0.36)))))
-(CELL
- (CELLTYPE "dffr")
- (INSTANCE addressCounter_counterReg/reg_Q_14)
- (DELAY
-  (ABSOLUTE
-   (PORT D (::0.00) (::0.00))
-   (PORT CLK (::0.00) (::0.00))
-   (PORT R (::0.00) (::0.00))
-   (IOPATH CLK Q (::0.45) (::0.45))
-   (IOPATH R Q (::0.00) (::0.00))
-   (IOPATH CLK QB (::0.39) (::0.39))
-   (IOPATH R QB (::0.44) (::0.44))))
- (TIMINGCHECK
-   (SETUP D (posedge CLK) (0.47))
-   (HOLD D (posedge CLK) (-0.06))))
-(CELL
- (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix267)
- (DELAY
-  (ABSOLUTE
-   (PORT A0 (::0.00) (::0.00))
-   (PORT A1 (::0.00) (::0.00))
-   (PORT S0 (::0.00) (::0.00))
-   (IOPATH A0 Y (::0.30) (::0.30))
-   (IOPATH A1 Y (::0.30) (::0.30))
-   (IOPATH S0 Y (::0.36) (::0.36)))))
-(CELL
- (CELLTYPE "dffr")
- (INSTANCE addressCounter_counterReg/reg_Q_15)
- (DELAY
-  (ABSOLUTE
-   (PORT D (::0.00) (::0.00))
-   (PORT CLK (::0.00) (::0.00))
-   (PORT R (::0.00) (::0.00))
    (IOPATH CLK Q (::0.44) (::0.44))
    (IOPATH R Q (::0.00) (::0.00))
    (IOPATH CLK QB (::0.39) (::0.39))
@@ -1107,13 +975,13 @@
    (HOLD D (posedge CLK) (-0.06))))
 (CELL
  (CELLTYPE "mux21_ni")
- (INSTANCE addressCounter_counterReg/ix277)
+ (INSTANCE addressCounter_counterReg/ix241)
  (DELAY
   (ABSOLUTE
    (PORT A0 (::0.00) (::0.00))
    (PORT A1 (::0.00) (::0.00))
    (PORT S0 (::0.00) (::0.00))
    (IOPATH A0 Y (::0.29) (::0.29))
-   (IOPATH A1 Y (::0.29) (::0.29))
+   (IOPATH A1 Y (::0.30) (::0.30))
    (IOPATH S0 Y (::0.36) (::0.36)))))
 )

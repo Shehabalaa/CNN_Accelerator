@@ -9,18 +9,18 @@ PORT    (
 		addressIn: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 		clk, enableImageCounter,enableImageRegister,rst,intrDelayed: IN STD_LOGIC;
 		dataOut: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		addressOut: OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		addressOut: OUT STD_LOGIC_VECTOR(12 DOWNTO 0)
 	);
 
 END ENTITY;
 
-ARCHITECTURE DMAImage of DMAImage IS
-signal addressCounterIn: STD_LOGIC_VECTOR(15 downto 0);
+ARCHITECTURE DMAImageArchitecture of DMAImage IS
+signal addressCounterIn: STD_LOGIC_VECTOR(12 downto 0);
 signal registerIn: STD_LOGIC_VECTOR(15 downto 0);
 BEGIN
-	addressCounterIn <= "000000" & addressIn;
+	addressCounterIn <= "000" & addressIn;
 -- Address Counter needs enable
-	addressCounter: Entity work.UpCounterAsyncLoad GENERIC MAP(16) PORT MAP(addressCounterIn, enableImageCounter, intrDelayed , rst, clk, addressOut);
+	addressCounter: Entity work.UpCounterAsyncLoad GENERIC MAP(13) PORT MAP(addressCounterIn, enableImageCounter, intrDelayed , rst, clk, addressOut);
 	registerIn <= "00000000" & dataIn;
 	MyReg: ENTITY work.Reg	GENERIC MAP(16) PORT MAP(registerIn, enableImageRegister, clk, rst, dataOut);
 
