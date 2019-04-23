@@ -161,13 +161,14 @@ force -freeze sim:/cnnwithram/start 0 0
 
 run
 
-mem load -i /media/sf_CNN_Accelerator/CNN/RAMs/PassedTests/1layer2filter3x3/windowRAM.mem -format mti /cnnwithram/windowRam/ram
-mem load -i /media/sf_CNN_Accelerator/CNN/RAMs/PassedTests/1layer2filter3x3/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
+mem load -i D:\CMP\3rd year\Second Term\VLSI\Project\CNN_Accelerator\CNN\RAMs\PassedTests\1layer2filter3x3\windowRAM.mem -format mti /cnnwithram/windowRam/ram
+mem load -i D:\CMP\3rd year\Second Term\VLSI\Project\CNN_Accelerator\CNN\RAMs\PassedTests\1layer2filter3x3\weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
 
 
 
 
 force -freeze sim:/cnnwithram/rst 0 0
+run
 force -freeze sim:/cnnwithram/start 1 0
 run
 run
