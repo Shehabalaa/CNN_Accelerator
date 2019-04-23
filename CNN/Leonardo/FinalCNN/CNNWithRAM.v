@@ -1,6 +1,6 @@
 //
 // Verilog description for cell CNNWithRAM, 
-// Mon Apr 22 21:51:00 2019
+// Tue Apr 23 18:36:22 2019
 //
 // LeonardoSpectrum Level 3, 2018a.2 
 //
@@ -439,57 +439,57 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
     output [15:0]windowRamDataOutBus ;
     output finishNetwork ;
 
-    wire conv, pool, layerType, filterType, currentPage_0, filterBus_39, 
-         filterBus_38, filterBus_37, filterBus_36, filterBus_35, filterBus_34, 
-         filterBus_33, filterBus_32, filterBus_31, filterBus_30, filterBus_29, 
-         filterBus_28, filterBus_27, filterBus_26, filterBus_25, filterBus_24, 
-         filterBus_23, filterBus_22, filterBus_21, filterBus_20, filterBus_19, 
-         filterBus_18, filterBus_17, filterBus_16, filterBus_15, filterBus_14, 
-         filterBus_13, filterBus_12, filterBus_11, filterBus_10, filterBus_9, 
-         filterBus_8, filterBus_7, filterBus_6, filterBus_5, filterBus_4, 
-         filterBus_3, filterBus_2, filterBus_1, filterBus_0, windowBus_79, 
-         windowBus_78, windowBus_77, windowBus_76, windowBus_75, windowBus_74, 
-         windowBus_73, windowBus_72, windowBus_71, windowBus_70, windowBus_69, 
-         windowBus_68, windowBus_67, windowBus_66, windowBus_65, windowBus_64, 
-         windowBus_63, windowBus_62, windowBus_61, windowBus_60, windowBus_59, 
-         windowBus_58, windowBus_57, windowBus_56, windowBus_55, windowBus_54, 
-         windowBus_53, windowBus_52, windowBus_51, windowBus_50, windowBus_49, 
-         windowBus_48, windowBus_47, windowBus_46, windowBus_45, windowBus_44, 
-         windowBus_43, windowBus_42, windowBus_41, windowBus_40, windowBus_39, 
-         windowBus_38, windowBus_37, windowBus_36, windowBus_35, windowBus_34, 
-         windowBus_33, windowBus_32, windowBus_31, windowBus_30, windowBus_29, 
-         windowBus_28, windowBus_27, windowBus_26, windowBus_25, windowBus_24, 
-         windowBus_23, windowBus_22, windowBus_21, windowBus_20, windowBus_19, 
-         windowBus_18, windowBus_17, windowBus_16, windowBus_15, windowBus_14, 
-         windowBus_13, windowBus_12, windowBus_11, windowBus_10, windowBus_9, 
-         windowBus_8, windowBus_7, windowBus_6, windowBus_5, windowBus_4, 
-         windowBus_3, windowBus_2, windowBus_1, windowBus_0, writeBus_15, 
-         writeBus_14, writeBus_13, writeBus_12, writeBus_11, writeBus_10, 
-         writeBus_9, writeBus_8, writeBus_7, writeBus_6, writeBus_5, writeBus_4, 
-         writeBus_3, writeBus_2, writeBus_1, writeBus_0, decoderRow_2, 
-         decoderRow_1, decoderRow_0, writePage1, writePage2, writeFilter, 
-         shift2To1, shift1To2, doneCores, startConv, dmaFilterFinish, 
-         loadOneWord, loadTwoWord, readAllFinish, writeOneFinish, sumOutCores_15, 
-         sumOutCores_14, sumOutCores_13, sumOutCores_12, sumOutCores_11, 
-         sumOutCores_10, sumOutCores_9, sumOutCores_8, sumOutCores_7, 
-         sumOutCores_6, sumOutCores_5, sumOutCores_4, sumOutCores_3, 
-         sumOutCores_2, sumOutCores_1, sumOutCores_0, loadNetworkConfig, 
-         loadFilterConfig, loadWindow, loadFilter, readNextCol, finishLayer, 
-         finishSlice, inputSizeAddress_4, inputSizeAddress_3, inputSizeAddress_2, 
-         inputSizeAddress_1, inputSizeAddress_0, outputSizeAddress_4, 
-         outputSizeAddress_3, outputSizeAddress_2, outputSizeAddress_1, 
-         outputSizeAddress_0, outputSizeAddressForDMA_12, 
-         outputSizeAddressForDMA_11, outputSizeAddressForDMA_10, 
-         outputSizeAddressForDMA_9, outputSizeAddressForDMA_8, 
-         outputSizeAddressForDMA_7, outputSizeAddressForDMA_6, 
-         outputSizeAddressForDMA_5, outputSizeAddressForDMA_4, 
-         outputSizeAddressForDMA_3, outputSizeAddressForDMA_2, 
-         outputSizeAddressForDMA_1, outputSizeAddressForDMA_0, 
-         finishReadRowWindow, finishReadRowFilter, aluNumberWindow_2, 
-         aluNumberWindow_1, aluNumberWindow_0, layersNumber_1, layersNumber_0, 
-         filtersNumber_2, filtersNumber_1, filtersNumber_0, filterDepth_2, 
-         filterDepth_1, filterDepth_0, outputBufferEn, saveToRAM, allRead, 
-         currentRegFromOutBuffer_15, currentRegFromOutBuffer_14, 
+    wire conv, pool, layerType, filterType, sliceFirstLoad, currentPage_0, 
+         filterBus_39, filterBus_38, filterBus_37, filterBus_36, filterBus_35, 
+         filterBus_34, filterBus_33, filterBus_32, filterBus_31, filterBus_30, 
+         filterBus_29, filterBus_28, filterBus_27, filterBus_26, filterBus_25, 
+         filterBus_24, filterBus_23, filterBus_22, filterBus_21, filterBus_20, 
+         filterBus_19, filterBus_18, filterBus_17, filterBus_16, filterBus_15, 
+         filterBus_14, filterBus_13, filterBus_12, filterBus_11, filterBus_10, 
+         filterBus_9, filterBus_8, filterBus_7, filterBus_6, filterBus_5, 
+         filterBus_4, filterBus_3, filterBus_2, filterBus_1, filterBus_0, 
+         windowBus_79, windowBus_78, windowBus_77, windowBus_76, windowBus_75, 
+         windowBus_74, windowBus_73, windowBus_72, windowBus_71, windowBus_70, 
+         windowBus_69, windowBus_68, windowBus_67, windowBus_66, windowBus_65, 
+         windowBus_64, windowBus_63, windowBus_62, windowBus_61, windowBus_60, 
+         windowBus_59, windowBus_58, windowBus_57, windowBus_56, windowBus_55, 
+         windowBus_54, windowBus_53, windowBus_52, windowBus_51, windowBus_50, 
+         windowBus_49, windowBus_48, windowBus_47, windowBus_46, windowBus_45, 
+         windowBus_44, windowBus_43, windowBus_42, windowBus_41, windowBus_40, 
+         windowBus_39, windowBus_38, windowBus_37, windowBus_36, windowBus_35, 
+         windowBus_34, windowBus_33, windowBus_32, windowBus_31, windowBus_30, 
+         windowBus_29, windowBus_28, windowBus_27, windowBus_26, windowBus_25, 
+         windowBus_24, windowBus_23, windowBus_22, windowBus_21, windowBus_20, 
+         windowBus_19, windowBus_18, windowBus_17, windowBus_16, windowBus_15, 
+         windowBus_14, windowBus_13, windowBus_12, windowBus_11, windowBus_10, 
+         windowBus_9, windowBus_8, windowBus_7, windowBus_6, windowBus_5, 
+         windowBus_4, windowBus_3, windowBus_2, windowBus_1, windowBus_0, 
+         writeBus_15, writeBus_14, writeBus_13, writeBus_12, writeBus_11, 
+         writeBus_10, writeBus_9, writeBus_8, writeBus_7, writeBus_6, writeBus_5, 
+         writeBus_4, writeBus_3, writeBus_2, writeBus_1, writeBus_0, 
+         decoderRow_2, decoderRow_1, decoderRow_0, writePage1, writePage2, 
+         writeFilter, shift2To1, shift1To2, doneCores, startConv, 
+         dmaFilterFinish, loadOneWord, loadTwoWord, readAllFinish, 
+         writeOneFinish, sumOutCores_15, sumOutCores_14, sumOutCores_13, 
+         sumOutCores_12, sumOutCores_11, sumOutCores_10, sumOutCores_9, 
+         sumOutCores_8, sumOutCores_7, sumOutCores_6, sumOutCores_5, 
+         sumOutCores_4, sumOutCores_3, sumOutCores_2, sumOutCores_1, 
+         sumOutCores_0, loadNetworkConfig, loadFilterConfig, loadWindow, 
+         loadFilter, readNextCol, finishLayer, finishSlice, inputSizeAddress_4, 
+         inputSizeAddress_3, inputSizeAddress_2, inputSizeAddress_1, 
+         inputSizeAddress_0, outputSizeAddress_4, outputSizeAddress_3, 
+         outputSizeAddress_2, outputSizeAddress_1, outputSizeAddress_0, 
+         outputSizeAddressForDMA_12, outputSizeAddressForDMA_11, 
+         outputSizeAddressForDMA_10, outputSizeAddressForDMA_9, 
+         outputSizeAddressForDMA_8, outputSizeAddressForDMA_7, 
+         outputSizeAddressForDMA_6, outputSizeAddressForDMA_5, 
+         outputSizeAddressForDMA_4, outputSizeAddressForDMA_3, 
+         outputSizeAddressForDMA_2, outputSizeAddressForDMA_1, 
+         outputSizeAddressForDMA_0, finishReadRowWindow, finishReadRowFilter, 
+         aluNumberWindow_2, aluNumberWindow_1, aluNumberWindow_0, layersNumber_1, 
+         layersNumber_0, filtersNumber_2, filtersNumber_1, filtersNumber_0, 
+         filterDepth_2, filterDepth_1, filterDepth_0, outputBufferEn, saveToRAM, 
+         allRead, currentRegFromOutBuffer_15, currentRegFromOutBuffer_14, 
          currentRegFromOutBuffer_13, currentRegFromOutBuffer_12, 
          currentRegFromOutBuffer_11, currentRegFromOutBuffer_10, 
          currentRegFromOutBuffer_9, currentRegFromOutBuffer_8, 
@@ -500,10 +500,15 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
          finalAdderOut_14, finalAdderOut_13, finalAdderOut_12, finalAdderOut_11, 
          finalAdderOut_10, finalAdderOut_9, finalAdderOut_8, finalAdderOut_7, 
          finalAdderOut_6, finalAdderOut_5, finalAdderOut_4, finalAdderOut_3, 
-         finalAdderOut_2, finalAdderOut_1, finalAdderOut_0, readNumLayers, 
-         readLayerConfig, finishFilter, baseAddressTwo_11, inputSizeAddress_12, 
-         nx0, nx2, nx12, nx20, nx38, nx596, nx598, nx602, nx611, nx618, nx620, 
-         nx622, nx624, nx626, nx628, nx630, nx632, nx634, nx636;
+         finalAdderOut_2, finalAdderOut_1, finalAdderOut_0, inputToFinalAdder_15, 
+         inputToFinalAdder_14, inputToFinalAdder_13, inputToFinalAdder_12, 
+         inputToFinalAdder_11, inputToFinalAdder_10, inputToFinalAdder_9, 
+         inputToFinalAdder_8, inputToFinalAdder_7, inputToFinalAdder_6, 
+         inputToFinalAdder_5, inputToFinalAdder_4, inputToFinalAdder_3, 
+         inputToFinalAdder_2, inputToFinalAdder_1, inputToFinalAdder_0, 
+         readNumLayers, readLayerConfig, finishFilter, baseAddressTwo_11, 
+         inputSizeAddress_12, nx0, nx2, nx14, nx20, nx38, nx62, nx72, nx623, 
+         nx630, nx632, nx634, nx636, nx638, nx640, nx642, nx644, nx646, nx648;
     wire [6:0] \$dummy ;
 
 
@@ -517,7 +522,7 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
                         filterBus_21,filterBus_20,filterBus_19,filterBus_18,
                         filterBus_17,filterBus_16,filterBus_15,filterBus_14,
                         filterBus_13,filterBus_12,filterBus_11,filterBus_10,
-                        filterBus_9,filterBus_8,nx622,nx626,filterBus_5,
+                        filterBus_9,filterBus_8,nx634,nx638,filterBus_5,
                         filterBus_4,filterBus_3,filterBus_2,filterBus_1,
                         filterBus_0}), .windowBus ({windowBus_79,windowBus_78,
                         windowBus_77,windowBus_76,windowBus_75,windowBus_74,
@@ -544,12 +549,13 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
                         writePage1), .writePage2 (writePage2), .writeFilter (
                         writeFilter), .shift2To1 (shift2To1), .shift1To2 (
                         shift1To2), .pageTurn (currentPage_0), .start (startConv
-                        ), .layerType (layerType), .filterType (nx618), .done (
-                        doneCores), .finalSum ({sumOutCores_15,sumOutCores_14,
-                        sumOutCores_13,sumOutCores_12,sumOutCores_11,
-                        sumOutCores_10,sumOutCores_9,sumOutCores_8,sumOutCores_7
-                        ,sumOutCores_6,sumOutCores_5,sumOutCores_4,sumOutCores_3
-                        ,sumOutCores_2,sumOutCores_1,sumOutCores_0})) ;
+                        ), .layerType (layerType), .filterType (nx630), .doneCores (
+                        doneCores), .finalSumConv ({sumOutCores_15,
+                        sumOutCores_14,sumOutCores_13,sumOutCores_12,
+                        sumOutCores_11,sumOutCores_10,sumOutCores_9,
+                        sumOutCores_8,sumOutCores_7,sumOutCores_6,sumOutCores_5,
+                        sumOutCores_4,sumOutCores_3,sumOutCores_2,sumOutCores_1,
+                        sumOutCores_0})) ;
     ControlUnit controlUnitMap (.clk (clk), .layersNumber ({layersNumber_1,
                 layersNumber_0}), .filtersNumber ({filtersNumber_2,
                 filtersNumber_1,filtersNumber_0}), .filterDepth ({filterDepth_2,
@@ -558,15 +564,16 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
                 outputSizeAddress_1,outputSizeAddress_0}), .startNetwork (
                 startCNN), .layerType (layerType), .convFinish (doneCores), .dmaAFinish (
                 dmaFilterFinish), .dmaBFinish (readAllFinish), .dmaCFinish (
-                writeOneFinish), .resetNetwork (rst), .loadLayerConfig (
-                loadTwoWord), .loadNetworkConfig (loadNetworkConfig), .loadFilterConfig (
-                loadFilterConfig), .loadWindow (loadWindow), .loadFilter (
-                loadFilter), .conv (conv), .pool (pool), .shift12 (shift1To2), .shift21 (
-                shift2To1), .readNextCol (readNextCol), .addToOutputBuffer (
-                \$dummy [0]), .outputBufferEn (outputBufferEn), .saveToRAM (
-                saveToRAM), .currentPage ({currentPage_0}), .finishCurrentSlice (
-                finishSlice), .finishFilter (finishFilter), .finishOneLayer (
-                finishLayer), .finishNetwork (finishNetwork)) ;
+                writeOneFinish), .resetNetwork (rst), .sliceFirstLoad (
+                sliceFirstLoad), .loadLayerConfig (loadTwoWord), .loadNetworkConfig (
+                loadNetworkConfig), .loadFilterConfig (loadFilterConfig), .loadWindow (
+                loadWindow), .loadFilter (loadFilter), .conv (conv), .pool (pool
+                ), .shift12 (shift1To2), .shift21 (shift2To1), .readNextCol (
+                readNextCol), .addToOutputBuffer (\$dummy [0]), .outputBufferEn (
+                outputBufferEn), .saveToRAM (saveToRAM), .currentPage ({
+                currentPage_0}), .finishCurrentSlice (finishSlice), .finishFilter (
+                finishFilter), .finishOneLayer (finishLayer), .finishNetwork (
+                finishNetwork)) ;
     NBitAdder_13 outputSizeAddMap (.a ({inputSizeAddress_12,inputSizeAddress_12,
                  inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12,
                  inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12,
@@ -725,12 +732,12 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
                                windowRamDataOutBus[1],windowRamDataOutBus[0]}), 
                                .MFCWindowRam (MFCWindowRam), .MFCWeightsRam (
                                MFCWeightsRam), .MFCWrite (MFCWrite), .loadNextFilter (
-                               loadFilter), .loadNextWindow (nx630), .loadNextRow (
+                               loadFilter), .loadNextWindow (nx642), .loadNextRow (
                                readNextCol), .loadOneWord (loadOneWord), .loadThreeWord (
                                loadTwoWord), .filterFinished (finishFilter), .sliceFinished (
                                finishSlice), .layerFinished (finishLayer), .layerType (
                                layerType), .write (saveToRAM), .weightsSizeType (
-                               nx620), .inputSize ({inputSizeAddress_12,
+                               nx632), .inputSize ({inputSizeAddress_12,
                                inputSizeAddress_12,inputSizeAddress_12,
                                inputSizeAddress_12,inputSizeAddress_12,
                                inputSizeAddress_12,inputSizeAddress_12,
@@ -801,15 +808,15 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
                                  inputSizeAddress_12,inputSizeAddress_12,
                                  inputSizeAddress_12,inputSizeAddress_12,
                                  inputSizeAddress_12,inputSizeAddress_12,
-                                 inputSizeAddress_12,inputSizeAddress_12,nx622,
-                                 nx626,filterBus_5,filterBus_4,filterBus_3,
+                                 inputSizeAddress_12,inputSizeAddress_12,nx634,
+                                 nx638,filterBus_5,filterBus_4,filterBus_3,
                                  filterBus_2,filterBus_1,filterBus_0}), .writeBus (
                                  {writeBus_15,writeBus_14,writeBus_13,
                                  writeBus_12,writeBus_11,writeBus_10,writeBus_9,
                                  writeBus_8,writeBus_7,writeBus_6,writeBus_5,
                                  writeBus_4,writeBus_3,writeBus_2,writeBus_1,
                                  writeBus_0}), .AllRead (allRead), .enableDecoder (
-                                 nx634), .selectedRegisterMuxOutput ({
+                                 nx646), .selectedRegisterMuxOutput ({
                                  currentRegFromOutBuffer_15,
                                  currentRegFromOutBuffer_14,
                                  currentRegFromOutBuffer_13,
@@ -827,27 +834,44 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
                                  currentRegFromOutBuffer_1,
                                  currentRegFromOutBuffer_0}), .clk (clk), .finishSlice (
                                  finishSlice), .resetRegisters (rst), .tristateEnable (
-                                 saveToRAM), .counterEnable (nx636), .isPool (
+                                 saveToRAM), .counterEnable (nx648), .isPool (
                                  layerType)) ;
-    NBitAdder_16 finalAdderMap (.a ({currentRegFromOutBuffer_15,
-                 currentRegFromOutBuffer_14,currentRegFromOutBuffer_13,
-                 currentRegFromOutBuffer_12,currentRegFromOutBuffer_11,
-                 currentRegFromOutBuffer_10,currentRegFromOutBuffer_9,
-                 currentRegFromOutBuffer_8,currentRegFromOutBuffer_7,
-                 currentRegFromOutBuffer_6,currentRegFromOutBuffer_5,
-                 currentRegFromOutBuffer_4,currentRegFromOutBuffer_3,
-                 currentRegFromOutBuffer_2,currentRegFromOutBuffer_1,
-                 currentRegFromOutBuffer_0}), .b ({sumOutCores_15,sumOutCores_14
-                 ,sumOutCores_13,sumOutCores_12,sumOutCores_11,sumOutCores_10,
-                 sumOutCores_9,sumOutCores_8,sumOutCores_7,sumOutCores_6,
-                 sumOutCores_5,sumOutCores_4,sumOutCores_3,sumOutCores_2,
-                 sumOutCores_1,sumOutCores_0}), .carryIn (inputSizeAddress_12), 
-                 .sum ({finalAdderOut_15,finalAdderOut_14,finalAdderOut_13,
-                 finalAdderOut_12,finalAdderOut_11,finalAdderOut_10,
-                 finalAdderOut_9,finalAdderOut_8,finalAdderOut_7,finalAdderOut_6
-                 ,finalAdderOut_5,finalAdderOut_4,finalAdderOut_3,
-                 finalAdderOut_2,finalAdderOut_1,finalAdderOut_0}), .carryOut (
-                 \$dummy [6])) ;
+    Mux2_16 convOrPoolMuxMap (.A ({currentRegFromOutBuffer_15,
+            currentRegFromOutBuffer_14,currentRegFromOutBuffer_13,
+            currentRegFromOutBuffer_12,currentRegFromOutBuffer_11,
+            currentRegFromOutBuffer_10,currentRegFromOutBuffer_9,
+            currentRegFromOutBuffer_8,currentRegFromOutBuffer_7,
+            currentRegFromOutBuffer_6,currentRegFromOutBuffer_5,
+            currentRegFromOutBuffer_4,currentRegFromOutBuffer_3,
+            currentRegFromOutBuffer_2,currentRegFromOutBuffer_1,
+            currentRegFromOutBuffer_0}), .B ({inputSizeAddress_12,
+            inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12,
+            inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12,
+            inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12,
+            inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12,
+            inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12}), .S (
+            layerType), .C ({inputToFinalAdder_15,inputToFinalAdder_14,
+            inputToFinalAdder_13,inputToFinalAdder_12,inputToFinalAdder_11,
+            inputToFinalAdder_10,inputToFinalAdder_9,inputToFinalAdder_8,
+            inputToFinalAdder_7,inputToFinalAdder_6,inputToFinalAdder_5,
+            inputToFinalAdder_4,inputToFinalAdder_3,inputToFinalAdder_2,
+            inputToFinalAdder_1,inputToFinalAdder_0})) ;
+    NBitAdder_16 finalAdderMap (.a ({inputToFinalAdder_15,inputToFinalAdder_14,
+                 inputToFinalAdder_13,inputToFinalAdder_12,inputToFinalAdder_11,
+                 inputToFinalAdder_10,inputToFinalAdder_9,inputToFinalAdder_8,
+                 inputToFinalAdder_7,inputToFinalAdder_6,inputToFinalAdder_5,
+                 inputToFinalAdder_4,inputToFinalAdder_3,inputToFinalAdder_2,
+                 inputToFinalAdder_1,inputToFinalAdder_0}), .b ({sumOutCores_15,
+                 sumOutCores_14,sumOutCores_13,sumOutCores_12,sumOutCores_11,
+                 sumOutCores_10,sumOutCores_9,sumOutCores_8,sumOutCores_7,
+                 sumOutCores_6,sumOutCores_5,sumOutCores_4,sumOutCores_3,
+                 sumOutCores_2,sumOutCores_1,sumOutCores_0}), .carryIn (
+                 inputSizeAddress_12), .sum ({finalAdderOut_15,finalAdderOut_14,
+                 finalAdderOut_13,finalAdderOut_12,finalAdderOut_11,
+                 finalAdderOut_10,finalAdderOut_9,finalAdderOut_8,
+                 finalAdderOut_7,finalAdderOut_6,finalAdderOut_5,finalAdderOut_4
+                 ,finalAdderOut_3,finalAdderOut_2,finalAdderOut_1,
+                 finalAdderOut_0}), .carryOut (\$dummy [6])) ;
     Config_40 configMap (.filterBus ({inputSizeAddress_12,inputSizeAddress_12,
               inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12,
               inputSizeAddress_12,inputSizeAddress_12,inputSizeAddress_12,
@@ -857,7 +881,7 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
               filterBus_21,filterBus_20,filterBus_19,inputSizeAddress_12,
               inputSizeAddress_12,inputSizeAddress_12,filterBus_15,filterBus_14,
               filterBus_13,filterBus_12,filterBus_11,inputSizeAddress_12,
-              inputSizeAddress_12,inputSizeAddress_12,nx624,nx628,filterBus_5,
+              inputSizeAddress_12,inputSizeAddress_12,nx636,nx640,filterBus_5,
               filterBus_4,filterBus_3,filterBus_2,filterBus_1,filterBus_0}), .clk (
               clk), .rst (rst), .readNumLayers (readNumLayers), .readLayerConfig (
               readLayerConfig), .numLayers ({layersNumber_1,layersNumber_0}), .layerType (
@@ -868,8 +892,8 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
               inputSizeAddress_1,inputSizeAddress_0}), .outputSize ({
               outputSizeAddress_4,outputSizeAddress_3,outputSizeAddress_2,
               outputSizeAddress_1,outputSizeAddress_0})) ;
-    fake_gnd ix567 (.Y (inputSizeAddress_12)) ;
-    fake_vcc ix565 (.Y (baseAddressTwo_11)) ;
+    fake_gnd ix582 (.Y (inputSizeAddress_12)) ;
+    fake_vcc ix580 (.Y (baseAddressTwo_11)) ;
     and02 ix47 (.Y (readLayerConfig), .A0 (loadTwoWord), .A1 (
           finishReadRowFilter)) ;
     and02 ix49 (.Y (readNumLayers), .A0 (loadNetworkConfig), .A1 (
@@ -877,36 +901,35 @@ module CNNModule_8_16_5_5_3_12_13 ( startCNN, clk, rst, weightsRamDataInBus,
     and02 ix51 (.Y (allRead), .A0 (dmaFilterFinish), .A1 (loadFilterConfig)) ;
     or02 ix53 (.Y (loadOneWord), .A0 (loadNetworkConfig), .A1 (loadFilterConfig)
          ) ;
-    or02 ix75 (.Y (startConv), .A0 (conv), .A1 (pool)) ;
-    and02 ix55 (.Y (writeFilter), .A0 (finishReadRowFilter), .A1 (loadFilter)) ;
-    nor02ii ix65 (.Y (writePage2), .A0 (nx596), .A1 (finishReadRowWindow)) ;
-    aoi22 ix597 (.Y (nx596), .A0 (loadFilter), .A1 (nx630), .B0 (nx598), .B1 (
-          nx0)) ;
-    inv01 ix599 (.Y (nx598), .A (currentPage_0)) ;
-    or02 ix1 (.Y (nx0), .A0 (nx630), .A1 (readNextCol)) ;
-    nor02ii ix73 (.Y (writePage1), .A0 (nx602), .A1 (finishReadRowWindow)) ;
-    aoi22 ix603 (.Y (nx602), .A0 (loadFilter), .A1 (nx632), .B0 (currentPage_0)
-          , .B1 (nx0)) ;
+    or02 ix77 (.Y (startConv), .A0 (conv), .A1 (pool)) ;
+    and02 ix55 (.Y (writeFilter), .A0 (loadFilter), .A1 (finishReadRowFilter)) ;
+    and02 ix65 (.Y (writePage2), .A0 (finishReadRowWindow), .A1 (nx62)) ;
+    mux21_ni ix63 (.Y (nx62), .A0 (nx0), .A1 (sliceFirstLoad), .S0 (
+             currentPage_0)) ;
+    or02 ix1 (.Y (nx0), .A0 (readNextCol), .A1 (nx642)) ;
+    and02 ix75 (.Y (writePage1), .A0 (finishReadRowWindow), .A1 (nx72)) ;
+    mux21_ni ix73 (.Y (nx72), .A0 (sliceFirstLoad), .A1 (nx0), .S0 (
+             currentPage_0)) ;
     latch lat_decoderRow_0 (.Q (decoderRow_0), .D (nx2), .CLK (nx0)) ;
-    and02 ix3 (.Y (nx2), .A0 (aluNumberWindow_0), .A1 (nx632)) ;
+    and02 ix3 (.Y (nx2), .A0 (aluNumberWindow_0), .A1 (nx642)) ;
     latch lat_decoderRow_1 (.Q (decoderRow_1), .D (nx20), .CLK (nx0)) ;
-    mux21_ni ix21 (.Y (nx20), .A0 (nx12), .A1 (aluNumberWindow_1), .S0 (nx632)
-             ) ;
-    nor02ii ix13 (.Y (nx12), .A0 (nx618), .A1 (readNextCol)) ;
+    ao22 ix21 (.Y (nx20), .A0 (aluNumberWindow_1), .A1 (nx644), .B0 (readNextCol
+         ), .B1 (nx14)) ;
+    nor02_2x ix15 (.Y (nx14), .A0 (nx630), .A1 (nx644)) ;
     latch lat_decoderRow_2 (.Q (decoderRow_2), .D (nx38), .CLK (nx0)) ;
-    oai21 ix39 (.Y (nx38), .A0 (nx632), .A1 (readNextCol), .B0 (nx611)) ;
-    mux21 ix612 (.Y (nx611), .A0 (nx618), .A1 (aluNumberWindow_2), .S0 (nx632)
+    oai21 ix39 (.Y (nx38), .A0 (readNextCol), .A1 (nx644), .B0 (nx623)) ;
+    mux21 ix624 (.Y (nx623), .A0 (nx630), .A1 (aluNumberWindow_2), .S0 (nx644)
           ) ;
-    buf02 ix617 (.Y (nx618), .A (filterType)) ;
-    buf02 ix619 (.Y (nx620), .A (filterType)) ;
-    buf02 ix621 (.Y (nx622), .A (filterBus_7)) ;
-    buf02 ix623 (.Y (nx624), .A (filterBus_7)) ;
-    buf02 ix625 (.Y (nx626), .A (filterBus_6)) ;
-    buf02 ix627 (.Y (nx628), .A (filterBus_6)) ;
-    buf02 ix629 (.Y (nx630), .A (loadWindow)) ;
-    buf02 ix631 (.Y (nx632), .A (loadWindow)) ;
-    buf02 ix633 (.Y (nx634), .A (outputBufferEn)) ;
-    buf02 ix635 (.Y (nx636), .A (outputBufferEn)) ;
+    buf02 ix629 (.Y (nx630), .A (filterType)) ;
+    buf02 ix631 (.Y (nx632), .A (filterType)) ;
+    buf02 ix633 (.Y (nx634), .A (filterBus_7)) ;
+    buf02 ix635 (.Y (nx636), .A (filterBus_7)) ;
+    buf02 ix637 (.Y (nx638), .A (filterBus_6)) ;
+    buf02 ix639 (.Y (nx640), .A (filterBus_6)) ;
+    buf02 ix641 (.Y (nx642), .A (loadWindow)) ;
+    buf02 ix643 (.Y (nx644), .A (loadWindow)) ;
+    buf02 ix645 (.Y (nx646), .A (outputBufferEn)) ;
+    buf02 ix647 (.Y (nx648), .A (outputBufferEn)) ;
 endmodule
 
 
@@ -57142,7 +57165,7 @@ module DMAController_12_13_8_16_5 ( clk, reset, weightsInternalBus,
          windowInternalBusRLogic_2, windowInternalBusRLogic_1, 
          windowInternalBusRLogic_0, switchRam, windowRLSwitchRam, filterStep_2, 
          filterStep_1, writeFinishFilter, loadWord, resetLogics, 
-         weightsSizeForWindow_0, NOT_weightsSizeType_dup_606, NOT__4680, nx614;
+         weightsSizeForWindow_0, NOT_weightsSizeType_dup_606, NOT__4685, nx614;
     wire [15:0] \$dummy ;
 
 
@@ -57514,8 +57537,8 @@ module DMAController_12_13_8_16_5 ( clk, reset, weightsInternalBus,
     nor02ii ix13 (.Y (filterStep_2), .A0 (loadWord), .A1 (weightsSizeType)) ;
     or02 ix23 (.Y (windowRLSwitchRam), .A0 (switchRam), .A1 (filterFinished)) ;
     or02 ix21 (.Y (switchRam), .A0 (reset), .A1 (layerFinished)) ;
-    dffr reg_ramBaseAddressSelector (.Q (ramBaseAddressSelector), .QB (NOT__4680
-         ), .D (NOT__4680), .CLK (layerFinished), .R (reset)) ;
+    dffr reg_ramBaseAddressSelector (.Q (ramBaseAddressSelector), .QB (NOT__4685
+         ), .D (NOT__4685), .CLK (layerFinished), .R (reset)) ;
 endmodule
 
 
@@ -57936,7 +57959,7 @@ module ReadLogic_12_40_true ( clk, resetState, switchRam, ramBasedAddress,
          dmaReadBaseAddress_3, dmaReadBaseAddress_2, dmaReadBaseAddress_1, 
          dmaReadBaseAddress_0, dmaInitRamBaseAddress, dmaCountIn_2, dmaCountIn_1, 
          dmaCountIn_0, dmaInitCounter, PWR, addressRegOut_11, currentState_0, 
-         nx387, nx12, nx16, NOT__4271, nx395, nx405, nx414, nx419, nx424, nx427, 
+         nx387, nx12, nx16, NOT__4276, nx395, nx405, nx414, nx419, nx424, nx427, 
          nx432, nx434, nx437, nx440, nx444, nx451;
     wire [0:0] \$dummy ;
 
@@ -57994,14 +58017,14 @@ module ReadLogic_12_40_true ( clk, resetState, switchRam, ramBasedAddress,
               ramAddress[3],ramAddress[2],ramAddress[1],ramAddress[0]}), .MFC (
               MFC)) ;
     Counter2_3 aluNumberCounter (.load ({addressRegOut_11,addressRegOut_11,
-               addressRegOut_11}), .reset (NOT__4271), .clk (aluNumberCounterClk
+               addressRegOut_11}), .reset (NOT__4276), .clk (aluNumberCounterClk
                ), .isLoad (addressRegOut_11), .count ({aluCounterOut_2,
                aluCounterOut_1,aluCounterOut_0})) ;
     Reg_3 regCounterOut (.D ({aluCounterOut_2,aluCounterOut_1,aluCounterOut_0})
           , .en (PWR), .clk (notClk), .rst (addressRegOut_11), .Q ({aluNumber[2]
           ,aluNumber[1],aluNumber[0]})) ;
     oai32 ix406 (.Y (nx405), .A0 (switchRam), .A1 (currentState_0), .A2 (nx427)
-          , .B0 (NOT__4271), .B1 (nx387)) ;
+          , .B0 (NOT__4276), .B1 (nx387)) ;
     oai21 ix396 (.Y (nx395), .A0 (nx414), .A1 (nx387), .B0 (nx424)) ;
     dffr reg_currentState_0 (.Q (currentState_0), .QB (nx414), .D (nx395), .CLK (
          notClk), .R (resetState)) ;
@@ -58009,7 +58032,7 @@ module ReadLogic_12_40_true ( clk, resetState, switchRam, ramBasedAddress,
     nand02 ix23 (.Y (nx387), .A0 (nx419), .A1 (nx424)) ;
     aoi21 ix420 (.Y (nx419), .A0 (readFinal), .A1 (nx16), .B0 (
           dmaInitRamBaseAddress)) ;
-    dffr reg_currentState_1 (.Q (ramRead), .QB (NOT__4271), .D (nx405), .CLK (
+    dffr reg_currentState_1 (.Q (ramRead), .QB (NOT__4276), .D (nx405), .CLK (
          notClk), .R (resetState)) ;
     nor02_2x ix425 (.Y (nx424), .A0 (nx12), .A1 (switchRam)) ;
     nor03_2x ix428 (.Y (nx427), .A0 (loadNextWordList), .A1 (loadWord), .A2 (
@@ -58030,10 +58053,10 @@ module ReadLogic_12_40_true ( clk, resetState, switchRam, ramBasedAddress,
     nand02 ix445 (.Y (nx444), .A0 (loadNextWordList), .A1 (readOne)) ;
     inv01 ix17 (.Y (nx16), .A (nx440)) ;
     buf02 ix450 (.Y (nx451), .A (dmaInitCounter)) ;
-    and02 ix35 (.Y (dmaInitRamBaseAddress), .A0 (NOT__4271), .A1 (currentState_0
+    and02 ix35 (.Y (dmaInitRamBaseAddress), .A0 (NOT__4276), .A1 (currentState_0
           )) ;
     nor02ii ix13 (.Y (nx12), .A0 (nx427), .A1 (nx414)) ;
-    and02 ix441 (.Y (nx440), .A0 (nx414), .A1 (NOT__4271)) ;
+    and02 ix441 (.Y (nx440), .A0 (nx414), .A1 (NOT__4276)) ;
 endmodule
 
 
@@ -59429,11 +59452,11 @@ endmodule
 module ControlUnit ( clk, layersNumber, filtersNumber, filterDepth, 
                      filterOutputSize, startNetwork, layerType, convFinish, 
                      dmaAFinish, dmaBFinish, dmaCFinish, resetNetwork, 
-                     loadLayerConfig, loadNetworkConfig, loadFilterConfig, 
-                     loadWindow, loadFilter, conv, pool, shift12, shift21, 
-                     readNextCol, addToOutputBuffer, outputBufferEn, saveToRAM, 
-                     currentPage, finishCurrentSlice, finishFilter, 
-                     finishOneLayer, finishNetwork ) ;
+                     sliceFirstLoad, loadLayerConfig, loadNetworkConfig, 
+                     loadFilterConfig, loadWindow, loadFilter, conv, pool, 
+                     shift12, shift21, readNextCol, addToOutputBuffer, 
+                     outputBufferEn, saveToRAM, currentPage, finishCurrentSlice, 
+                     finishFilter, finishOneLayer, finishNetwork ) ;
 
     input clk ;
     input [1:0]layersNumber ;
@@ -59447,6 +59470,7 @@ module ControlUnit ( clk, layersNumber, filtersNumber, filterDepth,
     input dmaBFinish ;
     input dmaCFinish ;
     input resetNetwork ;
+    output sliceFirstLoad ;
     output loadLayerConfig ;
     output loadNetworkConfig ;
     output loadFilterConfig ;
@@ -59466,7 +59490,7 @@ module ControlUnit ( clk, layersNumber, filtersNumber, filterDepth,
     output finishOneLayer ;
     output finishNetwork ;
 
-    wire startOneLayer, startFilter, filterLastLayer, startSlice, nx94, nx96;
+    wire startOneLayer, startFilter, filterLastLayer, startSlice, nx96, nx98;
 
 
 
@@ -59482,37 +59506,38 @@ module ControlUnit ( clk, layersNumber, filtersNumber, filterDepth,
                       filtersNumber[2],filtersNumber[1],filtersNumber[0]}), .loadConfig (
                       loadLayerConfig), .startFilterConv (startFilter), .finish (
                       finishOneLayer)) ;
-    FilterController_3 filterMap (.start (startFilter), .layerType (nx94), .dmaFinish (
+    FilterController_3 filterMap (.start (startFilter), .layerType (nx96), .dmaFinish (
                        dmaAFinish), .oneConvFinish (finishCurrentSlice), .resetState (
                        resetNetwork), .clk (clk), .depth ({filterDepth[2],
                        filterDepth[1],filterDepth[0]}), .startOneConv (
                        startSlice), .loadConfig (loadFilterConfig), .filterLastLayer (
                        filterLastLayer), .finish (finishFilter)) ;
     SliceFilterController_5 sliceFilterMap (.start (startSlice), .layerType (
-                            nx96), .filterLastLayer (filterLastLayer), .finishConv (
+                            nx98), .filterLastLayer (filterLastLayer), .finishConv (
                             convFinish), .dmaAFinish (dmaAFinish), .dmaBFinish (
                             dmaBFinish), .dmaCFinish (dmaCFinish), .resetState (
                             resetNetwork), .clk (clk), .outputSize ({
                             filterOutputSize[4],filterOutputSize[3],
                             filterOutputSize[2],filterOutputSize[1],
                             filterOutputSize[0]}), .pageTurn ({currentPage[0]})
-                            , .loadFilter (loadFilter), .loadWindow (loadWindow)
-                            , .conv (conv), .pool (pool), .shift12 (shift12), .shift21 (
+                            , .sliceFirstLoad (sliceFirstLoad), .loadFilter (
+                            loadFilter), .loadWindow (loadWindow), .conv (conv)
+                            , .pool (pool), .shift12 (shift12), .shift21 (
                             shift21), .readNextCol (readNextCol), .addToOutputBuffer (
                             addToOutputBuffer), .outputBufferEn (outputBufferEn)
                             , .saveToRAM (saveToRAM), .finish (
                             finishCurrentSlice)) ;
-    buf02 ix93 (.Y (nx94), .A (layerType)) ;
     buf02 ix95 (.Y (nx96), .A (layerType)) ;
+    buf02 ix97 (.Y (nx98), .A (layerType)) ;
 endmodule
 
 
 module SliceFilterController_5 ( start, layerType, filterLastLayer, finishConv, 
                                  dmaAFinish, dmaBFinish, dmaCFinish, resetState, 
-                                 clk, outputSize, pageTurn, loadFilter, 
-                                 loadWindow, conv, pool, shift12, shift21, 
-                                 readNextCol, addToOutputBuffer, outputBufferEn, 
-                                 saveToRAM, finish ) ;
+                                 clk, outputSize, pageTurn, sliceFirstLoad, 
+                                 loadFilter, loadWindow, conv, pool, shift12, 
+                                 shift21, readNextCol, addToOutputBuffer, 
+                                 outputBufferEn, saveToRAM, finish ) ;
 
     input start ;
     input layerType ;
@@ -59525,6 +59550,7 @@ module SliceFilterController_5 ( start, layerType, filterLastLayer, finishConv,
     input clk ;
     input [4:0]outputSize ;
     output [0:0]pageTurn ;
+    output sliceFirstLoad ;
     output loadFilter ;
     output loadWindow ;
     output conv ;
@@ -59541,18 +59567,18 @@ module SliceFilterController_5 ( start, layerType, filterLastLayer, finishConv,
          altInnerCounterOut_3, altInnerCounterOut_2, altInnerCounterOut_1, 
          altInnerCounterOut_0, altOuterCounterOut_4, altOuterCounterOut_3, 
          altOuterCounterOut_2, altOuterCounterOut_1, altOuterCounterOut_0, 
-         innerCounterEn, currentState_1, currentState_3, nx603, NOT_clk, 
-         currentState_2, outerCounterOut_1, outerCounterOut_4, outerCounterOut_0, 
+         innerCounterEn, currentState_3, nx614, NOT_clk, currentState_2, 
+         outerCounterOut_1, outerCounterOut_4, outerCounterOut_0, 
          outerCounterOut_2, outerCounterOut_3, nx64, innerCounterOut_1, 
          innerCounterOut_4, innerCounterOut_0, innerCounterOut_2, 
-         innerCounterOut_3, nx112, nx118, currentState_6, nx150, nx164, nx208, 
-         nx212, NOT_pageTurn_0, nx608, nx618, nx628, nx640, nx650, nx660, nx670, 
-         nx680, nx690, nx701, nx704, nx708, nx712, nx717, nx722, nx725, nx733, 
-         nx735, nx739, nx743, nx747, nx751, nx756, nx758, nx762, nx766, nx770, 
-         nx774, nx778, nx780, nx782, nx784, nx791, nx794, nx798, nx800, nx802, 
-         nx805, nx807, nx809, nx811, nx813, nx816, nx824, nx830, nx835, nx837, 
-         nx845, nx847;
-    wire [15:0] \$dummy ;
+         innerCounterOut_3, nx112, nx118, currentState_6, nx150, finalDMACFinish, 
+         nx168, nx174, finalDMABFinish, nx202, nx210, nx214, NOT_pageTurn_0, 
+         nx619, nx629, nx639, nx651, nx661, nx671, nx681, nx691, nx701, nx712, 
+         nx715, nx719, nx723, nx728, nx733, nx736, nx744, nx746, nx750, nx754, 
+         nx758, nx762, nx767, nx769, nx773, nx777, nx781, nx785, nx789, nx791, 
+         nx793, nx795, nx802, nx809, nx812, nx814, nx816, nx819, nx821, nx823, 
+         nx825, nx827, nx838, nx844, nx848, nx850, nx858, nx860;
+    wire [13:0] \$dummy ;
 
 
 
@@ -59561,137 +59587,137 @@ module SliceFilterController_5 ( start, layerType, filterLastLayer, finishConv,
               clk), .count ({altInnerCounterOut_4,altInnerCounterOut_3,
               altInnerCounterOut_2,altInnerCounterOut_1,altInnerCounterOut_0})
               ) ;
-    Counter_5 outerCounterMap (.en (outerCounterEn), .reset (nx845), .clk (clk)
+    Counter_5 outerCounterMap (.en (outerCounterEn), .reset (nx858), .clk (clk)
               , .count ({altOuterCounterOut_4,altOuterCounterOut_3,
               altOuterCounterOut_2,altOuterCounterOut_1,altOuterCounterOut_0})
               ) ;
     Reg_1 pageRegMap (.D ({NOT_pageTurn_0}), .en (innerCounterEn), .clk (clk), .rst (
-          nx845), .Q ({pageTurn[0]})) ;
-    inv01 ix698 (.Y (NOT_pageTurn_0), .A (pageTurn[0])) ;
-    aoi21 ix273 (.Y (conv), .A0 (nx701), .A1 (nx712), .B0 (layerType)) ;
-    aoi21 ix705 (.Y (nx704), .A0 (outputBufferEn), .A1 (nx811), .B0 (
-          currentState_1)) ;
-    dffr reg_currentState_5 (.Q (outputBufferEn), .QB (\$dummy [0]), .D (nx618)
+          nx858), .Q ({pageTurn[0]})) ;
+    inv01 ix709 (.Y (NOT_pageTurn_0), .A (pageTurn[0])) ;
+    aoi21 ix275 (.Y (conv), .A0 (nx712), .A1 (nx723), .B0 (layerType)) ;
+    aoi21 ix716 (.Y (nx715), .A0 (outputBufferEn), .A1 (nx825), .B0 (
+          sliceFirstLoad)) ;
+    dffr reg_currentState_5 (.Q (outputBufferEn), .QB (\$dummy [0]), .D (nx629)
          , .CLK (NOT_clk), .R (resetState)) ;
-    aoi21 ix709 (.Y (nx708), .A0 (layerType), .A1 (currentState_3), .B0 (
+    aoi21 ix720 (.Y (nx719), .A0 (layerType), .A1 (currentState_3), .B0 (
           addToOutputBuffer)) ;
-    oai21 ix641 (.Y (nx640), .A0 (nx712), .A1 (nx603), .B0 (nx701)) ;
-    dffr reg_currentState_3 (.Q (currentState_3), .QB (nx712), .D (nx640), .CLK (
+    oai21 ix652 (.Y (nx651), .A0 (nx723), .A1 (nx614), .B0 (nx712)) ;
+    dffr reg_currentState_3 (.Q (currentState_3), .QB (nx723), .D (nx651), .CLK (
          NOT_clk), .R (resetState)) ;
-    inv02 ix715 (.Y (NOT_clk), .A (clk)) ;
-    nand04 ix237 (.Y (nx603), .A0 (nx717), .A1 (nx725), .A2 (nx780), .A3 (nx784)
+    inv02 ix726 (.Y (NOT_clk), .A (clk)) ;
+    nand04 ix239 (.Y (nx614), .A0 (nx728), .A1 (nx736), .A2 (nx791), .A3 (nx795)
            ) ;
-    nor03_2x ix718 (.Y (nx717), .A0 (currentState_2), .A1 (addToOutputBuffer), .A2 (
+    nor03_2x ix729 (.Y (nx728), .A0 (currentState_2), .A1 (addToOutputBuffer), .A2 (
              outputBufferEn)) ;
-    dffr reg_currentState_2 (.Q (currentState_2), .QB (nx701), .D (nx628), .CLK (
+    dffr reg_currentState_2 (.Q (currentState_2), .QB (nx712), .D (nx639), .CLK (
          NOT_clk), .R (resetState)) ;
     dffr reg_currentState_4 (.Q (addToOutputBuffer), .QB (\$dummy [1]), .D (
-         nx608), .CLK (NOT_clk), .R (resetState)) ;
-    nor03_2x ix609 (.Y (nx608), .A0 (layerType), .A1 (nx712), .A2 (nx722)) ;
-    nand02 ix726 (.Y (nx725), .A0 (start), .A1 (nx845)) ;
+         nx619), .CLK (NOT_clk), .R (resetState)) ;
+    nor03_2x ix620 (.Y (nx619), .A0 (layerType), .A1 (nx723), .A2 (nx733)) ;
+    nand02 ix737 (.Y (nx736), .A0 (start), .A1 (nx858)) ;
     dffs_ni reg_currentState_0 (.Q (currentState_0), .QB (\$dummy [2]), .D (
-            nx660), .CLK (NOT_clk), .S (resetState)) ;
-    mux21_ni ix661 (.Y (nx660), .A0 (nx845), .A1 (currentState_6), .S0 (nx603)
+            nx671), .CLK (NOT_clk), .S (resetState)) ;
+    mux21_ni ix672 (.Y (nx671), .A0 (nx858), .A1 (currentState_6), .S0 (nx614)
              ) ;
-    dffr reg_currentState_6 (.Q (currentState_6), .QB (nx778), .D (nx650), .CLK (
+    dffr reg_currentState_6 (.Q (currentState_6), .QB (nx789), .D (nx661), .CLK (
          NOT_clk), .R (resetState)) ;
-    ao22 ix651 (.Y (nx650), .A0 (outputBufferEn), .A1 (nx118), .B0 (
-         currentState_6), .B1 (nx722)) ;
+    ao22 ix662 (.Y (nx661), .A0 (outputBufferEn), .A1 (nx118), .B0 (
+         currentState_6), .B1 (nx733)) ;
     nor02_2x ix119 (.Y (nx118), .A0 (nx64), .A1 (nx112)) ;
-    nand04 ix65 (.Y (nx64), .A0 (nx733), .A1 (nx743), .A2 (nx747), .A3 (nx751)
+    nand04 ix65 (.Y (nx64), .A0 (nx744), .A1 (nx754), .A2 (nx758), .A3 (nx762)
            ) ;
-    and02 ix734 (.Y (nx733), .A0 (nx735), .A1 (nx739)) ;
-    xnor2 ix736 (.Y (nx735), .A0 (outerCounterOut_3), .A1 (outputSize[3])) ;
+    and02 ix745 (.Y (nx744), .A0 (nx746), .A1 (nx750)) ;
+    xnor2 ix747 (.Y (nx746), .A0 (outerCounterOut_3), .A1 (outputSize[3])) ;
     dff reg_outerCounterOut_3 (.Q (outerCounterOut_3), .QB (\$dummy [3]), .D (
         altOuterCounterOut_3), .CLK (clk)) ;
-    xnor2 ix740 (.Y (nx739), .A0 (outerCounterOut_2), .A1 (outputSize[2])) ;
+    xnor2 ix751 (.Y (nx750), .A0 (outerCounterOut_2), .A1 (outputSize[2])) ;
     dff reg_outerCounterOut_2 (.Q (outerCounterOut_2), .QB (\$dummy [4]), .D (
         altOuterCounterOut_2), .CLK (clk)) ;
-    xnor2 ix744 (.Y (nx743), .A0 (outerCounterOut_0), .A1 (outputSize[0])) ;
+    xnor2 ix755 (.Y (nx754), .A0 (outerCounterOut_0), .A1 (outputSize[0])) ;
     dff reg_outerCounterOut_0 (.Q (outerCounterOut_0), .QB (\$dummy [5]), .D (
         altOuterCounterOut_0), .CLK (clk)) ;
-    xnor2 ix748 (.Y (nx747), .A0 (outerCounterOut_4), .A1 (outputSize[4])) ;
+    xnor2 ix759 (.Y (nx758), .A0 (outerCounterOut_4), .A1 (outputSize[4])) ;
     dff reg_outerCounterOut_4 (.Q (outerCounterOut_4), .QB (\$dummy [6]), .D (
         altOuterCounterOut_4), .CLK (clk)) ;
-    xnor2 ix752 (.Y (nx751), .A0 (outerCounterOut_1), .A1 (outputSize[1])) ;
+    xnor2 ix763 (.Y (nx762), .A0 (outerCounterOut_1), .A1 (outputSize[1])) ;
     dff reg_outerCounterOut_1 (.Q (outerCounterOut_1), .QB (\$dummy [7]), .D (
         altOuterCounterOut_1), .CLK (clk)) ;
-    nand04 ix113 (.Y (nx112), .A0 (nx756), .A1 (nx766), .A2 (nx770), .A3 (nx774)
+    nand04 ix113 (.Y (nx112), .A0 (nx767), .A1 (nx777), .A2 (nx781), .A3 (nx785)
            ) ;
-    and02 ix757 (.Y (nx756), .A0 (nx758), .A1 (nx762)) ;
-    xnor2 ix759 (.Y (nx758), .A0 (innerCounterOut_3), .A1 (outputSize[3])) ;
+    and02 ix768 (.Y (nx767), .A0 (nx769), .A1 (nx773)) ;
+    xnor2 ix770 (.Y (nx769), .A0 (innerCounterOut_3), .A1 (outputSize[3])) ;
     dff reg_innerCounterOut_3 (.Q (innerCounterOut_3), .QB (\$dummy [8]), .D (
         altInnerCounterOut_3), .CLK (clk)) ;
-    xnor2 ix763 (.Y (nx762), .A0 (innerCounterOut_2), .A1 (outputSize[2])) ;
+    xnor2 ix774 (.Y (nx773), .A0 (innerCounterOut_2), .A1 (outputSize[2])) ;
     dff reg_innerCounterOut_2 (.Q (innerCounterOut_2), .QB (\$dummy [9]), .D (
         altInnerCounterOut_2), .CLK (clk)) ;
-    xnor2 ix767 (.Y (nx766), .A0 (innerCounterOut_0), .A1 (outputSize[0])) ;
+    xnor2 ix778 (.Y (nx777), .A0 (innerCounterOut_0), .A1 (outputSize[0])) ;
     dff reg_innerCounterOut_0 (.Q (innerCounterOut_0), .QB (\$dummy [10]), .D (
         altInnerCounterOut_0), .CLK (clk)) ;
-    xnor2 ix771 (.Y (nx770), .A0 (innerCounterOut_4), .A1 (outputSize[4])) ;
+    xnor2 ix782 (.Y (nx781), .A0 (innerCounterOut_4), .A1 (outputSize[4])) ;
     dff reg_innerCounterOut_4 (.Q (innerCounterOut_4), .QB (\$dummy [11]), .D (
         altInnerCounterOut_4), .CLK (clk)) ;
-    xnor2 ix775 (.Y (nx774), .A0 (innerCounterOut_1), .A1 (outputSize[1])) ;
+    xnor2 ix786 (.Y (nx785), .A0 (innerCounterOut_1), .A1 (outputSize[1])) ;
     dff reg_innerCounterOut_1 (.Q (innerCounterOut_1), .QB (\$dummy [12]), .D (
         altInnerCounterOut_1), .CLK (clk)) ;
-    oai21 ix781 (.Y (nx780), .A0 (nx782), .A1 (dmaCFinish), .B0 (currentState_6)
+    oai21 ix792 (.Y (nx791), .A0 (nx793), .A1 (dmaCFinish), .B0 (currentState_6)
           ) ;
-    inv01 ix783 (.Y (nx782), .A (filterLastLayer)) ;
-    aoi33 ix785 (.Y (nx784), .A0 (nx212), .A1 (dmaBFinish), .A2 (currentState_1)
-          , .B0 (finishConv), .B1 (currentState_3), .B2 (nx208)) ;
-    or02 ix213 (.Y (nx212), .A0 (layerType), .A1 (dmaAFinish)) ;
-    dffr reg_currentState_1 (.Q (currentState_1), .QB (\$dummy [13]), .D (nx690)
+    inv01 ix794 (.Y (nx793), .A (filterLastLayer)) ;
+    aoi33 ix796 (.Y (nx795), .A0 (nx214), .A1 (dmaBFinish), .A2 (sliceFirstLoad)
+          , .B0 (finishConv), .B1 (currentState_3), .B2 (nx210)) ;
+    or02 ix215 (.Y (nx214), .A0 (layerType), .A1 (dmaAFinish)) ;
+    dffr reg_currentState_1 (.Q (sliceFirstLoad), .QB (\$dummy [13]), .D (nx701)
          , .CLK (NOT_clk), .R (resetState)) ;
-    mux21_ni ix691 (.Y (nx690), .A0 (currentState_1), .A1 (nx845), .S0 (nx603)
+    mux21_ni ix702 (.Y (nx701), .A0 (sliceFirstLoad), .A1 (nx858), .S0 (nx614)
              ) ;
-    aoi32 ix209 (.Y (nx208), .A0 (nx791), .A1 (filterLastLayer), .A2 (saveToRAM)
-          , .B0 (nx811), .B1 (nx813)) ;
-    dffr reg_finalDMACFinish (.Q (\$dummy [14]), .QB (nx791), .D (nx670), .CLK (
-         clk), .R (nx164)) ;
-    nand02 ix671 (.Y (nx670), .A0 (nx791), .A1 (nx794)) ;
-    oai21 ix795 (.Y (nx794), .A0 (nx164), .A1 (currentState_3), .B0 (dmaCFinish)
-          ) ;
-    or02 ix165 (.Y (nx164), .A0 (nx845), .A1 (addToOutputBuffer)) ;
-    aoi22 ix189 (.Y (saveToRAM), .A0 (nx798), .A1 (nx782), .B0 (nx800), .B1 (
-          nx778)) ;
-    inv01 ix799 (.Y (nx798), .A (layerType)) ;
-    ao32 ix801 (.Y (nx800), .A0 (nx802), .A1 (nx805), .A2 (nx807), .B0 (nx809), 
-         .B1 (nx701)) ;
-    nor04 ix803 (.Y (nx802), .A0 (outerCounterOut_0), .A1 (outerCounterOut_1), .A2 (
+    aoi32 ix211 (.Y (nx210), .A0 (nx802), .A1 (filterLastLayer), .A2 (saveToRAM)
+          , .B0 (nx825), .B1 (nx827)) ;
+    or02 ix682 (.Y (nx681), .A0 (finalDMACFinish), .A1 (nx168)) ;
+    dffr reg_finalDMACFinish (.Q (finalDMACFinish), .QB (nx802), .D (nx681), .CLK (
+         clk), .R (nx174)) ;
+    or02 ix175 (.Y (nx174), .A0 (innerCounterEn), .A1 (addToOutputBuffer)) ;
+    or02 ix173 (.Y (innerCounterEn), .A0 (nx858), .A1 (outputBufferEn)) ;
+    nor02ii ix169 (.Y (nx168), .A0 (nx809), .A1 (dmaCFinish)) ;
+    nor03_2x ix810 (.Y (nx809), .A0 (currentState_3), .A1 (addToOutputBuffer), .A2 (
+             nx858)) ;
+    aoi22 ix193 (.Y (saveToRAM), .A0 (nx812), .A1 (nx793), .B0 (nx814), .B1 (
+          nx789)) ;
+    inv01 ix813 (.Y (nx812), .A (layerType)) ;
+    ao32 ix815 (.Y (nx814), .A0 (nx816), .A1 (nx819), .A2 (nx821), .B0 (nx823), 
+         .B1 (nx712)) ;
+    nor04 ix817 (.Y (nx816), .A0 (outerCounterOut_0), .A1 (outerCounterOut_1), .A2 (
           nx150), .A3 (outerCounterOut_2)) ;
     or02 ix151 (.Y (nx150), .A0 (outerCounterOut_3), .A1 (outerCounterOut_4)) ;
-    nor02_2x ix806 (.Y (nx805), .A0 (innerCounterOut_0), .A1 (innerCounterOut_1)
+    nor02_2x ix820 (.Y (nx819), .A0 (innerCounterOut_0), .A1 (innerCounterOut_1)
              ) ;
-    nor03_2x ix808 (.Y (nx807), .A0 (innerCounterOut_3), .A1 (innerCounterOut_4)
+    nor03_2x ix822 (.Y (nx821), .A0 (innerCounterOut_3), .A1 (innerCounterOut_4)
              , .A2 (innerCounterOut_2)) ;
-    nand02 ix810 (.Y (nx809), .A0 (nx791), .A1 (currentState_3)) ;
-    dffr reg_finalDMABFinish (.Q (\$dummy [15]), .QB (nx813), .D (nx680), .CLK (
-         clk), .R (nx164)) ;
-    nand02 ix681 (.Y (nx680), .A0 (nx813), .A1 (nx816)) ;
-    oai21 ix817 (.Y (nx816), .A0 (nx164), .A1 (currentState_3), .B0 (dmaBFinish)
-          ) ;
-    aoi21 ix277 (.Y (pool), .A0 (nx701), .A1 (nx712), .B0 (nx798)) ;
-    aoi21 ix831 (.Y (nx830), .A0 (nx782), .A1 (nx798), .B0 (dmaCFinish)) ;
-    or02 ix301 (.Y (innerCounterEn), .A0 (nx845), .A1 (outputBufferEn)) ;
-    ao21 ix255 (.Y (outerCounterEn), .A0 (outputBufferEn), .A1 (nx824), .B0 (
-         nx847)) ;
-    nand02 ix267 (.Y (loadWindow), .A0 (nx835), .A1 (nx837)) ;
-    nand04 ix836 (.Y (nx835), .A0 (nx813), .A1 (currentState_3), .A2 (nx64), .A3 (
-           nx824)) ;
-    aoi21 ix838 (.Y (nx837), .A0 (start), .A1 (nx847), .B0 (currentState_1)) ;
-    nor02_2x ix249 (.Y (loadFilter), .A0 (layerType), .A1 (nx837)) ;
-    inv01 ix812 (.Y (nx811), .A (nx118)) ;
-    inv01 ix825 (.Y (nx824), .A (nx112)) ;
-    inv01 ix723 (.Y (nx722), .A (nx603)) ;
-    buf02 ix844 (.Y (nx845), .A (currentState_0)) ;
-    buf02 ix846 (.Y (nx847), .A (currentState_0)) ;
-    nor02ii ix629 (.Y (nx628), .A0 (nx704), .A1 (nx603)) ;
-    nor02ii ix619 (.Y (nx618), .A0 (nx708), .A1 (nx603)) ;
-    nor02ii ix281 (.Y (shift12), .A0 (pageTurn[0]), .A1 (currentState_2)) ;
-    nor02ii ix283 (.Y (shift21), .A0 (nx701), .A1 (pageTurn[0])) ;
-    and03 ix289 (.Y (readNextCol), .A0 (nx112), .A1 (nx813), .A2 (currentState_3
+    or02 ix692 (.Y (nx691), .A0 (finalDMABFinish), .A1 (nx202)) ;
+    dffr reg_finalDMABFinish (.Q (finalDMABFinish), .QB (nx827), .D (nx691), .CLK (
+         clk), .R (nx174)) ;
+    nor02ii ix203 (.Y (nx202), .A0 (nx809), .A1 (dmaBFinish)) ;
+    aoi21 ix279 (.Y (pool), .A0 (nx712), .A1 (nx723), .B0 (nx812)) ;
+    aoi21 ix845 (.Y (nx844), .A0 (nx793), .A1 (nx812), .B0 (dmaCFinish)) ;
+    ao21 ix257 (.Y (outerCounterEn), .A0 (outputBufferEn), .A1 (nx838), .B0 (
+         nx860)) ;
+    nand02 ix269 (.Y (loadWindow), .A0 (nx848), .A1 (nx850)) ;
+    nand04 ix849 (.Y (nx848), .A0 (nx827), .A1 (currentState_3), .A2 (nx64), .A3 (
+           nx838)) ;
+    aoi21 ix851 (.Y (nx850), .A0 (start), .A1 (nx860), .B0 (sliceFirstLoad)) ;
+    nor02_2x ix251 (.Y (loadFilter), .A0 (layerType), .A1 (nx850)) ;
+    inv01 ix826 (.Y (nx825), .A (nx118)) ;
+    inv01 ix839 (.Y (nx838), .A (nx112)) ;
+    inv01 ix734 (.Y (nx733), .A (nx614)) ;
+    buf02 ix857 (.Y (nx858), .A (currentState_0)) ;
+    buf02 ix859 (.Y (nx860), .A (currentState_0)) ;
+    nor02ii ix640 (.Y (nx639), .A0 (nx715), .A1 (nx614)) ;
+    nor02ii ix630 (.Y (nx629), .A0 (nx719), .A1 (nx614)) ;
+    or02 ix824 (.Y (nx823), .A0 (finalDMACFinish), .A1 (nx723)) ;
+    nor02ii ix283 (.Y (shift12), .A0 (pageTurn[0]), .A1 (currentState_2)) ;
+    nor02ii ix285 (.Y (shift21), .A0 (nx712), .A1 (pageTurn[0])) ;
+    and03 ix291 (.Y (readNextCol), .A0 (nx112), .A1 (nx827), .A2 (currentState_3
           )) ;
-    nor02ii ix299 (.Y (finish), .A0 (nx830), .A1 (currentState_6)) ;
+    nor02ii ix301 (.Y (finish), .A0 (nx844), .A1 (currentState_6)) ;
 endmodule
 
 
@@ -59797,9 +59823,10 @@ module FilterController_3 ( start, layerType, dmaFinish, oneConvFinish,
     output finish ;
 
     wire counterEn, altCounterOut_2, altCounterOut_1, altCounterOut_0, 
-         resetCounter, currentState_1, currentState_0, NOT_clk, nx12, 
-         counterOut_2, counterOut_0, counterOut_1, nx76, nx86, nx161, nx171, 
-         nx182, nx186, nx190, nx195, nx202, nx209, nx214, nx216, nx223;
+         resetCounter, currentState_1, currentState_0, NOT_clk, nx8, 
+         counterOut_1, counterOut_2, counterOut_0, nx44, nx72, nx82, nx163, 
+         nx173, nx185, nx189, nx193, nx197, nx199, nx205, nx211, nx214, nx217, 
+         nx223;
     wire [2:0] \$dummy ;
 
 
@@ -59807,39 +59834,40 @@ module FilterController_3 ( start, layerType, dmaFinish, oneConvFinish,
 
     Counter_3 counterMap (.en (counterEn), .reset (resetCounter), .clk (clk), .count (
               {altCounterOut_2,altCounterOut_1,altCounterOut_0})) ;
-    and04 ix65 (.Y (filterLastLayer), .A0 (nx182), .A1 (nx186), .A2 (nx190), .A3 (
-          startOneConv)) ;
-    xnor2 ix183 (.Y (nx182), .A0 (counterOut_2), .A1 (depth[2])) ;
-    dff reg_counterOut_2 (.Q (counterOut_2), .QB (\$dummy [0]), .D (
-        altCounterOut_2), .CLK (clk)) ;
-    xnor2 ix187 (.Y (nx186), .A0 (counterOut_0), .A1 (depth[0])) ;
-    dff reg_counterOut_0 (.Q (counterOut_0), .QB (\$dummy [1]), .D (
+    aoi21 ix103 (.Y (filterLastLayer), .A0 (nx44), .A1 (nx197), .B0 (nx199)) ;
+    nand03 ix45 (.Y (nx44), .A0 (nx185), .A1 (nx189), .A2 (nx193)) ;
+    xnor2 ix186 (.Y (nx185), .A0 (counterOut_0), .A1 (depth[0])) ;
+    dff reg_counterOut_0 (.Q (counterOut_0), .QB (\$dummy [0]), .D (
         altCounterOut_0), .CLK (clk)) ;
-    xnor2 ix191 (.Y (nx190), .A0 (counterOut_1), .A1 (depth[1])) ;
+    xnor2 ix190 (.Y (nx189), .A0 (counterOut_2), .A1 (depth[2])) ;
+    dff reg_counterOut_2 (.Q (counterOut_2), .QB (\$dummy [1]), .D (
+        altCounterOut_2), .CLK (clk)) ;
+    xnor2 ix194 (.Y (nx193), .A0 (counterOut_1), .A1 (depth[1])) ;
     dff reg_counterOut_1 (.Q (counterOut_1), .QB (\$dummy [2]), .D (
         altCounterOut_1), .CLK (clk)) ;
-    mux21_ni ix172 (.Y (nx171), .A0 (nx86), .A1 (currentState_1), .S0 (nx223)) ;
-    oai22 ix87 (.Y (nx86), .A0 (nx12), .A1 (finish), .B0 (nx195), .B1 (
+    inv01 ix198 (.Y (nx197), .A (layerType)) ;
+    mux21_ni ix174 (.Y (nx173), .A0 (nx82), .A1 (currentState_1), .S0 (nx211)) ;
+    oai22 ix83 (.Y (nx82), .A0 (nx8), .A1 (finish), .B0 (nx205), .B1 (
           currentState_0)) ;
-    aoi21 ix13 (.Y (nx12), .A0 (layerType), .A1 (nx195), .B0 (currentState_0)) ;
-    mux21_ni ix162 (.Y (nx161), .A0 (nx12), .A1 (currentState_0), .S0 (nx223)) ;
-    aoi221 ix203 (.Y (nx202), .A0 (start), .A1 (resetCounter), .B0 (counterEn), 
-           .B1 (filterLastLayer), .C0 (nx76)) ;
-    dffr reg_currentState_1 (.Q (currentState_1), .QB (nx195), .D (nx171), .CLK (
+    aoi21 ix9 (.Y (nx8), .A0 (layerType), .A1 (nx205), .B0 (currentState_0)) ;
+    dffr reg_currentState_1 (.Q (currentState_1), .QB (nx205), .D (nx173), .CLK (
          NOT_clk), .R (resetState)) ;
-    inv01 ix207 (.Y (NOT_clk), .A (clk)) ;
-    ao21 ix29 (.Y (counterEn), .A0 (oneConvFinish), .A1 (nx209), .B0 (
+    inv01 ix208 (.Y (NOT_clk), .A (clk)) ;
+    mux21_ni ix164 (.Y (nx163), .A0 (nx8), .A1 (currentState_0), .S0 (nx211)) ;
+    aoi321 ix212 (.Y (nx211), .A0 (startOneConv), .A1 (nx214), .A2 (counterEn), 
+           .B0 (start), .B1 (resetCounter), .C0 (nx72)) ;
+    ao21 ix57 (.Y (counterEn), .A0 (oneConvFinish), .A1 (nx217), .B0 (
          resetCounter)) ;
-    dffr reg_currentState_0 (.Q (currentState_0), .QB (nx209), .D (nx161), .CLK (
+    dffr reg_currentState_0 (.Q (currentState_0), .QB (nx217), .D (nx163), .CLK (
          NOT_clk), .R (resetState)) ;
-    ao21 ix77 (.Y (nx76), .A0 (dmaFinish), .A1 (currentState_0), .B0 (finish)) ;
-    aoi21 ix215 (.Y (nx214), .A0 (start), .A1 (nx216), .B0 (currentState_0)) ;
-    inv01 ix217 (.Y (nx216), .A (layerType)) ;
-    buf02 ix222 (.Y (nx223), .A (nx202)) ;
-    and02 ix5 (.Y (startOneConv), .A0 (currentState_1), .A1 (nx209)) ;
-    and02 ix23 (.Y (resetCounter), .A0 (nx195), .A1 (nx209)) ;
-    and02 ix73 (.Y (finish), .A0 (currentState_1), .A1 (currentState_0)) ;
-    nor02ii ix101 (.Y (loadConfig), .A0 (nx214), .A1 (nx195)) ;
+    ao21 ix73 (.Y (nx72), .A0 (dmaFinish), .A1 (currentState_0), .B0 (finish)) ;
+    aoi21 ix224 (.Y (nx223), .A0 (start), .A1 (nx197), .B0 (currentState_0)) ;
+    inv01 ix215 (.Y (nx214), .A (nx44)) ;
+    inv01 ix17 (.Y (startOneConv), .A (nx199)) ;
+    or02 ix200 (.Y (nx199), .A0 (nx205), .A1 (currentState_0)) ;
+    and02 ix51 (.Y (resetCounter), .A0 (nx205), .A1 (nx217)) ;
+    and02 ix69 (.Y (finish), .A0 (currentState_1), .A1 (currentState_0)) ;
+    nor02ii ix97 (.Y (loadConfig), .A0 (nx223), .A1 (nx205)) ;
 endmodule
 
 
@@ -60094,7 +60122,7 @@ endmodule
 module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst, 
                              writePage1, writePage2, writeFilter, shift2To1, 
                              shift1To2, pageTurn, start, layerType, filterType, 
-                             done, finalSum ) ;
+                             doneCores, finalSumConv ) ;
 
     input [39:0]filterBus ;
     input [79:0]windowBus ;
@@ -60110,8 +60138,8 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
     input start ;
     input layerType ;
     input filterType ;
-    output done ;
-    output [15:0]finalSum ;
+    output doneCores ;
+    output [15:0]finalSumConv ;
 
     wire currentPage_0__15, currentPage_0__14, currentPage_0__13, 
          currentPage_0__12, currentPage_0__11, currentPage_0__10, 
@@ -60504,13 +60532,16 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
          filter_22__2, filter_22__1, filter_22__0, filter_23__7, filter_23__6, 
          filter_23__5, filter_23__4, filter_23__3, filter_23__2, filter_23__1, 
          filter_23__0, filter_24__7, filter_24__6, filter_24__5, filter_24__4, 
-         filter_24__3, filter_24__2, filter_24__1, filter_24__0, doneMul, isConv, 
+         filter_24__3, filter_24__2, filter_24__1, filter_24__0, doneMul, notClk, 
          outAdder_15, outAdder_14, outAdder_13, outAdder_12, outAdder_11, 
          outAdder_10, outAdder_9, outAdder_8, outAdder_7, outAdder_6, outAdder_5, 
          outAdder_4, outAdder_3, outAdder_2, outAdder_1, outAdder_0, 
          outShifter_11, outShifter_10, outShifter_9, outShifter_8, outShifter_7, 
          outShifter_6, outShifter_5, outShifter_4, outShifter_3, outShifter_2, 
-         outShifter_1, outShifter_0, nx1905, nx1927, nx1929, nx1931, nx1933;
+         outShifter_1, outShifter_0, finalSum_15, finalSum_14, finalSum_13, 
+         finalSum_12, finalSum_11, finalSum_10, finalSum_9, finalSum_8, 
+         finalSum_7, finalSum_6, finalSum_5, finalSum_4, finalSum_3, finalSum_2, 
+         finalSum_1, finalSum_0, nx1921, nx1944, nx1946, nx1948, nx1950, nx1952;
     wire [4:0] \$dummy ;
 
 
@@ -61467,7 +61498,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_0__12,currentPage_0__11,currentPage_0__10,
             currentPage_0__9,currentPage_0__8,currentPage_0__7,currentPage_0__6,
             currentPage_0__5,currentPage_0__4,currentPage_0__3,currentPage_0__2,
-            currentPage_0__1,currentPage_0__0}), .S (nx1927), .C ({
+            currentPage_0__1,currentPage_0__0}), .S (nx1946), .C ({
             addersInputs_0__15,addersInputs_0__14,addersInputs_0__13,
             addersInputs_0__12,addersInputs_0__11,addersInputs_0__10,
             addersInputs_0__9,addersInputs_0__8,addersInputs_0__7,
@@ -61482,7 +61513,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_1__12,currentPage_1__11,currentPage_1__10,
             currentPage_1__9,currentPage_1__8,currentPage_1__7,currentPage_1__6,
             currentPage_1__5,currentPage_1__4,currentPage_1__3,currentPage_1__2,
-            currentPage_1__1,currentPage_1__0}), .S (nx1927), .C ({
+            currentPage_1__1,currentPage_1__0}), .S (nx1946), .C ({
             addersInputs_1__15,addersInputs_1__14,addersInputs_1__13,
             addersInputs_1__12,addersInputs_1__11,addersInputs_1__10,
             addersInputs_1__9,addersInputs_1__8,addersInputs_1__7,
@@ -61497,7 +61528,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_2__12,currentPage_2__11,currentPage_2__10,
             currentPage_2__9,currentPage_2__8,currentPage_2__7,currentPage_2__6,
             currentPage_2__5,currentPage_2__4,currentPage_2__3,currentPage_2__2,
-            currentPage_2__1,currentPage_2__0}), .S (nx1927), .C ({
+            currentPage_2__1,currentPage_2__0}), .S (nx1946), .C ({
             addersInputs_2__15,addersInputs_2__14,addersInputs_2__13,
             addersInputs_2__12,addersInputs_2__11,addersInputs_2__10,
             addersInputs_2__9,addersInputs_2__8,addersInputs_2__7,
@@ -61512,7 +61543,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_3__12,currentPage_3__11,currentPage_3__10,
             currentPage_3__9,currentPage_3__8,currentPage_3__7,currentPage_3__6,
             currentPage_3__5,currentPage_3__4,currentPage_3__3,currentPage_3__2,
-            currentPage_3__1,currentPage_3__0}), .S (nx1927), .C ({
+            currentPage_3__1,currentPage_3__0}), .S (nx1946), .C ({
             addersInputs_3__15,addersInputs_3__14,addersInputs_3__13,
             addersInputs_3__12,addersInputs_3__11,addersInputs_3__10,
             addersInputs_3__9,addersInputs_3__8,addersInputs_3__7,
@@ -61527,7 +61558,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_4__12,currentPage_4__11,currentPage_4__10,
             currentPage_4__9,currentPage_4__8,currentPage_4__7,currentPage_4__6,
             currentPage_4__5,currentPage_4__4,currentPage_4__3,currentPage_4__2,
-            currentPage_4__1,currentPage_4__0}), .S (nx1927), .C ({
+            currentPage_4__1,currentPage_4__0}), .S (nx1946), .C ({
             addersInputs_4__15,addersInputs_4__14,addersInputs_4__13,
             addersInputs_4__12,addersInputs_4__11,addersInputs_4__10,
             addersInputs_4__9,addersInputs_4__8,addersInputs_4__7,
@@ -61542,7 +61573,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_5__12,currentPage_5__11,currentPage_5__10,
             currentPage_5__9,currentPage_5__8,currentPage_5__7,currentPage_5__6,
             currentPage_5__5,currentPage_5__4,currentPage_5__3,currentPage_5__2,
-            currentPage_5__1,currentPage_5__0}), .S (nx1927), .C ({
+            currentPage_5__1,currentPage_5__0}), .S (nx1946), .C ({
             addersInputs_5__15,addersInputs_5__14,addersInputs_5__13,
             addersInputs_5__12,addersInputs_5__11,addersInputs_5__10,
             addersInputs_5__9,addersInputs_5__8,addersInputs_5__7,
@@ -61557,7 +61588,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_6__12,currentPage_6__11,currentPage_6__10,
             currentPage_6__9,currentPage_6__8,currentPage_6__7,currentPage_6__6,
             currentPage_6__5,currentPage_6__4,currentPage_6__3,currentPage_6__2,
-            currentPage_6__1,currentPage_6__0}), .S (nx1927), .C ({
+            currentPage_6__1,currentPage_6__0}), .S (nx1946), .C ({
             addersInputs_6__15,addersInputs_6__14,addersInputs_6__13,
             addersInputs_6__12,addersInputs_6__11,addersInputs_6__10,
             addersInputs_6__9,addersInputs_6__8,addersInputs_6__7,
@@ -61572,7 +61603,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_7__12,currentPage_7__11,currentPage_7__10,
             currentPage_7__9,currentPage_7__8,currentPage_7__7,currentPage_7__6,
             currentPage_7__5,currentPage_7__4,currentPage_7__3,currentPage_7__2,
-            currentPage_7__1,currentPage_7__0}), .S (nx1929), .C ({
+            currentPage_7__1,currentPage_7__0}), .S (nx1948), .C ({
             addersInputs_7__15,addersInputs_7__14,addersInputs_7__13,
             addersInputs_7__12,addersInputs_7__11,addersInputs_7__10,
             addersInputs_7__9,addersInputs_7__8,addersInputs_7__7,
@@ -61587,7 +61618,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_8__12,currentPage_8__11,currentPage_8__10,
             currentPage_8__9,currentPage_8__8,currentPage_8__7,currentPage_8__6,
             currentPage_8__5,currentPage_8__4,currentPage_8__3,currentPage_8__2,
-            currentPage_8__1,currentPage_8__0}), .S (nx1929), .C ({
+            currentPage_8__1,currentPage_8__0}), .S (nx1948), .C ({
             addersInputs_8__15,addersInputs_8__14,addersInputs_8__13,
             addersInputs_8__12,addersInputs_8__11,addersInputs_8__10,
             addersInputs_8__9,addersInputs_8__8,addersInputs_8__7,
@@ -61602,7 +61633,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_9__12,currentPage_9__11,currentPage_9__10,
             currentPage_9__9,currentPage_9__8,currentPage_9__7,currentPage_9__6,
             currentPage_9__5,currentPage_9__4,currentPage_9__3,currentPage_9__2,
-            currentPage_9__1,currentPage_9__0}), .S (nx1929), .C ({
+            currentPage_9__1,currentPage_9__0}), .S (nx1948), .C ({
             addersInputs_9__15,addersInputs_9__14,addersInputs_9__13,
             addersInputs_9__12,addersInputs_9__11,addersInputs_9__10,
             addersInputs_9__9,addersInputs_9__8,addersInputs_9__7,
@@ -61618,7 +61649,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_10__11,currentPage_10__10,currentPage_10__9,
             currentPage_10__8,currentPage_10__7,currentPage_10__6,
             currentPage_10__5,currentPage_10__4,currentPage_10__3,
-            currentPage_10__2,currentPage_10__1,currentPage_10__0}), .S (nx1929)
+            currentPage_10__2,currentPage_10__1,currentPage_10__0}), .S (nx1948)
             , .C ({addersInputs_10__15,addersInputs_10__14,addersInputs_10__13,
             addersInputs_10__12,addersInputs_10__11,addersInputs_10__10,
             addersInputs_10__9,addersInputs_10__8,addersInputs_10__7,
@@ -61634,7 +61665,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_11__11,currentPage_11__10,currentPage_11__9,
             currentPage_11__8,currentPage_11__7,currentPage_11__6,
             currentPage_11__5,currentPage_11__4,currentPage_11__3,
-            currentPage_11__2,currentPage_11__1,currentPage_11__0}), .S (nx1929)
+            currentPage_11__2,currentPage_11__1,currentPage_11__0}), .S (nx1948)
             , .C ({addersInputs_11__15,addersInputs_11__14,addersInputs_11__13,
             addersInputs_11__12,addersInputs_11__11,addersInputs_11__10,
             addersInputs_11__9,addersInputs_11__8,addersInputs_11__7,
@@ -61650,7 +61681,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_12__11,currentPage_12__10,currentPage_12__9,
             currentPage_12__8,currentPage_12__7,currentPage_12__6,
             currentPage_12__5,currentPage_12__4,currentPage_12__3,
-            currentPage_12__2,currentPage_12__1,currentPage_12__0}), .S (nx1929)
+            currentPage_12__2,currentPage_12__1,currentPage_12__0}), .S (nx1948)
             , .C ({addersInputs_12__15,addersInputs_12__14,addersInputs_12__13,
             addersInputs_12__12,addersInputs_12__11,addersInputs_12__10,
             addersInputs_12__9,addersInputs_12__8,addersInputs_12__7,
@@ -61666,7 +61697,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_13__11,currentPage_13__10,currentPage_13__9,
             currentPage_13__8,currentPage_13__7,currentPage_13__6,
             currentPage_13__5,currentPage_13__4,currentPage_13__3,
-            currentPage_13__2,currentPage_13__1,currentPage_13__0}), .S (nx1929)
+            currentPage_13__2,currentPage_13__1,currentPage_13__0}), .S (nx1948)
             , .C ({addersInputs_13__15,addersInputs_13__14,addersInputs_13__13,
             addersInputs_13__12,addersInputs_13__11,addersInputs_13__10,
             addersInputs_13__9,addersInputs_13__8,addersInputs_13__7,
@@ -61682,7 +61713,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_14__11,currentPage_14__10,currentPage_14__9,
             currentPage_14__8,currentPage_14__7,currentPage_14__6,
             currentPage_14__5,currentPage_14__4,currentPage_14__3,
-            currentPage_14__2,currentPage_14__1,currentPage_14__0}), .S (nx1931)
+            currentPage_14__2,currentPage_14__1,currentPage_14__0}), .S (nx1950)
             , .C ({addersInputs_14__15,addersInputs_14__14,addersInputs_14__13,
             addersInputs_14__12,addersInputs_14__11,addersInputs_14__10,
             addersInputs_14__9,addersInputs_14__8,addersInputs_14__7,
@@ -61698,7 +61729,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_15__11,currentPage_15__10,currentPage_15__9,
             currentPage_15__8,currentPage_15__7,currentPage_15__6,
             currentPage_15__5,currentPage_15__4,currentPage_15__3,
-            currentPage_15__2,currentPage_15__1,currentPage_15__0}), .S (nx1931)
+            currentPage_15__2,currentPage_15__1,currentPage_15__0}), .S (nx1950)
             , .C ({addersInputs_15__15,addersInputs_15__14,addersInputs_15__13,
             addersInputs_15__12,addersInputs_15__11,addersInputs_15__10,
             addersInputs_15__9,addersInputs_15__8,addersInputs_15__7,
@@ -61714,7 +61745,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_16__11,currentPage_16__10,currentPage_16__9,
             currentPage_16__8,currentPage_16__7,currentPage_16__6,
             currentPage_16__5,currentPage_16__4,currentPage_16__3,
-            currentPage_16__2,currentPage_16__1,currentPage_16__0}), .S (nx1931)
+            currentPage_16__2,currentPage_16__1,currentPage_16__0}), .S (nx1950)
             , .C ({addersInputs_16__15,addersInputs_16__14,addersInputs_16__13,
             addersInputs_16__12,addersInputs_16__11,addersInputs_16__10,
             addersInputs_16__9,addersInputs_16__8,addersInputs_16__7,
@@ -61730,7 +61761,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_17__11,currentPage_17__10,currentPage_17__9,
             currentPage_17__8,currentPage_17__7,currentPage_17__6,
             currentPage_17__5,currentPage_17__4,currentPage_17__3,
-            currentPage_17__2,currentPage_17__1,currentPage_17__0}), .S (nx1931)
+            currentPage_17__2,currentPage_17__1,currentPage_17__0}), .S (nx1950)
             , .C ({addersInputs_17__15,addersInputs_17__14,addersInputs_17__13,
             addersInputs_17__12,addersInputs_17__11,addersInputs_17__10,
             addersInputs_17__9,addersInputs_17__8,addersInputs_17__7,
@@ -61746,7 +61777,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_18__11,currentPage_18__10,currentPage_18__9,
             currentPage_18__8,currentPage_18__7,currentPage_18__6,
             currentPage_18__5,currentPage_18__4,currentPage_18__3,
-            currentPage_18__2,currentPage_18__1,currentPage_18__0}), .S (nx1931)
+            currentPage_18__2,currentPage_18__1,currentPage_18__0}), .S (nx1950)
             , .C ({addersInputs_18__15,addersInputs_18__14,addersInputs_18__13,
             addersInputs_18__12,addersInputs_18__11,addersInputs_18__10,
             addersInputs_18__9,addersInputs_18__8,addersInputs_18__7,
@@ -61762,7 +61793,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_19__11,currentPage_19__10,currentPage_19__9,
             currentPage_19__8,currentPage_19__7,currentPage_19__6,
             currentPage_19__5,currentPage_19__4,currentPage_19__3,
-            currentPage_19__2,currentPage_19__1,currentPage_19__0}), .S (nx1931)
+            currentPage_19__2,currentPage_19__1,currentPage_19__0}), .S (nx1950)
             , .C ({addersInputs_19__15,addersInputs_19__14,addersInputs_19__13,
             addersInputs_19__12,addersInputs_19__11,addersInputs_19__10,
             addersInputs_19__9,addersInputs_19__8,addersInputs_19__7,
@@ -61778,7 +61809,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_20__11,currentPage_20__10,currentPage_20__9,
             currentPage_20__8,currentPage_20__7,currentPage_20__6,
             currentPage_20__5,currentPage_20__4,currentPage_20__3,
-            currentPage_20__2,currentPage_20__1,currentPage_20__0}), .S (nx1931)
+            currentPage_20__2,currentPage_20__1,currentPage_20__0}), .S (nx1950)
             , .C ({addersInputs_20__15,addersInputs_20__14,addersInputs_20__13,
             addersInputs_20__12,addersInputs_20__11,addersInputs_20__10,
             addersInputs_20__9,addersInputs_20__8,addersInputs_20__7,
@@ -61794,7 +61825,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_21__11,currentPage_21__10,currentPage_21__9,
             currentPage_21__8,currentPage_21__7,currentPage_21__6,
             currentPage_21__5,currentPage_21__4,currentPage_21__3,
-            currentPage_21__2,currentPage_21__1,currentPage_21__0}), .S (nx1933)
+            currentPage_21__2,currentPage_21__1,currentPage_21__0}), .S (nx1952)
             , .C ({addersInputs_21__15,addersInputs_21__14,addersInputs_21__13,
             addersInputs_21__12,addersInputs_21__11,addersInputs_21__10,
             addersInputs_21__9,addersInputs_21__8,addersInputs_21__7,
@@ -61810,7 +61841,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_22__11,currentPage_22__10,currentPage_22__9,
             currentPage_22__8,currentPage_22__7,currentPage_22__6,
             currentPage_22__5,currentPage_22__4,currentPage_22__3,
-            currentPage_22__2,currentPage_22__1,currentPage_22__0}), .S (nx1933)
+            currentPage_22__2,currentPage_22__1,currentPage_22__0}), .S (nx1952)
             , .C ({addersInputs_22__15,addersInputs_22__14,addersInputs_22__13,
             addersInputs_22__12,addersInputs_22__11,addersInputs_22__10,
             addersInputs_22__9,addersInputs_22__8,addersInputs_22__7,
@@ -61826,7 +61857,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_23__11,currentPage_23__10,currentPage_23__9,
             currentPage_23__8,currentPage_23__7,currentPage_23__6,
             currentPage_23__5,currentPage_23__4,currentPage_23__3,
-            currentPage_23__2,currentPage_23__1,currentPage_23__0}), .S (nx1933)
+            currentPage_23__2,currentPage_23__1,currentPage_23__0}), .S (nx1952)
             , .C ({addersInputs_23__15,addersInputs_23__14,addersInputs_23__13,
             addersInputs_23__12,addersInputs_23__11,addersInputs_23__10,
             addersInputs_23__9,addersInputs_23__8,addersInputs_23__7,
@@ -61842,7 +61873,7 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
             currentPage_24__11,currentPage_24__10,currentPage_24__9,
             currentPage_24__8,currentPage_24__7,currentPage_24__6,
             currentPage_24__5,currentPage_24__4,currentPage_24__3,
-            currentPage_24__2,currentPage_24__1,currentPage_24__0}), .S (nx1933)
+            currentPage_24__2,currentPage_24__1,currentPage_24__0}), .S (nx1952)
             , .C ({addersInputs_24__15,addersInputs_24__14,addersInputs_24__13,
             addersInputs_24__12,addersInputs_24__11,addersInputs_24__10,
             addersInputs_24__9,addersInputs_24__8,addersInputs_24__7,
@@ -62056,29 +62087,38 @@ module CNNCores_8_16_5_5_3 ( filterBus, windowBus, decoderRow, clk, rst,
                  outAdder_0})) ;
     CNNShifter_16 shifterMap (.A ({outAdder_15,outAdder_14,outAdder_13,
                   outAdder_12,outAdder_11,outAdder_10,outAdder_9,outAdder_8,
-                  outAdder_7,outAdder_6,outAdder_5,outAdder_4,outAdder_3,nx1905,
-                  nx1905,nx1905}), .filterSize (filterType), .shiftedOut ({
+                  outAdder_7,outAdder_6,outAdder_5,outAdder_4,outAdder_3,nx1921,
+                  nx1921,nx1921}), .filterSize (filterType), .shiftedOut ({
                   \$dummy [1],\$dummy [2],\$dummy [3],\$dummy [4],outShifter_11,
                   outShifter_10,outShifter_9,outShifter_8,outShifter_7,
                   outShifter_6,outShifter_5,outShifter_4,outShifter_3,
                   outShifter_2,outShifter_1,outShifter_0})) ;
-    Mux2_16 finalOutMap (.A ({outAdder_15,outAdder_15,outAdder_15,outAdder_15,
-            outShifter_11,outShifter_10,outShifter_9,outShifter_8,outShifter_7,
-            outShifter_6,outShifter_5,outShifter_4,outShifter_3,outShifter_2,
-            outShifter_1,outShifter_0}), .B ({outAdder_15,outAdder_14,
-            outAdder_13,outAdder_12,outAdder_11,outAdder_10,outAdder_9,
-            outAdder_8,outAdder_7,outAdder_6,outAdder_5,outAdder_4,outAdder_3,
-            outAdder_2,outAdder_1,outAdder_0}), .S (isConv), .C ({finalSum[15],
-            finalSum[14],finalSum[13],finalSum[12],finalSum[11],finalSum[10],
-            finalSum[9],finalSum[8],finalSum[7],finalSum[6],finalSum[5],
-            finalSum[4],finalSum[3],finalSum[2],finalSum[1],finalSum[0]})) ;
-    fake_gnd ix1906 (.Y (nx1905)) ;
-    inv01 ix1916 (.Y (isConv), .A (layerType)) ;
-    or02 ix3 (.Y (done), .A0 (nx1933), .A1 (doneMul)) ;
-    inv01 ix1926 (.Y (nx1927), .A (isConv)) ;
-    inv01 ix1928 (.Y (nx1929), .A (isConv)) ;
-    inv01 ix1930 (.Y (nx1931), .A (isConv)) ;
-    inv01 ix1932 (.Y (nx1933), .A (isConv)) ;
+    Mux2_16 finalOutMap (.A ({outAdder_15,outAdder_14,outAdder_13,outAdder_12,
+            outAdder_11,outAdder_10,outAdder_9,outAdder_8,outAdder_7,outAdder_6,
+            outAdder_5,outAdder_4,outAdder_3,outAdder_2,outAdder_1,outAdder_0})
+            , .B ({outAdder_15,outAdder_15,outAdder_15,outAdder_15,outShifter_11
+            ,outShifter_10,outShifter_9,outShifter_8,outShifter_7,outShifter_6,
+            outShifter_5,outShifter_4,outShifter_3,outShifter_2,outShifter_1,
+            outShifter_0}), .S (nx1952), .C ({finalSum_15,finalSum_14,
+            finalSum_13,finalSum_12,finalSum_11,finalSum_10,finalSum_9,
+            finalSum_8,finalSum_7,finalSum_6,finalSum_5,finalSum_4,finalSum_3,
+            finalSum_2,finalSum_1,finalSum_0})) ;
+    Reg_16 captureReg (.D ({finalSum_15,finalSum_14,finalSum_13,finalSum_12,
+           finalSum_11,finalSum_10,finalSum_9,finalSum_8,finalSum_7,finalSum_6,
+           finalSum_5,finalSum_4,finalSum_3,finalSum_2,finalSum_1,finalSum_0}), 
+           .en (doneCores), .clk (notClk), .rst (rst), .Q ({finalSumConv[15],
+           finalSumConv[14],finalSumConv[13],finalSumConv[12],finalSumConv[11],
+           finalSumConv[10],finalSumConv[9],finalSumConv[8],finalSumConv[7],
+           finalSumConv[6],finalSumConv[5],finalSumConv[4],finalSumConv[3],
+           finalSumConv[2],finalSumConv[1],finalSumConv[0]})) ;
+    fake_gnd ix1922 (.Y (nx1921)) ;
+    inv01 ix1933 (.Y (notClk), .A (clk)) ;
+    or02 ix3 (.Y (doneCores), .A0 (nx1952), .A1 (doneMul)) ;
+    inv01 ix1943 (.Y (nx1944), .A (layerType)) ;
+    inv01 ix1945 (.Y (nx1946), .A (nx1944)) ;
+    inv01 ix1947 (.Y (nx1948), .A (nx1944)) ;
+    inv01 ix1949 (.Y (nx1950), .A (nx1944)) ;
+    inv01 ix1951 (.Y (nx1952), .A (nx1944)) ;
 endmodule
 
 
