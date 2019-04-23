@@ -39,8 +39,8 @@ ENTITY CNNCores IS
 	  windowBus: IN STD_LOGIC_VECTOR((numUnits*windowSize)-1 DOWNTO 0);
 	  decoderRow: IN STD_LOGIC_VECTOR(decoderSize-1 DOWNTO 0);
 	  clk, rst, writePage1, writePage2, writeFilter, shift2To1, shift1To2, pageTurn, start, layerType, filterType: IN STD_LOGIC;
-	  done: OUT STD_LOGIC;
-	  finalSum: OUT STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0)
+	  doneCores: OUT STD_LOGIC;
+	  finalSumConv: OUT STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0)
     );
 
 END CNNCores;
@@ -53,8 +53,8 @@ ARCHITECTURE CNNCoresArch OF CNNCores IS
 
 	SIGNAL currentPage, outMuls, addersInputs: ARRAYOFREGS16(0 TO (numUnits*numRows)-1);
 	SIGNAL filter: ARRAYOFREGS8(0 TO (numUnits*numRows)-1);
-	SIGNAL doneMul, isConv: STD_LOGIC;
-	SIGNAL outAdder, outShifter: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL doneMul, notClk, done: STD_LOGIC;
+	SIGNAL outAdder, outShifter, finalSum: STD_LOGIC_VECTOR(windowSize-1 DOWNTO 0);
     
 	BEGIN
 
@@ -84,8 +84,8 @@ ARCHITECTURE CNNCoresArch OF CNNCores IS
 		---------------------------------------------------
 
 		done <= layerType or doneMul;
-
-		isConv <= not layerType;
+		doneCores <= done;
+		notClk <= not clk;
 
 		---------------------------------------------------
 		--        Let's keep it like that for now   	 --
@@ -117,7 +117,12 @@ ARCHITECTURE CNNCoresArch OF CNNCores IS
 
 		--final output
 		finalOutMap: ENTITY work.Mux2 GENERIC MAP(windowSize) PORT MAP(
-			outShifter, outAdder, isConv, finalSum
+			outShifter, outAdder, done, finalSum
 			);
+
+
+		captureReg: ENTITY work.Reg GENERIC MAP(windowSize) PORT MAP(
+			finalSum, done, notClk, rst, finalSumConv
+		);
 
 END ARCHITECTURE;
