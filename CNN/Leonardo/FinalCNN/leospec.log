@@ -86,7 +86,7 @@ Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN'
 -- Loading architecture CNNMulsArch of CNNMuls into library work
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd into library work
 -- Loading entity SliceFilterController into library work
-"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 45: Info, Enumerated type fsmStateMachine with 7 elements encoded as onehot.
+"/media/sf_CNN_Accelerator/CNN/ControlUnit/SliceFilterController.vhd",line 46: Info, Enumerated type fsmStateMachine with 7 elements encoded as onehot.
 Encodings for fsmStateMachine values
         value    fsmStateMachine[6-0]
 =====================================
@@ -644,7 +644,6 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.Reg_5.RegArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
@@ -822,7 +821,7 @@ Re-checking DRC after adjustments
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
--- CPU Time used :   00:07 Mapping
+-- CPU Time used :   00:05 Mapping
 Re-checking DRC after adjustments
 -- Optimizing netlist .work.Reg_9.RegArch
 -- Matching combinational logic..
@@ -844,7 +843,7 @@ Re-checking DRC after adjustments
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
--- CPU Time used :   00:03 Mapping
+-- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
 -- Optimizing netlist .work.Config_40.ConfigArch
 -- Matching combinational logic..
