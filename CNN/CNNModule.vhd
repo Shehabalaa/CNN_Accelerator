@@ -100,8 +100,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         pageTurn <= '0' WHEN currentPage = "0"
         ELSE '1';
 
-        writePage1 <= finishReadRowWindow AND ( (NOT pageTurn AND loadWindow AND loadFilter) OR (pageTurn AND (readNextCol OR loadWindow) )  );
-        writePage2 <=finishReadRowWindow AND ( ( pageTurn AND loadWindow AND loadFilter ) OR (NOT pageTurn AND (readNextCol OR loadWindow) )  );
+        writePage1 <= finishReadRowWindow AND ( (NOT pageTurn AND loadWindow AND (loadFilter OR layerType)) OR (pageTurn AND (readNextCol OR loadWindow) )  );
+        writePage2 <=finishReadRowWindow AND ( ( pageTurn AND loadWindow AND (loadFilter OR layerType) ) OR (NOT pageTurn AND (readNextCol OR loadWindow) )  );
         writeFilter <= finishReadRowFilter AND loadFilter;
 
         -- dmaWindowFinish <= readAllFinish OR writeOneFinish;

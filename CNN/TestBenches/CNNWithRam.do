@@ -53,8 +53,8 @@ force -freeze sim:/cnnwithram/start 0 0
 
 run
 
-mem load -i ./CNN/RAMs/Test/windowRAM.mem -format mti /cnnwithram/windowRam/ram
-mem load -i ./CNN/RAMs/Test/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
+mem load -i ./CNN/RAMs/Pool_S_1L1F3/windowRAM.mem -format mti /cnnwithram/windowRam/ram
+mem load -i ./CNN/RAMs/Pool_S_1L1F3/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
 
 
 
@@ -84,6 +84,6 @@ run
 
 #run -all
 
-#mem save -o ./CNN/RAMs/Test/cnnOutput.mem -f mti -data binary -addr hex -wordsperline 1 /cnnwithram/windowRam/ram
+#mem save -o ./CNN/RAMs/Pool_S_1L1F3/cnnOutput.mem -f mti -data binary -addr hex -wordsperline 1 /cnnwithram/windowRam/ram
 
-#mem save -o ./CNN/RAMs/Test/cnnOutput.mem -f mti -data binary -addr hex -startaddress 3872 -endaddress 8191 -wordsperline 1 /cnnwithram/windowRam/ram
+#mem save -o ./CNN/RAMs/Pool_S_1L1F3/cnnOutput.mem -f mti -data binary -addr hex -startaddress 3872 -endaddress 8191 -wordsperline 1 /cnnwithram/windowRam/ram
