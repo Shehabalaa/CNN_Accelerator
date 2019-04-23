@@ -41,7 +41,7 @@ END CNNModule;
 ARCHITECTURE CNNModuleArch OF CNNModule IS
     
     --SIGNAL startProduct: STD_LOGIC;-- From Control Unit to CNN Module to Conv the dot product operation
-    SIGNAL conv,pool, layerType, filterType: STD_LOGIC; -- From Control Unit to CNN Module to Conv its operation
+    SIGNAL conv,pool, layerType, filterType, sliceFirstLoad: STD_LOGIC; -- From Control Unit to CNN Module to Conv its operation
     SIGNAL currentPage : STD_LOGIC_VECTOR(0 DOWNTO 0);
 
     SIGNAL filterBus: STD_LOGIC_VECTOR((numUnits*filterSize)-1 DOWNTO 0);
@@ -100,8 +100,8 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
         pageTurn <= '0' WHEN currentPage = "0"
         ELSE '1';
 
-        writePage1 <= finishReadRowWindow AND ( (NOT pageTurn AND loadWindow AND (loadFilter OR layerType)) OR (pageTurn AND (readNextCol OR loadWindow) )  );
-        writePage2 <=finishReadRowWindow AND ( ( pageTurn AND loadWindow AND (loadFilter OR layerType) ) OR (NOT pageTurn AND (readNextCol OR loadWindow) )  );
+        writePage1 <= finishReadRowWindow AND ( (NOT pageTurn AND sliceFirstLoad) OR (pageTurn AND (readNextCol OR loadWindow) )  );
+        writePage2 <=finishReadRowWindow AND ( ( pageTurn AND sliceFirstLoad ) OR (NOT pageTurn AND (readNextCol OR loadWindow) )  );
         writeFilter <= finishReadRowFilter AND loadFilter;
 
         -- dmaWindowFinish <= readAllFinish OR writeOneFinish;
@@ -125,6 +125,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             layerType,
             doneCores, dmaFilterFinish, readAllFinish, writeOneFinish,
             rst,
+            sliceFirstLoad,
             loadLayerConfig, loadNetworkConfig, loadFilterConfig,
             loadWindow, loadFilter, conv, pool, 
             shift1To2, shift2To1, readNextCol, addToOutputBuffer, outputBufferEn, saveToRAM,

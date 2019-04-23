@@ -111,7 +111,7 @@ ARCHITECTURE FilterControllerArch OF FilterController IS
                         -- Set Next State
 							nextState <= endState;
 
-						IF counterOut = depth THEN
+						IF counterOut = depth OR layerType = '1' THEN
 							filterLastLayer <= '1';
 						ELSE
 							filterLastLayer <= '0';

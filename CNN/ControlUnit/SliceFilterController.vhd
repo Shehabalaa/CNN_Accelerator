@@ -22,6 +22,7 @@ ENTITY SliceFilterController IS
 
 			-- loadBias, -- Signal is sent to DMA to load Bias from RAM and save into filter buffer
 			pageTurn: OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+			sliceFirstLoad, -- Signal to indicate that we are in the first state in fSM which is FilterLoadWindow State
 			loadFilter, -- Signal is sent to DMA to load Filter from RAM
 			loadWindow, -- Signal is sent to DMA to load Window from RAM
 			conv,  -- Signal is sent to Multipliers to start Convolution
@@ -101,7 +102,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 				WHEN idleState =>
 					-- Intialize all Signals to 0
 						loadFilter <= '0';
-						
+						sliceFirstLoad <= '0';
 						-- loadBias <= '0';
 						conv <= '0';
 						pool <= '0';
@@ -177,6 +178,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 
 						-- Release Raised Signals by past state
 							-- loadBias <= '0';
+							sliceFirstLoad <= '1';
 							conv <= '0';
 							pool <= '0';
 							shift12 <= '0';
@@ -226,6 +228,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 						-- Release Signal raised by past state
 							loadFilter <= '0';
 							loadWindow <= '0';
+							sliceFirstLoad <= '0';
 							-- loadBias <= '0';
 							readNextCol <= '0';
 							addToOutputBuffer <= '0';
@@ -289,6 +292,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							
 							shift12 <= '0';
 							shift21 <= '0';
+							sliceFirstLoad <= '0';
 							-- update working page
 								-- currentPage <= nextPage;
 								-- nextPage <= nextPage;
@@ -370,6 +374,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							loadFilter <= '0';
 							readNextCol <= '0';
 							loadWindow <= '0';
+							sliceFirstLoad <= '0';
 							-- loadBias <= '0';
 							-- saveToRam <= '0';
 							savingToRam <= '0';
@@ -406,6 +411,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							loadWindow <= '0';
 							-- loadBias <= '0';
 							readNextCol <= '0';
+							sliceFirstLoad <= '0';
 
 							conv <= '0';
 							pool <= '0';
@@ -420,9 +426,8 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 							savingToRam <= '0';
 							finish <= '0';
 
-							resetFinishes <= '0';
+							resetFinishes <= '1';
 							finalDMAEn <= '0';
-
 
 							resetOuterCounter <= '0';
 
@@ -458,6 +463,7 @@ ARCHITECTURE SliceFilterControllerArch OF SliceFilterController IS
 					loadFilter <= '0';
 					loadWindow <= '0';
 					-- loadBias <= '0';
+					sliceFirstLoad <= '0';
 					addToOutputBuffer <= '0';
 					outputBufferEn <= '0';
 					readNextCol <= '0';
