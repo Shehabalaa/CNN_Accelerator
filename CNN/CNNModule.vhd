@@ -68,7 +68,7 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
 
     -- SIGNALS to Output buffer
     SIGNAL addToOutputBuffer, outputBufferEn, saveToRAM, allRead: STD_LOGIC;
-    SIGNAL currentRegFromOutBuffer, finalAdderOut: STD_LOGIC_VECTOR(windowSize - 1 DOWNTO 0);
+    SIGNAL currentRegFromOutBuffer, finalAdderOut, inputToFinalAdder: STD_LOGIC_VECTOR(windowSize - 1 DOWNTO 0);
 
 
     SIGNAL readNumLayers, readLayerConfig: STD_LOGIC;
@@ -216,8 +216,16 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             saveToRAM, outputBufferEn, layerType
         );
 
+
+        convOrPoolMuxMap: ENTITY work.Mux2 GENERIC MAP(windowSize) PORT MAP(
+            currentRegFromOutBuffer,
+            "0000000000000000",
+            layerType,
+            inputToFinalAdder
+        );
+
         finalAdderMap: ENTITY work.NBitAdder GENERIC MAP(windowSize) PORT MAP (
-            a => currentRegFromOutBuffer,
+            a => inputToFinalAdder,
             b => sumOutCores,
             carryIn => '0',
             sum => finalAdderOut,
