@@ -12,25 +12,27 @@ for r, d, f in os.walk(path):
         print(r)
         # os.system('vsim -do '+str(r)+'\CNNWithRam.do')
         doFile = open(str(r)+"/CNNWithRAM.do","w+")
-        savedDo = open("Do1.txt", "r")
-        # savedDo = open("leonardoDo.txt", "r")
+        # savedDo = open("Do1.txt", "r")
+        savedDo = open("leonardoDo.txt", "r")
         savedDoLines = savedDo.readlines()
         j = 0
-        while j < 52:
-        # while j < 155:
+        # while j < 52:
+        while j < 155:
             doFile.write(savedDoLines[j])
             j += 1
 
-        j = 59
-        # j = 160
+        # j = 59
+        j = 160
         newR = r.replace(os.sep, '/')
             
         doFile.write("mem load -i ./CNN/RAMs/"+str(newR)+"/windowRAM.mem -format mti /cnnwithram/windowRam/ram \n")
         doFile.write("mem load -i ./CNN/RAMs/"+str(newR)+"/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram \n")
 
+        # doFile.write("mem load -i ./CNN/RAMs/"+str(newR)+"/windowRAM.mem -format mti /cnnwithram2/windowRam/ram \n")
+        # doFile.write("mem load -i ./CNN/RAMs/"+str(newR)+"/weightsRAM.mem -format mti /cnnwithram2/weightsRam/ram \n")
 
-        while j < 69:
-        # while j < 170:
+        # while j < 69:
+        while j < 170:
             doFile.write(savedDoLines[j])
             j += 1
 
