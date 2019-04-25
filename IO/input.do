@@ -1,4 +1,4 @@
-    vsim work.Accelerator
+    vsim -gui work.Accelerator
     add wave -position insertpoint  \
     sim:/Accelerator/Din \
     sim:/Accelerator/INTR \
@@ -8,11 +8,8 @@
     sim:/Accelerator/busy \
     sim:/Accelerator/doneDMAFC \
     sim:/Accelerator/doneDMACNN \
-    sim:/Accelerator/doneDMAImage \
-    sim:/accelerator/IOChip/io/Controller/doneDMAImageDelayed \
     sim:/Accelerator/doneWithPhase \
     sim:/accelerator/IOChip/io/Controller/anyDone \
-    sim:/accelerator/imgRamWrite \
     sim:/accelerator/IOChip/io/Controller/INTRDelayedSq \
     sim:/accelerator/IOChip/io/Controller/INTRDelayed \
     sim:/Accelerator/iochip/interfaceOutput \
@@ -30,15 +27,21 @@
     sim:/accelerator/IOChip/io/Controller/DMAImageOrINTRDelayed \
     sim:/accelerator/IOChip/io/Controller/DMAImageOrINTRDelayedSq \
     sim:/Accelerator/clk \
-    sim:/Accelerator/rst
+    sim:/Accelerator/rst \
+    sim:/accelerator/IOChip/fcDMA/ModuloCounter/currentCount \
+    sim:/accelerator/IOChip/io/Controller/FCRegisterEnable \
+    sim:/accelerator/FCRamWrite \
+    sim:/accelerator/IOChip/io/Controller/zeroStateDelayedSq
 
    
     # $fileImage will contain the fileImage pointer to test.txt (fileImage must exist)
     set fileImage [open testImage.txt]
     set fileCNN [open testCNN.txt]
+    set fileFC [open testFC.txt]
     # $input will contain the contents of the fileImage
     set inputImage [read $fileImage]    
     set inputCNN [read $fileCNN]
+    set inputFC [read $fileFC]
     # $lines will be an array containing each line of test.txt
 
     # $runTime will be the period of the clk cycle
@@ -59,7 +62,7 @@
     force -freeze sim:/Accelerator/imageOrCNN 0 0
 
 
-    for {set i 0} {$i < 2} {incr i} {
+    for {set i 0} {$i < 3} {incr i} {
         set boolean 1
         set phaseDone 0
         if { $i == 0} {
@@ -71,50 +74,53 @@
             set lines [split $inputCNN "\n"]
             run $runTime
             run $runTime
-            force -freeze sim:/Accelerator/processing 0 0
-            force -freeze sim:/Accelerator/load 1 0 
-            force -freeze sim:/Accelerator/imageOrCNN 1 0
-            run $runTime
-            run $runTime
         } else {
-            force -freeze sim:/Accelerator/processing 0 0
-            force -freeze sim:/Accelerator/load 1 0 
-            force -freeze sim:/Accelerator/imageOrCNN 1 0
+            set lines [split $inputFC "\n"]
         }
         foreach line $lines {
-            if { $boolean == 1} {        
-                force -freeze sim:/Accelerator/INTR 1 0
-                force -freeze sim:/Accelerator/Din $line 0
-                run $runTime
-                noforce sim:/Accelerator/Din 
-                force -freeze sim:/Accelerator/INTR 0 0
-                run $runTime
-                set boolean 0
-                puts "continue"
-                continue
-            }
             force -freeze sim:/Accelerator/INTR 1 0
             force -freeze sim:/Accelerator/Din $line 0
             run $runTime
             noforce sim:/Accelerator/Din 
             force -freeze sim:/Accelerator/INTR 0 0
-            set busy [examine -binary /Accelerator/busy] 
+            set busy [examine -binary /Accelerator/busy]
             while { $busy } {
                 run $halfRunTime
                 set busy [examine -binary /Accelerator/busy]
-                set donePhase [examine -binary /Accelerator/doneWithPhase]
-                if { $donePhase == 1} {
-                    set phaseDone 1
+                if { $busy == 0 } {
+                    set doneDMACNN [examine -binary /Accelerator/doneDMACNN]
+                    if { $doneDMACNN == 1} {
+                        run $halfRunTime
+                        }
+                    }
+            }
+            run $halfRunTime
+            if { $i == 2} {
+                run $halfRunTime
+                set busy [examine -binary /Accelerator/busy] 
+                while { $busy } {
+                    set FCRamWrite [examine -binary /Accelerator/FCRamWrite]
+                    run $halfRunTime
+                    set busy [examine -binary /Accelerator/busy]
+                    if { $busy == 0 } {
+                        if { $FCRamWrite == 1} {
+                            run $halfRunTime
+                        }
+                    }
                 }
+                run $halfRunTime 
             }
-            run $runTime
-        if { $phaseDone == 1 } {
-                puts "done with current phase"
-                break;
-            } else {	
-                puts "taking another input"
-                puts $line
-            }
+            set donePhase [examine -binary /Accelerator/doneWithPhase]
+            if { $donePhase == 1 } {
+                    puts "done with current phase"
+                    force -freeze sim:/Accelerator/processing 0 0
+                    force -freeze sim:/Accelerator/load 1 0 
+                    force -freeze sim:/Accelerator/imageOrCNN 1 0
+                    run $halfRunTime
+                    run $runTime
+                    run $runTime
+                    break
+                }
         }
     }
     close $fileImage
@@ -123,4 +129,5 @@
 
     
 mem save -o Image.mem -f mti -noaddress -data decimal -addr decimal -startaddress 0 -endaddress 784 -wordsperline 1 /accelerator/Image/ram
-mem save -o FC.mem -f mti -noaddress -data decimal -addr decimal -startaddress 0 -endaddress 784 -wordsperline 1 /accelerator/FC/ram
+mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 106 -wordsperline 1 /accelerator/Weights/ram
+mem save -o FC.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 4 -wordsperline 1 /accelerator/FC/ram

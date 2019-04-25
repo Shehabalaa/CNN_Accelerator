@@ -1,4 +1,6 @@
-0000000001101011
+// memory data file (do not edit the following line - required for mem load use)
+// instance=/accelerator/Weights/ram
+// format=mti addressradix=h dataradix=b version=1.0 wordsperline=1 noaddress
 0000001011100000
 1100000011111100
 0000101100000010

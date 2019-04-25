@@ -66,8 +66,8 @@ BEGIN
   
   --Busy latch
   busyFFD <= INTR OR busyFFQ;
-  busy <= busyFFQ OR INTR;
-  busyRst <= anyDone OR zeroStateDelayedSq;
+  busy <= busyFFQ OR INTR or FCRamEnable;
+  busyRst <= anyDone OR zeroStateDelayedSq OR (FCRegisterEnable AND FCLoad AND (NOT FCRamEnable));
   busyFF: ENTITY work.DFF PORT MAP(busyFFD, clk, busyRst, high, busyFFQ);
 
   --State counter
