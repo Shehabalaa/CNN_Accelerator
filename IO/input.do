@@ -2,12 +2,14 @@
     add wave -position insertpoint  \
     sim:/Accelerator/Din \
     sim:/Accelerator/INTR \
-    sim:/Accelerator/processing \
+    sim:/Accelerator/clk \
     sim:/Accelerator/imageOrCNN \
     sim:/Accelerator/load \
     sim:/Accelerator/busy \
     sim:/Accelerator/doneDMAFC \
     sim:/Accelerator/doneDMACNN \
+	sim:/accelerator/doneDMAImage \
+	sim:/accelerator/IOChip/io/Controller/doneDecomp \
     sim:/Accelerator/doneWithPhase \
     sim:/accelerator/IOChip/io/Controller/anyDone \
     sim:/accelerator/IOChip/io/Controller/INTRDelayedSq \
@@ -19,18 +21,13 @@
     sim:/Accelerator/iochip/io/Controller/stateCounter/counterOutput \
     sim:/accelerator/IOChip/decomp/countOut \
     sim:/accelerator/IOChip/io/Controller/decompDecrementorEnable \
+	sim:/accelerator/IOChip/decomp/Counter/counterReg/Q \
     sim:/accelerator/IOChip/decompZeroState \
-    sim:/accelerator/Image/address \
-    sim:/accelerator/Image/dataIn \
     sim:/accelerator/IOChip/imageDMA/enableImageRegister \
     sim:/accelerator/Image/currentCount \
     sim:/accelerator/IOChip/io/Controller/DMAImageOrINTRDelayed \
     sim:/accelerator/IOChip/io/Controller/DMAImageOrINTRDelayedSq \
-    sim:/Accelerator/clk \
     sim:/Accelerator/rst \
-    sim:/accelerator/IOChip/fcDMA/ModuloCounter/currentCount \
-    sim:/accelerator/IOChip/io/Controller/FCRegisterEnable \
-    sim:/accelerator/FCRamWrite \
     sim:/accelerator/IOChip/io/Controller/zeroStateDelayedSq
 
    
@@ -90,6 +87,10 @@
                 if { $busy == 0 } {
                     set doneDMACNN [examine -binary /Accelerator/doneDMACNN]
                     if { $doneDMACNN == 1} {
+                        run $halfRunTime
+                        }
+                    set doneDMAImage [examine -binary /Accelerator/doneDMAImage]
+                    if { $doneDMAImage == 1} {
                         run $halfRunTime
                         }
                     }
