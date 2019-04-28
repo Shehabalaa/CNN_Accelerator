@@ -17,13 +17,15 @@ ENTITY IOInterface IS
       INTR, clk, rst, globalCounterEnable, globalCounterLoad: in std_logic;
       zeroState: out std_logic;
       Q: inout std_logic_vector(chipInputSize - 1 DOWNTO 0);
-      result: out std_logic_vector(chipOutputSize - 1 DOWNTO 0)
+      result: out std_logic_vector(chipOutputSize - 1 DOWNTO 0);
+      FCResult: in std_logic_vector(chipOutputSize - 1 DOWNTO 0);
+      FCDone: in std_logic
   );
 END ENTITY;
 
 ARCHITECTURE IOInterfaceArch OF IOInterface IS
 SIGNAL myZeroState, myGlobalCounterEnable: std_logic;
-SIGNAL globalCounterOutputBar, globalCounterOutput, zeros: std_logic_vector(chipInputSize - 1 DOWNTO 0);
+SIGNAL globalCounterOutput, zeros: std_logic_vector(chipInputSize - 1 DOWNTO 0);
 BEGIN
   zeros <= (OTHERS => '0');
   
@@ -36,4 +38,6 @@ BEGIN
                         PORT MAP(Din, myGlobalCounterEnable, globalCounterLoad, rst, clk, globalCounterOutput);
 
   DataReg: ENTITY work.Reg GENERIC MAP(chipInputSize) PORT MAP(Din, INTR, clk, rst, Q);
+  result <= FCResult WHEN FCDone = '1'
+            ELSE "0000";
 END ARCHITECTURE;

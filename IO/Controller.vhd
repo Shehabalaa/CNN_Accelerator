@@ -38,7 +38,7 @@ ENTITY Controller IS
            chipOutputSize: integer :=4);
   PORT(
       doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, processing, imageOrCNN, 
-      zeroState, decompZeroState, rst, FCRamWriteOld, moduloCounterZeroState: in std_logic;
+      zeroState, decompZeroState, rst, FCRamWriteOld: in std_logic;
       INTRDelayed, globalCounterLoad, imageLoad, imageRegisterEnable, imageRamEnable,
       CNNRegisterEnable, CNNRamEnable, FCRegisterEnable, FCRamEnable: inout std_logic;
       busy, doneWithPhase, interfaceRegEnable, interfaceMuxSel, interfaceMuxEnable, 
@@ -51,7 +51,7 @@ ARCHITECTURE ControllerArch OF Controller IS
 SIGNAL doneImage, anyDone, imageLatcherD, busyFFD, busyFFQ, doneDecomp, imageRamLatchD, CNNRamLatchD, FCRamLatchD, DMAImageNotDelayedOrINTRDelayed,
        CNNRamRst, imageRamRst, FCRamRst, CNNLoad, FCLoad, DMAImageOrINTRDelayed, DMAImageOrINTRDelayedSq, zeroStateDelayed, zeroStateDelayedSq,
        INTRDelayedSq, INTRFFD,stateCounterEnable, stateCounterLoad, CNNOrFC, busyRst, doneDMAImageDelayed: std_logic;
-SIGNAL stateCounterQ, stateCounterD, zeros: std_logic_vector(1 DOWNTO 0);
+SIGNAL stateCounterQ, zeros: std_logic_vector(1 DOWNTO 0);
 SIGNAL high: std_logic := '1';
 SIGNAL notClk: std_logic;
 BEGIN
@@ -67,7 +67,7 @@ BEGIN
   --Busy latch
   busyFFD <= INTR OR busyFFQ;
   busy <= busyFFQ OR INTR;
-  busyRst <= anyDone OR zeroStateDelayedSq;
+  busyRst <= anyDone OR zeroStateDelayedSq OR rst;
   busyFF: ENTITY work.DFF PORT MAP(busyFFD, clk, busyRst, high, busyFFQ);
 
   --State counter
@@ -110,14 +110,14 @@ BEGIN
   --IO Interface signals
   interfaceMuxEnable <= load;
   interfaceMuxSel <= imageOrCNN;
-  interfaceRegEnable <= load AND INTR;
-  globalCounterLoad <= INTR AND zeroState;
-  globalCounterEnable <= globalCounterLoad OR anyDone;
+  interfaceRegEnable <= load AND INTR AND (NOT rst);
+  globalCounterLoad <= INTR AND zeroState AND (NOT rst);
+  globalCounterEnable <= (globalCounterLoad OR anyDone) AND (NOT rst);
 
   --CNN signals
   CNNLoad <= load AND imageOrCNN AND (NOT CNNOrFC);
-  CNNCounterEnable <= CNNLoad AND doneDMACNN;
-  CNNRegisterEnable <= CNNLoad AND INTRDelayed AND (NOT zeroState);
+  CNNCounterEnable <= CNNLoad AND doneDMACNN AND (NOT rst);
+  CNNRegisterEnable <= CNNLoad AND INTRDelayed AND (NOT zeroState) AND (NOT rst);
 
   --CNN Ram enable latch
   CNNRamLatchD <= CNNRegisterEnable OR CNNRamEnable;
@@ -126,8 +126,8 @@ BEGIN
 
   --FC signals
   FCLoad <= load AND imageOrCNN AND CNNOrFC;
-  FCCounterEnable <= FCLoad and doneDMAFC;
-  FCRegisterEnable <= FCLoad AND INTRDelayed AND (NOT zeroState);
+  FCCounterEnable <= FCLoad and doneDMAFC AND (NOT rst);
+  FCRegisterEnable <= FCLoad AND INTRDelayed AND (NOT zeroState) AND (NOT rst);
 
   --FC Ram enable latch
   FCRamLatchD <= FCRamWriteOld OR FCRamEnable;
@@ -141,6 +141,6 @@ BEGIN
   doneWithPhase <= anyDone AND zeroState;
 
   --Communication signals with the other modules
-  toCNN <= doneDMAImage AND (NOT CNNOrFC); --CNNOrFC is produced form 2 bit state counter (MSB)
-  toFC <= stateCounterQ(1) AND stateCounterQ(0) AND doneImage;
+  toCNN <= doneDMAImage AND (NOT CNNOrFC) AND processing; --CNNOrFC is produced form 2 bit state counter (MSB)
+  toFC <= stateCounterQ(1) AND stateCounterQ(0) AND doneImage AND processing;
 END ARCHITECTURE;

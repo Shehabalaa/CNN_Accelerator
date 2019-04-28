@@ -1,6 +1,6 @@
-vsim work.decompressor -sdftyp /=/home/ayman/Desktop/project/CNN_Accelerator-IO/CNN_Accelerator-IO/IO/leonardoScritpts/decompressor.sdf
+vsim -gui work.Decompressor
 add wave -position insertpoint sim:/decompressor/*
-force -freeze sim:/decompressor/clk 1 0, 0 {1525 ps} -r 3050
+force -freeze sim:/decompressor/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/decompressor/en 1 0
 force -freeze sim:/decompressor/rst 1 0
 run

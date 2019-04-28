@@ -10,7 +10,7 @@ ENTITY FCDMA IS
 		clk,rst,addressCounterEnable,delayedInt,doneFCRAM: IN STD_LOGIC;
 		address: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		dataOut: OUT STD_LOGIC_VECTOR(5*(n)-1 DOWNTO 0);
-		write, moduloCounterZeroState: OUT STD_LOGIC
+		write: OUT STD_LOGIC
 	); 
 END ENTITY FCDMA;
 

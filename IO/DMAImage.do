@@ -1,6 +1,6 @@
-sim work.dmaimage -noglitch
+vsim -gui work.dmaimage
 add wave -position insertpoint sim:/dmaimage/*
-force -freeze sim:/dmaimage/clk 1 0, 0 {2500 ps} -r 5000
+force -freeze sim:/dmaimage/clk 1 0, 0 {25 ps} -r 50
 force -freeze sim:/dmaimage/rst 1 0
 run
 force -freeze sim:/dmaimage/rst 0 0

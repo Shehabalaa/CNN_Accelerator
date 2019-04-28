@@ -20,11 +20,7 @@ sim:/accelerator/IOChip/io/Interface/zeroState \
 sim:/accelerator/IOChip/io/Controller/zeroStateDelayed \
 sim:/accelerator/IOChip/io/Controller/zeroStateDelayedSq \
 sim:/Accelerator/iochip/io/Controller/stateCounter/counterOutput \
-sim:/accelerator/IOChip/fcDMA/registersOut \
-sim:/accelerator/IOChip/fcDMA/registersIn \
-sim:/accelerator/IOChip/fcDMA/dataOut \
-sim:/accelerator/IOChip/fcDMA/address \
-sim:/accelerator/FC/we \
+sim:/accelerator/IOChip/io/Interface/GlobalCounter/muxloadOrCurrent/* \
 sim:/Accelerator/rst
 #force -freeze sim:/Accelerator/rst 2#1 0, 2#0 50 
 force -freeze sim:/Accelerator/rst 1 0

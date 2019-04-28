@@ -1,0 +1,15 @@
+load_library tsmc035_typ
+set_working_dir /home/ayman/Desktop/CNN_Accelerator-IO/IO/leonardoScritpts
+read -technology "tsmc035_typ" { /home/ayman/Desktop/CNN_Accelerator-IO/IO/Mux2.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/Reg.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/FullAdder.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/FullSubtractor.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/NBitSubtractor.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/RegWithLoad.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/DownCounterAsyncLoad.vhd /home/ayman/Desktop/CNN_Accelerator-IO/IO/IOInterface.vhd}
+pre_optimize .work.IOInterface.IOInterfaceArch -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize .work.IOInterface.IOInterfaceArch -extract 
+optimize .work.IOInterface.IOInterfaceArch -target tsmc035_typ -macro -auto -effort standard -hierarchy auto 
+optimize_timing .work.IOInterface.IOInterfaceArch 
+report_delay ./IOInterfaceSynthesized/IOInterfaceDelay.txt -num_paths 1 -longest_path -clock_frequency
+report_area ./IOInterfaceSynthesized/IOInterfaceArea.txt -cell_usage -all_leafs 
+set novendor_constraint_file FALSE
+auto_write -format SDF ./IOInterfaceSynthesized/IOInterface.sdf
+set novendor_constraint_file FALSE
+auto_write -format VHDL ./IOInterfaceSynthesized/IOInterface.vhd
+set novendor_constraint_file FALSE
+auto_write -format SDF ./IOInterfaceSynthesized/IOInterface.sdf

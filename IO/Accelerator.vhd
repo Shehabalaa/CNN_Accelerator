@@ -8,7 +8,9 @@ PORT    (
 	  din: in std_logic_vector(15 downto 0);
 		clk, rst, imageOrCNN, INTR, load, processing: in std_logic;
 		doneWithPhase, busy: out std_logic;
-		result: out std_logic_vector(3 downto 0)
+		result: out std_logic_vector(3 downto 0);
+		FCResult: in std_logic_vector(3 DOWNTO 0);
+    FCDone: in std_logic
 	);
 
 END ENTITY;
@@ -31,7 +33,7 @@ BEGIN
 	IOChip: Entity work.IOChip 
 			PORT MAP(din, clk, rst, imageOrCNN, INTR, load, processing, doneWithPhase, busy, doneDMAFC, 
 							 doneDMACNN, doneDMAImage, imgRamWrite, CNNRamWrite, FCRamWrite, imgRamAddress, imgRamDin, 
-							 CNNRamAddress, CNNRamDin, FCRamAddress, FCRamDin, result);
+							 CNNRamAddress, CNNRamDin, FCRamAddress, FCRamDin, result, FCResult, FCDone);
 	Weights: Entity work.RAMWithDone PORT MAP(clk, low, CNNRamWrite, rst, CNNRamAddress, CNNRamDin, CNNRamDout, doneDMACNNOld);
 	Image: Entity work.RAMWithDone PORT MAP(clk, low, imgRamWrite, rst, imgRamAddress, imgRamDin, imgRamDout, doneDMAImageOld);
 	FC: Entity work.RAMWithDone GENERIC MAP(16, 80, 400) PORT MAP(clk, low, FCRamWrite, rst, FCRamAddress, FCRamDin, FCRamDout, doneDMAFCOld);
