@@ -129,5 +129,5 @@
 
     
 mem save -o Image.mem -f mti -noaddress -data decimal -addr decimal -startaddress 0 -endaddress 784 -wordsperline 1 /accelerator/Image/ram
-mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 107 -wordsperline 1 /accelerator/Weights/ram
+mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 106 -wordsperline 1 /accelerator/Weights/ram
 mem save -o FC.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 4 -wordsperline 1 /accelerator/FC/ram
