@@ -11,6 +11,7 @@ vcom Counter.vhd
 vcom Counter2.vhd
 vcom UpCounterAsyncLoad.vhd
 vcom DownCounterAsyncLoad.vhd
+vcom DownCounterSyncLoad.vhd
 vcom ModuloCounter.vhd
 vcom InverseMux.vhd
 vcom Controller.vhd

@@ -34,7 +34,7 @@ BEGIN
 
   zeroState <= myZeroState;
   myGlobalCounterEnable <= globalCounterEnable OR globalCounterLoad;
-  GlobalCounter: ENTITY work.DownCounterAsyncLoad GENERIC MAP(chipInputSize) 
+  GlobalCounter: ENTITY work.DownCounterSyncLoad GENERIC MAP(chipInputSize) 
                         PORT MAP(Din, myGlobalCounterEnable, globalCounterLoad, rst, clk, globalCounterOutput);
 
   DataReg: ENTITY work.Reg GENERIC MAP(chipInputSize) PORT MAP(Din, INTR, clk, rst, Q);

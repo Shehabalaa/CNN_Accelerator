@@ -2,12 +2,14 @@
     add wave -position insertpoint  \
     sim:/Accelerator/Din \
     sim:/Accelerator/INTR \
-    sim:/Accelerator/processing \
+    sim:/Accelerator/clk \
     sim:/Accelerator/imageOrCNN \
     sim:/Accelerator/load \
     sim:/Accelerator/busy \
     sim:/Accelerator/doneDMAFC \
     sim:/Accelerator/doneDMACNN \
+	sim:/accelerator/doneDMAImage \
+	sim:/accelerator/IOChip/io/Controller/doneDecomp \
     sim:/Accelerator/doneWithPhase \
     sim:/accelerator/IOChip/io/Controller/anyDone \
     sim:/accelerator/IOChip/io/Controller/INTRDelayedSq \
@@ -19,18 +21,13 @@
     sim:/Accelerator/iochip/io/Controller/stateCounter/counterOutput \
     sim:/accelerator/IOChip/decomp/countOut \
     sim:/accelerator/IOChip/io/Controller/decompDecrementorEnable \
+	sim:/accelerator/IOChip/decomp/Counter/counterReg/Q \
     sim:/accelerator/IOChip/decompZeroState \
-    sim:/accelerator/Image/address \
-    sim:/accelerator/Image/dataIn \
     sim:/accelerator/IOChip/imageDMA/enableImageRegister \
     sim:/accelerator/Image/currentCount \
     sim:/accelerator/IOChip/io/Controller/DMAImageOrINTRDelayed \
     sim:/accelerator/IOChip/io/Controller/DMAImageOrINTRDelayedSq \
-    sim:/Accelerator/clk \
     sim:/Accelerator/rst \
-    sim:/accelerator/IOChip/fcDMA/ModuloCounter/currentCount \
-    sim:/accelerator/IOChip/io/Controller/FCRegisterEnable \
-    sim:/accelerator/FCRamWrite \
     sim:/accelerator/IOChip/io/Controller/zeroStateDelayedSq
 
    
@@ -92,9 +89,17 @@
                     if { $doneDMACNN == 1} {
                         run $halfRunTime
                         }
+                    set doneDecomp [examine -binary /Accelerator/IOChip/io/Controller/doneDecomp]
+					
+                    if { $doneDecomp == 1 && $donePhase == 0} {
+                        run $halfRunTime
+                        }
                     }
             }
-            run $halfRunTime
+			set donePhase [examine -binary /Accelerator/doneWithPhase]
+			if { $donePhase == 0} {
+                run $halfRunTime
+            }
             if { $i == 2} {
                 run $halfRunTime
                 set busy [examine -binary /Accelerator/busy] 
@@ -112,9 +117,12 @@
             }
             set donePhase [examine -binary /Accelerator/doneWithPhase]
             if { $donePhase == 1 } {
-                    puts "done with current phase"
-                    force -freeze sim:/Accelerator/processing 0 0
-                    force -freeze sim:/Accelerator/load 1 0 
+					if { $i == 0 } {
+						puts "done with image phase"
+					}
+					if { $i == 1 } {
+						puts "done with CNN weights phase"
+					}
                     force -freeze sim:/Accelerator/imageOrCNN 1 0
                     run $halfRunTime
                     run $runTime
@@ -123,11 +131,12 @@
                 }
         }
     }
+	puts "done with FC phase"
     close $fileImage
 
 
 
     
 mem save -o Image.mem -f mti -noaddress -data decimal -addr decimal -startaddress 0 -endaddress 784 -wordsperline 1 /accelerator/Image/ram
-mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 107 -wordsperline 1 /accelerator/Weights/ram
+mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 106 -wordsperline 1 /accelerator/Weights/ram
 mem save -o FC.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 4 -wordsperline 1 /accelerator/FC/ram

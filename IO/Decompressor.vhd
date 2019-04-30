@@ -18,7 +18,7 @@ ARCHITECTURE DecompressorArchitecture of Decompressor IS
 signal countOut: STD_LOGIC_VECTOR(5 downto 0);
 signal registerIn: STD_LOGIC_VECTOR(7 downto 0);
 BEGIN
-	Counter: Entity work.DownCounterAsyncLoad GENERIC MAP(n=>6) PORT MAP(loadData => dataIn, clk =>clk, 	en=>en,rst => rst,load => intrDelayed, counterOutput => countOut);
+	Counter: Entity work.DownCounterSyncLoad GENERIC MAP(n=>6) PORT MAP(loadData => dataIn, clk =>clk, 	en=>en,rst => rst,load => intrDelayed, counterOutput => countOut);
 	registerIN <= "00000001";
 	zeroState <= NOT(countOut(0) OR countOut(1) OR countOut(2) OR countOut(3) OR countOut(4) OR countOut(5));
 	MyReg: ENTITY work.Reg	GENERIC MAP(8) PORT MAP(registerIn, imageLoad, clk, rst, dataOut);

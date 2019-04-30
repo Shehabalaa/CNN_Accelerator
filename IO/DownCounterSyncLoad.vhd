@@ -1,5 +1,3 @@
-
-
 LIBRARY IEEE;
 USE ieee.std_logic_1164.ALL;
 
@@ -7,16 +5,16 @@ USE ieee.std_logic_1164.ALL;
 --If enable is off, it does nothing, else
 --Can be reset to 0, can be loaded asynchronously
 --Decrements at each rising edge
-ENTITY DownCounterAsyncLoad IS
+ENTITY DownCounterSyncLoad IS
 	GENERIC (n: integer :=16);
 	PORT(
 		loadData: in std_logic_vector(n - 1 downto 0);
 		en, load, rst, clk: in std_logic;
 		counterOutput: out std_logic_vector(n - 1 downto 0)
 	);
-end DownCounterAsyncLoad;
+end DownCounterSyncLoad;
 
-ARCHITECTURE DownCounterAsyncLoadArch OF DownCounterAsyncLoad IS
+ARCHITECTURE DownCounterSyncLoadArch OF DownCounterSyncLoad IS
 signal outBorrow: std_logic;
 SIGNAL counterInput, subtractorOutput,dummyInput,currentCount: std_logic_vector(n-1 DOWNTO 0);
 BEGIN

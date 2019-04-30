@@ -89,13 +89,17 @@
                     if { $doneDMACNN == 1} {
                         run $halfRunTime
                         }
-                    set doneDMAImage [examine -binary /Accelerator/doneDMAImage]
-                    if { $doneDMAImage == 1} {
+                    set doneDecomp [examine -binary /Accelerator/IOChip/io/Controller/doneDecomp]
+					
+                    if { $doneDecomp == 1 && $donePhase == 0} {
                         run $halfRunTime
                         }
                     }
             }
-            run $halfRunTime
+			set donePhase [examine -binary /Accelerator/doneWithPhase]
+			if { $donePhase == 0} {
+                run $halfRunTime
+            }
             if { $i == 2} {
                 run $halfRunTime
                 set busy [examine -binary /Accelerator/busy] 
@@ -113,9 +117,12 @@
             }
             set donePhase [examine -binary /Accelerator/doneWithPhase]
             if { $donePhase == 1 } {
-                    puts "done with current phase"
-                    force -freeze sim:/Accelerator/processing 0 0
-                    force -freeze sim:/Accelerator/load 1 0 
+					if { $i == 0 } {
+						puts "done with image phase"
+					}
+					if { $i == 1 } {
+						puts "done with CNN weights phase"
+					}
                     force -freeze sim:/Accelerator/imageOrCNN 1 0
                     run $halfRunTime
                     run $runTime
@@ -124,6 +131,7 @@
                 }
         }
     }
+	puts "done with FC phase"
     close $fileImage
 
 
