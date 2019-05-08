@@ -3,11 +3,12 @@ LIBRARY work;
 USE IEEE.std_logic_1164.all;
 use work.Utiles.ALL;
 
-
-
+-- fcinit : signal will be raised for one cycle to tell FC to initialize and to load number number of Neorons from IO memory and load bias and multiply it by one and increment the result
+-- cnnFinishNeoron : pipeline signal from cnn to tell that the neoron have been finished
 ENTITY FcMain IS
     PORT(
-            cnnDone,clk,reset : IN STD_LOGIC;
+            fcInit,cnnFinishNeoron,clk,reset : IN STD_LOGIC;
+            cnnNeoron:STD_LOGIC_VECTOR(15 downto 0);
             fcDone: Out STD_LOGIC;
 	        MAXPrediction: Out STD_LOGIC_VECTOR(3 downto 0)
         );
@@ -23,16 +24,16 @@ ARCHITECTURE FcMainArch OF FcMain IS
     CONSTANT RamNeoronsWIDTH : INTEGER := 16*5; 
     CONSTANT RamWeigthsWIDTH : INTEGER := 8*10;
     CONSTANT MaxNeornsNumBitSIZE : INTEGER := 16;
-    CONSTANT RAMDELAY : INTEGER := 1;
+    CONSTANT RAMDELAY : INTEGER := 4;
     CONSTANT RAMADDRESS : INTEGER := 16;
 
 
-    --
+    -------------------------------------------------
 
     TYPE State_type IS (initial,setCounter,delay,loadBias,compareCounter ,loadNeoronAndWeights,Maxmimize,PrintOutput,startMul,startMulBias,resetMax); -- the 4 different states
 	SIGNAL state : State_Type;   
     ---- Signal Declaration 
-    SIGNAL readRamWeights,readRamNeorons,finishRamWeights,finishRamNeorons: STD_LOGIC;
+    SIGNAL readRamWeights,finishRamWeights,latchedFinishRam,risingFinishRam: STD_LOGIC;
 
     SIGNAL dmaAddRamNeorons,dmaAddRamWeights :STD_LOGIC_VECTOR(RAMADDRESS-1 DOWNTO 0);
 
@@ -45,9 +46,9 @@ ARCHITECTURE FcMainArch OF FcMain IS
     
     SIGNAL decrement : STD_LOGIC;
 
-    SIGNAL oneNeoron : STD_LOGIC_VECTOR(15 downto 0);
+    SIGNAL oneNeoron ,aluNeoronInput: STD_LOGIC_VECTOR(15 downto 0);
     SIGNAL defaultAddressWeights,defaultAddressNeorons: STD_LOGIC_VECTor(RAMADDRESS-1 downto 0);
-    SIGNAL neoronValueSelection : STD_LOGIC;
+    SIGNAL neoronValueSelection,latchedFinishNeoron : STD_LOGIC;
 
     SIGNAL incrementWeightAdd,incrementNeoronsAdd: STD_LOGIC;
 
@@ -70,7 +71,7 @@ ARCHITECTURE FcMainArch OF FcMain IS
 
     SIGNAL resetMaxSignal:STD_LOGIC;
     --------------------------------
-    SIGNAL cnnDoneOneCycle:STD_LOGIC;
+    SIGNAL fcInitOneCycle:STD_LOGIC;
 
 BEGIN
     ---------- initializition
@@ -80,17 +81,14 @@ BEGIN
     clkInverted <= NOT clk ;
 
     ----------------------------------------
-    CNNDONEHOLDER : ENTITY work.RisingHolderFullCycle PORT MAP(cnnDone,clk,reset,cnnDoneOneCycle);
+    fcInitHOLDER : ENTITY work.RisingHolderFullCycle PORT MAP(fcInit,clk,reset,fcInitOneCycle);
     ------------------------------------------
     NEORONSLASTSTAGES: ENTITY work.CounterUpDown GENERIC MAP(16) PORT MAP(dataOutRamWeights(RamWeigthsWIDTH-1 downto RamWeigthsWIDTH - MaxNeornsNumBitSIZE),(15 downto 0 =>'0'),clk,decrement,reset,loadNumberOFNeorons,'1',numberOFNeorons);
     --------------------------
-    NEORONREGMux: ENTITY work.mux2 GENERIC MAP(16) PORT MAP( A => dataOutRamNeorons(79 downto 64),B => oneNeoron,S => neoronValueSelection,C => neoronMuxOutput);
+    NEORONREGMux: ENTITY work.mux2 GENERIC MAP(16) PORT MAP( A => aluNeoronInput ,B => oneNeoron,S => neoronValueSelection,C => neoronMuxOutput);
 
     ------------------------------
     RAMWEIGHTS: ENTITY work.RAM GENERIC MAP(RAMADDRESS,RamWeigthsWIDTH) PORT MAP( clk,'0',dmaAddRamWeights,(79 downto 0 =>'0'),dataOutRamWeights);
-
-    RAMNEORONS: ENTITY work.RAM GENERIC MAP(RAMADDRESS,RamNeoronsWIDTH) PORT MAP(clk,'0' ,dmaAddRamNeorons,(79 downto 0 =>'0'),dataOutRamNeorons);
-
     ------------------------------------
     MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,resetMaxSignal,maxNumber,doneMax);
     ------------------------------------
@@ -99,11 +97,16 @@ BEGIN
     bufferRegOne: ENTITY work.FlibFlob  PORT MAP(multiplyWorkIn,'1',clkInverted,reset,bufferTwoInput);
     bufferRegTwo: ENTITY work.FlibFlob  PORT MAP(bufferTwoInput,'1',clk,reset,multiplyWorkDelayed);
     -----------------------------------------------------------
-    DMAWEIGHTS : ENTITY work.Dma  GENERIC MAP (RAMDELAY,RAMADDRESS) PORT MAP(clk,reset,incrementWeightAdd,cnnDoneOneCycle,defaultAddressWeights,readRamWeights,finishRamWeights,dmaAddRamWeights);
+    DMAWEIGHTS : ENTITY work.Dma  GENERIC MAP (RAMDELAY,RAMADDRESS) PORT MAP(clk,reset,incrementWeightAdd,fcInitOneCycle,defaultAddressWeights,readRamWeights,finishRamWeights,dmaAddRamWeights);
     
-    DMANEORONS : ENTITY work.Dma GENERIC MAP (RAMDELAY,RAMADDRESS) PORT MAP(clk,reset,incrementNeoronsAdd,cnnDoneOneCycle,defaultAddressNeorons,readRamNeorons,finishRamNeorons,dmaAddRamNeorons);
     ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     MAXVALUEREGMAP : ENTITY work.Reg generic map(4) port map(maxNumber,'1',doneMax,reset,MAXPrediction);
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    NEORONREGMAP : ENTITY work.Reg generic map(16) port map(cnnNeoron,'1',cnnFinishNeoron,reset,aluNeoronInput);
+    latchFinishRam: ENTITY work.FlibFlob  PORT MAP('1',finishRamWeights,clk,startMultiply,latchedFinishRam);
+    RiseFinishRam: ENTITY work.FlibFlob  PORT MAP('1','1',finishRamWeights,startMultiply,risingFinishRam);  
+    --latchFinishNeoron: ENTITY work.FlibFlob  PORT MAP('1',cnnFinishNeoron,clk,startMultiply,latchedFinishNeoron);
+
     ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     multiplyWork <= (multiplyWorkDelayed and multiplyWorkIn);
     ---------------------------------------------
@@ -113,23 +116,19 @@ BEGIN
         mulInputNeoron(I) <=neoronMuxOutput;
     END generate WEIGHTVALUEMAP ;
     -------------------------------------------------------------------
-    readRamWeights <= '1' when ((state = setCounter)or(state =loadBias)or(state = loadNeoronAndWeights)) else '0'; 
+    readRamWeights <= '1' when ((state = setCounter)or(state =loadBias)) else 
+                      '1' when (state = loadNeoronAndWeights) and (latchedFinishRam='0') else
+                      '0' ; 
     
-    readRamNeorons <= '1' when (state = loadNeoronAndWeights) else '0'; 
     
     loadNumberOFNeorons <='1' when ((state=setCounter) and (finishRamWeights='1')) else
                           '0' ;
    
-    --startMultiply <='1' when  ((state = loadBias) and (finishRamWeights ='1')and (multiplyWork='0')) else
-    --                '1' when ((state = loadNeoronAndWeights) and (finishRamWeights ='1')and(finishRamNeorons ='1')and(multiplyWork='0'))else
-    --                '0';
 
     startMultiply <= '1' when (state=startMul) or(state=startMulBias) else '0';
 
     decrement <=startMultiply;
     incrementWeightAdd <= '1' when ((startMultiply='1') or (loadNumberOFNeorons='1')) else '0';
-
-    incrementNeoronsAdd <='1' when ((state = loadNeoronAndWeights) and (finishRamWeights ='1')and(finishRamNeorons ='1')and(multiplyWork='0')) else '0';
 
     neoronValueSelection<='1' when (state=loadBias) or(state=startMulBias) else '0';
 
@@ -147,7 +146,7 @@ BEGIN
         ELSIF clk'EVENT AND clk='1' THEN
             CASE state IS
                 when initial =>
-                    if  cnnDoneOneCycle ='1' then
+                    if  fcInitOneCycle ='1' then
                         state <= setCounter;
                     end if; 
                 when setCounter =>
@@ -167,15 +166,15 @@ BEGIN
                 when startMul => 
                         state <= compareCounter;
                 when compareCounter =>
-                    if (numberOFNeorons =("0000000000000000"))and(finishRamWeights ='0')and (finishRamNeorons ='0')and((multiplyWork='0')) then 
+                    if (numberOFNeorons =("0000000000000000"))and(risingFinishRam ='0')and (cnnFinishNeoron ='0')and((multiplyWork='0')) then 
                         state <= resetMax;
                     elsif (numberOFNeorons =("0000000000000000")) then 
                         state <= compareCounter;
-                    elsif (finishRamWeights ='0')and (finishRamNeorons ='0') then
+                    elsif (risingFinishRam ='0') then
                         state <= loadNeoronAndWeights;
                     end if;
                 when loadNeoronAndWeights =>
-                   if  (finishRamWeights ='1')and (finishRamNeorons ='1')and ((multiplyWork='0')) then
+                   if  (risingFinishRam ='1')and (cnnFinishNeoron ='1')and ((multiplyWork='0')) then
                         state <= startMul;
                     end if; 
                 when resetMax => 
@@ -185,7 +184,7 @@ BEGIN
                         state <= PrintOutput;
                     end if ;
                 when PrintOutput =>  -- in this state the FCdone will always be one
-                     if  cnnDoneOneCycle ='1' then
+                     if  fcInitOneCycle ='1' then
                          state <= setCounter;
                     end if; 
             END CASE ;
