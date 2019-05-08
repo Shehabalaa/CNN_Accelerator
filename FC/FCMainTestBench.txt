@@ -42,3 +42,123 @@ run
 run
 run
 run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+
+force -freeze sim:/fcmain/cnnFinishNeoron 1 0
+force -freeze sim:/fcmain/cnnNeoron 16'h0d5c 0
+run
+force -freeze sim:/fcmain/cnnNeoron 16'h0000 0
+force -freeze sim:/fcmain/cnnFinishNeoron 0 0
+run
+
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/fcmain/cnnFinishNeoron 1 0
+force -freeze sim:/fcmain/cnnNeoron 16'hf4c7 0
+run
+force -freeze sim:/fcmain/cnnNeoron 16'h0000 0
+force -freeze sim:/fcmain/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+run
+
+force -freeze sim:/fcmain/cnnFinishNeoron 1 0
+force -freeze sim:/fcmain/cnnNeoron 16'h0959 0
+run
+force -freeze sim:/fcmain/cnnNeoron 16'h0000 0
+force -freeze sim:/fcmain/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+
+force -freeze sim:/fcmain/cnnFinishNeoron 1 0
+force -freeze sim:/fcmain/cnnNeoron 16'hfee7 0
+run
+force -freeze sim:/fcmain/cnnNeoron 16'h0000 0
+force -freeze sim:/fcmain/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+
+force -freeze sim:/fcmain/cnnFinishNeoron 1 0
+force -freeze sim:/fcmain/cnnNeoron 16'h0658 0
+run
+force -freeze sim:/fcmain/cnnNeoron 16'h0000 0
+force -freeze sim:/fcmain/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+run
+run
+
+
+force -freeze sim:/fcmain/cnnFinishNeoron 1 0
+force -freeze sim:/fcmain/cnnNeoron 16'hf793 0
+run
+force -freeze sim:/fcmain/cnnNeoron 16'h0000 0
+force -freeze sim:/fcmain/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+
+
+
