@@ -77,57 +77,21 @@ force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
 force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
 run
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-run
-run
-run
-run
-run
-run
 run
 run
 run
 run
 
-force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
-force -freeze sim:/fccomponent/cnnNeoron 16'h0d5c 0
-run
-force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
-force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
-run
-
-
-run
-run
-run
-run
-run
-run
-run
-run
-run
 force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
 force -freeze sim:/fccomponent/cnnNeoron 16'hf4c7 0
+force -freeze sim:/fccomponent/finishRamWeights 1 0
+force -freeze sim:/fccomponent/dataOutRamWeights 80'hff06fff01f1fe4e9e0e9 0
 run
 force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
 force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+force -freeze sim:/fccomponent/finishRamWeights 0 0
 run
 
-run
-run
 run
 run
 run
@@ -135,17 +99,23 @@ run
 
 force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
 force -freeze sim:/fccomponent/cnnNeoron 16'h0959 0
+force -freeze sim:/fccomponent/finishRamWeights 1 0
+force -freeze sim:/fccomponent/dataOutRamWeights 80'h060df3ec03e11be51511 0
 run
 force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
 force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+force -freeze sim:/fccomponent/finishRamWeights 0 0
 run
 
 run
 run
 run
 run
-run
 
+force -freeze sim:/fccomponent/finishRamWeights 1 0
+force -freeze sim:/fccomponent/dataOutRamWeights 80'he01ff7fb02e80dfcf416 0
+run
+force -freeze sim:/fccomponent/finishRamWeights 0 0
 force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
 force -freeze sim:/fccomponent/cnnNeoron 16'hfee7 0
 run
@@ -157,14 +127,16 @@ run
 run
 run
 run
-run
-run
-run
-run
-run
-run
-run
 
+force -freeze sim:/fccomponent/finishRamWeights 1 0
+force -freeze sim:/fccomponent/dataOutRamWeights 80'h070808f9e81cf0050c12 0
+run
+force -freeze sim:/fccomponent/finishRamWeights 0 0
+run
+run
+run
+run
+run
 force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
 force -freeze sim:/fccomponent/cnnNeoron 16'h0658 0
 run
@@ -172,23 +144,20 @@ force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
 force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
 run
 
-run
-run
-run
-run
-run
-run
-run
 
+run
+run
+run
+run
 
 force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
 force -freeze sim:/fccomponent/cnnNeoron 16'hf793 0
+force -freeze sim:/fccomponent/finishRamWeights 1 0
+force -freeze sim:/fccomponent/dataOutRamWeights 80'h06000503e3180613160c 0
 run
 force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
 force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
-run
-
-run
+force -freeze sim:/fccomponent/finishRamWeights 0 0
 run
 run
 run
@@ -207,6 +176,6 @@ run
 run
 run
 run
-
-
-
+run
+run
+run
