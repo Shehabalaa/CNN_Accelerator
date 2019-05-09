@@ -1,15 +1,4 @@
-/home/ayman/mgc/LeonardoSpectrum/bin/Linux/spectrum -file DMAController.tcl 
--------------------------------------------------
-LeonardoSpectrum Level 3 - 2018a.2 (Release Production Release, compiled Nov  1 2018 at 10:14:57)
-Copyright 1990-2018 Mentor Graphics.  All rights reserved.
-Portions copyright 1991-2018 Compuware Corporation
-
-Checking Security ...
-Reading library file `/home/ayman/mgc/LeonardoSpectrum/lib/tsmc035_typ.syn`...
-Library version = 3.0 Release : Patch (a) : 09/13/04
-Delays assume: Process=typical Temp= 27.0 C  Voltage=3.30 V  
-Info: setting encoding to auto
-Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/DMAController'
+Info, Log file moved to new working directory
 -- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
 -- Loading package standard into library std
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Tristate.vhd into library work
@@ -62,7 +51,7 @@ Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/DMAContro
 -- Loading architecture WriteDMAArch of WriteDMA into library work
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/ReadLogic.vhd into library work
 -- Loading entity ReadLogic into library work
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 51: Info, Enumerated type FSM with 4 elements encoded as binary.
+"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 52: Info, Enumerated type FSM with 4 elements encoded as binary.
 Encodings for FSM values
         value    FSM[1-0]
 =========================
@@ -72,10 +61,11 @@ Encodings for FSM values
      fetchState  11
 
 -- Loading architecture ReadLogicArch of ReadLogic into library work
+"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 92: Warning, signal zeros is never used.
 "/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 35: Warning, input isFilter is never used.
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/WriteLogic.vhd into library work
 -- Loading entity WriteLogic into library work
-"/media/sf_CNN_Accelerator/CNN/WriteLogic.vhd",line 61: Info, Enumerated type FSM with 5 elements encoded as onehot.
+"/media/sf_CNN_Accelerator/CNN/WriteLogic.vhd",line 62: Info, Enumerated type FSM with 5 elements encoded as onehot.
 Encodings for FSM values
         value    FSM[4-0]
 =========================
@@ -89,9 +79,14 @@ Encodings for FSM values
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/DmaController.vhd into library work
 -- Loading entity DMAController into library work
 -- Loading architecture DMAControllerArch of DMAController into library work
+"/media/sf_CNN_Accelerator/CNN/DmaController.vhd",line 91: Warning, signal readLogicRamAddress is never used.
+"/media/sf_CNN_Accelerator/CNN/DmaController.vhd",line 91: Warning, signal readLogicRamAddress is never assigned a value.
+"/media/sf_CNN_Accelerator/CNN/DmaController.vhd",line 91: Warning, signal writeLogicRamAddress is never used.
+"/media/sf_CNN_Accelerator/CNN/DmaController.vhd",line 91: Warning, signal writeLogicRamAddress is never assigned a value.
 -- Compiling root entity DMAController(DMAControllerArch)
 -- Compiling entity Mux2_13(Mux2Arch)
 -- Compiling entity Tristate_80(TriStateArch)
+-- Compiling entity Tristate_16(TriStateArch)
 -- Compiling entity ReadLogic_13_80_false(ReadLogicArch)
 -- Compiling entity DMA_13_80(DMAArch)
 -- Compiling entity MultiStepCounter_13(MultiStepCounterArch)
@@ -103,11 +98,11 @@ Encodings for FSM values
 -- Compiling entity NBitSubtractor_3(NBitSubtractorArch)
 -- Compiling entity FullSubtractor(Behavioral)
 -- Compiling entity Mux2_3(Mux2Arch)
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd",line 46: Warning, internalFinishedReading is not always assigned. Storage may be needed..
+"/media/sf_CNN_Accelerator/CNN/DMA.vhd",line 47: Warning, internalFinishedReading is not always assigned. Storage may be needed..
 -- Compiling entity Counter2_13(Counter2Arch)
 -- Compiling entity Counter2_3(Counter2Arch)
 -- Compiling entity NBitAdder_3(NBitAdderArch)
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 277: Info, others clause is never selected for synthesis.
+"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 310: Info, others clause is never selected for synthesis.
 -- Compiling entity ReadLogic_12_40_true(ReadLogicArch)
 -- Compiling entity Mux2_12(Mux2Arch)
 -- Compiling entity DMA_12_40(DMAArch)
@@ -115,21 +110,23 @@ Encodings for FSM values
 -- Compiling entity Reg_12(RegArch)
 -- Compiling entity NBitAdder_12(NBitAdderArch)
 -- Compiling entity Tristate_40(TriStateArch)
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd",line 46: Warning, internalFinishedReading is not always assigned. Storage may be needed..
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 277: Info, others clause is never selected for synthesis.
--- Compiling entity WriteLogic_13_80(WriteLogicArch)
--- Compiling entity WriteDMA_13_80(WriteDMAArch)
+"/media/sf_CNN_Accelerator/CNN/DMA.vhd",line 47: Warning, internalFinishedReading is not always assigned. Storage may be needed..
+"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 310: Info, others clause is never selected for synthesis.
+-- Compiling entity WriteLogic_13_16(WriteLogicArch)
+-- Compiling entity WriteDMA_13_16(WriteDMAArch)
 -- Compiling entity DownCounter_5(DownCounterArch)
 -- Compiling entity Reg_5(RegArch)
 -- Compiling entity NBitSubtractor_5(NBitSubtractorArch)
 -- Compiling entity Mux2_5(Mux2Arch)
-"/media/sf_CNN_Accelerator/CNN/WriteDMA.vhd",line 43: Warning, internalWriteComplete is not always assigned. Storage may be needed..
-"/media/sf_CNN_Accelerator/CNN/WriteLogic.vhd",line 225: Info, others clause is never selected for synthesis.
+"/media/sf_CNN_Accelerator/CNN/WriteDMA.vhd",line 44: Warning, internalWriteComplete is not always assigned. Storage may be needed..
+"/media/sf_CNN_Accelerator/CNN/WriteLogic.vhd",line 243: Info, others clause is never selected for synthesis.
 -- Compiling root entity DMAController(DMAControllerArch)
 -- Compiling entity Mux2_13(Mux2Arch)
 -- Info, replacing Mux2_13(Mux2Arch)
 -- Compiling entity Tristate_80(TriStateArch)
 -- Info, replacing Tristate_80(TriStateArch)
+-- Compiling entity Tristate_16(TriStateArch)
+-- Info, replacing Tristate_16(TriStateArch)
 -- Compiling entity ReadLogic_13_80_false(ReadLogicArch)
 -- Compiling entity DMA_13_80(DMAArch)
 -- Compiling entity MultiStepCounter_13(MultiStepCounterArch)
@@ -150,7 +147,7 @@ Encodings for FSM values
 -- Compiling entity Mux2_3(Mux2Arch)
 -- Info, replacing Mux2_3(Mux2Arch)
 -- Info, replacing DownCounter_3(DownCounterArch)
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd",line 46: Warning, internalFinishedReading is not always assigned. Storage may be needed..
+"/media/sf_CNN_Accelerator/CNN/DMA.vhd",line 47: Warning, internalFinishedReading is not always assigned. Storage may be needed..
 -- Info, replacing DMA_13_80(DMAArch)
 -- Compiling entity Counter2_13(Counter2Arch)
 -- Info, replacing Counter2_13(Counter2Arch)
@@ -158,7 +155,7 @@ Encodings for FSM values
 -- Compiling entity NBitAdder_3(NBitAdderArch)
 -- Info, replacing NBitAdder_3(NBitAdderArch)
 -- Info, replacing Counter2_3(Counter2Arch)
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 277: Info, others clause is never selected for synthesis.
+"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 310: Info, others clause is never selected for synthesis.
 -- Info, replacing ReadLogic_13_80_false(ReadLogicArch)
 -- Compiling entity ReadLogic_12_40_true(ReadLogicArch)
 -- Compiling entity Mux2_12(Mux2Arch)
@@ -172,12 +169,12 @@ Encodings for FSM values
 -- Info, replacing MultiStepCounter_12(MultiStepCounterArch)
 -- Compiling entity Tristate_40(TriStateArch)
 -- Info, replacing Tristate_40(TriStateArch)
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd",line 46: Warning, internalFinishedReading is not always assigned. Storage may be needed..
+"/media/sf_CNN_Accelerator/CNN/DMA.vhd",line 47: Warning, internalFinishedReading is not always assigned. Storage may be needed..
 -- Info, replacing DMA_12_40(DMAArch)
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 277: Info, others clause is never selected for synthesis.
+"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 310: Info, others clause is never selected for synthesis.
 -- Info, replacing ReadLogic_12_40_true(ReadLogicArch)
--- Compiling entity WriteLogic_13_80(WriteLogicArch)
--- Compiling entity WriteDMA_13_80(WriteDMAArch)
+-- Compiling entity WriteLogic_13_16(WriteLogicArch)
+-- Compiling entity WriteDMA_13_16(WriteDMAArch)
 -- Compiling entity DownCounter_5(DownCounterArch)
 -- Compiling entity Reg_5(RegArch)
 -- Info, replacing Reg_5(RegArch)
@@ -186,288 +183,21 @@ Encodings for FSM values
 -- Compiling entity Mux2_5(Mux2Arch)
 -- Info, replacing Mux2_5(Mux2Arch)
 -- Info, replacing DownCounter_5(DownCounterArch)
-"/media/sf_CNN_Accelerator/CNN/WriteDMA.vhd",line 43: Warning, internalWriteComplete is not always assigned. Storage may be needed..
--- Info, replacing WriteDMA_13_80(WriteDMAArch)
-"/media/sf_CNN_Accelerator/CNN/WriteLogic.vhd",line 225: Info, others clause is never selected for synthesis.
--- Info, replacing WriteLogic_13_80(WriteLogicArch)
+"/media/sf_CNN_Accelerator/CNN/WriteDMA.vhd",line 44: Warning, internalWriteComplete is not always assigned. Storage may be needed..
+-- Info, replacing WriteDMA_13_16(WriteDMAArch)
+"/media/sf_CNN_Accelerator/CNN/WriteLogic.vhd",line 243: Info, others clause is never selected for synthesis.
+-- Info, replacing WriteLogic_13_16(WriteLogicArch)
 -- Info, replacing DMAController(DMAControllerArch)
 Info: setting sdf_type to combined
--- Boundary optimization.
--- Boundary optimization.
--- Boundary optimization.
--- Boundary optimization.
--- Boundary optimization.
--- Boundary optimization.
--- Start pre-optimization for design .work.Mux2_13.Mux2Arch
--- Start pre-optimization for design .work.Reg_13.RegArch_unfold_2562
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717
--- Start pre-optimization for design .work.FullAdder.FullAdderArch
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281
--- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2875
--- Start pre-optimization for design .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954
--- Start pre-optimization for design .work.Reg_3.RegArch_unfold_2178
--- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_1977_0
--- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_2523
--- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_2524
--- Start pre-optimization for design .work.NBitSubtractor_3.NBitSubtractorArch_unfold_2916
--- Start pre-optimization for design .work.Mux2_3.Mux2Arch
--- Start pre-optimization for design .work.DownCounter_3.DownCounterArch
--- Start pre-optimization for design .work.Tristate_80.TriStateArch
--- Start pre-optimization for design .work.DMA_13_80.DMAArch_unfold_1918
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717_2
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2263
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281_1
--- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2246
--- Start pre-optimization for design .work.Counter2_13.Counter2Arch_unfold_4027
--- Start pre-optimization for design .work.Reg_3.RegArch_unfold_1916
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1700
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2246
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2247
--- Start pre-optimization for design .work.NBitAdder_3.NBitAdderArch_unfold_2229
--- Start pre-optimization for design .work.Mux2_3.Mux2Arch_unfold_1846
--- Start pre-optimization for design .work.Counter2_3.Counter2Arch_unfold_3287
--- Start pre-optimization for design .work.ReadLogic_13_80_false.ReadLogicArch_unfold_3077
--- Start pre-optimization for design .work.Mux2_12.Mux2Arch_unfold_3199
--- Start pre-optimization for design .work.Reg_12.RegArch_unfold_2561
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1716
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2264
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2279
--- Start pre-optimization for design .work.NBitAdder_12.NBitAdderArch_unfold_2874
--- Start pre-optimization for design .work.Mux2_12.Mux2Arch
--- Start pre-optimization for design .work.MultiStepCounter_12.MultiStepCounterArch_unfold_2949
--- Start pre-optimization for design .work.Reg_12.RegArch_unfold_2030
--- Start pre-optimization for design .work.Tristate_40.TriStateArch
--- Start pre-optimization for design .work.DMA_12_40.DMAArch_unfold_1870
--- Start pre-optimization for design .work.ReadLogic_12_40_true.ReadLogicArch_unfold_3059
--- Start pre-optimization for design .work.Reg_5.RegArch_unfold_2180
--- Start pre-optimization for design .work.NBitSubtractor_5.NBitSubtractorArch_unfold_2918
--- Start pre-optimization for design .work.Mux2_5.Mux2Arch
--- Start pre-optimization for design .work.DownCounter_5.DownCounterArch
--- Start pre-optimization for design .work.WriteDMA_13_80.WriteDMAArch_unfold_1966
--- Start pre-optimization for design .work.WriteLogic_13_80.WriteLogicArch_unfold_2859
--- Start pre-optimization for design .work.DMAController.DMAControllerArch
--- Start pre-optimization for design .work.Mux2_13.Mux2Arch
--- Start pre-optimization for design .work.Reg_13.RegArch_unfold_2562
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717
--- Start pre-optimization for design .work.FullAdder.FullAdderArch
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281
--- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2875
--- Start pre-optimization for design .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954
--- Start pre-optimization for design .work.Reg_3.RegArch_unfold_2178
--- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_1977_0
--- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_2523
--- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_2524
--- Start pre-optimization for design .work.NBitSubtractor_3.NBitSubtractorArch_unfold_2916
--- Start pre-optimization for design .work.Mux2_3.Mux2Arch
--- Start pre-optimization for design .work.DownCounter_3.DownCounterArch
--- Start pre-optimization for design .work.Tristate_80.TriStateArch
--- Start pre-optimization for design .work.DMA_13_80.DMAArch_unfold_1918
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717_2
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2263
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281_1
--- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2246
--- Start pre-optimization for design .work.Counter2_13.Counter2Arch_unfold_4027
--- Start pre-optimization for design .work.Reg_3.RegArch_unfold_1916
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1700
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2246
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2247
--- Start pre-optimization for design .work.NBitAdder_3.NBitAdderArch_unfold_2229
--- Start pre-optimization for design .work.Mux2_3.Mux2Arch_unfold_1846
--- Start pre-optimization for design .work.Counter2_3.Counter2Arch_unfold_3287
--- Start pre-optimization for design .work.ReadLogic_13_80_false.ReadLogicArch_unfold_3077
--- Start pre-optimization for design .work.Mux2_12.Mux2Arch_unfold_3199
--- Start pre-optimization for design .work.Reg_12.RegArch_unfold_2561
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1716
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2264
--- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2279
--- Start pre-optimization for design .work.NBitAdder_12.NBitAdderArch_unfold_2874
--- Start pre-optimization for design .work.Mux2_12.Mux2Arch
--- Start pre-optimization for design .work.MultiStepCounter_12.MultiStepCounterArch_unfold_2949
--- Start pre-optimization for design .work.Reg_12.RegArch_unfold_2030
--- Start pre-optimization for design .work.Tristate_40.TriStateArch
--- Start pre-optimization for design .work.DMA_12_40.DMAArch_unfold_1870
--- Start pre-optimization for design .work.ReadLogic_12_40_true.ReadLogicArch_unfold_3059
--- Start pre-optimization for design .work.Reg_5.RegArch_unfold_2180
--- Start pre-optimization for design .work.NBitSubtractor_5.NBitSubtractorArch_unfold_2918
--- Start pre-optimization for design .work.Mux2_5.Mux2Arch
--- Start pre-optimization for design .work.DownCounter_5.DownCounterArch
--- Start pre-optimization for design .work.WriteDMA_13_80.WriteDMAArch_unfold_1966
--- Start pre-optimization for design .work.WriteLogic_13_80.WriteLogicArch_unfold_2859
--- Start pre-optimization for design .work.DMAController.DMAControllerArch
-Info, Instances dissolved by autodissolve in View .work.NBitAdder_13.NBitAdderArch_unfold_2875
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 29: f0 (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_1_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_2_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_3_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_4_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_5_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_6_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_7_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_8_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_9_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_10_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_11_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_12_fx (FullAdder)
-Info, Instances dissolved by autodissolve in View .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954
-"/media/sf_CNN_Accelerator/Utils/MultiStepCounter.vhd", line 31: counterReg (Reg_13)
-"/media/sf_CNN_Accelerator/Utils/MultiStepCounter.vhd", line 33: muxloadOrCurrent (Mux2_13)
-"/media/sf_CNN_Accelerator/Utils/MultiStepCounter.vhd", line 34: muxInput (Mux2_13)
-Info, Instances dissolved by autodissolve in View .work.NBitSubtractor_3.NBitSubtractorArch_unfold_2916
-"/media/sf_CNN_Accelerator/Utils/NBitSubtractor.vhd", line 20: f0 (FullSubtractor)
-"/media/sf_CNN_Accelerator/Utils/NBitSubtractor.vhd", line 23: loop1_1_fx (FullSubtractor)
-"/media/sf_CNN_Accelerator/Utils/NBitSubtractor.vhd", line 23: loop1_2_fx (FullSubtractor)
-Info, Instances dissolved by autodissolve in View .work.DownCounter_3.DownCounterArch
-"/media/sf_CNN_Accelerator/Utils/DownCounter.vhd", line 16: counterReg (Reg_3)
-"/media/sf_CNN_Accelerator/Utils/DownCounter.vhd", line 17: nextCount (NBitSubtractor_3)
-"/media/sf_CNN_Accelerator/Utils/DownCounter.vhd", line 18: muxloadOrCurrent (Mux2_3)
-Info, Instances dissolved by autodissolve in View .work.DMA_13_80.DMAArch_unfold_1918
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd", line 50: counter (DownCounter_3)
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd", line 51: readStepRegister (Reg_13)
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd", line 52: tristateLabel (Tristate_80)
-Info, Instances dissolved by autodissolve in View .work.NBitAdder_13.NBitAdderArch_unfold_2246
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 29: f0 (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_1_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_2_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_3_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_4_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_5_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_6_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_7_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_8_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_9_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_10_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_11_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_12_fx (FullAdder)
-Info, Instances dissolved by autodissolve in View .work.Counter2_13.Counter2Arch_unfold_4027
-"/media/sf_CNN_Accelerator/Utils/Counter2.vhd", line 35: counterReg (Reg_13)
-"/media/sf_CNN_Accelerator/Utils/Counter2.vhd", line 36: nextCount (NBitAdder_13)
-"/media/sf_CNN_Accelerator/Utils/Counter2.vhd", line 37: muxloadOrCurrent (Mux2_13)
-Info, Instances dissolved by autodissolve in View .work.NBitAdder_3.NBitAdderArch_unfold_2229
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 29: f0 (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_1_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_2_fx (FullAdder)
-Info, Instances dissolved by autodissolve in View .work.Counter2_3.Counter2Arch_unfold_3287
-"/media/sf_CNN_Accelerator/Utils/Counter2.vhd", line 35: counterReg (Reg_3)
-"/media/sf_CNN_Accelerator/Utils/Counter2.vhd", line 36: nextCount (NBitAdder_3)
-"/media/sf_CNN_Accelerator/Utils/Counter2.vhd", line 38: muxInput (Mux2_3)
-Info, Instances dissolved by autodissolve in View .work.ReadLogic_13_80_false.ReadLogicArch_unfold_3077
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd", line 114: dma (DMA_13_80)
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd", line 144: aluNumberCounter (Counter2_3)
-Info, Instances dissolved by autodissolve in View .work.NBitAdder_12.NBitAdderArch_unfold_2874
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 29: f0 (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_1_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_2_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_3_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_4_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_5_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_6_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_7_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_8_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_9_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_10_fx (FullAdder)
-"/media/sf_CNN_Accelerator/Utils/NBitAdder.vhd", line 35: loop1_11_fx (FullAdder)
-Info, Instances dissolved by autodissolve in View .work.MultiStepCounter_12.MultiStepCounterArch_unfold_2949
-"/media/sf_CNN_Accelerator/Utils/MultiStepCounter.vhd", line 31: counterReg (Reg_12)
-"/media/sf_CNN_Accelerator/Utils/MultiStepCounter.vhd", line 32: nextCount (NBitAdder_12)
-"/media/sf_CNN_Accelerator/Utils/MultiStepCounter.vhd", line 33: muxloadOrCurrent (Mux2_12)
-"/media/sf_CNN_Accelerator/Utils/MultiStepCounter.vhd", line 34: muxInput (Mux2_12)
-Info, Instances dissolved by autodissolve in View .work.DMA_12_40.DMAArch_unfold_1870
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd", line 50: counter (DownCounter_3)
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd", line 51: readStepRegister (Reg_12)
-"/media/sf_CNN_Accelerator/CNN/DMA.vhd", line 52: tristateLabel (Tristate_40)
-Info, Instances dissolved by autodissolve in View .work.ReadLogic_12_40_true.ReadLogicArch_unfold_3059
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd", line 98: dmaReadBaseAddressMux (Mux2_12)
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd", line 114: dma (DMA_12_40)
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd", line 144: aluNumberCounter (Counter2_3)
-Info, Instances dissolved by autodissolve in View .work.NBitSubtractor_5.NBitSubtractorArch_unfold_2918
-"/media/sf_CNN_Accelerator/Utils/NBitSubtractor.vhd", line 20: f0 (FullSubtractor)
-"/media/sf_CNN_Accelerator/Utils/NBitSubtractor.vhd", line 23: loop1_1_fx (FullSubtractor)
-"/media/sf_CNN_Accelerator/Utils/NBitSubtractor.vhd", line 23: loop1_2_fx (FullSubtractor)
-"/media/sf_CNN_Accelerator/Utils/NBitSubtractor.vhd", line 23: loop1_3_fx (FullSubtractor)
-"/media/sf_CNN_Accelerator/Utils/NBitSubtractor.vhd", line 23: loop1_4_fx (FullSubtractor)
-Info, Instances dissolved by autodissolve in View .work.DownCounter_5.DownCounterArch
-"/media/sf_CNN_Accelerator/Utils/DownCounter.vhd", line 16: counterReg (Reg_5)
-"/media/sf_CNN_Accelerator/Utils/DownCounter.vhd", line 17: nextCount (NBitSubtractor_5)
-"/media/sf_CNN_Accelerator/Utils/DownCounter.vhd", line 18: muxloadOrCurrent (Mux2_5)
-Info, Instances dissolved by autodissolve in View .work.WriteDMA_13_80.WriteDMAArch_unfold_1966
-"/media/sf_CNN_Accelerator/CNN/WriteDMA.vhd", line 49: writeStepRegister (Reg_13)
-"/media/sf_CNN_Accelerator/CNN/WriteDMA.vhd", line 51: writecounter (DownCounter_5)
-Info, Instances dissolved by autodissolve in View .work.DMAController.DMAControllerArch
-"/media/sf_CNN_Accelerator/CNN/DmaController.vhd", line 111: readRamMux (Mux2_13)
-"/media/sf_CNN_Accelerator/CNN/DmaController.vhd", line 117: writeRamMux (Mux2_13)
-"/media/sf_CNN_Accelerator/CNN/DmaController.vhd", line 125: windowRamAddressMux (Mux2_13)
-->set wire_table "" 
-Session history will be logged to file '/media/sf_CNN_Accelerator/CNN/Leonardo/DMAController/leospec.his'
-Info: setting wire_table to 
-NO wire table is found
--- Optimizing netlist .work.Counter2_13.Counter2Arch_unfold_4027
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitAdder_13.NBitAdderArch_unfold_2875
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.ReadLogic_13_80_false.ReadLogicArch_unfold_3077
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
--- Optimizing netlist .work.MultiStepCounter_12.MultiStepCounterArch_unfold_2949
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.ReadLogic_12_40_true.ReadLogicArch_unfold_3059
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.WriteDMA_13_80.WriteDMAArch_unfold_1966
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.WriteLogic_13_80.WriteLogicArch_unfold_2859
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.DMAController.DMAControllerArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Final Design Rule Check..
--- Start timing optimization for design .work.Counter2_13.Counter2Arch_unfold_4027
-Starting Timing Characterization...
-Starting Timing Analysis...
-NO wire table is found
-Timing analysis done, time = 0 CPU secs.
-Timing characterization done, time = 0 CPU secs.
-NO wire table is found
-Info: setting novendor_constraint_file to FALSE
-AutoWrite args are : -format Verilog DMAController.v
--- Writing file DMAController.v
-Info: setting novendor_constraint_file to FALSE
-AutoWrite args are : -format VHDL DMAController.vhd
--- Writing file DMAController.vhd
-Info: setting novendor_constraint_file to FALSE
-AutoWrite args are : -format SDF DMAController.sdf
--- Writing file DMAController.sdf
-NO wire table is found
+combined
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Tristate.vhd into library work
+-- Loading entity Tristate into library work
+"/media/sf_CNN_Accelerator/Utils/Tristate.vhd",line 6: Warning, replacing Tristate in HDL library work.
+-- Loading architecture TriStateArch of Tristate into library work
+"/media/sf_CNN_Accelerator/Utils/Tristate.vhd",line 19: Warning, replacing TriStateArch of entity Tristate.
+"/media/sf_CNN_Accelerator/CNN/DmaController.vhd",line 278: Error, recompile work.DMAController(DMAControllerArch) because work.Tristate has changed.
+"/media/sf_CNN_Accelerator/CNN/DmaController.vhd",line 278: Error, recompile DMAControllerArch because DMAController has changed.
+"/media/sf_CNN_Accelerator/CNN/DmaController.vhd",line 86: Error, root entity 'DMAController' has no architecture.
+{Package .std.standard} {Package .work.constants} {Entity .work.Mux2} {Entity .work.Reg} {Entity .work.FullAdder} {Entity .work.NBitAdder} {Entity .work.Counter2} {Entity .work.FullSubtractor} {Entity .work.NBitSubtractor} {Entity .work.DownCounter} {Entity .work.MultiStepCounter} {Entity .work.DMA} {Entity .work.WriteDMA} {Entity .work.ReadLogic} {Entity .work.WriteLogic} {Entity .work.DMAController} {Entity .work.Tristate} {Package .IEEE.std_logic_1164} {Package .IEEE.NUMERIC_STD} {Package .IEEE.std_logic_arith} {Package .IEEE.STD_LOGIC_UNSIGNED}
+{Architecture .work.Mux2.Mux2Arch} {Architecture .work.Reg.RegArch} {Architecture .work.FullAdder.FullAdderArch} {Architecture .work.NBitAdder.NBitAdderArch} {Architecture .work.Counter2.Counter2Arch} {Architecture .work.FullSubtractor.Behavioral} {Architecture .work.NBitSubtractor.NBitSubtractorArch} {Architecture .work.DownCounter.DownCounterArch} {Architecture .work.MultiStepCounter.MultiStepCounterArch} {Architecture .work.DMA.DMAArch} {Architecture .work.WriteDMA.WriteDMAArch} {Architecture .work.ReadLogic.ReadLogicArch} {Architecture .work.WriteLogic.WriteLogicArch} {Architecture .work.DMAController.DMAControllerArch} {Architecture .work.Tristate.TriStateArch}
+{Package .std.standard} {Package .work.constants} {Entity .work.Mux2} {Entity .work.Reg} {Entity .work.FullAdder} {Entity .work.NBitAdder} {Entity .work.Counter2} {Entity .work.FullSubtractor} {Entity .work.NBitSubtractor} {Entity .work.DownCounter} {Entity .work.MultiStepCounter} {Entity .work.DMA} {Entity .work.WriteDMA} {Entity .work.ReadLogic} {Entity .work.WriteLogic} {Entity .work.DMAController} {Entity .work.Tristate} {Package .IEEE.std_logic_1164} {Package .IEEE.NUMERIC_STD} {Package .IEEE.std_logic_arith} {Package .IEEE.STD_LOGIC_UNSIGNED}

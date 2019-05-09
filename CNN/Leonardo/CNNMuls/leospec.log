@@ -1,0 +1,54 @@
+Info, Log file moved to new working directory
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
+-- Loading package standard into library std
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Types.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/std_1164.vhd for unit STD_LOGIC_1164
+-- Loading package std_logic_1164 into library IEEE
+-- Loading package Types into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Reg.vhd into library work
+-- Loading entity Reg into library work
+-- Loading architecture RegArch of Reg into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/FullAdder.vhd into library work
+-- Loading entity FullAdder into library work
+-- Loading architecture FullAdderArch of FullAdder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/NBitAdder.vhd into library work
+-- Loading entity NBitAdder into library work
+-- Loading architecture NBitAdderArch of NBitAdder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/BinaryMux.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/numeric_std.vhd for unit numeric_std
+-- Loading package NUMERIC_STD into library IEEE
+-- Loading entity BinaryMux into library work
+-- Loading architecture BinaryMuxArch of BinaryMux into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/ShiftRegister.vhd into library work
+-- Loading entity ShiftReg into library work
+-- Loading architecture ShiftRegArch of ShiftReg into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/TransitionDetector.vhd into library work
+-- Loading entity TransitionDetector into library work
+-- Loading architecture TransitionDetectorArch of TransitionDetector into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/ALUs/BoothStep.vhd into library work
+-- Searching for SYNOPSYS package std_logic_unsigned..
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/syn_unsi.vhd for unit std_logic_unsigned
+-- Searching for SYNOPSYS package std_logic_arith..
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/syn_arit.vhd for unit std_logic_arith
+-- Loading package std_logic_arith into library IEEE
+-- Loading package STD_LOGIC_UNSIGNED into library IEEE
+-- Loading entity BoothStep into library work
+-- Loading architecture BoothStepArch of BoothStep into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/ALUs/Mul8X16.vhd into library work
+-- Loading entity Mul8x16 into library work
+-- Loading architecture Mul8x16Arch of Mul8x16 into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/CNNMuls.vhd into library work
+-- Loading entity CNNMuls into library work
+-- Loading architecture CNNMulsArch of CNNMuls into library work
+-- Compiling root entity CNNMuls(CNNMulsArch)
+-- Compiling entity Mul8x16(Mul8x16Arch)
+-- Compiling entity Reg_33(RegArch)
+-- Compiling entity Reg_16(RegArch)
+-- Compiling entity BinaryMux_33(BinaryMuxArch)
+-- Compiling entity BoothStep(BoothStepArch)
+-- Compiling entity NBitAdder_24(NBitAdderArch)
+-- Compiling entity FullAdder(FullAdderArch)
+-- Compiling entity TransitionDetector(TransitionDetectorArch)
+-- Compiling entity ShiftReg_3(ShiftRegArch)
+-- Compiling entity Reg_1(RegArch)
+Info, Command 'read' finished successfully

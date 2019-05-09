@@ -1,0 +1,38 @@
+Info, Log file moved to new working directory
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
+-- Loading package standard into library std
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Mux2.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/std_1164.vhd for unit std_logic_1164
+-- Loading package std_logic_1164 into library IEEE
+-- Loading entity Mux2 into library work
+-- Loading architecture Mux2Arch of Mux2 into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Reg.vhd into library work
+-- Loading entity Reg into library work
+-- Loading architecture RegArch of Reg into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegUnit.vhd into library work
+-- Loading entity RegUnit into library work
+-- Loading architecture RegUnitArch of RegUnit into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Types.vhd into library work
+-- Loading package Types into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegRow.vhd into library work
+"/media/sf_CNN_Accelerator/CNN/RegRow.vhd",line 4: Warning, math_real is not declared in library IEEE.
+-- Loading entity RegRow into library work
+-- Loading architecture RegRowArch of RegRow into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Decoder.vhd into library work
+"/media/sf_CNN_Accelerator/Utils/Decoder.vhd",line 3: Warning, math_real is not declared in library IEEE.
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/numeric_std.vhd for unit numeric_std
+-- Loading package NUMERIC_STD into library IEEE
+-- Loading entity Decoder into library work
+-- Loading architecture DecoderArch of Decoder into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegFile.vhd into library work
+"/media/sf_CNN_Accelerator/CNN/RegFile.vhd",line 4: Warning, math_real is not declared in library IEEE.
+-- Loading entity RegFile into library work
+-- Loading architecture RegFileArch of RegFile into library work
+-- Compiling root entity RegFile(RegFileArch)
+-- Compiling entity Decoder_3(DecoderArch)
+-- Compiling entity RegRow_8_16_5_3(RegRowArch)
+-- Compiling entity RegUnit_8_16(RegUnitArch)
+-- Compiling entity Mux2_16(Mux2Arch)
+-- Compiling entity Reg_16(RegArch)
+-- Compiling entity Reg_8(RegArch)
+Info, Command 'read' finished successfully

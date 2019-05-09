@@ -1,0 +1,82 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 67.1 MHz
+
+
+                        Critical Path Report
+
+
+Critical path #1, (path slack =  9.1):
+
+NAME                                                        GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------------------------------
+clk (offset)                                                                0.00 (falling edge)
+delay thru clock network                                                    8.00 (worst case)
+pulse width                                                             8.00
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/counterReg/reg_Q(0)/CLK          dffr              8.00 (falling edge)
+
+
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/counterReg/reg_Q(0)/Q
+                                                            dffr        0.00  8.58 dn             0.06
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/f0/ix70/Y
+                                                            xnor2       0.23  8.80 up             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/f0/ix1/Y
+                                                            inv01       0.10  8.91 dn             0.01
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/f0/ix7/Y
+                                                            ao22        0.39  9.30 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_1_fx/ix7/Y
+                                                            ao22        0.38  9.68 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_2_fx/ix7/Y
+                                                            ao22        0.38  10.06 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_3_fx/ix7/Y
+                                                            ao22        0.38  10.44 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_4_fx/ix7/Y
+                                                            ao22        0.38  10.82 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_5_fx/ix7/Y
+                                                            ao22        0.38  11.20 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_6_fx/ix7/Y
+                                                            ao22        0.38  11.58 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_7_fx/ix7/Y
+                                                            ao22        0.38  11.96 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_8_fx/ix7/Y
+                                                            ao22        0.38  12.34 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_9_fx/ix7/Y
+                                                            ao22        0.38  12.72 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_10_fx/ix7/Y
+                                                            ao22        0.38  13.10 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_11_fx/ix7/Y
+                                                            ao22        0.36  13.46 dn             0.03
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/nextCount/loop1_12_fx/ix9/Y
+                                                            xnor2       0.16  13.62 up             0.01
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/muxInput/ix103/Y
+                                                            mux21_ni    0.28  13.90 up             0.01
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/muxloadOrCurrent/ix103/Y
+                                                            mux21_ni    0.25  14.14 up             0.01
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/counterReg/ix313/Y
+                                                            mux21_ni    0.28  14.43 up             0.02
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/counterReg/reg_Q(12)/D
+                                                            dffr        0.00  14.43 up             0.00
+data arrival time                                                             14.43
+
+clk (offset)                                                                0.00 (falling edge)
+delay thru clock network                                                    8.00 (best case)
+pulse width                                                             8.00
+CNNMap/DMAControllerMap/windowReadLogicEnt/window_g_baseAddressCounter/counterReg/reg_Q(12)/CLK          dffr              8.00 (falling edge)
+clock cycle                                                                   16.00
+library setup time                                                           (0.47)
+
+data required time                                                            23.53
+-------------------------------------------------------------------------------------------------------
+data required time                                                            23.53
+data arrival time                                                             14.43
+                                                                           ----------
+slack                                                                        9.10
+-------------------------------------------------------------------------------------------------------
+
+

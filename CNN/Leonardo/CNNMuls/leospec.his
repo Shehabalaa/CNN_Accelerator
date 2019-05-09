@@ -1,0 +1,6 @@
+set_clock -name .work.CNNMuls.CNNMulsArch.clk -clock_cycle "20.000000"
+set_clock -name .work.CNNMuls.CNNMulsArch.clk -pulse_width "10.000000"
+set_attribute .work.CNNMuls.CNNMulsArch.filter(24)(7) -name INPUT_MAX_LOAD -value "20" -port
+set_attribute .work.CNNMuls.CNNMulsArch.filter(24)(7) -name ARRIVAL_TIME -value "5" -port
+set_attribute .work.CNNMuls.CNNMulsArch.filter(24)(7) -name MAX_TRANS_RISE -value "5" -port
+set_attribute .work.CNNMuls.CNNMulsArch.filter(24)(7) -name MAX_TRANS_FALL -value "5" -port

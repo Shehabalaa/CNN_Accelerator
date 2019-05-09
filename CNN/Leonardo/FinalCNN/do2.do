@@ -1,5 +1,5 @@
-vsim -gui work.CNNWithRam2
-#vsim -gui work.cnnwithram2 -sdfnoerror -sdfnowarn -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf
+#vsim -gui work.CNNWithRam2
+vsim -gui work.cnnwithram2 -sdfnoerror -sdfnowarn -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf work.cnnwithram -noglitch
 
 add wave -position insertpoint  \
 sim:/cnnwithram2/clk \
@@ -157,6 +157,7 @@ force -freeze sim:/cnnwithram2/rst 1 0
 force -freeze sim:/cnnwithram2/start 0 0
 
 run
+run
 
 mem load -i /media/sf_CNN_Accelerator/CNN/RAMs/PassedTests/1layer2filter3x3/windowRAM.mem -format mti /cnnwithram2/windowRam/ram
 mem load -i /media/sf_CNN_Accelerator/CNN/RAMs/PassedTests/1layer2filter3x3/weightsRAM.mem -format mti /cnnwithram2/weightsRam/ram
@@ -165,6 +166,9 @@ mem load -i /media/sf_CNN_Accelerator/CNN/RAMs/PassedTests/1layer2filter3x3/weig
 
 
 force -freeze sim:/cnnwithram2/rst 0 0
+run
+run
+run
 force -freeze sim:/cnnwithram2/start 1 0
 
 run

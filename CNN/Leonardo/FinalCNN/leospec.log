@@ -10,6 +10,8 @@ Library version = 3.0 Release : Patch (a) : 09/13/04
 Delays assume: Process=typical Temp= 27.0 C  Voltage=3.30 V  
 Info: setting encoding to auto
 Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN'
+Info, History file moved to new working directory
+Info, Log file moved to new working directory
 -- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
 -- Loading package standard into library std
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/Mux2.vhd into library work
@@ -70,6 +72,9 @@ Info, Working Directory is now '/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN'
 -- Reading vhdl file /media/sf_CNN_Accelerator/Utils/TransitionDetector.vhd into library work
 -- Loading entity TransitionDetector into library work
 -- Loading architecture TransitionDetectorArch of TransitionDetector into library work
+-- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RowDecoder.vhd into library work
+-- Loading entity RowDecoder into library work
+-- Loading architecture RowDecoderArch of RowDecoder into library work
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/RegUnit.vhd into library work
 -- Loading entity RegUnit into library work
 -- Loading architecture RegUnitArch of RegUnit into library work
@@ -183,15 +188,9 @@ Encodings for FSM values
      fetchState  11
 
 -- Loading architecture ReadLogicArch of ReadLogic into library work
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 92: Warning, signal zeros is never used.
-"/media/sf_CNN_Accelerator/CNN/ReadLogic.vhd",line 35: Warning, input isFilter is never used.
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/DMAController.vhd into library work
 -- Loading entity DMAController into library work
 -- Loading architecture DMAControllerArch of DMAController into library work
-"/media/sf_CNN_Accelerator/CNN/DMAController.vhd",line 91: Warning, signal readLogicRamAddress is never used.
-"/media/sf_CNN_Accelerator/CNN/DMAController.vhd",line 91: Warning, signal readLogicRamAddress is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/DMAController.vhd",line 91: Warning, signal writeLogicRamAddress is never used.
-"/media/sf_CNN_Accelerator/CNN/DMAController.vhd",line 91: Warning, signal writeLogicRamAddress is never assigned a value.
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/CNNShifter.vhd into library work
 -- Loading entity CNNShifter into library work
 -- Loading architecture CNNShifterArch of CNNShifter into library work
@@ -216,13 +215,9 @@ Encodings for FSM values
 -- Reading vhdl file /media/sf_CNN_Accelerator/CNN/CNNModule.vhd into library work
 -- Loading entity CNNModule into library work
 -- Loading architecture CNNModuleArch of CNNModule into library work
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 51: Warning, signal dmaWindowFinish is never used.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 51: Warning, signal dmaWindowFinish is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 51: Warning, signal dmaRamFinish is never used.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 51: Warning, signal dmaRamFinish is never assigned a value.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 55: Warning, signal weightsSize is never used.
-"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 55: Warning, signal weightsSize is never assigned a value.
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 59: Warning, signal writeDoneAll is never used.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 59: Warning, signal writeDoneAll is never assigned a value.
+"/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 60: Warning, signal aluNumberWindow is never used.
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 60: Warning, signal aluNumberFilter is never used.
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 70: Warning, signal addToOutputBuffer is never used.
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 75: Warning, signal Dangling2 is never used.
@@ -260,15 +255,16 @@ Encodings for FSM values
 -- Compiling entity NBitAdder_16(NBitAdderArch)
 -- Compiling entity CNNShifter_16(CNNShifterArch)
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 50: Warning, decoderRow is not always assigned. Storage may be needed..
+-- Compiling entity RowDecoder(RowDecoderArch)
+-- Compiling entity Counter_3(CounterArch)
+-- Compiling entity Reg_3(RegArch)
+-- Compiling entity NBitAdder_3(NBitAdderArch)
 -- Compiling entity ControlUnit(ControlUnitArch)
 -- Compiling entity NetworkController_2(NetworkControllerArch)
 -- Compiling entity Counter_2(CounterArch)
 -- Compiling entity Reg_2(RegArch)
 -- Compiling entity NBitAdder_2(NBitAdderArch)
 -- Compiling entity LayerController_3(LayerControllerArch)
--- Compiling entity Counter_3(CounterArch)
--- Compiling entity Reg_3(RegArch)
--- Compiling entity NBitAdder_3(NBitAdderArch)
 -- Compiling entity FilterController_3(FilterControllerArch)
 -- Compiling entity SliceFilterController_5(SliceFilterControllerArch)
 -- Compiling entity Counter_5(CounterArch)
@@ -365,6 +361,14 @@ Encodings for FSM values
 -- Info, replacing CNNShifter_16(CNNShifterArch)
 -- Info, replacing CNNCores_8_16_5_5_3(CNNCoresArch)
 "/media/sf_CNN_Accelerator/CNN/CNNModule.vhd",line 50: Warning, decoderRow is not always assigned. Storage may be needed..
+-- Compiling entity RowDecoder(RowDecoderArch)
+-- Compiling entity Counter_3(CounterArch)
+-- Compiling entity Reg_3(RegArch)
+-- Info, replacing Reg_3(RegArch)
+-- Compiling entity NBitAdder_3(NBitAdderArch)
+-- Info, replacing NBitAdder_3(NBitAdderArch)
+-- Info, replacing Counter_3(CounterArch)
+-- Info, replacing RowDecoder(RowDecoderArch)
 -- Compiling entity ControlUnit(ControlUnitArch)
 -- Compiling entity NetworkController_2(NetworkControllerArch)
 -- Compiling entity Counter_2(CounterArch)
@@ -375,12 +379,6 @@ Encodings for FSM values
 -- Info, replacing Counter_2(CounterArch)
 -- Info, replacing NetworkController_2(NetworkControllerArch)
 -- Compiling entity LayerController_3(LayerControllerArch)
--- Compiling entity Counter_3(CounterArch)
--- Compiling entity Reg_3(RegArch)
--- Info, replacing Reg_3(RegArch)
--- Compiling entity NBitAdder_3(NBitAdderArch)
--- Info, replacing NBitAdder_3(NBitAdderArch)
--- Info, replacing Counter_3(CounterArch)
 -- Info, replacing LayerController_3(LayerControllerArch)
 -- Compiling entity FilterController_3(FilterControllerArch)
 -- Info, replacing FilterController_3(FilterControllerArch)
@@ -474,137 +472,206 @@ Encodings for FSM values
 -- Info, replacing RAM_13_16_80(RAMArch)
 -- Info, replacing CNNWithRAM(CNNWithRAMArch)
 Info: setting sdf_type to combined
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Boundary optimization.
+-- Start pre-optimization for design .work.TransitionDetector.TransitionDetectorArch
+-- Start pre-optimization for design .work.ShiftReg_3.ShiftRegArch_unfold_2142
+-- Start pre-optimization for design .work.Reg_1.RegArch_unfold_2203
+-- Start pre-optimization for design .work.CNNMuls_25.CNNMulsArch_unfold_2221
+-- Start pre-optimization for design .work.CNNCores_8_16_5_5_3.CNNCoresArch_unfold_2610
+-- Start pre-optimization for design .work.Reg_2.RegArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1700_0
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2247
+-- Start pre-optimization for design .work.NBitAdder_2.NBitAdderArch_unfold_2210
+-- Start pre-optimization for design .work.Counter_2.CounterArch
+-- Start pre-optimization for design .work.NetworkController_2.NetworkControllerArch_unfold_3187
+-- Start pre-optimization for design .work.Reg_3.RegArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2246
+-- Start pre-optimization for design .work.NBitAdder_3.NBitAdderArch_unfold_2211
+-- Start pre-optimization for design .work.Counter_3.CounterArch
+-- Start pre-optimization for design .work.LayerController_3.LayerControllerArch_unfold_3035
+-- Start pre-optimization for design .work.FilterController_3.FilterControllerArch_unfold_2987
+-- Start pre-optimization for design .work.Reg_5.RegArch
+-- Start pre-optimization for design .work.NBitAdder_5.NBitAdderArch_unfold_2213
+-- Start pre-optimization for design .work.Counter_5.CounterArch
+-- Start pre-optimization for design .work.SliceFilterController_5.SliceFilterControllerArch_unfold_3659
+-- Start pre-optimization for design .work.ControlUnit.ControlUnitArch_unfold_3389
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717_0
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2263
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_3261
+-- Start pre-optimization for design .work.Mux2_13.Mux2Arch_unfold_2745
+-- Start pre-optimization for design .work.Reg_13.RegArch_unfold_2562
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717_4
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2267_1
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281_1
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2875_1
+-- Start pre-optimization for design .work.Mux2_13.Mux2Arch
+-- Start pre-optimization for design .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954_0
+-- Start pre-optimization for design .work.Reg_3.RegArch_unfold_2178
+-- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_1977_0
+-- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_2523
+-- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_2524
+-- Start pre-optimization for design .work.NBitSubtractor_3.NBitSubtractorArch_unfold_2916
+-- Start pre-optimization for design .work.Mux2_3.Mux2Arch
+-- Start pre-optimization for design .work.DownCounter_3.DownCounterArch
+-- Start pre-optimization for design .work.Reg_13.RegArch_unfold_2035
+-- Start pre-optimization for design .work.DMA_13_80.DMAArch_unfold_1918
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717_5
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281_2
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_4175
+-- Start pre-optimization for design .work.Mux2_13.Mux2Arch_unfold_3742
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2246
+-- Start pre-optimization for design .work.Counter2_13.Counter2Arch_unfold_4074
+-- Start pre-optimization for design .work.Reg_13.RegArch_unfold_3575
+-- Start pre-optimization for design .work.ReadLogic_13_80_false.ReadLogicArch_unfold_3547
+-- Start pre-optimization for design .work.Tristate_40.TriStateArch_unfold_2195
+-- Start pre-optimization for design .work.DMA_12_40.DMAArch_unfold_1870
+-- Start pre-optimization for design .work.ReadLogic_12_40_true.ReadLogicArch_unfold_3529
+-- Start pre-optimization for design .work.Reg_13.RegArch_unfold_2508
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2268
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281_3
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2875
+-- Start pre-optimization for design .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954
+-- Start pre-optimization for design .work.Reg_5.RegArch_unfold_2180
+-- Start pre-optimization for design .work.NBitSubtractor_5.NBitSubtractorArch_unfold_2918
+-- Start pre-optimization for design .work.Mux2_5.Mux2Arch
+-- Start pre-optimization for design .work.DownCounter_5.DownCounterArch
+-- Start pre-optimization for design .work.WriteDMA_13_16.WriteDMAArch_unfold_1965
+-- Start pre-optimization for design .work.WriteLogic_13_16.WriteLogicArch_unfold_3329
+-- Start pre-optimization for design .work.DMAController_12_13_8_16_5.DMAControllerArch_unfold_3463
+-- Start pre-optimization for design .work.Reg_2.RegArch_unfold_2044
+-- Start pre-optimization for design .work.Reg_3.RegArch_unfold_2200
+-- Start pre-optimization for design .work.Reg_5.RegArch_unfold_2138
+-- Start pre-optimization for design .work.Config_40.ConfigArch_unfold_2599
+-- Start pre-optimization for design .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch_unfold_1785
+-- Start pre-optimization for design .work.RAM_13_16_80.RAMArch_unfold_1711
+-- Start pre-optimization for design .work.CNNWithRAM.CNNWithRAMArch
+-- Start pre-optimization for design .work.TransitionDetector.TransitionDetectorArch
+-- Start pre-optimization for design .work.ShiftReg_3.ShiftRegArch_unfold_2142
+-- Start pre-optimization for design .work.Reg_1.RegArch_unfold_2203
+-- Start pre-optimization for design .work.CNNMuls_25.CNNMulsArch_unfold_2221
+-- Start pre-optimization for design .work.CNNCores_8_16_5_5_3.CNNCoresArch_unfold_2610
+-- Start pre-optimization for design .work.Reg_2.RegArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1700_0
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2247
+-- Start pre-optimization for design .work.NBitAdder_2.NBitAdderArch_unfold_2210
+-- Start pre-optimization for design .work.Counter_2.CounterArch
+-- Start pre-optimization for design .work.NetworkController_2.NetworkControllerArch_unfold_3187
+-- Start pre-optimization for design .work.Reg_3.RegArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2246
+-- Start pre-optimization for design .work.NBitAdder_3.NBitAdderArch_unfold_2211
+-- Start pre-optimization for design .work.Counter_3.CounterArch
+-- Start pre-optimization for design .work.LayerController_3.LayerControllerArch_unfold_3035
+-- Start pre-optimization for design .work.FilterController_3.FilterControllerArch_unfold_2987
+-- Start pre-optimization for design .work.Reg_5.RegArch
+-- Start pre-optimization for design .work.NBitAdder_5.NBitAdderArch_unfold_2213
+-- Start pre-optimization for design .work.Counter_5.CounterArch
+-- Start pre-optimization for design .work.SliceFilterController_5.SliceFilterControllerArch_unfold_3659
+-- Start pre-optimization for design .work.ControlUnit.ControlUnitArch_unfold_3389
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717_0
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2263
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_3261
+-- Start pre-optimization for design .work.Mux2_13.Mux2Arch_unfold_2745
+-- Start pre-optimization for design .work.Reg_13.RegArch_unfold_2562
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717_4
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2267_1
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281_1
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2875_1
+-- Start pre-optimization for design .work.Mux2_13.Mux2Arch
+-- Start pre-optimization for design .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954_0
+-- Start pre-optimization for design .work.Reg_3.RegArch_unfold_2178
+-- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_1977_0
+-- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_2523
+-- Start pre-optimization for design .work.FullSubtractor.Behavioral_unfold_2524
+-- Start pre-optimization for design .work.NBitSubtractor_3.NBitSubtractorArch_unfold_2916
+-- Start pre-optimization for design .work.Mux2_3.Mux2Arch
+-- Start pre-optimization for design .work.DownCounter_3.DownCounterArch
+-- Start pre-optimization for design .work.Reg_13.RegArch_unfold_2035
+-- Start pre-optimization for design .work.DMA_13_80.DMAArch_unfold_1918
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_1717_5
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281_2
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_4175
+-- Start pre-optimization for design .work.Mux2_13.Mux2Arch_unfold_3742
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2246
+-- Start pre-optimization for design .work.Counter2_13.Counter2Arch_unfold_4074
+-- Start pre-optimization for design .work.Reg_13.RegArch_unfold_3575
+-- Start pre-optimization for design .work.ReadLogic_13_80_false.ReadLogicArch_unfold_3547
+-- Start pre-optimization for design .work.Tristate_40.TriStateArch_unfold_2195
+-- Start pre-optimization for design .work.DMA_12_40.DMAArch_unfold_1870
+-- Start pre-optimization for design .work.ReadLogic_12_40_true.ReadLogicArch_unfold_3529
+-- Start pre-optimization for design .work.Reg_13.RegArch_unfold_2508
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2268
+-- Start pre-optimization for design .work.FullAdder.FullAdderArch_unfold_2281_3
+-- Start pre-optimization for design .work.NBitAdder_13.NBitAdderArch_unfold_2875
+-- Start pre-optimization for design .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954
+-- Start pre-optimization for design .work.Reg_5.RegArch_unfold_2180
+-- Start pre-optimization for design .work.NBitSubtractor_5.NBitSubtractorArch_unfold_2918
+-- Start pre-optimization for design .work.Mux2_5.Mux2Arch
+-- Start pre-optimization for design .work.DownCounter_5.DownCounterArch
+-- Start pre-optimization for design .work.WriteDMA_13_16.WriteDMAArch_unfold_1965
+-- Start pre-optimization for design .work.WriteLogic_13_16.WriteLogicArch_unfold_3329
+-- Start pre-optimization for design .work.DMAController_12_13_8_16_5.DMAControllerArch_unfold_3463
+-- Start pre-optimization for design .work.Reg_2.RegArch_unfold_2044
+-- Start pre-optimization for design .work.Reg_3.RegArch_unfold_2200
+-- Start pre-optimization for design .work.Reg_5.RegArch_unfold_2138
+-- Start pre-optimization for design .work.Config_40.ConfigArch_unfold_2599
+-- Start pre-optimization for design .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch_unfold_1785
+-- Start pre-optimization for design .work.RAM_13_16_80.RAMArch_unfold_1711
+-- Start pre-optimization for design .work.CNNWithRAM.CNNWithRAMArch
 ->set wire_table "" 
-Session history will be logged to file '/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/leospec.his'
 Info: setting wire_table to 
 NO wire table is found
--- Optimizing netlist .work.Decoder_3.DecoderArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Mux2_16.Mux2Arch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Reg_16.RegArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Reg_8.RegArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.RegUnit_8_16.RegUnitArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.RegRow_8_16_5_3.RegRowArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.RegFile_8_16_5_5_3_3.RegFileArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.Reg_33.RegArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.BinaryMux_33.BinaryMuxArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.FullAdder.FullAdderArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitAdder_24.NBitAdderArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.BoothStep.BoothStepArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.Mul8x16.Mul8x16Arch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.TransitionDetector.TransitionDetectorArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.ShiftReg_3.ShiftRegArch
+-- Optimizing netlist .work.ShiftReg_3.ShiftRegArch_unfold_2142
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Reg_1.RegArch
+-- Optimizing netlist .work.Reg_1.RegArch_unfold_2203
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.CNNMuls_25.CNNMulsArch
+-- Optimizing netlist .work.CNNMuls_25.CNNMulsArch_unfold_2221
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.NBitAdder_16.NBitAdderArch
+-- Optimizing netlist .work.CNNCores_8_16_5_5_3.CNNCoresArch_unfold_2610
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Adder4Values_16.Adder4ValuesArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Adder8Values_16.Adder8ValuesArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.CNNAdders_16.CNNAddersArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.CNNShifter_16.CNNShifterArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.CNNCores_8_16_5_5_3.CNNCoresArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
 -- Optimizing netlist .work.Reg_2.RegArch
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitAdder_2.NBitAdderArch
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_1700_0
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_2247
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.NBitAdder_2.NBitAdderArch_unfold_2210
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -614,7 +681,7 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NetworkController_2.NetworkControllerArch
+-- Optimizing netlist .work.NetworkController_2.NetworkControllerArch_unfold_3187
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -624,7 +691,12 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitAdder_3.NBitAdderArch
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_2246
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.NBitAdder_3.NBitAdderArch_unfold_2211
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -634,12 +706,12 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.LayerController_3.LayerControllerArch
+-- Optimizing netlist .work.LayerController_3.LayerControllerArch_unfold_3035
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.FilterController_3.FilterControllerArch
+-- Optimizing netlist .work.FilterController_3.FilterControllerArch_unfold_2987
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -649,7 +721,7 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitAdder_5.NBitAdderArch
+-- Optimizing netlist .work.NBitAdder_5.NBitAdderArch_unfold_2213
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -659,18 +731,63 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.SliceFilterController_5.SliceFilterControllerArch
+-- Optimizing netlist .work.SliceFilterController_5.SliceFilterControllerArch_unfold_3659
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
--- Optimizing netlist .work.ControlUnit.ControlUnitArch
+-- Optimizing netlist .work.ControlUnit.ControlUnitArch_unfold_3389
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitAdder_13.NBitAdderArch
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_1717_0
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_2263
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.NBitAdder_13.NBitAdderArch_unfold_3261
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.Mux2_13.Mux2Arch_unfold_2745
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.Reg_13.RegArch_unfold_2562
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_1717_4
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.FullAdder.FullAdderArch
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_2267_1
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_2281_1
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.NBitAdder_13.NBitAdderArch_unfold_2875_1
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -680,32 +797,33 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Tristate_80.TriStateArch
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954_0
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Tristate_16.TriStateArch
+-- Optimizing netlist .work.Reg_3.RegArch_unfold_2178
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Reg_13.RegArch
+-- Optimizing netlist .work.FullSubtractor.Behavioral_unfold_1977_0
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.MultiStepCounter_13.MultiStepCounterArch
+-- Optimizing netlist .work.FullSubtractor.Behavioral_unfold_2523
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.FullSubtractor.Behavioral
+-- Optimizing netlist .work.FullSubtractor.Behavioral_unfold_2524
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitSubtractor_3.NBitSubtractorArch
+-- Optimizing netlist .work.NBitSubtractor_3.NBitSubtractorArch_unfold_2916
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -720,66 +838,106 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.DMA_13_80.DMAArch
+-- Optimizing netlist .work.Reg_13.RegArch_unfold_2035
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.DMA_13_80.DMAArch_unfold_1918
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
--- Optimizing netlist .work.Counter2_13.Counter2Arch
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_1717_5
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Counter2_3.Counter2Arch
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_2281_2
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.ReadLogic_13_80_false.ReadLogicArch
+-- Optimizing netlist .work.NBitAdder_13.NBitAdderArch_unfold_4175
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.Mux2_12.Mux2Arch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Reg_12.RegArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitAdder_12.NBitAdderArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.MultiStepCounter_12.MultiStepCounterArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Tristate_40.TriStateArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.DMA_12_40.DMAArch
+-- Optimizing netlist .work.Mux2_13.Mux2Arch_unfold_3742
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
--- Optimizing netlist .work.ReadLogic_12_40_true.ReadLogicArch
+-- Optimizing netlist .work.NBitAdder_13.NBitAdderArch_unfold_2246
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.Counter2_13.Counter2Arch_unfold_4074
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.Reg_13.RegArch_unfold_3575
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
--- Optimizing netlist .work.NBitSubtractor_5.NBitSubtractorArch
+-- Optimizing netlist .work.ReadLogic_13_80_false.ReadLogicArch_unfold_3547
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
+-- Optimizing netlist .work.Tristate_40.TriStateArch_unfold_2195
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.DMA_12_40.DMAArch_unfold_1870
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.ReadLogic_12_40_true.ReadLogicArch_unfold_3529
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.Reg_13.RegArch_unfold_2508
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_2268
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.FullAdder.FullAdderArch_unfold_2281_3
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.NBitAdder_13.NBitAdderArch_unfold_2875
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.MultiStepCounter_13.MultiStepCounterArch_unfold_2954
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.Reg_5.RegArch_unfold_2180
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.NBitSubtractor_5.NBitSubtractorArch_unfold_2918
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -794,74 +952,50 @@ Re-checking DRC after adjustments
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.WriteDMA_13_16.WriteDMAArch
+-- Optimizing netlist .work.WriteDMA_13_16.WriteDMAArch_unfold_1965
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
--- Optimizing netlist .work.WriteLogic_13_16.WriteLogicArch
+-- Optimizing netlist .work.WriteLogic_13_16.WriteLogicArch_unfold_3329
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
--- Optimizing netlist .work.DMAController_12_13_8_16_5.DMAControllerArch
+-- Optimizing netlist .work.DMAController_12_13_8_16_5.DMAControllerArch_unfold_3463
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Decoder_9.DecoderArch
+-- Optimizing netlist .work.Reg_2.RegArch_unfold_2044
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.Mux_512.MuxArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:05 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.Reg_9.RegArch
+-- Optimizing netlist .work.Reg_3.RegArch_unfold_2200
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.NBitAdder_9.NBitAdderArch
+-- Optimizing netlist .work.Reg_5.RegArch_unfold_2138
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.Counter_9.CounterArch
+-- Optimizing netlist .work.Config_40.ConfigArch_unfold_2599
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Optimizing netlist .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch_unfold_1785
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
 -- CPU Time used :   00:00 Mapping
 Re-checking DRC after adjustments
--- Optimizing netlist .work.OutputBuffer_40_484_16_8_9_6.OutputBufferArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.Config_40.ConfigArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
-Re-checking DRC after adjustments
--- Optimizing netlist .work.RAM_12_8_40.RAMArch
--- Matching combinational logic..
--- Matching non-combinational logic..
--- Covering..
--- CPU Time used :   00:00 Mapping
--- Optimizing netlist .work.RAM_13_16_80.RAMArch
+-- Optimizing netlist .work.RAM_13_16_80.RAMArch_unfold_1711
 -- Matching combinational logic..
 -- Matching non-combinational logic..
 -- Covering..
@@ -874,13 +1008,12 @@ Re-checking DRC after adjustments
 -- Final Design Rule Check..
 Re-checking DRC after adjustments
 Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
-Re-checking DRC after adjustments
+-- Start timing optimization for design .work.TransitionDetector.TransitionDetectorArch
+Starting Timing Characterization...
+Starting Timing Analysis...
+NO wire table is found
+Timing analysis done, time = 0 CPU secs.
+Timing characterization done, time = 0 CPU secs.
 NO wire table is found
 Info: setting novendor_constraint_file to FALSE
 AutoWrite args are : -format Verilog CNNWithRAM.v

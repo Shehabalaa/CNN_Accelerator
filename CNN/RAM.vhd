@@ -30,9 +30,9 @@ SIGNAL MFCRead, MFCWrite, counterMFCReadEn, counterMFCWriteEn: STD_LOGIC;
 
 begin
 
-    --process(clk)
+    -- process(clk)
     --   begin
---
+
     --        IF clk'EVENT AND clk='0' then
     --            if ((rd = '1') and (we = '1') and  (reset = '0') and (addressRead = addressWrite)) then
     --                dataOut <= (others=>'0');
@@ -44,7 +44,7 @@ begin
     --                MFCWriteOut <= '1';
     --            end if;
     --        end if;
-    --end PROCESS;
+    -- end PROCESS;
 
 
 

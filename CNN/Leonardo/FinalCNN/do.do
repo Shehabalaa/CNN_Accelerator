@@ -1,6 +1,6 @@
-vsim -gui work.CNNWithRam
+#vsim -gui work.CNNWithRam
 #vsim -gui work.cnnwithram -sdfnoerror -sdfnowarn -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf
-#vsim -gui -sdfnoerror -sdfnowarn -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf work.cnnwithram -noglitch
+vsim -gui -sdfnoerror -sdfnowarn -sdfmax /=/media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNN/CNNWithRAM.sdf work.cnnwithram -noglitch
 
 add wave -position insertpoint  \
 sim:/cnnwithram/clk \
@@ -151,23 +151,25 @@ sim:/cnnwithram/CNNMap/configMap/inputSize \
 sim:/cnnwithram/CNNMap/configMap/outputSize
 
 
-add wave -position insertpoint sim:/cnnwithram/CNNMap/DMAControllerMap/filterReadLogicEnt/dma/*
-add wave -position insertpoint sim:/cnnwithram/CNNMap/DMAControllerMap/filterReadLogicEnt/*
 
 
-force -freeze sim:/cnnwithram/clk 0 0, 1 {25000 ps} -r {50 ns}
+force -freeze sim:/cnnwithram/clk 0 0, 1 {10000 ps} -r {20 ns}
 force -freeze sim:/cnnwithram/rst 1 0
 force -freeze sim:/cnnwithram/start 0 0
 
 run
+run
 
-mem load -i D:\CMP\3rd year\Second Term\VLSI\Project\CNN_Accelerator\CNN\RAMs\PassedTests\1layer2filter3x3\windowRAM.mem -format mti /cnnwithram/windowRam/ram
-mem load -i D:\CMP\3rd year\Second Term\VLSI\Project\CNN_Accelerator\CNN\RAMs\PassedTests\1layer2filter3x3\weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
+mem load -i /media/sf_CNN_Accelerator/CNN/RAMs/PassedTests/1layer2filter3x3/windowRAM.mem -format mti /cnnwithram/windowRam/ram
+mem load -i /media/sf_CNN_Accelerator/CNN/RAMs/PassedTests/1layer2filter3x3/weightsRAM.mem -format mti /cnnwithram/weightsRam/ram
 
 
 
 
 force -freeze sim:/cnnwithram/rst 0 0
+run
+run
+run
 run
 force -freeze sim:/cnnwithram/start 1 0
 run
