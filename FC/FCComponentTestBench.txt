@@ -1,0 +1,212 @@
+vsim -gui work.fccomponent
+
+add wave -group fccomponent  sim:/fccomponent/reset sim:/fccomponent/clk sim:/fccomponent/fcInit sim:/fccomponent/cnnFinishNeoron  sim:/fccomponent/cnnNeoron sim:/fccomponent/fcDone sim:/fccomponent/MAXPrediction
+
+add wave -group MEMORY sim:/fccomponent/readRamWeights  sim:/fccomponent/finishRamWeights sim:/fccomponent/latchedFinishRam sim:/fccomponent/risingFinishRam sim:/fccomponent/dataOutRamWeights
+
+add wave -group MUL  sim:/fccomponent/multiplyWork sim:/fccomponent/startMultiply  sim:/fccomponent/mulInputWeight  sim:/fccomponent/mulInputNeoron
+
+
+add wave -group numberOFNeorons  sim:/fccomponent/decrement sim:/fccomponent/loadNumberOFNeorons sim:/fccomponent/numberOFNeorons sim:/fccomponent/neoronMuxOutput  sim:/fccomponent/aluNeoronInput  sim:/fccomponent/neoronValueSelection
+
+add wave -group DMA sim:/fccomponent/defaultAddressWeights  sim:/fccomponent/incrementWeightAdd sim:/fccomponent/dmaAddRamWeights 
+ 
+
+
+ 
+add wave -group  State  sim:/fccomponent/state
+
+add wave -group Max sim:/fccomponent/resetMaxSignal sim:/fccomponent/startMax sim:/fccomponent/doneMax  sim:/fccomponent/labelReg sim:/fccomponent/maxNumber
+
+
+
+
+
+force -freeze sim:/fccomponent/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/fccomponent/reset 1 0
+force -freeze sim:/fccomponent/fcInit 0 0
+force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+force -freeze sim:/fccomponent/cnnNeoron 16'h0 0
+
+run 
+
+force -freeze sim:/fccomponent/reset 0 0
+force -freeze sim:/fccomponent/fcInit 1 0
+run
+force -freeze sim:/fccomponent/fcInit 0 0
+
+run
+run
+run
+
+force -freeze sim:/fccomponent/finishRamWeights 1 0
+force -freeze sim:/fccomponent/dataOutRamWeights 80'h0007XXXXXXXXXXXXXXXX 0
+
+run
+force -freeze sim:/fccomponent/finishRamWeights 0 0
+run
+run
+run
+run
+
+force -freeze sim:/fccomponent/finishRamWeights 1 0
+force -freeze sim:/fccomponent/dataOutRamWeights 80'h04eae4ed16e20d00080d 0
+
+run
+force -freeze sim:/fccomponent/finishRamWeights 0 0
+run
+run
+run
+run
+run
+
+force -freeze sim:/fccomponent/finishRamWeights 1 0
+force -freeze sim:/fccomponent/dataOutRamWeights 80'hfb04f811e9190a0f060d 0
+run
+
+
+force -freeze sim:/fccomponent/finishRamWeights 0 0
+run
+run
+run
+
+force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
+force -freeze sim:/fccomponent/cnnNeoron 16'h0d5c 0
+run
+force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
+force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+
+force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
+force -freeze sim:/fccomponent/cnnNeoron 16'h0d5c 0
+run
+force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
+force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+run
+
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
+force -freeze sim:/fccomponent/cnnNeoron 16'hf4c7 0
+run
+force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
+force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+run
+
+force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
+force -freeze sim:/fccomponent/cnnNeoron 16'h0959 0
+run
+force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
+force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+
+force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
+force -freeze sim:/fccomponent/cnnNeoron 16'hfee7 0
+run
+force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
+force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+
+force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
+force -freeze sim:/fccomponent/cnnNeoron 16'h0658 0
+run
+force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
+force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+run
+run
+
+
+force -freeze sim:/fccomponent/cnnFinishNeoron 1 0
+force -freeze sim:/fccomponent/cnnNeoron 16'hf793 0
+run
+force -freeze sim:/fccomponent/cnnNeoron 16'h0000 0
+force -freeze sim:/fccomponent/cnnFinishNeoron 0 0
+run
+
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+
+
+
