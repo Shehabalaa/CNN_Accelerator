@@ -1,18 +1,18 @@
 // memory data file (do not edit the following line - required for mem load use)
 // instance=/testfc/FCcmp/RAMNEORONS/Ram
 // format=mti addressradix=h dataradix=h version=1.0 wordsperline=1
-   0: 0007XXXXXXXXXXXXXXXX
-   1: e01418ef03ee13e5f1f5
-   2: 03ee0efe19e4151eee0a
-   3: e9e3120ce0eb0be8e2f6
-   4: 1bfb11031f071dfcfc06
-   5: fdec0afdf5faf9f8f9ef
-   6: e4e0e21d1f1519f7f20a
-   7: f017ff151f191414f413
-   8: XXXXXXXXXXXXXXXXXXXX
-   9: XXXXXXXXXXXXXXXXXXXX
-   a: XXXXXXXXXXXXXXXXXXXX
-   b: XXXXXXXXXXXXXXXXXXXX
+   0: 000bXXXXXXXXXXXXXXXX
+   1: fa0ae912f5e3fee7ebe9
+   2: e8fcf718fafd06e7f4f8
+   3: 08f1f31b111d0e12e2e3
+   4: e7f4e519ecfc1413f40e
+   5: 1dfcf3f9e20605e11f09
+   6: 0f16e81eedf6fcec0117
+   7: 181615f516ee1b11f9f9
+   8: 150512eced1402e60bf6
+   9: fff8e41c08f7f2f10314
+   a: f8ec090b190515000bf6
+   b: fe051e05f10effef0302
    c: XXXXXXXXXXXXXXXXXXXX
    d: XXXXXXXXXXXXXXXXXXXX
    e: XXXXXXXXXXXXXXXXXXXX

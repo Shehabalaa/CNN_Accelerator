@@ -4,6 +4,7 @@ import sys
 import numpy as np
 import copy
 import os
+from read import *
 
 
 
@@ -16,8 +17,6 @@ toIntWord = lambda a : int(a.int*2**word_float_bits)
 truncate = lambda b: BS.pack('int:16=c',c=BS.pack('int:32=d',d=b)[32-16:].int)
 mul8x16 = lambda a,b: truncate((a.int * b.int)>>byte_float_bits)
 sum16 = lambda a,b:truncate(a.int + b.int)
-
-ramymaxi = -1
 
 def printPredictions(predictions):
     param = 'a' if printPredictions.step >0 else 'w' 
@@ -36,9 +35,18 @@ printPredictions.step = 0
 
 
 def generateTestCase(cnn_out_dims):
-    global ramymaxi
-    weights = [[ BS.pack('int:8=a',a=random.randint(-(1<<5),(1<<5)-1)) for i in range(10)] for j in range(cnn_out_dims+1)]
-    cnn_out = [ BS.pack('int:16=a',a=random.randint(-(20<<8),(20<<8)-1)) for i in range(cnn_out_dims)]
+    weights = [];cnn_out = []
+    if(len(sys.argv) <= 2):
+        weights = [[ BS.pack('int:8=a',a=random.randint(-(1<<5),(1<<5)-1)) for i in range(10)] for j in range(cnn_out_dims+1)]
+    else:
+        weights,cnn_out_dims = readWeightsBiases()
+        sys.argv[1] = str(cnn_out_dims)
+
+    if(len(sys.argv) <= 3):
+        cnn_out = [ BS.pack('int:16=a',a=random.randint(-(20<<8),(20<<8)-1)) for i in range(cnn_out_dims)]
+    else:
+        cnn_out = readNeorons()
+
     cnn_out = [BS.pack('int:16=a',a=1<<8)] + cnn_out #first raw is biases
 
     predictions = [ BS.pack('int:16=a',a=0) for i in range(10)]
@@ -62,7 +70,6 @@ def generateTestCase(cnn_out_dims):
     with open("./TestCaseFC/FCtest.txt",'a') as f:
         f.write("\nValid Answer is: ")
         np.savetxt(f,result_valid,newline=" ",fmt="%.6f")
-        ramymaxi = maxi
         print(9 - maxi)
         f.write("\nAnd valid maximuim is : {} in float".format(max_valid))
         f.write("\nFC answer is {} in float and {} in hex".format( toFloatWord( predictions[maxi] ), predictions[maxi].hex ) )
@@ -100,7 +107,8 @@ def createTestCase():
     os.makedirs(pathOfTC)
     os.system("bash -c \"cp * {}/. \"".format(pathOfTC))
 
-createTestCase()
+if __name__ == "__main__":
+	createTestCase()
 
 
 
