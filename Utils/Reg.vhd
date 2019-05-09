@@ -20,7 +20,7 @@ END ENTITY Reg;
 ARCHITECTURE RegArch of Reg is
 
 BEGIN
-
+	-- TODO: remove the 'en' and 'en' signals from the sensitivity list
 	PROCESS(D,clk, en, rst)
 		BEGIN
 			IF rst ='1' THEN

@@ -78,10 +78,10 @@ ENTITY DMAController IS
     weightsReadFinal: OUT STD_LOGIC; -- // // // // when final input is available on the internal data bus
 
     -- writeDoneAll: OUT STD_LOGIC;
-    writeDoneOne: OUT STD_LOGIC;
+    writeDoneOne: OUT STD_LOGIC
     
-    filterAluNumber: OUT STD_LOGIC_VECTOR(2 downto 0); -- 5 bits to say where to set the data within which ALU when fetching Filter
-    windowAluNumber: OUT STD_LOGIC_VECTOR(2 downto 0) -- 5 bits to say where to set the data within which ALU when fetching Window
+    -- filterAluNumber: OUT STD_LOGIC_VECTOR(2 downto 0); -- 5 bits to say where to set the data within which ALU when fetching Filter
+    -- windowAluNumber: OUT STD_LOGIC_VECTOR(2 downto 0) -- 5 bits to say where to set the data within which ALU when fetching Window
   );
 END DMAController ;
 
@@ -134,7 +134,8 @@ begin
     -- ELSE zeros10&"101";
 
     -- size = 12
-    weightsSizeForFilter <= (0 => '1', 1 => '1', others => '0') WHEN weightsSizeType = '0' 
+    -- weightsSizeForFilter <= (0 => '1', 1 => '1', others => '0') WHEN weightsSizeType = '0'
+    weightsSizeForFilter <= STD_LOGIC_VECTOR(to_unsigned(3, weightsAddressSize)) WHEN weightsSizeType = '0' 
     ELSE (0 => '1', 2 => '1', others => '0');
 
     -- weightsSizeForFilter <= zeros10&"11" WHEN weightsSizeType = '0' 
@@ -202,8 +203,7 @@ begin
       finishSlice => sliceFinished,
       -- output cnt signals
       readOne => windowReadOne,
-      readFinal => windowReadFinal,
-      aluNumber => windowAluNumber
+      readFinal => windowReadFinal
     );
 
     filterReadLogicEnt: ENTITY work.ReadLogic GENERIC MAP (weightsAddressSize, (filterSize * numUnits), true) PORT MAP (
@@ -232,8 +232,7 @@ begin
 
       -- output cnt signals
       readOne => weightsReadOne,
-      readFinal => weightsReadFinal,
-      aluNumber => filterAluNumber
+      readFinal => weightsReadFinal
     );
 
     writeLogicEnt: ENTITY work.WriteLogic GENERIC MAP (windowAddressSize, windowSize) PORT MAP (

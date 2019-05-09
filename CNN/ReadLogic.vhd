@@ -32,7 +32,6 @@ ENTITY ReadLogic IS
     -- CONFIG
     inputSize: IN STD_LOGIC_VECTOR(addressSize-1 downto 0);
     filterSize: IN STD_LOGIC_VECTOR(addressSize-1 downto 0);
-    -- isFilter: IN STD_LOGIC;
     
     -- input cnt signals
     loadNextWordList: IN STD_LOGIC; -- signal to specify to me to start reading the filter, here we keep track of the next address to read from
@@ -40,8 +39,7 @@ ENTITY ReadLogic IS
     finishSlice: IN STD_LOGIC;
     -- output cnt signals
     readOne: OUT STD_LOGIC; -- output signal set when one row when loading window is available on internal buses
-    readFinal: OUT STD_LOGIC;-- // // // // when final input is available on the internal data bus
-    aluNumber: OUT STD_LOGIC_VECTOR(2 downto 0) -- 5 bits to say where to set the data within which ALU
+    readFinal: OUT STD_LOGIC-- // // // // when final input is available on the internal data bus
   );
 END ReadLogic ; 
 
@@ -85,21 +83,16 @@ SIGNAL
 : STD_LOGIC;
 
 -- after compiling with 93
-SIGNAL baseAddressCounterClk, aluNumberCounterClk, notClk: STD_LOGIC;
-SIGNAL aluCounterOut: STD_LOGIC_VECTOR(2 downto 0);
+SIGNAL baseAddressCounterClk, notClk: STD_LOGIC;
 SIGNAL dmaReadBaseAddress: STD_LOGIC_VECTOR(addressSize-1 downto 0);
-SIGNAL zerosSignal: STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL internalRamAddress, ramAddressKeeperOut, ramAddressKeeperOutPlusFS: STD_LOGIC_VECTOR(addressSize -1 DOWNTO 0); --, zeros
+SIGNAL internalRamAddress, ramAddressKeeperOut, ramAddressKeeperOutPlusFS: STD_LOGIC_VECTOR(addressSize -1 DOWNTO 0);
 SIGNAL internalRamRead: STD_LOGIC;
 BEGIN
-    zerosSignal <= (others => '0');
-    -- zeros <= (others => '0');
     ramAddress <= internalRamAddress;
     ramRead <= internalRamRead;
     -- to compile with 93
-    baseAddressCounterClk <= (clk AND incBaseAddress) OR (resetAddressReg AND (not clk));
+    baseAddressCounterClk <= clk AND (incBaseAddress OR resetAddressReg); -- (clk AND incBaseAddress) OR (resetAddressReg AND clk);
     -- aluNumberCounterClk <= (not(clk) AND incUnitNumber) OR (resetUnitNumberReg AND clk);
-    aluNumberCounterClk <= ( clk AND incUnitNumber) OR (resetUnitNumberReg AND clk);
     -- aluNumberCounterClk <=  ( incUnitNumber OR resetUnitNumberReg) WHEN rising_edge(clk);
     -- "or"("and"(incUnitNumber, clk),"and"(resetUnitNumberReg, clk))
     -- "or"("and"(incBaseAddress, clk),"and"(resetAddressReg, "not"(clk)))
@@ -119,7 +112,6 @@ BEGIN
     -- TODO: should be removed and bind these port signals directly
     readFinal <= dmaFinishAll;
     readOne <= dmaFinishOneRead;
-    aluNumber <= unitRegOut;
 
     dma: ENTITY work.DMA GENERIC MAP(addressSize, internalBusSize) PORT MAP (
         initialCount => dmaCountIn,
@@ -165,22 +157,6 @@ BEGIN
     -- filter_g: if gIsFilter generate
     --     resetAddressReg <= '1' when currentState = switchState ELSE '0';
     -- end generate filter_g;
-
-
-    aluNumberCounter: entity work.Counter2 generic map (3) port map (
-        load => zerosSignal, -- we don't need this functionality
-        isLoad => '0', -- we don't need this functionality
-        reset => resetUnitNumberReg, -- reset is always 0, when I need to reset I enable writing(isLoad) and put BASE_ADDRESS(constant value) to data in
-        -- clk => "AND"(clk, "or"(incUnitNumber, resetUnitNumberReg)), -- only count when i set inc signal, count after rinsing edge to let CNN controller read the value first and then inc
-        clk => aluNumberCounterClk,
-        count => aluCounterOut
-    );
-
-    regCounterOut: ENTITY work.Reg GENERIC MAP (3) PORT MAP (
-        aluCounterOut,
-        '1', notClk, '0',
-        unitRegOut
-    );
 
     IOLogicCnt: PROCESS(currentState, loadWord, loadNextWordList, load, dmaFinishOneRead, dmaFinishAll, ramBasedAddress, filterSize)--, clk)
     BEGIN
@@ -323,14 +299,16 @@ BEGIN
 
 
     -- Process to save state and change to next state when enable = 1
-    PROCESS(clk, resetState)
+    PROCESS(clk, switchRam, resetState)
         BEGIN
         IF resetState ='1' THEN -- if reset is equal to 1 set current state to idle state (0)
             currentState <= idleState;
+        ELSIF switchRam ='1' THEN
+            currentState <= switchState;
         ELSIF FALLING_EDGE(clk) THEN -- Change value only when enable = 1 and rising edge
-            IF switchRam ='1' THEN
-                currentState <= switchState;
-            ELSIF stateRegEn='1' THEN
+            -- IF switchRam ='1' THEN
+            --     currentState <= switchState;
+            IF stateRegEn='1' THEN
                 currentState <= nextState;
             END IF;
         END IF;
