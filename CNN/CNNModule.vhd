@@ -204,11 +204,9 @@ ARCHITECTURE CNNModuleArch OF CNNModule IS
             weightsReadOne => finishReadRowFilter,
             weightsReadFinal => dmaFilterFinish,
 
-            writeDoneOne => writeOneFinish,
+            writeDoneOne => writeOneFinish
             -- writeDoneAll => writeDoneAll,  
             
-            filterAluNumber => aluNumberFilter,
-            windowAluNumber => aluNumberWindow
         );
         
         allRead <= dmaFilterFinish AND loadFilterConfig;
