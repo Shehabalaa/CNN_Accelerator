@@ -1,50 +1,31 @@
 vsim -gui work.fcmain
 
-add wave -position end  sim:/fcmain/cnnDone
-add wave -position end  sim:/fcmain/clk
-add wave -position end  sim:/fcmain/reset
+add wave -group fcmain  sim:/fcmain/reset sim:/fcmain/clk sim:/fcmain/cnnDone sim:/fcmain/cnnFinishNeoron  sim:/fcmain/cnnNeoron sim:/fcmain/fcDone sim:/fcmain/MAXPrediction
 
-add wave -position end  sim:/fcmain/readRamWeights
-add wave -position end  sim:/fcmain/readRamNeorons
-add wave -position end  sim:/fcmain/finishRamWeights
-add wave -position end  sim:/fcmain/finishRamNeorons
-add wave -position insertpoint  \
-sim:/fcmain/dataOutRamWeights
-add wave -position insertpoint  \
-sim:/fcmain/dataOutRamNeorons
+add wave -group MEMORYWeights sim:/fcmain/readRamWeights  sim:/fcmain/finishRamWeights  sim:/fcmain/dataOutRamWeights sim:/fcmain/defaultAddressWeights  sim:/fcmain/incrementWeightAdd sim:/fcmain/dmaAddRamWeights
 
-add wave -position end  sim:/fcmain/multiplyDone
-add wave -position end  sim:/fcmain/multiplyWork
-add wave -position end  sim:/fcmain/startMultiply
+add wave -group MEMORYNeorons sim:/fcmain/readRamNeorons  sim:/fcmain/finishRamNeorons  sim:/fcmain/dataOutRamNeorons sim:/fcmain/defaultAddressNeorons  sim:/fcmain/incrementNeoronsAdd sim:/fcmain/dmaAddRamNeorons
 
 
-add wave -position end  sim:/fcmain/decrement
-add wave -position end  sim:/fcmain/loadNumberOFNeorons
-add wave -position end  sim:/fcmain/numberOFNeorons
+add wave -group MUL  sim:/fcmain/multiplyWork sim:/fcmain/startMultiply  sim:/fcmain/mulInputWeight  sim:/fcmain/mulInputNeoron
 
-add wave -position end  sim:/fcmain/defaultAddressWeights
-add wave -position end  sim:/fcmain/incrementWeightAdd
-add wave -position end  sim:/fcmain/dmaAddRamWeights
 
-add wave -position end  sim:/fcmain/dmaAddRamNeorons
-add wave -position end  sim:/fcmain/defaultAddressNeorons
-add wave -position end  sim:/fcmain/incrementNeoronsAdd
-add wave -position end  sim:/fcmain/neoronMuxOutput
+add wave -group numberOFNeorons  sim:/fcmain/decrement sim:/fcmain/loadNumberOFNeorons sim:/fcmain/numberOFNeorons sim:/fcmain/neoronMuxOutput  sim:/fcmain/aluNeoronInput  sim:/fcmain/neoronValueSelection
 
-add wave -position end  sim:/fcmain/neoronValueSelection
-add wave -position end  sim:/fcmain/state
-add wave -position end  sim:/fcmain/startMax
-add wave -position end  sim:/fcmain/doneMax
+ 
 
-force -freeze sim:/fcmain/dataOutRamWeights 80'hXXXXXXXXXXXXXXXXXX03 0
-force -freeze sim:/fcmain/dataOutRamNeorons 80'hXXXXXXXXXXXXXXXX4455 0
 
-force -freeze sim:/fcmain/doneMax 0 0
+ 
+add wave -group  State  sim:/fcmain/state
+
+add wave -group Max sim:/fcmain/resetMaxSignal sim:/fcmain/startMax sim:/fcmain/doneMax  sim:/fcmain/labelReg sim:/fcmain/maxNumber
+
+
+
 
 
 force -freeze sim:/fcmain/clk 1 0, 0 {50 ns} -r 100
 force -freeze sim:/fcmain/reset 1 0
-force -freeze sim:/fcmain/cnnDone 0 0
 force -freeze sim:/fcmain/finishRamWeights 0 0
 force -freeze sim:/fcmain/finishRamNeorons 0 0
 
@@ -54,16 +35,14 @@ force -freeze sim:/fcmain/reset 0 0
 force -freeze sim:/fcmain/cnnDone 1 0
 run
 force -freeze sim:/fcmain/cnnDone 0 0
+
 run
 run
 run
 
 force -freeze sim:/fcmain/finishRamWeights 1 0
-run
+force -freeze sim:/fcmain/dataOutRamWeights 80'h0007XXXXXXXXXXXXXXXX 0
 
-run
-run
-run
 run
 force -freeze sim:/fcmain/finishRamWeights 0 0
 run
@@ -71,14 +50,9 @@ run
 run
 run
 
-run
 force -freeze sim:/fcmain/finishRamWeights 1 0
-run
-run
-force -freeze sim:/fcmain/multiplyWork 0 0
-run
+force -freeze sim:/fcmain/dataOutRamWeights 80'h04eae4ed16e20d00080d 0
 
-run
 run
 force -freeze sim:/fcmain/finishRamWeights 0 0
 run
@@ -86,30 +60,18 @@ run
 run
 run
 run
+
 force -freeze sim:/fcmain/finishRamWeights 1 0
 force -freeze sim:/fcmain/finishRamNeorons 1 0
-run
-run
-run
-force -freeze sim:/fcmain/finishRamWeights 0 0
-run
-force -freeze sim:/fcmain/finishRamNeorons 0 0
-run
-run
-
+force -freeze sim:/fcmain/dataOutRamWeights 80'hfb04f811e9190a0f060d 0
+force -freeze sim:/fcmain/dataOutRamNeorons 80'h0d5cXXXXXXXXXXXXXXXX 0
 
 run
-force -freeze sim:/fcmain/finishRamWeights 1 0
-force -freeze sim:/fcmain/finishRamNeorons 1 0
-run
+
 
 force -freeze sim:/fcmain/finishRamWeights 0 0
 force -freeze sim:/fcmain/finishRamNeorons 0 0
-run
-run
-run
-run
-force -freeze sim:/fcmain/doneMax 1 0
+
 run
 run
 run
