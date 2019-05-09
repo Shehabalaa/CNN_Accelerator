@@ -8,6 +8,19 @@ use work.Utiles.ALL;
 ENTITY FcMain IS
     PORT(
             cnnDone,clk,reset : IN STD_LOGIC;
+
+            dmaAddRamNeorons : OUT STD_LOGIC_VECTOR(16-1 downto 0);   -- ram address bits
+            readRamNeorons :out STD_LOGIC;
+            finishRamNeorons:in std_logic;
+            dataOutRamNeorons:in STD_LOGIC_VECTOR(79 downto 0);
+
+
+            dmaAddRamWeights : OUT STD_LOGIC_VECTOR(16-1 downto 0);   -- ram address bits
+            readRamWeights :out STD_LOGIC;
+            finishRamWeights:in std_logic;
+            dataOutRamWeights:in STD_LOGIC_VECTOR(79 downto 0);        
+
+
             fcDone: Out STD_LOGIC;
 	        MAXPrediction: Out STD_LOGIC_VECTOR(3 downto 0)
         );
@@ -32,12 +45,6 @@ ARCHITECTURE FcMainArch OF FcMain IS
     TYPE State_type IS (initial,setCounter,delay,loadBias,compareCounter ,loadNeoronAndWeights,Maxmimize,PrintOutput,startMul,startMulBias,resetMax); -- the 4 different states
 	SIGNAL state : State_Type;   
     ---- Signal Declaration 
-    SIGNAL readRamWeights,readRamNeorons,finishRamWeights,finishRamNeorons: STD_LOGIC;
-
-    SIGNAL dmaAddRamNeorons,dmaAddRamWeights :STD_LOGIC_VECTOR(RAMADDRESS-1 DOWNTO 0);
-
-    SIGNAL dataOutRamNeorons: STD_LOGIC_VECTOR(RamNeoronsWIDTH-1 DOWNTO 0);
-    SIGNAL dataOutRamWeights: STD_LOGIC_VECTOR(RamWeigthsWIDTH-1  DOWNTO 0);
 
     SIGNAL neoronMuxOutput: STD_LOGIC_VECTOR(15 DOWNTO 0);
     SIGNAL loadNumberOFNeorons : STD_LOGIC ;   ---            need to be implemented 
@@ -86,11 +93,6 @@ BEGIN
     --------------------------
     NEORONREGMux: ENTITY work.mux2 GENERIC MAP(16) PORT MAP( A => dataOutRamNeorons(79 downto 64),B => oneNeoron,S => neoronValueSelection,C => neoronMuxOutput);
 
-    ------------------------------
-    RAMWEIGHTS: ENTITY work.RAM GENERIC MAP(RAMADDRESS,RamWeigthsWIDTH) PORT MAP( clk,'0',dmaAddRamWeights,(79 downto 0 =>'0'),dataOutRamWeights);
-
-    RAMNEORONS: ENTITY work.RAM GENERIC MAP(RAMADDRESS,RamNeoronsWIDTH) PORT MAP(clk,'0' ,dmaAddRamNeorons,(79 downto 0 =>'0'),dataOutRamNeorons);
-
     ------------------------------------
     MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,resetMaxSignal,maxNumber,doneMax);
     ------------------------------------
@@ -99,9 +101,10 @@ BEGIN
     bufferRegOne: ENTITY work.FlibFlob  PORT MAP(multiplyWorkIn,'1',clkInverted,reset,bufferTwoInput);
     bufferRegTwo: ENTITY work.FlibFlob  PORT MAP(bufferTwoInput,'1',clk,reset,multiplyWorkDelayed);
     -----------------------------------------------------------
-    DMAWEIGHTS : ENTITY work.Dma  GENERIC MAP (RAMDELAY,RAMADDRESS) PORT MAP(clk,reset,incrementWeightAdd,cnnDoneOneCycle,defaultAddressWeights,readRamWeights,finishRamWeights,dmaAddRamWeights);
     
-    DMANEORONS : ENTITY work.Dma GENERIC MAP (RAMDELAY,RAMADDRESS) PORT MAP(clk,reset,incrementNeoronsAdd,cnnDoneOneCycle,defaultAddressNeorons,readRamNeorons,finishRamNeorons,dmaAddRamNeorons);
+    WeightAddressCounter: ENTITY work.CounterUpDown GENERIC MAP(RAMADDRESS) PORT MAP(defaultAddressWeights,defaultAddressWeights,clk,incrementWeightAdd ,reset,cnnDoneOneCycle,'0',dmaAddRamWeights);
+    NeoronAddressCounter: ENTITY work.CounterUpDown GENERIC MAP(RAMADDRESS) PORT MAP(defaultAddressNeorons,defaultAddressNeorons,clk,incrementNeoronsAdd ,reset,cnnDoneOneCycle,'0',dmaAddRamNeorons);
+
     ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     MAXVALUEREGMAP : ENTITY work.Reg generic map(4) port map(maxNumber,'1',doneMax,reset,MAXPrediction);
     ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
