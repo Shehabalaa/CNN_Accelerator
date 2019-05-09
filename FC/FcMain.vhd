@@ -7,7 +7,7 @@ use work.Utiles.ALL;
 
 ENTITY FcMain IS
     PORT(
-            cnnDone,clk,reset : IN STD_LOGIC;
+            cnnDone,ioDone,clk,reset : IN STD_LOGIC;
 
             dmaAddRamNeorons : OUT STD_LOGIC_VECTOR(16-1 downto 0);   -- ram address bits
             readRamNeorons :out STD_LOGIC;
@@ -78,8 +78,10 @@ ARCHITECTURE FcMainArch OF FcMain IS
     SIGNAL resetMaxSignal:STD_LOGIC;
     --------------------------------
     SIGNAL cnnDoneOneCycle:STD_LOGIC;
+    SIGNAL beginSignal:STD_LOGIC;
 
 BEGIN
+    beginSignal <= cnnDone and ioDone;
     ---------- initializition
     oneNeoron <= x"0100";
     defaultAddressWeights <= (others => '0');
@@ -87,7 +89,7 @@ BEGIN
     clkInverted <= NOT clk ;
 
     ----------------------------------------
-    CNNDONEHOLDER : ENTITY work.RisingHolderFullCycle PORT MAP(cnnDone,clk,reset,cnnDoneOneCycle);
+    CNNDONEHOLDER : ENTITY work.RisingHolderFullCycle PORT MAP(beginSignal,clk,reset,cnnDoneOneCycle);
     ------------------------------------------
     NEORONSLASTSTAGES: ENTITY work.CounterUpDown GENERIC MAP(16) PORT MAP(dataOutRamWeights(RamWeigthsWIDTH-1 downto RamWeigthsWIDTH - MaxNeornsNumBitSIZE),(15 downto 0 =>'0'),clk,decrement,reset,loadNumberOFNeorons,'1',numberOFNeorons);
     --------------------------
@@ -96,7 +98,7 @@ BEGIN
     ------------------------------------
     MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,resetMaxSignal,maxNumber,doneMax);
     ------------------------------------
-    ALUMAP: ENTITY work.Alus8x16 GENERIC MAP(10) PORT MAP(mulInputWeight,mulInputNeoron,labelReg,clk,startMultiply,reset,dumpDone,multiplyWorkIn);
+    ALUMAP: ENTITY work.Alus8x16 GENERIC MAP(10) PORT MAP(mulInputWeight,mulInputNeoron,labelReg,clk,startMultiply,cnnDoneOneCycle,dumpDone,multiplyWorkIn);
     ----------------------------------------------
     bufferRegOne: ENTITY work.FlibFlob  PORT MAP(multiplyWorkIn,'1',clkInverted,reset,bufferTwoInput);
     bufferRegTwo: ENTITY work.FlibFlob  PORT MAP(bufferTwoInput,'1',clk,reset,multiplyWorkDelayed);
