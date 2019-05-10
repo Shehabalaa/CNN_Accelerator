@@ -1,0 +1,10 @@
+vcom Reg1.vhd
+vcom FullAdder1.vhd
+vcom NBitAdder1.vhd
+vcom Counter3.vhd
+vcom DFFZ.vhd
+vcom RAMWithDone.vhd
+vcom adk.vhd
+vcom adk_comp.vhd
+vcom IOChip1.vhd
+vcom Accelerator.vhd
