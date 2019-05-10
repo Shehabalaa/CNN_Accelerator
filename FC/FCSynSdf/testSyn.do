@@ -23,6 +23,12 @@ sim:/fctest2/FCENT/mulInputWeight \
 sim:/fctest2/FCENT/mulInputNeoron
 
 
+run 
+
+run
+ 
+
+run 
 
 force -freeze sim:/fctest2/reset 1 0
 force -freeze sim:/fctest2/cnnDone 0 0
@@ -42,6 +48,6 @@ force -freeze sim:/fctest2/cnnDone 1 0
 force -freeze sim:/fctest2/ioDone 1 0
 run 100 ns	
 mem load -i C:/Users/ramym/Desktop/SecondTerm/VLSI/project/CNN_Accelerator/FC/TestBench/osama/FCMemCols.mem -format binary /fctest2/RAMWEIGHTS/ram
-mem load -i C:/Users/ramym/Desktop/SecondTerm/VLSI/project/CNN_Accelerator/FC/TestBench/osama/RAMNEORONS.mem /fctest2/RAMNEORONS/ram
+mem load -i C:/Users/ramym/Desktop/SecondTerm/VLSI/project/CNN_Accelerator/FC/TestBench/osama/cnnOutput.mem /fctest2/RAMNEORONS/ram
 run 100 ns
 run 100 ns
