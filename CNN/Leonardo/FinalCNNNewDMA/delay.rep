@@ -1,0 +1,108 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 66.1 MHz
+
+
+                        Critical Path Report
+
+
+Critical path #1, (path slack =  8.9):
+
+NAME                                                        GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------------------------------
+clk (offset)                                                                0.00 (falling edge)
+delay thru clock network                                                    8.00 (worst case)
+pulse width                                                             8.00
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/counterReg/reg_Q(0)/CLK          dffr              8.00 (falling edge)
+
+
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/counterReg/reg_Q(0)/Q
+                                                            dffr        0.00  8.55 dn             0.04
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/f0/ix70/Y
+                                                            xnor2       0.24  8.79 up             0.04
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/f0/ix7/Y
+                                                            oai22       0.23  9.02 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_1_fx/ix68/Y
+                                                            inv01       0.18  9.20 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_1_fx/ix7/Y
+                                                            oai22       0.25  9.44 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_2_fx/ix68/Y
+                                                            inv01       0.18  9.62 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_2_fx/ix7/Y
+                                                            oai22       0.25  9.87 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_3_fx/ix68/Y
+                                                            inv01       0.18  10.05 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_3_fx/ix7/Y
+                                                            oai22       0.25  10.30 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_4_fx/ix68/Y
+                                                            inv01       0.18  10.48 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_4_fx/ix7/Y
+                                                            oai22       0.25  10.73 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_5_fx/ix68/Y
+                                                            inv01       0.18  10.91 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_5_fx/ix7/Y
+                                                            oai22       0.25  11.15 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_6_fx/ix68/Y
+                                                            inv01       0.18  11.33 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_6_fx/ix7/Y
+                                                            oai22       0.25  11.58 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_7_fx/ix68/Y
+                                                            inv01       0.18  11.76 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_7_fx/ix7/Y
+                                                            oai22       0.25  12.01 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_8_fx/ix68/Y
+                                                            inv01       0.18  12.19 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_8_fx/ix7/Y
+                                                            oai22       0.25  12.43 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_9_fx/ix68/Y
+                                                            inv01       0.18  12.62 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_9_fx/ix7/Y
+                                                            oai22       0.25  12.86 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_10_fx/ix68/Y
+                                                            inv01       0.18  13.04 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_10_fx/ix7/Y
+                                                            oai22       0.25  13.29 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_11_fx/ix68/Y
+                                                            inv01       0.18  13.47 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_11_fx/ix7/Y
+                                                            oai22       0.23  13.70 dn             0.03
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/nextCount/loop1_12_fx/ix9/Y
+                                                            xnor2       0.17  13.86 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/muxInput/ix200/Y
+                                                            nand02      0.10  13.96 dn             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/muxInput/ix103/Y
+                                                            nand02      0.16  14.12 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/muxloadOrCurrent/ix200/Y
+                                                            nand02      0.10  14.22 dn             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/muxloadOrCurrent/ix103/Y
+                                                            nand02      0.15  14.37 up             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/counterReg/ix413/Y
+                                                            nand02      0.10  14.47 dn             0.01
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/counterReg/ix313/Y
+                                                            nand02      0.19  14.66 up             0.02
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/counterReg/reg_Q(12)/D
+                                                            dffr        0.00  14.66 up             0.00
+data arrival time                                                             14.66
+
+clk (offset)                                                                0.00 (falling edge)
+delay thru clock network                                                    8.00 (best case)
+pulse width                                                             8.00
+CNNMap/DMAControllerMap/writeLogicEnt/baseAddressCounter/counterReg/reg_Q(12)/CLK          dffr              8.00 (falling edge)
+clock cycle                                                                   16.00
+library setup time                                                           (0.47)
+
+data required time                                                            23.53
+-------------------------------------------------------------------------------------------------------
+data required time                                                            23.53
+data arrival time                                                             14.66
+                                                                           ----------
+slack                                                                        8.87
+-------------------------------------------------------------------------------------------------------
+
+

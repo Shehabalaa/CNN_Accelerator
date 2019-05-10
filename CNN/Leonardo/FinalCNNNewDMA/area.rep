@@ -1,0 +1,1992 @@
+
+*******************************************************
+
+Cell: RAM_13_16_80    View: RAMArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+dff         tsmc035_typ     2 x      5     10 gates
+fake_gnd    tsmc035_typ     1 x      1      1 fake_gnd
+inv01       tsmc035_typ     6 x      1      5 gates
+nand02      tsmc035_typ     3 x      1      3 gates
+nand03      tsmc035_typ     1 x      1      1 gates
+nand04      tsmc035_typ     3 x      1      4 gates
+nor02_2x    tsmc035_typ     3 x      1      3 gates
+nor03_2x    tsmc035_typ     3 x      1      4 gates
+xnor2       tsmc035_typ    17 x      2     32 gates
+
+ Number of ports :                     128
+ Number of nets :                       69
+ Number of instances :                  39
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of gates :                      62
+ Number of accumulated instances :      39
+
+*******************************************************
+
+Cell: RAM_12_8_40    View: RAMArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+dff         tsmc035_typ     2 x      5     10 gates
+fake_gnd    tsmc035_typ     1 x      1      1 fake_gnd
+inv01       tsmc035_typ     5 x      1      4 gates
+nand02      tsmc035_typ     2 x      1      2 gates
+nand03      tsmc035_typ     2 x      1      2 gates
+nand04      tsmc035_typ     2 x      1      3 gates
+nor02_2x    tsmc035_typ     3 x      1      3 gates
+nor03_2x    tsmc035_typ     2 x      1      2 gates
+xnor2       tsmc035_typ    13 x      2     25 gates
+
+ Number of ports :                      78
+ Number of nets :                       60
+ Number of instances :                  32
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of gates :                      51
+ Number of accumulated instances :      32
+
+*******************************************************
+
+Cell: Config_40    View: ConfigArch    Library: work
+
+*******************************************************
+
+
+ Cell    Library  References     Total Area
+
+Reg_2    work            2 x     18     36 gates
+Reg_3    work            2 x     26     53 gates
+Reg_5    work            2 x     44     87 gates
+inv01    tsmc035_typ     5 x      1      4 gates
+
+ Number of ports :                      64
+ Number of nets :                       47
+ Number of instances :                  11
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                     180
+ Number of accumulated instances :      91
+
+*******************************************************
+
+Cell: NBitAdder_9    View: NBitAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+FullAdder    work     9 x      8     68 gates
+
+ Number of ports :                      29
+ Number of nets :                       37
+ Number of instances :                   9
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      68
+ Number of accumulated instances :      54
+
+*******************************************************
+
+Cell: Reg_9    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+buf02     tsmc035_typ     4 x      1      4 gates
+dffr      tsmc035_typ     9 x      6     50 gates
+inv02     tsmc035_typ     5 x      1      4 gates
+nand02    tsmc035_typ    27 x      1     27 gates
+
+ Number of ports :                      21
+ Number of nets :                       57
+ Number of instances :                  45
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      85
+ Number of accumulated instances :      45
+
+*******************************************************
+
+Cell: Counter_9    View: CounterArch    Library: work
+
+*******************************************************
+
+
+ Cell          Library  References     Total Area
+
+NBitAdder_9    work            1 x     68     68 gates
+Reg_9          work            1 x     85     85 gates
+fake_gnd       tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc       tsmc035_typ     1 x      1      1 fake_vcc
+inv01          tsmc035_typ     2 x      1      2 gates
+nor02_2x       tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                      12
+ Number of nets :                       26
+ Number of instances :                   7
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                     156
+ Number of accumulated instances :     104
+
+*******************************************************
+
+Cell: Mux_512    View: MuxArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+aoi22       tsmc035_typ   256 x      1    379 gates
+inv01       tsmc035_typ     2 x      1      2 gates
+inv02       tsmc035_typ  2420 x      1   1839 gates
+mux21       tsmc035_typ  4512 x      2   8257 gates
+nand02      tsmc035_typ  1104 x      1   1104 gates
+nand03      tsmc035_typ    16 x      1     20 gates
+nor02_2x    tsmc035_typ  5136 x      1   5136 gates
+oai21       tsmc035_typ  2240 x      1   2778 gates
+
+ Number of ports :                    8217
+ Number of nets :                    23887
+ Number of instances :               15686
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                   19514
+ Number of accumulated instances :   15686
+
+*******************************************************
+
+Cell: Decoder_9    View: DecoderArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+buf02       tsmc035_typ     8 x      1      8 gates
+inv01       tsmc035_typ    54 x      1     41 gates
+inv02       tsmc035_typ   185 x      1    141 gates
+nand02      tsmc035_typ     7 x      1      7 gates
+nand03      tsmc035_typ    18 x      1     22 gates
+nand04      tsmc035_typ    24 x      1     36 gates
+nor02_2x    tsmc035_typ   518 x      1    518 gates
+nor03_2x    tsmc035_typ    15 x      1     19 gates
+
+ Number of ports :                     522
+ Number of nets :                      839
+ Number of instances :                 829
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                     791
+ Number of accumulated instances :     829
+
+*******************************************************
+
+Cell: OutputBuffer_40_484_16_8_9_6    View: OutputBufferArch    Library: work
+
+*******************************************************
+
+
+ Cell          Library  References     Total Area
+
+Counter_9      work            1 x      1      1 fake_gnd
+                                        1      1 fake_vcc
+                                      156    156 gates
+Decoder_9      work            1 x    791    791 gates
+Mux2_16        work          485 x     53  25860 gates
+Mux_512        work            1 x  19514  19514 gates
+Reg_16         work          485 x    146  70635 gates
+Tristate_16    work            1 x     34     34 gates
+buf02          tsmc035_typ     3 x      1      3 gates
+fake_gnd       tsmc035_typ     1 x      1      1 fake_gnd
+inv01          tsmc035_typ  2293 x      1   1743 gates
+inv02          tsmc035_typ   967 x      1    735 gates
+nor02_2x       tsmc035_typ   486 x      1    486 gates
+
+ Number of ports :                      96
+ Number of nets :                    19827
+ Number of instances :                4724
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    2
+ Number of fake_vcc :                    1
+ Number of gates :                  119957
+ Number of accumulated instances :   83455
+
+*******************************************************
+
+Cell: Mux2_5    View: Mux2Arch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+inv01     tsmc035_typ     1 x      1      1 gates
+nand02    tsmc035_typ    15 x      1     15 gates
+
+ Number of ports :                      16
+ Number of nets :                       27
+ Number of instances :                  16
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      16
+ Number of accumulated instances :      16
+
+*******************************************************
+
+Cell: NBitSubtractor_5    View: NBitSubtractorArch    Library: work
+
+*******************************************************
+
+
+ Cell             Library  References     Total Area
+
+FullSubtractor    work     5 x      9     44 gates
+
+ Number of ports :                      17
+ Number of nets :                       21
+ Number of instances :                   5
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      44
+ Number of accumulated instances :      30
+
+*******************************************************
+
+Cell: DownCounter_5    View: DownCounterArch    Library: work
+
+*******************************************************
+
+
+ Cell               Library  References     Total Area
+
+Mux2_5              work            1 x     16     16 gates
+NBitSubtractor_5    work            1 x     44     44 gates
+Reg_5               work            1 x     44     44 gates
+fake_gnd            tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc            tsmc035_typ     1 x      1      1 fake_vcc
+
+ Number of ports :                      13
+ Number of nets :                       25
+ Number of instances :                   5
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                     103
+ Number of accumulated instances :      69
+
+*******************************************************
+
+Cell: WriteDMA_13_16    View: WriteDMAArch    Library: work
+
+*******************************************************
+
+
+ Cell                  Library  References     Total Area
+
+DownCounter_5          work            1 x      1      1 fake_vcc
+                                                1      1 fake_gnd
+                                              103    103 gates
+MultiStepCounter_13    work            1 x      1      1 fake_gnd
+                                                1      1 fake_vcc
+                                              302    302 gates
+Reg_13                 work            1 x    117    117 gates
+buf02                  tsmc035_typ     1 x      1      1 gates
+fake_gnd               tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc               tsmc035_typ     1 x      1      1 fake_vcc
+inv01                  tsmc035_typ     5 x      1      4 gates
+inv02                  tsmc035_typ     1 x      1      1 gates
+inv16                  tsmc035_typ     1 x      2      2 gates
+latchs_ni              tsmc035_typ     1 x      3      3 gates
+nand02                 tsmc035_typ     4 x      1      4 gates
+nor02_2x               tsmc035_typ     5 x      1      5 gates
+
+ Number of ports :                      84
+ Number of nets :                      103
+ Number of instances :                  23
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    3
+ Number of fake_vcc :                    3
+ Number of gates :                     542
+ Number of accumulated instances :     375
+
+*******************************************************
+
+Cell: WriteLogic_13_16    View: WriteLogicArch    Library: work
+
+*******************************************************
+
+
+ Cell             Library  References     Total Area
+
+Counter2_13       work            1 x      1      1 fake_gnd
+                                           1      1 fake_vcc
+                                         302    302 gates
+Mux2_13           work            1 x     43     43 gates
+NBitAdder_13      work            1 x     99     99 gates
+Reg_13            work            1 x    117    117 gates
+WriteDMA_13_16    work            1 x      3      3 fake_vcc
+                                           3      3 fake_gnd
+                                         542    542 gates
+dffr              tsmc035_typ     4 x      6     22 gates
+dffs_ni           tsmc035_typ     1 x      6      6 gates
+fake_gnd          tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc          tsmc035_typ     1 x      1      1 fake_vcc
+inv01             tsmc035_typ    22 x      1     17 gates
+inv02             tsmc035_typ     2 x      1      2 gates
+mux21             tsmc035_typ     4 x      2      7 gates
+nand02            tsmc035_typ     9 x      1      9 gates
+nand04            tsmc035_typ     1 x      1      1 gates
+nor02_2x          tsmc035_typ    21 x      1     21 gates
+oai21             tsmc035_typ     3 x      1      4 gates
+
+ Number of ports :                      79
+ Number of nets :                      188
+ Number of instances :                  74
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    5
+ Number of fake_vcc :                    5
+ Number of gates :                    1191
+ Number of accumulated instances :     852
+
+*******************************************************
+
+Cell: Tristate_40    View: TriStateArch    Library: work
+
+*******************************************************
+
+
+ Cell    Library  References     Total Area
+
+inv01    tsmc035_typ    47 x      1     36 gates
+tri01    tsmc035_typ    40 x      1     47 gates
+
+ Number of ports :                      81
+ Number of nets :                      128
+ Number of instances :                  87
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      83
+ Number of accumulated instances :      87
+
+*******************************************************
+
+Cell: NBitAdder_12    View: NBitAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+FullAdder    work    12 x      8     91 gates
+
+ Number of ports :                      38
+ Number of nets :                       49
+ Number of instances :                  12
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      91
+ Number of accumulated instances :      72
+
+*******************************************************
+
+Cell: Reg_12    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+dffr      tsmc035_typ    12 x      6     67 gates
+inv02     tsmc035_typ     2 x      1      2 gates
+nand02    tsmc035_typ    36 x      1     36 gates
+
+ Number of ports :                      27
+ Number of nets :                       65
+ Number of instances :                  50
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of gates :                     104
+ Number of accumulated instances :      50
+
+*******************************************************
+
+Cell: MultiStepCounter_12    View: MultiStepCounterArch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+Mux2_12         work            2 x     40     80 gates
+NBitAdder_12    work            1 x     91     91 gates
+Reg_12          work            1 x    104    104 gates
+fake_gnd        tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc        tsmc035_typ     1 x      1      1 fake_vcc
+
+ Number of ports :                      40
+ Number of nets :                       78
+ Number of instances :                   6
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                     275
+ Number of accumulated instances :     206
+
+*******************************************************
+
+Cell: DMA_12_40    View: DMAArch    Library: work
+
+*******************************************************
+
+
+ Cell                  Library  References     Total Area
+
+DownCounter_3          work            1 x      1      1 fake_vcc
+                                                1      1 fake_gnd
+                                               62     62 gates
+MultiStepCounter_12    work            1 x      1      1 fake_gnd
+                                                1      1 fake_vcc
+                                              275    275 gates
+Reg_12                 work            1 x    104    104 gates
+Tristate_40            work            1 x     83     83 gates
+buf02                  tsmc035_typ     1 x      1      1 gates
+fake_gnd               tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc               tsmc035_typ     1 x      1      1 fake_vcc
+inv01                  tsmc035_typ     4 x      1      3 gates
+inv02                  tsmc035_typ     1 x      1      1 gates
+inv16                  tsmc035_typ     1 x      2      2 gates
+latchs_ni              tsmc035_typ     1 x      3      3 gates
+nand02                 tsmc035_typ     1 x      1      1 gates
+nand03                 tsmc035_typ     1 x      1      1 gates
+nor02_2x               tsmc035_typ     2 x      1      2 gates
+nor03_2x               tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                     127
+ Number of nets :                      154
+ Number of instances :                  19
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    3
+ Number of fake_vcc :                    3
+ Number of gates :                     540
+ Number of accumulated instances :     401
+
+*******************************************************
+
+Cell: Mux2_12    View: Mux2Arch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+inv02     tsmc035_typ     5 x      1      4 gates
+nand02    tsmc035_typ    36 x      1     36 gates
+
+ Number of ports :                      37
+ Number of nets :                       66
+ Number of instances :                  41
+ Number of references to this view :     3
+
+Total accumulated area : 
+ Number of gates :                      40
+ Number of accumulated instances :      41
+
+*******************************************************
+
+Cell: ReadLogic_12_40_true    View: ReadLogicArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+DMA_12_40    work            1 x    540    540 gates
+                                      3      3 fake_vcc
+                                      3      3 fake_gnd
+Mux2_12      work            1 x     40     40 gates
+dffr         tsmc035_typ     1 x      6      6 gates
+dffsr_ni     tsmc035_typ     1 x      6      6 gates
+fake_gnd     tsmc035_typ     1 x      1      1 fake_gnd
+inv01        tsmc035_typ     7 x      1      5 gates
+nand02       tsmc035_typ     3 x      1      3 gates
+nand03       tsmc035_typ     1 x      1      1 gates
+nor02_2x     tsmc035_typ     5 x      1      5 gates
+nor03_2x     tsmc035_typ     5 x      1      6 gates
+oai21        tsmc035_typ     1 x      1      1 gates
+oai22        tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                     138
+ Number of nets :                      167
+ Number of instances :                  28
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    4
+ Number of fake_vcc :                    3
+ Number of gates :                     616
+ Number of accumulated instances :     468
+
+*******************************************************
+
+Cell: Counter2_13    View: Counter2Arch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+Mux2_13         work            2 x     43     86 gates
+NBitAdder_13    work            1 x     99     99 gates
+Reg_13          work            1 x    117    117 gates
+fake_gnd        tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc        tsmc035_typ     1 x      1      1 fake_vcc
+
+ Number of ports :                      29
+ Number of nets :                       70
+ Number of instances :                   6
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                     302
+ Number of accumulated instances :     227
+
+*******************************************************
+
+Cell: Mux2_3    View: Mux2Arch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+inv01     tsmc035_typ     1 x      1      1 gates
+nand02    tsmc035_typ     9 x      1      9 gates
+
+ Number of ports :                      10
+ Number of nets :                       17
+ Number of instances :                  10
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      10
+ Number of accumulated instances :      10
+
+*******************************************************
+
+Cell: FullSubtractor    View: Behavioral    Library: work
+
+*******************************************************
+
+
+ Cell    Library  References     Total Area
+
+inv01    tsmc035_typ     2 x      1      2 gates
+oai22    tsmc035_typ     1 x      1      1 gates
+xnor2    tsmc035_typ     3 x      2      6 gates
+
+ Number of ports :                       5
+ Number of nets :                        9
+ Number of instances :                   6
+ Number of references to this view :     8
+
+Total accumulated area : 
+ Number of gates :                       9
+ Number of accumulated instances :       6
+
+*******************************************************
+
+Cell: NBitSubtractor_3    View: NBitSubtractorArch    Library: work
+
+*******************************************************
+
+
+ Cell             Library  References     Total Area
+
+FullSubtractor    work     3 x      9     26 gates
+
+ Number of ports :                      11
+ Number of nets :                       13
+ Number of instances :                   3
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      26
+ Number of accumulated instances :      18
+
+*******************************************************
+
+Cell: DownCounter_3    View: DownCounterArch    Library: work
+
+*******************************************************
+
+
+ Cell               Library  References     Total Area
+
+Mux2_3              work            1 x     10     10 gates
+NBitSubtractor_3    work            1 x     26     26 gates
+Reg_3               work            1 x     26     26 gates
+fake_gnd            tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc            tsmc035_typ     1 x      1      1 fake_vcc
+
+ Number of ports :                       9
+ Number of nets :                       17
+ Number of instances :                   5
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                      62
+ Number of accumulated instances :      43
+
+*******************************************************
+
+Cell: Reg_13    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+buf02     tsmc035_typ     2 x      1      2 gates
+dffr      tsmc035_typ    13 x      6     73 gates
+inv02     tsmc035_typ     5 x      1      4 gates
+nand02    tsmc035_typ    39 x      1     39 gates
+
+ Number of ports :                      29
+ Number of nets :                       75
+ Number of instances :                  59
+ Number of references to this view :     6
+
+Total accumulated area : 
+ Number of gates :                     117
+ Number of accumulated instances :      59
+
+*******************************************************
+
+Cell: MultiStepCounter_13    View: MultiStepCounterArch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+Mux2_13         work            2 x     43     86 gates
+NBitAdder_13    work            1 x     99     99 gates
+Reg_13          work            1 x    117    117 gates
+fake_gnd        tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc        tsmc035_typ     1 x      1      1 fake_vcc
+
+ Number of ports :                      43
+ Number of nets :                       84
+ Number of instances :                   6
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                     302
+ Number of accumulated instances :     227
+
+*******************************************************
+
+Cell: DMA_13_80    View: DMAArch    Library: work
+
+*******************************************************
+
+
+ Cell                  Library  References     Total Area
+
+DownCounter_3          work            1 x      1      1 fake_vcc
+                                                1      1 fake_gnd
+                                               62     62 gates
+MultiStepCounter_13    work            1 x      1      1 fake_gnd
+                                                1      1 fake_vcc
+                                              302    302 gates
+Reg_13                 work            1 x    117    117 gates
+Tristate_80            work            1 x    165    165 gates
+buf02                  tsmc035_typ     1 x      1      1 gates
+fake_gnd               tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc               tsmc035_typ     1 x      1      1 fake_vcc
+inv01                  tsmc035_typ     4 x      1      3 gates
+inv02                  tsmc035_typ     1 x      1      1 gates
+inv16                  tsmc035_typ     1 x      2      2 gates
+latchs_ni              tsmc035_typ     1 x      3      3 gates
+nand02                 tsmc035_typ     1 x      1      1 gates
+nand03                 tsmc035_typ     1 x      1      1 gates
+nor02_2x               tsmc035_typ     2 x      1      2 gates
+nor03_2x               tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                     210
+ Number of nets :                      238
+ Number of instances :                  19
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    3
+ Number of fake_vcc :                    3
+ Number of gates :                     662
+ Number of accumulated instances :     518
+
+*******************************************************
+
+Cell: ReadLogic_13_80_false    View: ReadLogicArch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+Counter2_13     work            1 x      1      1 fake_gnd
+                                         1      1 fake_vcc
+                                       302    302 gates
+DMA_13_80       work            1 x    662    662 gates
+                                         3      3 fake_vcc
+                                         3      3 fake_gnd
+Mux2_13         work            2 x     43     86 gates
+NBitAdder_13    work            1 x     99     99 gates
+Reg_13          work            1 x    117    117 gates
+dffr            tsmc035_typ     1 x      6      6 gates
+dffsr_ni        tsmc035_typ     1 x      6      6 gates
+fake_gnd        tsmc035_typ     1 x      1      1 fake_gnd
+inv01           tsmc035_typ    19 x      1     14 gates
+inv02           tsmc035_typ     6 x      1      5 gates
+nand02          tsmc035_typ     8 x      1      8 gates
+nand03          tsmc035_typ     2 x      1      2 gates
+nor02_2x        tsmc035_typ    22 x      1     22 gates
+nor03_2x        tsmc035_typ     4 x      1      5 gates
+oai21           tsmc035_typ     4 x      1      5 gates
+
+ Number of ports :                     222
+ Number of nets :                      356
+ Number of instances :                  74
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    5
+ Number of fake_vcc :                    4
+ Number of gates :                    1339
+ Number of accumulated instances :    1038
+
+*******************************************************
+
+Cell: Tristate_16    View: TriStateArch    Library: work
+
+*******************************************************
+
+
+ Cell    Library  References     Total Area
+
+inv01    tsmc035_typ    20 x      1     15 gates
+tri01    tsmc035_typ    16 x      1     19 gates
+
+ Number of ports :                      33
+ Number of nets :                       53
+ Number of instances :                  36
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of gates :                      34
+ Number of accumulated instances :      36
+
+*******************************************************
+
+Cell: Tristate_80    View: TriStateArch    Library: work
+
+*******************************************************
+
+
+ Cell    Library  References     Total Area
+
+inv01    tsmc035_typ    94 x      1     71 gates
+tri01    tsmc035_typ    80 x      1     94 gates
+
+ Number of ports :                     161
+ Number of nets :                      255
+ Number of instances :                 174
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of gates :                     165
+ Number of accumulated instances :     174
+
+*******************************************************
+
+Cell: Mux2_13    View: Mux2Arch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+inv02     tsmc035_typ     5 x      1      4 gates
+nand02    tsmc035_typ    39 x      1     39 gates
+
+ Number of ports :                      40
+ Number of nets :                       71
+ Number of instances :                  44
+ Number of references to this view :     9
+
+Total accumulated area : 
+ Number of gates :                      43
+ Number of accumulated instances :      44
+
+*******************************************************
+
+Cell: DMAController_12_13_8_16_5    View: DMAControllerArch    Library: work
+
+*******************************************************
+
+
+ Cell                    Library  References     Total Area
+
+Mux2_13                  work            2 x     43     86 gates
+ReadLogic_12_40_true     work            1 x      4      4 fake_gnd
+                                                  3      3 fake_vcc
+                                                616    616 gates
+ReadLogic_13_80_false    work            1 x      5      5 fake_gnd
+                                                  4      4 fake_vcc
+                                               1339   1339 gates
+Tristate_16              work            1 x     34     34 gates
+Tristate_80              work            1 x    165    165 gates
+WriteLogic_13_16         work            1 x      5      5 fake_gnd
+                                                  5      5 fake_vcc
+                                               1191   1191 gates
+dffr                     tsmc035_typ     1 x      6      6 gates
+fake_gnd                 tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc                 tsmc035_typ     1 x      1      1 fake_vcc
+inv01                    tsmc035_typ     3 x      1      2 gates
+inv02                    tsmc035_typ     1 x      1      1 gates
+nand02                   tsmc035_typ     3 x      1      3 gates
+nor02_2x                 tsmc035_typ     5 x      1      5 gates
+
+ Number of ports :                     398
+ Number of nets :                      520
+ Number of instances :                  22
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                   15
+ Number of fake_vcc :                   13
+ Number of gates :                    3447
+ Number of accumulated instances :    2671
+
+*******************************************************
+
+Cell: NBitAdder_13    View: NBitAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+FullAdder    work    13 x      8     99 gates
+
+ Number of ports :                      41
+ Number of nets :                       53
+ Number of instances :                  13
+ Number of references to this view :     5
+
+Total accumulated area : 
+ Number of gates :                      99
+ Number of accumulated instances :      78
+
+*******************************************************
+
+Cell: NBitAdder_5    View: NBitAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+FullAdder    work     5 x      8     38 gates
+
+ Number of ports :                      17
+ Number of nets :                       21
+ Number of instances :                   5
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      38
+ Number of accumulated instances :      30
+
+*******************************************************
+
+Cell: Reg_5    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+dffr      tsmc035_typ     5 x      6     28 gates
+inv01     tsmc035_typ     1 x      1      1 gates
+nand02    tsmc035_typ    15 x      1     15 gates
+
+ Number of ports :                      13
+ Number of nets :                       29
+ Number of instances :                  21
+ Number of references to this view :     4
+
+Total accumulated area : 
+ Number of gates :                      44
+ Number of accumulated instances :      21
+
+*******************************************************
+
+Cell: Counter_5    View: CounterArch    Library: work
+
+*******************************************************
+
+
+ Cell          Library  References     Total Area
+
+NBitAdder_5    work            1 x     38     38 gates
+Reg_5          work            1 x     44     44 gates
+fake_gnd       tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc       tsmc035_typ     1 x      1      1 fake_vcc
+inv01          tsmc035_typ     2 x      1      2 gates
+nor02_2x       tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                       8
+ Number of nets :                       18
+ Number of instances :                   7
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                      84
+ Number of accumulated instances :      56
+
+*******************************************************
+
+Cell: SliceFilterController_5    View: SliceFilterControllerArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+Counter_5    work            2 x      1      2 fake_gnd
+                                      1      2 fake_vcc
+                                     84    168 gates
+Reg_1        work            1 x      9      9 gates
+aoi22        tsmc035_typ     1 x      1      1 gates
+dff          tsmc035_typ    10 x      5     48 gates
+dffr         tsmc035_typ     8 x      6     45 gates
+dffs_ni      tsmc035_typ     1 x      6      6 gates
+inv01        tsmc035_typ    12 x      1      9 gates
+inv02        tsmc035_typ     2 x      1      2 gates
+mux21        tsmc035_typ     3 x      2      5 gates
+nand02       tsmc035_typ    13 x      1     13 gates
+nand03       tsmc035_typ     2 x      1      2 gates
+nand04       tsmc035_typ     4 x      1      6 gates
+nor02_2x     tsmc035_typ    28 x      1     28 gates
+nor02ii      tsmc035_typ     1 x      1      1 gates
+nor03_2x     tsmc035_typ     3 x      1      4 gates
+nor04        tsmc035_typ     1 x      1      1 gates
+oai21        tsmc035_typ     8 x      1     10 gates
+oai22        tsmc035_typ     1 x      1      1 gates
+xnor2        tsmc035_typ    12 x      2     23 gates
+
+ Number of ports :                      27
+ Number of nets :                      143
+ Number of instances :                 113
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    2
+ Number of fake_vcc :                    2
+ Number of gates :                     384
+ Number of accumulated instances :     227
+
+*******************************************************
+
+Cell: FilterController_3    View: FilterControllerArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+Counter_3    work            1 x      1      1 fake_gnd
+                                      1      1 fake_vcc
+                                     52     52 gates
+aoi22        tsmc035_typ     1 x      1      1 gates
+dff          tsmc035_typ     3 x      5     14 gates
+dffr         tsmc035_typ     2 x      6     11 gates
+inv01        tsmc035_typ     6 x      1      5 gates
+mux21        tsmc035_typ     1 x      2      2 gates
+nand02       tsmc035_typ     6 x      1      6 gates
+nand03       tsmc035_typ     2 x      1      2 gates
+nor02_2x     tsmc035_typ     9 x      1      9 gates
+nor02ii      tsmc035_typ     1 x      1      1 gates
+nor03_2x     tsmc035_typ     2 x      1      2 gates
+oai21        tsmc035_typ     4 x      1      5 gates
+oai221       tsmc035_typ     1 x      2      2 gates
+xnor2        tsmc035_typ     3 x      2      6 gates
+
+ Number of ports :                      13
+ Number of nets :                       55
+ Number of instances :                  42
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                     119
+ Number of accumulated instances :      77
+
+*******************************************************
+
+Cell: LayerController_3    View: LayerControllerArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+Counter_3    work            1 x      1      1 fake_gnd
+                                      1      1 fake_vcc
+                                     52     52 gates
+aoi22        tsmc035_typ     1 x      1      1 gates
+dff          tsmc035_typ     3 x      5     14 gates
+dffr         tsmc035_typ     2 x      6     11 gates
+inv01        tsmc035_typ     5 x      1      4 gates
+mux21        tsmc035_typ     1 x      2      2 gates
+nand02       tsmc035_typ     3 x      1      3 gates
+nand04       tsmc035_typ     1 x      1      1 gates
+nor02_2x     tsmc035_typ     5 x      1      5 gates
+nor02ii      tsmc035_typ     2 x      1      2 gates
+nor03_2x     tsmc035_typ     1 x      1      1 gates
+oai21        tsmc035_typ     4 x      1      5 gates
+xnor2        tsmc035_typ     7 x      2     13 gates
+
+ Number of ports :                      11
+ Number of nets :                       48
+ Number of instances :                  36
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                     116
+ Number of accumulated instances :      71
+
+*******************************************************
+
+Cell: NBitAdder_2    View: NBitAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+FullAdder    work     2 x      8     15 gates
+
+ Number of ports :                       8
+ Number of nets :                        9
+ Number of instances :                   2
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      15
+ Number of accumulated instances :      12
+
+*******************************************************
+
+Cell: Reg_2    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+dffr      tsmc035_typ     2 x      6     11 gates
+inv01     tsmc035_typ     1 x      1      1 gates
+nand02    tsmc035_typ     6 x      1      6 gates
+
+ Number of ports :                       7
+ Number of nets :                       14
+ Number of instances :                   9
+ Number of references to this view :     3
+
+Total accumulated area : 
+ Number of gates :                      18
+ Number of accumulated instances :       9
+
+*******************************************************
+
+Cell: Counter_2    View: CounterArch    Library: work
+
+*******************************************************
+
+
+ Cell          Library  References     Total Area
+
+NBitAdder_2    work            1 x     15     15 gates
+Reg_2          work            1 x     18     18 gates
+fake_gnd       tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc       tsmc035_typ     1 x      1      1 fake_vcc
+inv01          tsmc035_typ     2 x      1      2 gates
+nor02_2x       tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                       5
+ Number of nets :                       12
+ Number of instances :                   7
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                      36
+ Number of accumulated instances :      26
+
+*******************************************************
+
+Cell: NetworkController_2    View: NetworkControllerArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+Counter_2    work            1 x      1      1 fake_gnd
+                                      1      1 fake_vcc
+                                     36     36 gates
+dff          tsmc035_typ     2 x      5     10 gates
+dffr         tsmc035_typ     2 x      6     11 gates
+inv01        tsmc035_typ     6 x      1      5 gates
+mux21        tsmc035_typ     1 x      2      2 gates
+nand02       tsmc035_typ     2 x      1      2 gates
+nor02_2x     tsmc035_typ     6 x      1      6 gates
+nor02ii      tsmc035_typ     1 x      1      1 gates
+nor03_2x     tsmc035_typ     1 x      1      1 gates
+oai21        tsmc035_typ     5 x      1      6 gates
+oai22        tsmc035_typ     1 x      1      1 gates
+xnor2        tsmc035_typ     6 x      2     11 gates
+
+ Number of ports :                      10
+ Number of nets :                       44
+ Number of instances :                  34
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                      92
+ Number of accumulated instances :      59
+
+*******************************************************
+
+Cell: ControlUnit    View: ControlUnitArch    Library: work
+
+*******************************************************
+
+
+ Cell                      Library  References     Total Area
+
+FilterController_3         work            1 x    119    119 gates
+                                                    1      1 fake_vcc
+                                                    1      1 fake_gnd
+LayerController_3          work            1 x    116    116 gates
+                                                    1      1 fake_vcc
+                                                    1      1 fake_gnd
+NetworkController_2        work            1 x     92     92 gates
+                                                    1      1 fake_vcc
+                                                    1      1 fake_gnd
+SliceFilterController_5    work            1 x    384    384 gates
+                                                    2      2 fake_vcc
+                                                    2      2 fake_gnd
+buf02                      tsmc035_typ     2 x      1      2 gates
+
+ Number of ports :                      40
+ Number of nets :                       46
+ Number of instances :                   6
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    5
+ Number of fake_vcc :                    5
+ Number of gates :                     713
+ Number of accumulated instances :     436
+
+*******************************************************
+
+Cell: NBitAdder_3    View: NBitAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+FullAdder    work     3 x      8     23 gates
+
+ Number of ports :                      11
+ Number of nets :                       13
+ Number of instances :                   3
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      23
+ Number of accumulated instances :      18
+
+*******************************************************
+
+Cell: Reg_3    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+dffr      tsmc035_typ     3 x      6     17 gates
+inv01     tsmc035_typ     1 x      1      1 gates
+nand02    tsmc035_typ     9 x      1      9 gates
+
+ Number of ports :                       9
+ Number of nets :                       19
+ Number of instances :                  13
+ Number of references to this view :     4
+
+Total accumulated area : 
+ Number of gates :                      26
+ Number of accumulated instances :      13
+
+*******************************************************
+
+Cell: Counter_3    View: CounterArch    Library: work
+
+*******************************************************
+
+
+ Cell          Library  References     Total Area
+
+NBitAdder_3    work            1 x     23     23 gates
+Reg_3          work            1 x     26     26 gates
+fake_gnd       tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc       tsmc035_typ     1 x      1      1 fake_vcc
+inv01          tsmc035_typ     2 x      1      2 gates
+nor02_2x       tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                       6
+ Number of nets :                       14
+ Number of instances :                   7
+ Number of references to this view :     3
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                      52
+ Number of accumulated instances :      36
+
+*******************************************************
+
+Cell: RowDecoder    View: RowDecoderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+Counter_3    work            1 x      1      1 fake_gnd
+                                      1      1 fake_vcc
+                                     52     52 gates
+inv01        tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                       6
+ Number of nets :                        7
+ Number of instances :                   2
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of fake_vcc :                    1
+ Number of gates :                      53
+ Number of accumulated instances :      37
+
+*******************************************************
+
+Cell: CNNShifter_16    View: CNNShifterArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+inv02     tsmc035_typ     5 x      1      4 gates
+nand02    tsmc035_typ    36 x      1     36 gates
+
+ Number of ports :                      33
+ Number of nets :                       55
+ Number of instances :                  41
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      40
+ Number of accumulated instances :      41
+
+*******************************************************
+
+Cell: NBitAdder_16    View: NBitAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+FullAdder    work    16 x      8    121 gates
+
+ Number of ports :                      50
+ Number of nets :                       65
+ Number of instances :                  16
+ Number of references to this view :     8
+
+Total accumulated area : 
+ Number of gates :                     121
+ Number of accumulated instances :      96
+
+*******************************************************
+
+Cell: Adder4Values_16    View: Adder4ValuesArch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+NBitAdder_16    work            3 x    121    364 gates
+fake_gnd        tsmc035_typ     1 x      1      1 fake_gnd
+
+ Number of ports :                      80
+ Number of nets :                      113
+ Number of instances :                   4
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of gates :                     364
+ Number of accumulated instances :     289
+
+*******************************************************
+
+Cell: Adder8Values_16    View: Adder8ValuesArch    Library: work
+
+*******************************************************
+
+
+ Cell              Library  References     Total Area
+
+Adder4Values_16    work            2 x      1      2 fake_gnd
+                                          364    728 gates
+NBitAdder_16       work            1 x    121    121 gates
+fake_gnd           tsmc035_typ     1 x      1      1 fake_gnd
+
+ Number of ports :                     144
+ Number of nets :                      177
+ Number of instances :                   4
+ Number of references to this view :     3
+
+Total accumulated area : 
+ Number of fake_gnd :                    3
+ Number of gates :                     849
+ Number of accumulated instances :     675
+
+*******************************************************
+
+Cell: CNNAdders_16    View: CNNAddersArch    Library: work
+
+*******************************************************
+
+
+ Cell              Library  References     Total Area
+
+Adder8Values_16    work            3 x    849   2547 gates
+                                            3      9 fake_gnd
+Mux2_16            work            1 x     53     53 gates
+NBitAdder_16       work            3 x    121    364 gates
+fake_gnd           tsmc035_typ     1 x      1      1 fake_gnd
+
+ Number of ports :                     417
+ Number of nets :                      514
+ Number of instances :                   8
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                   10
+ Number of gates :                    2964
+ Number of accumulated instances :    2369
+
+*******************************************************
+
+Cell: Reg_1    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+dffr      tsmc035_typ     1 x      6      6 gates
+inv01     tsmc035_typ     1 x      1      1 gates
+nand02    tsmc035_typ     3 x      1      3 gates
+
+ Number of ports :                       5
+ Number of nets :                        9
+ Number of instances :                   5
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Number of gates :                       9
+ Number of accumulated instances :       5
+
+*******************************************************
+
+Cell: ShiftReg_3    View: ShiftRegArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+dffr        tsmc035_typ     3 x      6     17 gates
+dffs_ni     tsmc035_typ     1 x      6      6 gates
+mux21       tsmc035_typ     3 x      2      5 gates
+nor02_2x    tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                       7
+ Number of nets :                       15
+ Number of instances :                   8
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      29
+ Number of accumulated instances :       8
+
+*******************************************************
+
+Cell: TransitionDetector    View: TransitionDetectorArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+dff         tsmc035_typ     1 x      5      5 gates
+dffr        tsmc035_typ     1 x      6      6 gates
+fake_vcc    tsmc035_typ     1 x      1      1 fake_vcc
+inv01       tsmc035_typ     2 x      1      2 gates
+nor02_2x    tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                       4
+ Number of nets :                        9
+ Number of instances :                   6
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_vcc :                    1
+ Number of gates :                      13
+ Number of accumulated instances :       6
+
+*******************************************************
+
+Cell: FullAdder    View: FullAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell    Library  References     Total Area
+
+inv01    tsmc035_typ     3 x      1      2 gates
+oai22    tsmc035_typ     1 x      1      1 gates
+xnor2    tsmc035_typ     2 x      2      4 gates
+
+ Number of ports :                       5
+ Number of nets :                        9
+ Number of instances :                   6
+ Number of references to this view :    84
+
+Total accumulated area : 
+ Number of gates :                       8
+ Number of accumulated instances :       6
+
+*******************************************************
+
+Cell: NBitAdder_24    View: NBitAdderArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+FullAdder    work    24 x      8    182 gates
+
+ Number of ports :                      74
+ Number of nets :                       97
+ Number of instances :                  24
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                     182
+ Number of accumulated instances :     144
+
+*******************************************************
+
+Cell: BoothStep    View: BoothStepArch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+NBitAdder_24    work            1 x    182    182 gates
+fake_gnd        tsmc035_typ     1 x      1      1 fake_gnd
+inv01           tsmc035_typ    51 x      1     39 gates
+inv02           tsmc035_typ    17 x      1     13 gates
+nand02          tsmc035_typ     2 x      1      2 gates
+nand03          tsmc035_typ     1 x      1      1 gates
+nor02_2x        tsmc035_typ    27 x      1     27 gates
+nor03_2x        tsmc035_typ     5 x      1      6 gates
+oai21           tsmc035_typ     1 x      1      1 gates
+oai22           tsmc035_typ    46 x      1     68 gates
+xnor2           tsmc035_typ     1 x      2      2 gates
+
+ Number of ports :                      90
+ Number of nets :                      233
+ Number of instances :                 153
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of gates :                     341
+ Number of accumulated instances :     296
+
+*******************************************************
+
+Cell: BinaryMux_33    View: BinaryMuxArch    Library: work
+
+*******************************************************
+
+
+ Cell        Library  References     Total Area
+
+inv02        tsmc035_typ    12 x      1      9 gates
+nand02       tsmc035_typ    98 x      1     98 gates
+nand02_2x    tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                     100
+ Number of nets :                      178
+ Number of instances :                 111
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                     108
+ Number of accumulated instances :     111
+
+*******************************************************
+
+Cell: Reg_33    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+dffr      tsmc035_typ    33 x      6    184 gates
+inv01     tsmc035_typ     1 x      1      1 gates
+inv02     tsmc035_typ    17 x      1     13 gates
+nand02    tsmc035_typ    99 x      1     99 gates
+
+ Number of ports :                      69
+ Number of nets :                      186
+ Number of instances :                 150
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                     297
+ Number of accumulated instances :     150
+
+*******************************************************
+
+Cell: Mul8x16    View: Mul8x16Arch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+BinaryMux_33    work            1 x    108    108 gates
+BoothStep       work            1 x      1      1 fake_gnd
+                                       341    341 gates
+Reg_16          work            1 x    146    146 gates
+Reg_33          work            1 x    297    297 gates
+fake_gnd        tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc        tsmc035_typ     1 x      1      1 fake_vcc
+inv01           tsmc035_typ     1 x      1      1 gates
+inv02           tsmc035_typ     5 x      1      4 gates
+
+ Number of ports :                      45
+ Number of nets :                      144
+ Number of instances :                  12
+ Number of references to this view :    25
+
+Total accumulated area : 
+ Number of fake_gnd :                    2
+ Number of fake_vcc :                    1
+ Number of gates :                     896
+ Number of accumulated instances :     640
+
+*******************************************************
+
+Cell: CNNMuls_25    View: CNNMulsArch    Library: work
+
+*******************************************************
+
+
+ Cell                 Library  References     Total Area
+
+Mul8x16               work           25 x      1     25 fake_vcc
+                                               2     50 fake_gnd
+                                             896  22411 gates
+Reg_1                 work            1 x      9      9 gates
+ShiftReg_3            work            1 x     29     29 gates
+TransitionDetector    work            1 x     13     13 gates
+                                               1      1 fake_vcc
+fake_vcc              tsmc035_typ     1 x      1      1 fake_vcc
+inv01                 tsmc035_typ    13 x      1     10 gates
+inv02                 tsmc035_typ    23 x      1     17 gates
+nor02_2x              tsmc035_typ     2 x      1      2 gates
+
+ Number of ports :                    1005
+ Number of nets :                     1046
+ Number of instances :                  67
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                   50
+ Number of fake_vcc :                   27
+ Number of gates :                   22491
+ Number of accumulated instances :   16058
+
+*******************************************************
+
+Cell: Reg_8    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+dffr      tsmc035_typ     8 x      6     45 gates
+inv01     tsmc035_typ     1 x      1      1 gates
+inv02     tsmc035_typ     4 x      1      3 gates
+nand02    tsmc035_typ    24 x      1     24 gates
+
+ Number of ports :                      19
+ Number of nets :                       48
+ Number of instances :                  37
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      72
+ Number of accumulated instances :      37
+
+*******************************************************
+
+Cell: Reg_16    View: RegArch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+dffr      tsmc035_typ    16 x      6     89 gates
+inv01     tsmc035_typ     1 x      1      1 gates
+inv02     tsmc035_typ    10 x      1      8 gates
+nand02    tsmc035_typ    48 x      1     48 gates
+
+ Number of ports :                      35
+ Number of nets :                       94
+ Number of instances :                  75
+ Number of references to this view :   489
+
+Total accumulated area : 
+ Number of gates :                     146
+ Number of accumulated instances :      75
+
+*******************************************************
+
+Cell: Mux2_16    View: Mux2Arch    Library: work
+
+*******************************************************
+
+
+ Cell     Library  References     Total Area
+
+inv02     tsmc035_typ     7 x      1      5 gates
+nand02    tsmc035_typ    48 x      1     48 gates
+
+ Number of ports :                      49
+ Number of nets :                       88
+ Number of instances :                  55
+ Number of references to this view :   516
+
+Total accumulated area : 
+ Number of gates :                      53
+ Number of accumulated instances :      55
+
+*******************************************************
+
+Cell: RegUnit_8_16    View: RegUnitArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+Mux2_16     work            3 x     53    160 gates
+Reg_16      work            2 x    146    291 gates
+Reg_8       work            1 x     72     72 gates
+inv01       tsmc035_typ     2 x      1      2 gates
+nor02_2x    tsmc035_typ     2 x      1      2 gates
+
+ Number of ports :                     120
+ Number of nets :                      156
+ Number of instances :                  10
+ Number of references to this view :     5
+
+Total accumulated area : 
+ Number of gates :                     527
+ Number of accumulated instances :     356
+
+*******************************************************
+
+Cell: RegRow_8_16_5_3    View: RegRowArch    Library: work
+
+*******************************************************
+
+
+ Cell           Library  References     Total Area
+
+RegUnit_8_16    work            5 x    527   2636 gates
+buf02           tsmc035_typ    10 x      1     10 gates
+
+ Number of ports :                     568
+ Number of nets :                      578
+ Number of instances :                  15
+ Number of references to this view :     5
+
+Total accumulated area : 
+ Number of gates :                    2646
+ Number of accumulated instances :    1790
+
+*******************************************************
+
+Cell: Decoder_3    View: DecoderArch    Library: work
+
+*******************************************************
+
+
+ Cell       Library  References     Total Area
+
+inv01       tsmc035_typ     6 x      1      5 gates
+nand02      tsmc035_typ     8 x      1      8 gates
+nor02_2x    tsmc035_typ     8 x      1      8 gates
+nor03_2x    tsmc035_typ     2 x      1      2 gates
+
+ Number of ports :                      12
+ Number of nets :                       28
+ Number of instances :                  24
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of gates :                      23
+ Number of accumulated instances :      24
+
+*******************************************************
+
+Cell: RegFile_8_16_5_5_3_3    View: RegFileArch    Library: work
+
+*******************************************************
+
+
+ Cell              Library  References     Total Area
+
+Decoder_3          work            1 x     23     23 gates
+RegRow_8_16_5_3    work            5 x   2646  13231 gates
+buf02              tsmc035_typ   166 x      1    169 gates
+fake_gnd           tsmc035_typ     1 x      1      1 fake_gnd
+inv01              tsmc035_typ    11 x      1      8 gates
+inv02              tsmc035_typ     3 x      1      2 gates
+nand02             tsmc035_typ     1 x      1      1 gates
+nor02_2x           tsmc035_typ    16 x      1     16 gates
+
+ Number of ports :                     731
+ Number of nets :                     1574
+ Number of instances :                 204
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                    1
+ Number of gates :                   13451
+ Number of accumulated instances :    9172
+
+*******************************************************
+
+Cell: CNNCores_8_16_5_5_3    View: CNNCoresArch    Library: work
+
+*******************************************************
+
+
+ Cell                   Library  References     Total Area
+
+CNNAdders_16            work            1 x     10     10 fake_gnd
+                                              2964   2964 gates
+CNNMuls_25              work            1 x  22491  22491 gates
+                                                50     50 fake_gnd
+                                                27     27 fake_vcc
+CNNShifter_16           work            1 x     40     40 gates
+Mux2_16                 work           26 x     53   1386 gates
+RegFile_8_16_5_5_3_3    work            1 x      1      1 fake_gnd
+                                             13451  13451 gates
+Reg_16                  work            1 x    146    146 gates
+fake_gnd                tsmc035_typ     1 x      1      1 fake_gnd
+inv01                   tsmc035_typ     2 x      1      2 gates
+inv02                   tsmc035_typ    13 x      1     10 gates
+nor02_2x                tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                     151
+ Number of nets :                     1612
+ Number of instances :                  48
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                   62
+ Number of fake_vcc :                   27
+ Number of gates :                   40490
+ Number of accumulated instances :   29162
+
+*******************************************************
+
+Cell: CNNModule_8_16_5_5_3_12_13    View: CNNModuleArch    Library: work
+
+*******************************************************
+
+
+ Cell                           Library  References     Total Area
+
+CNNCores_8_16_5_5_3             work            1 x     27     27 fake_vcc
+                                                     40490  40490 gates
+                                                        62     62 fake_gnd
+Config_40                       work            1 x    180    180 gates
+ControlUnit                     work            1 x      5      5 fake_gnd
+                                                         5      5 fake_vcc
+                                                       713    713 gates
+DMAController_12_13_8_16_5      work            1 x     13     13 fake_vcc
+                                                        15     15 fake_gnd
+                                                      3447   3447 gates
+Mux2_16                         work            1 x     53     53 gates
+NBitAdder_13                    work            1 x     99     99 gates
+NBitAdder_16                    work            1 x    121    121 gates
+OutputBuffer_40_484_16_8_9_6    work            1 x      1      1 fake_vcc
+                                                         2      2 fake_gnd
+                                                    119957 119957 gates
+RowDecoder                      work            1 x     53     53 gates
+                                                         1      1 fake_vcc
+                                                         1      1 fake_gnd
+aoi21                           tsmc035_typ     1 x      1      1 gates
+buf02                           tsmc035_typ     5 x      1      5 gates
+fake_gnd                        tsmc035_typ     1 x      1      1 fake_gnd
+fake_vcc                        tsmc035_typ     1 x      1      1 fake_vcc
+inv01                           tsmc035_typ    17 x      1     13 gates
+inv02                           tsmc035_typ     2 x      1      2 gates
+latch                           tsmc035_typ     3 x      2      7 gates
+mux21                           tsmc035_typ     1 x      2      2 gates
+nand02                          tsmc035_typ     3 x      1      3 gates
+nor02_2x                        tsmc035_typ    14 x      1     14 gates
+oai21                           tsmc035_typ     1 x      1      1 gates
+
+ Number of ports :                     184
+ Number of nets :                      492
+ Number of instances :                  58
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of fake_gnd :                   86
+ Number of fake_vcc :                   48
+ Number of gates :                  165162
+ Number of accumulated instances :  116130
+
+*******************************************************
+
+Cell: CNNWithRAM    View: CNNWithRAMArch    Library: work
+
+*******************************************************
+
+
+ Cell                         Library  References     Total Area
+
+CNNModule_8_16_5_5_3_12_13    work            1 x     86     86 fake_gnd
+                                                  165162 165162 gates
+                                                      48     48 fake_vcc
+RAM_12_8_40                   work            1 x     51     51 gates
+                                                       1      1 fake_gnd
+RAM_13_16_80                  work            1 x     62     62 gates
+                                                       1      1 fake_gnd
+fake_gnd                      tsmc035_typ     1 x      1      1 fake_gnd
+
+ Number of ports :                       4
+ Number of nets :                       51
+ Number of instances :                   4
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of fake_gnd :                   89
+ Number of fake_vcc :                   48
+ Number of gates :                  165275
+ Number of accumulated instances :  116202
