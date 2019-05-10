@@ -6,16 +6,21 @@ use work.Utiles.ALL;
 
 
 ENTITY FcMain IS
+    generic (
+        WeightADDRESSSize : integer :=16;
+        NeoronADDRESSSize : integer :=13
+    );
+
     PORT(
             cnnDone,ioDone,clk,reset : IN STD_LOGIC;
 
-            dmaAddRamNeorons : OUT STD_LOGIC_VECTOR(16-1 downto 0);   -- ram address bits
+            dmaAddRamNeorons : OUT STD_LOGIC_VECTOR(NeoronADDRESSSize-1 downto 0);   -- ram address bits
             readRamNeorons :out STD_LOGIC;
             finishRamNeorons:in std_logic;
             dataOutRamNeorons:in STD_LOGIC_VECTOR(79 downto 0);
 
 
-            dmaAddRamWeights : OUT STD_LOGIC_VECTOR(16-1 downto 0);   -- ram address bits
+            dmaAddRamWeights : OUT STD_LOGIC_VECTOR(WeightADDRESSSize-1 downto 0);   -- ram address bits
             readRamWeights :out STD_LOGIC;
             finishRamWeights:in std_logic;
             dataOutRamWeights:in STD_LOGIC_VECTOR(79 downto 0);        
@@ -36,8 +41,7 @@ ARCHITECTURE FcMainArch OF FcMain IS
     CONSTANT RamNeoronsWIDTH : INTEGER := 16*5; 
     CONSTANT RamWeigthsWIDTH : INTEGER := 8*10;
     CONSTANT MaxNeornsNumBitSIZE : INTEGER := 16;
-    CONSTANT RAMDELAY : INTEGER := 1;
-    CONSTANT RAMADDRESS : INTEGER := 16;
+    --CONSTANT RAMADDRESS : INTEGER := 16;
 
 
     --
@@ -53,7 +57,9 @@ ARCHITECTURE FcMainArch OF FcMain IS
     SIGNAL decrement : STD_LOGIC;
 
     SIGNAL oneNeoron : STD_LOGIC_VECTOR(15 downto 0);
-    SIGNAL defaultAddressWeights,defaultAddressNeorons: STD_LOGIC_VECTor(RAMADDRESS-1 downto 0);
+    SIGNAL defaultAddressNeorons: STD_LOGIC_VECTor(NeoronADDRESSSize-1 downto 0);
+    SIGNAL defaultAddressWeights: STD_LOGIC_VECTor(WeightADDRESSSize-1 downto 0);
+
     SIGNAL neoronValueSelection : STD_LOGIC;
 
     SIGNAL incrementWeightAdd,incrementNeoronsAdd: STD_LOGIC;
@@ -91,9 +97,9 @@ BEGIN
     ----------------------------------------
     CNNDONEHOLDER : ENTITY work.RisingHolderFullCycle PORT MAP(beginSignal,clk,reset,cnnDoneOneCycle);
     ------------------------------------------
-    NEORONSLASTSTAGES: ENTITY work.CounterUpDown GENERIC MAP(16) PORT MAP(dataOutRamWeights(RamWeigthsWIDTH-1 downto RamWeigthsWIDTH - MaxNeornsNumBitSIZE),(15 downto 0 =>'0'),clk,decrement,reset,loadNumberOFNeorons,'1',numberOFNeorons);
+    NEORONSLASTSTAGES: ENTITY work.CounterUpDown GENERIC MAP(16) PORT MAP(dataOutRamWeights(MaxNeornsNumBitSIZE-1 downto 0),(15 downto 0 =>'0'),clk,decrement,reset,loadNumberOFNeorons,'1',numberOFNeorons);
     --------------------------
-    NEORONREGMux: ENTITY work.mux2 GENERIC MAP(16) PORT MAP( A => dataOutRamNeorons(79 downto 64),B => oneNeoron,S => neoronValueSelection,C => neoronMuxOutput);
+    NEORONREGMux: ENTITY work.mux2 GENERIC MAP(16) PORT MAP( A => dataOutRamNeorons(15 downto 0),B => oneNeoron,S => neoronValueSelection,C => neoronMuxOutput);
 
     ------------------------------------
     MAXIMIZATIONMAP: ENTITY work.ngetMax GENERIC MAP(16) PORT MAP(labelReg,startMax,clk,resetMaxSignal,maxNumber,doneMax);
@@ -102,10 +108,10 @@ BEGIN
     ----------------------------------------------
     bufferRegOne: ENTITY work.FlibFlob  PORT MAP(multiplyWorkIn,'1',clkInverted,reset,bufferTwoInput);
     bufferRegTwo: ENTITY work.FlibFlob  PORT MAP(bufferTwoInput,'1',clk,reset,multiplyWorkDelayed);
-    -----------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-    WeightAddressCounter: ENTITY work.CounterUpDown GENERIC MAP(RAMADDRESS) PORT MAP(defaultAddressWeights,defaultAddressWeights,clk,incrementWeightAdd ,reset,cnnDoneOneCycle,'0',dmaAddRamWeights);
-    NeoronAddressCounter: ENTITY work.CounterUpDown GENERIC MAP(RAMADDRESS) PORT MAP(defaultAddressNeorons,defaultAddressNeorons,clk,incrementNeoronsAdd ,reset,cnnDoneOneCycle,'0',dmaAddRamNeorons);
+    WeightAddressCounter: ENTITY work.CounterUpDown GENERIC MAP(WeightADDRESSSize) PORT MAP(defaultAddressWeights,defaultAddressWeights,clk,incrementWeightAdd ,reset,cnnDoneOneCycle,'0',dmaAddRamWeights);
+    NeoronAddressCounter: ENTITY work.CounterUpDown GENERIC MAP(NeoronADDRESSSize) PORT MAP(defaultAddressNeorons,defaultAddressNeorons,clk,incrementNeoronsAdd ,reset,cnnDoneOneCycle,'0',dmaAddRamNeorons);
 
     ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     MAXVALUEREGMAP : ENTITY work.Reg generic map(4) port map(maxNumber,'1',doneMax,reset,MAXPrediction);
