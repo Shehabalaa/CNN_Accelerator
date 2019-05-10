@@ -37,16 +37,15 @@ printPredictions.step = 0
 def generateTestCase(cnn_out_dims):
     weights = [];cnn_out = []
     if(len(sys.argv) > 2):
-        weights,cnn_out_dims = readWeightsBiases()
+        weights,cnn_out_dims = readWeightsBiases(sys.argv[2])
         sys.argv[1] = str(cnn_out_dims)
     else:
-	weights = [[ BS.pack('int:8=a',a=random.randint(-(1<<5),(1<<5)-1)) for i in range(10)] for j in range(cnn_out_dims+1)]
+	    weights = [[ BS.pack('int:8=a',a=random.randint(-(1<<5),(1<<5)-1)) for i in range(10)] for j in range(cnn_out_dims+1)]
 
     if(len(sys.argv) > 3):
-	cnn_out = readNeorons()        
+        cnn_out = readNeorons(cnn_out_dims,sys.argv[3])   
     else:
-	cnn_out = [ BS.pack('int:16=a',a=random.randint(-(20<<8),(20<<8)-1)) for i in range(cnn_out_dims)]
-        
+        cnn_out = [ BS.pack('int:16=a',a=random.randint(-(20<<8),(20<<8)-1)) for i in range(cnn_out_dims)]
 
     cnn_out = [BS.pack('int:16=a',a=1<<8)] + cnn_out #first raw is biases
 
@@ -65,9 +64,9 @@ def generateTestCase(cnn_out_dims):
     cnn_out_valid = np.array(map(toFloatWord,cnn_out))
     biases_valid = np.array(map(toFloatByte,biases))
     weights_valid = np.array([map(toFloatByte,i) for i in weights])
-    result_valid = np.dot(cnn_out_valid,weights_valid) + biases_valid;
+    result_valid = np.dot(cnn_out_valid,weights_valid) + biases_valid
     max_valid = np.max(result_valid)
-    print(result_valid)
+    print(cnn_out_valid)
     with open("./TestCaseFC/FCtest.txt",'a') as f:
         f.write("\nValid Answer is: ")
         np.savetxt(f,result_valid,newline=" ",fmt="%.6f")
@@ -89,7 +88,7 @@ def createTestCase():
     os.chdir("./TestCaseFC")
     os.system("bash -c \"cp ../*.mem . \"")
     with open("RAMWEIGHTS.mem",'r+w') as f:
-        lines = f.readlines();
+        lines = f.readlines()
         lines[3] = lines[3].replace('X'*len(biases)*2,'X'*(len(biases)*2-4)+BS.pack("int:16=a",a=len(cnn_out)+1).hex,1)
         lines[4] = lines[4].replace('X'*len(biases)*2,''.join([b.hex for b in biases]),1)
         for i in range(len(weights)):
