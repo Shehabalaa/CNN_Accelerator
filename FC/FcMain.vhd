@@ -8,7 +8,7 @@ use work.Utiles.ALL;
 ENTITY FcMain IS
     generic (
         WeightADDRESSSize : integer :=16;
-        NeoronADDRESSSize : integer :=16
+        NeoronADDRESSSize : integer :=13
     );
 
     PORT(
