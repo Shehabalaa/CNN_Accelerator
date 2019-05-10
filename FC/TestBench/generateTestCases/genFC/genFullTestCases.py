@@ -36,16 +36,17 @@ printPredictions.step = 0
 
 def generateTestCase(cnn_out_dims):
     weights = [];cnn_out = []
-    if(len(sys.argv) <= 2):
-        weights = [[ BS.pack('int:8=a',a=random.randint(-(1<<5),(1<<5)-1)) for i in range(10)] for j in range(cnn_out_dims+1)]
-    else:
+    if(len(sys.argv) > 2):
         weights,cnn_out_dims = readWeightsBiases()
         sys.argv[1] = str(cnn_out_dims)
-
-    if(len(sys.argv) <= 3):
-        cnn_out = [ BS.pack('int:16=a',a=random.randint(-(20<<8),(20<<8)-1)) for i in range(cnn_out_dims)]
     else:
-        cnn_out = readNeorons()
+	weights = [[ BS.pack('int:8=a',a=random.randint(-(1<<5),(1<<5)-1)) for i in range(10)] for j in range(cnn_out_dims+1)]
+
+    if(len(sys.argv) > 3):
+	cnn_out = readNeorons()        
+    else:
+	cnn_out = [ BS.pack('int:16=a',a=random.randint(-(20<<8),(20<<8)-1)) for i in range(cnn_out_dims)]
+        
 
     cnn_out = [BS.pack('int:16=a',a=1<<8)] + cnn_out #first raw is biases
 
@@ -89,7 +90,7 @@ def createTestCase():
     os.system("bash -c \"cp ../*.mem . \"")
     with open("RAMWEIGHTS.mem",'r+w') as f:
         lines = f.readlines();
-        lines[3] = lines[3].replace('X'*4,BS.pack("int:16=a",a=len(cnn_out)+1).hex,1)
+        lines[3] = lines[3].replace('X'*len(biases)*2,'X'*(len(biases)*2-4)+BS.pack("int:16=a",a=len(cnn_out)+1).hex,1)
         lines[4] = lines[4].replace('X'*len(biases)*2,''.join([b.hex for b in biases]),1)
         for i in range(len(weights)):
             lines[5+i] = lines[5+i].replace('X'*len(weights[i])*2,''.join([w.hex for w in weights[i]]),1)
@@ -99,7 +100,7 @@ def createTestCase():
     with open("RAMNEORONS.mem",'r+w') as f:
         lines = f.readlines();
         for i in range(len(cnn_out)):
-            lines[3+i] = lines[3+i].replace('X'*4,cnn_out[i].hex, 1)
+            lines[3+i] = lines[3+i].replace('X'*len(biases)*2,'X'*(len(biases)*2-4)+cnn_out[i].hex, 1)
         f.seek(0)
         f.writelines(lines)   
 
