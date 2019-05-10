@@ -4,7 +4,7 @@ USE IEEE.numeric_std.all;
 
 ENTITY Ram IS
 
-	Generic(addressBits: integer := 5; wordSize: integer :=32);
+	Generic(addressBits: integer := 16; wordSize: integer :=80);
 
 	PORT(
 			clk : IN STD_LOGIC;
