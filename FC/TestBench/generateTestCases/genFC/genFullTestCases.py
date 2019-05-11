@@ -69,7 +69,7 @@ def generateTestCase(cnn_out_dims):
     with open("./TestCaseFC/FCtest.txt",'a') as f:
         f.write("\nValid Answer is: ")
         np.savetxt(f,result_valid,newline=" ",fmt="%.6f")
-        print(9 - maxi)
+        print(maxi)
         f.write("\nAnd valid maximuim is : {} in float".format(max_valid))
         f.write("\nFC answer is {} in float and {} in hex".format( toFloatWord( predictions[maxi] ), predictions[maxi].hex ) )
 
