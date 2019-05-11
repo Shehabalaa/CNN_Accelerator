@@ -297,10 +297,10 @@ add wave -noupdate -expand -group FC -radix hexadecimal /accelerator/FCENT/Test0
 	mem load -i C:/Users/Osama/Desktop/10neoronsTC/RAMNEORONS.mem /accelerator/Image/ram
 	
 	force -freeze sim:/accelerator/FCENT/defaultAddressNeorons 16'h0000 0
-	set FCDone [examine -binary /Accelerator/FCDone]
-	while { $FCDone == 0 } {
+	set ChipDone [examine -binary /Accelerator/ChipDone]
+	while { $ChipDone == 0 } {
 		run $halfRunTime
-		set FCDone [examine -binary /Accelerator/FCDone]
+		set ChipDone [examine -binary /Accelerator/ChipDone]
 	}
 	set result [examine -binary /Accelerator/result]
 	puts "Our predicted label is"
