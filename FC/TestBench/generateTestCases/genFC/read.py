@@ -18,14 +18,12 @@ def readWeightsBiases(weightsFile):
 		neoronsNum = data['layers'][4]['num_inputs']	
         print(data['layers'][4]['layer_type'])	
         for i in range(10):
-            tmp = data['layers'][4]['filters'][i]['w']
-            weights.append([ floatToBitStreamByte(tmp[str(num)]) for num in range(neoronsNum)])
-
+            weights.append([ floatToBitStreamByte(data['layers'][4]['filters'][i]['w'][str(num)]) for num in range(neoronsNum)])
         tmp = data['layers'][4]['biases']['w']
         biases = [ floatToBitStreamByte(tmp[str(num)]) for num in range(10)]
         weights = transpose(weights)
         weights.insert(0,biases)
-        print(biases)
+        print([ b.bin for b in weights[0]],[ b.bin for b in weights[1]],[ b.bin for b in weights[2]],[ b.bin for b in weights[4]])
 	return weights,neoronsNum
 
 
@@ -39,7 +37,7 @@ def readNeorons(num,neoronsFile):
                 break  
             else:
                 num-=1
-
+    print(len(neorons))
     return [bs.pack('bin:16=a',a=i) for i in neorons]
 
 
