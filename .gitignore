@@ -1,3 +1,6 @@
 work/*
 transcript
 vsim.wlf
+FC/FCSynSdf/FinalAfterLeo/work/*
+FC/FCSynSdf/FinalAfterLeo/FcTest2.vhd.bak
+FC/FCSynSdf/FinalAfterLeo/FCSyn.sdf_max.csd

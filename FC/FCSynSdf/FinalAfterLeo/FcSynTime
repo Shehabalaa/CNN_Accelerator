@@ -1,0 +1,84 @@
+
+
+
+                        Clock Frequency Report
+
+	Clock                : Frequency
+      ------------------------------------
+
+	clk                  : 72.9 MHz
+	doneMax              : 600.7 MHz
+	beginSignal          : 2123.3 MHz
+
+
+                        Critical Path Report
+
+
+Critical path #1, (path slack = -13.6):
+
+NAME                                                        GATE              ARRIVAL              LOAD
+-------------------------------------------------------------------------------------------------------
+clk (offset)                                                                0.00 (rising edge)
+delay thru clock network                                                      0.00 (ideal)
+ALUMAP/cmp1/CounterCmp/reg_outp(0)/CLK                      dffs_ni           0.00 (rising edge)
+
+
+ALUMAP/cmp1/CounterCmp/reg_outp(0)/Q                        dffs_ni     0.00  0.56 dn             0.03
+ALUMAP/cmp1/ix367/Y                                         buf02       0.34  0.90 dn             0.09
+ALUMAP/cmp1/gen_9_cmp/MuxCmp/reg_nx298/Y                    inv02       0.27  1.18 up             0.07
+ALUMAP/cmp1/gen_9_cmp/MuxCmp/ix313/Y                        inv02       0.28  1.46 dn             0.11
+ALUMAP/cmp1/gen_9_cmp/MuxCmp/reg_f(0)/Y                     ao22        0.57  2.03 dn             0.07
+ALUMAP/cmp1/gen_9_cmp/BSCmp/reg_carryIn/Y                   aoi21       0.52  2.55 up             0.04
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix302/Y                         nor02ii     0.26  2.81 up             0.01
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix444/Y                         inv02       0.27  3.08 dn             0.12
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix457/Y                         inv01       0.38  3.47 up             0.05
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix406/Y                         mux21       0.15  3.62 dn             0.01
+ALUMAP/cmp1/gen_9_cmp/BSCmp/ix35/Y                          nand02      0.24  3.86 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/f0/ix70/Y              xnor2       0.21  4.07 dn             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/f0/ix1/Y               inv01       0.17  4.24 up             0.01
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/f0/ix7/Y               ao22        0.34  4.57 up             0.03
+ALUMAP/cmp1/gen_9_cmp/BSCmp/AdderCmp/loop1_1_fx/ix9/Y
+                                                            xnor2       0.25  4.82 dn             0.04
+ALUMAP/cmp2/gen_9_cmp1/loop1_1_fx/ix70/Y                    xnor2       0.25  5.07 up             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_1_fx/ix1/Y                     inv01       0.10  5.17 dn             0.01
+ALUMAP/cmp2/gen_9_cmp1/loop1_1_fx/ix7/Y                     ao22        0.39  5.57 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_2_fx/ix7/Y                     ao22        0.38  5.95 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_3_fx/ix7/Y                     ao22        0.38  6.33 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_4_fx/ix7/Y                     ao22        0.38  6.71 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_5_fx/ix7/Y                     ao22        0.38  7.09 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_6_fx/ix7/Y                     ao22        0.38  7.47 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_7_fx/ix7/Y                     ao22        0.38  7.85 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_8_fx/ix7/Y                     ao22        0.38  8.23 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_9_fx/ix7/Y                     ao22        0.38  8.61 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_10_fx/ix7/Y                    ao22        0.38  9.00 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_11_fx/ix7/Y                    ao22        0.38  9.38 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_12_fx/ix7/Y                    ao22        0.38  9.76 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_13_fx/ix7/Y                    ao22        0.38  10.14 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_14_fx/ix7/Y                    ao22        0.36  10.49 dn             0.03
+ALUMAP/cmp2/gen_9_cmp1/loop1_15_fx/ix9/Y                    xnor2       0.20  10.69 up             0.02
+MAXIMIZATIONMAP/ix916/Y                                     aoi222      0.27  10.96 dn             0.02
+MAXIMIZATIONMAP/ix117/Y                                     nand04      0.28  11.25 up             0.02
+MAXIMIZATIONMAP/lat_InputBcomparator(15)/Q                  latch       0.37  11.62 up             0.03
+MAXIMIZATIONMAP/ComparatorLabel/ix503/Y                     inv02       0.16  11.78 dn             0.05
+MAXIMIZATIONMAP/ComparatorLabel/ix648/Y                     inv02       0.25  12.02 up             0.07
+MAXIMIZATIONMAP/ComparatorLabel/ix552/Y                     oai22       0.19  12.21 dn             0.02
+MAXIMIZATIONMAP/ComparatorLabel/ix567/Y                     aoi221      0.18  12.39 up             0.01
+MAXIMIZATIONMAP/ComparatorLabel/reg_nx177/Y                 inv01       0.18  12.58 dn             0.03
+MAXIMIZATIONMAP/ComparatorLabel/ix638/Y                     inv01       0.42  12.99 up             0.07
+MAXIMIZATIONMAP/ComparatorLabel/reg_nx72/Y                  and03       0.44  13.43 up             0.04
+MAXIMIZATIONMAP/ComparatorLabel/ix628/Y                     aoi332      0.35  13.78 dn             0.03
+MAXIMIZATIONMAP/ComparatorLabel/reg_nx188/Y                 nand04_2x   0.31  14.08 up             0.01
+MAXIMIZATIONMAP/ComparatorLabel/lat_outputG_u1/CLK
+                                                            latchs_ni   0.00  14.08 up             0.00
+data arrival time                                                             14.08
+
+
+data required time  (default specified - setup time)                           0.50
+-------------------------------------------------------------------------------------------------------
+data required time                                                            0.50
+data arrival time                                                             14.08
+                                                                           ----------
+slack                                                                        -13.58
+-------------------------------------------------------------------------------------------------------
+
+

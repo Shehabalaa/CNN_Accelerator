@@ -142,7 +142,7 @@ BEGIN
     decrement <=startMultiply;
     incrementWeightAdd <= '1' when ((startMultiply='1') or (loadNumberOFNeorons='1')) else '0';
 
-    incrementNeoronsAdd <='1' when ((state = loadNeoronAndWeights) and (finishRamWeights ='1')and(finishRamNeorons ='1')and(multiplyWork='0')) else '0';
+    incrementNeoronsAdd <='1' when ((state = startMul)) else '0';
 
     neoronValueSelection<='1' when (state=loadBias) or(state=startMulBias) else '0';
 
