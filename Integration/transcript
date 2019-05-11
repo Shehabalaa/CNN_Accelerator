@@ -1,0 +1,107 @@
+# ERROR: No extended dataflow license exists
+# do input.do 
+# vsim -gui work.Accelerator 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.adk_components(body)
+# Loading ieee.numeric_std(body)
+# Loading work.accelerator(acceleratorarch)
+# Loading work.iochip(iochiparch)
+# Loading work.io_16_4(ioarch)
+# Loading work.iointerface_16_4(iointerfacearch)
+# Loading work.downcountersyncload_16(downcountersyncloadarch)
+# Loading work.reg_16(regarch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading work.dffr(dffr_arch)
+# Loading work.nand02(nand02_arch)
+# Loading work.inv02(inv02_arch)
+# Loading work.inv01(inv01_arch)
+# Loading work.nbitsubtractor_16(nbitsubtractorarch)
+# Loading work.fullsubtractor(behavioral)
+# Loading work.oai22(oai22_arch)
+# Loading work.xnor2(xnor2_arch)
+# Loading work.mux2_16(mux2arch)
+# Loading work.fake_vcc(rtl)
+# Loading work.fake_gnd(rtl)
+# Loading work.and04(and04_arch)
+# Loading work.nor04(nor04_arch)
+# Loading work.or02(or02_arch)
+# Loading work.and02(and02_arch)
+# Loading work.controller_16_4(controllerarch)
+# Loading work.dff(dffarch)
+# Loading work.mux21_ni(mux21_ni_arch)
+# Loading work.counter2_2(counter2arch)
+# Loading work.reg_2(regarch)
+# Loading work.nbitadder_2(nbitadderarch)
+# Loading work.fulladder(fulladderarch)
+# Loading work.nand03(nand03_arch)
+# Loading work.or03(or03_arch)
+# Loading work.nor03_2x(nor03_2x_arch)
+# Loading work.nor02ii(nor02ii_arch)
+# Loading work.oai21(oai21_arch)
+# Loading work.aoi21(aoi21_arch)
+# Loading work.and03(and03_arch)
+# Loading work.decompressor(decompressorarchitecture)
+# Loading work.downcountersyncload_6(downcountersyncloadarch)
+# Loading work.reg_6(regarch)
+# Loading work.nbitsubtractor_6(nbitsubtractorarch)
+# Loading work.mux2_6(mux2arch)
+# Loading work.buf02(buf02_arch)
+# Loading work.reg_8(regarch)
+# Loading work.dmaimage(dmaimage)
+# Loading work.upcountersyncload_13(upcountersyncload)
+# Loading work.reg_13(regarch)
+# Loading work.nbitadder_13(nbitadderarch)
+# Loading work.mux2_13(mux2arch)
+# Loading work.dmacnn(dmacnn)
+# Loading work.counter5_12(counter5arch)
+# Loading work.reg_12(regarch)
+# Loading work.nbitadder_12(nbitadderarch)
+# Loading work.fcdma_16(fcdmaarch)
+# Loading work.modulocounter_3(modulocounterarch)
+# Loading work.reg_3(regarch)
+# Loading work.nbitadder_3(nbitadderarch)
+# Loading work.mux2_3(mux2arch)
+# Loading work.inversemux_16(inversemuxarchitecture)
+# Loading work.nand04(nand04_arch)
+# Loading work.nor02_2x(nor02_2x_arch)
+# Loading work.ao21(ao21_arch)
+# Loading work.counter2_16(counter2arch)
+# Loading work.nbitadder_16(nbitadderarch)
+# Loading work.latch(latch_arch)
+# Loading work.cnnram(ramarch)
+# Loading work.counter_2(counterarch)
+# Loading work.imageram(ramarch)
+# Loading work.cnnmodule_8_16_5_5_3_12_13(cnnmodulearch)
+# Loading work.cnncores_8_16_5_5_3(cnncoresarch)
+# Loading work.regfile_8_16_5_5_3_3(regfilearch)
+# Loading work.decoder_3(decoderarch)
+# Loading work.regrow_8_16_5_3(regrowarch)
+# Loading work.regunit_8_16(regunitarch)
+# Loading work.cnnmuls_25(cnnmulsarch)
+# Loading work.mul8x16(mul8x16arch)
+# Loading work.reg_33(regarch)
+# Loading work.binarymux_33(binarymuxarch)
+# Loading work.nand02_2x(nand02_2x_arch)
+# Loading work.boothstep(boothsteparch)
+# Loading work.nbitadder_24(nbitadderarch)
+# Loading work.transitiondetector(transitiondetectorarch)
+# ** Failure: (vsim-3817) Port "rst" of entity "dff" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /accelerator/CNN/coresMap/mulsMap/StartCaptuerCmp/reg_d File: IOChip1.vhd Line: 482
+# ** Failure: (vsim-3817) Port "en" of entity "dff" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /accelerator/CNN/coresMap/mulsMap/StartCaptuerCmp/reg_d File: IOChip1.vhd Line: 483
+# ** Error: (vsim-3732) CNNModule.vhd(5228): No default binding for component instance 'reg_d'.
+# 
+#    The following component port is not on the entity:
+#           QB
+# 
+#         Region: /accelerator/CNN/coresMap/mulsMap/StartCaptuerCmp/reg_d
+# Fatal error at IOChip1.vhd line 483
+#  while elaborating region: /accelerator/CNN/coresMap/mulsMap/StartCaptuerCmp/reg_d
+# Load interrupted
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./input.do PAUSED at line 1
