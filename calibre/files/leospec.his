@@ -1,0 +1,40 @@
+#
+#
+# 
+# Sat May 11 21:06:26 2019
+dofile -verbose /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl
+### Previous Command Failed
+
+dofile -verbose /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl
+
+### Previous Command Failed
+
+dofile -verbose /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl
+
+### Previous Command Failed
+
+dofile -verbose /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl
+
+### Previous Command Failed
+
+dofile -verbose /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl
+
+### Previous Command Failed
+
+dofile -verbose /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl
+
+### Previous Command Failed
+
+dofile -verbose /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl
+
+list_design -hdl .*.
+list_design -hdl .*.*.
+list_design -hdl .*.
+list_design -hdl .*.*.
+list_design -hdl .*.
+elaborate Accelerator -architecture AcceleratorArch 
+list_design -hdl .*.
+list_design -hdl .*.*.
+list_design -hdl .*.
+set novendor_constraint_file FALSE
+auto_write -format Verilog AcceleratorIntegrate.v
