@@ -2,11 +2,11 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
--- this circuit detect transition of an input and output one till next rising edge if clk is inverted or till next falling edge if clk isn't
+-- this circuit detect transition of an input and output one till next rising transition if clk is inverted or till next falling transition if clk isn't
 -- and it detect transition but there should be speration betweem tranisions of input with one clkcylcle
 ENTITY RisingHolderHalfCycle IS
     PORT (
-        edge,clk,rst : IN STD_LOGIC;
+        transition,clk,rst : IN STD_LOGIC;
         f : INOUT STD_LOGIC
     );
 END RisingHolderHalfCycle;
@@ -22,11 +22,11 @@ BEGIN
         END IF;
     end process;
 
-    process(edge,rst,d)
+    process(transition,rst,d)
     begin
         IF rst = '1' OR d = '1' THEN
             f <= '0';
-        ELSIF edge'EVENT AND edge ='1' THEN
+        ELSIF transition'EVENT AND transition ='1' THEN
             f <= '1' ;
         END IF;
     end process;
