@@ -14,10 +14,13 @@ ENTITY FcMain IS
     PORT(
             cnnDone,ioDone,clk,reset : IN STD_LOGIC;
 
+
+            defaultAddressNeorons : in STD_LOGIC_VECTOR(NeoronADDRESSSize-1 downto 0);   -- ram address bits
             dmaAddRamNeorons : OUT STD_LOGIC_VECTOR(NeoronADDRESSSize-1 downto 0);   -- ram address bits
             readRamNeorons :out STD_LOGIC;
             finishRamNeorons:in std_logic;
             dataOutRamNeorons:in STD_LOGIC_VECTOR(79 downto 0);
+
 
 
             dmaAddRamWeights : OUT STD_LOGIC_VECTOR(WeightADDRESSSize-1 downto 0);   -- ram address bits
@@ -57,7 +60,7 @@ ARCHITECTURE FcMainArch OF FcMain IS
     SIGNAL decrement : STD_LOGIC;
 
     SIGNAL oneNeoron : STD_LOGIC_VECTOR(15 downto 0);
-    SIGNAL defaultAddressNeorons: STD_LOGIC_VECTor(NeoronADDRESSSize-1 downto 0);
+    
     SIGNAL defaultAddressWeights: STD_LOGIC_VECTor(WeightADDRESSSize-1 downto 0);
 
     SIGNAL neoronValueSelection : STD_LOGIC;
@@ -91,7 +94,6 @@ BEGIN
     ---------- initializition
     oneNeoron <= x"0100";
     defaultAddressWeights <= (others => '0');
-    defaultAddressNeorons <= (others => '0');
     clkInverted <= NOT clk ;
 
     ----------------------------------------
