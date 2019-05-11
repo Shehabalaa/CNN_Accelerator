@@ -1,4 +1,4 @@
 ./TestCaseFC
-*.json
-*.mem
+./*.json
+./*.mem
 *.pyc
