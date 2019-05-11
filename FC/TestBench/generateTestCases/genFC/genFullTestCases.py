@@ -99,7 +99,7 @@ def createTestCase():
     os.system("bash -c \"cp ../*.mem . \"")
     with open("RAMWEIGHTS.mem",'r+w') as f:
         lines = f.readlines()
-        lines[3] = lines[3].replace('X'*4,BS.pack("int:16=a",a=len(cnn_out)+1).hex,1)
+        lines[3] = lines[3].replace('X'*len(biases)*2,'X'*(len(biases)*2-4)+BS.pack("int:16=a",a=len(cnn_out)+1).hex,1)
         lines[4] = lines[4].replace('X'*len(biases)*2,''.join([b.hex for b in biases]),1)
         for i in range(len(weights)):
             lines[5+i] = lines[5+i].replace('X'*len(weights[i])*2,''.join([w.hex for w in weights[i]]),1)
