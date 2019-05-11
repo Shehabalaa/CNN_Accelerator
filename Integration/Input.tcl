@@ -1,36 +1,145 @@
     vsim -gui work.Accelerator
     add wave -position insertpoint  \
 	sim:/Accelerator/rst \
-    sim:/Accelerator/Din \
-    sim:/Accelerator/INTR \
-    sim:/Accelerator/clk \
-    sim:/Accelerator/imageOrCNN \
-	sim:/Accelerator/processing \
-    sim:/Accelerator/load \
-    sim:/Accelerator/busy \
-    sim:/Accelerator/doneDMAFC \
-    sim:/Accelerator/doneDMACNN \
-    sim:/accelerator/doneDMAImage \
-    sim:/accelerator/IOChip/decompZeroState \
-    sim:/Accelerator/doneWithPhase \
-    sim:/Accelerator/iochip/io/Interface/GlobalCounter/counterOutput \
-    sim:/accelerator/IOChip/io/Interface/zeroState \
-    sim:/accelerator/IOChip/io/Controller/zeroStateDelayed \
-    sim:/accelerator/IOChip/io/Controller/decompDecrementorEnable \
-    sim:/accelerator/IOChip/decomp/Counter/counterReg/Q \
-    sim:/accelerator/IOChip/imageDMA/enableImageRegister \
-    sim:/accelerator/Image/currentCount
+	sim:/Accelerator/toFC 
+	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/toCNNComb
+	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/delayedToCNN
+	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/delayedToCNNSq
+	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/delayedToCNNCube
+	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/toCNN
+	
+	
 	add wave -position insertpoint  \
-	sim:/accelerator/IOChip/io/Controller/doneDecomp \
-	sim:/accelerator/toCNN \
-	sim:/accelerator/toFC \
-	sim:/accelerator/result \
-	sim:/accelerator/FCDone
-	add wave -noupdate -group StateCounter /accelerator/IOChip/io/Controller/CNNOrFC
-	add wave -noupdate -group StateCounter /accelerator/IOChip/io/Controller/stateCounterQ_0
-	add wave -noupdate -group IOInterface /accelerator/IOChip/io/Interface/FCResult
-	add wave -noupdate -group IOInterface /accelerator/IOChip/io/Interface/FCDone
+sim:/Accelerator/CNNModule/coresMap/filterBus \
+sim:/Accelerator/CNNModule/coresMap/windowBus \
+sim:/Accelerator/CNNModule/coresMap/decoderRow \
+sim:/Accelerator/CNNModule/coresMap/writePage1 \
+sim:/Accelerator/CNNModule/coresMap/writePage2 \
+sim:/Accelerator/CNNModule/coresMap/writeFilter \
+sim:/Accelerator/CNNModule/coresMap/shift2To1 \
+sim:/Accelerator/CNNModule/coresMap/shift1To2 \
+sim:/Accelerator/CNNModule/coresMap/pageTurn \
+sim:/Accelerator/CNNModule/coresMap/start \
+sim:/Accelerator/CNNModule/coresMap/layerType \
+sim:/Accelerator/CNNModule/coresMap/filterType
 
+
+add wave -position insertpoint  \
+sim:/Accelerator/CNNModule/controlUnitMap/clk \
+sim:/Accelerator/CNNModule/controlUnitMap/layersNumber \
+sim:/Accelerator/CNNModule/controlUnitMap/filtersNumber \
+sim:/Accelerator/CNNModule/controlUnitMap/filterDepth \
+sim:/Accelerator/CNNModule/controlUnitMap/filterOutputSize \
+sim:/Accelerator/CNNModule/controlUnitMap/startNetwork \
+sim:/Accelerator/CNNModule/controlUnitMap/layerType \
+sim:/Accelerator/CNNModule/controlUnitMap/convFinish \
+sim:/Accelerator/CNNModule/controlUnitMap/dmaAFinish \
+sim:/Accelerator/CNNModule/controlUnitMap/dmaBFinish \
+sim:/Accelerator/CNNModule/controlUnitMap/dmaCFinish \
+sim:/Accelerator/CNNModule/controlUnitMap/resetNetwork \
+sim:/Accelerator/CNNModule/controlUnitMap/startOneLayer \
+sim:/Accelerator/CNNModule/controlUnitMap/startFilter \
+sim:/Accelerator/CNNModule/controlUnitMap/filterLastLayer \
+sim:/Accelerator/CNNModule/controlUnitMap/startSlice \
+sim:/Accelerator/CNNModule/controlUnitMap/loadLayerConfig \
+sim:/Accelerator/CNNModule/controlUnitMap/loadNetworkConfig \
+sim:/Accelerator/CNNModule/controlUnitMap/loadFilterConfig \
+sim:/Accelerator/CNNModule/controlUnitMap/loadWindow \
+sim:/Accelerator/CNNModule/controlUnitMap/loadFilter \
+sim:/Accelerator/CNNModule/controlUnitMap/conv \
+sim:/Accelerator/CNNModule/controlUnitMap/pool \
+sim:/Accelerator/CNNModule/controlUnitMap/shift12 \
+sim:/Accelerator/CNNModule/controlUnitMap/shift21 \
+sim:/Accelerator/CNNModule/controlUnitMap/readNextCol \
+sim:/Accelerator/CNNModule/controlUnitMap/addToOutputBuffer \
+sim:/Accelerator/CNNModule/controlUnitMap/outputBufferEn \
+sim:/Accelerator/CNNModule/controlUnitMap/saveToRAM \
+sim:/Accelerator/CNNModule/controlUnitMap/currentPage \
+sim:/Accelerator/CNNModule/controlUnitMap/finishCurrentSlice \
+sim:/Accelerator/CNNModule/controlUnitMap/finishFilter \
+sim:/Accelerator/CNNModule/controlUnitMap/finishOneLayer \
+sim:/Accelerator/CNNModule/controlUnitMap/finishNetwork
+
+
+
+add wave -position insertpoint  \
+sim:/Accelerator/CNNModule/DMAControllerMap/clk \
+sim:/Accelerator/CNNModule/DMAControllerMap/reset \
+sim:/Accelerator/CNNModule/DMAControllerMap/weightsInternalBus \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowInternalBus \
+sim:/Accelerator/CNNModule/DMAControllerMap/writeInternalBus \
+sim:/Accelerator/CNNModule/DMAControllerMap/weightsRamAddress \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowRamAddressRead \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowRamAddressWrite \
+sim:/Accelerator/CNNModule/DMAControllerMap/weightsRamDataInBus \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowRamDataInBus \
+sim:/Accelerator/CNNModule/DMAControllerMap/weightsRamRead \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowRamRead \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowRamWrite \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowRamDataOutBus \
+sim:/Accelerator/CNNModule/DMAControllerMap/MFCWindowRam \
+sim:/Accelerator/CNNModule/DMAControllerMap/MFCWeightsRam \
+sim:/Accelerator/CNNModule/DMAControllerMap/MFCWrite \
+sim:/Accelerator/CNNModule/DMAControllerMap/loadNextFilter \
+sim:/Accelerator/CNNModule/DMAControllerMap/loadNextWindow \
+sim:/Accelerator/CNNModule/DMAControllerMap/loadNextRow \
+sim:/Accelerator/CNNModule/DMAControllerMap/loadOneWord \
+sim:/Accelerator/CNNModule/DMAControllerMap/loadThreeWord \
+sim:/Accelerator/CNNModule/DMAControllerMap/filterFinished \
+sim:/Accelerator/CNNModule/DMAControllerMap/sliceFinished \
+sim:/Accelerator/CNNModule/DMAControllerMap/layerFinished \
+sim:/Accelerator/CNNModule/DMAControllerMap/layerType \
+sim:/Accelerator/CNNModule/DMAControllerMap/write \
+sim:/Accelerator/CNNModule/DMAControllerMap/weightsSizeType \
+sim:/Accelerator/CNNModule/DMAControllerMap/inputSize \
+sim:/Accelerator/CNNModule/DMAControllerMap/outputSize \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowRamBaseAddress1 \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowRamBaseAddress2 \
+sim:/Accelerator/CNNModule/DMAControllerMap/filterRamBaseAddress \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowReadOne \
+sim:/Accelerator/CNNModule/DMAControllerMap/windowReadFinal \
+sim:/Accelerator/CNNModule/DMAControllerMap/weightsReadOne \
+sim:/Accelerator/CNNModule/DMAControllerMap/weightsReadFinal \
+sim:/Accelerator/CNNModule/DMAControllerMap/writeDoneOne
+
+
+
+
+add wave -position insertpoint  \
+sim:/Accelerator/CNNModule/finalAdderMap/a \
+sim:/Accelerator/CNNModule/finalAdderMap/b \
+sim:/Accelerator/CNNModule/finalAdderMap/carryIn \
+sim:/Accelerator/CNNModule/finalAdderMap/sum
+
+
+
+add wave -position insertpoint  \
+sim:/Accelerator/CNNModule/configMap/filterBus \
+sim:/Accelerator/CNNModule/configMap/clk \
+sim:/Accelerator/CNNModule/configMap/rst \
+sim:/Accelerator/CNNModule/configMap/readNumLayers \
+sim:/Accelerator/CNNModule/configMap/readLayerConfig \
+sim:/Accelerator/CNNModule/configMap/numLayers \
+sim:/Accelerator/CNNModule/configMap/layerType \
+sim:/Accelerator/CNNModule/configMap/filterType \
+sim:/Accelerator/CNNModule/configMap/numFilters \
+sim:/Accelerator/CNNModule/configMap/filterDepth \
+sim:/Accelerator/CNNModule/configMap/inputSize \
+sim:/Accelerator/CNNModule/configMap/outputSize
+
+add wave -position insertpoint  \
+sim:/accelerator/CNNReadMFC \
+sim:/accelerator/ImageReadMFC \
+sim:/accelerator/doneDMAImageOld \
+sim:/accelerator/weightsRamRead \
+sim:/accelerator/windowRamWrite \
+sim:/accelerator/finalImgRamWrite \
+sim:/accelerator/windowRamDataOutBus \
+sim:/accelerator/finalImgRamDin \
+sim:/accelerator/windowRamAddressWrite \
+sim:/accelerator/finalImgRamWriteAddress \
+sim:/accelerator/CNNReadRamAddress \
+sim:/accelerator/finishNetwork
 
    
     # $fileImage will contain the fileImage pointer to test.txt (fileImage must exist)
@@ -56,15 +165,18 @@
 	noforce sim:/Accelerator/result
     run $runTime
 	noforce sim:/Accelerator/IOChip/io/CONTROLLER/doneDecomp
+	run $runTime
+	#run $runTime
     force -freeze sim:/Accelerator/rst 0 0
     run $halfRunTime
-
+	
+	#run $halfRunTime
 
     force -freeze sim:/Accelerator/processing 0 0
     force -freeze sim:/Accelerator/load 1 0 
     force -freeze sim:/Accelerator/imageOrCNN 0 0
 
-	
+	set Cycles 0
     for {set i 0} {$i < 3} {incr i} {
         set phaseDone 0
 		set FCCycles 0
@@ -77,6 +189,7 @@
             set lines [split $inputCNN "\n"]
             run $runTime
             run $runTime
+			set Cycles [expr {$Cycles + 4}]
         } else {
             set lines [split $inputFC "\n"]
 			set boolean 1
@@ -85,6 +198,7 @@
             force -freeze sim:/Accelerator/INTR 1 0
             force -freeze sim:/Accelerator/Din $line 0
             run $runTime
+			set Cycles [expr {$Cycles + 2}]
 			if { $i == 2 } {
 				set FCCycles [expr {$FCCycles + 2}]
 			}
@@ -94,6 +208,10 @@
 			set donePhase [examine -binary /Accelerator/doneWithPhase]
             while { $busy } {
                 run $halfRunTime
+				set Cycles [expr {$Cycles + 1}]
+				if { $Cycles > 30 } {
+					stop
+				}
 				if { $i == 2 } {
 					set FCCycles [expr {$FCCycles + 1}]
 				}
@@ -102,11 +220,13 @@
                     set doneDMACNN [examine -binary /Accelerator/doneDMACNN]
                     if { $doneDMACNN == 1} {
                         run $halfRunTime
+						set FCCycles [expr {$Cycles + 1}]
                         }
                     set doneDecomp [examine -binary /accelerator/IOChip/io/CONTROLLER/doneDecomp]
 					
                     if { $doneDecomp == 1 && $donePhase == 0} {
                         run $halfRunTime
+						set FCCycles [expr {$Cycles + 1}]
                         }
                     }
             }
@@ -144,6 +264,7 @@
 					if { $i == 1 } {
 						force -freeze sim:/Accelerator/processing 1 0
 						puts "done with CNN weights phase"
+						mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 107 -wordsperline 1 /accelerator/Weights/ram
 					}
                     force -freeze sim:/Accelerator/imageOrCNN 1 0
                     run $halfRunTime
@@ -158,16 +279,10 @@
 	set FCCycles [expr {$FCCycles + 5}]
 	puts "FC cycles taken"
 	puts $FCCycles
-	force -freeze sim:/Accelerator/FCDone 0 0
-	run $runTime
-	force -freeze sim:/Accelerator/FCResult 2'b1000 0
-	run $runTime
-	force -freeze sim:/Accelerator/FCDone 1 0
-	force -freeze sim:/Accelerator/FCResult 2'b1001 0
 	run $runTime
 
     
 mem save -o Image.mem -f mti -noaddress -data decimal -addr decimal -startaddress 0 -endaddress 576 -wordsperline 1 /accelerator/Image/ram
 mem save -o ImageSamir.mem -f mti -noaddress -data binary -addr decimal -startaddress 0 -endaddress 576 -wordsperline 1 /accelerator/Image/ram
-mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 107 -wordsperline 1 /accelerator/Weights/ram
+#mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 107 -wordsperline 1 /accelerator/Weights/ram
 mem save -o FC.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 1154 -wordsperline 1 /accelerator/FC/ram

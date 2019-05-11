@@ -2,7 +2,7 @@
 -- 
 -- Definition of  IOChip
 -- 
---      Sat May 11 01:37:17 2019
+--      Sat May 11 16:45:37 2019
 --      
 --      LeonardoSpectrum Level 3, 2018a.2
 -- 
@@ -475,16 +475,16 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use work.adk_components.all;
 
-entity DFF is
+entity IODFF is
    port (
       D : IN std_logic ;
       clk : IN std_logic ;
       rst : IN std_logic ;
       en : IN std_logic ;
       Q : OUT std_logic) ;
-end DFF ;
+end IODFF ;
 
-architecture DFFArch of DFF is
+architecture IODFFArch of IODFF is
    signal Q_EXMPLR, nx50: std_logic ;
 
 begin
@@ -492,7 +492,7 @@ begin
    reg_Q : dffr port map ( Q=>Q_EXMPLR, QB=>OPEN, D=>nx50, CLK=>clk, R=>rst
    );
    ix51 : mux21_ni port map ( Y=>nx50, A0=>Q_EXMPLR, A1=>D, S0=>en);
-end DFFArch ;
+end IODFFArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -580,15 +580,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use work.adk_components.all;
 
-entity Counter2_2 is
+entity IOCounter2_2 is
    port (
       en : IN std_logic ;
       reset : IN std_logic ;
       clk : IN std_logic ;
       count : OUT std_logic_vector (1 DOWNTO 0)) ;
-end Counter2_2 ;
+end IOCounter2_2 ;
 
-architecture Counter2Arch of Counter2_2 is
+architecture IOCounter2Arch of IOCounter2_2 is
    component Reg_2
       port (
          D : IN std_logic_vector (1 DOWNTO 0) ;
@@ -622,7 +622,7 @@ begin
    ix15 : fake_vcc port map ( Y=>PWR);
    ix13 : fake_gnd port map ( Y=>oneSignal_1);
    ix1 : and02 port map ( Y=>finalReset, A0=>reset, A1=>clk);
-end Counter2Arch ;
+end IOCounter2Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -667,7 +667,7 @@ entity Controller_16_4 is
 end Controller_16_4 ;
 
 architecture ControllerArch of Controller_16_4 is
-   component DFF
+   component IODFF
       port (
          D : IN std_logic ;
          clk : IN std_logic ;
@@ -675,7 +675,7 @@ architecture ControllerArch of Controller_16_4 is
          en : IN std_logic ;
          Q : OUT std_logic) ;
    end component ;
-   component Counter2_2
+   component IOCounter2_2
       port (
          en : IN std_logic ;
          reset : IN std_logic ;
@@ -686,111 +686,117 @@ architecture ControllerArch of Controller_16_4 is
       imageRamLatchD, CNNRamLatchD, FCRamLatchD, CNNRamRst, imageRamRst, 
       FCRamRst, zeroStateDelayed, zeroStateDelayedSq, INTRDelayedSq, INTRFFD, 
       stateCounterEnable, CNNOrFC, busyRst, doneDMAImageDelayed, 
-      doneCNNLatcherD, stateCounterQ_0, notClk, stateCounterLoad, PWR, nx18, 
-      nx122, nx186, nx188, nx190, nx194, nx196, nx198, nx200, nx206, nx217, 
-      nx221, nx226, nx230, nx232, nx235, nx237, nx240, nx243, nx246, nx259: 
-   std_logic ;
+      doneCNNLatcherD, toCNNComb, delayedToCNN, delayedToCNNSq, 
+      delayedToCNNCube, stateCounterQ_0, PWR, nx24, nx128, nx221, nx225, 
+      nx227, nx229, nx231, nx237, nx248, nx252, nx257, nx261, nx264, nx266, 
+      nx269, nx271, nx274, nx277, nx280, nx293, nx295: std_logic ;
 
 begin
    doneWithPhase <= doneWithPhase_EXMPLR ;
    interfaceMuxSel <= imageOrCNN ;
    interfaceMuxEnable <= load ;
-   imageLatcher : DFF port map ( D=>imageLatcherD, clk=>clk, rst=>rst, en=>
-      PWR, Q=>doneImage);
-   busyFF : DFF port map ( D=>busyFFD, clk=>clk, rst=>busyRst, en=>PWR, Q=>
-      busyFFQ);
-   stateCounter : Counter2_2 port map ( en=>stateCounterEnable, reset=>rst, 
-      clk=>nx259, count(1)=>CNNOrFC, count(0)=>stateCounterQ_0);
-   zeroLatch : DFF port map ( D=>zeroState, clk=>nx259, rst=>rst, en=>PWR, Q
-      =>zeroStateDelayed);
-   zeroDelayedLatch : DFF port map ( D=>zeroStateDelayed, clk=>nx259, rst=>
-      rst, en=>PWR, Q=>zeroStateDelayedSq);
-   INTRFF1 : DFF port map ( D=>INTRFFD, clk=>notClk, rst=>rst, en=>PWR, Q=>
+   imageLatcher : IODFF port map ( D=>imageLatcherD, clk=>clk, rst=>rst, en
+      =>PWR, Q=>doneImage);
+   busyFF : IODFF port map ( D=>busyFFD, clk=>clk, rst=>busyRst, en=>PWR, Q
+      =>busyFFQ);
+   stateCounter : IOCounter2_2 port map ( en=>stateCounterEnable, reset=>rst, 
+      clk=>nx293, count(1)=>CNNOrFC, count(0)=>stateCounterQ_0);
+   zeroLatch : IODFF port map ( D=>zeroState, clk=>nx293, rst=>rst, en=>PWR, 
+      Q=>zeroStateDelayed);
+   zeroDelayedLatch : IODFF port map ( D=>zeroStateDelayed, clk=>nx293, rst
+      =>rst, en=>PWR, Q=>zeroStateDelayedSq);
+   INTRFF1 : IODFF port map ( D=>INTRFFD, clk=>nx293, rst=>rst, en=>PWR, Q=>
       INTRDelayed);
-   INTRFF2 : DFF port map ( D=>INTRDelayed, clk=>notClk, rst=>rst, en=>PWR, 
+   INTRFF2 : IODFF port map ( D=>INTRDelayed, clk=>nx293, rst=>rst, en=>PWR, 
       Q=>INTRDelayedSq);
-   imgLatcher : DFF port map ( D=>doneDMAImage, clk=>notClk, rst=>rst, en=>
+   imgLatcher : IODFF port map ( D=>doneDMAImage, clk=>nx295, rst=>rst, en=>
       PWR, Q=>doneDMAImageDelayed);
-   imageRamEn : DFF port map ( D=>imageRamLatchD, clk=>clk, rst=>imageRamRst, 
-      en=>PWR, Q=>imageRamEnable);
-   CNNRamEn : DFF port map ( D=>CNNRamLatchD, clk=>clk, rst=>CNNRamRst, en=>
-      PWR, Q=>CNNRamEnable);
-   FCRamEn : DFF port map ( D=>FCRamLatchD, clk=>clk, rst=>FCRamRst, en=>PWR, 
-      Q=>FCRamEnable);
-   doneCNNLatched : DFF port map ( D=>doneCNNLatcherD, clk=>notClk, rst=>
-      stateCounterLoad, en=>PWR, Q=>toCNN);
-   ix155 : fake_vcc port map ( Y=>PWR);
-   ix153 : fake_gnd port map ( Y=>stateCounterLoad);
-   ix184 : inv01 port map ( Y=>notClk, A=>clk);
-   ix7 : nand02 port map ( Y=>doneCNNLatcherD, A0=>nx186, A1=>nx190);
-   ix187 : nand03 port map ( Y=>nx186, A0=>doneImage, A1=>processing, A2=>
-      nx188);
-   ix189 : inv01 port map ( Y=>nx188, A=>CNNOrFC);
-   ix191 : inv01 port map ( Y=>nx190, A=>toCNN);
-   ix127 : or03 port map ( Y=>busyRst, A0=>nx122, A1=>nx18, A2=>
+   imageRamEn : IODFF port map ( D=>imageRamLatchD, clk=>clk, rst=>
+      imageRamRst, en=>PWR, Q=>imageRamEnable);
+   CNNRamEn : IODFF port map ( D=>CNNRamLatchD, clk=>clk, rst=>CNNRamRst, en
+      =>PWR, Q=>CNNRamEnable);
+   FCRamEn : IODFF port map ( D=>FCRamLatchD, clk=>clk, rst=>FCRamRst, en=>
+      PWR, Q=>FCRamEnable);
+   doneCNNLatched : IODFF port map ( D=>doneCNNLatcherD, clk=>nx295, rst=>
+      rst, en=>PWR, Q=>toCNNComb);
+   toCNNDelayer : IODFF port map ( D=>toCNNComb, clk=>nx295, rst=>rst, en=>
+      PWR, Q=>delayedToCNN);
+   toCNNDelayerSqd : IODFF port map ( D=>delayedToCNN, clk=>nx295, rst=>rst, 
+      en=>PWR, Q=>delayedToCNNSq);
+   toCNNDelayerCubed : IODFF port map ( D=>delayedToCNN, clk=>nx295, rst=>
+      rst, en=>PWR, Q=>delayedToCNNCube);
+   ix183 : fake_vcc port map ( Y=>PWR);
+   ix13 : and03 port map ( Y=>doneCNNLatcherD, A0=>doneImage, A1=>processing, 
+      A2=>nx221);
+   ix222 : inv01 port map ( Y=>nx221, A=>CNNOrFC);
+   ix133 : or03 port map ( Y=>busyRst, A0=>nx128, A1=>nx24, A2=>
       zeroStateDelayedSq);
-   ix123 : nor03_2x port map ( Y=>nx122, A0=>nx194, A1=>FCRamEnable, A2=>
-      nx200);
-   ix197 : nand02 port map ( Y=>nx196, A0=>INTRDelayed, A1=>nx198);
-   ix199 : inv01 port map ( Y=>nx198, A=>zeroState);
-   ix201 : nand03 port map ( Y=>nx200, A0=>CNNOrFC, A1=>load, A2=>imageOrCNN
+   ix129 : nor03_2x port map ( Y=>nx128, A0=>nx225, A1=>FCRamEnable, A2=>
+      nx231);
+   ix228 : nand02 port map ( Y=>nx227, A0=>INTRDelayed, A1=>nx229);
+   ix230 : inv01 port map ( Y=>nx229, A=>zeroState);
+   ix232 : nand03 port map ( Y=>nx231, A0=>CNNOrFC, A1=>load, A2=>imageOrCNN
    );
-   ix15 : and02 port map ( Y=>doneDecomp, A0=>decompZeroState, A1=>
+   ix21 : and02 port map ( Y=>doneDecomp, A0=>decompZeroState, A1=>
       doneDMAImageDelayed);
-   ix111 : and02 port map ( Y=>stateCounterEnable, A0=>imageOrCNN, A1=>
+   ix117 : and02 port map ( Y=>stateCounterEnable, A0=>imageOrCNN, A1=>
       doneWithPhase_EXMPLR);
-   ix21 : nor02ii port map ( Y=>doneWithPhase_EXMPLR, A0=>nx206, A1=>
+   ix27 : nor02ii port map ( Y=>doneWithPhase_EXMPLR, A0=>nx237, A1=>
       zeroState);
-   ix207 : nor03_2x port map ( Y=>nx206, A0=>doneDMACNN, A1=>doneDMAFC, A2=>
+   ix238 : nor03_2x port map ( Y=>nx237, A0=>doneDMACNN, A1=>doneDMAFC, A2=>
       doneDecomp);
-   ix23 : or02 port map ( Y=>FCRamRst, A0=>rst, A1=>doneDMAFC);
-   ix85 : or03 port map ( Y=>imageRamRst, A0=>decompZeroState, A1=>rst, A2=>
+   ix29 : or02 port map ( Y=>FCRamRst, A0=>rst, A1=>doneDMAFC);
+   ix91 : or03 port map ( Y=>imageRamRst, A0=>decompZeroState, A1=>rst, A2=>
       doneDMAImage);
-   ix37 : or02 port map ( Y=>CNNRamRst, A0=>rst, A1=>doneDMACNN);
-   ix25 : or02 port map ( Y=>FCRamLatchD, A0=>FCRamEnable, A1=>FCRamWriteOld
+   ix43 : or02 port map ( Y=>CNNRamRst, A0=>rst, A1=>doneDMACNN);
+   ix31 : or02 port map ( Y=>FCRamLatchD, A0=>FCRamEnable, A1=>FCRamWriteOld
    );
-   ix53 : or02 port map ( Y=>CNNRamLatchD, A0=>CNNRegisterEnable, A1=>
+   ix59 : or02 port map ( Y=>CNNRamLatchD, A0=>CNNRegisterEnable, A1=>
       CNNRamEnable);
-   ix51 : nor04 port map ( Y=>CNNRegisterEnable, A0=>CNNOrFC, A1=>rst, A2=>
-      nx217, A3=>nx196);
-   ix218 : nand02 port map ( Y=>nx217, A0=>load, A1=>imageOrCNN);
-   ix95 : or02 port map ( Y=>imageRamLatchD, A0=>imageRegisterEnable, A1=>
+   ix57 : nor04 port map ( Y=>CNNRegisterEnable, A0=>CNNOrFC, A1=>rst, A2=>
+      nx248, A3=>nx227);
+   ix249 : nand02 port map ( Y=>nx248, A0=>load, A1=>imageOrCNN);
+   ix101 : or02 port map ( Y=>imageRamLatchD, A0=>imageRegisterEnable, A1=>
       imageRamEnable);
-   ix93 : inv01 port map ( Y=>imageRegisterEnable, A=>nx221);
-   ix222 : oai21 port map ( Y=>nx221, A0=>doneDMAImageDelayed, A1=>
+   ix99 : inv01 port map ( Y=>imageRegisterEnable, A=>nx252);
+   ix253 : oai21 port map ( Y=>nx252, A0=>doneDMAImageDelayed, A1=>
       INTRDelayedSq, B0=>imageLoad);
-   ix89 : nor02ii port map ( Y=>imageLoad, A0=>imageOrCNN, A1=>load);
-   ix129 : or02 port map ( Y=>busyFFD, A0=>INTR, A1=>busyFFQ);
-   ix135 : nand02 port map ( Y=>imageLatcherD, A0=>imageOrCNN, A1=>nx226);
-   ix227 : inv01 port map ( Y=>nx226, A=>doneImage);
-   ix13 : and04 port map ( Y=>toFC, A0=>stateCounterQ_0, A1=>processing, A2
+   ix95 : nor02ii port map ( Y=>imageLoad, A0=>imageOrCNN, A1=>load);
+   ix135 : or02 port map ( Y=>busyFFD, A0=>INTR, A1=>busyFFQ);
+   ix141 : nand02 port map ( Y=>imageLatcherD, A0=>imageOrCNN, A1=>nx257);
+   ix258 : inv01 port map ( Y=>nx257, A=>doneImage);
+   ix19 : and04 port map ( Y=>toFC, A0=>processing, A1=>stateCounterQ_0, A2
       =>CNNOrFC, A3=>doneImage);
-   ix75 : aoi21 port map ( Y=>globalCounterEnable, A0=>nx230, A1=>nx206, B0
+   ix7 : nor02_2x port map ( Y=>toCNN, A0=>delayedToCNNCube, A1=>nx261);
+   ix262 : nor03_2x port map ( Y=>nx261, A0=>delayedToCNN, A1=>
+      delayedToCNNSq, A2=>toCNNComb);
+   ix81 : aoi21 port map ( Y=>globalCounterEnable, A0=>nx264, A1=>nx237, B0
       =>rst);
-   ix231 : nand03 port map ( Y=>nx230, A0=>INTR, A1=>nx232, A2=>zeroState);
-   ix233 : inv01 port map ( Y=>nx232, A=>rst);
-   ix105 : aoi21 port map ( Y=>imageCounterEnable, A0=>nx235, A1=>nx237, B0
+   ix265 : nand03 port map ( Y=>nx264, A0=>INTR, A1=>nx266, A2=>zeroState);
+   ix267 : inv01 port map ( Y=>nx266, A=>rst);
+   ix111 : aoi21 port map ( Y=>imageCounterEnable, A0=>nx269, A1=>nx271, B0
       =>zeroState);
-   ix236 : inv01 port map ( Y=>nx235, A=>doneDMAImageDelayed);
-   ix238 : inv01 port map ( Y=>nx237, A=>INTRDelayed);
-   ix99 : inv02 port map ( Y=>decompDecrementorEnable, A=>nx240);
-   ix241 : oai21 port map ( Y=>nx240, A0=>INTRDelayed, A1=>doneDMAImage, B0
+   ix270 : inv01 port map ( Y=>nx269, A=>doneDMAImageDelayed);
+   ix272 : inv01 port map ( Y=>nx271, A=>INTRDelayed);
+   ix105 : inv02 port map ( Y=>decompDecrementorEnable, A=>nx274);
+   ix275 : oai21 port map ( Y=>nx274, A0=>INTRDelayed, A1=>doneDMAImage, B0
       =>imageLoad);
-   ix35 : nor03_2x port map ( Y=>FCCounterEnable, A0=>nx200, A1=>nx243, A2=>
+   ix41 : nor03_2x port map ( Y=>FCCounterEnable, A0=>nx231, A1=>nx277, A2=>
       rst);
-   ix244 : inv01 port map ( Y=>nx243, A=>doneDMAFC);
-   ix63 : nor04 port map ( Y=>CNNCounterEnable, A0=>nx246, A1=>CNNOrFC, A2=>
-      rst, A3=>nx217);
-   ix247 : inv01 port map ( Y=>nx246, A=>doneDMACNN);
-   ix131 : or02 port map ( Y=>busy, A0=>busyFFD, A1=>FCRamEnable);
-   ix117 : nor03_2x port map ( Y=>FCRegisterEnable, A0=>nx196, A1=>rst, A2=>
-      nx200);
-   ix19 : inv01 port map ( Y=>nx18, A=>nx206);
-   ix195 : inv01 port map ( Y=>nx194, A=>FCRegisterEnable);
-   ix69 : inv01 port map ( Y=>globalCounterLoad, A=>nx230);
-   ix258 : inv01 port map ( Y=>nx259, A=>clk);
-   ix109 : nor02ii port map ( Y=>INTRFFD, A0=>zeroStateDelayed, A1=>INTR);
-   ix81 : and03 port map ( Y=>interfaceRegEnable, A0=>INTR, A1=>nx232, A2=>
+   ix278 : inv01 port map ( Y=>nx277, A=>doneDMAFC);
+   ix69 : nor04 port map ( Y=>CNNCounterEnable, A0=>nx280, A1=>CNNOrFC, A2=>
+      rst, A3=>nx248);
+   ix281 : inv01 port map ( Y=>nx280, A=>doneDMACNN);
+   ix137 : or02 port map ( Y=>busy, A0=>busyFFD, A1=>FCRamEnable);
+   ix123 : nor03_2x port map ( Y=>FCRegisterEnable, A0=>nx227, A1=>rst, A2=>
+      nx231);
+   ix25 : inv01 port map ( Y=>nx24, A=>nx237);
+   ix226 : inv01 port map ( Y=>nx225, A=>FCRegisterEnable);
+   ix75 : inv01 port map ( Y=>globalCounterLoad, A=>nx264);
+   ix292 : inv02 port map ( Y=>nx293, A=>clk);
+   ix294 : inv02 port map ( Y=>nx295, A=>clk);
+   ix115 : nor02ii port map ( Y=>INTRFFD, A0=>zeroStateDelayed, A1=>INTR);
+   ix87 : and03 port map ( Y=>interfaceRegEnable, A0=>INTR, A1=>nx266, A2=>
       load);
 end ControllerArch ;
 
@@ -1739,15 +1745,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use work.adk_components.all;
 
-entity Counter5_12 is
+entity IOCounter5_12 is
    port (
       en : IN std_logic ;
       reset : IN std_logic ;
       clk : IN std_logic ;
       count : OUT std_logic_vector (11 DOWNTO 0)) ;
-end Counter5_12 ;
+end IOCounter5_12 ;
 
-architecture Counter5Arch of Counter5_12 is
+architecture IOCounter5Arch of IOCounter5_12 is
    component Reg_12
       port (
          D : IN std_logic_vector (11 DOWNTO 0) ;
@@ -1810,7 +1816,7 @@ begin
    ix35 : fake_gnd port map ( Y=>oneSignal_11);
    ix33 : fake_vcc port map ( Y=>oneSignal_0);
    ix1 : and02 port map ( Y=>finalReset, A0=>reset, A1=>clk);
-end Counter5Arch ;
+end IOCounter5Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -1828,7 +1834,7 @@ entity DMACNN is
 end DMACNN ;
 
 architecture DMACNN of DMACNN is
-   component Counter5_12
+   component IOCounter5_12
       port (
          en : IN std_logic ;
          reset : IN std_logic ;
@@ -1844,8 +1850,8 @@ architecture DMACNN of DMACNN is
          Q : OUT std_logic_vector (15 DOWNTO 0)) ;
    end component ;
 begin
-   addressCounter : Counter5_12 port map ( en=>enableCNNCounter, reset=>rst, 
-      clk=>clk, count(11)=>addressOut(11), count(10)=>addressOut(10), 
+   addressCounter : IOCounter5_12 port map ( en=>enableCNNCounter, reset=>
+      rst, clk=>clk, count(11)=>addressOut(11), count(10)=>addressOut(10), 
       count(9)=>addressOut(9), count(8)=>addressOut(8), count(7)=>
       addressOut(7), count(6)=>addressOut(6), count(5)=>addressOut(5), 
       count(4)=>addressOut(4), count(3)=>addressOut(3), count(2)=>
@@ -2220,15 +2226,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use work.adk_components.all;
 
-entity Counter2_16 is
+entity IOCounter2_16 is
    port (
       en : IN std_logic ;
       reset : IN std_logic ;
       clk : IN std_logic ;
       count : OUT std_logic_vector (15 DOWNTO 0)) ;
-end Counter2_16 ;
+end IOCounter2_16 ;
 
-architecture Counter2Arch of Counter2_16 is
+architecture IOCounter2Arch of IOCounter2_16 is
    component Reg_16
       port (
          D : IN std_logic_vector (15 DOWNTO 0) ;
@@ -2304,7 +2310,7 @@ begin
    ix43 : fake_vcc port map ( Y=>PWR);
    ix41 : fake_gnd port map ( Y=>oneSignal_15);
    ix1 : and02 port map ( Y=>finalReset, A0=>reset, A1=>clk);
-end Counter2Arch ;
+end IOCounter2Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -2352,7 +2358,7 @@ architecture FCDMAArch of FCDMA_16 is
          dataOut4 : OUT std_logic_vector (15 DOWNTO 0) ;
          dataOut5 : OUT std_logic_vector (15 DOWNTO 0)) ;
    end component ;
-   component Counter2_16
+   component IOCounter2_16
       port (
          en : IN std_logic ;
          reset : IN std_logic ;
@@ -2528,8 +2534,8 @@ begin
       dataOut5(5)=>registersIn_4_5, dataOut5(4)=>registersIn_4_4, 
       dataOut5(3)=>registersIn_4_3, dataOut5(2)=>registersIn_4_2, 
       dataOut5(1)=>registersIn_4_1, dataOut5(0)=>registersIn_4_0);
-   MAR : Counter2_16 port map ( en=>addressCounterEnable, reset=>rst, clk=>
-      clk, count(15)=>address(15), count(14)=>address(14), count(13)=>
+   MAR : IOCounter2_16 port map ( en=>addressCounterEnable, reset=>rst, clk
+      =>clk, count(15)=>address(15), count(14)=>address(14), count(13)=>
       address(13), count(12)=>address(12), count(11)=>address(11), count(10)
       =>address(10), count(9)=>address(9), count(8)=>address(8), count(7)=>
       address(7), count(6)=>address(6), count(5)=>address(5), count(4)=>
