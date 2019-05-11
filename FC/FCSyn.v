@@ -100,7 +100,7 @@ module FcMain ( cnnDone, ioDone, clk, reset, defaultAddressNeorons,
 
 
 
-    RisingHolderFullCycle CNNDONEHOLDER (.edge (beginSignal), .clk (clk), .rst (
+    RisingHolderFullCycle CNNDONEHOLDER (.transition (beginSignal), .clk (clk), .rst (
                           reset), .f (cnnDoneOneCycle)) ;
     CounterUpDown_16 NEORONSLASTSTAGES (.load ({dataOutRamWeights[15],
                      dataOutRamWeights[14],dataOutRamWeights[13],
@@ -2738,7 +2738,7 @@ module nMul8x16_10 ( q_9__7, q_9__6, q_9__5, q_9__4, q_9__3, q_9__2, q_9__1,
             f_0__9,f_0__8,f_0__7,f_0__6,f_0__5,f_0__4,f_0__3,f_0__2,f_0__1,
             f_0__0}), .clk (nx374), .start (nx402), .rst (nx443), .sel (nx370), 
             .startAndPause (nx465)) ;
-    RisingHolderHalfCycle StartCaptuerCmp (.edge (nx445), .clk (clk), .rst (
+    RisingHolderHalfCycle StartCaptuerCmp (.transition (nx445), .clk (clk), .rst (
                           nx418), .f (restartDetection)) ;
     ShiftReg_3 CounterCmp (.outp ({done,\$dummy [0],\$dummy [1],counter_0}), .clk (
                clk), .en (nx366), .rst (counterRst)) ;
@@ -2847,9 +2847,9 @@ module ShiftReg_3 ( outp, clk, en, rst ) ;
 endmodule
 
 
-module RisingHolderHalfCycle ( edge, clk, rst, f ) ;
+module RisingHolderHalfCycle ( transition, clk, rst, f ) ;
 
-    input edge ;
+    input transition ;
     input clk ;
     input rst ;
     inout f ;
@@ -2861,7 +2861,7 @@ module RisingHolderHalfCycle ( edge, clk, rst, f ) ;
 
 
     fake_vcc ix1 (.Y (nx0)) ;
-    dffr reg_f (.Q (f), .QB (\$dummy [0]), .D (nx0), .CLK (edge), .R (nx10)) ;
+    dffr reg_f (.Q (f), .QB (\$dummy [0]), .D (nx0), .CLK (transition), .R (nx10)) ;
     or02 ix11 (.Y (nx10), .A0 (d), .A1 (rst)) ;
     dff reg_d (.Q (d), .QB (\$dummy [1]), .D (f), .CLK (NOT_clk)) ;
     inv01 ix31 (.Y (NOT_clk), .A (clk)) ;
@@ -5253,9 +5253,9 @@ module FullAdder ( a, b, cin, s, cout ) ;
 endmodule
 
 
-module RisingHolderFullCycle ( edge, clk, rst, f ) ;
+module RisingHolderFullCycle ( transition, clk, rst, f ) ;
 
-    input edge ;
+    input transition ;
     input clk ;
     input rst ;
     inout f ;
@@ -5267,7 +5267,7 @@ module RisingHolderFullCycle ( edge, clk, rst, f ) ;
 
 
     fake_vcc ix1 (.Y (nx0)) ;
-    dffr reg_f (.Q (f), .QB (\$dummy [0]), .D (nx0), .CLK (edge), .R (nx8)) ;
+    dffr reg_f (.Q (f), .QB (\$dummy [0]), .D (nx0), .CLK (transition), .R (nx8)) ;
     or02 ix9 (.Y (nx8), .A0 (d), .A1 (rst)) ;
     dff reg_d (.Q (d), .QB (\$dummy [1]), .D (f), .CLK (clk)) ;
 endmodule
