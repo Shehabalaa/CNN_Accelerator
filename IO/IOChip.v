@@ -1,6 +1,6 @@
 //
 // Verilog description for cell IOChip, 
-// Fri May 10 11:14:08 2019
+// Sat May 11 16:45:38 2019
 //
 // LeonardoSpectrum Level 3, 2018a.2 
 //
@@ -10,7 +10,7 @@ module IOChip ( din, clk, rst, imageOrCNN, INTR, load, processing, doneWithPhase
                 busy, doneDMAFC, doneDMACNN, doneDMAImage, imgRamWrite, 
                 CNNRamWrite, FCRamWrite, imageDMAAddressOut, imageDMADataOut, 
                 CNNDMAAddressOut, CNNDMADataOut, FCDMAAddressOut, FCDMADataOut, 
-                result, FCResult, FCDone ) ;
+                result, FCResult, FCDone, toCNN, toFC ) ;
 
     input [15:0]din ;
     input clk ;
@@ -29,13 +29,15 @@ module IOChip ( din, clk, rst, imageOrCNN, INTR, load, processing, doneWithPhase
     inout FCRamWrite ;
     output [12:0]imageDMAAddressOut ;
     output [15:0]imageDMADataOut ;
-    output [12:0]CNNDMAAddressOut ;
+    output [11:0]CNNDMAAddressOut ;
     output [15:0]CNNDMADataOut ;
     output [15:0]FCDMAAddressOut ;
     output [79:0]FCDMADataOut ;
     output [3:0]result ;
     input [3:0]FCResult ;
     input FCDone ;
+    inout toCNN ;
+    output toFC ;
 
     wire decompZeroState, CNNCounterEnable, decompDecrementorEnable, 
          CNNRegisterEnable, imageCounterEnable, imageRegisterEnable, 
@@ -48,8 +50,6 @@ module IOChip ( din, clk, rst, imageOrCNN, INTR, load, processing, doneWithPhase
          interfaceOutput_0, decompDataOut_7, decompDataOut_6, decompDataOut_5, 
          decompDataOut_4, decompDataOut_3, decompDataOut_2, decompDataOut_1, 
          decompDataOut_0, FCRamWriteOld;
-    wire [1:0] \$dummy ;
-
 
 
 
@@ -61,7 +61,7 @@ module IOChip ( din, clk, rst, imageOrCNN, INTR, load, processing, doneWithPhase
             decompZeroState), .doneWithPhase (doneWithPhase), .CNNCounterEnable (
             CNNCounterEnable), .imageCounterEnable (imageCounterEnable), .FCCounterEnable (
             FCCounterEnable), .decompDecrementorEnable (decompDecrementorEnable)
-            , .busy (busy), .toCNN (\$dummy [0]), .toFC (\$dummy [1]), .INTRDelayed (
+            , .busy (busy), .toCNN (toCNN), .toFC (toFC), .INTRDelayed (
             INTRDelayed), .imageLoad (imageLoad), .imageRegisterEnable (
             imageRegisterEnable), .CNNRegisterEnable (CNNRegisterEnable), .FCRegisterEnable (
             FCRegisterEnable), .imageRamEnable (imgRamWrite), .CNNRamEnable (
@@ -112,11 +112,10 @@ module IOChip ( din, clk, rst, imageOrCNN, INTR, load, processing, doneWithPhase
            CNNDMADataOut[9],CNNDMADataOut[8],CNNDMADataOut[7],CNNDMADataOut[6],
            CNNDMADataOut[5],CNNDMADataOut[4],CNNDMADataOut[3],CNNDMADataOut[2],
            CNNDMADataOut[1],CNNDMADataOut[0]}), .addressOut ({
-           CNNDMAAddressOut[12],CNNDMAAddressOut[11],CNNDMAAddressOut[10],
-           CNNDMAAddressOut[9],CNNDMAAddressOut[8],CNNDMAAddressOut[7],
-           CNNDMAAddressOut[6],CNNDMAAddressOut[5],CNNDMAAddressOut[4],
-           CNNDMAAddressOut[3],CNNDMAAddressOut[2],CNNDMAAddressOut[1],
-           CNNDMAAddressOut[0]})) ;
+           CNNDMAAddressOut[11],CNNDMAAddressOut[10],CNNDMAAddressOut[9],
+           CNNDMAAddressOut[8],CNNDMAAddressOut[7],CNNDMAAddressOut[6],
+           CNNDMAAddressOut[5],CNNDMAAddressOut[4],CNNDMAAddressOut[3],
+           CNNDMAAddressOut[2],CNNDMAAddressOut[1],CNNDMAAddressOut[0]})) ;
     FCDMA_16 fcDMA (.dataIn ({interfaceOutput_15,interfaceOutput_14,
              interfaceOutput_13,interfaceOutput_12,interfaceOutput_11,
              interfaceOutput_10,interfaceOutput_9,interfaceOutput_8,
@@ -318,11 +317,11 @@ module FCDMA_16 ( dataIn, clk, rst, addressCounterEnable, delayedInt, doneFCRAM,
                   registersIn_4__8,registersIn_4__7,registersIn_4__6,
                   registersIn_4__5,registersIn_4__4,registersIn_4__3,
                   registersIn_4__2,registersIn_4__1,registersIn_4__0})) ;
-    Counter2_16 MAR (.en (addressCounterEnable), .reset (rst), .clk (clk), .count (
-                {address[15],address[14],address[13],address[12],address[11],
-                address[10],address[9],address[8],address[7],address[6],
-                address[5],address[4],address[3],address[2],address[1],
-                address[0]})) ;
+    IOCounter2_16 MAR (.en (addressCounterEnable), .reset (rst), .clk (clk), .count (
+                  {address[15],address[14],address[13],address[12],address[11],
+                  address[10],address[9],address[8],address[7],address[6],
+                  address[5],address[4],address[3],address[2],address[1],
+                  address[0]})) ;
     fake_vcc ix851 (.Y (PWR)) ;
     fake_gnd ix849 (.Y (zeros_15)) ;
     inv01 ix1022 (.Y (nx1021), .A (moduloCounterSignal_1)) ;
@@ -521,7 +520,7 @@ module FCDMA_16 ( dataIn, clk, rst, addressCounterEnable, delayedInt, doneFCRAM,
 endmodule
 
 
-module Counter2_16 ( en, reset, clk, count ) ;
+module IOCounter2_16 ( en, reset, clk, count ) ;
 
     input en ;
     input reset ;
@@ -850,16 +849,16 @@ module DMACNN ( dataIn, clk, enableCNNCounter, enableCNNRegister, rst, dataOut,
     input enableCNNRegister ;
     input rst ;
     output [15:0]dataOut ;
-    output [12:0]addressOut ;
+    output [11:0]addressOut ;
 
 
 
 
-    Counter2_13 addressCounter (.en (enableCNNCounter), .reset (rst), .clk (clk)
-                , .count ({addressOut[12],addressOut[11],addressOut[10],
-                addressOut[9],addressOut[8],addressOut[7],addressOut[6],
-                addressOut[5],addressOut[4],addressOut[3],addressOut[2],
-                addressOut[1],addressOut[0]})) ;
+    IOCounter5_12 addressCounter (.en (enableCNNCounter), .reset (rst), .clk (
+                  clk), .count ({addressOut[11],addressOut[10],addressOut[9],
+                  addressOut[8],addressOut[7],addressOut[6],addressOut[5],
+                  addressOut[4],addressOut[3],addressOut[2],addressOut[1],
+                  addressOut[0]})) ;
     Reg_16 MyReg (.D ({dataIn[15],dataIn[14],dataIn[13],dataIn[12],dataIn[11],
            dataIn[10],dataIn[9],dataIn[8],dataIn[7],dataIn[6],dataIn[5],
            dataIn[4],dataIn[3],dataIn[2],dataIn[1],dataIn[0]}), .en (
@@ -870,39 +869,136 @@ module DMACNN ( dataIn, clk, enableCNNCounter, enableCNNRegister, rst, dataOut,
 endmodule
 
 
-module Counter2_13 ( en, reset, clk, count ) ;
+module IOCounter5_12 ( en, reset, clk, count ) ;
 
     input en ;
     input reset ;
     input clk ;
-    output [12:0]count ;
+    output [11:0]count ;
 
-    wire addedOne_12, addedOne_11, addedOne_10, addedOne_9, addedOne_8, 
-         addedOne_7, addedOne_6, addedOne_5, addedOne_4, addedOne_3, addedOne_2, 
-         addedOne_1, addedOne_0, finalReset, oneSignal_12, PWR;
+    wire addedOne_11, addedOne_10, addedOne_9, addedOne_8, addedOne_7, 
+         addedOne_6, addedOne_5, addedOne_4, addedOne_3, addedOne_2, addedOne_1, 
+         addedOne_0, finalReset, oneSignal_0, oneSignal_11;
     wire [0:0] \$dummy ;
 
 
 
 
-    Reg_13 counterReg (.D ({addedOne_12,addedOne_11,addedOne_10,addedOne_9,
-           addedOne_8,addedOne_7,addedOne_6,addedOne_5,addedOne_4,addedOne_3,
-           addedOne_2,addedOne_1,addedOne_0}), .en (en), .clk (clk), .rst (
-           finalReset), .Q ({count[12],count[11],count[10],count[9],count[8],
-           count[7],count[6],count[5],count[4],count[3],count[2],count[1],
-           count[0]})) ;
-    NBitAdder_13 nextCount (.a ({count[12],count[11],count[10],count[9],count[8]
-                 ,count[7],count[6],count[5],count[4],count[3],count[2],count[1]
-                 ,count[0]}), .b ({oneSignal_12,oneSignal_12,oneSignal_12,
-                 oneSignal_12,oneSignal_12,oneSignal_12,oneSignal_12,
-                 oneSignal_12,oneSignal_12,oneSignal_12,oneSignal_12,
-                 oneSignal_12,oneSignal_12}), .carryIn (PWR), .sum ({addedOne_12
-                 ,addedOne_11,addedOne_10,addedOne_9,addedOne_8,addedOne_7,
-                 addedOne_6,addedOne_5,addedOne_4,addedOne_3,addedOne_2,
-                 addedOne_1,addedOne_0}), .carryOut (\$dummy [0])) ;
-    fake_vcc ix37 (.Y (PWR)) ;
-    fake_gnd ix35 (.Y (oneSignal_12)) ;
+    Reg_12 counterReg (.D ({addedOne_11,addedOne_10,addedOne_9,addedOne_8,
+           addedOne_7,addedOne_6,addedOne_5,addedOne_4,addedOne_3,addedOne_2,
+           addedOne_1,addedOne_0}), .en (en), .clk (clk), .rst (finalReset), .Q (
+           {count[11],count[10],count[9],count[8],count[7],count[6],count[5],
+           count[4],count[3],count[2],count[1],count[0]})) ;
+    NBitAdder_12 nextCount (.a ({count[11],count[10],count[9],count[8],count[7],
+                 count[6],count[5],count[4],count[3],count[2],count[1],count[0]}
+                 ), .b ({oneSignal_11,oneSignal_11,oneSignal_11,oneSignal_11,
+                 oneSignal_11,oneSignal_11,oneSignal_11,oneSignal_11,
+                 oneSignal_11,oneSignal_11,oneSignal_11,oneSignal_0}), .carryIn (
+                 oneSignal_0), .sum ({addedOne_11,addedOne_10,addedOne_9,
+                 addedOne_8,addedOne_7,addedOne_6,addedOne_5,addedOne_4,
+                 addedOne_3,addedOne_2,addedOne_1,addedOne_0}), .carryOut (
+                 \$dummy [0])) ;
+    fake_gnd ix35 (.Y (oneSignal_11)) ;
+    fake_vcc ix33 (.Y (oneSignal_0)) ;
     and02 ix1 (.Y (finalReset), .A0 (reset), .A1 (clk)) ;
+endmodule
+
+
+module NBitAdder_12 ( a, b, carryIn, sum, carryOut ) ;
+
+    input [11:0]a ;
+    input [11:0]b ;
+    input carryIn ;
+    output [11:0]sum ;
+    output carryOut ;
+
+    wire temp_10, temp_9, temp_8, temp_7, temp_6, temp_5, temp_4, temp_3, temp_2, 
+         temp_1, temp_0;
+
+
+
+    FullAdder f0 (.a (a[0]), .b (b[0]), .cin (carryIn), .s (sum[0]), .cout (
+              temp_0)) ;
+    FullAdder loop1_1_fx (.a (a[1]), .b (b[1]), .cin (temp_0), .s (sum[1]), .cout (
+              temp_1)) ;
+    FullAdder loop1_2_fx (.a (a[2]), .b (b[2]), .cin (temp_1), .s (sum[2]), .cout (
+              temp_2)) ;
+    FullAdder loop1_3_fx (.a (a[3]), .b (b[3]), .cin (temp_2), .s (sum[3]), .cout (
+              temp_3)) ;
+    FullAdder loop1_4_fx (.a (a[4]), .b (b[4]), .cin (temp_3), .s (sum[4]), .cout (
+              temp_4)) ;
+    FullAdder loop1_5_fx (.a (a[5]), .b (b[5]), .cin (temp_4), .s (sum[5]), .cout (
+              temp_5)) ;
+    FullAdder loop1_6_fx (.a (a[6]), .b (b[6]), .cin (temp_5), .s (sum[6]), .cout (
+              temp_6)) ;
+    FullAdder loop1_7_fx (.a (a[7]), .b (b[7]), .cin (temp_6), .s (sum[7]), .cout (
+              temp_7)) ;
+    FullAdder loop1_8_fx (.a (a[8]), .b (b[8]), .cin (temp_7), .s (sum[8]), .cout (
+              temp_8)) ;
+    FullAdder loop1_9_fx (.a (a[9]), .b (b[9]), .cin (temp_8), .s (sum[9]), .cout (
+              temp_9)) ;
+    FullAdder loop1_10_fx (.a (a[10]), .b (b[10]), .cin (temp_9), .s (sum[10]), 
+              .cout (temp_10)) ;
+    FullAdder loop1_11_fx (.a (a[11]), .b (b[11]), .cin (temp_10), .s (sum[11])
+              , .cout (carryOut)) ;
+endmodule
+
+
+module Reg_12 ( D, en, clk, rst, Q ) ;
+
+    input [11:0]D ;
+    input en ;
+    input clk ;
+    input rst ;
+    output [11:0]Q ;
+
+    wire nx180, nx190, nx200, nx210, nx220, nx230, nx240, nx250, nx260, nx270, 
+         nx280, nx290, nx341, nx343, nx345, nx347;
+    wire [11:0] \$dummy ;
+
+
+
+
+    dffr reg_Q_0 (.Q (Q[0]), .QB (\$dummy [0]), .D (nx180), .CLK (clk), .R (
+         nx341)) ;
+    mux21_ni ix181 (.Y (nx180), .A0 (Q[0]), .A1 (D[0]), .S0 (nx345)) ;
+    dffr reg_Q_1 (.Q (Q[1]), .QB (\$dummy [1]), .D (nx190), .CLK (clk), .R (
+         nx341)) ;
+    mux21_ni ix191 (.Y (nx190), .A0 (Q[1]), .A1 (D[1]), .S0 (nx345)) ;
+    dffr reg_Q_2 (.Q (Q[2]), .QB (\$dummy [2]), .D (nx200), .CLK (clk), .R (
+         nx341)) ;
+    mux21_ni ix201 (.Y (nx200), .A0 (Q[2]), .A1 (D[2]), .S0 (nx345)) ;
+    dffr reg_Q_3 (.Q (Q[3]), .QB (\$dummy [3]), .D (nx210), .CLK (clk), .R (
+         nx341)) ;
+    mux21_ni ix211 (.Y (nx210), .A0 (Q[3]), .A1 (D[3]), .S0 (nx345)) ;
+    dffr reg_Q_4 (.Q (Q[4]), .QB (\$dummy [4]), .D (nx220), .CLK (clk), .R (
+         nx341)) ;
+    mux21_ni ix221 (.Y (nx220), .A0 (Q[4]), .A1 (D[4]), .S0 (nx345)) ;
+    dffr reg_Q_5 (.Q (Q[5]), .QB (\$dummy [5]), .D (nx230), .CLK (clk), .R (
+         nx341)) ;
+    mux21_ni ix231 (.Y (nx230), .A0 (Q[5]), .A1 (D[5]), .S0 (nx345)) ;
+    dffr reg_Q_6 (.Q (Q[6]), .QB (\$dummy [6]), .D (nx240), .CLK (clk), .R (
+         nx341)) ;
+    mux21_ni ix241 (.Y (nx240), .A0 (Q[6]), .A1 (D[6]), .S0 (nx345)) ;
+    dffr reg_Q_7 (.Q (Q[7]), .QB (\$dummy [7]), .D (nx250), .CLK (clk), .R (
+         nx343)) ;
+    mux21_ni ix251 (.Y (nx250), .A0 (Q[7]), .A1 (D[7]), .S0 (nx347)) ;
+    dffr reg_Q_8 (.Q (Q[8]), .QB (\$dummy [8]), .D (nx260), .CLK (clk), .R (
+         nx343)) ;
+    mux21_ni ix261 (.Y (nx260), .A0 (Q[8]), .A1 (D[8]), .S0 (nx347)) ;
+    dffr reg_Q_9 (.Q (Q[9]), .QB (\$dummy [9]), .D (nx270), .CLK (clk), .R (
+         nx343)) ;
+    mux21_ni ix271 (.Y (nx270), .A0 (Q[9]), .A1 (D[9]), .S0 (nx347)) ;
+    dffr reg_Q_10 (.Q (Q[10]), .QB (\$dummy [10]), .D (nx280), .CLK (clk), .R (
+         nx343)) ;
+    mux21_ni ix281 (.Y (nx280), .A0 (Q[10]), .A1 (D[10]), .S0 (nx347)) ;
+    dffr reg_Q_11 (.Q (Q[11]), .QB (\$dummy [11]), .D (nx290), .CLK (clk), .R (
+         nx343)) ;
+    mux21_ni ix291 (.Y (nx290), .A0 (Q[11]), .A1 (D[11]), .S0 (nx347)) ;
+    buf02 ix340 (.Y (nx341), .A (rst)) ;
+    buf02 ix342 (.Y (nx343), .A (rst)) ;
+    buf02 ix344 (.Y (nx345), .A (en)) ;
+    buf02 ix346 (.Y (nx347), .A (en)) ;
 endmodule
 
 
@@ -1081,55 +1177,53 @@ module Reg_13 ( D, en, clk, rst, Q ) ;
     output [12:0]Q ;
 
     wire nx192, nx202, nx212, nx222, nx232, nx242, nx252, nx262, nx272, nx282, 
-         nx292, nx302, nx312, nx366, nx368, nx370, nx372;
+         nx292, nx302, nx312, nx366, nx368;
     wire [12:0] \$dummy ;
 
 
 
 
-    dffr reg_Q_0 (.Q (Q[0]), .QB (\$dummy [0]), .D (nx192), .CLK (clk), .R (
-         nx366)) ;
-    mux21_ni ix193 (.Y (nx192), .A0 (Q[0]), .A1 (D[0]), .S0 (nx370)) ;
-    dffr reg_Q_1 (.Q (Q[1]), .QB (\$dummy [1]), .D (nx202), .CLK (clk), .R (
-         nx366)) ;
-    mux21_ni ix203 (.Y (nx202), .A0 (Q[1]), .A1 (D[1]), .S0 (nx370)) ;
-    dffr reg_Q_2 (.Q (Q[2]), .QB (\$dummy [2]), .D (nx212), .CLK (clk), .R (
-         nx366)) ;
-    mux21_ni ix213 (.Y (nx212), .A0 (Q[2]), .A1 (D[2]), .S0 (nx370)) ;
-    dffr reg_Q_3 (.Q (Q[3]), .QB (\$dummy [3]), .D (nx222), .CLK (clk), .R (
-         nx366)) ;
-    mux21_ni ix223 (.Y (nx222), .A0 (Q[3]), .A1 (D[3]), .S0 (nx370)) ;
-    dffr reg_Q_4 (.Q (Q[4]), .QB (\$dummy [4]), .D (nx232), .CLK (clk), .R (
-         nx366)) ;
-    mux21_ni ix233 (.Y (nx232), .A0 (Q[4]), .A1 (D[4]), .S0 (nx370)) ;
-    dffr reg_Q_5 (.Q (Q[5]), .QB (\$dummy [5]), .D (nx242), .CLK (clk), .R (
-         nx366)) ;
-    mux21_ni ix243 (.Y (nx242), .A0 (Q[5]), .A1 (D[5]), .S0 (nx370)) ;
-    dffr reg_Q_6 (.Q (Q[6]), .QB (\$dummy [6]), .D (nx252), .CLK (clk), .R (
-         nx366)) ;
-    mux21_ni ix253 (.Y (nx252), .A0 (Q[6]), .A1 (D[6]), .S0 (nx370)) ;
-    dffr reg_Q_7 (.Q (Q[7]), .QB (\$dummy [7]), .D (nx262), .CLK (clk), .R (
-         nx368)) ;
-    mux21_ni ix263 (.Y (nx262), .A0 (Q[7]), .A1 (D[7]), .S0 (nx372)) ;
-    dffr reg_Q_8 (.Q (Q[8]), .QB (\$dummy [8]), .D (nx272), .CLK (clk), .R (
-         nx368)) ;
-    mux21_ni ix273 (.Y (nx272), .A0 (Q[8]), .A1 (D[8]), .S0 (nx372)) ;
-    dffr reg_Q_9 (.Q (Q[9]), .QB (\$dummy [9]), .D (nx282), .CLK (clk), .R (
-         nx368)) ;
-    mux21_ni ix283 (.Y (nx282), .A0 (Q[9]), .A1 (D[9]), .S0 (nx372)) ;
+    dffr reg_Q_0 (.Q (Q[0]), .QB (\$dummy [0]), .D (nx192), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix193 (.Y (nx192), .A0 (Q[0]), .A1 (D[0]), .S0 (nx366)) ;
+    dffr reg_Q_1 (.Q (Q[1]), .QB (\$dummy [1]), .D (nx202), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix203 (.Y (nx202), .A0 (Q[1]), .A1 (D[1]), .S0 (nx366)) ;
+    dffr reg_Q_2 (.Q (Q[2]), .QB (\$dummy [2]), .D (nx212), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix213 (.Y (nx212), .A0 (Q[2]), .A1 (D[2]), .S0 (nx366)) ;
+    dffr reg_Q_3 (.Q (Q[3]), .QB (\$dummy [3]), .D (nx222), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix223 (.Y (nx222), .A0 (Q[3]), .A1 (D[3]), .S0 (nx366)) ;
+    dffr reg_Q_4 (.Q (Q[4]), .QB (\$dummy [4]), .D (nx232), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix233 (.Y (nx232), .A0 (Q[4]), .A1 (D[4]), .S0 (nx366)) ;
+    dffr reg_Q_5 (.Q (Q[5]), .QB (\$dummy [5]), .D (nx242), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix243 (.Y (nx242), .A0 (Q[5]), .A1 (D[5]), .S0 (nx366)) ;
+    dffr reg_Q_6 (.Q (Q[6]), .QB (\$dummy [6]), .D (nx252), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix253 (.Y (nx252), .A0 (Q[6]), .A1 (D[6]), .S0 (nx366)) ;
+    dffr reg_Q_7 (.Q (Q[7]), .QB (\$dummy [7]), .D (nx262), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix263 (.Y (nx262), .A0 (Q[7]), .A1 (D[7]), .S0 (nx368)) ;
+    dffr reg_Q_8 (.Q (Q[8]), .QB (\$dummy [8]), .D (nx272), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix273 (.Y (nx272), .A0 (Q[8]), .A1 (D[8]), .S0 (nx368)) ;
+    dffr reg_Q_9 (.Q (Q[9]), .QB (\$dummy [9]), .D (nx282), .CLK (clk), .R (rst)
+         ) ;
+    mux21_ni ix283 (.Y (nx282), .A0 (Q[9]), .A1 (D[9]), .S0 (nx368)) ;
     dffr reg_Q_10 (.Q (Q[10]), .QB (\$dummy [10]), .D (nx292), .CLK (clk), .R (
-         nx368)) ;
-    mux21_ni ix293 (.Y (nx292), .A0 (Q[10]), .A1 (D[10]), .S0 (nx372)) ;
+         rst)) ;
+    mux21_ni ix293 (.Y (nx292), .A0 (Q[10]), .A1 (D[10]), .S0 (nx368)) ;
     dffr reg_Q_11 (.Q (Q[11]), .QB (\$dummy [11]), .D (nx302), .CLK (clk), .R (
-         nx368)) ;
-    mux21_ni ix303 (.Y (nx302), .A0 (Q[11]), .A1 (D[11]), .S0 (nx372)) ;
+         rst)) ;
+    mux21_ni ix303 (.Y (nx302), .A0 (Q[11]), .A1 (D[11]), .S0 (nx368)) ;
     dffr reg_Q_12 (.Q (Q[12]), .QB (\$dummy [12]), .D (nx312), .CLK (clk), .R (
-         nx368)) ;
-    mux21_ni ix313 (.Y (nx312), .A0 (Q[12]), .A1 (D[12]), .S0 (nx372)) ;
-    buf02 ix365 (.Y (nx366), .A (rst)) ;
-    buf02 ix367 (.Y (nx368), .A (rst)) ;
-    buf02 ix369 (.Y (nx370), .A (en)) ;
-    buf02 ix371 (.Y (nx372), .A (en)) ;
+         rst)) ;
+    mux21_ni ix313 (.Y (nx312), .A0 (Q[12]), .A1 (D[12]), .S0 (nx368)) ;
+    buf02 ix365 (.Y (nx366), .A (en)) ;
+    buf02 ix367 (.Y (nx368), .A (en)) ;
 endmodule
 
 
@@ -1359,7 +1453,7 @@ module IO_16_4 ( Din, doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk, rst,
     output FCCounterEnable ;
     output decompDecrementorEnable ;
     output busy ;
-    output toCNN ;
+    inout toCNN ;
     output toFC ;
     inout INTRDelayed ;
     inout imageLoad ;
@@ -1458,7 +1552,7 @@ module Controller_16_4 ( doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk,
     output decompDecrementorEnable ;
     output imageCounterEnable ;
     output globalCounterEnable ;
-    output toCNN ;
+    inout toCNN ;
     output toFC ;
     inout doneDecomp ;
 
@@ -1466,101 +1560,114 @@ module Controller_16_4 ( doneDMAFC, doneDMACNN, doneDMAImage, INTR, load, clk,
          CNNRamLatchD, FCRamLatchD, CNNRamRst, imageRamRst, FCRamRst, 
          zeroStateDelayed, zeroStateDelayedSq, INTRDelayedSq, INTRFFD, 
          stateCounterEnable, CNNOrFC, busyRst, doneDMAImageDelayed, 
-         stateCounterQ_0, notClk, PWR, nx16, nx120, nx202, nx204, nx206, nx208, 
-         nx214, nx225, nx229, nx234, nx238, nx241, nx243, nx246, nx248, nx251, 
-         nx254, nx257, nx270;
+         doneCNNLatcherD, toCNNComb, delayedToCNN, delayedToCNNSq, 
+         delayedToCNNCube, stateCounterQ_0, PWR, nx24, nx128, nx221, nx225, 
+         nx227, nx229, nx231, nx237, nx248, nx252, nx257, nx261, nx264, nx266, 
+         nx269, nx271, nx274, nx277, nx280, nx293, nx295;
 
 
 
     assign interfaceMuxSel = imageOrCNN ;
     assign interfaceMuxEnable = load ;
-    DFF imageLatcher (.D (imageLatcherD), .clk (clk), .rst (rst), .en (PWR), .Q (
-        doneImage)) ;
-    DFF busyFF (.D (busyFFD), .clk (clk), .rst (busyRst), .en (PWR), .Q (busyFFQ
-        )) ;
-    Counter2_2 stateCounter (.en (stateCounterEnable), .reset (rst), .clk (nx270
-               ), .count ({CNNOrFC,stateCounterQ_0})) ;
-    DFF zeroLatch (.D (zeroState), .clk (nx270), .rst (rst), .en (PWR), .Q (
-        zeroStateDelayed)) ;
-    DFF zeroDelayedLatch (.D (zeroStateDelayed), .clk (nx270), .rst (rst), .en (
-        PWR), .Q (zeroStateDelayedSq)) ;
-    DFF INTRFF1 (.D (INTRFFD), .clk (notClk), .rst (rst), .en (PWR), .Q (
-        INTRDelayed)) ;
-    DFF INTRFF2 (.D (INTRDelayed), .clk (notClk), .rst (rst), .en (PWR), .Q (
-        INTRDelayedSq)) ;
-    DFF imgLatcher (.D (doneDMAImage), .clk (notClk), .rst (rst), .en (PWR), .Q (
-        doneDMAImageDelayed)) ;
-    DFF imageRamEn (.D (imageRamLatchD), .clk (clk), .rst (imageRamRst), .en (
-        PWR), .Q (imageRamEnable)) ;
-    DFF CNNRamEn (.D (CNNRamLatchD), .clk (clk), .rst (CNNRamRst), .en (PWR), .Q (
-        CNNRamEnable)) ;
-    DFF FCRamEn (.D (FCRamLatchD), .clk (clk), .rst (FCRamRst), .en (PWR), .Q (
-        FCRamEnable)) ;
-    fake_vcc ix167 (.Y (PWR)) ;
-    inv01 ix199 (.Y (notClk), .A (clk)) ;
-    or03 ix125 (.Y (busyRst), .A0 (nx120), .A1 (nx16), .A2 (zeroStateDelayedSq)
+    IODFF imageLatcher (.D (imageLatcherD), .clk (clk), .rst (rst), .en (PWR), .Q (
+          doneImage)) ;
+    IODFF busyFF (.D (busyFFD), .clk (clk), .rst (busyRst), .en (PWR), .Q (
+          busyFFQ)) ;
+    IOCounter2_2 stateCounter (.en (stateCounterEnable), .reset (rst), .clk (
+                 nx293), .count ({CNNOrFC,stateCounterQ_0})) ;
+    IODFF zeroLatch (.D (zeroState), .clk (nx293), .rst (rst), .en (PWR), .Q (
+          zeroStateDelayed)) ;
+    IODFF zeroDelayedLatch (.D (zeroStateDelayed), .clk (nx293), .rst (rst), .en (
+          PWR), .Q (zeroStateDelayedSq)) ;
+    IODFF INTRFF1 (.D (INTRFFD), .clk (nx293), .rst (rst), .en (PWR), .Q (
+          INTRDelayed)) ;
+    IODFF INTRFF2 (.D (INTRDelayed), .clk (nx293), .rst (rst), .en (PWR), .Q (
+          INTRDelayedSq)) ;
+    IODFF imgLatcher (.D (doneDMAImage), .clk (nx295), .rst (rst), .en (PWR), .Q (
+          doneDMAImageDelayed)) ;
+    IODFF imageRamEn (.D (imageRamLatchD), .clk (clk), .rst (imageRamRst), .en (
+          PWR), .Q (imageRamEnable)) ;
+    IODFF CNNRamEn (.D (CNNRamLatchD), .clk (clk), .rst (CNNRamRst), .en (PWR), 
+          .Q (CNNRamEnable)) ;
+    IODFF FCRamEn (.D (FCRamLatchD), .clk (clk), .rst (FCRamRst), .en (PWR), .Q (
+          FCRamEnable)) ;
+    IODFF doneCNNLatched (.D (doneCNNLatcherD), .clk (nx295), .rst (rst), .en (
+          PWR), .Q (toCNNComb)) ;
+    IODFF toCNNDelayer (.D (toCNNComb), .clk (nx295), .rst (rst), .en (PWR), .Q (
+          delayedToCNN)) ;
+    IODFF toCNNDelayerSqd (.D (delayedToCNN), .clk (nx295), .rst (rst), .en (PWR
+          ), .Q (delayedToCNNSq)) ;
+    IODFF toCNNDelayerCubed (.D (delayedToCNN), .clk (nx295), .rst (rst), .en (
+          PWR), .Q (delayedToCNNCube)) ;
+    fake_vcc ix183 (.Y (PWR)) ;
+    and03 ix13 (.Y (doneCNNLatcherD), .A0 (doneImage), .A1 (processing), .A2 (
+          nx221)) ;
+    inv01 ix222 (.Y (nx221), .A (CNNOrFC)) ;
+    or03 ix133 (.Y (busyRst), .A0 (nx128), .A1 (nx24), .A2 (zeroStateDelayedSq)
          ) ;
-    nor03_2x ix121 (.Y (nx120), .A0 (nx202), .A1 (FCRamEnable), .A2 (nx208)) ;
-    nand02 ix205 (.Y (nx204), .A0 (INTRDelayed), .A1 (nx206)) ;
-    inv01 ix207 (.Y (nx206), .A (zeroState)) ;
-    nand03 ix209 (.Y (nx208), .A0 (CNNOrFC), .A1 (load), .A2 (imageOrCNN)) ;
-    and02 ix13 (.Y (doneDecomp), .A0 (decompZeroState), .A1 (doneDMAImageDelayed
+    nor03_2x ix129 (.Y (nx128), .A0 (nx225), .A1 (FCRamEnable), .A2 (nx231)) ;
+    nand02 ix228 (.Y (nx227), .A0 (INTRDelayed), .A1 (nx229)) ;
+    inv01 ix230 (.Y (nx229), .A (zeroState)) ;
+    nand03 ix232 (.Y (nx231), .A0 (CNNOrFC), .A1 (load), .A2 (imageOrCNN)) ;
+    and02 ix21 (.Y (doneDecomp), .A0 (decompZeroState), .A1 (doneDMAImageDelayed
           )) ;
-    and02 ix109 (.Y (stateCounterEnable), .A0 (imageOrCNN), .A1 (doneWithPhase)
+    and02 ix117 (.Y (stateCounterEnable), .A0 (imageOrCNN), .A1 (doneWithPhase)
           ) ;
-    nor02ii ix19 (.Y (doneWithPhase), .A0 (nx214), .A1 (zeroState)) ;
-    nor03_2x ix215 (.Y (nx214), .A0 (doneDMACNN), .A1 (doneDMAFC), .A2 (
+    nor02ii ix27 (.Y (doneWithPhase), .A0 (nx237), .A1 (zeroState)) ;
+    nor03_2x ix238 (.Y (nx237), .A0 (doneDMACNN), .A1 (doneDMAFC), .A2 (
              doneDecomp)) ;
-    or02 ix21 (.Y (FCRamRst), .A0 (rst), .A1 (doneDMAFC)) ;
-    or03 ix83 (.Y (imageRamRst), .A0 (decompZeroState), .A1 (rst), .A2 (
+    or02 ix29 (.Y (FCRamRst), .A0 (rst), .A1 (doneDMAFC)) ;
+    or03 ix91 (.Y (imageRamRst), .A0 (decompZeroState), .A1 (rst), .A2 (
          doneDMAImage)) ;
-    or02 ix35 (.Y (CNNRamRst), .A0 (rst), .A1 (doneDMACNN)) ;
-    or02 ix23 (.Y (FCRamLatchD), .A0 (FCRamEnable), .A1 (FCRamWriteOld)) ;
-    or02 ix51 (.Y (CNNRamLatchD), .A0 (CNNRegisterEnable), .A1 (CNNRamEnable)) ;
-    nor04 ix49 (.Y (CNNRegisterEnable), .A0 (CNNOrFC), .A1 (rst), .A2 (nx225), .A3 (
-          nx204)) ;
-    nand02 ix226 (.Y (nx225), .A0 (load), .A1 (imageOrCNN)) ;
-    or02 ix93 (.Y (imageRamLatchD), .A0 (imageRegisterEnable), .A1 (
+    or02 ix43 (.Y (CNNRamRst), .A0 (rst), .A1 (doneDMACNN)) ;
+    or02 ix31 (.Y (FCRamLatchD), .A0 (FCRamEnable), .A1 (FCRamWriteOld)) ;
+    or02 ix59 (.Y (CNNRamLatchD), .A0 (CNNRegisterEnable), .A1 (CNNRamEnable)) ;
+    nor04 ix57 (.Y (CNNRegisterEnable), .A0 (CNNOrFC), .A1 (rst), .A2 (nx248), .A3 (
+          nx227)) ;
+    nand02 ix249 (.Y (nx248), .A0 (load), .A1 (imageOrCNN)) ;
+    or02 ix101 (.Y (imageRamLatchD), .A0 (imageRegisterEnable), .A1 (
          imageRamEnable)) ;
-    inv01 ix91 (.Y (imageRegisterEnable), .A (nx229)) ;
-    oai21 ix230 (.Y (nx229), .A0 (doneDMAImageDelayed), .A1 (INTRDelayedSq), .B0 (
+    inv01 ix99 (.Y (imageRegisterEnable), .A (nx252)) ;
+    oai21 ix253 (.Y (nx252), .A0 (doneDMAImageDelayed), .A1 (INTRDelayedSq), .B0 (
           imageLoad)) ;
-    nor02ii ix87 (.Y (imageLoad), .A0 (imageOrCNN), .A1 (load)) ;
-    or02 ix127 (.Y (busyFFD), .A0 (INTR), .A1 (busyFFQ)) ;
-    nand02 ix133 (.Y (imageLatcherD), .A0 (imageOrCNN), .A1 (nx234)) ;
-    inv01 ix235 (.Y (nx234), .A (doneImage)) ;
-    and04 ix5 (.Y (toFC), .A0 (stateCounterQ_0), .A1 (processing), .A2 (CNNOrFC)
-          , .A3 (doneImage)) ;
-    and03 ix11 (.Y (toCNN), .A0 (doneDMAImage), .A1 (processing), .A2 (nx238)) ;
-    inv01 ix239 (.Y (nx238), .A (CNNOrFC)) ;
-    aoi21 ix73 (.Y (globalCounterEnable), .A0 (nx241), .A1 (nx214), .B0 (rst)) ;
-    nand03 ix242 (.Y (nx241), .A0 (INTR), .A1 (nx243), .A2 (zeroState)) ;
-    inv01 ix244 (.Y (nx243), .A (rst)) ;
-    aoi21 ix103 (.Y (imageCounterEnable), .A0 (nx246), .A1 (nx248), .B0 (
+    nor02ii ix95 (.Y (imageLoad), .A0 (imageOrCNN), .A1 (load)) ;
+    or02 ix135 (.Y (busyFFD), .A0 (INTR), .A1 (busyFFQ)) ;
+    nand02 ix141 (.Y (imageLatcherD), .A0 (imageOrCNN), .A1 (nx257)) ;
+    inv01 ix258 (.Y (nx257), .A (doneImage)) ;
+    and04 ix19 (.Y (toFC), .A0 (processing), .A1 (stateCounterQ_0), .A2 (CNNOrFC
+          ), .A3 (doneImage)) ;
+    nor02_2x ix7 (.Y (toCNN), .A0 (delayedToCNNCube), .A1 (nx261)) ;
+    nor03_2x ix262 (.Y (nx261), .A0 (delayedToCNN), .A1 (delayedToCNNSq), .A2 (
+             toCNNComb)) ;
+    aoi21 ix81 (.Y (globalCounterEnable), .A0 (nx264), .A1 (nx237), .B0 (rst)) ;
+    nand03 ix265 (.Y (nx264), .A0 (INTR), .A1 (nx266), .A2 (zeroState)) ;
+    inv01 ix267 (.Y (nx266), .A (rst)) ;
+    aoi21 ix111 (.Y (imageCounterEnable), .A0 (nx269), .A1 (nx271), .B0 (
           zeroState)) ;
-    inv01 ix247 (.Y (nx246), .A (doneDMAImageDelayed)) ;
-    inv01 ix249 (.Y (nx248), .A (INTRDelayed)) ;
-    inv02 ix97 (.Y (decompDecrementorEnable), .A (nx251)) ;
-    oai21 ix252 (.Y (nx251), .A0 (INTRDelayed), .A1 (doneDMAImage), .B0 (
+    inv01 ix270 (.Y (nx269), .A (doneDMAImageDelayed)) ;
+    inv01 ix272 (.Y (nx271), .A (INTRDelayed)) ;
+    inv02 ix105 (.Y (decompDecrementorEnable), .A (nx274)) ;
+    oai21 ix275 (.Y (nx274), .A0 (INTRDelayed), .A1 (doneDMAImage), .B0 (
           imageLoad)) ;
-    nor03_2x ix33 (.Y (FCCounterEnable), .A0 (nx208), .A1 (nx254), .A2 (rst)) ;
-    inv01 ix255 (.Y (nx254), .A (doneDMAFC)) ;
-    nor04 ix61 (.Y (CNNCounterEnable), .A0 (nx257), .A1 (CNNOrFC), .A2 (rst), .A3 (
-          nx225)) ;
-    inv01 ix258 (.Y (nx257), .A (doneDMACNN)) ;
-    or02 ix129 (.Y (busy), .A0 (busyFFD), .A1 (FCRamEnable)) ;
-    nor03_2x ix115 (.Y (FCRegisterEnable), .A0 (nx204), .A1 (rst), .A2 (nx208)
+    nor03_2x ix41 (.Y (FCCounterEnable), .A0 (nx231), .A1 (nx277), .A2 (rst)) ;
+    inv01 ix278 (.Y (nx277), .A (doneDMAFC)) ;
+    nor04 ix69 (.Y (CNNCounterEnable), .A0 (nx280), .A1 (CNNOrFC), .A2 (rst), .A3 (
+          nx248)) ;
+    inv01 ix281 (.Y (nx280), .A (doneDMACNN)) ;
+    or02 ix137 (.Y (busy), .A0 (busyFFD), .A1 (FCRamEnable)) ;
+    nor03_2x ix123 (.Y (FCRegisterEnable), .A0 (nx227), .A1 (rst), .A2 (nx231)
              ) ;
-    inv01 ix17 (.Y (nx16), .A (nx214)) ;
-    inv01 ix203 (.Y (nx202), .A (FCRegisterEnable)) ;
-    inv01 ix67 (.Y (globalCounterLoad), .A (nx241)) ;
-    inv01 ix269 (.Y (nx270), .A (clk)) ;
-    nor02ii ix107 (.Y (INTRFFD), .A0 (zeroStateDelayed), .A1 (INTR)) ;
-    and03 ix79 (.Y (interfaceRegEnable), .A0 (INTR), .A1 (nx243), .A2 (load)) ;
+    inv01 ix25 (.Y (nx24), .A (nx237)) ;
+    inv01 ix226 (.Y (nx225), .A (FCRegisterEnable)) ;
+    inv01 ix75 (.Y (globalCounterLoad), .A (nx264)) ;
+    inv02 ix292 (.Y (nx293), .A (clk)) ;
+    inv02 ix294 (.Y (nx295), .A (clk)) ;
+    nor02ii ix115 (.Y (INTRFFD), .A0 (zeroStateDelayed), .A1 (INTR)) ;
+    and03 ix87 (.Y (interfaceRegEnable), .A0 (INTR), .A1 (nx266), .A2 (load)) ;
 endmodule
 
 
-module Counter2_2 ( en, reset, clk, count ) ;
+module IOCounter2_2 ( en, reset, clk, count ) ;
 
     input en ;
     input reset ;
@@ -1645,7 +1752,7 @@ module Reg_2 ( D, en, clk, rst, Q ) ;
 endmodule
 
 
-module DFF ( D, clk, rst, en, Q ) ;
+module IODFF ( D, clk, rst, en, Q ) ;
 
     input D ;
     input clk ;
