@@ -276,10 +276,23 @@ sim:/accelerator/finishNetwork
     }
 	puts "done with FC phase"
     close $fileImage
+	--Load FC mem 
+	mem load -i C:/Users/Osama/Desktop/10neoronsTC/RAMWEIGHTS.mem /accelerator/FC/ram
 	set FCCycles [expr {$FCCycles + 5}]
 	puts "FC cycles taken"
 	puts $FCCycles
 	run $runTime
+	
+	set samirDone [examine -binary /Accelerator/finishNetwork]
+	while { $samirDone == 0 } {
+		run $halfRunTime
+		set samirDone [examine -binary /Accelerator/finishNetwork]
+	}
+	--load CNN mem
+	mem load -i C:/Users/Osama/Desktop/10neoronsTC/RAMNEORONS.mem /accelerator/CNN/ram
+	
+
+	
 
     
 mem save -o Image.mem -f mti -noaddress -data decimal -addr decimal -startaddress 0 -endaddress 576 -wordsperline 1 /accelerator/Image/ram
