@@ -49,6 +49,16 @@ def generateTestCase(cnn_out_dims):
 
     cnn_out = [BS.pack('int:16=a',a=1<<8)] + cnn_out #first raw is biases
 
+    biasesTmp = weights[0]
+    weightsTmp = weights[1:]
+    cnn_outTmp = cnn_out[1:]
+
+    cnn_out_valid = np.array(map(toFloatWord,cnn_outTmp))
+    biases_valid = np.array(map(toFloatByte,biasesTmp))
+    weights_valid = np.array([map(toFloatByte,i) for i in weightsTmp])
+    result_valid = np.dot(cnn_out_valid,weights_valid) + biases_valid
+    print(result_valid)
+
     predictions = [ BS.pack('int:16=a',a=0) for i in range(10)]
     for neur in range(cnn_out_dims+1):
         #printPredictions(predictions)
@@ -57,14 +67,15 @@ def generateTestCase(cnn_out_dims):
         printPredictions(predictions)
     maxi = np.argmax(map(toIntWord,predictions))
 
-    biases = weights[0]
-    weights = weights[1:]
-    cnn_out = cnn_out[1:]
+    biasesTmp = weights[0]
+    weightsTmp = weights[1:]
+    cnn_outTmp = cnn_out[1:]
 
-    cnn_out_valid = np.array(map(toFloatWord,cnn_out))
-    biases_valid = np.array(map(toFloatByte,biases))
-    weights_valid = np.array([map(toFloatByte,i) for i in weights])
+    cnn_out_valid = np.array(map(toFloatWord,cnn_outTmp))
+    biases_valid = np.array(map(toFloatByte,biasesTmp))
+    weights_valid = np.array([map(toFloatByte,i) for i in weightsTmp])
     result_valid = np.dot(cnn_out_valid,weights_valid) + biases_valid
+    print(result_valid)
     max_valid = np.max(result_valid)
     with open("./TestCaseFC/FCtest.txt",'a') as f:
         f.write("\nValid Answer is: ")
@@ -73,7 +84,7 @@ def generateTestCase(cnn_out_dims):
         f.write("\nAnd valid maximuim is : {} in float".format(max_valid))
         f.write("\nFC answer is {} in float and {} in hex".format( toFloatWord( predictions[maxi] ), predictions[maxi].hex ) )
 
-    return weights,cnn_out,biases
+    return weightsTmp,cnn_outTmp,biasesTmp
 
     
 weights,cnn_out,biases = generateTestCase(int(sys.argv[1]))

@@ -23,7 +23,6 @@ def readWeightsBiases(weightsFile):
         biases = [ floatToBitStreamByte(tmp[str(num)]) for num in range(10)]
         weights = transpose(weights)
         weights.insert(0,biases)
-        print([ b.bin for b in weights[0]],[ b.bin for b in weights[1]],[ b.bin for b in weights[2]],[ b.bin for b in weights[4]])
 	return weights,neoronsNum
 
 
