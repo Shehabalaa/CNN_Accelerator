@@ -2,13 +2,14 @@
 -- 
 -- Definition of  FcMain
 -- 
---      Fri May 10 02:47:33 2019
+--      Sat May 11 17:08:32 2019
 --      
 --      LeonardoSpectrum Level 3, 2018a.2
 -- 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity RisingHolderFullCycle is
    port (
@@ -30,6 +31,7 @@ end RisingHolderFullCycleArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity FullAdder is
    port (
@@ -52,6 +54,7 @@ end FullAdderArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity NBitAdder_16 is
    port (
@@ -112,6 +115,7 @@ end NBitAdderArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity CounterUpDown_16 is
    port (
@@ -325,6 +329,7 @@ end CounterUpDownArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Mux2_16 is
    port (
@@ -335,33 +340,37 @@ entity Mux2_16 is
 end Mux2_16 ;
 
 architecture Mux2Arch of Mux2_16 is
-   signal nx173, nx175, nx177, nx179: std_logic ;
+   signal nx173, nx185, nx187, nx189: std_logic ;
 
 begin
-   ix7 : mux21_ni port map ( Y=>C(0), A0=>A(0), A1=>B(0), S0=>nx175);
-   ix15 : mux21_ni port map ( Y=>C(1), A0=>A(1), A1=>B(1), S0=>nx175);
-   ix23 : mux21_ni port map ( Y=>C(2), A0=>A(2), A1=>B(2), S0=>nx175);
-   ix31 : mux21_ni port map ( Y=>C(3), A0=>A(3), A1=>B(3), S0=>nx175);
-   ix39 : mux21_ni port map ( Y=>C(4), A0=>A(4), A1=>B(4), S0=>nx175);
-   ix47 : mux21_ni port map ( Y=>C(5), A0=>A(5), A1=>B(5), S0=>nx175);
-   ix55 : mux21_ni port map ( Y=>C(6), A0=>A(6), A1=>B(6), S0=>nx175);
-   ix63 : mux21_ni port map ( Y=>C(7), A0=>A(7), A1=>B(7), S0=>nx177);
-   ix71 : mux21_ni port map ( Y=>C(8), A0=>A(8), A1=>B(8), S0=>nx177);
-   ix79 : mux21_ni port map ( Y=>C(9), A0=>A(9), A1=>B(9), S0=>nx177);
-   ix87 : mux21_ni port map ( Y=>C(10), A0=>A(10), A1=>B(10), S0=>nx177);
-   ix95 : mux21_ni port map ( Y=>C(11), A0=>A(11), A1=>B(11), S0=>nx177);
-   ix103 : mux21_ni port map ( Y=>C(12), A0=>A(12), A1=>B(12), S0=>nx177);
-   ix111 : mux21_ni port map ( Y=>C(13), A0=>A(13), A1=>B(13), S0=>nx177);
-   ix119 : mux21_ni port map ( Y=>C(14), A0=>A(14), A1=>B(14), S0=>nx179);
-   ix127 : mux21_ni port map ( Y=>C(15), A0=>A(15), A1=>B(15), S0=>nx179);
-   ix172 : inv01 port map ( Y=>nx173, A=>S);
-   ix174 : inv02 port map ( Y=>nx175, A=>nx173);
-   ix176 : inv02 port map ( Y=>nx177, A=>nx173);
-   ix178 : inv02 port map ( Y=>nx179, A=>nx173);
+   ix15 : mux21_ni port map ( Y=>C(1), A0=>A(1), A1=>B(1), S0=>nx185);
+   ix23 : mux21_ni port map ( Y=>C(2), A0=>A(2), A1=>B(2), S0=>nx185);
+   ix31 : mux21_ni port map ( Y=>C(3), A0=>A(3), A1=>B(3), S0=>nx185);
+   ix39 : mux21_ni port map ( Y=>C(4), A0=>A(4), A1=>B(4), S0=>nx185);
+   ix47 : mux21_ni port map ( Y=>C(5), A0=>A(5), A1=>B(5), S0=>nx185);
+   ix55 : mux21_ni port map ( Y=>C(6), A0=>A(6), A1=>B(6), S0=>nx185);
+   ix71 : mux21_ni port map ( Y=>C(8), A0=>A(8), A1=>B(8), S0=>nx185);
+   ix79 : mux21_ni port map ( Y=>C(9), A0=>A(9), A1=>B(9), S0=>nx187);
+   ix87 : mux21_ni port map ( Y=>C(10), A0=>A(10), A1=>B(10), S0=>nx187);
+   ix95 : mux21_ni port map ( Y=>C(11), A0=>A(11), A1=>B(11), S0=>nx187);
+   ix103 : mux21_ni port map ( Y=>C(12), A0=>A(12), A1=>B(12), S0=>nx187);
+   ix111 : mux21_ni port map ( Y=>C(13), A0=>A(13), A1=>B(13), S0=>nx187);
+   ix119 : mux21_ni port map ( Y=>C(14), A0=>A(14), A1=>B(14), S0=>nx187);
+   reg_C_7 : ao22 port map ( Y=>C(7), A0=>A(7), A1=>nx173, B0=>B(7), B1=>
+      nx187);
+   reg_C_0 : ao22 port map ( Y=>C(0), A0=>A(0), A1=>nx173, B0=>B(0), B1=>
+      nx189);
+   reg_nx173 : inv02 port map ( Y=>nx173, A=>S);
+   reg_C_15 : ao22 port map ( Y=>C(15), A0=>A(15), A1=>nx173, B0=>B(15), B1
+      =>nx189);
+   ix184 : inv02 port map ( Y=>nx185, A=>nx173);
+   ix186 : inv02 port map ( Y=>nx187, A=>nx173);
+   ix188 : inv02 port map ( Y=>nx189, A=>nx173);
 end Mux2Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity RegTony_16 is
    port (
@@ -389,9 +398,9 @@ architecture RegTonyArch of RegTony_16 is
       nx666, nx676, nx686, nx696, nx706, nx716, nx726, nx736, nx746, nx756, 
       nx766, nx776, nx786, nx796, nx806, nx816, nx826, nx836, nx860, nx869, 
       nx876, nx883, nx890, nx897, nx904, nx911, nx918, nx925, nx932, nx939, 
-      nx946, nx953, nx960, nx1035, nx1037, nx1039, nx1041, nx1043, nx1045, 
-      nx1047, nx1049, nx1051, nx1055, nx1057, nx1094, nx1053, nx846: 
-   std_logic ;
+      nx946, nx953, nx960, nx1037, nx1039, nx1041, nx1043, nx1045, nx1049, 
+      nx1051, nx1055, nx1057, nx1047, nx1047_XX0_XREP1, nx1035, 
+      nx1035_XX0_XREP3, nx1094, nx1053, nx846: std_logic ;
 
 begin
    Q(15) <= Q_15_EXMPLR ;
@@ -599,17 +608,19 @@ begin
    ix109 : nor02ii port map ( Y=>nx108, A0=>load(13), A1=>nx1045);
    ix117 : nor02ii port map ( Y=>nx116, A0=>load(14), A1=>nx1045);
    ix125 : nor02ii port map ( Y=>nx124, A0=>load(15), A1=>nx1045);
-   ix1034 : inv01 port map ( Y=>nx1035, A=>rst);
-   ix1036 : inv01 port map ( Y=>nx1037, A=>nx1035);
-   ix1038 : inv01 port map ( Y=>nx1039, A=>nx1035);
+   ix1036 : inv01 port map ( Y=>nx1037, A=>nx1035_XX0_XREP3);
+   ix1038 : inv01 port map ( Y=>nx1039, A=>nx1035_XX0_XREP3);
    ix1040 : inv01 port map ( Y=>nx1041, A=>nx1035);
    ix1042 : inv01 port map ( Y=>nx1043, A=>nx1035);
    ix1044 : inv01 port map ( Y=>nx1045, A=>nx1035);
-   ix1046 : inv01 port map ( Y=>nx1047, A=>en);
-   ix1048 : inv02 port map ( Y=>nx1049, A=>nx1047);
-   ix1050 : inv02 port map ( Y=>nx1051, A=>nx1047);
+   ix1048 : inv02 port map ( Y=>nx1049, A=>nx1047_XX0_XREP1);
+   ix1050 : inv02 port map ( Y=>nx1051, A=>nx1047_XX0_XREP1);
    ix1054 : inv02 port map ( Y=>nx1055, A=>nx1047);
    ix1056 : inv02 port map ( Y=>nx1057, A=>nx1047);
+   ix1046 : inv01 port map ( Y=>nx1047, A=>en);
+   ix1046_0_XREP1 : inv01 port map ( Y=>nx1047_XX0_XREP1, A=>en);
+   ix1034 : inv01 port map ( Y=>nx1035, A=>rst);
+   ix1034_0_XREP3 : inv01 port map ( Y=>nx1035_XX0_XREP3, A=>rst);
    ix1095 : inv02 port map ( Y=>nx1094, A=>D(15));
    reg_nx1053 : inv02 port map ( Y=>nx1053, A=>nx1047);
    reg_nx846 : ao22 port map ( Y=>nx846, A0=>Qbar_15_EXMPLR, A1=>nx1047, B0
@@ -618,6 +629,7 @@ end RegTonyArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity RegTony_4 is
    port (
@@ -634,7 +646,8 @@ architecture RegTonyArch of RegTony_4 is
    signal Q_3_EXMPLR, Q_2_EXMPLR, Q_1_EXMPLR, Q_0_EXMPLR, Qbar_3_EXMPLR, 
       Qbar_2_EXMPLR, Qbar_1_EXMPLR, Qbar_0_EXMPLR, nx0, nx4, nx8, nx12, nx16, 
       nx20, nx24, nx28, nx176, nx186, nx196, nx206, nx216, nx226, nx236, 
-      nx246, nx260, nx269, nx276, nx283, nx305, nx307: std_logic ;
+      nx260, nx269, nx276, nx307, nx320, nx321, nx246, nx325, nx327: 
+   std_logic ;
 
 begin
    Q(3) <= Q_3_EXMPLR ;
@@ -648,38 +661,35 @@ begin
    reg_Qbar_0 : dffsr_ni port map ( Q=>Qbar_0_EXMPLR, QB=>OPEN, D=>nx216, 
       CLK=>clk, S=>nx4, R=>nx0);
    ix217 : mux21_ni port map ( Y=>nx216, A0=>Qbar_0_EXMPLR, A1=>nx260, S0=>
-      nx305);
+      nx325);
    ix261 : inv01 port map ( Y=>nx260, A=>D(0));
    ix1 : and02 port map ( Y=>nx0, A0=>rst, A1=>load(0));
    reg_Qbar_1 : dffsr_ni port map ( Q=>Qbar_1_EXMPLR, QB=>OPEN, D=>nx226, 
       CLK=>clk, S=>nx12, R=>nx8);
    ix227 : mux21_ni port map ( Y=>nx226, A0=>Qbar_1_EXMPLR, A1=>nx269, S0=>
-      nx305);
+      nx325);
    ix270 : inv01 port map ( Y=>nx269, A=>D(1));
    ix9 : and02 port map ( Y=>nx8, A0=>rst, A1=>load(1));
    reg_Qbar_2 : dffsr_ni port map ( Q=>Qbar_2_EXMPLR, QB=>OPEN, D=>nx236, 
       CLK=>clk, S=>nx20, R=>nx16);
    ix237 : mux21_ni port map ( Y=>nx236, A0=>Qbar_2_EXMPLR, A1=>nx276, S0=>
-      nx305);
+      nx325);
    ix277 : inv01 port map ( Y=>nx276, A=>D(2));
    ix17 : and02 port map ( Y=>nx16, A0=>rst, A1=>load(2));
    reg_Qbar_3 : dffsr_ni port map ( Q=>Qbar_3_EXMPLR, QB=>OPEN, D=>nx246, 
       CLK=>clk, S=>nx28, R=>nx24);
-   ix247 : mux21_ni port map ( Y=>nx246, A0=>Qbar_3_EXMPLR, A1=>nx283, S0=>
-      nx305);
-   ix284 : inv01 port map ( Y=>nx283, A=>D(3));
    ix25 : and02 port map ( Y=>nx24, A0=>rst, A1=>load(3));
    reg_Q_0 : dffsr_ni port map ( Q=>Q_0_EXMPLR, QB=>OPEN, D=>nx176, CLK=>clk, 
       S=>nx0, R=>nx4);
-   ix177 : mux21_ni port map ( Y=>nx176, A0=>Q_0_EXMPLR, A1=>D(0), S0=>nx305
+   ix177 : mux21_ni port map ( Y=>nx176, A0=>Q_0_EXMPLR, A1=>D(0), S0=>nx325
    );
    reg_Q_1 : dffsr_ni port map ( Q=>Q_1_EXMPLR, QB=>OPEN, D=>nx186, CLK=>clk, 
       S=>nx8, R=>nx12);
-   ix187 : mux21_ni port map ( Y=>nx186, A0=>Q_1_EXMPLR, A1=>D(1), S0=>nx305
+   ix187 : mux21_ni port map ( Y=>nx186, A0=>Q_1_EXMPLR, A1=>D(1), S0=>nx325
    );
    reg_Q_2 : dffsr_ni port map ( Q=>Q_2_EXMPLR, QB=>OPEN, D=>nx196, CLK=>clk, 
       S=>nx16, R=>nx20);
-   ix197 : mux21_ni port map ( Y=>nx196, A0=>Q_2_EXMPLR, A1=>D(2), S0=>nx305
+   ix197 : mux21_ni port map ( Y=>nx196, A0=>Q_2_EXMPLR, A1=>D(2), S0=>nx325
    );
    reg_Q_3 : dffsr_ni port map ( Q=>Q_3_EXMPLR, QB=>OPEN, D=>nx206, CLK=>clk, 
       S=>nx24, R=>nx28);
@@ -689,12 +699,18 @@ begin
    ix13 : nor02ii port map ( Y=>nx12, A0=>load(1), A1=>rst);
    ix21 : nor02ii port map ( Y=>nx20, A0=>load(2), A1=>rst);
    ix29 : nor02ii port map ( Y=>nx28, A0=>load(3), A1=>rst);
-   ix304 : buf02 port map ( Y=>nx305, A=>en);
-   ix306 : buf02 port map ( Y=>nx307, A=>en);
+   ix306 : buf02 port map ( Y=>nx307, A=>nx325);
+   ix322 : inv02 port map ( Y=>nx320, A=>en);
+   ix323 : inv02 port map ( Y=>nx321, A=>D(3));
+   reg_nx246 : ao22 port map ( Y=>nx246, A0=>Qbar_3_EXMPLR, A1=>nx320, B0=>
+      nx327, B1=>nx321);
+   ix324 : inv02 port map ( Y=>nx325, A=>nx320);
+   ix326 : inv02 port map ( Y=>nx327, A=>nx320);
 end RegTonyArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity NBitAdder_4 is
    port (
@@ -729,6 +745,7 @@ end NBitAdderArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity CounterUpDown_4 is
    port (
@@ -754,7 +771,7 @@ architecture CounterUpDownArch of CounterUpDown_4 is
    signal count_3_EXMPLR, count_2_EXMPLR, count_1_EXMPLR, count_0_EXMPLR, 
       countAdded_3, countAdded_2, countAdded_1, countAdded_0, NOT_upOrDown, 
       nx8, nx10, nx14, nx24, nx26, nx30, nx40, nx42, nx46, nx56, nx58, nx62, 
-      nx202, nx212, nx222, nx232, nx249, nx279: std_logic ;
+      nx202, nx212, nx222, nx232, nx249, nx290: std_logic ;
    
    signal DANGLING : std_logic_vector (0 downto 0 );
 
@@ -774,39 +791,40 @@ begin
    ix203 : mux21_ni port map ( Y=>nx202, A0=>nx8, A1=>count_0_EXMPLR, S0=>
       nx249);
    ix9 : mux21_ni port map ( Y=>nx8, A0=>load(0), A1=>countAdded_0, S0=>
-      nx279);
-   ix250 : nor02_2x port map ( Y=>nx249, A0=>nx279, A1=>isLoad);
+      nx290);
    ix11 : and02 port map ( Y=>nx10, A0=>resetValue(0), A1=>rst);
    reg_currentCount_1 : dffsr_ni port map ( Q=>count_1_EXMPLR, QB=>OPEN, D=>
       nx212, CLK=>clk, S=>nx26, R=>nx30);
    ix213 : mux21_ni port map ( Y=>nx212, A0=>nx24, A1=>count_1_EXMPLR, S0=>
       nx249);
    ix25 : mux21_ni port map ( Y=>nx24, A0=>load(1), A1=>countAdded_1, S0=>
-      nx279);
+      nx290);
    ix27 : and02 port map ( Y=>nx26, A0=>resetValue(1), A1=>rst);
    reg_currentCount_2 : dffsr_ni port map ( Q=>count_2_EXMPLR, QB=>OPEN, D=>
       nx222, CLK=>clk, S=>nx42, R=>nx46);
    ix223 : mux21_ni port map ( Y=>nx222, A0=>nx40, A1=>count_2_EXMPLR, S0=>
       nx249);
    ix41 : mux21_ni port map ( Y=>nx40, A0=>load(2), A1=>countAdded_2, S0=>
-      nx279);
+      nx290);
    ix43 : and02 port map ( Y=>nx42, A0=>resetValue(2), A1=>rst);
    reg_currentCount_3 : dffsr_ni port map ( Q=>count_3_EXMPLR, QB=>OPEN, D=>
       nx232, CLK=>clk, S=>nx58, R=>nx62);
    ix233 : mux21_ni port map ( Y=>nx232, A0=>nx56, A1=>count_3_EXMPLR, S0=>
       nx249);
    ix57 : mux21_ni port map ( Y=>nx56, A0=>load(3), A1=>countAdded_3, S0=>
-      nx279);
+      nx290);
    ix59 : and02 port map ( Y=>nx58, A0=>resetValue(3), A1=>rst);
    ix15 : nor02ii port map ( Y=>nx14, A0=>resetValue(0), A1=>rst);
    ix31 : nor02ii port map ( Y=>nx30, A0=>resetValue(1), A1=>rst);
    ix47 : nor02ii port map ( Y=>nx46, A0=>resetValue(2), A1=>rst);
    ix63 : nor02ii port map ( Y=>nx62, A0=>resetValue(3), A1=>rst);
-   ix278 : buf02 port map ( Y=>nx279, A=>en);
+   reg_nx249 : nor02_2x port map ( Y=>nx249, A0=>isLoad, A1=>nx290);
+   ix289 : buf02 port map ( Y=>nx290, A=>en);
 end CounterUpDownArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Comparator_16 is
    port (
@@ -817,296 +835,263 @@ entity Comparator_16 is
 end Comparator_16 ;
 
 architecture ComparatorArch of Comparator_16 is
-   signal nx91, nx137, nx203, nx5, nx332, nx333, nx334, nx335, nx336, nx337, 
-      nx338, nx339, nx88, nx340, nx341, nx342, nx343, nx344, nx345, nx346, 
-      nx347, nx348, nx349, nx350, nx351, nx352, nx40, nx177, nx353, nx354, 
-      nx355, nx356, nx357, nx358, nx359, nx360, nx361, nx362, nx363, nx364, 
-      nx365, nx141, nx366, nx367, nx368, nx369, nx370, nx371, nx372, nx373, 
+   signal nx91, nx170, nx137, nx213, nx215, nx5, nx332, nx333, nx334, nx335, 
+      nx336, nx337, nx338, nx339, nx88, nx340, nx341, nx342, nx343, nx344, 
+      nx345, nx346, nx347, nx348, nx349, nx350, nx351, nx352, nx353, nx354, 
+      nx355, nx356, nx357, nx358, nx359, nx177, nx360, nx361, nx362, nx363, 
+      nx364, nx365, nx366, nx367, nx368, nx369, nx370, nx371, nx372, nx373, 
       nx374, nx375, nx376, nx377, nx378, nx379, nx380, nx381, nx382, nx383, 
       nx384, nx385, nx386, nx387, nx388, nx389, nx390, nx391, nx392, nx393, 
       nx394, nx395, nx396, nx397, nx398, nx399, nx400, nx401, nx402, nx403, 
       nx404, nx405, nx406, nx407, nx408, nx409, nx410, nx411, nx412, nx413, 
       nx414, nx415, nx416, nx417, nx418, nx419, nx420, nx421, nx422, nx423, 
-      nx424, nx425, nx426, nx427, nx428, nx181, nx429, nx430, nx431, nx432, 
+      nx424, nx425, nx426, nx427, nx428, nx429, nx430, nx431, nx72, nx432, 
       nx433, nx434, nx435, nx436, nx437, nx438, nx439, nx440, nx441, nx442, 
-      nx443, nx444, nx268, nx445, nx286, nx446, nx447, nx448, nx449, nx450, 
-      nx451, nx452, nx453, nx454, nx455, nx456, nx457, nx458, nx459, nx460, 
-      nx461, nx462, nx463, nx464, nx465, nx466, nx467, nx468, nx469, nx470, 
-      nx471, nx472, nx473, nx474, nx475, nx64, nx476, nx477, nx478, nx479, 
-      nx480, nx481, nx482, nx483, nx484, nx485, nx486, nx487, nx488, nx489, 
-      nx490, nx491, nx492, nx493, nx494, nx495, nx496, nx497, nx165, nx498, 
-      nx499, nx44, nx500, nx501, nx502, nx503, nx504, nx505, nx209, nx170, 
-      nx506, nx507, nx508, nx509, nx510, nx188, NOT_nx56, nx511, nx512, 
-      nx513, nx514, nx699, nx701, nx703, nx705, nx711: std_logic ;
+      nx48, nx443, nx44, nx444, nx445, nx446, nx447, nx448, nx449, nx450, 
+      nx451, nx452, NOT_nx277, nx453, nx454, nx56, nx455, nx456, nx52, nx457, 
+      nx458, nx286, nx459, nx460, nx461, nx209, nx462, nx463, nx464, nx465, 
+      nx466, nx467, nx468, nx469, nx470, nx471, nx472, nx473, nx474, nx475, 
+      nx476, nx477, nx478, nx188, nx479, NOT_nx141, nx480, nx481, nx633, 
+      nx635, nx637, nx639, nx641, nx643, nx649, nx651: std_logic ;
 
 begin
    ix92 : fake_gnd port map ( Y=>nx91);
    ix93 : and02 port map ( Y=>outputEqual, A0=>nx137, A1=>nx88);
    ix138 : xnor2 port map ( Y=>nx137, A0=>inputA(0), A1=>inputB(0));
-   ix204 : inv01 port map ( Y=>nx203, A=>inputB(14));
+   ix171 : oai33 port map ( Y=>nx170, A0=>nx209, A1=>nx213, A2=>inputB(12), 
+      B0=>nx177, B1=>nx215, B2=>inputB(13));
+   ix214 : inv01 port map ( Y=>nx213, A=>inputA(12));
+   ix216 : inv01 port map ( Y=>nx215, A=>inputA(13));
    lat_outputG_u1 : latchs_ni port map ( QB=>nx5, D=>nx91, CLK=>nx188, S=>
       nx286);
    lat_outputG_u2 : inv02 port map ( Y=>outputG, A=>nx5);
-   ix515 : inv02 port map ( Y=>nx332, A=>inputA(2));
-   ix516 : inv02 port map ( Y=>nx333, A=>inputA(3));
-   ix517 : inv02 port map ( Y=>nx334, A=>inputB(1));
-   ix518 : inv02 port map ( Y=>nx335, A=>inputB(0));
-   ix519 : aoi22 port map ( Y=>nx336, A0=>inputA(1), A1=>nx334, B0=>
+   ix482 : inv02 port map ( Y=>nx332, A=>inputA(2));
+   ix483 : inv02 port map ( Y=>nx333, A=>inputA(3));
+   ix484 : inv02 port map ( Y=>nx334, A=>inputB(1));
+   ix485 : inv02 port map ( Y=>nx335, A=>inputB(0));
+   ix486 : aoi22 port map ( Y=>nx336, A0=>inputA(1), A1=>nx334, B0=>
       inputA(0), B1=>nx335);
-   ix520 : nor02ii port map ( Y=>nx337, A0=>inputA(1), A1=>inputB(1));
-   ix521 : inv02 port map ( Y=>nx338, A=>inputA(1));
-   ix522 : aoi22 port map ( Y=>nx339, A0=>inputB(1), A1=>inputA(1), B0=>
+   ix487 : nor02ii port map ( Y=>nx337, A0=>inputA(1), A1=>inputB(1));
+   ix488 : inv02 port map ( Y=>nx338, A=>inputA(1));
+   ix489 : aoi22 port map ( Y=>nx339, A0=>inputB(1), A1=>inputA(1), B0=>
       nx334, B1=>nx338);
-   reg_nx88 : nor02_2x port map ( Y=>nx88, A0=>nx339, A1=>nx141);
-   ix523 : inv02 port map ( Y=>nx340, A=>nx334);
-   ix524 : nand02_2x port map ( Y=>nx341, A0=>inputB(1), A1=>nx338);
-   ix525 : nor02ii port map ( Y=>nx342, A0=>inputA(0), A1=>inputB(0));
-   ix526 : inv02 port map ( Y=>nx343, A=>inputB(0));
-   ix527 : inv02 port map ( Y=>nx344, A=>inputB(1));
-   ix528 : oai21 port map ( Y=>nx345, A0=>nx343, A1=>inputA(0), B0=>nx344);
-   ix529 : inv02 port map ( Y=>nx346, A=>inputA(1));
-   ix530 : aoi32 port map ( Y=>nx347, A0=>nx340, A1=>nx341, A2=>nx342, B0=>
+   reg_nx88 : nor02_2x port map ( Y=>nx88, A0=>nx339, A1=>nx372);
+   ix490 : inv02 port map ( Y=>nx340, A=>nx334);
+   ix491 : nand02_2x port map ( Y=>nx341, A0=>inputB(1), A1=>nx338);
+   ix492 : nor02ii port map ( Y=>nx342, A0=>inputA(0), A1=>inputB(0));
+   ix493 : inv02 port map ( Y=>nx343, A=>inputB(0));
+   ix494 : inv02 port map ( Y=>nx344, A=>inputB(1));
+   ix495 : oai21 port map ( Y=>nx345, A0=>nx343, A1=>inputA(0), B0=>nx344);
+   ix496 : inv02 port map ( Y=>nx346, A=>inputA(1));
+   ix497 : aoi32 port map ( Y=>nx347, A0=>nx340, A1=>nx341, A2=>nx342, B0=>
       nx345, B1=>nx346);
-   ix531 : inv02 port map ( Y=>nx348, A=>inputB(2));
-   ix532 : inv02 port map ( Y=>nx349, A=>inputA(2));
-   ix533 : oai22 port map ( Y=>nx350, A0=>nx348, A1=>inputA(2), B0=>nx349, 
+   ix498 : inv02 port map ( Y=>nx348, A=>inputB(2));
+   ix499 : inv02 port map ( Y=>nx349, A=>inputA(2));
+   ix500 : oai22 port map ( Y=>nx350, A0=>nx348, A1=>inputA(2), B0=>nx349, 
       B1=>inputB(2));
-   ix534 : inv02 port map ( Y=>nx351, A=>inputB(3));
-   ix535 : oai22 port map ( Y=>nx352, A0=>nx454, A1=>nx453, B0=>inputA(13), 
+   ix501 : inv02 port map ( Y=>nx351, A=>inputB(14));
+   ix502 : inv02 port map ( Y=>nx352, A=>inputA(14));
+   ix503 : inv02 port map ( Y=>nx353, A=>inputB(15));
+   ix504 : inv02 port map ( Y=>nx354, A=>inputA(15));
+   ix505 : inv02 port map ( Y=>nx355, A=>inputB(12));
+   ix506 : inv02 port map ( Y=>nx356, A=>inputA(12));
+   ix507 : inv02 port map ( Y=>nx357, A=>inputB(13));
+   ix508 : inv02 port map ( Y=>nx358, A=>inputA(13));
+   ix509 : oai22 port map ( Y=>nx359, A0=>nx358, A1=>nx357, B0=>inputA(13), 
       B1=>inputB(13));
-   reg_nx40 : and02 port map ( Y=>nx40, A0=>nx352, A1=>nx513);
-   reg_nx177 : inv01 port map ( Y=>nx177, A=>nx513);
-   ix536 : inv01 port map ( Y=>nx353, A=>nx513);
-   ix537 : inv02 port map ( Y=>nx354, A=>inputB(4));
-   ix538 : inv02 port map ( Y=>nx355, A=>inputA(4));
-   ix539 : aoi22 port map ( Y=>nx356, A0=>inputA(4), A1=>nx354, B0=>
-      inputB(4), B1=>nx355);
-   ix540 : inv02 port map ( Y=>nx357, A=>inputB(3));
-   ix541 : inv02 port map ( Y=>nx358, A=>inputA(3));
-   ix542 : aoi22 port map ( Y=>nx359, A0=>inputA(3), A1=>nx357, B0=>
-      inputB(3), B1=>nx358);
-   ix543 : oai221 port map ( Y=>nx360, A0=>nx348, A1=>inputA(2), B0=>
-      inputB(2), B1=>nx349, C0=>nx359);
-   ix544 : inv02 port map ( Y=>nx361, A=>inputA(5));
-   ix545 : oai22 port map ( Y=>nx362, A0=>nx354, A1=>nx355, B0=>inputB(4), 
-      B1=>inputA(4));
-   ix546 : aoi22 port map ( Y=>nx363, A0=>inputB(3), A1=>inputA(3), B0=>
-      nx357, B1=>nx358);
-   ix547 : oai32 port map ( Y=>nx364, A0=>nx363, A1=>nx332, A2=>inputB(2), 
+   reg_nx177 : inv01 port map ( Y=>nx177, A=>nx417);
+   ix510 : inv02 port map ( Y=>nx360, A=>inputB(4));
+   ix511 : inv02 port map ( Y=>nx361, A=>inputA(4));
+   ix512 : aoi22 port map ( Y=>nx362, A0=>inputA(4), A1=>nx360, B0=>nx651, 
+      B1=>nx361);
+   ix513 : inv02 port map ( Y=>nx363, A=>inputB(3));
+   ix514 : inv02 port map ( Y=>nx364, A=>inputA(3));
+   ix515 : aoi22 port map ( Y=>nx365, A0=>inputA(3), A1=>nx363, B0=>
+      inputB(3), B1=>nx364);
+   ix516 : oai221 port map ( Y=>nx366, A0=>nx348, A1=>inputA(2), B0=>
+      inputB(2), B1=>nx349, C0=>nx365);
+   ix517 : inv02 port map ( Y=>nx367, A=>inputA(5));
+   ix518 : oai22 port map ( Y=>nx368, A0=>nx360, A1=>nx361, B0=>nx651, B1=>
+      inputA(4));
+   ix519 : aoi22 port map ( Y=>nx369, A0=>inputB(3), A1=>inputA(3), B0=>
+      nx363, B1=>nx364);
+   ix520 : oai32 port map ( Y=>nx370, A0=>nx369, A1=>nx332, A2=>inputB(2), 
       B0=>nx333, B1=>inputB(3));
-   ix548 : or02 port map ( Y=>nx365, A0=>nx336, A1=>nx337);
-   reg_nx141 : inv01 port map ( Y=>nx141, A=>nx473);
-   ix549 : inv02 port map ( Y=>nx366, A=>inputB(10));
-   ix550 : inv02 port map ( Y=>nx367, A=>inputA(10));
-   ix551 : inv01 port map ( Y=>nx368, A=>inputB(11));
-   ix552 : inv02 port map ( Y=>nx369, A=>inputA(11));
-   ix553 : inv02 port map ( Y=>nx370, A=>inputB(6));
-   ix554 : inv02 port map ( Y=>nx371, A=>inputA(6));
-   ix555 : aoi22 port map ( Y=>nx372, A0=>inputB(6), A1=>inputA(6), B0=>
-      nx370, B1=>nx371);
-   ix556 : inv02 port map ( Y=>nx373, A=>inputB(5));
-   ix557 : inv02 port map ( Y=>nx374, A=>inputA(5));
-   ix558 : aoi22 port map ( Y=>nx375, A0=>inputB(5), A1=>inputA(5), B0=>
-      nx373, B1=>nx374);
-   ix559 : oai32 port map ( Y=>nx376, A0=>nx699, A1=>nx355, A2=>inputB(4), 
-      B0=>nx361, B1=>inputB(5));
-   ix560 : nor02ii port map ( Y=>nx377, A0=>nx372, A1=>nx376);
-   ix561 : inv02 port map ( Y=>nx378, A=>inputA(7));
-   ix562 : aoi22 port map ( Y=>nx379, A0=>inputA(6), A1=>nx370, B0=>
-      inputB(6), B1=>nx371);
-   ix563 : aoi22 port map ( Y=>nx380, A0=>inputA(5), A1=>nx373, B0=>
-      inputB(5), B1=>nx374);
-   ix564 : inv02 port map ( Y=>nx381, A=>inputA(8));
-   ix565 : inv02 port map ( Y=>nx382, A=>inputB(8));
-   ix566 : inv02 port map ( Y=>nx383, A=>inputA(9));
-   ix567 : inv02 port map ( Y=>nx384, A=>inputB(9));
-   ix568 : inv01 port map ( Y=>nx385, A=>nx356);
-   ix569 : nor02_2x port map ( Y=>nx386, A0=>nx385, A1=>nx360);
-   ix570 : inv02 port map ( Y=>nx387, A=>inputA(7));
-   ix571 : inv02 port map ( Y=>nx388, A=>inputB(7));
-   ix572 : nor03_2x port map ( Y=>nx389, A0=>nx372, A1=>nx417, A2=>nx699);
-   ix573 : inv01 port map ( Y=>nx390, A=>nx372);
-   ix574 : inv01 port map ( Y=>nx391, A=>nx375);
-   ix575 : aoi22 port map ( Y=>nx392, A0=>inputB(7), A1=>nx387, B0=>
-      inputA(7), B1=>nx388);
-   ix576 : and03 port map ( Y=>nx393, A0=>nx356, A1=>nx391, A2=>nx392);
-   ix577 : inv01 port map ( Y=>nx394, A=>nx392);
-   ix578 : inv02 port map ( Y=>nx395, A=>inputA(6));
-   ix579 : inv02 port map ( Y=>nx396, A=>inputB(7));
-   ix580 : nor04_2x port map ( Y=>nx397, A0=>nx703, A1=>nx701, A2=>nx396, A3
-      =>inputA(7));
-   ix581 : inv02 port map ( Y=>nx398, A=>nx348);
-   ix582 : inv02 port map ( Y=>nx399, A=>inputA(2));
-   ix583 : and04 port map ( Y=>nx400, A0=>nx398, A1=>nx399, A2=>nx356, A3=>
-      nx359);
-   ix584 : nor03_2x port map ( Y=>nx401, A0=>nx351, A1=>nx701, A2=>inputA(3)
-   );
-   ix585 : nand03_2x port map ( Y=>nx402, A0=>nx393, A1=>nx390, A2=>nx401);
-   ix586 : and02 port map ( Y=>nx403, A0=>nx356, A1=>nx359);
-   ix587 : nor02_2x port map ( Y=>nx404, A0=>nx347, A1=>nx350);
-   ix588 : inv02 port map ( Y=>nx405, A=>inputA(4));
-   ix589 : inv02 port map ( Y=>nx406, A=>inputA(5));
-   ix590 : ao32 port map ( Y=>nx407, A0=>nx380, A1=>inputB(4), A2=>nx405, B0
-      =>inputB(5), B1=>nx406);
-   ix591 : nor03_2x port map ( Y=>nx408, A0=>nx703, A1=>nx394, A2=>nx701);
-   ix592 : nor02_2x port map ( Y=>nx409, A0=>nx703, A1=>nx701);
-   ix593 : oai22 port map ( Y=>nx410, A0=>nx383, A1=>nx384, B0=>inputA(9), 
-      B1=>inputB(9));
-   ix594 : and02 port map ( Y=>nx411, A0=>inputA(7), A1=>inputB(7));
-   ix595 : oai22 port map ( Y=>nx412, A0=>nx411, A1=>nx387, B0=>nx411, B1=>
-      nx388);
-   ix596 : inv02 port map ( Y=>nx413, A=>nx412);
-   ix597 : nor02_2x port map ( Y=>nx414, A0=>nx381, A1=>inputB(8));
-   ix598 : nor02_2x port map ( Y=>nx415, A0=>nx382, A1=>inputA(8));
-   ix599 : nor02_2x port map ( Y=>nx416, A0=>nx701, A1=>nx703);
-   ix600 : inv02 port map ( Y=>nx417, A=>nx413);
-   ix601 : inv02 port map ( Y=>nx418, A=>nx413);
-   ix602 : inv02 port map ( Y=>nx419, A=>nx365);
-   ix603 : nand02_2x port map ( Y=>nx420, A0=>nx449, A1=>nx711);
-   ix604 : nand02_2x port map ( Y=>nx421, A0=>nx450, A1=>nx711);
-   ix605 : inv01 port map ( Y=>nx422, A=>inputB(14));
-   ix606 : inv02 port map ( Y=>nx423, A=>inputA(15));
-   ix607 : oai22 port map ( Y=>nx424, A0=>nx422, A1=>inputA(14), B0=>nx423, 
-      B1=>nx711);
-   ix608 : nand02_2x port map ( Y=>nx425, A0=>inputB(6), A1=>nx395);
-   ix609 : nor04_2x port map ( Y=>nx426, A0=>nx703, A1=>nx701, A2=>nx394, A3
-      =>nx425);
-   ix610 : inv02 port map ( Y=>nx427, A=>inputB(12));
-   ix611 : inv01 port map ( Y=>nx428, A=>inputB(13));
-   reg_nx181 : oai22 port map ( Y=>nx181, A0=>nx449, A1=>nx450, B0=>nx711, 
-      B1=>inputA(15));
-   ix612 : inv01 port map ( Y=>nx429, A=>nx513);
-   ix613 : inv01 port map ( Y=>nx430, A=>nx511);
-   ix614 : inv02 port map ( Y=>nx431, A=>inputA(11));
-   ix615 : inv02 port map ( Y=>nx432, A=>inputA(10));
-   ix616 : ao32 port map ( Y=>nx433, A0=>nx44, A1=>inputB(11), A2=>nx431, B0
-      =>inputB(10), B1=>nx432);
-   ix617 : inv02 port map ( Y=>nx434, A=>inputA(9));
-   ix618 : inv02 port map ( Y=>nx435, A=>inputA(8));
-   ix619 : ao32 port map ( Y=>nx436, A0=>nx165, A1=>inputB(9), A2=>nx434, B0
-      =>inputB(8), B1=>nx435);
-   ix620 : aoi322 port map ( Y=>nx437, A0=>nx64, A1=>nx379, A2=>nx407, B0=>
-      nx433, B1=>nx499, C0=>nx436, C1=>nx496);
-   ix621 : ao21 port map ( Y=>nx438, A0=>nx403, A1=>nx404, B0=>nx400);
-   ix622 : nor02_2x port map ( Y=>nx439, A0=>nx372, A1=>nx699);
-   ix623 : nor02_2x port map ( Y=>nx440, A0=>nx418, A1=>nx701);
-   ix624 : nand03_2x port map ( Y=>nx441, A0=>nx438, A1=>nx439, A2=>nx440);
-   ix625 : ao21 port map ( Y=>nx442, A0=>nx402, A1=>nx441, B0=>nx703);
-   ix626 : nor02_2x port map ( Y=>nx443, A0=>nx426, A1=>nx397);
-   ix627 : nand02_2x port map ( Y=>nx444, A0=>nx442, A1=>nx443);
-   reg_nx268 : oai33 port map ( Y=>nx268, A0=>nx209, A1=>nx427, A2=>
-      inputA(12), B0=>nx353, B1=>nx428, B2=>inputA(13));
-   ix628 : aoi321 port map ( Y=>nx445, A0=>nx420, A1=>nx421, A2=>nx424, B0=>
-      nx444, B1=>NOT_nx56, C0=>nx268);
-   reg_nx286 : nand02_2x port map ( Y=>nx286, A0=>nx437, A1=>nx445);
-   ix629 : inv02 port map ( Y=>nx446, A=>nx415);
-   ix630 : inv02 port map ( Y=>nx447, A=>inputB(10));
-   ix631 : inv02 port map ( Y=>nx448, A=>inputB(11));
-   ix632 : inv01 port map ( Y=>nx449, A=>inputB(15));
-   ix633 : inv02 port map ( Y=>nx450, A=>inputA(15));
-   ix634 : inv01 port map ( Y=>nx451, A=>inputB(14));
-   ix635 : inv02 port map ( Y=>nx452, A=>inputA(14));
-   ix636 : inv01 port map ( Y=>nx453, A=>inputB(13));
-   ix637 : inv02 port map ( Y=>nx454, A=>inputA(13));
-   ix638 : inv01 port map ( Y=>nx455, A=>inputB(12));
-   ix639 : inv02 port map ( Y=>nx456, A=>inputA(12));
-   ix640 : inv01 port map ( Y=>nx457, A=>nx368);
-   ix641 : inv02 port map ( Y=>nx458, A=>nx369);
-   ix642 : oai22 port map ( Y=>nx459, A0=>nx368, A1=>nx369, B0=>inputB(11), 
-      B1=>inputA(11));
-   ix643 : inv02 port map ( Y=>nx460, A=>inputB(9));
-   ix644 : nor02ii port map ( Y=>nx461, A0=>inputB(8), A1=>inputA(8));
-   ix645 : ao21 port map ( Y=>nx462, A0=>nx457, A1=>nx458, B0=>nx448);
-   ix646 : inv02 port map ( Y=>nx463, A=>inputA(15));
-   ix647 : inv02 port map ( Y=>nx464, A=>inputA(12));
-   ix648 : inv02 port map ( Y=>nx465, A=>inputA(13));
-   ix649 : inv02 port map ( Y=>nx466, A=>nx371);
-   ix650 : inv02 port map ( Y=>nx467, A=>inputB(6));
-   ix651 : nor02_2x port map ( Y=>nx468, A0=>nx378, A1=>inputB(7));
-   ix652 : inv01 port map ( Y=>nx469, A=>nx511);
-   ix653 : inv01 port map ( Y=>nx470, A=>nx513);
-   ix654 : and03 port map ( Y=>nx471, A0=>nx439, A1=>nx362, A2=>nx364);
-   ix655 : and03 port map ( Y=>nx472, A0=>nx409, A1=>nx386, A2=>nx389);
-   ix656 : and04 port map ( Y=>nx473, A0=>nx511, A1=>nx514, A2=>nx495, A3=>
-      nx472);
-   ix657 : inv01 port map ( Y=>nx474, A=>nx495);
-   ix658 : nand02_2x port map ( Y=>nx475, A0=>nx413, A1=>nx416);
-   reg_nx64 : nor04_2x port map ( Y=>nx64, A0=>nx429, A1=>nx430, A2=>nx474, 
-      A3=>nx475);
-   ix659 : aoi22 port map ( Y=>nx476, A0=>inputB(14), A1=>inputA(14), B0=>
-      nx451, B1=>nx452);
-   ix660 : aoi22 port map ( Y=>nx477, A0=>inputA(15), A1=>nx711, B0=>nx449, 
-      B1=>nx450);
-   ix661 : nor02_2x port map ( Y=>nx478, A0=>nx476, A1=>nx477);
-   ix662 : aoi22 port map ( Y=>nx479, A0=>inputB(12), A1=>inputA(12), B0=>
-      nx455, B1=>nx456);
-   ix663 : aoi22 port map ( Y=>nx480, A0=>inputA(13), A1=>inputB(13), B0=>
-      nx453, B1=>nx454);
-   ix664 : nor02_2x port map ( Y=>nx481, A0=>nx479, A1=>nx480);
-   ix665 : inv01 port map ( Y=>nx482, A=>nx368);
-   ix666 : inv02 port map ( Y=>nx483, A=>inputA(11));
-   ix667 : inv02 port map ( Y=>nx484, A=>nx369);
-   ix668 : inv01 port map ( Y=>nx485, A=>inputB(11));
-   ix669 : aoi22 port map ( Y=>nx486, A0=>nx482, A1=>nx483, B0=>nx484, B1=>
-      nx485);
-   ix670 : and02 port map ( Y=>nx487, A0=>inputA(10), A1=>nx366);
-   ix671 : and02 port map ( Y=>nx488, A0=>inputB(10), A1=>nx367);
-   ix672 : inv02 port map ( Y=>nx489, A=>inputB(9));
-   ix673 : inv02 port map ( Y=>nx490, A=>nx434);
-   ix674 : nor04_2x port map ( Y=>nx491, A0=>nx487, A1=>nx488, A2=>nx489, A3
-      =>nx490);
-   ix675 : and03 port map ( Y=>nx492, A0=>nx511, A1=>nx486, A2=>nx491);
-   ix676 : oai22 port map ( Y=>nx493, A0=>nx368, A1=>inputA(11), B0=>nx369, 
+   ix521 : or02 port map ( Y=>nx371, A0=>nx336, A1=>nx337);
+   ix522 : inv01 port map ( Y=>nx372, A=>NOT_nx141);
+   ix523 : inv02 port map ( Y=>nx373, A=>inputB(10));
+   ix524 : inv02 port map ( Y=>nx374, A=>inputA(10));
+   ix525 : inv02 port map ( Y=>nx375, A=>inputB(11));
+   ix526 : inv02 port map ( Y=>nx376, A=>inputA(11));
+   ix527 : oai22 port map ( Y=>nx377, A0=>nx375, A1=>inputA(11), B0=>nx376, 
       B1=>inputB(11));
-   ix677 : inv02 port map ( Y=>nx494, A=>nx410);
-   ix678 : nor04_2x port map ( Y=>nx495, A0=>nx493, A1=>nx487, A2=>nx494, A3
-      =>nx488);
-   ix679 : ao21 port map ( Y=>nx496, A0=>nx514, A1=>nx492, B0=>NOT_nx56);
-   ix680 : aoi22 port map ( Y=>nx497, A0=>inputA(10), A1=>nx366, B0=>
-      inputB(10), B1=>nx367);
-   reg_nx165 : and04 port map ( Y=>nx165, A0=>nx513, A1=>nx511, A2=>nx486, 
-      A3=>nx497);
-   ix681 : ao21 port map ( Y=>nx498, A0=>inputB(11), A1=>nx431, B0=>nx459);
-   ix682 : and03 port map ( Y=>nx499, A0=>nx512, A1=>nx514, A2=>nx498);
-   reg_nx44 : and02 port map ( Y=>nx44, A0=>nx514, A1=>nx512);
-   ix683 : aoi33 port map ( Y=>nx500, A0=>nx446, A1=>nx440, A2=>nx471, B0=>
-      nx416, B1=>nx377, B2=>nx413);
-   ix684 : nand04_2x port map ( Y=>nx501, A0=>nx409, A1=>nx389, A2=>nx419, 
-      A3=>nx386);
-   ix685 : aoi32 port map ( Y=>nx502, A0=>nx408, A1=>nx466, A2=>nx467, B0=>
-      nx409, B1=>nx468);
-   ix686 : nand02_2x port map ( Y=>nx503, A0=>nx512, A1=>nx514);
-   ix687 : oai332 port map ( Y=>nx504, A0=>nx500, A1=>nx429, A2=>nx430, B0=>
-      nx469, B1=>nx470, B2=>nx501, C0=>nx502, C1=>nx503);
-   ix688 : nand02_2x port map ( Y=>nx505, A0=>nx495, A1=>nx705);
-   reg_nx209 : inv01 port map ( Y=>nx209, A=>nx40);
-   reg_nx170 : oai33 port map ( Y=>nx170, A0=>nx209, A1=>nx464, A2=>
-      inputB(12), B0=>nx177, B1=>nx465, B2=>inputB(13));
-   ix689 : aoi321 port map ( Y=>nx506, A0=>nx181, A1=>inputA(14), A2=>nx203, 
-      B0=>nx711, B1=>nx463, C0=>nx170);
-   ix690 : and02 port map ( Y=>nx507, A0=>nx512, A1=>nx514);
-   ix691 : ao22 port map ( Y=>nx508, A0=>inputA(11), A1=>nx448, B0=>
-      inputA(10), B1=>nx447);
-   ix692 : and02 port map ( Y=>nx509, A0=>inputA(9), A1=>nx460);
-   ix693 : aoi332 port map ( Y=>nx510, A0=>nx507, A1=>nx461, A2=>nx495, B0=>
-      nx508, B1=>nx44, B2=>nx462, C0=>nx165, C1=>nx509);
-   reg_nx188 : nand03_2x port map ( Y=>nx188, A0=>nx505, A1=>nx506, A2=>
-      nx510);
-   reg_NOT_nx56 : and03 port map ( Y=>NOT_nx56, A0=>nx512, A1=>nx495, A2=>
-      nx514);
-   ix694 : buf16 port map ( Y=>nx511, A=>nx481);
-   ix695 : buf16 port map ( Y=>nx512, A=>nx481);
-   ix696 : buf16 port map ( Y=>nx513, A=>nx478);
-   ix697 : buf16 port map ( Y=>nx514, A=>nx478);
-   ix698 : inv01 port map ( Y=>nx699, A=>nx391);
-   ix700 : buf02 port map ( Y=>nx701, A=>nx414);
-   ix702 : inv02 port map ( Y=>nx703, A=>nx446);
-   ix704 : buf02 port map ( Y=>nx705, A=>nx504);
-   ix710 : inv02 port map ( Y=>nx711, A=>nx449);
+   ix528 : oai22 port map ( Y=>nx378, A0=>nx376, A1=>nx375, B0=>inputA(11), 
+      B1=>inputB(11));
+   ix529 : inv02 port map ( Y=>nx379, A=>inputB(6));
+   ix530 : inv02 port map ( Y=>nx380, A=>inputA(6));
+   ix531 : aoi22 port map ( Y=>nx381, A0=>inputB(6), A1=>inputA(6), B0=>
+      nx379, B1=>nx380);
+   ix532 : inv02 port map ( Y=>nx382, A=>inputB(5));
+   ix533 : inv02 port map ( Y=>nx383, A=>inputA(5));
+   ix534 : aoi22 port map ( Y=>nx384, A0=>inputB(5), A1=>inputA(5), B0=>
+      nx382, B1=>nx383);
+   ix535 : oai32 port map ( Y=>nx385, A0=>nx637, A1=>nx361, A2=>nx651, B0=>
+      nx367, B1=>inputB(5));
+   ix536 : nor02ii port map ( Y=>nx386, A0=>nx635, A1=>nx385);
+   ix537 : inv02 port map ( Y=>nx387, A=>inputA(7));
+   ix538 : aoi22 port map ( Y=>nx388, A0=>inputA(6), A1=>nx379, B0=>
+      inputB(6), B1=>nx380);
+   ix539 : aoi22 port map ( Y=>nx389, A0=>inputA(5), A1=>nx382, B0=>
+      inputB(5), B1=>nx383);
+   ix540 : inv02 port map ( Y=>nx390, A=>inputA(9));
+   ix541 : inv02 port map ( Y=>nx391, A=>inputB(9));
+   ix542 : inv02 port map ( Y=>nx392, A=>inputA(8));
+   ix543 : inv02 port map ( Y=>nx393, A=>inputB(8));
+   ix544 : inv01 port map ( Y=>nx394, A=>nx362);
+   ix545 : inv02 port map ( Y=>nx395, A=>inputA(7));
+   ix546 : inv02 port map ( Y=>nx396, A=>inputB(7));
+   ix547 : aoi22 port map ( Y=>nx397, A0=>inputA(7), A1=>inputB(7), B0=>
+      nx395, B1=>nx396);
+   ix548 : or03 port map ( Y=>nx398, A0=>nx635, A1=>nx394, A2=>nx397);
+   ix549 : nor02_2x port map ( Y=>nx399, A0=>nx635, A1=>nx637);
+   ix550 : aoi22 port map ( Y=>nx400, A0=>inputB(7), A1=>nx395, B0=>
+      inputA(7), B1=>nx396);
+   ix551 : oai22 port map ( Y=>nx401, A0=>nx357, A1=>inputA(13), B0=>nx358, 
+      B1=>inputB(13));
+   ix552 : oai22 port map ( Y=>nx402, A0=>nx353, A1=>inputA(15), B0=>nx354, 
+      B1=>nx649);
+   ix553 : oai22 port map ( Y=>nx403, A0=>nx390, A1=>nx391, B0=>inputA(9), 
+      B1=>inputB(9));
+   ix554 : aoi22 port map ( Y=>nx404, A0=>inputB(8), A1=>nx392, B0=>
+      inputA(8), B1=>nx393);
+   ix555 : inv01 port map ( Y=>nx405, A=>nx362);
+   ix556 : nor02_2x port map ( Y=>nx406, A0=>nx348, A1=>inputA(2));
+   ix557 : inv02 port map ( Y=>nx407, A=>inputA(3));
+   ix558 : aoi44 port map ( Y=>nx408, A0=>nx459, A1=>nx438, A2=>nx365, A3=>
+      nx406, B0=>nx399, B1=>nx400, B2=>inputB(3), B3=>nx407);
+   ix559 : inv01 port map ( Y=>nx409, A=>nx365);
+   ix560 : inv02 port map ( Y=>nx410, A=>inputA(4));
+   ix561 : inv02 port map ( Y=>nx411, A=>inputA(5));
+   ix562 : inv01 port map ( Y=>nx412, A=>nx400);
+   ix563 : inv02 port map ( Y=>nx413, A=>inputB(6));
+   ix564 : inv02 port map ( Y=>nx414, A=>inputB(7));
+   ix565 : inv01 port map ( Y=>nx415, A=>nx400);
+   ix566 : oai32 port map ( Y=>nx416, A0=>nx415, A1=>nx380, A2=>inputB(6), 
+      B0=>nx387, B1=>inputB(7));
+   ix567 : aoi221 port map ( Y=>nx417, A0=>inputA(14), A1=>nx351, B0=>
+      inputB(14), B1=>nx352, C0=>nx402);
+   ix568 : and02 port map ( Y=>nx418, A0=>inputA(12), A1=>nx355);
+   ix569 : and02 port map ( Y=>nx419, A0=>inputB(12), A1=>nx356);
+   ix570 : nor03_2x port map ( Y=>nx420, A0=>nx418, A1=>nx419, A2=>nx401);
+   ix571 : and02 port map ( Y=>nx421, A0=>inputA(10), A1=>nx373);
+   ix572 : nor02_2x port map ( Y=>nx422, A0=>nx641, A1=>nx633);
+   ix573 : inv02 port map ( Y=>nx423, A=>nx403);
+   ix574 : inv01 port map ( Y=>nx424, A=>nx404);
+   ix575 : and02 port map ( Y=>nx425, A0=>inputB(10), A1=>nx374);
+   ix576 : nor03_2x port map ( Y=>nx426, A0=>nx423, A1=>nx424, A2=>nx643);
+   ix577 : and04 port map ( Y=>nx427, A0=>nx639, A1=>nx420, A2=>nx422, A3=>
+      nx426);
+   ix578 : nor04_2x port map ( Y=>nx428, A0=>nx409, A1=>nx405, A2=>nx347, A3
+      =>nx350);
+   ix579 : nand02_2x port map ( Y=>nx429, A0=>nx404, A1=>nx403);
+   ix580 : or04 port map ( Y=>nx430, A0=>nx397, A1=>nx635, A2=>nx643, A3=>
+      nx637);
+   ix581 : nor04_2x port map ( Y=>nx431, A0=>nx641, A1=>nx633, A2=>nx429, A3
+      =>nx430);
+   reg_nx72 : and03 port map ( Y=>nx72, A0=>nx639, A1=>nx431, A2=>nx420);
+   ix582 : aoi32 port map ( Y=>nx432, A0=>nx389, A1=>nx651, A2=>nx410, B0=>
+      inputB(5), B1=>nx411);
+   ix583 : inv01 port map ( Y=>nx433, A=>nx388);
+   ix584 : oai32 port map ( Y=>nx434, A0=>nx412, A1=>nx413, A2=>inputA(6), 
+      B0=>nx414, B1=>inputA(7));
+   ix585 : inv01 port map ( Y=>nx435, A=>nx434);
+   ix586 : oai321 port map ( Y=>nx436, A0=>nx432, A1=>nx397, A2=>nx433, B0=>
+      nx405, B1=>nx408, C0=>nx435);
+   ix587 : aoi321 port map ( Y=>nx437, A0=>nx389, A1=>nx651, A2=>nx410, B0=>
+      inputB(5), B1=>nx411, C0=>nx428);
+   ix588 : inv01 port map ( Y=>nx438, A=>nx397);
+   ix589 : aoi21 port map ( Y=>nx439, A0=>nx438, A1=>nx388, B0=>nx428);
+   ix590 : oai221 port map ( Y=>nx440, A0=>nx437, A1=>nx439, B0=>nx405, B1=>
+      nx408, C0=>nx435);
+   ix591 : inv02 port map ( Y=>nx441, A=>nx378);
+   ix592 : nor04_2x port map ( Y=>nx442, A0=>nx441, A1=>nx419, A2=>nx418, A3
+      =>nx401);
+   reg_nx48 : and02 port map ( Y=>nx48, A0=>nx639, A1=>nx442);
+   ix593 : inv02 port map ( Y=>nx443, A=>inputA(10));
+   reg_nx44 : and02 port map ( Y=>nx44, A0=>nx639, A1=>nx420);
+   ix594 : nor02ii port map ( Y=>nx444, A0=>inputA(11), A1=>inputB(11));
+   ix595 : nand02_2x port map ( Y=>nx445, A0=>nx353, A1=>nx649);
+   ix596 : nand02_2x port map ( Y=>nx446, A0=>nx354, A1=>nx649);
+   ix597 : inv02 port map ( Y=>nx447, A=>inputB(14));
+   ix598 : inv02 port map ( Y=>nx448, A=>inputA(15));
+   ix599 : oai22 port map ( Y=>nx449, A0=>nx447, A1=>inputA(14), B0=>nx448, 
+      B1=>nx649);
+   ix600 : inv02 port map ( Y=>nx450, A=>inputA(12));
+   ix601 : inv02 port map ( Y=>nx451, A=>inputA(13));
+   ix602 : ao32 port map ( Y=>nx452, A0=>nx359, A1=>inputB(12), A2=>nx450, 
+      B0=>inputB(13), B1=>nx451);
+   reg_NOT_nx277 : ao32 port map ( Y=>NOT_nx277, A0=>nx445, A1=>nx446, A2=>
+      nx449, B0=>nx452, B1=>nx639);
+   ix603 : aoi321 port map ( Y=>nx453, A0=>nx48, A1=>inputB(10), A2=>nx443, 
+      B0=>nx44, B1=>nx444, C0=>NOT_nx277);
+   ix604 : nor04_2x port map ( Y=>nx454, A0=>nx641, A1=>nx633, A2=>nx423, A3
+      =>nx643);
+   reg_nx56 : and03 port map ( Y=>nx56, A0=>nx639, A1=>nx420, A2=>nx454);
+   ix605 : inv02 port map ( Y=>nx455, A=>inputA(8));
+   ix606 : nor03_2x port map ( Y=>nx456, A0=>nx641, A1=>nx643, A2=>nx633);
+   reg_nx52 : and03 port map ( Y=>nx52, A0=>nx639, A1=>nx420, A2=>nx456);
+   ix607 : inv02 port map ( Y=>nx457, A=>inputA(9));
+   ix608 : aoi33 port map ( Y=>nx458, A0=>nx56, A1=>inputB(8), A2=>nx455, B0
+      =>nx52, B1=>inputB(9), B2=>nx457);
+   reg_nx286 : nand03_2x port map ( Y=>nx286, A0=>nx481, A1=>nx453, A2=>
+      nx458);
+   ix609 : nor02_2x port map ( Y=>nx459, A0=>nx635, A1=>nx637);
+   ix610 : nand02_2x port map ( Y=>nx460, A0=>inputA(14), A1=>nx351);
+   ix611 : aoi21 port map ( Y=>nx461, A0=>inputB(14), A1=>nx352, B0=>nx402);
+   reg_nx209 : nand03_2x port map ( Y=>nx209, A0=>nx460, A1=>nx359, A2=>
+      nx461);
+   ix612 : inv02 port map ( Y=>nx462, A=>inputB(8));
+   ix613 : inv02 port map ( Y=>nx463, A=>inputB(9));
+   ix614 : aoi33 port map ( Y=>nx464, A0=>nx56, A1=>inputA(8), A2=>nx462, B0
+      =>nx52, B1=>inputA(9), B2=>nx463);
+   ix615 : inv02 port map ( Y=>nx465, A=>inputB(10));
+   ix616 : inv02 port map ( Y=>nx466, A=>inputB(11));
+   ix617 : aoi33 port map ( Y=>nx467, A0=>nx48, A1=>inputA(10), A2=>nx465, 
+      B0=>nx44, B1=>inputA(11), B2=>nx466);
+   ix618 : inv02 port map ( Y=>nx468, A=>inputA(15));
+   ix619 : nand02_2x port map ( Y=>nx469, A0=>nx649, A1=>nx468);
+   ix620 : inv02 port map ( Y=>nx470, A=>inputB(14));
+   ix621 : nand02_2x port map ( Y=>nx471, A0=>inputA(14), A1=>nx470);
+   ix622 : aoi222 port map ( Y=>nx472, A0=>nx469, A1=>nx471, B0=>nx354, B1=>
+      inputA(15), C0=>nx353, C1=>inputA(15));
+   ix623 : nor02_2x port map ( Y=>nx473, A0=>nx472, A1=>nx170);
+   ix624 : inv01 port map ( Y=>nx474, A=>nx404);
+   ix625 : nor02_2x port map ( Y=>nx475, A0=>nx474, A1=>nx398);
+   ix626 : nor03_2x port map ( Y=>nx476, A0=>nx637, A1=>nx371, A2=>nx366);
+   ix627 : ao21 port map ( Y=>nx477, A0=>nx386, A1=>nx438, B0=>nx416);
+   ix628 : aoi332 port map ( Y=>nx478, A0=>nx72, A1=>nx368, A2=>nx370, B0=>
+      nx56, B1=>nx475, B2=>nx476, C0=>nx427, C1=>nx477);
+   reg_nx188 : nand04_2x port map ( Y=>nx188, A0=>nx464, A1=>nx467, A2=>
+      nx473, A3=>nx478);
+   ix629 : nor04_2x port map ( Y=>nx479, A0=>nx474, A1=>nx398, A2=>nx637, A3
+      =>nx366);
+   reg_NOT_nx141 : and02 port map ( Y=>NOT_nx141, A0=>nx56, A1=>nx479);
+   ix630 : and02 port map ( Y=>nx480, A0=>nx428, A1=>nx72);
+   ix631 : oai221 port map ( Y=>nx481, A0=>nx480, A1=>nx427, B0=>nx72, B1=>
+      nx436, C0=>nx440);
+   ix632 : buf02 port map ( Y=>nx633, A=>nx377);
+   ix634 : buf02 port map ( Y=>nx635, A=>nx381);
+   ix636 : buf02 port map ( Y=>nx637, A=>nx384);
+   ix638 : inv01 port map ( Y=>nx639, A=>nx177);
+   ix640 : buf02 port map ( Y=>nx641, A=>nx421);
+   ix642 : buf02 port map ( Y=>nx643, A=>nx425);
+   ix648 : inv02 port map ( Y=>nx649, A=>nx353);
+   ix650 : inv02 port map ( Y=>nx651, A=>nx360);
 end ComparatorArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity ngetMax_16_10 is
    port (
@@ -1344,9 +1329,9 @@ architecture GetMaxArch of ngetMax_16_10 is
       nx985, nx987, nx989, nx991, nx993, nx995, nx997, nx999, nx1001, nx1003, 
       nx1005, nx1007, nx1009, nx1011, nx1013, nx1015, nx1017, nx1019, nx1021, 
       nx1023, nx1025, nx1027, nx1029, nx1031, nx1033, nx1035, nx1037, nx1039, 
-      nx1041, nx1043, nx1045, nx1047, nx1049, nx1051, nx1065, nx1067, nx1069, 
-      nx1071, nx1073, nx1075, nx1077, nx1079, nx1081, nx1083, nx1085, nx1087, 
-      nx1089, nx1091, nx1093, nx1095: std_logic ;
+      nx1041, nx1043, nx1045, nx1047, nx1049, nx1051, nx1065, nx1069, nx1071, 
+      nx1073, nx1075, nx1077, nx1079, nx1081, nx1083, nx1085, nx1087, nx1089, 
+      nx1091, nx1093, nx1095, nx1067, nx1067_XX0_XREP11: std_logic ;
    
    signal DANGLING : std_logic_vector (20 downto 0 );
 
@@ -1701,10 +1686,9 @@ begin
    ix1044 : nor02ii port map ( Y=>nx1045, A0=>nx1073, A1=>nx1087);
    ix1046 : nor02ii port map ( Y=>nx1047, A0=>nx1075, A1=>ComparatorG);
    ix1048 : nor02ii port map ( Y=>nx1049, A0=>nx1075, A1=>ComparatorG);
-   ix1066 : inv01 port map ( Y=>nx1067, A=>rst);
    ix1068 : inv01 port map ( Y=>nx1069, A=>nx1067);
    ix1070 : inv01 port map ( Y=>nx1071, A=>nx1067);
-   ix1072 : inv01 port map ( Y=>nx1073, A=>nx1067);
+   ix1072 : inv01 port map ( Y=>nx1073, A=>nx1067_XX0_XREP11);
    ix1074 : inv01 port map ( Y=>nx1075, A=>nx1067);
    ix1076 : inv02 port map ( Y=>nx1077, A=>nx703);
    ix1078 : inv02 port map ( Y=>nx1079, A=>nx701);
@@ -1716,10 +1700,13 @@ begin
    ix1090 : buf02 port map ( Y=>nx1091, A=>nx1045);
    ix1092 : buf02 port map ( Y=>nx1093, A=>nx1047);
    ix1094 : buf02 port map ( Y=>nx1095, A=>nx1049);
+   ix1066 : inv01 port map ( Y=>nx1067, A=>rst);
+   ix1066_0_XREP11 : inv01 port map ( Y=>nx1067_XX0_XREP11, A=>rst);
 end GetMaxArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_33 is
    port (
@@ -1757,11 +1744,12 @@ architecture RegArch of Reg_33 is
       nx1606, nx1611, nx1616, nx1621, nx1626, nx1631, nx1636, nx1641, nx1646, 
       nx1651, nx1656, nx1661, nx1666, nx1671, nx1676, nx1681, nx1686, nx1691, 
       nx1696, nx1701, nx1706, nx1711, nx1716, nx1721, nx1726, nx1731, nx1736, 
-      nx1741, nx1746, nx1751, nx1858, nx1860, nx1862, nx1864, nx1866, nx1868, 
-      nx1870, nx1872, nx1874, nx1876, nx1878, nx1880, nx1882, nx1884, nx1886, 
-      nx1888, nx1890, nx1892, nx1894, nx1896, nx1898, nx1900, nx1902, nx1904, 
-      nx1906, nx1908, nx1910, nx1912, nx1914, nx1916, nx1918, nx1920, nx1922, 
-      nx1924, nx1926, nx1928: std_logic ;
+      nx1741, nx1746, nx1751, nx1860, nx1862, nx1864, nx1866, nx1868, nx1870, 
+      nx1872, nx1874, nx1876, nx1878, nx1880, nx1882, nx1884, nx1886, nx1888, 
+      nx1890, nx1892, nx1894, nx1896, nx1898, nx1900, nx1904, nx1906, nx1908, 
+      nx1910, nx1912, nx1914, nx1916, nx1918, nx1920, nx1922, nx1926, nx1924, 
+      nx1924_XX0_XREP13, nx1928, nx1928_XX0_XREP15, nx1858, 
+      nx1858_XX0_XREP17, nx1902, nx1902_XX0_XREP19: std_logic ;
 
 begin
    Q(32) <= Q_32_EXMPLR ;
@@ -2127,14 +2115,13 @@ begin
       nx1900, R=>nx1922);
    ix1250 : mux21_ni port map ( Y=>nx1249, A0=>Q_32_EXMPLR, A1=>D(32), S0=>
       nx1878);
-   ix1857 : inv01 port map ( Y=>nx1858, A=>en);
-   ix1859 : inv02 port map ( Y=>nx1860, A=>nx1924);
-   ix1861 : inv02 port map ( Y=>nx1862, A=>nx1924);
+   ix1859 : inv02 port map ( Y=>nx1860, A=>nx1924_XX0_XREP13);
+   ix1861 : inv02 port map ( Y=>nx1862, A=>nx1924_XX0_XREP13);
    ix1863 : inv02 port map ( Y=>nx1864, A=>nx1924);
    ix1865 : inv02 port map ( Y=>nx1866, A=>nx1924);
    ix1867 : inv02 port map ( Y=>nx1868, A=>nx1924);
-   ix1869 : inv02 port map ( Y=>nx1870, A=>nx1858);
-   ix1871 : inv02 port map ( Y=>nx1872, A=>nx1858);
+   ix1869 : inv02 port map ( Y=>nx1870, A=>nx1858_XX0_XREP17);
+   ix1871 : inv02 port map ( Y=>nx1872, A=>nx1858_XX0_XREP17);
    ix1873 : inv02 port map ( Y=>nx1874, A=>nx1858);
    ix1875 : inv02 port map ( Y=>nx1876, A=>nx1858);
    ix1877 : inv02 port map ( Y=>nx1878, A=>nx1858);
@@ -2149,24 +2136,30 @@ begin
    ix1895 : inv02 port map ( Y=>nx1896, A=>nx1880);
    ix1897 : inv02 port map ( Y=>nx1898, A=>nx1880);
    ix1899 : inv02 port map ( Y=>nx1900, A=>nx1880);
-   ix1901 : inv01 port map ( Y=>nx1902, A=>rst);
    ix1903 : inv02 port map ( Y=>nx1904, A=>nx1928);
-   ix1905 : inv02 port map ( Y=>nx1906, A=>nx1928);
+   ix1905 : inv02 port map ( Y=>nx1906, A=>nx1928_XX0_XREP15);
    ix1907 : inv02 port map ( Y=>nx1908, A=>nx1928);
    ix1909 : inv02 port map ( Y=>nx1910, A=>nx1928);
-   ix1911 : inv02 port map ( Y=>nx1912, A=>nx1928);
-   ix1913 : inv02 port map ( Y=>nx1914, A=>nx1902);
-   ix1915 : inv02 port map ( Y=>nx1916, A=>nx1902);
+   ix1911 : inv02 port map ( Y=>nx1912, A=>nx1928_XX0_XREP15);
+   ix1913 : inv02 port map ( Y=>nx1914, A=>nx1902_XX0_XREP19);
+   ix1915 : inv02 port map ( Y=>nx1916, A=>nx1902_XX0_XREP19);
    ix1917 : inv02 port map ( Y=>nx1918, A=>nx1902);
    ix1919 : inv02 port map ( Y=>nx1920, A=>nx1902);
    ix1921 : inv02 port map ( Y=>nx1922, A=>nx1902);
-   ix1923 : inv01 port map ( Y=>nx1924, A=>en);
    ix1925 : inv01 port map ( Y=>nx1926, A=>clk);
+   ix1923 : inv01 port map ( Y=>nx1924, A=>en);
+   ix1923_0_XREP13 : inv01 port map ( Y=>nx1924_XX0_XREP13, A=>en);
    ix1927 : inv01 port map ( Y=>nx1928, A=>rst);
+   ix1927_0_XREP15 : inv01 port map ( Y=>nx1928_XX0_XREP15, A=>rst);
+   ix1857 : inv01 port map ( Y=>nx1858, A=>en);
+   ix1857_0_XREP17 : inv01 port map ( Y=>nx1858_XX0_XREP17, A=>en);
+   ix1901 : inv01 port map ( Y=>nx1902, A=>rst);
+   ix1901_0_XREP19 : inv01 port map ( Y=>nx1902_XX0_XREP19, A=>rst);
 end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_16 is
    port (
@@ -2190,9 +2183,10 @@ architecture RegArch of Reg_16 is
       nx580, nx590, nx600, nx610, nx620, nx630, nx640, nx650, nx660, nx670, 
       nx680, nx690, nx700, nx710, nx720, nx730, nx740, nx750, nx760, nx770, 
       nx780, nx792, nx797, nx802, nx807, nx812, nx817, nx822, nx827, nx832, 
-      nx837, nx842, nx847, nx852, nx857, nx862, nx867, nx923, nx925, nx927, 
-      nx929, nx931, nx933, nx935, nx937, nx939, nx941, nx943, nx945: 
-   std_logic ;
+      nx837, nx842, nx847, nx852, nx857, nx862, nx867, nx929, nx931, nx933, 
+      nx937, nx939, nx941, nx943, nx945, nx923, nx935, nx935_XX0_XREP23, 
+      nx925, nx927, nx923_XX0_XREP21, nx982, nx983, nx984, nx985: std_logic
+    ;
 
 begin
    Q(15) <= Q_15_EXMPLR ;
@@ -2233,32 +2227,32 @@ begin
       en);
    ix793 : inv01 port map ( Y=>nx792, A=>D(0));
    reg_Qbar_1 : dffs_ni port map ( Q=>Qbar_1_EXMPLR, QB=>OPEN, D=>nx640, CLK
-      =>nx925, S=>nx937);
+      =>nx983, S=>nx937);
    ix641 : mux21_ni port map ( Y=>nx640, A0=>Qbar_1_EXMPLR, A1=>nx797, S0=>
       en);
    ix798 : inv01 port map ( Y=>nx797, A=>D(1));
    reg_Qbar_2 : dffs_ni port map ( Q=>Qbar_2_EXMPLR, QB=>OPEN, D=>nx650, CLK
-      =>nx925, S=>nx937);
+      =>nx983, S=>nx937);
    ix651 : mux21_ni port map ( Y=>nx650, A0=>Qbar_2_EXMPLR, A1=>nx802, S0=>
       en);
    ix803 : inv01 port map ( Y=>nx802, A=>D(2));
    reg_Qbar_3 : dffs_ni port map ( Q=>Qbar_3_EXMPLR, QB=>OPEN, D=>nx660, CLK
-      =>nx925, S=>nx937);
+      =>nx983, S=>nx937);
    ix661 : mux21_ni port map ( Y=>nx660, A0=>Qbar_3_EXMPLR, A1=>nx807, S0=>
       en);
    ix808 : inv01 port map ( Y=>nx807, A=>D(3));
    reg_Qbar_4 : dffs_ni port map ( Q=>Qbar_4_EXMPLR, QB=>OPEN, D=>nx670, CLK
-      =>nx925, S=>nx937);
+      =>nx982, S=>nx937);
    ix671 : mux21_ni port map ( Y=>nx670, A0=>Qbar_4_EXMPLR, A1=>nx812, S0=>
       en);
    ix813 : inv01 port map ( Y=>nx812, A=>D(4));
    reg_Qbar_5 : dffs_ni port map ( Q=>Qbar_5_EXMPLR, QB=>OPEN, D=>nx680, CLK
-      =>nx925, S=>nx937);
+      =>nx982, S=>nx937);
    ix681 : mux21_ni port map ( Y=>nx680, A0=>Qbar_5_EXMPLR, A1=>nx817, S0=>
       en);
    ix818 : inv01 port map ( Y=>nx817, A=>D(5));
    reg_Qbar_6 : dffs_ni port map ( Q=>Qbar_6_EXMPLR, QB=>OPEN, D=>nx690, CLK
-      =>nx925, S=>nx937);
+      =>nx982, S=>nx937);
    ix691 : mux21_ni port map ( Y=>nx690, A0=>Qbar_6_EXMPLR, A1=>nx822, S0=>
       en);
    ix823 : inv01 port map ( Y=>nx822, A=>D(6));
@@ -2268,32 +2262,32 @@ begin
       en);
    ix828 : inv01 port map ( Y=>nx827, A=>D(7));
    reg_Qbar_8 : dffs_ni port map ( Q=>Qbar_8_EXMPLR, QB=>OPEN, D=>nx710, CLK
-      =>nx927, S=>nx939);
+      =>nx985, S=>nx939);
    ix711 : mux21_ni port map ( Y=>nx710, A0=>Qbar_8_EXMPLR, A1=>nx832, S0=>
       en);
    ix833 : inv01 port map ( Y=>nx832, A=>D(8));
    reg_Qbar_9 : dffs_ni port map ( Q=>Qbar_9_EXMPLR, QB=>OPEN, D=>nx720, CLK
-      =>nx927, S=>nx939);
+      =>nx985, S=>nx939);
    ix721 : mux21_ni port map ( Y=>nx720, A0=>Qbar_9_EXMPLR, A1=>nx837, S0=>
       en);
    ix838 : inv01 port map ( Y=>nx837, A=>D(9));
    reg_Qbar_10 : dffs_ni port map ( Q=>Qbar_10_EXMPLR, QB=>OPEN, D=>nx730, 
-      CLK=>nx927, S=>nx939);
+      CLK=>nx985, S=>nx939);
    ix731 : mux21_ni port map ( Y=>nx730, A0=>Qbar_10_EXMPLR, A1=>nx842, S0=>
       en);
    ix843 : inv01 port map ( Y=>nx842, A=>D(10));
    reg_Qbar_11 : dffs_ni port map ( Q=>Qbar_11_EXMPLR, QB=>OPEN, D=>nx740, 
-      CLK=>nx927, S=>nx939);
+      CLK=>nx984, S=>nx939);
    ix741 : mux21_ni port map ( Y=>nx740, A0=>Qbar_11_EXMPLR, A1=>nx847, S0=>
       en);
    ix848 : inv01 port map ( Y=>nx847, A=>D(11));
    reg_Qbar_12 : dffs_ni port map ( Q=>Qbar_12_EXMPLR, QB=>OPEN, D=>nx750, 
-      CLK=>nx927, S=>nx939);
+      CLK=>nx984, S=>nx939);
    ix751 : mux21_ni port map ( Y=>nx750, A0=>Qbar_12_EXMPLR, A1=>nx852, S0=>
       en);
    ix853 : inv01 port map ( Y=>nx852, A=>D(12));
    reg_Qbar_13 : dffs_ni port map ( Q=>Qbar_13_EXMPLR, QB=>OPEN, D=>nx760, 
-      CLK=>nx927, S=>nx939);
+      CLK=>nx984, S=>nx939);
    ix761 : mux21_ni port map ( Y=>nx760, A0=>Qbar_13_EXMPLR, A1=>nx857, S0=>
       en);
    ix858 : inv01 port map ( Y=>nx857, A=>D(13));
@@ -2361,22 +2355,29 @@ begin
       R=>nx945);
    ix621 : mux21_ni port map ( Y=>nx620, A0=>Q_15_EXMPLR, A1=>D(15), S0=>en
    );
-   ix922 : inv01 port map ( Y=>nx923, A=>clk);
-   ix924 : inv02 port map ( Y=>nx925, A=>nx923);
-   ix926 : inv02 port map ( Y=>nx927, A=>nx923);
    ix928 : inv02 port map ( Y=>nx929, A=>nx923);
    ix930 : inv02 port map ( Y=>nx931, A=>nx923);
    ix932 : inv02 port map ( Y=>nx933, A=>nx923);
-   ix934 : inv01 port map ( Y=>nx935, A=>rst);
    ix936 : inv02 port map ( Y=>nx937, A=>nx935);
    ix938 : inv02 port map ( Y=>nx939, A=>nx935);
-   ix940 : inv02 port map ( Y=>nx941, A=>nx935);
-   ix942 : inv02 port map ( Y=>nx943, A=>nx935);
+   ix940 : inv02 port map ( Y=>nx941, A=>nx935_XX0_XREP23);
+   ix942 : inv02 port map ( Y=>nx943, A=>nx935_XX0_XREP23);
    ix944 : inv02 port map ( Y=>nx945, A=>nx935);
+   ix922 : inv01 port map ( Y=>nx923, A=>clk);
+   ix934 : inv01 port map ( Y=>nx935, A=>rst);
+   ix934_0_XREP23 : inv01 port map ( Y=>nx935_XX0_XREP23, A=>rst);
+   ix924 : inv02 port map ( Y=>nx925, A=>nx923_XX0_XREP21);
+   ix926 : inv02 port map ( Y=>nx927, A=>nx923_XX0_XREP21);
+   ix922_0_XREP21 : inv01 port map ( Y=>nx923_XX0_XREP21, A=>clk);
+   ix986 : buf04 port map ( Y=>nx982, A=>nx925);
+   ix987 : buf04 port map ( Y=>nx983, A=>nx925);
+   ix988 : buf04 port map ( Y=>nx984, A=>nx927);
+   ix989 : buf04 port map ( Y=>nx985, A=>nx927);
 end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_8 is
    port (
@@ -2490,6 +2491,7 @@ end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity BinaryMux_33 is
    port (
@@ -2500,16 +2502,15 @@ entity BinaryMux_33 is
 end BinaryMux_33 ;
 
 architecture BinaryMuxArch of BinaryMux_33 is
-   signal nx298, nx300, nx302, nx304, nx306, nx308: std_logic ;
+   signal nx302, nx304, nx306, nx308, nx298, nx314: std_logic ;
 
 begin
-   ix7 : mux21_ni port map ( Y=>f(0), A0=>a(0), A1=>b(0), S0=>nx300);
-   ix15 : mux21_ni port map ( Y=>f(1), A0=>a(1), A1=>b(1), S0=>nx300);
-   ix23 : mux21_ni port map ( Y=>f(2), A0=>a(2), A1=>b(2), S0=>nx300);
-   ix31 : mux21_ni port map ( Y=>f(3), A0=>a(3), A1=>b(3), S0=>nx300);
-   ix39 : mux21_ni port map ( Y=>f(4), A0=>a(4), A1=>b(4), S0=>nx300);
-   ix47 : mux21_ni port map ( Y=>f(5), A0=>a(5), A1=>b(5), S0=>nx300);
-   ix55 : mux21_ni port map ( Y=>f(6), A0=>a(6), A1=>b(6), S0=>nx300);
+   ix15 : mux21_ni port map ( Y=>f(1), A0=>a(1), A1=>b(1), S0=>nx314);
+   ix23 : mux21_ni port map ( Y=>f(2), A0=>a(2), A1=>b(2), S0=>nx314);
+   ix31 : mux21_ni port map ( Y=>f(3), A0=>a(3), A1=>b(3), S0=>nx314);
+   ix39 : mux21_ni port map ( Y=>f(4), A0=>a(4), A1=>b(4), S0=>nx314);
+   ix47 : mux21_ni port map ( Y=>f(5), A0=>a(5), A1=>b(5), S0=>nx314);
+   ix55 : mux21_ni port map ( Y=>f(6), A0=>a(6), A1=>b(6), S0=>nx314);
    ix63 : mux21_ni port map ( Y=>f(7), A0=>a(7), A1=>b(7), S0=>nx302);
    ix71 : mux21_ni port map ( Y=>f(8), A0=>a(8), A1=>b(8), S0=>nx302);
    ix79 : mux21_ni port map ( Y=>f(9), A0=>a(9), A1=>b(9), S0=>nx302);
@@ -2536,16 +2537,19 @@ begin
    ix247 : mux21_ni port map ( Y=>f(30), A0=>a(30), A1=>b(30), S0=>nx308);
    ix255 : mux21_ni port map ( Y=>f(31), A0=>a(31), A1=>b(31), S0=>nx308);
    ix263 : mux21_ni port map ( Y=>f(32), A0=>a(32), A1=>b(32), S0=>nx308);
-   ix297 : inv01 port map ( Y=>nx298, A=>sel);
-   ix299 : inv02 port map ( Y=>nx300, A=>nx298);
    ix301 : inv02 port map ( Y=>nx302, A=>nx298);
    ix303 : inv02 port map ( Y=>nx304, A=>nx298);
    ix305 : inv02 port map ( Y=>nx306, A=>nx298);
    ix307 : inv02 port map ( Y=>nx308, A=>nx298);
+   reg_nx298 : inv02 port map ( Y=>nx298, A=>sel);
+   reg_f_0 : ao22 port map ( Y=>f(0), A0=>a(0), A1=>nx298, B0=>b(0), B1=>
+      nx314);
+   ix313 : inv02 port map ( Y=>nx314, A=>nx298);
 end BinaryMuxArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity NBitAdder_24 is
    port (
@@ -2623,6 +2627,7 @@ end NBitAdderArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity BoothStep is
    port (
@@ -2803,6 +2808,7 @@ end BoothStepArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Mul8x16 is
    port (
@@ -3006,6 +3012,7 @@ end Mul8x16Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity RisingHolderHalfCycle is
    port (
@@ -3028,6 +3035,7 @@ end RisingHolderHalfCycleArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity ShiftReg_3 is
    port (
@@ -3058,6 +3066,7 @@ end ShiftRegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_1 is
    port (
@@ -3087,6 +3096,7 @@ end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity nMul8x16_10 is
    port (
@@ -3533,9 +3543,11 @@ architecture nMul8x16Arch of nMul8x16_10 is
          Qbar : OUT std_logic_vector (0 DOWNTO 0)) ;
    end component ;
    signal counter_0, counterRst, restartDetection, firstStart, PWR, nx364, 
-      nx366, nx368, nx370, nx372, nx374, nx380, nx382, nx384, nx386, nx388, 
-      nx390, nx392, nx394, nx396, nx398, nx400, nx402, nx404, nx406, nx408, 
-      nx410, nx412, nx414, nx416, nx418, nx420: std_logic ;
+      nx366, nx368, nx370, nx372, nx374, nx382, nx384, nx392, nx396, nx398, 
+      nx400, nx402, nx404, nx406, nx408, nx410, nx412, nx414, nx416, nx418, 
+      nx420, nx394, nx394_XX0_XREP41, nx380, nx380_XX0_XREP43, nx433, nx435, 
+      nx437, nx439, nx441, nx443, nx445, nx447, nx449, nx451, nx453, nx455, 
+      nx457, nx459, nx461, nx463, nx465, nx467: std_logic ;
    
    signal DANGLING : std_logic_vector (2 downto 0 );
 
@@ -3549,8 +3561,8 @@ begin
       fMul(12)=>f_9_12, fMul(11)=>f_9_11, fMul(10)=>f_9_10, fMul(9)=>f_9_9, 
       fMul(8)=>f_9_8, fMul(7)=>f_9_7, fMul(6)=>f_9_6, fMul(5)=>f_9_5, 
       fMul(4)=>f_9_4, fMul(3)=>f_9_3, fMul(2)=>f_9_2, fMul(1)=>f_9_1, 
-      fMul(0)=>f_9_0, clk=>nx414, start=>nx396, rst=>nx418, sel=>nx368, 
-      startAndPause=>nx406);
+      fMul(0)=>f_9_0, clk=>nx414, start=>nx445, rst=>nx418, sel=>nx368, 
+      startAndPause=>nx451);
    gen_8_cmp : Mul8x16 port map ( q(7)=>q_8_7, q(6)=>q_8_6, q(5)=>q_8_5, 
       q(4)=>q_8_4, q(3)=>q_8_3, q(2)=>q_8_2, q(1)=>q_8_1, q(0)=>q_8_0, m(15)
       =>m_8_15, m(14)=>m_8_14, m(13)=>m_8_13, m(12)=>m_8_12, m(11)=>m_8_11, 
@@ -3560,8 +3572,8 @@ begin
       fMul(12)=>f_8_12, fMul(11)=>f_8_11, fMul(10)=>f_8_10, fMul(9)=>f_8_9, 
       fMul(8)=>f_8_8, fMul(7)=>f_8_7, fMul(6)=>f_8_6, fMul(5)=>f_8_5, 
       fMul(4)=>f_8_4, fMul(3)=>f_8_3, fMul(2)=>f_8_2, fMul(1)=>f_8_1, 
-      fMul(0)=>f_8_0, clk=>nx414, start=>nx396, rst=>nx382, sel=>nx368, 
-      startAndPause=>nx406);
+      fMul(0)=>f_8_0, clk=>nx414, start=>nx445, rst=>nx382, sel=>nx368, 
+      startAndPause=>nx453);
    gen_7_cmp : Mul8x16 port map ( q(7)=>q_7_7, q(6)=>q_7_6, q(5)=>q_7_5, 
       q(4)=>q_7_4, q(3)=>q_7_3, q(2)=>q_7_2, q(1)=>q_7_1, q(0)=>q_7_0, m(15)
       =>m_7_15, m(14)=>m_7_14, m(13)=>m_7_13, m(12)=>m_7_12, m(11)=>m_7_11, 
@@ -3582,8 +3594,8 @@ begin
       fMul(12)=>f_6_12, fMul(11)=>f_6_11, fMul(10)=>f_6_10, fMul(9)=>f_6_9, 
       fMul(8)=>f_6_8, fMul(7)=>f_6_7, fMul(6)=>f_6_6, fMul(5)=>f_6_5, 
       fMul(4)=>f_6_4, fMul(3)=>f_6_3, fMul(2)=>f_6_2, fMul(1)=>f_6_1, 
-      fMul(0)=>f_6_0, clk=>nx416, start=>nx398, rst=>nx384, sel=>nx368, 
-      startAndPause=>nx408);
+      fMul(0)=>f_6_0, clk=>nx416, start=>nx447, rst=>nx384, sel=>nx368, 
+      startAndPause=>nx455);
    gen_5_cmp : Mul8x16 port map ( q(7)=>q_5_7, q(6)=>q_5_6, q(5)=>q_5_5, 
       q(4)=>q_5_4, q(3)=>q_5_3, q(2)=>q_5_2, q(1)=>q_5_1, q(0)=>q_5_0, m(15)
       =>m_5_15, m(14)=>m_5_14, m(13)=>m_5_13, m(12)=>m_5_12, m(11)=>m_5_11, 
@@ -3593,8 +3605,8 @@ begin
       fMul(12)=>f_5_12, fMul(11)=>f_5_11, fMul(10)=>f_5_10, fMul(9)=>f_5_9, 
       fMul(8)=>f_5_8, fMul(7)=>f_5_7, fMul(6)=>f_5_6, fMul(5)=>f_5_5, 
       fMul(4)=>f_5_4, fMul(3)=>f_5_3, fMul(2)=>f_5_2, fMul(1)=>f_5_1, 
-      fMul(0)=>f_5_0, clk=>nx416, start=>nx398, rst=>nx386, sel=>nx368, 
-      startAndPause=>nx408);
+      fMul(0)=>f_5_0, clk=>nx416, start=>nx447, rst=>nx433, sel=>nx368, 
+      startAndPause=>nx457);
    gen_4_cmp : Mul8x16 port map ( q(7)=>q_4_7, q(6)=>q_4_6, q(5)=>q_4_5, 
       q(4)=>q_4_4, q(3)=>q_4_3, q(2)=>q_4_2, q(1)=>q_4_1, q(0)=>q_4_0, m(15)
       =>m_4_15, m(14)=>m_4_14, m(13)=>m_4_13, m(12)=>m_4_12, m(11)=>m_4_11, 
@@ -3604,7 +3616,7 @@ begin
       fMul(12)=>f_4_12, fMul(11)=>f_4_11, fMul(10)=>f_4_10, fMul(9)=>f_4_9, 
       fMul(8)=>f_4_8, fMul(7)=>f_4_7, fMul(6)=>f_4_6, fMul(5)=>f_4_5, 
       fMul(4)=>f_4_4, fMul(3)=>f_4_3, fMul(2)=>f_4_2, fMul(1)=>f_4_1, 
-      fMul(0)=>f_4_0, clk=>nx416, start=>nx398, rst=>nx386, sel=>nx368, 
+      fMul(0)=>f_4_0, clk=>nx416, start=>nx398, rst=>nx435, sel=>nx368, 
       startAndPause=>nx408);
    gen_3_cmp : Mul8x16 port map ( q(7)=>q_3_7, q(6)=>q_3_6, q(5)=>q_3_5, 
       q(4)=>q_3_4, q(3)=>q_3_3, q(2)=>q_3_2, q(1)=>q_3_1, q(0)=>q_3_0, m(15)
@@ -3615,7 +3627,7 @@ begin
       fMul(12)=>f_3_12, fMul(11)=>f_3_11, fMul(10)=>f_3_10, fMul(9)=>f_3_9, 
       fMul(8)=>f_3_8, fMul(7)=>f_3_7, fMul(6)=>f_3_6, fMul(5)=>f_3_5, 
       fMul(4)=>f_3_4, fMul(3)=>f_3_3, fMul(2)=>f_3_2, fMul(1)=>f_3_1, 
-      fMul(0)=>f_3_0, clk=>nx372, start=>nx400, rst=>nx388, sel=>nx368, 
+      fMul(0)=>f_3_0, clk=>nx372, start=>nx449, rst=>nx437, sel=>nx368, 
       startAndPause=>nx410);
    gen_2_cmp : Mul8x16 port map ( q(7)=>q_2_7, q(6)=>q_2_6, q(5)=>q_2_5, 
       q(4)=>q_2_4, q(3)=>q_2_3, q(2)=>q_2_2, q(1)=>q_2_1, q(0)=>q_2_0, m(15)
@@ -3626,8 +3638,8 @@ begin
       fMul(12)=>f_2_12, fMul(11)=>f_2_11, fMul(10)=>f_2_10, fMul(9)=>f_2_9, 
       fMul(8)=>f_2_8, fMul(7)=>f_2_7, fMul(6)=>f_2_6, fMul(5)=>f_2_5, 
       fMul(4)=>f_2_4, fMul(3)=>f_2_3, fMul(2)=>f_2_2, fMul(1)=>f_2_1, 
-      fMul(0)=>f_2_0, clk=>nx374, start=>nx400, rst=>nx388, sel=>nx370, 
-      startAndPause=>nx412);
+      fMul(0)=>f_2_0, clk=>nx374, start=>nx449, rst=>nx439, sel=>nx370, 
+      startAndPause=>nx461);
    gen_1_cmp : Mul8x16 port map ( q(7)=>q_1_7, q(6)=>q_1_6, q(5)=>q_1_5, 
       q(4)=>q_1_4, q(3)=>q_1_3, q(2)=>q_1_2, q(1)=>q_1_1, q(0)=>q_1_0, m(15)
       =>m_1_15, m(14)=>m_1_14, m(13)=>m_1_13, m(12)=>m_1_12, m(11)=>m_1_11, 
@@ -3637,8 +3649,8 @@ begin
       fMul(12)=>f_1_12, fMul(11)=>f_1_11, fMul(10)=>f_1_10, fMul(9)=>f_1_9, 
       fMul(8)=>f_1_8, fMul(7)=>f_1_7, fMul(6)=>f_1_6, fMul(5)=>f_1_5, 
       fMul(4)=>f_1_4, fMul(3)=>f_1_3, fMul(2)=>f_1_2, fMul(1)=>f_1_1, 
-      fMul(0)=>f_1_0, clk=>nx374, start=>nx400, rst=>nx390, sel=>nx370, 
-      startAndPause=>nx412);
+      fMul(0)=>f_1_0, clk=>nx374, start=>nx400, rst=>nx441, sel=>nx370, 
+      startAndPause=>nx463);
    gen_0_cmp : Mul8x16 port map ( q(7)=>q_0_7, q(6)=>q_0_6, q(5)=>q_0_5, 
       q(4)=>q_0_4, q(3)=>q_0_3, q(2)=>q_0_2, q(1)=>q_0_1, q(0)=>q_0_0, m(15)
       =>m_0_15, m(14)=>m_0_14, m(13)=>m_0_13, m(12)=>m_0_12, m(11)=>m_0_11, 
@@ -3648,9 +3660,9 @@ begin
       fMul(12)=>f_0_12, fMul(11)=>f_0_11, fMul(10)=>f_0_10, fMul(9)=>f_0_9, 
       fMul(8)=>f_0_8, fMul(7)=>f_0_7, fMul(6)=>f_0_6, fMul(5)=>f_0_5, 
       fMul(4)=>f_0_4, fMul(3)=>f_0_3, fMul(2)=>f_0_2, fMul(1)=>f_0_1, 
-      fMul(0)=>f_0_0, clk=>nx374, start=>nx402, rst=>nx390, sel=>nx370, 
-      startAndPause=>nx412);
-   StartCaptuerCmp : RisingHolderHalfCycle port map ( edge=>nx396, clk=>clk, 
+      fMul(0)=>f_0_0, clk=>nx374, start=>nx402, rst=>nx443, sel=>nx370, 
+      startAndPause=>nx465);
+   StartCaptuerCmp : RisingHolderHalfCycle port map ( edge=>nx445, clk=>clk, 
       rst=>nx418, f=>restartDetection);
    CounterCmp : ShiftReg_3 port map ( outp(3)=>done, outp(2)=>DANGLING(0), 
       outp(1)=>DANGLING(1), outp(0)=>counter_0, clk=>clk, en=>nx366, rst=>
@@ -3666,16 +3678,11 @@ begin
    ix369 : buf02 port map ( Y=>nx370, A=>counter_0);
    ix371 : inv01 port map ( Y=>nx372, A=>clk);
    ix373 : inv01 port map ( Y=>nx374, A=>clk);
-   ix379 : inv01 port map ( Y=>nx380, A=>rst);
    ix381 : inv01 port map ( Y=>nx382, A=>nx380);
    ix383 : inv01 port map ( Y=>nx384, A=>nx380);
-   ix385 : inv01 port map ( Y=>nx386, A=>nx380);
-   ix387 : inv01 port map ( Y=>nx388, A=>nx380);
-   ix389 : inv01 port map ( Y=>nx390, A=>nx380);
    ix391 : inv01 port map ( Y=>nx392, A=>nx380);
-   ix393 : inv01 port map ( Y=>nx394, A=>start);
-   ix395 : inv02 port map ( Y=>nx396, A=>nx394);
-   ix397 : inv02 port map ( Y=>nx398, A=>nx394);
+   ix395 : inv02 port map ( Y=>nx396, A=>nx394_XX0_XREP41);
+   ix397 : inv02 port map ( Y=>nx398, A=>nx394_XX0_XREP41);
    ix399 : inv02 port map ( Y=>nx400, A=>nx394);
    ix401 : inv02 port map ( Y=>nx402, A=>nx394);
    ix403 : inv01 port map ( Y=>nx404, A=>nx364);
@@ -3686,11 +3693,34 @@ begin
    ix413 : inv01 port map ( Y=>nx414, A=>clk);
    ix415 : inv01 port map ( Y=>nx416, A=>clk);
    ix417 : inv01 port map ( Y=>nx418, A=>nx380);
-   ix419 : inv01 port map ( Y=>nx420, A=>nx380);
+   ix419 : inv01 port map ( Y=>nx420, A=>nx467);
+   ix393 : inv01 port map ( Y=>nx394, A=>start);
+   ix393_0_XREP41 : inv01 port map ( Y=>nx394_XX0_XREP41, A=>start);
+   ix379 : inv01 port map ( Y=>nx380, A=>rst);
+   ix379_0_XREP43 : inv01 port map ( Y=>nx380_XX0_XREP43, A=>rst);
+   ix432 : inv01 port map ( Y=>nx433, A=>nx467);
+   ix434 : inv01 port map ( Y=>nx435, A=>nx467);
+   ix436 : inv01 port map ( Y=>nx437, A=>nx467);
+   ix438 : inv01 port map ( Y=>nx439, A=>nx380_XX0_XREP43);
+   ix440 : inv01 port map ( Y=>nx441, A=>nx380_XX0_XREP43);
+   ix442 : inv01 port map ( Y=>nx443, A=>nx380_XX0_XREP43);
+   ix444 : inv02 port map ( Y=>nx445, A=>nx394_XX0_XREP41);
+   ix446 : inv02 port map ( Y=>nx447, A=>nx394_XX0_XREP41);
+   ix448 : inv02 port map ( Y=>nx449, A=>nx394);
+   ix450 : inv01 port map ( Y=>nx451, A=>nx404);
+   ix452 : inv01 port map ( Y=>nx453, A=>nx404);
+   ix454 : inv01 port map ( Y=>nx455, A=>nx404);
+   ix456 : inv01 port map ( Y=>nx457, A=>nx404);
+   ix458 : inv01 port map ( Y=>nx459, A=>nx412);
+   ix460 : inv01 port map ( Y=>nx461, A=>nx459);
+   ix462 : inv01 port map ( Y=>nx463, A=>nx459);
+   ix464 : inv01 port map ( Y=>nx465, A=>nx459);
+   ix379_0_XREP43_rep_1 : inv01 port map ( Y=>nx467, A=>rst);
 end nMul8x16Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Accumulator_10 is
    port (
@@ -4066,7 +4096,8 @@ architecture AccumulatorArch of Accumulator_10 is
       outReg_0_15, outReg_0_14, outReg_0_13, outReg_0_12, outReg_0_11, 
       outReg_0_10, outReg_0_9, outReg_0_8, outReg_0_7, outReg_0_6, 
       outReg_0_5, outReg_0_4, outReg_0_3, outReg_0_2, outReg_0_1, outReg_0_0, 
-      PWR, GND, nx947, nx949, nx951, nx953: std_logic ;
+      PWR, GND, nx947, nx949, nx951, nx953, nx1129, nx1131, nx1133, nx1135, 
+      nx1137, nx1139, nx1141, nx1143: std_logic ;
    
    signal DANGLING : std_logic_vector (169 downto 0 );
 
@@ -4087,17 +4118,18 @@ begin
    gen_9_cmp2 : Reg_16 port map ( D(15)=>f_9_15, D(14)=>f_9_14, D(13)=>
       f_9_13, D(12)=>f_9_12, D(11)=>f_9_11, D(10)=>f_9_10, D(9)=>f_9_9, D(8)
       =>f_9_8, D(7)=>f_9_7, D(6)=>f_9_6, D(5)=>f_9_5, D(4)=>f_9_4, D(3)=>
-      f_9_3, D(2)=>f_9_2, D(1)=>f_9_1, D(0)=>f_9_0, en=>PWR, clk=>nx947, rst
-      =>nx951, Q(15)=>outReg_9_15, Q(14)=>outReg_9_14, Q(13)=>outReg_9_13, 
-      Q(12)=>outReg_9_12, Q(11)=>outReg_9_11, Q(10)=>outReg_9_10, Q(9)=>
-      outReg_9_9, Q(8)=>outReg_9_8, Q(7)=>outReg_9_7, Q(6)=>outReg_9_6, Q(5)
-      =>outReg_9_5, Q(4)=>outReg_9_4, Q(3)=>outReg_9_3, Q(2)=>outReg_9_2, 
-      Q(1)=>outReg_9_1, Q(0)=>outReg_9_0, Qbar(15)=>DANGLING(1), Qbar(14)=>
-      DANGLING(2), Qbar(13)=>DANGLING(3), Qbar(12)=>DANGLING(4), Qbar(11)=>
-      DANGLING(5), Qbar(10)=>DANGLING(6), Qbar(9)=>DANGLING(7), Qbar(8)=>
-      DANGLING(8), Qbar(7)=>DANGLING(9), Qbar(6)=>DANGLING(10), Qbar(5)=>
-      DANGLING(11), Qbar(4)=>DANGLING(12), Qbar(3)=>DANGLING(13), Qbar(2)=>
-      DANGLING(14), Qbar(1)=>DANGLING(15), Qbar(0)=>DANGLING(16));
+      f_9_3, D(2)=>f_9_2, D(1)=>f_9_1, D(0)=>f_9_0, en=>PWR, clk=>nx1131, 
+      rst=>nx1139, Q(15)=>outReg_9_15, Q(14)=>outReg_9_14, Q(13)=>
+      outReg_9_13, Q(12)=>outReg_9_12, Q(11)=>outReg_9_11, Q(10)=>
+      outReg_9_10, Q(9)=>outReg_9_9, Q(8)=>outReg_9_8, Q(7)=>outReg_9_7, 
+      Q(6)=>outReg_9_6, Q(5)=>outReg_9_5, Q(4)=>outReg_9_4, Q(3)=>outReg_9_3, 
+      Q(2)=>outReg_9_2, Q(1)=>outReg_9_1, Q(0)=>outReg_9_0, Qbar(15)=>
+      DANGLING(1), Qbar(14)=>DANGLING(2), Qbar(13)=>DANGLING(3), Qbar(12)=>
+      DANGLING(4), Qbar(11)=>DANGLING(5), Qbar(10)=>DANGLING(6), Qbar(9)=>
+      DANGLING(7), Qbar(8)=>DANGLING(8), Qbar(7)=>DANGLING(9), Qbar(6)=>
+      DANGLING(10), Qbar(5)=>DANGLING(11), Qbar(4)=>DANGLING(12), Qbar(3)=>
+      DANGLING(13), Qbar(2)=>DANGLING(14), Qbar(1)=>DANGLING(15), Qbar(0)=>
+      DANGLING(16));
    gen_8_cmp1 : NBitAdder_16 port map ( a(15)=>a_8_15, a(14)=>a_8_14, a(13)
       =>a_8_13, a(12)=>a_8_12, a(11)=>a_8_11, a(10)=>a_8_10, a(9)=>a_8_9, 
       a(8)=>a_8_8, a(7)=>a_8_7, a(6)=>a_8_6, a(5)=>a_8_5, a(4)=>a_8_4, a(3)
@@ -4114,17 +4146,18 @@ begin
    gen_8_cmp2 : Reg_16 port map ( D(15)=>f_8_15, D(14)=>f_8_14, D(13)=>
       f_8_13, D(12)=>f_8_12, D(11)=>f_8_11, D(10)=>f_8_10, D(9)=>f_8_9, D(8)
       =>f_8_8, D(7)=>f_8_7, D(6)=>f_8_6, D(5)=>f_8_5, D(4)=>f_8_4, D(3)=>
-      f_8_3, D(2)=>f_8_2, D(1)=>f_8_1, D(0)=>f_8_0, en=>PWR, clk=>nx947, rst
-      =>nx951, Q(15)=>outReg_8_15, Q(14)=>outReg_8_14, Q(13)=>outReg_8_13, 
-      Q(12)=>outReg_8_12, Q(11)=>outReg_8_11, Q(10)=>outReg_8_10, Q(9)=>
-      outReg_8_9, Q(8)=>outReg_8_8, Q(7)=>outReg_8_7, Q(6)=>outReg_8_6, Q(5)
-      =>outReg_8_5, Q(4)=>outReg_8_4, Q(3)=>outReg_8_3, Q(2)=>outReg_8_2, 
-      Q(1)=>outReg_8_1, Q(0)=>outReg_8_0, Qbar(15)=>DANGLING(18), Qbar(14)=>
-      DANGLING(19), Qbar(13)=>DANGLING(20), Qbar(12)=>DANGLING(21), Qbar(11)
-      =>DANGLING(22), Qbar(10)=>DANGLING(23), Qbar(9)=>DANGLING(24), Qbar(8)
-      =>DANGLING(25), Qbar(7)=>DANGLING(26), Qbar(6)=>DANGLING(27), Qbar(5)
-      =>DANGLING(28), Qbar(4)=>DANGLING(29), Qbar(3)=>DANGLING(30), Qbar(2)
-      =>DANGLING(31), Qbar(1)=>DANGLING(32), Qbar(0)=>DANGLING(33));
+      f_8_3, D(2)=>f_8_2, D(1)=>f_8_1, D(0)=>f_8_0, en=>PWR, clk=>nx1131, 
+      rst=>nx1139, Q(15)=>outReg_8_15, Q(14)=>outReg_8_14, Q(13)=>
+      outReg_8_13, Q(12)=>outReg_8_12, Q(11)=>outReg_8_11, Q(10)=>
+      outReg_8_10, Q(9)=>outReg_8_9, Q(8)=>outReg_8_8, Q(7)=>outReg_8_7, 
+      Q(6)=>outReg_8_6, Q(5)=>outReg_8_5, Q(4)=>outReg_8_4, Q(3)=>outReg_8_3, 
+      Q(2)=>outReg_8_2, Q(1)=>outReg_8_1, Q(0)=>outReg_8_0, Qbar(15)=>
+      DANGLING(18), Qbar(14)=>DANGLING(19), Qbar(13)=>DANGLING(20), Qbar(12)
+      =>DANGLING(21), Qbar(11)=>DANGLING(22), Qbar(10)=>DANGLING(23), 
+      Qbar(9)=>DANGLING(24), Qbar(8)=>DANGLING(25), Qbar(7)=>DANGLING(26), 
+      Qbar(6)=>DANGLING(27), Qbar(5)=>DANGLING(28), Qbar(4)=>DANGLING(29), 
+      Qbar(3)=>DANGLING(30), Qbar(2)=>DANGLING(31), Qbar(1)=>DANGLING(32), 
+      Qbar(0)=>DANGLING(33));
    gen_7_cmp1 : NBitAdder_16 port map ( a(15)=>a_7_15, a(14)=>a_7_14, a(13)
       =>a_7_13, a(12)=>a_7_12, a(11)=>a_7_11, a(10)=>a_7_10, a(9)=>a_7_9, 
       a(8)=>a_7_8, a(7)=>a_7_7, a(6)=>a_7_6, a(5)=>a_7_5, a(4)=>a_7_4, a(3)
@@ -4141,17 +4174,18 @@ begin
    gen_7_cmp2 : Reg_16 port map ( D(15)=>f_7_15, D(14)=>f_7_14, D(13)=>
       f_7_13, D(12)=>f_7_12, D(11)=>f_7_11, D(10)=>f_7_10, D(9)=>f_7_9, D(8)
       =>f_7_8, D(7)=>f_7_7, D(6)=>f_7_6, D(5)=>f_7_5, D(4)=>f_7_4, D(3)=>
-      f_7_3, D(2)=>f_7_2, D(1)=>f_7_1, D(0)=>f_7_0, en=>PWR, clk=>nx947, rst
-      =>nx951, Q(15)=>outReg_7_15, Q(14)=>outReg_7_14, Q(13)=>outReg_7_13, 
-      Q(12)=>outReg_7_12, Q(11)=>outReg_7_11, Q(10)=>outReg_7_10, Q(9)=>
-      outReg_7_9, Q(8)=>outReg_7_8, Q(7)=>outReg_7_7, Q(6)=>outReg_7_6, Q(5)
-      =>outReg_7_5, Q(4)=>outReg_7_4, Q(3)=>outReg_7_3, Q(2)=>outReg_7_2, 
-      Q(1)=>outReg_7_1, Q(0)=>outReg_7_0, Qbar(15)=>DANGLING(35), Qbar(14)=>
-      DANGLING(36), Qbar(13)=>DANGLING(37), Qbar(12)=>DANGLING(38), Qbar(11)
-      =>DANGLING(39), Qbar(10)=>DANGLING(40), Qbar(9)=>DANGLING(41), Qbar(8)
-      =>DANGLING(42), Qbar(7)=>DANGLING(43), Qbar(6)=>DANGLING(44), Qbar(5)
-      =>DANGLING(45), Qbar(4)=>DANGLING(46), Qbar(3)=>DANGLING(47), Qbar(2)
-      =>DANGLING(48), Qbar(1)=>DANGLING(49), Qbar(0)=>DANGLING(50));
+      f_7_3, D(2)=>f_7_2, D(1)=>f_7_1, D(0)=>f_7_0, en=>PWR, clk=>nx1131, 
+      rst=>nx1139, Q(15)=>outReg_7_15, Q(14)=>outReg_7_14, Q(13)=>
+      outReg_7_13, Q(12)=>outReg_7_12, Q(11)=>outReg_7_11, Q(10)=>
+      outReg_7_10, Q(9)=>outReg_7_9, Q(8)=>outReg_7_8, Q(7)=>outReg_7_7, 
+      Q(6)=>outReg_7_6, Q(5)=>outReg_7_5, Q(4)=>outReg_7_4, Q(3)=>outReg_7_3, 
+      Q(2)=>outReg_7_2, Q(1)=>outReg_7_1, Q(0)=>outReg_7_0, Qbar(15)=>
+      DANGLING(35), Qbar(14)=>DANGLING(36), Qbar(13)=>DANGLING(37), Qbar(12)
+      =>DANGLING(38), Qbar(11)=>DANGLING(39), Qbar(10)=>DANGLING(40), 
+      Qbar(9)=>DANGLING(41), Qbar(8)=>DANGLING(42), Qbar(7)=>DANGLING(43), 
+      Qbar(6)=>DANGLING(44), Qbar(5)=>DANGLING(45), Qbar(4)=>DANGLING(46), 
+      Qbar(3)=>DANGLING(47), Qbar(2)=>DANGLING(48), Qbar(1)=>DANGLING(49), 
+      Qbar(0)=>DANGLING(50));
    gen_6_cmp1 : NBitAdder_16 port map ( a(15)=>a_6_15, a(14)=>a_6_14, a(13)
       =>a_6_13, a(12)=>a_6_12, a(11)=>a_6_11, a(10)=>a_6_10, a(9)=>a_6_9, 
       a(8)=>a_6_8, a(7)=>a_6_7, a(6)=>a_6_6, a(5)=>a_6_5, a(4)=>a_6_4, a(3)
@@ -4168,17 +4202,18 @@ begin
    gen_6_cmp2 : Reg_16 port map ( D(15)=>f_6_15, D(14)=>f_6_14, D(13)=>
       f_6_13, D(12)=>f_6_12, D(11)=>f_6_11, D(10)=>f_6_10, D(9)=>f_6_9, D(8)
       =>f_6_8, D(7)=>f_6_7, D(6)=>f_6_6, D(5)=>f_6_5, D(4)=>f_6_4, D(3)=>
-      f_6_3, D(2)=>f_6_2, D(1)=>f_6_1, D(0)=>f_6_0, en=>PWR, clk=>nx947, rst
-      =>nx951, Q(15)=>outReg_6_15, Q(14)=>outReg_6_14, Q(13)=>outReg_6_13, 
-      Q(12)=>outReg_6_12, Q(11)=>outReg_6_11, Q(10)=>outReg_6_10, Q(9)=>
-      outReg_6_9, Q(8)=>outReg_6_8, Q(7)=>outReg_6_7, Q(6)=>outReg_6_6, Q(5)
-      =>outReg_6_5, Q(4)=>outReg_6_4, Q(3)=>outReg_6_3, Q(2)=>outReg_6_2, 
-      Q(1)=>outReg_6_1, Q(0)=>outReg_6_0, Qbar(15)=>DANGLING(52), Qbar(14)=>
-      DANGLING(53), Qbar(13)=>DANGLING(54), Qbar(12)=>DANGLING(55), Qbar(11)
-      =>DANGLING(56), Qbar(10)=>DANGLING(57), Qbar(9)=>DANGLING(58), Qbar(8)
-      =>DANGLING(59), Qbar(7)=>DANGLING(60), Qbar(6)=>DANGLING(61), Qbar(5)
-      =>DANGLING(62), Qbar(4)=>DANGLING(63), Qbar(3)=>DANGLING(64), Qbar(2)
-      =>DANGLING(65), Qbar(1)=>DANGLING(66), Qbar(0)=>DANGLING(67));
+      f_6_3, D(2)=>f_6_2, D(1)=>f_6_1, D(0)=>f_6_0, en=>PWR, clk=>nx1133, 
+      rst=>nx1141, Q(15)=>outReg_6_15, Q(14)=>outReg_6_14, Q(13)=>
+      outReg_6_13, Q(12)=>outReg_6_12, Q(11)=>outReg_6_11, Q(10)=>
+      outReg_6_10, Q(9)=>outReg_6_9, Q(8)=>outReg_6_8, Q(7)=>outReg_6_7, 
+      Q(6)=>outReg_6_6, Q(5)=>outReg_6_5, Q(4)=>outReg_6_4, Q(3)=>outReg_6_3, 
+      Q(2)=>outReg_6_2, Q(1)=>outReg_6_1, Q(0)=>outReg_6_0, Qbar(15)=>
+      DANGLING(52), Qbar(14)=>DANGLING(53), Qbar(13)=>DANGLING(54), Qbar(12)
+      =>DANGLING(55), Qbar(11)=>DANGLING(56), Qbar(10)=>DANGLING(57), 
+      Qbar(9)=>DANGLING(58), Qbar(8)=>DANGLING(59), Qbar(7)=>DANGLING(60), 
+      Qbar(6)=>DANGLING(61), Qbar(5)=>DANGLING(62), Qbar(4)=>DANGLING(63), 
+      Qbar(3)=>DANGLING(64), Qbar(2)=>DANGLING(65), Qbar(1)=>DANGLING(66), 
+      Qbar(0)=>DANGLING(67));
    gen_5_cmp1 : NBitAdder_16 port map ( a(15)=>a_5_15, a(14)=>a_5_14, a(13)
       =>a_5_13, a(12)=>a_5_12, a(11)=>a_5_11, a(10)=>a_5_10, a(9)=>a_5_9, 
       a(8)=>a_5_8, a(7)=>a_5_7, a(6)=>a_5_6, a(5)=>a_5_5, a(4)=>a_5_4, a(3)
@@ -4195,17 +4230,18 @@ begin
    gen_5_cmp2 : Reg_16 port map ( D(15)=>f_5_15, D(14)=>f_5_14, D(13)=>
       f_5_13, D(12)=>f_5_12, D(11)=>f_5_11, D(10)=>f_5_10, D(9)=>f_5_9, D(8)
       =>f_5_8, D(7)=>f_5_7, D(6)=>f_5_6, D(5)=>f_5_5, D(4)=>f_5_4, D(3)=>
-      f_5_3, D(2)=>f_5_2, D(1)=>f_5_1, D(0)=>f_5_0, en=>PWR, clk=>nx947, rst
-      =>nx951, Q(15)=>outReg_5_15, Q(14)=>outReg_5_14, Q(13)=>outReg_5_13, 
-      Q(12)=>outReg_5_12, Q(11)=>outReg_5_11, Q(10)=>outReg_5_10, Q(9)=>
-      outReg_5_9, Q(8)=>outReg_5_8, Q(7)=>outReg_5_7, Q(6)=>outReg_5_6, Q(5)
-      =>outReg_5_5, Q(4)=>outReg_5_4, Q(3)=>outReg_5_3, Q(2)=>outReg_5_2, 
-      Q(1)=>outReg_5_1, Q(0)=>outReg_5_0, Qbar(15)=>DANGLING(69), Qbar(14)=>
-      DANGLING(70), Qbar(13)=>DANGLING(71), Qbar(12)=>DANGLING(72), Qbar(11)
-      =>DANGLING(73), Qbar(10)=>DANGLING(74), Qbar(9)=>DANGLING(75), Qbar(8)
-      =>DANGLING(76), Qbar(7)=>DANGLING(77), Qbar(6)=>DANGLING(78), Qbar(5)
-      =>DANGLING(79), Qbar(4)=>DANGLING(80), Qbar(3)=>DANGLING(81), Qbar(2)
-      =>DANGLING(82), Qbar(1)=>DANGLING(83), Qbar(0)=>DANGLING(84));
+      f_5_3, D(2)=>f_5_2, D(1)=>f_5_1, D(0)=>f_5_0, en=>PWR, clk=>nx1133, 
+      rst=>nx1141, Q(15)=>outReg_5_15, Q(14)=>outReg_5_14, Q(13)=>
+      outReg_5_13, Q(12)=>outReg_5_12, Q(11)=>outReg_5_11, Q(10)=>
+      outReg_5_10, Q(9)=>outReg_5_9, Q(8)=>outReg_5_8, Q(7)=>outReg_5_7, 
+      Q(6)=>outReg_5_6, Q(5)=>outReg_5_5, Q(4)=>outReg_5_4, Q(3)=>outReg_5_3, 
+      Q(2)=>outReg_5_2, Q(1)=>outReg_5_1, Q(0)=>outReg_5_0, Qbar(15)=>
+      DANGLING(69), Qbar(14)=>DANGLING(70), Qbar(13)=>DANGLING(71), Qbar(12)
+      =>DANGLING(72), Qbar(11)=>DANGLING(73), Qbar(10)=>DANGLING(74), 
+      Qbar(9)=>DANGLING(75), Qbar(8)=>DANGLING(76), Qbar(7)=>DANGLING(77), 
+      Qbar(6)=>DANGLING(78), Qbar(5)=>DANGLING(79), Qbar(4)=>DANGLING(80), 
+      Qbar(3)=>DANGLING(81), Qbar(2)=>DANGLING(82), Qbar(1)=>DANGLING(83), 
+      Qbar(0)=>DANGLING(84));
    gen_4_cmp1 : NBitAdder_16 port map ( a(15)=>a_4_15, a(14)=>a_4_14, a(13)
       =>a_4_13, a(12)=>a_4_12, a(11)=>a_4_11, a(10)=>a_4_10, a(9)=>a_4_9, 
       a(8)=>a_4_8, a(7)=>a_4_7, a(6)=>a_4_6, a(5)=>a_4_5, a(4)=>a_4_4, a(3)
@@ -4222,17 +4258,18 @@ begin
    gen_4_cmp2 : Reg_16 port map ( D(15)=>f_4_15, D(14)=>f_4_14, D(13)=>
       f_4_13, D(12)=>f_4_12, D(11)=>f_4_11, D(10)=>f_4_10, D(9)=>f_4_9, D(8)
       =>f_4_8, D(7)=>f_4_7, D(6)=>f_4_6, D(5)=>f_4_5, D(4)=>f_4_4, D(3)=>
-      f_4_3, D(2)=>f_4_2, D(1)=>f_4_1, D(0)=>f_4_0, en=>PWR, clk=>nx947, rst
-      =>nx951, Q(15)=>outReg_4_15, Q(14)=>outReg_4_14, Q(13)=>outReg_4_13, 
-      Q(12)=>outReg_4_12, Q(11)=>outReg_4_11, Q(10)=>outReg_4_10, Q(9)=>
-      outReg_4_9, Q(8)=>outReg_4_8, Q(7)=>outReg_4_7, Q(6)=>outReg_4_6, Q(5)
-      =>outReg_4_5, Q(4)=>outReg_4_4, Q(3)=>outReg_4_3, Q(2)=>outReg_4_2, 
-      Q(1)=>outReg_4_1, Q(0)=>outReg_4_0, Qbar(15)=>DANGLING(86), Qbar(14)=>
-      DANGLING(87), Qbar(13)=>DANGLING(88), Qbar(12)=>DANGLING(89), Qbar(11)
-      =>DANGLING(90), Qbar(10)=>DANGLING(91), Qbar(9)=>DANGLING(92), Qbar(8)
-      =>DANGLING(93), Qbar(7)=>DANGLING(94), Qbar(6)=>DANGLING(95), Qbar(5)
-      =>DANGLING(96), Qbar(4)=>DANGLING(97), Qbar(3)=>DANGLING(98), Qbar(2)
-      =>DANGLING(99), Qbar(1)=>DANGLING(100), Qbar(0)=>DANGLING(101));
+      f_4_3, D(2)=>f_4_2, D(1)=>f_4_1, D(0)=>f_4_0, en=>PWR, clk=>nx1133, 
+      rst=>nx1141, Q(15)=>outReg_4_15, Q(14)=>outReg_4_14, Q(13)=>
+      outReg_4_13, Q(12)=>outReg_4_12, Q(11)=>outReg_4_11, Q(10)=>
+      outReg_4_10, Q(9)=>outReg_4_9, Q(8)=>outReg_4_8, Q(7)=>outReg_4_7, 
+      Q(6)=>outReg_4_6, Q(5)=>outReg_4_5, Q(4)=>outReg_4_4, Q(3)=>outReg_4_3, 
+      Q(2)=>outReg_4_2, Q(1)=>outReg_4_1, Q(0)=>outReg_4_0, Qbar(15)=>
+      DANGLING(86), Qbar(14)=>DANGLING(87), Qbar(13)=>DANGLING(88), Qbar(12)
+      =>DANGLING(89), Qbar(11)=>DANGLING(90), Qbar(10)=>DANGLING(91), 
+      Qbar(9)=>DANGLING(92), Qbar(8)=>DANGLING(93), Qbar(7)=>DANGLING(94), 
+      Qbar(6)=>DANGLING(95), Qbar(5)=>DANGLING(96), Qbar(4)=>DANGLING(97), 
+      Qbar(3)=>DANGLING(98), Qbar(2)=>DANGLING(99), Qbar(1)=>DANGLING(100), 
+      Qbar(0)=>DANGLING(101));
    gen_3_cmp1 : NBitAdder_16 port map ( a(15)=>a_3_15, a(14)=>a_3_14, a(13)
       =>a_3_13, a(12)=>a_3_12, a(11)=>a_3_11, a(10)=>a_3_10, a(9)=>a_3_9, 
       a(8)=>a_3_8, a(7)=>a_3_7, a(6)=>a_3_6, a(5)=>a_3_5, a(4)=>a_3_4, a(3)
@@ -4249,18 +4286,18 @@ begin
    gen_3_cmp2 : Reg_16 port map ( D(15)=>f_3_15, D(14)=>f_3_14, D(13)=>
       f_3_13, D(12)=>f_3_12, D(11)=>f_3_11, D(10)=>f_3_10, D(9)=>f_3_9, D(8)
       =>f_3_8, D(7)=>f_3_7, D(6)=>f_3_6, D(5)=>f_3_5, D(4)=>f_3_4, D(3)=>
-      f_3_3, D(2)=>f_3_2, D(1)=>f_3_1, D(0)=>f_3_0, en=>PWR, clk=>nx947, rst
-      =>nx951, Q(15)=>outReg_3_15, Q(14)=>outReg_3_14, Q(13)=>outReg_3_13, 
-      Q(12)=>outReg_3_12, Q(11)=>outReg_3_11, Q(10)=>outReg_3_10, Q(9)=>
-      outReg_3_9, Q(8)=>outReg_3_8, Q(7)=>outReg_3_7, Q(6)=>outReg_3_6, Q(5)
-      =>outReg_3_5, Q(4)=>outReg_3_4, Q(3)=>outReg_3_3, Q(2)=>outReg_3_2, 
-      Q(1)=>outReg_3_1, Q(0)=>outReg_3_0, Qbar(15)=>DANGLING(103), Qbar(14)
-      =>DANGLING(104), Qbar(13)=>DANGLING(105), Qbar(12)=>DANGLING(106), 
-      Qbar(11)=>DANGLING(107), Qbar(10)=>DANGLING(108), Qbar(9)=>DANGLING(
-      109), Qbar(8)=>DANGLING(110), Qbar(7)=>DANGLING(111), Qbar(6)=>
-      DANGLING(112), Qbar(5)=>DANGLING(113), Qbar(4)=>DANGLING(114), Qbar(3)
-      =>DANGLING(115), Qbar(2)=>DANGLING(116), Qbar(1)=>DANGLING(117), 
-      Qbar(0)=>DANGLING(118));
+      f_3_3, D(2)=>f_3_2, D(1)=>f_3_1, D(0)=>f_3_0, en=>PWR, clk=>nx1135, 
+      rst=>nx1143, Q(15)=>outReg_3_15, Q(14)=>outReg_3_14, Q(13)=>
+      outReg_3_13, Q(12)=>outReg_3_12, Q(11)=>outReg_3_11, Q(10)=>
+      outReg_3_10, Q(9)=>outReg_3_9, Q(8)=>outReg_3_8, Q(7)=>outReg_3_7, 
+      Q(6)=>outReg_3_6, Q(5)=>outReg_3_5, Q(4)=>outReg_3_4, Q(3)=>outReg_3_3, 
+      Q(2)=>outReg_3_2, Q(1)=>outReg_3_1, Q(0)=>outReg_3_0, Qbar(15)=>
+      DANGLING(103), Qbar(14)=>DANGLING(104), Qbar(13)=>DANGLING(105), 
+      Qbar(12)=>DANGLING(106), Qbar(11)=>DANGLING(107), Qbar(10)=>DANGLING(
+      108), Qbar(9)=>DANGLING(109), Qbar(8)=>DANGLING(110), Qbar(7)=>
+      DANGLING(111), Qbar(6)=>DANGLING(112), Qbar(5)=>DANGLING(113), Qbar(4)
+      =>DANGLING(114), Qbar(3)=>DANGLING(115), Qbar(2)=>DANGLING(116), 
+      Qbar(1)=>DANGLING(117), Qbar(0)=>DANGLING(118));
    gen_2_cmp1 : NBitAdder_16 port map ( a(15)=>a_2_15, a(14)=>a_2_14, a(13)
       =>a_2_13, a(12)=>a_2_12, a(11)=>a_2_11, a(10)=>a_2_10, a(9)=>a_2_9, 
       a(8)=>a_2_8, a(7)=>a_2_7, a(6)=>a_2_6, a(5)=>a_2_5, a(4)=>a_2_4, a(3)
@@ -4351,10 +4388,19 @@ begin
    ix948 : buf02 port map ( Y=>nx949, A=>save);
    ix950 : buf02 port map ( Y=>nx951, A=>rst);
    ix952 : buf02 port map ( Y=>nx953, A=>rst);
+   ix1128 : inv01 port map ( Y=>nx1129, A=>nx947);
+   ix1130 : inv01 port map ( Y=>nx1131, A=>nx1129);
+   ix1132 : inv01 port map ( Y=>nx1133, A=>nx1129);
+   ix1134 : inv01 port map ( Y=>nx1135, A=>nx1129);
+   ix1136 : inv01 port map ( Y=>nx1137, A=>nx951);
+   ix1138 : inv01 port map ( Y=>nx1139, A=>nx1137);
+   ix1140 : inv01 port map ( Y=>nx1141, A=>nx1137);
+   ix1142 : inv01 port map ( Y=>nx1143, A=>nx1137);
 end AccumulatorArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Alus8x16_10 is
    port (
@@ -5718,6 +5764,7 @@ end Alus8x16Arch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity FlibFlob is
    port (
@@ -5746,6 +5793,241 @@ end FlibFlobArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
+
+entity NBitAdder_13 is
+   port (
+      a : IN std_logic_vector (12 DOWNTO 0) ;
+      b : IN std_logic_vector (12 DOWNTO 0) ;
+      carryIn : IN std_logic ;
+      sum : OUT std_logic_vector (12 DOWNTO 0) ;
+      carryOut : OUT std_logic) ;
+end NBitAdder_13 ;
+
+architecture NBitAdderArch of NBitAdder_13 is
+   component FullAdder
+      port (
+         a : IN std_logic ;
+         b : IN std_logic ;
+         cin : IN std_logic ;
+         s : OUT std_logic ;
+         cout : OUT std_logic) ;
+   end component ;
+   signal temp_11, temp_10, temp_9, temp_8, temp_7, temp_6, temp_5, temp_4, 
+      temp_3, temp_2, temp_1, temp_0: std_logic ;
+
+begin
+   f0 : FullAdder port map ( a=>a(0), b=>b(0), cin=>carryIn, s=>sum(0), cout
+      =>temp_0);
+   loop1_1_fx : FullAdder port map ( a=>a(1), b=>b(1), cin=>temp_0, s=>
+      sum(1), cout=>temp_1);
+   loop1_2_fx : FullAdder port map ( a=>a(2), b=>b(2), cin=>temp_1, s=>
+      sum(2), cout=>temp_2);
+   loop1_3_fx : FullAdder port map ( a=>a(3), b=>b(3), cin=>temp_2, s=>
+      sum(3), cout=>temp_3);
+   loop1_4_fx : FullAdder port map ( a=>a(4), b=>b(4), cin=>temp_3, s=>
+      sum(4), cout=>temp_4);
+   loop1_5_fx : FullAdder port map ( a=>a(5), b=>b(5), cin=>temp_4, s=>
+      sum(5), cout=>temp_5);
+   loop1_6_fx : FullAdder port map ( a=>a(6), b=>b(6), cin=>temp_5, s=>
+      sum(6), cout=>temp_6);
+   loop1_7_fx : FullAdder port map ( a=>a(7), b=>b(7), cin=>temp_6, s=>
+      sum(7), cout=>temp_7);
+   loop1_8_fx : FullAdder port map ( a=>a(8), b=>b(8), cin=>temp_7, s=>
+      sum(8), cout=>temp_8);
+   loop1_9_fx : FullAdder port map ( a=>a(9), b=>b(9), cin=>temp_8, s=>
+      sum(9), cout=>temp_9);
+   loop1_10_fx : FullAdder port map ( a=>a(10), b=>b(10), cin=>temp_9, s=>
+      sum(10), cout=>temp_10);
+   loop1_11_fx : FullAdder port map ( a=>a(11), b=>b(11), cin=>temp_10, s=>
+      sum(11), cout=>temp_11);
+   loop1_12_fx : FullAdder port map ( a=>a(12), b=>b(12), cin=>temp_11, s=>
+      sum(12), cout=>carryOut);
+end NBitAdderArch ;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
+
+entity CounterUpDown_13 is
+   port (
+      load : IN std_logic_vector (12 DOWNTO 0) ;
+      resetValue : IN std_logic_vector (12 DOWNTO 0) ;
+      clk : IN std_logic ;
+      en : IN std_logic ;
+      rst : IN std_logic ;
+      isLoad : IN std_logic ;
+      upOrDown : IN std_logic ;
+      count : OUT std_logic_vector (12 DOWNTO 0)) ;
+end CounterUpDown_13 ;
+
+architecture CounterUpDownArch of CounterUpDown_13 is
+   component NBitAdder_13
+      port (
+         a : IN std_logic_vector (12 DOWNTO 0) ;
+         b : IN std_logic_vector (12 DOWNTO 0) ;
+         carryIn : IN std_logic ;
+         sum : OUT std_logic_vector (12 DOWNTO 0) ;
+         carryOut : OUT std_logic) ;
+   end component ;
+   signal count_12_EXMPLR, count_11_EXMPLR, count_10_EXMPLR, count_9_EXMPLR, 
+      count_8_EXMPLR, count_7_EXMPLR, count_6_EXMPLR, count_5_EXMPLR, 
+      count_4_EXMPLR, count_3_EXMPLR, count_2_EXMPLR, count_1_EXMPLR, 
+      count_0_EXMPLR, countAdded_12, countAdded_11, countAdded_10, 
+      countAdded_9, countAdded_8, countAdded_7, countAdded_6, countAdded_5, 
+      countAdded_4, countAdded_3, countAdded_2, countAdded_1, countAdded_0, 
+      NOT_upOrDown, nx8, nx10, nx14, nx24, nx26, nx30, nx40, nx42, nx46, 
+      nx56, nx58, nx62, nx72, nx74, nx78, nx88, nx90, nx94, nx104, nx106, 
+      nx110, nx120, nx122, nx126, nx136, nx138, nx142, nx152, nx154, nx158, 
+      nx168, nx170, nx174, nx184, nx186, nx190, nx200, nx202, nx206, nx499, 
+      nx509, nx519, nx529, nx539, nx549, nx559, nx569, nx579, nx589, nx599, 
+      nx609, nx619, nx636, nx720, nx722, nx732, nx734: std_logic ;
+   
+   signal DANGLING : std_logic_vector (0 downto 0 );
+
+begin
+   count(12) <= count_12_EXMPLR ;
+   count(11) <= count_11_EXMPLR ;
+   count(10) <= count_10_EXMPLR ;
+   count(9) <= count_9_EXMPLR ;
+   count(8) <= count_8_EXMPLR ;
+   count(7) <= count_7_EXMPLR ;
+   count(6) <= count_6_EXMPLR ;
+   count(5) <= count_5_EXMPLR ;
+   count(4) <= count_4_EXMPLR ;
+   count(3) <= count_3_EXMPLR ;
+   count(2) <= count_2_EXMPLR ;
+   count(1) <= count_1_EXMPLR ;
+   count(0) <= count_0_EXMPLR ;
+   nextCount : NBitAdder_13 port map ( a(12)=>count_12_EXMPLR, a(11)=>
+      count_11_EXMPLR, a(10)=>count_10_EXMPLR, a(9)=>count_9_EXMPLR, a(8)=>
+      count_8_EXMPLR, a(7)=>count_7_EXMPLR, a(6)=>count_6_EXMPLR, a(5)=>
+      count_5_EXMPLR, a(4)=>count_4_EXMPLR, a(3)=>count_3_EXMPLR, a(2)=>
+      count_2_EXMPLR, a(1)=>count_1_EXMPLR, a(0)=>count_0_EXMPLR, b(12)=>
+      upOrDown, b(11)=>upOrDown, b(10)=>upOrDown, b(9)=>upOrDown, b(8)=>
+      upOrDown, b(7)=>upOrDown, b(6)=>upOrDown, b(5)=>upOrDown, b(4)=>
+      upOrDown, b(3)=>upOrDown, b(2)=>upOrDown, b(1)=>upOrDown, b(0)=>
+      upOrDown, carryIn=>NOT_upOrDown, sum(12)=>countAdded_12, sum(11)=>
+      countAdded_11, sum(10)=>countAdded_10, sum(9)=>countAdded_9, sum(8)=>
+      countAdded_8, sum(7)=>countAdded_7, sum(6)=>countAdded_6, sum(5)=>
+      countAdded_5, sum(4)=>countAdded_4, sum(3)=>countAdded_3, sum(2)=>
+      countAdded_2, sum(1)=>countAdded_1, sum(0)=>countAdded_0, carryOut=>
+      DANGLING(0));
+   ix632 : inv01 port map ( Y=>NOT_upOrDown, A=>upOrDown);
+   reg_currentCount_0 : dffsr_ni port map ( Q=>count_0_EXMPLR, QB=>OPEN, D=>
+      nx499, CLK=>clk, S=>nx10, R=>nx14);
+   ix500 : mux21_ni port map ( Y=>nx499, A0=>nx8, A1=>count_0_EXMPLR, S0=>
+      nx720);
+   ix9 : mux21_ni port map ( Y=>nx8, A0=>load(0), A1=>countAdded_0, S0=>
+      nx732);
+   ix637 : nor02_2x port map ( Y=>nx636, A0=>nx732, A1=>isLoad);
+   ix11 : and02 port map ( Y=>nx10, A0=>resetValue(0), A1=>rst);
+   reg_currentCount_1 : dffsr_ni port map ( Q=>count_1_EXMPLR, QB=>OPEN, D=>
+      nx509, CLK=>clk, S=>nx26, R=>nx30);
+   ix510 : mux21_ni port map ( Y=>nx509, A0=>nx24, A1=>count_1_EXMPLR, S0=>
+      nx720);
+   ix25 : mux21_ni port map ( Y=>nx24, A0=>load(1), A1=>countAdded_1, S0=>
+      nx732);
+   ix27 : and02 port map ( Y=>nx26, A0=>resetValue(1), A1=>rst);
+   reg_currentCount_2 : dffsr_ni port map ( Q=>count_2_EXMPLR, QB=>OPEN, D=>
+      nx519, CLK=>clk, S=>nx42, R=>nx46);
+   ix520 : mux21_ni port map ( Y=>nx519, A0=>nx40, A1=>count_2_EXMPLR, S0=>
+      nx720);
+   ix41 : mux21_ni port map ( Y=>nx40, A0=>load(2), A1=>countAdded_2, S0=>
+      nx732);
+   ix43 : and02 port map ( Y=>nx42, A0=>resetValue(2), A1=>rst);
+   reg_currentCount_3 : dffsr_ni port map ( Q=>count_3_EXMPLR, QB=>OPEN, D=>
+      nx529, CLK=>clk, S=>nx58, R=>nx62);
+   ix530 : mux21_ni port map ( Y=>nx529, A0=>nx56, A1=>count_3_EXMPLR, S0=>
+      nx720);
+   ix57 : mux21_ni port map ( Y=>nx56, A0=>load(3), A1=>countAdded_3, S0=>
+      nx732);
+   ix59 : and02 port map ( Y=>nx58, A0=>resetValue(3), A1=>rst);
+   reg_currentCount_4 : dffsr_ni port map ( Q=>count_4_EXMPLR, QB=>OPEN, D=>
+      nx539, CLK=>clk, S=>nx74, R=>nx78);
+   ix540 : mux21_ni port map ( Y=>nx539, A0=>nx72, A1=>count_4_EXMPLR, S0=>
+      nx720);
+   ix73 : mux21_ni port map ( Y=>nx72, A0=>load(4), A1=>countAdded_4, S0=>
+      nx732);
+   ix75 : and02 port map ( Y=>nx74, A0=>resetValue(4), A1=>rst);
+   reg_currentCount_5 : dffsr_ni port map ( Q=>count_5_EXMPLR, QB=>OPEN, D=>
+      nx549, CLK=>clk, S=>nx90, R=>nx94);
+   ix550 : mux21_ni port map ( Y=>nx549, A0=>nx88, A1=>count_5_EXMPLR, S0=>
+      nx720);
+   ix89 : mux21_ni port map ( Y=>nx88, A0=>load(5), A1=>countAdded_5, S0=>
+      nx732);
+   ix91 : and02 port map ( Y=>nx90, A0=>resetValue(5), A1=>rst);
+   reg_currentCount_6 : dffsr_ni port map ( Q=>count_6_EXMPLR, QB=>OPEN, D=>
+      nx559, CLK=>clk, S=>nx106, R=>nx110);
+   ix560 : mux21_ni port map ( Y=>nx559, A0=>nx104, A1=>count_6_EXMPLR, S0=>
+      nx720);
+   ix105 : mux21_ni port map ( Y=>nx104, A0=>load(6), A1=>countAdded_6, S0=>
+      nx734);
+   ix107 : and02 port map ( Y=>nx106, A0=>resetValue(6), A1=>rst);
+   reg_currentCount_7 : dffsr_ni port map ( Q=>count_7_EXMPLR, QB=>OPEN, D=>
+      nx569, CLK=>clk, S=>nx122, R=>nx126);
+   ix570 : mux21_ni port map ( Y=>nx569, A0=>nx120, A1=>count_7_EXMPLR, S0=>
+      nx722);
+   ix121 : mux21_ni port map ( Y=>nx120, A0=>load(7), A1=>countAdded_7, S0=>
+      nx734);
+   ix123 : and02 port map ( Y=>nx122, A0=>resetValue(7), A1=>rst);
+   reg_currentCount_8 : dffsr_ni port map ( Q=>count_8_EXMPLR, QB=>OPEN, D=>
+      nx579, CLK=>clk, S=>nx138, R=>nx142);
+   ix580 : mux21_ni port map ( Y=>nx579, A0=>nx136, A1=>count_8_EXMPLR, S0=>
+      nx722);
+   ix137 : mux21_ni port map ( Y=>nx136, A0=>load(8), A1=>countAdded_8, S0=>
+      nx734);
+   ix139 : and02 port map ( Y=>nx138, A0=>resetValue(8), A1=>rst);
+   reg_currentCount_9 : dffsr_ni port map ( Q=>count_9_EXMPLR, QB=>OPEN, D=>
+      nx589, CLK=>clk, S=>nx154, R=>nx158);
+   ix590 : mux21_ni port map ( Y=>nx589, A0=>nx152, A1=>count_9_EXMPLR, S0=>
+      nx722);
+   ix153 : mux21_ni port map ( Y=>nx152, A0=>load(9), A1=>countAdded_9, S0=>
+      nx734);
+   ix155 : and02 port map ( Y=>nx154, A0=>resetValue(9), A1=>rst);
+   reg_currentCount_10 : dffsr_ni port map ( Q=>count_10_EXMPLR, QB=>OPEN, D
+      =>nx599, CLK=>clk, S=>nx170, R=>nx174);
+   ix600 : mux21_ni port map ( Y=>nx599, A0=>nx168, A1=>count_10_EXMPLR, S0
+      =>nx722);
+   ix169 : mux21_ni port map ( Y=>nx168, A0=>load(10), A1=>countAdded_10, S0
+      =>nx734);
+   ix171 : and02 port map ( Y=>nx170, A0=>resetValue(10), A1=>rst);
+   reg_currentCount_11 : dffsr_ni port map ( Q=>count_11_EXMPLR, QB=>OPEN, D
+      =>nx609, CLK=>clk, S=>nx186, R=>nx190);
+   ix610 : mux21_ni port map ( Y=>nx609, A0=>nx184, A1=>count_11_EXMPLR, S0
+      =>nx722);
+   ix185 : mux21_ni port map ( Y=>nx184, A0=>load(11), A1=>countAdded_11, S0
+      =>nx734);
+   ix187 : and02 port map ( Y=>nx186, A0=>resetValue(11), A1=>rst);
+   reg_currentCount_12 : dffsr_ni port map ( Q=>count_12_EXMPLR, QB=>OPEN, D
+      =>nx619, CLK=>clk, S=>nx202, R=>nx206);
+   ix620 : mux21_ni port map ( Y=>nx619, A0=>nx200, A1=>count_12_EXMPLR, S0
+      =>nx722);
+   ix201 : mux21_ni port map ( Y=>nx200, A0=>load(12), A1=>countAdded_12, S0
+      =>nx734);
+   ix203 : and02 port map ( Y=>nx202, A0=>resetValue(12), A1=>rst);
+   ix719 : buf02 port map ( Y=>nx720, A=>nx636);
+   ix721 : buf02 port map ( Y=>nx722, A=>nx636);
+   ix15 : nor02ii port map ( Y=>nx14, A0=>resetValue(0), A1=>rst);
+   ix31 : nor02ii port map ( Y=>nx30, A0=>resetValue(1), A1=>rst);
+   ix47 : nor02ii port map ( Y=>nx46, A0=>resetValue(2), A1=>rst);
+   ix63 : nor02ii port map ( Y=>nx62, A0=>resetValue(3), A1=>rst);
+   ix79 : nor02ii port map ( Y=>nx78, A0=>resetValue(4), A1=>rst);
+   ix95 : nor02ii port map ( Y=>nx94, A0=>resetValue(5), A1=>rst);
+   ix111 : nor02ii port map ( Y=>nx110, A0=>resetValue(6), A1=>rst);
+   ix127 : nor02ii port map ( Y=>nx126, A0=>resetValue(7), A1=>rst);
+   ix143 : nor02ii port map ( Y=>nx142, A0=>resetValue(8), A1=>rst);
+   ix159 : nor02ii port map ( Y=>nx158, A0=>resetValue(9), A1=>rst);
+   ix175 : nor02ii port map ( Y=>nx174, A0=>resetValue(10), A1=>rst);
+   ix191 : nor02ii port map ( Y=>nx190, A0=>resetValue(11), A1=>rst);
+   ix207 : nor02ii port map ( Y=>nx206, A0=>resetValue(12), A1=>rst);
+   ix731 : buf02 port map ( Y=>nx732, A=>en);
+   ix733 : buf02 port map ( Y=>nx734, A=>en);
+end CounterUpDownArch ;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity Reg_4 is
    port (
@@ -5810,6 +6092,7 @@ end RegArch ;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use work.adk_components.all;
 
 entity FcMain is
    port (
@@ -5817,7 +6100,8 @@ entity FcMain is
       ioDone : IN std_logic ;
       clk : IN std_logic ;
       reset : IN std_logic ;
-      dmaAddRamNeorons : OUT std_logic_vector (15 DOWNTO 0) ;
+      defaultAddressNeorons : IN std_logic_vector (12 DOWNTO 0) ;
+      dmaAddRamNeorons : OUT std_logic_vector (12 DOWNTO 0) ;
       readRamNeorons : OUT std_logic ;
       finishRamNeorons : IN std_logic ;
       dataOutRamNeorons : IN std_logic_vector (79 DOWNTO 0) ;
@@ -6440,6 +6724,17 @@ architecture FcMainArch of FcMain is
          Q : OUT std_logic ;
          Qbar : OUT std_logic) ;
    end component ;
+   component CounterUpDown_13
+      port (
+         load : IN std_logic_vector (12 DOWNTO 0) ;
+         resetValue : IN std_logic_vector (12 DOWNTO 0) ;
+         clk : IN std_logic ;
+         en : IN std_logic ;
+         rst : IN std_logic ;
+         isLoad : IN std_logic ;
+         upOrDown : IN std_logic ;
+         count : OUT std_logic_vector (12 DOWNTO 0)) ;
+   end component ;
    component Reg_4
       port (
          D : IN std_logic_vector (3 DOWNTO 0) ;
@@ -6449,7 +6744,7 @@ architecture FcMainArch of FcMain is
          Q : OUT std_logic_vector (3 DOWNTO 0) ;
          Qbar : OUT std_logic_vector (3 DOWNTO 0)) ;
    end component ;
-   signal state_10, fcDone_EXMPLR, state_6, readRamNeorons_EXMPLR, 
+   signal state_10, state_8, fcDone_EXMPLR, state_6, readRamNeorons_EXMPLR, 
       neoronMuxOutput_15, neoronMuxOutput_14, neoronMuxOutput_13, 
       neoronMuxOutput_12, neoronMuxOutput_11, neoronMuxOutput_10, 
       neoronMuxOutput_9, neoronMuxOutput_8, neoronMuxOutput_7, 
@@ -6498,22 +6793,22 @@ architecture FcMainArch of FcMain is
       labelReg_0_3, labelReg_0_2, labelReg_0_1, labelReg_0_0, maxNumber_3, 
       maxNumber_2, maxNumber_1, maxNumber_0, multiplyWorkDelayed, 
       multiplyWorkIn, clkInverted, bufferTwoInput, cnnDoneOneCycle, 
-      beginSignal, incrementWeightAdd, incrementNeoronsAdd, 
-      neoronValueSelection, decrement, loadNumberOFNeorons, oneNeoron_8, 
-      oneNeoron_15, state_4, state_9, nx0, state_3, nx1087, state_2, state_1, 
-      nx12, state_0, nx20, nx34, nx44, nx54, state_8, nx98, nx106, nx120, 
-      nx152, nx158, nx160, nx166, nx176, nx1093, nx1095, nx1104, nx1111, 
-      nx1113, nx1115, nx1117, nx1119, nx1121, nx1123, nx1131, nx1133, nx1144, 
-      nx1149, nx1155, nx1169, nx1171, nx1173, nx1175, nx1177, nx1179, nx1181, 
-      nx1183, nx1185, nx1187, nx1189, nx1191, nx1193, nx1195, nx1197, nx1199, 
-      nx1201, nx1203, nx1205, nx1207, nx1209, nx1211, nx1213, nx1215, nx1217, 
-      nx1219, nx1221, nx1223, nx1225, nx1227, nx1229, nx1231, nx1233, nx1235, 
-      nx1237, nx1239, nx1241, nx1243, nx1245, nx1247, nx1249, nx1251, nx1253, 
-      nx1255, nx1257, nx1259, nx1261, nx1263, nx1265, nx1267, nx1269, nx1271, 
-      nx1273, nx1275, nx1277, nx1279, nx1281, nx1283, nx1285, nx1287, nx1289, 
-      nx1291, nx1293, nx1295, nx1297, nx1299, nx1301, nx1303, nx1305, nx1307, 
-      nx1309, nx1311, nx1313, nx1315, nx1317, nx1319, nx1321, nx1323, nx1325, 
-      nx1327, nx1329, nx1331, nx1337: std_logic ;
+      beginSignal, incrementWeightAdd, neoronValueSelection, decrement, 
+      loadNumberOFNeorons, oneNeoron_8, oneNeoron_15, state_4, state_9, nx0, 
+      state_3, nx1076, state_2, state_1, nx12, state_0, nx20, nx34, nx44, 
+      nx54, nx98, nx106, nx120, nx126, nx152, nx158, nx160, nx166, nx176, 
+      nx1082, nx1084, nx1093, nx1100, nx1102, nx1104, nx1106, nx1108, nx1110, 
+      nx1112, nx1120, nx1122, nx1133, nx1138, nx1144, nx1158, nx1160, nx1162, 
+      nx1164, nx1166, nx1168, nx1170, nx1172, nx1174, nx1176, nx1178, nx1180, 
+      nx1182, nx1184, nx1186, nx1188, nx1190, nx1192, nx1194, nx1196, nx1198, 
+      nx1200, nx1202, nx1204, nx1206, nx1208, nx1210, nx1212, nx1214, nx1216, 
+      nx1218, nx1220, nx1222, nx1224, nx1226, nx1228, nx1230, nx1232, nx1234, 
+      nx1236, nx1238, nx1240, nx1242, nx1244, nx1246, nx1248, nx1250, nx1252, 
+      nx1254, nx1256, nx1258, nx1260, nx1262, nx1264, nx1266, nx1268, nx1270, 
+      nx1272, nx1274, nx1276, nx1278, nx1280, nx1282, nx1284, nx1286, nx1288, 
+      nx1290, nx1292, nx1294, nx1296, nx1298, nx1300, nx1302, nx1304, nx1306, 
+      nx1308, nx1310, nx1312, nx1314, nx1316, nx1318, nx1320, nx1326, nx1352
+   : std_logic ;
    
    signal DANGLING : std_logic_vector (6 downto 0 );
 
@@ -6523,15 +6818,15 @@ begin
    CNNDONEHOLDER : RisingHolderFullCycle port map ( edge=>beginSignal, clk=>
       clk, rst=>reset, f=>cnnDoneOneCycle);
    NEORONSLASTSTAGES : CounterUpDown_16 port map ( load(15)=>
-      dataOutRamWeights(79), load(14)=>dataOutRamWeights(78), load(13)=>
-      dataOutRamWeights(77), load(12)=>dataOutRamWeights(76), load(11)=>
-      dataOutRamWeights(75), load(10)=>dataOutRamWeights(74), load(9)=>
-      dataOutRamWeights(73), load(8)=>dataOutRamWeights(72), load(7)=>
-      dataOutRamWeights(71), load(6)=>dataOutRamWeights(70), load(5)=>
-      dataOutRamWeights(69), load(4)=>dataOutRamWeights(68), load(3)=>
-      dataOutRamWeights(67), load(2)=>dataOutRamWeights(66), load(1)=>
-      dataOutRamWeights(65), load(0)=>dataOutRamWeights(64), resetValue(15)
-      =>oneNeoron_15, resetValue(14)=>oneNeoron_15, resetValue(13)=>
+      dataOutRamWeights(15), load(14)=>dataOutRamWeights(14), load(13)=>
+      dataOutRamWeights(13), load(12)=>dataOutRamWeights(12), load(11)=>
+      dataOutRamWeights(11), load(10)=>dataOutRamWeights(10), load(9)=>
+      dataOutRamWeights(9), load(8)=>dataOutRamWeights(8), load(7)=>
+      dataOutRamWeights(7), load(6)=>dataOutRamWeights(6), load(5)=>
+      dataOutRamWeights(5), load(4)=>dataOutRamWeights(4), load(3)=>
+      dataOutRamWeights(3), load(2)=>dataOutRamWeights(2), load(1)=>
+      dataOutRamWeights(1), load(0)=>dataOutRamWeights(0), resetValue(15)=>
+      oneNeoron_15, resetValue(14)=>oneNeoron_15, resetValue(13)=>
       oneNeoron_15, resetValue(12)=>oneNeoron_15, resetValue(11)=>
       oneNeoron_15, resetValue(10)=>oneNeoron_15, resetValue(9)=>
       oneNeoron_15, resetValue(8)=>oneNeoron_15, resetValue(7)=>oneNeoron_15, 
@@ -6539,7 +6834,7 @@ begin
       resetValue(4)=>oneNeoron_15, resetValue(3)=>oneNeoron_15, 
       resetValue(2)=>oneNeoron_15, resetValue(1)=>oneNeoron_15, 
       resetValue(0)=>oneNeoron_15, clk=>clk, en=>decrement, rst=>reset, 
-      isLoad=>nx1337, upOrDown=>oneNeoron_8, count(15)=>numberOFNeorons_15, 
+      isLoad=>nx1326, upOrDown=>oneNeoron_8, count(15)=>numberOFNeorons_15, 
       count(14)=>numberOFNeorons_14, count(13)=>numberOFNeorons_13, 
       count(12)=>numberOFNeorons_12, count(11)=>numberOFNeorons_11, 
       count(10)=>numberOFNeorons_10, count(9)=>numberOFNeorons_9, count(8)=>
@@ -6548,15 +6843,15 @@ begin
       numberOFNeorons_4, count(3)=>numberOFNeorons_3, count(2)=>
       numberOFNeorons_2, count(1)=>numberOFNeorons_1, count(0)=>
       numberOFNeorons_0);
-   NEORONREGMux : Mux2_16 port map ( A(15)=>dataOutRamNeorons(79), A(14)=>
-      dataOutRamNeorons(78), A(13)=>dataOutRamNeorons(77), A(12)=>
-      dataOutRamNeorons(76), A(11)=>dataOutRamNeorons(75), A(10)=>
-      dataOutRamNeorons(74), A(9)=>dataOutRamNeorons(73), A(8)=>
-      dataOutRamNeorons(72), A(7)=>dataOutRamNeorons(71), A(6)=>
-      dataOutRamNeorons(70), A(5)=>dataOutRamNeorons(69), A(4)=>
-      dataOutRamNeorons(68), A(3)=>dataOutRamNeorons(67), A(2)=>
-      dataOutRamNeorons(66), A(1)=>dataOutRamNeorons(65), A(0)=>
-      dataOutRamNeorons(64), B(15)=>oneNeoron_15, B(14)=>oneNeoron_15, B(13)
+   NEORONREGMux : Mux2_16 port map ( A(15)=>dataOutRamNeorons(15), A(14)=>
+      dataOutRamNeorons(14), A(13)=>dataOutRamNeorons(13), A(12)=>
+      dataOutRamNeorons(12), A(11)=>dataOutRamNeorons(11), A(10)=>
+      dataOutRamNeorons(10), A(9)=>dataOutRamNeorons(9), A(8)=>
+      dataOutRamNeorons(8), A(7)=>dataOutRamNeorons(7), A(6)=>
+      dataOutRamNeorons(6), A(5)=>dataOutRamNeorons(5), A(4)=>
+      dataOutRamNeorons(4), A(3)=>dataOutRamNeorons(3), A(2)=>
+      dataOutRamNeorons(2), A(1)=>dataOutRamNeorons(1), A(0)=>
+      dataOutRamNeorons(0), B(15)=>oneNeoron_15, B(14)=>oneNeoron_15, B(13)
       =>oneNeoron_15, B(12)=>oneNeoron_15, B(11)=>oneNeoron_15, B(10)=>
       oneNeoron_15, B(9)=>oneNeoron_15, B(8)=>oneNeoron_8, B(7)=>
       oneNeoron_15, B(6)=>oneNeoron_15, B(5)=>oneNeoron_15, B(4)=>
@@ -6692,42 +6987,42 @@ begin
       dataOutRamWeights(6), q_0_5=>dataOutRamWeights(5), q_0_4=>
       dataOutRamWeights(4), q_0_3=>dataOutRamWeights(3), q_0_2=>
       dataOutRamWeights(2), q_0_1=>dataOutRamWeights(1), q_0_0=>
-      dataOutRamWeights(0), m_9_15=>nx1171, m_9_14=>nx1181, m_9_13=>nx1191, 
-      m_9_12=>nx1201, m_9_11=>nx1211, m_9_10=>nx1221, m_9_9=>nx1231, m_9_8=>
-      nx1241, m_9_7=>nx1251, m_9_6=>nx1261, m_9_5=>nx1271, m_9_4=>nx1281, 
-      m_9_3=>nx1291, m_9_2=>nx1301, m_9_1=>nx1311, m_9_0=>nx1321, m_8_15=>
-      nx1171, m_8_14=>nx1181, m_8_13=>nx1191, m_8_12=>nx1201, m_8_11=>nx1211, 
-      m_8_10=>nx1221, m_8_9=>nx1231, m_8_8=>nx1241, m_8_7=>nx1251, m_8_6=>
-      nx1261, m_8_5=>nx1271, m_8_4=>nx1281, m_8_3=>nx1291, m_8_2=>nx1301, 
-      m_8_1=>nx1311, m_8_0=>nx1321, m_7_15=>nx1171, m_7_14=>nx1181, m_7_13=>
-      nx1191, m_7_12=>nx1201, m_7_11=>nx1211, m_7_10=>nx1221, m_7_9=>nx1231, 
-      m_7_8=>nx1241, m_7_7=>nx1251, m_7_6=>nx1261, m_7_5=>nx1271, m_7_4=>
-      nx1281, m_7_3=>nx1291, m_7_2=>nx1301, m_7_1=>nx1311, m_7_0=>nx1321, 
-      m_6_15=>nx1173, m_6_14=>nx1183, m_6_13=>nx1193, m_6_12=>nx1203, m_6_11
-      =>nx1213, m_6_10=>nx1223, m_6_9=>nx1233, m_6_8=>nx1243, m_6_7=>nx1253, 
-      m_6_6=>nx1263, m_6_5=>nx1273, m_6_4=>nx1283, m_6_3=>nx1293, m_6_2=>
-      nx1303, m_6_1=>nx1313, m_6_0=>nx1323, m_5_15=>nx1173, m_5_14=>nx1183, 
-      m_5_13=>nx1193, m_5_12=>nx1203, m_5_11=>nx1213, m_5_10=>nx1223, m_5_9
-      =>nx1233, m_5_8=>nx1243, m_5_7=>nx1253, m_5_6=>nx1263, m_5_5=>nx1273, 
-      m_5_4=>nx1283, m_5_3=>nx1293, m_5_2=>nx1303, m_5_1=>nx1313, m_5_0=>
-      nx1323, m_4_15=>nx1173, m_4_14=>nx1183, m_4_13=>nx1193, m_4_12=>nx1203, 
-      m_4_11=>nx1213, m_4_10=>nx1223, m_4_9=>nx1233, m_4_8=>nx1243, m_4_7=>
-      nx1253, m_4_6=>nx1263, m_4_5=>nx1273, m_4_4=>nx1283, m_4_3=>nx1293, 
-      m_4_2=>nx1303, m_4_1=>nx1313, m_4_0=>nx1323, m_3_15=>nx1175, m_3_14=>
-      nx1185, m_3_13=>nx1195, m_3_12=>nx1205, m_3_11=>nx1215, m_3_10=>nx1225, 
-      m_3_9=>nx1235, m_3_8=>nx1245, m_3_7=>nx1255, m_3_6=>nx1265, m_3_5=>
-      nx1275, m_3_4=>nx1285, m_3_3=>nx1295, m_3_2=>nx1305, m_3_1=>nx1315, 
-      m_3_0=>nx1325, m_2_15=>nx1175, m_2_14=>nx1185, m_2_13=>nx1195, m_2_12
-      =>nx1205, m_2_11=>nx1215, m_2_10=>nx1225, m_2_9=>nx1235, m_2_8=>nx1245, 
-      m_2_7=>nx1255, m_2_6=>nx1265, m_2_5=>nx1275, m_2_4=>nx1285, m_2_3=>
-      nx1295, m_2_2=>nx1305, m_2_1=>nx1315, m_2_0=>nx1325, m_1_15=>nx1175, 
-      m_1_14=>nx1185, m_1_13=>nx1195, m_1_12=>nx1205, m_1_11=>nx1215, m_1_10
-      =>nx1225, m_1_9=>nx1235, m_1_8=>nx1245, m_1_7=>nx1255, m_1_6=>nx1265, 
-      m_1_5=>nx1275, m_1_4=>nx1285, m_1_3=>nx1295, m_1_2=>nx1305, m_1_1=>
-      nx1315, m_1_0=>nx1325, m_0_15=>nx1177, m_0_14=>nx1187, m_0_13=>nx1197, 
-      m_0_12=>nx1207, m_0_11=>nx1217, m_0_10=>nx1227, m_0_9=>nx1237, m_0_8=>
-      nx1247, m_0_7=>nx1257, m_0_6=>nx1267, m_0_5=>nx1277, m_0_4=>nx1287, 
-      m_0_3=>nx1297, m_0_2=>nx1307, m_0_1=>nx1317, m_0_0=>nx1327, f_9_15=>
+      dataOutRamWeights(0), m_9_15=>nx1160, m_9_14=>nx1170, m_9_13=>nx1180, 
+      m_9_12=>nx1190, m_9_11=>nx1200, m_9_10=>nx1210, m_9_9=>nx1220, m_9_8=>
+      nx1230, m_9_7=>nx1240, m_9_6=>nx1250, m_9_5=>nx1260, m_9_4=>nx1270, 
+      m_9_3=>nx1280, m_9_2=>nx1290, m_9_1=>nx1300, m_9_0=>nx1310, m_8_15=>
+      nx1160, m_8_14=>nx1170, m_8_13=>nx1180, m_8_12=>nx1190, m_8_11=>nx1200, 
+      m_8_10=>nx1210, m_8_9=>nx1220, m_8_8=>nx1230, m_8_7=>nx1240, m_8_6=>
+      nx1250, m_8_5=>nx1260, m_8_4=>nx1270, m_8_3=>nx1280, m_8_2=>nx1290, 
+      m_8_1=>nx1300, m_8_0=>nx1310, m_7_15=>nx1160, m_7_14=>nx1170, m_7_13=>
+      nx1180, m_7_12=>nx1190, m_7_11=>nx1200, m_7_10=>nx1210, m_7_9=>nx1220, 
+      m_7_8=>nx1230, m_7_7=>nx1240, m_7_6=>nx1250, m_7_5=>nx1260, m_7_4=>
+      nx1270, m_7_3=>nx1280, m_7_2=>nx1290, m_7_1=>nx1300, m_7_0=>nx1310, 
+      m_6_15=>nx1162, m_6_14=>nx1172, m_6_13=>nx1182, m_6_12=>nx1192, m_6_11
+      =>nx1202, m_6_10=>nx1212, m_6_9=>nx1222, m_6_8=>nx1232, m_6_7=>nx1242, 
+      m_6_6=>nx1252, m_6_5=>nx1262, m_6_4=>nx1272, m_6_3=>nx1282, m_6_2=>
+      nx1292, m_6_1=>nx1302, m_6_0=>nx1312, m_5_15=>nx1162, m_5_14=>nx1172, 
+      m_5_13=>nx1182, m_5_12=>nx1192, m_5_11=>nx1202, m_5_10=>nx1212, m_5_9
+      =>nx1222, m_5_8=>nx1232, m_5_7=>nx1242, m_5_6=>nx1252, m_5_5=>nx1262, 
+      m_5_4=>nx1272, m_5_3=>nx1282, m_5_2=>nx1292, m_5_1=>nx1302, m_5_0=>
+      nx1312, m_4_15=>nx1162, m_4_14=>nx1172, m_4_13=>nx1182, m_4_12=>nx1192, 
+      m_4_11=>nx1202, m_4_10=>nx1212, m_4_9=>nx1222, m_4_8=>nx1232, m_4_7=>
+      nx1242, m_4_6=>nx1252, m_4_5=>nx1262, m_4_4=>nx1272, m_4_3=>nx1282, 
+      m_4_2=>nx1292, m_4_1=>nx1302, m_4_0=>nx1312, m_3_15=>nx1164, m_3_14=>
+      nx1174, m_3_13=>nx1184, m_3_12=>nx1194, m_3_11=>nx1204, m_3_10=>nx1214, 
+      m_3_9=>nx1224, m_3_8=>nx1234, m_3_7=>nx1244, m_3_6=>nx1254, m_3_5=>
+      nx1264, m_3_4=>nx1274, m_3_3=>nx1284, m_3_2=>nx1294, m_3_1=>nx1304, 
+      m_3_0=>nx1314, m_2_15=>nx1164, m_2_14=>nx1174, m_2_13=>nx1184, m_2_12
+      =>nx1194, m_2_11=>nx1204, m_2_10=>nx1214, m_2_9=>nx1224, m_2_8=>nx1234, 
+      m_2_7=>nx1244, m_2_6=>nx1254, m_2_5=>nx1264, m_2_4=>nx1274, m_2_3=>
+      nx1284, m_2_2=>nx1294, m_2_1=>nx1304, m_2_0=>nx1314, m_1_15=>nx1164, 
+      m_1_14=>nx1174, m_1_13=>nx1184, m_1_12=>nx1194, m_1_11=>nx1204, m_1_10
+      =>nx1214, m_1_9=>nx1224, m_1_8=>nx1234, m_1_7=>nx1244, m_1_6=>nx1254, 
+      m_1_5=>nx1264, m_1_4=>nx1274, m_1_3=>nx1284, m_1_2=>nx1294, m_1_1=>
+      nx1304, m_1_0=>nx1314, m_0_15=>nx1166, m_0_14=>nx1176, m_0_13=>nx1186, 
+      m_0_12=>nx1196, m_0_11=>nx1206, m_0_10=>nx1216, m_0_9=>nx1226, m_0_8=>
+      nx1236, m_0_7=>nx1246, m_0_6=>nx1256, m_0_5=>nx1266, m_0_4=>nx1276, 
+      m_0_3=>nx1286, m_0_2=>nx1296, m_0_1=>nx1306, m_0_0=>nx1316, f_9_15=>
       labelReg_9_15, f_9_14=>labelReg_9_14, f_9_13=>labelReg_9_13, f_9_12=>
       labelReg_9_12, f_9_11=>labelReg_9_11, f_9_10=>labelReg_9_10, f_9_9=>
       labelReg_9_9, f_9_8=>labelReg_9_8, f_9_7=>labelReg_9_7, f_9_6=>
@@ -6781,7 +7076,7 @@ begin
       labelReg_0_9, f_0_8=>labelReg_0_8, f_0_7=>labelReg_0_7, f_0_6=>
       labelReg_0_6, f_0_5=>labelReg_0_5, f_0_4=>labelReg_0_4, f_0_3=>
       labelReg_0_3, f_0_2=>labelReg_0_2, f_0_1=>labelReg_0_1, f_0_0=>
-      labelReg_0_0, clk=>clk, start=>decrement, rst=>nx1329, done=>DANGLING(
+      labelReg_0_0, clk=>clk, start=>decrement, rst=>nx1352, done=>DANGLING(
       0), working=>multiplyWorkIn);
    bufferRegOne : FlibFlob port map ( D=>multiplyWorkIn, en=>oneNeoron_8, 
       clk=>clkInverted, rst=>reset, Q=>bufferTwoInput, Qbar=>DANGLING(1));
@@ -6801,7 +7096,7 @@ begin
       resetValue(5)=>oneNeoron_15, resetValue(4)=>oneNeoron_15, 
       resetValue(3)=>oneNeoron_15, resetValue(2)=>oneNeoron_15, 
       resetValue(1)=>oneNeoron_15, resetValue(0)=>oneNeoron_15, clk=>clk, en
-      =>incrementWeightAdd, rst=>reset, isLoad=>nx1329, upOrDown=>
+      =>incrementWeightAdd, rst=>reset, isLoad=>nx1318, upOrDown=>
       oneNeoron_15, count(15)=>dmaAddRamWeights(15), count(14)=>
       dmaAddRamWeights(14), count(13)=>dmaAddRamWeights(13), count(12)=>
       dmaAddRamWeights(12), count(11)=>dmaAddRamWeights(11), count(10)=>
@@ -6811,199 +7106,201 @@ begin
       dmaAddRamWeights(4), count(3)=>dmaAddRamWeights(3), count(2)=>
       dmaAddRamWeights(2), count(1)=>dmaAddRamWeights(1), count(0)=>
       dmaAddRamWeights(0));
-   NeoronAddressCounter : CounterUpDown_16 port map ( load(15)=>oneNeoron_15, 
-      load(14)=>oneNeoron_15, load(13)=>oneNeoron_15, load(12)=>oneNeoron_15, 
-      load(11)=>oneNeoron_15, load(10)=>oneNeoron_15, load(9)=>oneNeoron_15, 
-      load(8)=>oneNeoron_15, load(7)=>oneNeoron_15, load(6)=>oneNeoron_15, 
-      load(5)=>oneNeoron_15, load(4)=>oneNeoron_15, load(3)=>oneNeoron_15, 
-      load(2)=>oneNeoron_15, load(1)=>oneNeoron_15, load(0)=>oneNeoron_15, 
-      resetValue(15)=>oneNeoron_15, resetValue(14)=>oneNeoron_15, 
-      resetValue(13)=>oneNeoron_15, resetValue(12)=>oneNeoron_15, 
-      resetValue(11)=>oneNeoron_15, resetValue(10)=>oneNeoron_15, 
-      resetValue(9)=>oneNeoron_15, resetValue(8)=>oneNeoron_15, 
-      resetValue(7)=>oneNeoron_15, resetValue(6)=>oneNeoron_15, 
-      resetValue(5)=>oneNeoron_15, resetValue(4)=>oneNeoron_15, 
-      resetValue(3)=>oneNeoron_15, resetValue(2)=>oneNeoron_15, 
-      resetValue(1)=>oneNeoron_15, resetValue(0)=>oneNeoron_15, clk=>clk, en
-      =>incrementNeoronsAdd, rst=>reset, isLoad=>nx1331, upOrDown=>
-      oneNeoron_15, count(15)=>dmaAddRamNeorons(15), count(14)=>
-      dmaAddRamNeorons(14), count(13)=>dmaAddRamNeorons(13), count(12)=>
-      dmaAddRamNeorons(12), count(11)=>dmaAddRamNeorons(11), count(10)=>
-      dmaAddRamNeorons(10), count(9)=>dmaAddRamNeorons(9), count(8)=>
-      dmaAddRamNeorons(8), count(7)=>dmaAddRamNeorons(7), count(6)=>
-      dmaAddRamNeorons(6), count(5)=>dmaAddRamNeorons(5), count(4)=>
-      dmaAddRamNeorons(4), count(3)=>dmaAddRamNeorons(3), count(2)=>
-      dmaAddRamNeorons(2), count(1)=>dmaAddRamNeorons(1), count(0)=>
-      dmaAddRamNeorons(0));
+   NeoronAddressCounter : CounterUpDown_13 port map ( load(12)=>
+      defaultAddressNeorons(12), load(11)=>defaultAddressNeorons(11), 
+      load(10)=>defaultAddressNeorons(10), load(9)=>defaultAddressNeorons(9), 
+      load(8)=>defaultAddressNeorons(8), load(7)=>defaultAddressNeorons(7), 
+      load(6)=>defaultAddressNeorons(6), load(5)=>defaultAddressNeorons(5), 
+      load(4)=>defaultAddressNeorons(4), load(3)=>defaultAddressNeorons(3), 
+      load(2)=>defaultAddressNeorons(2), load(1)=>defaultAddressNeorons(1), 
+      load(0)=>defaultAddressNeorons(0), resetValue(12)=>
+      defaultAddressNeorons(12), resetValue(11)=>defaultAddressNeorons(11), 
+      resetValue(10)=>defaultAddressNeorons(10), resetValue(9)=>
+      defaultAddressNeorons(9), resetValue(8)=>defaultAddressNeorons(8), 
+      resetValue(7)=>defaultAddressNeorons(7), resetValue(6)=>
+      defaultAddressNeorons(6), resetValue(5)=>defaultAddressNeorons(5), 
+      resetValue(4)=>defaultAddressNeorons(4), resetValue(3)=>
+      defaultAddressNeorons(3), resetValue(2)=>defaultAddressNeorons(2), 
+      resetValue(1)=>defaultAddressNeorons(1), resetValue(0)=>
+      defaultAddressNeorons(0), clk=>clk, en=>state_8, rst=>reset, isLoad=>
+      nx1352, upOrDown=>oneNeoron_15, count(12)=>dmaAddRamNeorons(12), 
+      count(11)=>dmaAddRamNeorons(11), count(10)=>dmaAddRamNeorons(10), 
+      count(9)=>dmaAddRamNeorons(9), count(8)=>dmaAddRamNeorons(8), count(7)
+      =>dmaAddRamNeorons(7), count(6)=>dmaAddRamNeorons(6), count(5)=>
+      dmaAddRamNeorons(5), count(4)=>dmaAddRamNeorons(4), count(3)=>
+      dmaAddRamNeorons(3), count(2)=>dmaAddRamNeorons(2), count(1)=>
+      dmaAddRamNeorons(1), count(0)=>dmaAddRamNeorons(0));
    MAXVALUEREGMAP : Reg_4 port map ( D(3)=>maxNumber_3, D(2)=>maxNumber_2, 
       D(1)=>maxNumber_1, D(0)=>maxNumber_0, en=>oneNeoron_8, clk=>doneMax, 
       rst=>reset, Q(3)=>MAXPrediction(3), Q(2)=>MAXPrediction(2), Q(1)=>
       MAXPrediction(1), Q(0)=>MAXPrediction(0), Qbar(3)=>DANGLING(3), 
       Qbar(2)=>DANGLING(4), Qbar(1)=>DANGLING(5), Qbar(0)=>DANGLING(6));
-   ix1056 : fake_gnd port map ( Y=>oneNeoron_15);
-   ix1054 : fake_vcc port map ( Y=>oneNeoron_8);
-   ix35 : oai21 port map ( Y=>nx34, A0=>finishRamWeights, A1=>nx1093, B0=>
-      nx1095);
-   reg_state_1 : dffr port map ( Q=>state_1, QB=>nx1093, D=>nx34, CLK=>clk, 
+   ix1044 : fake_gnd port map ( Y=>oneNeoron_15);
+   ix1042 : fake_vcc port map ( Y=>oneNeoron_8);
+   ix35 : oai21 port map ( Y=>nx34, A0=>finishRamWeights, A1=>nx1082, B0=>
+      nx1084);
+   reg_state_1 : dffr port map ( Q=>state_1, QB=>nx1082, D=>nx34, CLK=>clk, 
       R=>reset);
-   ix1096 : oai21 port map ( Y=>nx1095, A0=>state_0, A1=>fcDone_EXMPLR, B0=>
-      nx1331);
+   ix1085 : oai21 port map ( Y=>nx1084, A0=>state_0, A1=>fcDone_EXMPLR, B0=>
+      nx1320);
    reg_state_0 : dffs_ni port map ( Q=>state_0, QB=>OPEN, D=>nx20, CLK=>clk, 
       S=>reset);
    reg_state_7 : dffr port map ( Q=>fcDone_EXMPLR, QB=>OPEN, D=>nx12, CLK=>
       clk, R=>reset);
-   ix13 : ao22 port map ( Y=>nx12, A0=>doneMax, A1=>state_6, B0=>nx1155, B1
+   ix13 : ao22 port map ( Y=>nx12, A0=>doneMax, A1=>state_6, B0=>nx1144, B1
       =>fcDone_EXMPLR);
    reg_state_6 : dffr port map ( Q=>state_6, QB=>OPEN, D=>nx176, CLK=>clk, R
       =>reset);
-   ix177 : ao21 port map ( Y=>nx176, A0=>nx1104, A1=>state_6, B0=>state_10);
-   ix1105 : inv01 port map ( Y=>nx1104, A=>doneMax);
+   ix177 : ao21 port map ( Y=>nx176, A0=>nx1093, A1=>state_6, B0=>state_10);
+   ix1094 : inv01 port map ( Y=>nx1093, A=>doneMax);
    reg_state_10 : dffr port map ( Q=>state_10, QB=>OPEN, D=>nx166, CLK=>clk, 
       R=>reset);
    ix161 : or02 port map ( Y=>nx160, A0=>nx158, A1=>decrement);
-   ix159 : nor03_2x port map ( Y=>nx158, A0=>nx1111, A1=>nx1123, A2=>nx152);
-   ix1112 : nor03_2x port map ( Y=>nx1111, A0=>nx1113, A1=>finishRamNeorons, 
+   ix159 : nor03_2x port map ( Y=>nx158, A0=>nx1100, A1=>nx1112, A2=>nx152);
+   ix1101 : nor03_2x port map ( Y=>nx1100, A0=>nx1102, A1=>finishRamNeorons, 
       A2=>finishRamWeights);
-   ix1116 : nor04 port map ( Y=>nx1115, A0=>numberOFNeorons_0, A1=>
+   ix1105 : nor04 port map ( Y=>nx1104, A0=>numberOFNeorons_0, A1=>
       numberOFNeorons_1, A2=>numberOFNeorons_2, A3=>numberOFNeorons_3);
-   ix1118 : nor04 port map ( Y=>nx1117, A0=>numberOFNeorons_4, A1=>
+   ix1107 : nor04 port map ( Y=>nx1106, A0=>numberOFNeorons_4, A1=>
       numberOFNeorons_5, A2=>numberOFNeorons_6, A3=>numberOFNeorons_7);
-   ix1120 : nor04 port map ( Y=>nx1119, A0=>numberOFNeorons_8, A1=>
+   ix1109 : nor04 port map ( Y=>nx1108, A0=>numberOFNeorons_8, A1=>
       numberOFNeorons_9, A2=>numberOFNeorons_10, A3=>numberOFNeorons_11);
-   ix1122 : nor04 port map ( Y=>nx1121, A0=>numberOFNeorons_12, A1=>
+   ix1111 : nor04 port map ( Y=>nx1110, A0=>numberOFNeorons_12, A1=>
       numberOFNeorons_13, A2=>numberOFNeorons_14, A3=>numberOFNeorons_15);
-   reg_state_4 : dffr port map ( Q=>state_4, QB=>nx1123, D=>nx160, CLK=>clk, 
+   reg_state_4 : dffr port map ( Q=>state_4, QB=>nx1112, D=>nx160, CLK=>clk, 
       R=>reset);
    ix153 : nor04 port map ( Y=>nx152, A0=>finishRamNeorons, A1=>
       finishRamWeights, A2=>nx98, A3=>nx0);
-   ix99 : nand04 port map ( Y=>nx98, A0=>nx1115, A1=>nx1117, A2=>nx1119, A3
-      =>nx1121);
+   ix99 : nand04 port map ( Y=>nx98, A0=>nx1104, A1=>nx1106, A2=>nx1108, A3
+      =>nx1110);
    ix133 : or02 port map ( Y=>decrement, A0=>state_8, A1=>state_9);
-   reg_state_8 : dffr port map ( Q=>state_8, QB=>OPEN, D=>
-      incrementNeoronsAdd, CLK=>clk, R=>reset);
-   ix127 : nor02ii port map ( Y=>incrementNeoronsAdd, A0=>nx1131, A1=>
+   reg_state_8 : dffr port map ( Q=>state_8, QB=>OPEN, D=>nx126, CLK=>clk, R
+      =>reset);
+   ix127 : nor02ii port map ( Y=>nx126, A0=>nx1120, A1=>
       readRamNeorons_EXMPLR);
-   ix1132 : nand03 port map ( Y=>nx1131, A0=>nx1133, A1=>finishRamNeorons, 
+   ix1121 : nand03 port map ( Y=>nx1120, A0=>nx1122, A1=>finishRamNeorons, 
       A2=>finishRamWeights);
-   ix1134 : nand02 port map ( Y=>nx1133, A0=>multiplyWorkIn, A1=>
+   ix1123 : nand02 port map ( Y=>nx1122, A0=>multiplyWorkIn, A1=>
       multiplyWorkDelayed);
    reg_state_5 : dffr port map ( Q=>readRamNeorons_EXMPLR, QB=>OPEN, D=>
       nx120, CLK=>clk, R=>reset);
-   ix121 : ao22 port map ( Y=>nx120, A0=>readRamNeorons_EXMPLR, A1=>nx1131, 
+   ix121 : ao22 port map ( Y=>nx120, A0=>readRamNeorons_EXMPLR, A1=>nx1120, 
       B0=>state_4, B1=>nx106);
-   ix107 : nor03_2x port map ( Y=>nx106, A0=>nx1113, A1=>finishRamNeorons, 
+   ix107 : nor03_2x port map ( Y=>nx106, A0=>nx1102, A1=>finishRamNeorons, 
       A2=>finishRamWeights);
-   reg_state_9 : dffr port map ( Q=>state_9, QB=>OPEN, D=>nx1087, CLK=>clk, 
+   reg_state_9 : dffr port map ( Q=>state_9, QB=>OPEN, D=>nx1076, CLK=>clk, 
       R=>reset);
    reg_state_3 : dffr port map ( Q=>state_3, QB=>OPEN, D=>nx54, CLK=>clk, R
       =>reset);
-   ix55 : ao22 port map ( Y=>nx54, A0=>nx1144, A1=>state_2, B0=>state_3, B1
-      =>nx1149);
-   ix1145 : inv01 port map ( Y=>nx1144, A=>finishRamWeights);
+   ix55 : ao22 port map ( Y=>nx54, A0=>nx1133, A1=>state_2, B0=>state_3, B1
+      =>nx1138);
+   ix1134 : inv01 port map ( Y=>nx1133, A=>finishRamWeights);
    reg_state_2 : dffr port map ( Q=>state_2, QB=>OPEN, D=>nx44, CLK=>clk, R
       =>reset);
    ix45 : ao21 port map ( Y=>nx44, A0=>finishRamWeights, A1=>state_2, B0=>
-      nx1337);
-   ix1150 : nand03 port map ( Y=>nx1149, A0=>nx1133, A1=>finishRamWeights, 
+      nx1326);
+   ix1139 : nand03 port map ( Y=>nx1138, A0=>nx1122, A1=>finishRamWeights, 
       A2=>state_3);
-   ix1156 : inv01 port map ( Y=>nx1155, A=>cnnDoneOneCycle);
+   ix1145 : inv01 port map ( Y=>nx1144, A=>cnnDoneOneCycle);
    ix183 : or02 port map ( Y=>neoronValueSelection, A0=>state_3, A1=>state_9
    );
-   ix185 : or02 port map ( Y=>incrementWeightAdd, A0=>nx1337, A1=>decrement
+   ix185 : or02 port map ( Y=>incrementWeightAdd, A0=>nx1326, A1=>decrement
    );
    ix189 : or03 port map ( Y=>readRamWeights, A0=>state_3, A1=>
       readRamNeorons_EXMPLR, A2=>state_1);
    ix193 : and02 port map ( Y=>beginSignal, A0=>ioDone, A1=>cnnDone);
-   ix1163 : inv01 port map ( Y=>clkInverted, A=>clk);
-   ix1114 : inv01 port map ( Y=>nx1113, A=>nx98);
-   ix65 : inv01 port map ( Y=>nx1087, A=>nx1149);
-   ix1 : inv01 port map ( Y=>nx0, A=>nx1133);
-   ix1168 : inv01 port map ( Y=>nx1169, A=>neoronMuxOutput_15);
-   ix1170 : inv01 port map ( Y=>nx1171, A=>nx1169);
-   ix1172 : inv01 port map ( Y=>nx1173, A=>nx1169);
-   ix1174 : inv01 port map ( Y=>nx1175, A=>nx1169);
-   ix1176 : inv01 port map ( Y=>nx1177, A=>nx1169);
-   ix1178 : inv01 port map ( Y=>nx1179, A=>neoronMuxOutput_14);
-   ix1180 : inv01 port map ( Y=>nx1181, A=>nx1179);
-   ix1182 : inv01 port map ( Y=>nx1183, A=>nx1179);
-   ix1184 : inv01 port map ( Y=>nx1185, A=>nx1179);
-   ix1186 : inv01 port map ( Y=>nx1187, A=>nx1179);
-   ix1188 : inv01 port map ( Y=>nx1189, A=>neoronMuxOutput_13);
-   ix1190 : inv01 port map ( Y=>nx1191, A=>nx1189);
-   ix1192 : inv01 port map ( Y=>nx1193, A=>nx1189);
-   ix1194 : inv01 port map ( Y=>nx1195, A=>nx1189);
-   ix1196 : inv01 port map ( Y=>nx1197, A=>nx1189);
-   ix1198 : inv01 port map ( Y=>nx1199, A=>neoronMuxOutput_12);
-   ix1200 : inv01 port map ( Y=>nx1201, A=>nx1199);
-   ix1202 : inv01 port map ( Y=>nx1203, A=>nx1199);
-   ix1204 : inv01 port map ( Y=>nx1205, A=>nx1199);
-   ix1206 : inv01 port map ( Y=>nx1207, A=>nx1199);
-   ix1208 : inv01 port map ( Y=>nx1209, A=>neoronMuxOutput_11);
-   ix1210 : inv01 port map ( Y=>nx1211, A=>nx1209);
-   ix1212 : inv01 port map ( Y=>nx1213, A=>nx1209);
-   ix1214 : inv01 port map ( Y=>nx1215, A=>nx1209);
-   ix1216 : inv01 port map ( Y=>nx1217, A=>nx1209);
-   ix1218 : inv01 port map ( Y=>nx1219, A=>neoronMuxOutput_10);
-   ix1220 : inv01 port map ( Y=>nx1221, A=>nx1219);
-   ix1222 : inv01 port map ( Y=>nx1223, A=>nx1219);
-   ix1224 : inv01 port map ( Y=>nx1225, A=>nx1219);
-   ix1226 : inv01 port map ( Y=>nx1227, A=>nx1219);
-   ix1228 : inv01 port map ( Y=>nx1229, A=>neoronMuxOutput_9);
-   ix1230 : inv01 port map ( Y=>nx1231, A=>nx1229);
-   ix1232 : inv01 port map ( Y=>nx1233, A=>nx1229);
-   ix1234 : inv01 port map ( Y=>nx1235, A=>nx1229);
-   ix1236 : inv01 port map ( Y=>nx1237, A=>nx1229);
-   ix1238 : inv01 port map ( Y=>nx1239, A=>neoronMuxOutput_8);
-   ix1240 : inv01 port map ( Y=>nx1241, A=>nx1239);
-   ix1242 : inv01 port map ( Y=>nx1243, A=>nx1239);
-   ix1244 : inv01 port map ( Y=>nx1245, A=>nx1239);
-   ix1246 : inv01 port map ( Y=>nx1247, A=>nx1239);
-   ix1248 : inv01 port map ( Y=>nx1249, A=>neoronMuxOutput_7);
-   ix1250 : inv01 port map ( Y=>nx1251, A=>nx1249);
-   ix1252 : inv01 port map ( Y=>nx1253, A=>nx1249);
-   ix1254 : inv01 port map ( Y=>nx1255, A=>nx1249);
-   ix1256 : inv01 port map ( Y=>nx1257, A=>nx1249);
-   ix1258 : inv01 port map ( Y=>nx1259, A=>neoronMuxOutput_6);
-   ix1260 : inv01 port map ( Y=>nx1261, A=>nx1259);
-   ix1262 : inv01 port map ( Y=>nx1263, A=>nx1259);
-   ix1264 : inv01 port map ( Y=>nx1265, A=>nx1259);
-   ix1266 : inv01 port map ( Y=>nx1267, A=>nx1259);
-   ix1268 : inv01 port map ( Y=>nx1269, A=>neoronMuxOutput_5);
-   ix1270 : inv01 port map ( Y=>nx1271, A=>nx1269);
-   ix1272 : inv01 port map ( Y=>nx1273, A=>nx1269);
-   ix1274 : inv01 port map ( Y=>nx1275, A=>nx1269);
-   ix1276 : inv01 port map ( Y=>nx1277, A=>nx1269);
-   ix1278 : inv01 port map ( Y=>nx1279, A=>neoronMuxOutput_4);
-   ix1280 : inv01 port map ( Y=>nx1281, A=>nx1279);
-   ix1282 : inv01 port map ( Y=>nx1283, A=>nx1279);
-   ix1284 : inv01 port map ( Y=>nx1285, A=>nx1279);
-   ix1286 : inv01 port map ( Y=>nx1287, A=>nx1279);
-   ix1288 : inv01 port map ( Y=>nx1289, A=>neoronMuxOutput_3);
-   ix1290 : inv01 port map ( Y=>nx1291, A=>nx1289);
-   ix1292 : inv01 port map ( Y=>nx1293, A=>nx1289);
-   ix1294 : inv01 port map ( Y=>nx1295, A=>nx1289);
-   ix1296 : inv01 port map ( Y=>nx1297, A=>nx1289);
-   ix1298 : inv01 port map ( Y=>nx1299, A=>neoronMuxOutput_2);
-   ix1300 : inv01 port map ( Y=>nx1301, A=>nx1299);
-   ix1302 : inv01 port map ( Y=>nx1303, A=>nx1299);
-   ix1304 : inv01 port map ( Y=>nx1305, A=>nx1299);
-   ix1306 : inv01 port map ( Y=>nx1307, A=>nx1299);
-   ix1308 : inv01 port map ( Y=>nx1309, A=>neoronMuxOutput_1);
-   ix1310 : inv01 port map ( Y=>nx1311, A=>nx1309);
-   ix1312 : inv01 port map ( Y=>nx1313, A=>nx1309);
-   ix1314 : inv01 port map ( Y=>nx1315, A=>nx1309);
-   ix1316 : inv01 port map ( Y=>nx1317, A=>nx1309);
-   ix1318 : inv01 port map ( Y=>nx1319, A=>neoronMuxOutput_0);
-   ix1320 : inv01 port map ( Y=>nx1321, A=>nx1319);
-   ix1322 : inv01 port map ( Y=>nx1323, A=>nx1319);
-   ix1324 : inv01 port map ( Y=>nx1325, A=>nx1319);
-   ix1326 : inv01 port map ( Y=>nx1327, A=>nx1319);
-   ix1328 : inv02 port map ( Y=>nx1329, A=>nx1155);
-   ix1330 : inv02 port map ( Y=>nx1331, A=>nx1155);
-   ix41 : nor02ii port map ( Y=>loadNumberOFNeorons, A0=>nx1093, A1=>
+   ix1152 : inv01 port map ( Y=>clkInverted, A=>clk);
+   ix1103 : inv01 port map ( Y=>nx1102, A=>nx98);
+   ix65 : inv01 port map ( Y=>nx1076, A=>nx1138);
+   ix1 : inv01 port map ( Y=>nx0, A=>nx1122);
+   ix1157 : inv01 port map ( Y=>nx1158, A=>neoronMuxOutput_15);
+   ix1159 : inv01 port map ( Y=>nx1160, A=>nx1158);
+   ix1161 : inv01 port map ( Y=>nx1162, A=>nx1158);
+   ix1163 : inv01 port map ( Y=>nx1164, A=>nx1158);
+   ix1165 : inv01 port map ( Y=>nx1166, A=>nx1158);
+   ix1167 : inv01 port map ( Y=>nx1168, A=>neoronMuxOutput_14);
+   ix1169 : inv01 port map ( Y=>nx1170, A=>nx1168);
+   ix1171 : inv01 port map ( Y=>nx1172, A=>nx1168);
+   ix1173 : inv01 port map ( Y=>nx1174, A=>nx1168);
+   ix1175 : inv01 port map ( Y=>nx1176, A=>nx1168);
+   ix1177 : inv01 port map ( Y=>nx1178, A=>neoronMuxOutput_13);
+   ix1179 : inv01 port map ( Y=>nx1180, A=>nx1178);
+   ix1181 : inv01 port map ( Y=>nx1182, A=>nx1178);
+   ix1183 : inv01 port map ( Y=>nx1184, A=>nx1178);
+   ix1185 : inv01 port map ( Y=>nx1186, A=>nx1178);
+   ix1187 : inv01 port map ( Y=>nx1188, A=>neoronMuxOutput_12);
+   ix1189 : inv01 port map ( Y=>nx1190, A=>nx1188);
+   ix1191 : inv01 port map ( Y=>nx1192, A=>nx1188);
+   ix1193 : inv01 port map ( Y=>nx1194, A=>nx1188);
+   ix1195 : inv01 port map ( Y=>nx1196, A=>nx1188);
+   ix1197 : inv01 port map ( Y=>nx1198, A=>neoronMuxOutput_11);
+   ix1199 : inv01 port map ( Y=>nx1200, A=>nx1198);
+   ix1201 : inv01 port map ( Y=>nx1202, A=>nx1198);
+   ix1203 : inv01 port map ( Y=>nx1204, A=>nx1198);
+   ix1205 : inv01 port map ( Y=>nx1206, A=>nx1198);
+   ix1207 : inv01 port map ( Y=>nx1208, A=>neoronMuxOutput_10);
+   ix1209 : inv01 port map ( Y=>nx1210, A=>nx1208);
+   ix1211 : inv01 port map ( Y=>nx1212, A=>nx1208);
+   ix1213 : inv01 port map ( Y=>nx1214, A=>nx1208);
+   ix1215 : inv01 port map ( Y=>nx1216, A=>nx1208);
+   ix1217 : inv01 port map ( Y=>nx1218, A=>neoronMuxOutput_9);
+   ix1219 : inv01 port map ( Y=>nx1220, A=>nx1218);
+   ix1221 : inv01 port map ( Y=>nx1222, A=>nx1218);
+   ix1223 : inv01 port map ( Y=>nx1224, A=>nx1218);
+   ix1225 : inv01 port map ( Y=>nx1226, A=>nx1218);
+   ix1227 : inv01 port map ( Y=>nx1228, A=>neoronMuxOutput_8);
+   ix1229 : inv01 port map ( Y=>nx1230, A=>nx1228);
+   ix1231 : inv01 port map ( Y=>nx1232, A=>nx1228);
+   ix1233 : inv01 port map ( Y=>nx1234, A=>nx1228);
+   ix1235 : inv01 port map ( Y=>nx1236, A=>nx1228);
+   ix1237 : inv01 port map ( Y=>nx1238, A=>neoronMuxOutput_7);
+   ix1239 : inv01 port map ( Y=>nx1240, A=>nx1238);
+   ix1241 : inv01 port map ( Y=>nx1242, A=>nx1238);
+   ix1243 : inv01 port map ( Y=>nx1244, A=>nx1238);
+   ix1245 : inv01 port map ( Y=>nx1246, A=>nx1238);
+   ix1247 : inv01 port map ( Y=>nx1248, A=>neoronMuxOutput_6);
+   ix1249 : inv01 port map ( Y=>nx1250, A=>nx1248);
+   ix1251 : inv01 port map ( Y=>nx1252, A=>nx1248);
+   ix1253 : inv01 port map ( Y=>nx1254, A=>nx1248);
+   ix1255 : inv01 port map ( Y=>nx1256, A=>nx1248);
+   ix1257 : inv01 port map ( Y=>nx1258, A=>neoronMuxOutput_5);
+   ix1259 : inv01 port map ( Y=>nx1260, A=>nx1258);
+   ix1261 : inv01 port map ( Y=>nx1262, A=>nx1258);
+   ix1263 : inv01 port map ( Y=>nx1264, A=>nx1258);
+   ix1265 : inv01 port map ( Y=>nx1266, A=>nx1258);
+   ix1267 : inv01 port map ( Y=>nx1268, A=>neoronMuxOutput_4);
+   ix1269 : inv01 port map ( Y=>nx1270, A=>nx1268);
+   ix1271 : inv01 port map ( Y=>nx1272, A=>nx1268);
+   ix1273 : inv01 port map ( Y=>nx1274, A=>nx1268);
+   ix1275 : inv01 port map ( Y=>nx1276, A=>nx1268);
+   ix1277 : inv01 port map ( Y=>nx1278, A=>neoronMuxOutput_3);
+   ix1279 : inv01 port map ( Y=>nx1280, A=>nx1278);
+   ix1281 : inv01 port map ( Y=>nx1282, A=>nx1278);
+   ix1283 : inv01 port map ( Y=>nx1284, A=>nx1278);
+   ix1285 : inv01 port map ( Y=>nx1286, A=>nx1278);
+   ix1287 : inv01 port map ( Y=>nx1288, A=>neoronMuxOutput_2);
+   ix1289 : inv01 port map ( Y=>nx1290, A=>nx1288);
+   ix1291 : inv01 port map ( Y=>nx1292, A=>nx1288);
+   ix1293 : inv01 port map ( Y=>nx1294, A=>nx1288);
+   ix1295 : inv01 port map ( Y=>nx1296, A=>nx1288);
+   ix1297 : inv01 port map ( Y=>nx1298, A=>neoronMuxOutput_1);
+   ix1299 : inv01 port map ( Y=>nx1300, A=>nx1298);
+   ix1301 : inv01 port map ( Y=>nx1302, A=>nx1298);
+   ix1303 : inv01 port map ( Y=>nx1304, A=>nx1298);
+   ix1305 : inv01 port map ( Y=>nx1306, A=>nx1298);
+   ix1307 : inv01 port map ( Y=>nx1308, A=>neoronMuxOutput_0);
+   ix1309 : inv01 port map ( Y=>nx1310, A=>nx1308);
+   ix1311 : inv01 port map ( Y=>nx1312, A=>nx1308);
+   ix1313 : inv01 port map ( Y=>nx1314, A=>nx1308);
+   ix1315 : inv01 port map ( Y=>nx1316, A=>nx1308);
+   ix1317 : inv02 port map ( Y=>nx1318, A=>nx1144);
+   ix1319 : inv02 port map ( Y=>nx1320, A=>nx1144);
+   ix41 : nor02ii port map ( Y=>loadNumberOFNeorons, A0=>nx1082, A1=>
       finishRamWeights);
-   ix21 : and02 port map ( Y=>nx20, A0=>nx1155, A1=>state_0);
-   ix167 : nor02ii port map ( Y=>nx166, A0=>nx1123, A1=>nx152);
-   ix1336 : buf02 port map ( Y=>nx1337, A=>loadNumberOFNeorons);
+   ix21 : and02 port map ( Y=>nx20, A0=>nx1144, A1=>state_0);
+   ix167 : nor02ii port map ( Y=>nx166, A0=>nx1112, A1=>nx152);
+   ix1325 : buf02 port map ( Y=>nx1326, A=>loadNumberOFNeorons);
+   ix1351 : inv02 port map ( Y=>nx1352, A=>nx1144);
 end FcMainArch ;
+
 

@@ -1,21 +1,22 @@
 //
 // Verilog description for cell FcMain, 
-// Fri May 10 02:47:33 2019
+// Sat May 11 17:08:32 2019
 //
 // LeonardoSpectrum Level 3, 2018a.2 
 //
 
 
-module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons, 
-                finishRamNeorons, dataOutRamNeorons, dmaAddRamWeights, 
-                readRamWeights, finishRamWeights, dataOutRamWeights, fcDone, 
-                MAXPrediction ) ;
+module FcMain ( cnnDone, ioDone, clk, reset, defaultAddressNeorons, 
+                dmaAddRamNeorons, readRamNeorons, finishRamNeorons, 
+                dataOutRamNeorons, dmaAddRamWeights, readRamWeights, 
+                finishRamWeights, dataOutRamWeights, fcDone, MAXPrediction ) ;
 
     input cnnDone ;
     input ioDone ;
     input clk ;
     input reset ;
-    output [15:0]dmaAddRamNeorons ;
+    input [12:0]defaultAddressNeorons ;
+    output [12:0]dmaAddRamNeorons ;
     output readRamNeorons ;
     input finishRamNeorons ;
     input [79:0]dataOutRamNeorons ;
@@ -26,7 +27,7 @@ module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons,
     output fcDone ;
     output [3:0]MAXPrediction ;
 
-    wire state_10, state_6, neoronMuxOutput_15, neoronMuxOutput_14, 
+    wire state_10, state_8, state_6, neoronMuxOutput_15, neoronMuxOutput_14, 
          neoronMuxOutput_13, neoronMuxOutput_12, neoronMuxOutput_11, 
          neoronMuxOutput_10, neoronMuxOutput_9, neoronMuxOutput_8, 
          neoronMuxOutput_7, neoronMuxOutput_6, neoronMuxOutput_5, 
@@ -79,22 +80,21 @@ module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons,
          labelReg_0__3, labelReg_0__2, labelReg_0__1, labelReg_0__0, maxNumber_3, 
          maxNumber_2, maxNumber_1, maxNumber_0, multiplyWorkDelayed, 
          multiplyWorkIn, clkInverted, bufferTwoInput, cnnDoneOneCycle, 
-         beginSignal, incrementWeightAdd, incrementNeoronsAdd, 
-         neoronValueSelection, decrement, loadNumberOFNeorons, oneNeoron_8, 
-         oneNeoron_15, state_4, state_9, nx0, state_3, nx1087, state_2, state_1, 
-         nx12, state_0, nx20, nx34, nx44, nx54, state_8, nx98, nx106, nx120, 
-         nx152, nx158, nx160, nx166, nx176, nx1093, nx1095, nx1104, nx1111, 
-         nx1113, nx1115, nx1117, nx1119, nx1121, nx1123, nx1131, nx1133, nx1144, 
-         nx1149, nx1155, nx1169, nx1171, nx1173, nx1175, nx1177, nx1179, nx1181, 
-         nx1183, nx1185, nx1187, nx1189, nx1191, nx1193, nx1195, nx1197, nx1199, 
-         nx1201, nx1203, nx1205, nx1207, nx1209, nx1211, nx1213, nx1215, nx1217, 
-         nx1219, nx1221, nx1223, nx1225, nx1227, nx1229, nx1231, nx1233, nx1235, 
-         nx1237, nx1239, nx1241, nx1243, nx1245, nx1247, nx1249, nx1251, nx1253, 
-         nx1255, nx1257, nx1259, nx1261, nx1263, nx1265, nx1267, nx1269, nx1271, 
-         nx1273, nx1275, nx1277, nx1279, nx1281, nx1283, nx1285, nx1287, nx1289, 
-         nx1291, nx1293, nx1295, nx1297, nx1299, nx1301, nx1303, nx1305, nx1307, 
-         nx1309, nx1311, nx1313, nx1315, nx1317, nx1319, nx1321, nx1323, nx1325, 
-         nx1327, nx1329, nx1331, nx1337;
+         beginSignal, incrementWeightAdd, neoronValueSelection, decrement, 
+         loadNumberOFNeorons, oneNeoron_8, oneNeoron_15, state_4, state_9, nx0, 
+         state_3, nx1076, state_2, state_1, nx12, state_0, nx20, nx34, nx44, 
+         nx54, nx98, nx106, nx120, nx126, nx152, nx158, nx160, nx166, nx176, 
+         nx1082, nx1084, nx1093, nx1100, nx1102, nx1104, nx1106, nx1108, nx1110, 
+         nx1112, nx1120, nx1122, nx1133, nx1138, nx1144, nx1158, nx1160, nx1162, 
+         nx1164, nx1166, nx1168, nx1170, nx1172, nx1174, nx1176, nx1178, nx1180, 
+         nx1182, nx1184, nx1186, nx1188, nx1190, nx1192, nx1194, nx1196, nx1198, 
+         nx1200, nx1202, nx1204, nx1206, nx1208, nx1210, nx1212, nx1214, nx1216, 
+         nx1218, nx1220, nx1222, nx1224, nx1226, nx1228, nx1230, nx1232, nx1234, 
+         nx1236, nx1238, nx1240, nx1242, nx1244, nx1246, nx1248, nx1250, nx1252, 
+         nx1254, nx1256, nx1258, nx1260, nx1262, nx1264, nx1266, nx1268, nx1270, 
+         nx1272, nx1274, nx1276, nx1278, nx1280, nx1282, nx1284, nx1286, nx1288, 
+         nx1290, nx1292, nx1294, nx1296, nx1298, nx1300, nx1302, nx1304, nx1306, 
+         nx1308, nx1310, nx1312, nx1314, nx1316, nx1318, nx1320, nx1326, nx1352;
     wire [15:0] \$dummy ;
 
 
@@ -102,32 +102,32 @@ module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons,
 
     RisingHolderFullCycle CNNDONEHOLDER (.edge (beginSignal), .clk (clk), .rst (
                           reset), .f (cnnDoneOneCycle)) ;
-    CounterUpDown_16 NEORONSLASTSTAGES (.load ({dataOutRamWeights[79],
-                     dataOutRamWeights[78],dataOutRamWeights[77],
-                     dataOutRamWeights[76],dataOutRamWeights[75],
-                     dataOutRamWeights[74],dataOutRamWeights[73],
-                     dataOutRamWeights[72],dataOutRamWeights[71],
-                     dataOutRamWeights[70],dataOutRamWeights[69],
-                     dataOutRamWeights[68],dataOutRamWeights[67],
-                     dataOutRamWeights[66],dataOutRamWeights[65],
-                     dataOutRamWeights[64]}), .resetValue ({oneNeoron_15,
+    CounterUpDown_16 NEORONSLASTSTAGES (.load ({dataOutRamWeights[15],
+                     dataOutRamWeights[14],dataOutRamWeights[13],
+                     dataOutRamWeights[12],dataOutRamWeights[11],
+                     dataOutRamWeights[10],dataOutRamWeights[9],
+                     dataOutRamWeights[8],dataOutRamWeights[7],
+                     dataOutRamWeights[6],dataOutRamWeights[5],
+                     dataOutRamWeights[4],dataOutRamWeights[3],
+                     dataOutRamWeights[2],dataOutRamWeights[1],
+                     dataOutRamWeights[0]}), .resetValue ({oneNeoron_15,
                      oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
                      oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
                      oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
                      oneNeoron_15,oneNeoron_15,oneNeoron_15}), .clk (clk), .en (
-                     decrement), .rst (reset), .isLoad (nx1337), .upOrDown (
+                     decrement), .rst (reset), .isLoad (nx1326), .upOrDown (
                      oneNeoron_8), .count ({numberOFNeorons_15,
                      numberOFNeorons_14,numberOFNeorons_13,numberOFNeorons_12,
                      numberOFNeorons_11,numberOFNeorons_10,numberOFNeorons_9,
                      numberOFNeorons_8,numberOFNeorons_7,numberOFNeorons_6,
                      numberOFNeorons_5,numberOFNeorons_4,numberOFNeorons_3,
                      numberOFNeorons_2,numberOFNeorons_1,numberOFNeorons_0})) ;
-    Mux2_16 NEORONREGMux (.A ({dataOutRamNeorons[79],dataOutRamNeorons[78],
-            dataOutRamNeorons[77],dataOutRamNeorons[76],dataOutRamNeorons[75],
-            dataOutRamNeorons[74],dataOutRamNeorons[73],dataOutRamNeorons[72],
-            dataOutRamNeorons[71],dataOutRamNeorons[70],dataOutRamNeorons[69],
-            dataOutRamNeorons[68],dataOutRamNeorons[67],dataOutRamNeorons[66],
-            dataOutRamNeorons[65],dataOutRamNeorons[64]}), .B ({oneNeoron_15,
+    Mux2_16 NEORONREGMux (.A ({dataOutRamNeorons[15],dataOutRamNeorons[14],
+            dataOutRamNeorons[13],dataOutRamNeorons[12],dataOutRamNeorons[11],
+            dataOutRamNeorons[10],dataOutRamNeorons[9],dataOutRamNeorons[8],
+            dataOutRamNeorons[7],dataOutRamNeorons[6],dataOutRamNeorons[5],
+            dataOutRamNeorons[4],dataOutRamNeorons[3],dataOutRamNeorons[2],
+            dataOutRamNeorons[1],dataOutRamNeorons[0]}), .B ({oneNeoron_15,
             oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
             oneNeoron_15,oneNeoron_8,oneNeoron_15,oneNeoron_15,oneNeoron_15,
             oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15}), 
@@ -260,50 +260,50 @@ module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons,
                 dataOutRamWeights[6]), .q_0__5 (dataOutRamWeights[5]), .q_0__4 (
                 dataOutRamWeights[4]), .q_0__3 (dataOutRamWeights[3]), .q_0__2 (
                 dataOutRamWeights[2]), .q_0__1 (dataOutRamWeights[1]), .q_0__0 (
-                dataOutRamWeights[0]), .m_9__15 (nx1171), .m_9__14 (nx1181), .m_9__13 (
-                nx1191), .m_9__12 (nx1201), .m_9__11 (nx1211), .m_9__10 (nx1221)
-                , .m_9__9 (nx1231), .m_9__8 (nx1241), .m_9__7 (nx1251), .m_9__6 (
-                nx1261), .m_9__5 (nx1271), .m_9__4 (nx1281), .m_9__3 (nx1291), .m_9__2 (
-                nx1301), .m_9__1 (nx1311), .m_9__0 (nx1321), .m_8__15 (nx1171), 
-                .m_8__14 (nx1181), .m_8__13 (nx1191), .m_8__12 (nx1201), .m_8__11 (
-                nx1211), .m_8__10 (nx1221), .m_8__9 (nx1231), .m_8__8 (nx1241), 
-                .m_8__7 (nx1251), .m_8__6 (nx1261), .m_8__5 (nx1271), .m_8__4 (
-                nx1281), .m_8__3 (nx1291), .m_8__2 (nx1301), .m_8__1 (nx1311), .m_8__0 (
-                nx1321), .m_7__15 (nx1171), .m_7__14 (nx1181), .m_7__13 (nx1191)
-                , .m_7__12 (nx1201), .m_7__11 (nx1211), .m_7__10 (nx1221), .m_7__9 (
-                nx1231), .m_7__8 (nx1241), .m_7__7 (nx1251), .m_7__6 (nx1261), .m_7__5 (
-                nx1271), .m_7__4 (nx1281), .m_7__3 (nx1291), .m_7__2 (nx1301), .m_7__1 (
-                nx1311), .m_7__0 (nx1321), .m_6__15 (nx1173), .m_6__14 (nx1183)
-                , .m_6__13 (nx1193), .m_6__12 (nx1203), .m_6__11 (nx1213), .m_6__10 (
-                nx1223), .m_6__9 (nx1233), .m_6__8 (nx1243), .m_6__7 (nx1253), .m_6__6 (
-                nx1263), .m_6__5 (nx1273), .m_6__4 (nx1283), .m_6__3 (nx1293), .m_6__2 (
-                nx1303), .m_6__1 (nx1313), .m_6__0 (nx1323), .m_5__15 (nx1173), 
-                .m_5__14 (nx1183), .m_5__13 (nx1193), .m_5__12 (nx1203), .m_5__11 (
-                nx1213), .m_5__10 (nx1223), .m_5__9 (nx1233), .m_5__8 (nx1243), 
-                .m_5__7 (nx1253), .m_5__6 (nx1263), .m_5__5 (nx1273), .m_5__4 (
-                nx1283), .m_5__3 (nx1293), .m_5__2 (nx1303), .m_5__1 (nx1313), .m_5__0 (
-                nx1323), .m_4__15 (nx1173), .m_4__14 (nx1183), .m_4__13 (nx1193)
-                , .m_4__12 (nx1203), .m_4__11 (nx1213), .m_4__10 (nx1223), .m_4__9 (
-                nx1233), .m_4__8 (nx1243), .m_4__7 (nx1253), .m_4__6 (nx1263), .m_4__5 (
-                nx1273), .m_4__4 (nx1283), .m_4__3 (nx1293), .m_4__2 (nx1303), .m_4__1 (
-                nx1313), .m_4__0 (nx1323), .m_3__15 (nx1175), .m_3__14 (nx1185)
-                , .m_3__13 (nx1195), .m_3__12 (nx1205), .m_3__11 (nx1215), .m_3__10 (
-                nx1225), .m_3__9 (nx1235), .m_3__8 (nx1245), .m_3__7 (nx1255), .m_3__6 (
-                nx1265), .m_3__5 (nx1275), .m_3__4 (nx1285), .m_3__3 (nx1295), .m_3__2 (
-                nx1305), .m_3__1 (nx1315), .m_3__0 (nx1325), .m_2__15 (nx1175), 
-                .m_2__14 (nx1185), .m_2__13 (nx1195), .m_2__12 (nx1205), .m_2__11 (
-                nx1215), .m_2__10 (nx1225), .m_2__9 (nx1235), .m_2__8 (nx1245), 
-                .m_2__7 (nx1255), .m_2__6 (nx1265), .m_2__5 (nx1275), .m_2__4 (
-                nx1285), .m_2__3 (nx1295), .m_2__2 (nx1305), .m_2__1 (nx1315), .m_2__0 (
-                nx1325), .m_1__15 (nx1175), .m_1__14 (nx1185), .m_1__13 (nx1195)
-                , .m_1__12 (nx1205), .m_1__11 (nx1215), .m_1__10 (nx1225), .m_1__9 (
-                nx1235), .m_1__8 (nx1245), .m_1__7 (nx1255), .m_1__6 (nx1265), .m_1__5 (
-                nx1275), .m_1__4 (nx1285), .m_1__3 (nx1295), .m_1__2 (nx1305), .m_1__1 (
-                nx1315), .m_1__0 (nx1325), .m_0__15 (nx1177), .m_0__14 (nx1187)
-                , .m_0__13 (nx1197), .m_0__12 (nx1207), .m_0__11 (nx1217), .m_0__10 (
-                nx1227), .m_0__9 (nx1237), .m_0__8 (nx1247), .m_0__7 (nx1257), .m_0__6 (
-                nx1267), .m_0__5 (nx1277), .m_0__4 (nx1287), .m_0__3 (nx1297), .m_0__2 (
-                nx1307), .m_0__1 (nx1317), .m_0__0 (nx1327), .f_9__15 (
+                dataOutRamWeights[0]), .m_9__15 (nx1160), .m_9__14 (nx1170), .m_9__13 (
+                nx1180), .m_9__12 (nx1190), .m_9__11 (nx1200), .m_9__10 (nx1210)
+                , .m_9__9 (nx1220), .m_9__8 (nx1230), .m_9__7 (nx1240), .m_9__6 (
+                nx1250), .m_9__5 (nx1260), .m_9__4 (nx1270), .m_9__3 (nx1280), .m_9__2 (
+                nx1290), .m_9__1 (nx1300), .m_9__0 (nx1310), .m_8__15 (nx1160), 
+                .m_8__14 (nx1170), .m_8__13 (nx1180), .m_8__12 (nx1190), .m_8__11 (
+                nx1200), .m_8__10 (nx1210), .m_8__9 (nx1220), .m_8__8 (nx1230), 
+                .m_8__7 (nx1240), .m_8__6 (nx1250), .m_8__5 (nx1260), .m_8__4 (
+                nx1270), .m_8__3 (nx1280), .m_8__2 (nx1290), .m_8__1 (nx1300), .m_8__0 (
+                nx1310), .m_7__15 (nx1160), .m_7__14 (nx1170), .m_7__13 (nx1180)
+                , .m_7__12 (nx1190), .m_7__11 (nx1200), .m_7__10 (nx1210), .m_7__9 (
+                nx1220), .m_7__8 (nx1230), .m_7__7 (nx1240), .m_7__6 (nx1250), .m_7__5 (
+                nx1260), .m_7__4 (nx1270), .m_7__3 (nx1280), .m_7__2 (nx1290), .m_7__1 (
+                nx1300), .m_7__0 (nx1310), .m_6__15 (nx1162), .m_6__14 (nx1172)
+                , .m_6__13 (nx1182), .m_6__12 (nx1192), .m_6__11 (nx1202), .m_6__10 (
+                nx1212), .m_6__9 (nx1222), .m_6__8 (nx1232), .m_6__7 (nx1242), .m_6__6 (
+                nx1252), .m_6__5 (nx1262), .m_6__4 (nx1272), .m_6__3 (nx1282), .m_6__2 (
+                nx1292), .m_6__1 (nx1302), .m_6__0 (nx1312), .m_5__15 (nx1162), 
+                .m_5__14 (nx1172), .m_5__13 (nx1182), .m_5__12 (nx1192), .m_5__11 (
+                nx1202), .m_5__10 (nx1212), .m_5__9 (nx1222), .m_5__8 (nx1232), 
+                .m_5__7 (nx1242), .m_5__6 (nx1252), .m_5__5 (nx1262), .m_5__4 (
+                nx1272), .m_5__3 (nx1282), .m_5__2 (nx1292), .m_5__1 (nx1302), .m_5__0 (
+                nx1312), .m_4__15 (nx1162), .m_4__14 (nx1172), .m_4__13 (nx1182)
+                , .m_4__12 (nx1192), .m_4__11 (nx1202), .m_4__10 (nx1212), .m_4__9 (
+                nx1222), .m_4__8 (nx1232), .m_4__7 (nx1242), .m_4__6 (nx1252), .m_4__5 (
+                nx1262), .m_4__4 (nx1272), .m_4__3 (nx1282), .m_4__2 (nx1292), .m_4__1 (
+                nx1302), .m_4__0 (nx1312), .m_3__15 (nx1164), .m_3__14 (nx1174)
+                , .m_3__13 (nx1184), .m_3__12 (nx1194), .m_3__11 (nx1204), .m_3__10 (
+                nx1214), .m_3__9 (nx1224), .m_3__8 (nx1234), .m_3__7 (nx1244), .m_3__6 (
+                nx1254), .m_3__5 (nx1264), .m_3__4 (nx1274), .m_3__3 (nx1284), .m_3__2 (
+                nx1294), .m_3__1 (nx1304), .m_3__0 (nx1314), .m_2__15 (nx1164), 
+                .m_2__14 (nx1174), .m_2__13 (nx1184), .m_2__12 (nx1194), .m_2__11 (
+                nx1204), .m_2__10 (nx1214), .m_2__9 (nx1224), .m_2__8 (nx1234), 
+                .m_2__7 (nx1244), .m_2__6 (nx1254), .m_2__5 (nx1264), .m_2__4 (
+                nx1274), .m_2__3 (nx1284), .m_2__2 (nx1294), .m_2__1 (nx1304), .m_2__0 (
+                nx1314), .m_1__15 (nx1164), .m_1__14 (nx1174), .m_1__13 (nx1184)
+                , .m_1__12 (nx1194), .m_1__11 (nx1204), .m_1__10 (nx1214), .m_1__9 (
+                nx1224), .m_1__8 (nx1234), .m_1__7 (nx1244), .m_1__6 (nx1254), .m_1__5 (
+                nx1264), .m_1__4 (nx1274), .m_1__3 (nx1284), .m_1__2 (nx1294), .m_1__1 (
+                nx1304), .m_1__0 (nx1314), .m_0__15 (nx1166), .m_0__14 (nx1176)
+                , .m_0__13 (nx1186), .m_0__12 (nx1196), .m_0__11 (nx1206), .m_0__10 (
+                nx1216), .m_0__9 (nx1226), .m_0__8 (nx1236), .m_0__7 (nx1246), .m_0__6 (
+                nx1256), .m_0__5 (nx1266), .m_0__4 (nx1276), .m_0__3 (nx1286), .m_0__2 (
+                nx1296), .m_0__1 (nx1306), .m_0__0 (nx1316), .f_9__15 (
                 labelReg_9__15), .f_9__14 (labelReg_9__14), .f_9__13 (
                 labelReg_9__13), .f_9__12 (labelReg_9__12), .f_9__11 (
                 labelReg_9__11), .f_9__10 (labelReg_9__10), .f_9__9 (
@@ -374,7 +374,7 @@ module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons,
                 , .f_0__6 (labelReg_0__6), .f_0__5 (labelReg_0__5), .f_0__4 (
                 labelReg_0__4), .f_0__3 (labelReg_0__3), .f_0__2 (labelReg_0__2)
                 , .f_0__1 (labelReg_0__1), .f_0__0 (labelReg_0__0), .clk (clk), 
-                .start (decrement), .rst (nx1329), .done (\$dummy [0]), .working (
+                .start (decrement), .rst (nx1352), .done (\$dummy [0]), .working (
                 multiplyWorkIn)) ;
     FlibFlob bufferRegOne (.D (multiplyWorkIn), .en (oneNeoron_8), .clk (
              clkInverted), .rst (reset), .Q (bufferTwoInput), .Qbar (\$dummy [1]
@@ -390,7 +390,7 @@ module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons,
                      oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
                      oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
                      oneNeoron_15,oneNeoron_15,oneNeoron_15}), .clk (clk), .en (
-                     incrementWeightAdd), .rst (reset), .isLoad (nx1329), .upOrDown (
+                     incrementWeightAdd), .rst (reset), .isLoad (nx1318), .upOrDown (
                      oneNeoron_15), .count ({dmaAddRamWeights[15],
                      dmaAddRamWeights[14],dmaAddRamWeights[13],
                      dmaAddRamWeights[12],dmaAddRamWeights[11],
@@ -399,19 +399,22 @@ module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons,
                      ,dmaAddRamWeights[5],dmaAddRamWeights[4],
                      dmaAddRamWeights[3],dmaAddRamWeights[2],dmaAddRamWeights[1]
                      ,dmaAddRamWeights[0]})) ;
-    CounterUpDown_16 NeoronAddressCounter (.load ({oneNeoron_15,oneNeoron_15,
-                     oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
-                     oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
-                     oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
-                     oneNeoron_15,oneNeoron_15}), .resetValue ({oneNeoron_15,
-                     oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
-                     oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
-                     oneNeoron_15,oneNeoron_15,oneNeoron_15,oneNeoron_15,
-                     oneNeoron_15,oneNeoron_15,oneNeoron_15}), .clk (clk), .en (
-                     incrementNeoronsAdd), .rst (reset), .isLoad (nx1331), .upOrDown (
-                     oneNeoron_15), .count ({dmaAddRamNeorons[15],
-                     dmaAddRamNeorons[14],dmaAddRamNeorons[13],
-                     dmaAddRamNeorons[12],dmaAddRamNeorons[11],
+    CounterUpDown_13 NeoronAddressCounter (.load ({defaultAddressNeorons[12],
+                     defaultAddressNeorons[11],defaultAddressNeorons[10],
+                     defaultAddressNeorons[9],defaultAddressNeorons[8],
+                     defaultAddressNeorons[7],defaultAddressNeorons[6],
+                     defaultAddressNeorons[5],defaultAddressNeorons[4],
+                     defaultAddressNeorons[3],defaultAddressNeorons[2],
+                     defaultAddressNeorons[1],defaultAddressNeorons[0]}), .resetValue (
+                     {defaultAddressNeorons[12],defaultAddressNeorons[11],
+                     defaultAddressNeorons[10],defaultAddressNeorons[9],
+                     defaultAddressNeorons[8],defaultAddressNeorons[7],
+                     defaultAddressNeorons[6],defaultAddressNeorons[5],
+                     defaultAddressNeorons[4],defaultAddressNeorons[3],
+                     defaultAddressNeorons[2],defaultAddressNeorons[1],
+                     defaultAddressNeorons[0]}), .clk (clk), .en (state_8), .rst (
+                     reset), .isLoad (nx1352), .upOrDown (oneNeoron_15), .count (
+                     {dmaAddRamNeorons[12],dmaAddRamNeorons[11],
                      dmaAddRamNeorons[10],dmaAddRamNeorons[9],
                      dmaAddRamNeorons[8],dmaAddRamNeorons[7],dmaAddRamNeorons[6]
                      ,dmaAddRamNeorons[5],dmaAddRamNeorons[4],
@@ -421,166 +424,166 @@ module FcMain ( cnnDone, ioDone, clk, reset, dmaAddRamNeorons, readRamNeorons,
           , .en (oneNeoron_8), .clk (doneMax), .rst (reset), .Q ({
           MAXPrediction[3],MAXPrediction[2],MAXPrediction[1],MAXPrediction[0]})
           , .Qbar ({\$dummy [3],\$dummy [4],\$dummy [5],\$dummy [6]})) ;
-    fake_gnd ix1056 (.Y (oneNeoron_15)) ;
-    fake_vcc ix1054 (.Y (oneNeoron_8)) ;
-    oai21 ix35 (.Y (nx34), .A0 (finishRamWeights), .A1 (nx1093), .B0 (nx1095)) ;
-    dffr reg_state_1 (.Q (state_1), .QB (nx1093), .D (nx34), .CLK (clk), .R (
+    fake_gnd ix1044 (.Y (oneNeoron_15)) ;
+    fake_vcc ix1042 (.Y (oneNeoron_8)) ;
+    oai21 ix35 (.Y (nx34), .A0 (finishRamWeights), .A1 (nx1082), .B0 (nx1084)) ;
+    dffr reg_state_1 (.Q (state_1), .QB (nx1082), .D (nx34), .CLK (clk), .R (
          reset)) ;
-    oai21 ix1096 (.Y (nx1095), .A0 (state_0), .A1 (fcDone), .B0 (nx1331)) ;
+    oai21 ix1085 (.Y (nx1084), .A0 (state_0), .A1 (fcDone), .B0 (nx1320)) ;
     dffs_ni reg_state_0 (.Q (state_0), .QB (\$dummy [7]), .D (nx20), .CLK (clk)
             , .S (reset)) ;
     dffr reg_state_7 (.Q (fcDone), .QB (\$dummy [8]), .D (nx12), .CLK (clk), .R (
          reset)) ;
-    ao22 ix13 (.Y (nx12), .A0 (doneMax), .A1 (state_6), .B0 (nx1155), .B1 (
+    ao22 ix13 (.Y (nx12), .A0 (doneMax), .A1 (state_6), .B0 (nx1144), .B1 (
          fcDone)) ;
     dffr reg_state_6 (.Q (state_6), .QB (\$dummy [9]), .D (nx176), .CLK (clk), .R (
          reset)) ;
-    ao21 ix177 (.Y (nx176), .A0 (nx1104), .A1 (state_6), .B0 (state_10)) ;
-    inv01 ix1105 (.Y (nx1104), .A (doneMax)) ;
+    ao21 ix177 (.Y (nx176), .A0 (nx1093), .A1 (state_6), .B0 (state_10)) ;
+    inv01 ix1094 (.Y (nx1093), .A (doneMax)) ;
     dffr reg_state_10 (.Q (state_10), .QB (\$dummy [10]), .D (nx166), .CLK (clk)
          , .R (reset)) ;
     or02 ix161 (.Y (nx160), .A0 (nx158), .A1 (decrement)) ;
-    nor03_2x ix159 (.Y (nx158), .A0 (nx1111), .A1 (nx1123), .A2 (nx152)) ;
-    nor03_2x ix1112 (.Y (nx1111), .A0 (nx1113), .A1 (finishRamNeorons), .A2 (
+    nor03_2x ix159 (.Y (nx158), .A0 (nx1100), .A1 (nx1112), .A2 (nx152)) ;
+    nor03_2x ix1101 (.Y (nx1100), .A0 (nx1102), .A1 (finishRamNeorons), .A2 (
              finishRamWeights)) ;
-    nor04 ix1116 (.Y (nx1115), .A0 (numberOFNeorons_0), .A1 (numberOFNeorons_1)
+    nor04 ix1105 (.Y (nx1104), .A0 (numberOFNeorons_0), .A1 (numberOFNeorons_1)
           , .A2 (numberOFNeorons_2), .A3 (numberOFNeorons_3)) ;
-    nor04 ix1118 (.Y (nx1117), .A0 (numberOFNeorons_4), .A1 (numberOFNeorons_5)
+    nor04 ix1107 (.Y (nx1106), .A0 (numberOFNeorons_4), .A1 (numberOFNeorons_5)
           , .A2 (numberOFNeorons_6), .A3 (numberOFNeorons_7)) ;
-    nor04 ix1120 (.Y (nx1119), .A0 (numberOFNeorons_8), .A1 (numberOFNeorons_9)
+    nor04 ix1109 (.Y (nx1108), .A0 (numberOFNeorons_8), .A1 (numberOFNeorons_9)
           , .A2 (numberOFNeorons_10), .A3 (numberOFNeorons_11)) ;
-    nor04 ix1122 (.Y (nx1121), .A0 (numberOFNeorons_12), .A1 (numberOFNeorons_13
+    nor04 ix1111 (.Y (nx1110), .A0 (numberOFNeorons_12), .A1 (numberOFNeorons_13
           ), .A2 (numberOFNeorons_14), .A3 (numberOFNeorons_15)) ;
-    dffr reg_state_4 (.Q (state_4), .QB (nx1123), .D (nx160), .CLK (clk), .R (
+    dffr reg_state_4 (.Q (state_4), .QB (nx1112), .D (nx160), .CLK (clk), .R (
          reset)) ;
     nor04 ix153 (.Y (nx152), .A0 (finishRamNeorons), .A1 (finishRamWeights), .A2 (
           nx98), .A3 (nx0)) ;
-    nand04 ix99 (.Y (nx98), .A0 (nx1115), .A1 (nx1117), .A2 (nx1119), .A3 (
-           nx1121)) ;
+    nand04 ix99 (.Y (nx98), .A0 (nx1104), .A1 (nx1106), .A2 (nx1108), .A3 (
+           nx1110)) ;
     or02 ix133 (.Y (decrement), .A0 (state_8), .A1 (state_9)) ;
-    dffr reg_state_8 (.Q (state_8), .QB (\$dummy [11]), .D (incrementNeoronsAdd)
-         , .CLK (clk), .R (reset)) ;
-    nor02ii ix127 (.Y (incrementNeoronsAdd), .A0 (nx1131), .A1 (readRamNeorons)
-            ) ;
-    nand03 ix1132 (.Y (nx1131), .A0 (nx1133), .A1 (finishRamNeorons), .A2 (
+    dffr reg_state_8 (.Q (state_8), .QB (\$dummy [11]), .D (nx126), .CLK (clk), 
+         .R (reset)) ;
+    nor02ii ix127 (.Y (nx126), .A0 (nx1120), .A1 (readRamNeorons)) ;
+    nand03 ix1121 (.Y (nx1120), .A0 (nx1122), .A1 (finishRamNeorons), .A2 (
            finishRamWeights)) ;
-    nand02 ix1134 (.Y (nx1133), .A0 (multiplyWorkIn), .A1 (multiplyWorkDelayed)
+    nand02 ix1123 (.Y (nx1122), .A0 (multiplyWorkIn), .A1 (multiplyWorkDelayed)
            ) ;
     dffr reg_state_5 (.Q (readRamNeorons), .QB (\$dummy [12]), .D (nx120), .CLK (
          clk), .R (reset)) ;
-    ao22 ix121 (.Y (nx120), .A0 (readRamNeorons), .A1 (nx1131), .B0 (state_4), .B1 (
+    ao22 ix121 (.Y (nx120), .A0 (readRamNeorons), .A1 (nx1120), .B0 (state_4), .B1 (
          nx106)) ;
-    nor03_2x ix107 (.Y (nx106), .A0 (nx1113), .A1 (finishRamNeorons), .A2 (
+    nor03_2x ix107 (.Y (nx106), .A0 (nx1102), .A1 (finishRamNeorons), .A2 (
              finishRamWeights)) ;
-    dffr reg_state_9 (.Q (state_9), .QB (\$dummy [13]), .D (nx1087), .CLK (clk)
+    dffr reg_state_9 (.Q (state_9), .QB (\$dummy [13]), .D (nx1076), .CLK (clk)
          , .R (reset)) ;
     dffr reg_state_3 (.Q (state_3), .QB (\$dummy [14]), .D (nx54), .CLK (clk), .R (
          reset)) ;
-    ao22 ix55 (.Y (nx54), .A0 (nx1144), .A1 (state_2), .B0 (state_3), .B1 (
-         nx1149)) ;
-    inv01 ix1145 (.Y (nx1144), .A (finishRamWeights)) ;
+    ao22 ix55 (.Y (nx54), .A0 (nx1133), .A1 (state_2), .B0 (state_3), .B1 (
+         nx1138)) ;
+    inv01 ix1134 (.Y (nx1133), .A (finishRamWeights)) ;
     dffr reg_state_2 (.Q (state_2), .QB (\$dummy [15]), .D (nx44), .CLK (clk), .R (
          reset)) ;
-    ao21 ix45 (.Y (nx44), .A0 (finishRamWeights), .A1 (state_2), .B0 (nx1337)) ;
-    nand03 ix1150 (.Y (nx1149), .A0 (nx1133), .A1 (finishRamWeights), .A2 (
+    ao21 ix45 (.Y (nx44), .A0 (finishRamWeights), .A1 (state_2), .B0 (nx1326)) ;
+    nand03 ix1139 (.Y (nx1138), .A0 (nx1122), .A1 (finishRamWeights), .A2 (
            state_3)) ;
-    inv01 ix1156 (.Y (nx1155), .A (cnnDoneOneCycle)) ;
+    inv01 ix1145 (.Y (nx1144), .A (cnnDoneOneCycle)) ;
     or02 ix183 (.Y (neoronValueSelection), .A0 (state_3), .A1 (state_9)) ;
-    or02 ix185 (.Y (incrementWeightAdd), .A0 (nx1337), .A1 (decrement)) ;
+    or02 ix185 (.Y (incrementWeightAdd), .A0 (nx1326), .A1 (decrement)) ;
     or03 ix189 (.Y (readRamWeights), .A0 (state_3), .A1 (readRamNeorons), .A2 (
          state_1)) ;
     and02 ix193 (.Y (beginSignal), .A0 (ioDone), .A1 (cnnDone)) ;
-    inv01 ix1163 (.Y (clkInverted), .A (clk)) ;
-    inv01 ix1114 (.Y (nx1113), .A (nx98)) ;
-    inv01 ix65 (.Y (nx1087), .A (nx1149)) ;
-    inv01 ix1 (.Y (nx0), .A (nx1133)) ;
-    inv01 ix1168 (.Y (nx1169), .A (neoronMuxOutput_15)) ;
-    inv01 ix1170 (.Y (nx1171), .A (nx1169)) ;
-    inv01 ix1172 (.Y (nx1173), .A (nx1169)) ;
-    inv01 ix1174 (.Y (nx1175), .A (nx1169)) ;
-    inv01 ix1176 (.Y (nx1177), .A (nx1169)) ;
-    inv01 ix1178 (.Y (nx1179), .A (neoronMuxOutput_14)) ;
-    inv01 ix1180 (.Y (nx1181), .A (nx1179)) ;
-    inv01 ix1182 (.Y (nx1183), .A (nx1179)) ;
-    inv01 ix1184 (.Y (nx1185), .A (nx1179)) ;
-    inv01 ix1186 (.Y (nx1187), .A (nx1179)) ;
-    inv01 ix1188 (.Y (nx1189), .A (neoronMuxOutput_13)) ;
-    inv01 ix1190 (.Y (nx1191), .A (nx1189)) ;
-    inv01 ix1192 (.Y (nx1193), .A (nx1189)) ;
-    inv01 ix1194 (.Y (nx1195), .A (nx1189)) ;
-    inv01 ix1196 (.Y (nx1197), .A (nx1189)) ;
-    inv01 ix1198 (.Y (nx1199), .A (neoronMuxOutput_12)) ;
-    inv01 ix1200 (.Y (nx1201), .A (nx1199)) ;
-    inv01 ix1202 (.Y (nx1203), .A (nx1199)) ;
-    inv01 ix1204 (.Y (nx1205), .A (nx1199)) ;
-    inv01 ix1206 (.Y (nx1207), .A (nx1199)) ;
-    inv01 ix1208 (.Y (nx1209), .A (neoronMuxOutput_11)) ;
-    inv01 ix1210 (.Y (nx1211), .A (nx1209)) ;
-    inv01 ix1212 (.Y (nx1213), .A (nx1209)) ;
-    inv01 ix1214 (.Y (nx1215), .A (nx1209)) ;
-    inv01 ix1216 (.Y (nx1217), .A (nx1209)) ;
-    inv01 ix1218 (.Y (nx1219), .A (neoronMuxOutput_10)) ;
-    inv01 ix1220 (.Y (nx1221), .A (nx1219)) ;
-    inv01 ix1222 (.Y (nx1223), .A (nx1219)) ;
-    inv01 ix1224 (.Y (nx1225), .A (nx1219)) ;
-    inv01 ix1226 (.Y (nx1227), .A (nx1219)) ;
-    inv01 ix1228 (.Y (nx1229), .A (neoronMuxOutput_9)) ;
-    inv01 ix1230 (.Y (nx1231), .A (nx1229)) ;
-    inv01 ix1232 (.Y (nx1233), .A (nx1229)) ;
-    inv01 ix1234 (.Y (nx1235), .A (nx1229)) ;
-    inv01 ix1236 (.Y (nx1237), .A (nx1229)) ;
-    inv01 ix1238 (.Y (nx1239), .A (neoronMuxOutput_8)) ;
-    inv01 ix1240 (.Y (nx1241), .A (nx1239)) ;
-    inv01 ix1242 (.Y (nx1243), .A (nx1239)) ;
-    inv01 ix1244 (.Y (nx1245), .A (nx1239)) ;
-    inv01 ix1246 (.Y (nx1247), .A (nx1239)) ;
-    inv01 ix1248 (.Y (nx1249), .A (neoronMuxOutput_7)) ;
-    inv01 ix1250 (.Y (nx1251), .A (nx1249)) ;
-    inv01 ix1252 (.Y (nx1253), .A (nx1249)) ;
-    inv01 ix1254 (.Y (nx1255), .A (nx1249)) ;
-    inv01 ix1256 (.Y (nx1257), .A (nx1249)) ;
-    inv01 ix1258 (.Y (nx1259), .A (neoronMuxOutput_6)) ;
-    inv01 ix1260 (.Y (nx1261), .A (nx1259)) ;
-    inv01 ix1262 (.Y (nx1263), .A (nx1259)) ;
-    inv01 ix1264 (.Y (nx1265), .A (nx1259)) ;
-    inv01 ix1266 (.Y (nx1267), .A (nx1259)) ;
-    inv01 ix1268 (.Y (nx1269), .A (neoronMuxOutput_5)) ;
-    inv01 ix1270 (.Y (nx1271), .A (nx1269)) ;
-    inv01 ix1272 (.Y (nx1273), .A (nx1269)) ;
-    inv01 ix1274 (.Y (nx1275), .A (nx1269)) ;
-    inv01 ix1276 (.Y (nx1277), .A (nx1269)) ;
-    inv01 ix1278 (.Y (nx1279), .A (neoronMuxOutput_4)) ;
-    inv01 ix1280 (.Y (nx1281), .A (nx1279)) ;
-    inv01 ix1282 (.Y (nx1283), .A (nx1279)) ;
-    inv01 ix1284 (.Y (nx1285), .A (nx1279)) ;
-    inv01 ix1286 (.Y (nx1287), .A (nx1279)) ;
-    inv01 ix1288 (.Y (nx1289), .A (neoronMuxOutput_3)) ;
-    inv01 ix1290 (.Y (nx1291), .A (nx1289)) ;
-    inv01 ix1292 (.Y (nx1293), .A (nx1289)) ;
-    inv01 ix1294 (.Y (nx1295), .A (nx1289)) ;
-    inv01 ix1296 (.Y (nx1297), .A (nx1289)) ;
-    inv01 ix1298 (.Y (nx1299), .A (neoronMuxOutput_2)) ;
-    inv01 ix1300 (.Y (nx1301), .A (nx1299)) ;
-    inv01 ix1302 (.Y (nx1303), .A (nx1299)) ;
-    inv01 ix1304 (.Y (nx1305), .A (nx1299)) ;
-    inv01 ix1306 (.Y (nx1307), .A (nx1299)) ;
-    inv01 ix1308 (.Y (nx1309), .A (neoronMuxOutput_1)) ;
-    inv01 ix1310 (.Y (nx1311), .A (nx1309)) ;
-    inv01 ix1312 (.Y (nx1313), .A (nx1309)) ;
-    inv01 ix1314 (.Y (nx1315), .A (nx1309)) ;
-    inv01 ix1316 (.Y (nx1317), .A (nx1309)) ;
-    inv01 ix1318 (.Y (nx1319), .A (neoronMuxOutput_0)) ;
-    inv01 ix1320 (.Y (nx1321), .A (nx1319)) ;
-    inv01 ix1322 (.Y (nx1323), .A (nx1319)) ;
-    inv01 ix1324 (.Y (nx1325), .A (nx1319)) ;
-    inv01 ix1326 (.Y (nx1327), .A (nx1319)) ;
-    inv02 ix1328 (.Y (nx1329), .A (nx1155)) ;
-    inv02 ix1330 (.Y (nx1331), .A (nx1155)) ;
-    nor02ii ix41 (.Y (loadNumberOFNeorons), .A0 (nx1093), .A1 (finishRamWeights)
+    inv01 ix1152 (.Y (clkInverted), .A (clk)) ;
+    inv01 ix1103 (.Y (nx1102), .A (nx98)) ;
+    inv01 ix65 (.Y (nx1076), .A (nx1138)) ;
+    inv01 ix1 (.Y (nx0), .A (nx1122)) ;
+    inv01 ix1157 (.Y (nx1158), .A (neoronMuxOutput_15)) ;
+    inv01 ix1159 (.Y (nx1160), .A (nx1158)) ;
+    inv01 ix1161 (.Y (nx1162), .A (nx1158)) ;
+    inv01 ix1163 (.Y (nx1164), .A (nx1158)) ;
+    inv01 ix1165 (.Y (nx1166), .A (nx1158)) ;
+    inv01 ix1167 (.Y (nx1168), .A (neoronMuxOutput_14)) ;
+    inv01 ix1169 (.Y (nx1170), .A (nx1168)) ;
+    inv01 ix1171 (.Y (nx1172), .A (nx1168)) ;
+    inv01 ix1173 (.Y (nx1174), .A (nx1168)) ;
+    inv01 ix1175 (.Y (nx1176), .A (nx1168)) ;
+    inv01 ix1177 (.Y (nx1178), .A (neoronMuxOutput_13)) ;
+    inv01 ix1179 (.Y (nx1180), .A (nx1178)) ;
+    inv01 ix1181 (.Y (nx1182), .A (nx1178)) ;
+    inv01 ix1183 (.Y (nx1184), .A (nx1178)) ;
+    inv01 ix1185 (.Y (nx1186), .A (nx1178)) ;
+    inv01 ix1187 (.Y (nx1188), .A (neoronMuxOutput_12)) ;
+    inv01 ix1189 (.Y (nx1190), .A (nx1188)) ;
+    inv01 ix1191 (.Y (nx1192), .A (nx1188)) ;
+    inv01 ix1193 (.Y (nx1194), .A (nx1188)) ;
+    inv01 ix1195 (.Y (nx1196), .A (nx1188)) ;
+    inv01 ix1197 (.Y (nx1198), .A (neoronMuxOutput_11)) ;
+    inv01 ix1199 (.Y (nx1200), .A (nx1198)) ;
+    inv01 ix1201 (.Y (nx1202), .A (nx1198)) ;
+    inv01 ix1203 (.Y (nx1204), .A (nx1198)) ;
+    inv01 ix1205 (.Y (nx1206), .A (nx1198)) ;
+    inv01 ix1207 (.Y (nx1208), .A (neoronMuxOutput_10)) ;
+    inv01 ix1209 (.Y (nx1210), .A (nx1208)) ;
+    inv01 ix1211 (.Y (nx1212), .A (nx1208)) ;
+    inv01 ix1213 (.Y (nx1214), .A (nx1208)) ;
+    inv01 ix1215 (.Y (nx1216), .A (nx1208)) ;
+    inv01 ix1217 (.Y (nx1218), .A (neoronMuxOutput_9)) ;
+    inv01 ix1219 (.Y (nx1220), .A (nx1218)) ;
+    inv01 ix1221 (.Y (nx1222), .A (nx1218)) ;
+    inv01 ix1223 (.Y (nx1224), .A (nx1218)) ;
+    inv01 ix1225 (.Y (nx1226), .A (nx1218)) ;
+    inv01 ix1227 (.Y (nx1228), .A (neoronMuxOutput_8)) ;
+    inv01 ix1229 (.Y (nx1230), .A (nx1228)) ;
+    inv01 ix1231 (.Y (nx1232), .A (nx1228)) ;
+    inv01 ix1233 (.Y (nx1234), .A (nx1228)) ;
+    inv01 ix1235 (.Y (nx1236), .A (nx1228)) ;
+    inv01 ix1237 (.Y (nx1238), .A (neoronMuxOutput_7)) ;
+    inv01 ix1239 (.Y (nx1240), .A (nx1238)) ;
+    inv01 ix1241 (.Y (nx1242), .A (nx1238)) ;
+    inv01 ix1243 (.Y (nx1244), .A (nx1238)) ;
+    inv01 ix1245 (.Y (nx1246), .A (nx1238)) ;
+    inv01 ix1247 (.Y (nx1248), .A (neoronMuxOutput_6)) ;
+    inv01 ix1249 (.Y (nx1250), .A (nx1248)) ;
+    inv01 ix1251 (.Y (nx1252), .A (nx1248)) ;
+    inv01 ix1253 (.Y (nx1254), .A (nx1248)) ;
+    inv01 ix1255 (.Y (nx1256), .A (nx1248)) ;
+    inv01 ix1257 (.Y (nx1258), .A (neoronMuxOutput_5)) ;
+    inv01 ix1259 (.Y (nx1260), .A (nx1258)) ;
+    inv01 ix1261 (.Y (nx1262), .A (nx1258)) ;
+    inv01 ix1263 (.Y (nx1264), .A (nx1258)) ;
+    inv01 ix1265 (.Y (nx1266), .A (nx1258)) ;
+    inv01 ix1267 (.Y (nx1268), .A (neoronMuxOutput_4)) ;
+    inv01 ix1269 (.Y (nx1270), .A (nx1268)) ;
+    inv01 ix1271 (.Y (nx1272), .A (nx1268)) ;
+    inv01 ix1273 (.Y (nx1274), .A (nx1268)) ;
+    inv01 ix1275 (.Y (nx1276), .A (nx1268)) ;
+    inv01 ix1277 (.Y (nx1278), .A (neoronMuxOutput_3)) ;
+    inv01 ix1279 (.Y (nx1280), .A (nx1278)) ;
+    inv01 ix1281 (.Y (nx1282), .A (nx1278)) ;
+    inv01 ix1283 (.Y (nx1284), .A (nx1278)) ;
+    inv01 ix1285 (.Y (nx1286), .A (nx1278)) ;
+    inv01 ix1287 (.Y (nx1288), .A (neoronMuxOutput_2)) ;
+    inv01 ix1289 (.Y (nx1290), .A (nx1288)) ;
+    inv01 ix1291 (.Y (nx1292), .A (nx1288)) ;
+    inv01 ix1293 (.Y (nx1294), .A (nx1288)) ;
+    inv01 ix1295 (.Y (nx1296), .A (nx1288)) ;
+    inv01 ix1297 (.Y (nx1298), .A (neoronMuxOutput_1)) ;
+    inv01 ix1299 (.Y (nx1300), .A (nx1298)) ;
+    inv01 ix1301 (.Y (nx1302), .A (nx1298)) ;
+    inv01 ix1303 (.Y (nx1304), .A (nx1298)) ;
+    inv01 ix1305 (.Y (nx1306), .A (nx1298)) ;
+    inv01 ix1307 (.Y (nx1308), .A (neoronMuxOutput_0)) ;
+    inv01 ix1309 (.Y (nx1310), .A (nx1308)) ;
+    inv01 ix1311 (.Y (nx1312), .A (nx1308)) ;
+    inv01 ix1313 (.Y (nx1314), .A (nx1308)) ;
+    inv01 ix1315 (.Y (nx1316), .A (nx1308)) ;
+    inv02 ix1317 (.Y (nx1318), .A (nx1144)) ;
+    inv02 ix1319 (.Y (nx1320), .A (nx1144)) ;
+    nor02ii ix41 (.Y (loadNumberOFNeorons), .A0 (nx1082), .A1 (finishRamWeights)
             ) ;
-    and02 ix21 (.Y (nx20), .A0 (nx1155), .A1 (state_0)) ;
-    nor02ii ix167 (.Y (nx166), .A0 (nx1123), .A1 (nx152)) ;
-    buf02 ix1336 (.Y (nx1337), .A (loadNumberOFNeorons)) ;
+    and02 ix21 (.Y (nx20), .A0 (nx1144), .A1 (state_0)) ;
+    nor02ii ix167 (.Y (nx166), .A0 (nx1112), .A1 (nx152)) ;
+    buf02 ix1325 (.Y (nx1326), .A (loadNumberOFNeorons)) ;
+    inv02 ix1351 (.Y (nx1352), .A (nx1144)) ;
 endmodule
 
 
@@ -630,6 +633,177 @@ module Reg_4 ( D, en, clk, rst, Q, Qbar ) ;
     mux21_ni ix177 (.Y (nx176), .A0 (Q[3]), .A1 (D[3]), .S0 (en)) ;
     buf02 ix262 (.Y (nx263), .A (clk)) ;
     buf02 ix264 (.Y (nx265), .A (clk)) ;
+endmodule
+
+
+module CounterUpDown_13 ( load, resetValue, clk, en, rst, isLoad, upOrDown, 
+                          count ) ;
+
+    input [12:0]load ;
+    input [12:0]resetValue ;
+    input clk ;
+    input en ;
+    input rst ;
+    input isLoad ;
+    input upOrDown ;
+    output [12:0]count ;
+
+    wire countAdded_12, countAdded_11, countAdded_10, countAdded_9, countAdded_8, 
+         countAdded_7, countAdded_6, countAdded_5, countAdded_4, countAdded_3, 
+         countAdded_2, countAdded_1, countAdded_0, NOT_upOrDown, nx8, nx10, nx14, 
+         nx24, nx26, nx30, nx40, nx42, nx46, nx56, nx58, nx62, nx72, nx74, nx78, 
+         nx88, nx90, nx94, nx104, nx106, nx110, nx120, nx122, nx126, nx136, 
+         nx138, nx142, nx152, nx154, nx158, nx168, nx170, nx174, nx184, nx186, 
+         nx190, nx200, nx202, nx206, nx499, nx509, nx519, nx529, nx539, nx549, 
+         nx559, nx569, nx579, nx589, nx599, nx609, nx619, nx636, nx720, nx722, 
+         nx732, nx734;
+    wire [13:0] \$dummy ;
+
+
+
+
+    NBitAdder_13 nextCount (.a ({count[12],count[11],count[10],count[9],count[8]
+                 ,count[7],count[6],count[5],count[4],count[3],count[2],count[1]
+                 ,count[0]}), .b ({upOrDown,upOrDown,upOrDown,upOrDown,upOrDown,
+                 upOrDown,upOrDown,upOrDown,upOrDown,upOrDown,upOrDown,upOrDown,
+                 upOrDown}), .carryIn (NOT_upOrDown), .sum ({countAdded_12,
+                 countAdded_11,countAdded_10,countAdded_9,countAdded_8,
+                 countAdded_7,countAdded_6,countAdded_5,countAdded_4,
+                 countAdded_3,countAdded_2,countAdded_1,countAdded_0}), .carryOut (
+                 \$dummy [0])) ;
+    inv01 ix632 (.Y (NOT_upOrDown), .A (upOrDown)) ;
+    dffsr_ni reg_currentCount_0 (.Q (count[0]), .QB (\$dummy [1]), .D (nx499), .CLK (
+             clk), .S (nx10), .R (nx14)) ;
+    mux21_ni ix500 (.Y (nx499), .A0 (nx8), .A1 (count[0]), .S0 (nx720)) ;
+    mux21_ni ix9 (.Y (nx8), .A0 (load[0]), .A1 (countAdded_0), .S0 (nx732)) ;
+    nor02_2x ix637 (.Y (nx636), .A0 (nx732), .A1 (isLoad)) ;
+    and02 ix11 (.Y (nx10), .A0 (resetValue[0]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_1 (.Q (count[1]), .QB (\$dummy [2]), .D (nx509), .CLK (
+             clk), .S (nx26), .R (nx30)) ;
+    mux21_ni ix510 (.Y (nx509), .A0 (nx24), .A1 (count[1]), .S0 (nx720)) ;
+    mux21_ni ix25 (.Y (nx24), .A0 (load[1]), .A1 (countAdded_1), .S0 (nx732)) ;
+    and02 ix27 (.Y (nx26), .A0 (resetValue[1]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_2 (.Q (count[2]), .QB (\$dummy [3]), .D (nx519), .CLK (
+             clk), .S (nx42), .R (nx46)) ;
+    mux21_ni ix520 (.Y (nx519), .A0 (nx40), .A1 (count[2]), .S0 (nx720)) ;
+    mux21_ni ix41 (.Y (nx40), .A0 (load[2]), .A1 (countAdded_2), .S0 (nx732)) ;
+    and02 ix43 (.Y (nx42), .A0 (resetValue[2]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_3 (.Q (count[3]), .QB (\$dummy [4]), .D (nx529), .CLK (
+             clk), .S (nx58), .R (nx62)) ;
+    mux21_ni ix530 (.Y (nx529), .A0 (nx56), .A1 (count[3]), .S0 (nx720)) ;
+    mux21_ni ix57 (.Y (nx56), .A0 (load[3]), .A1 (countAdded_3), .S0 (nx732)) ;
+    and02 ix59 (.Y (nx58), .A0 (resetValue[3]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_4 (.Q (count[4]), .QB (\$dummy [5]), .D (nx539), .CLK (
+             clk), .S (nx74), .R (nx78)) ;
+    mux21_ni ix540 (.Y (nx539), .A0 (nx72), .A1 (count[4]), .S0 (nx720)) ;
+    mux21_ni ix73 (.Y (nx72), .A0 (load[4]), .A1 (countAdded_4), .S0 (nx732)) ;
+    and02 ix75 (.Y (nx74), .A0 (resetValue[4]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_5 (.Q (count[5]), .QB (\$dummy [6]), .D (nx549), .CLK (
+             clk), .S (nx90), .R (nx94)) ;
+    mux21_ni ix550 (.Y (nx549), .A0 (nx88), .A1 (count[5]), .S0 (nx720)) ;
+    mux21_ni ix89 (.Y (nx88), .A0 (load[5]), .A1 (countAdded_5), .S0 (nx732)) ;
+    and02 ix91 (.Y (nx90), .A0 (resetValue[5]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_6 (.Q (count[6]), .QB (\$dummy [7]), .D (nx559), .CLK (
+             clk), .S (nx106), .R (nx110)) ;
+    mux21_ni ix560 (.Y (nx559), .A0 (nx104), .A1 (count[6]), .S0 (nx720)) ;
+    mux21_ni ix105 (.Y (nx104), .A0 (load[6]), .A1 (countAdded_6), .S0 (nx734)
+             ) ;
+    and02 ix107 (.Y (nx106), .A0 (resetValue[6]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_7 (.Q (count[7]), .QB (\$dummy [8]), .D (nx569), .CLK (
+             clk), .S (nx122), .R (nx126)) ;
+    mux21_ni ix570 (.Y (nx569), .A0 (nx120), .A1 (count[7]), .S0 (nx722)) ;
+    mux21_ni ix121 (.Y (nx120), .A0 (load[7]), .A1 (countAdded_7), .S0 (nx734)
+             ) ;
+    and02 ix123 (.Y (nx122), .A0 (resetValue[7]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_8 (.Q (count[8]), .QB (\$dummy [9]), .D (nx579), .CLK (
+             clk), .S (nx138), .R (nx142)) ;
+    mux21_ni ix580 (.Y (nx579), .A0 (nx136), .A1 (count[8]), .S0 (nx722)) ;
+    mux21_ni ix137 (.Y (nx136), .A0 (load[8]), .A1 (countAdded_8), .S0 (nx734)
+             ) ;
+    and02 ix139 (.Y (nx138), .A0 (resetValue[8]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_9 (.Q (count[9]), .QB (\$dummy [10]), .D (nx589), 
+             .CLK (clk), .S (nx154), .R (nx158)) ;
+    mux21_ni ix590 (.Y (nx589), .A0 (nx152), .A1 (count[9]), .S0 (nx722)) ;
+    mux21_ni ix153 (.Y (nx152), .A0 (load[9]), .A1 (countAdded_9), .S0 (nx734)
+             ) ;
+    and02 ix155 (.Y (nx154), .A0 (resetValue[9]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_10 (.Q (count[10]), .QB (\$dummy [11]), .D (nx599)
+             , .CLK (clk), .S (nx170), .R (nx174)) ;
+    mux21_ni ix600 (.Y (nx599), .A0 (nx168), .A1 (count[10]), .S0 (nx722)) ;
+    mux21_ni ix169 (.Y (nx168), .A0 (load[10]), .A1 (countAdded_10), .S0 (nx734)
+             ) ;
+    and02 ix171 (.Y (nx170), .A0 (resetValue[10]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_11 (.Q (count[11]), .QB (\$dummy [12]), .D (nx609)
+             , .CLK (clk), .S (nx186), .R (nx190)) ;
+    mux21_ni ix610 (.Y (nx609), .A0 (nx184), .A1 (count[11]), .S0 (nx722)) ;
+    mux21_ni ix185 (.Y (nx184), .A0 (load[11]), .A1 (countAdded_11), .S0 (nx734)
+             ) ;
+    and02 ix187 (.Y (nx186), .A0 (resetValue[11]), .A1 (rst)) ;
+    dffsr_ni reg_currentCount_12 (.Q (count[12]), .QB (\$dummy [13]), .D (nx619)
+             , .CLK (clk), .S (nx202), .R (nx206)) ;
+    mux21_ni ix620 (.Y (nx619), .A0 (nx200), .A1 (count[12]), .S0 (nx722)) ;
+    mux21_ni ix201 (.Y (nx200), .A0 (load[12]), .A1 (countAdded_12), .S0 (nx734)
+             ) ;
+    and02 ix203 (.Y (nx202), .A0 (resetValue[12]), .A1 (rst)) ;
+    buf02 ix719 (.Y (nx720), .A (nx636)) ;
+    buf02 ix721 (.Y (nx722), .A (nx636)) ;
+    nor02ii ix15 (.Y (nx14), .A0 (resetValue[0]), .A1 (rst)) ;
+    nor02ii ix31 (.Y (nx30), .A0 (resetValue[1]), .A1 (rst)) ;
+    nor02ii ix47 (.Y (nx46), .A0 (resetValue[2]), .A1 (rst)) ;
+    nor02ii ix63 (.Y (nx62), .A0 (resetValue[3]), .A1 (rst)) ;
+    nor02ii ix79 (.Y (nx78), .A0 (resetValue[4]), .A1 (rst)) ;
+    nor02ii ix95 (.Y (nx94), .A0 (resetValue[5]), .A1 (rst)) ;
+    nor02ii ix111 (.Y (nx110), .A0 (resetValue[6]), .A1 (rst)) ;
+    nor02ii ix127 (.Y (nx126), .A0 (resetValue[7]), .A1 (rst)) ;
+    nor02ii ix143 (.Y (nx142), .A0 (resetValue[8]), .A1 (rst)) ;
+    nor02ii ix159 (.Y (nx158), .A0 (resetValue[9]), .A1 (rst)) ;
+    nor02ii ix175 (.Y (nx174), .A0 (resetValue[10]), .A1 (rst)) ;
+    nor02ii ix191 (.Y (nx190), .A0 (resetValue[11]), .A1 (rst)) ;
+    nor02ii ix207 (.Y (nx206), .A0 (resetValue[12]), .A1 (rst)) ;
+    buf02 ix731 (.Y (nx732), .A (en)) ;
+    buf02 ix733 (.Y (nx734), .A (en)) ;
+endmodule
+
+
+module NBitAdder_13 ( a, b, carryIn, sum, carryOut ) ;
+
+    input [12:0]a ;
+    input [12:0]b ;
+    input carryIn ;
+    output [12:0]sum ;
+    output carryOut ;
+
+    wire temp_11, temp_10, temp_9, temp_8, temp_7, temp_6, temp_5, temp_4, 
+         temp_3, temp_2, temp_1, temp_0;
+
+
+
+    FullAdder f0 (.a (a[0]), .b (b[0]), .cin (carryIn), .s (sum[0]), .cout (
+              temp_0)) ;
+    FullAdder loop1_1_fx (.a (a[1]), .b (b[1]), .cin (temp_0), .s (sum[1]), .cout (
+              temp_1)) ;
+    FullAdder loop1_2_fx (.a (a[2]), .b (b[2]), .cin (temp_1), .s (sum[2]), .cout (
+              temp_2)) ;
+    FullAdder loop1_3_fx (.a (a[3]), .b (b[3]), .cin (temp_2), .s (sum[3]), .cout (
+              temp_3)) ;
+    FullAdder loop1_4_fx (.a (a[4]), .b (b[4]), .cin (temp_3), .s (sum[4]), .cout (
+              temp_4)) ;
+    FullAdder loop1_5_fx (.a (a[5]), .b (b[5]), .cin (temp_4), .s (sum[5]), .cout (
+              temp_5)) ;
+    FullAdder loop1_6_fx (.a (a[6]), .b (b[6]), .cin (temp_5), .s (sum[6]), .cout (
+              temp_6)) ;
+    FullAdder loop1_7_fx (.a (a[7]), .b (b[7]), .cin (temp_6), .s (sum[7]), .cout (
+              temp_7)) ;
+    FullAdder loop1_8_fx (.a (a[8]), .b (b[8]), .cin (temp_7), .s (sum[8]), .cout (
+              temp_8)) ;
+    FullAdder loop1_9_fx (.a (a[9]), .b (b[9]), .cin (temp_8), .s (sum[9]), .cout (
+              temp_9)) ;
+    FullAdder loop1_10_fx (.a (a[10]), .b (b[10]), .cin (temp_9), .s (sum[10]), 
+              .cout (temp_10)) ;
+    FullAdder loop1_11_fx (.a (a[11]), .b (b[11]), .cin (temp_10), .s (sum[11])
+              , .cout (temp_11)) ;
+    FullAdder loop1_12_fx (.a (a[12]), .b (b[12]), .cin (temp_11), .s (sum[12])
+              , .cout (carryOut)) ;
 endmodule
 
 
@@ -1803,7 +1977,8 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
          outReg_0__14, outReg_0__13, outReg_0__12, outReg_0__11, outReg_0__10, 
          outReg_0__9, outReg_0__8, outReg_0__7, outReg_0__6, outReg_0__5, 
          outReg_0__4, outReg_0__3, outReg_0__2, outReg_0__1, outReg_0__0, PWR, 
-         GND, nx947, nx949, nx951, nx953;
+         GND, nx947, nx949, nx951, nx953, nx1129, nx1131, nx1133, nx1135, nx1137, 
+         nx1139, nx1141, nx1143;
     wire [169:0] \$dummy ;
 
 
@@ -1820,7 +1995,7 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
                  \$dummy [0])) ;
     Reg_16 gen_9_cmp2 (.D ({f_9__15,f_9__14,f_9__13,f_9__12,f_9__11,f_9__10,
            f_9__9,f_9__8,f_9__7,f_9__6,f_9__5,f_9__4,f_9__3,f_9__2,f_9__1,f_9__0
-           }), .en (PWR), .clk (nx947), .rst (nx951), .Q ({outReg_9__15,
+           }), .en (PWR), .clk (nx1131), .rst (nx1139), .Q ({outReg_9__15,
            outReg_9__14,outReg_9__13,outReg_9__12,outReg_9__11,outReg_9__10,
            outReg_9__9,outReg_9__8,outReg_9__7,outReg_9__6,outReg_9__5,
            outReg_9__4,outReg_9__3,outReg_9__2,outReg_9__1,outReg_9__0}), .Qbar (
@@ -1839,7 +2014,7 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
                  \$dummy [17])) ;
     Reg_16 gen_8_cmp2 (.D ({f_8__15,f_8__14,f_8__13,f_8__12,f_8__11,f_8__10,
            f_8__9,f_8__8,f_8__7,f_8__6,f_8__5,f_8__4,f_8__3,f_8__2,f_8__1,f_8__0
-           }), .en (PWR), .clk (nx947), .rst (nx951), .Q ({outReg_8__15,
+           }), .en (PWR), .clk (nx1131), .rst (nx1139), .Q ({outReg_8__15,
            outReg_8__14,outReg_8__13,outReg_8__12,outReg_8__11,outReg_8__10,
            outReg_8__9,outReg_8__8,outReg_8__7,outReg_8__6,outReg_8__5,
            outReg_8__4,outReg_8__3,outReg_8__2,outReg_8__1,outReg_8__0}), .Qbar (
@@ -1858,7 +2033,7 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
                  \$dummy [34])) ;
     Reg_16 gen_7_cmp2 (.D ({f_7__15,f_7__14,f_7__13,f_7__12,f_7__11,f_7__10,
            f_7__9,f_7__8,f_7__7,f_7__6,f_7__5,f_7__4,f_7__3,f_7__2,f_7__1,f_7__0
-           }), .en (PWR), .clk (nx947), .rst (nx951), .Q ({outReg_7__15,
+           }), .en (PWR), .clk (nx1131), .rst (nx1139), .Q ({outReg_7__15,
            outReg_7__14,outReg_7__13,outReg_7__12,outReg_7__11,outReg_7__10,
            outReg_7__9,outReg_7__8,outReg_7__7,outReg_7__6,outReg_7__5,
            outReg_7__4,outReg_7__3,outReg_7__2,outReg_7__1,outReg_7__0}), .Qbar (
@@ -1877,7 +2052,7 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
                  \$dummy [51])) ;
     Reg_16 gen_6_cmp2 (.D ({f_6__15,f_6__14,f_6__13,f_6__12,f_6__11,f_6__10,
            f_6__9,f_6__8,f_6__7,f_6__6,f_6__5,f_6__4,f_6__3,f_6__2,f_6__1,f_6__0
-           }), .en (PWR), .clk (nx947), .rst (nx951), .Q ({outReg_6__15,
+           }), .en (PWR), .clk (nx1133), .rst (nx1141), .Q ({outReg_6__15,
            outReg_6__14,outReg_6__13,outReg_6__12,outReg_6__11,outReg_6__10,
            outReg_6__9,outReg_6__8,outReg_6__7,outReg_6__6,outReg_6__5,
            outReg_6__4,outReg_6__3,outReg_6__2,outReg_6__1,outReg_6__0}), .Qbar (
@@ -1896,7 +2071,7 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
                  \$dummy [68])) ;
     Reg_16 gen_5_cmp2 (.D ({f_5__15,f_5__14,f_5__13,f_5__12,f_5__11,f_5__10,
            f_5__9,f_5__8,f_5__7,f_5__6,f_5__5,f_5__4,f_5__3,f_5__2,f_5__1,f_5__0
-           }), .en (PWR), .clk (nx947), .rst (nx951), .Q ({outReg_5__15,
+           }), .en (PWR), .clk (nx1133), .rst (nx1141), .Q ({outReg_5__15,
            outReg_5__14,outReg_5__13,outReg_5__12,outReg_5__11,outReg_5__10,
            outReg_5__9,outReg_5__8,outReg_5__7,outReg_5__6,outReg_5__5,
            outReg_5__4,outReg_5__3,outReg_5__2,outReg_5__1,outReg_5__0}), .Qbar (
@@ -1915,7 +2090,7 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
                  \$dummy [85])) ;
     Reg_16 gen_4_cmp2 (.D ({f_4__15,f_4__14,f_4__13,f_4__12,f_4__11,f_4__10,
            f_4__9,f_4__8,f_4__7,f_4__6,f_4__5,f_4__4,f_4__3,f_4__2,f_4__1,f_4__0
-           }), .en (PWR), .clk (nx947), .rst (nx951), .Q ({outReg_4__15,
+           }), .en (PWR), .clk (nx1133), .rst (nx1141), .Q ({outReg_4__15,
            outReg_4__14,outReg_4__13,outReg_4__12,outReg_4__11,outReg_4__10,
            outReg_4__9,outReg_4__8,outReg_4__7,outReg_4__6,outReg_4__5,
            outReg_4__4,outReg_4__3,outReg_4__2,outReg_4__1,outReg_4__0}), .Qbar (
@@ -1934,7 +2109,7 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
                  \$dummy [102])) ;
     Reg_16 gen_3_cmp2 (.D ({f_3__15,f_3__14,f_3__13,f_3__12,f_3__11,f_3__10,
            f_3__9,f_3__8,f_3__7,f_3__6,f_3__5,f_3__4,f_3__3,f_3__2,f_3__1,f_3__0
-           }), .en (PWR), .clk (nx947), .rst (nx951), .Q ({outReg_3__15,
+           }), .en (PWR), .clk (nx1135), .rst (nx1143), .Q ({outReg_3__15,
            outReg_3__14,outReg_3__13,outReg_3__12,outReg_3__11,outReg_3__10,
            outReg_3__9,outReg_3__8,outReg_3__7,outReg_3__6,outReg_3__5,
            outReg_3__4,outReg_3__3,outReg_3__2,outReg_3__1,outReg_3__0}), .Qbar (
@@ -2005,6 +2180,14 @@ module Accumulator_10 ( a_9__15, a_9__14, a_9__13, a_9__12, a_9__11, a_9__10,
     buf02 ix948 (.Y (nx949), .A (save)) ;
     buf02 ix950 (.Y (nx951), .A (rst)) ;
     buf02 ix952 (.Y (nx953), .A (rst)) ;
+    inv01 ix1128 (.Y (nx1129), .A (nx947)) ;
+    inv01 ix1130 (.Y (nx1131), .A (nx1129)) ;
+    inv01 ix1132 (.Y (nx1133), .A (nx1129)) ;
+    inv01 ix1134 (.Y (nx1135), .A (nx1129)) ;
+    inv01 ix1136 (.Y (nx1137), .A (nx951)) ;
+    inv01 ix1138 (.Y (nx1139), .A (nx1137)) ;
+    inv01 ix1140 (.Y (nx1141), .A (nx1137)) ;
+    inv01 ix1142 (.Y (nx1143), .A (nx1137)) ;
 endmodule
 
 
@@ -2475,9 +2658,11 @@ module nMul8x16_10 ( q_9__7, q_9__6, q_9__5, q_9__4, q_9__3, q_9__2, q_9__1,
     inout working ;
 
     wire counter_0, counterRst, restartDetection, firstStart, PWR, nx364, nx366, 
-         nx368, nx370, nx372, nx374, nx380, nx382, nx384, nx386, nx388, nx390, 
-         nx392, nx394, nx396, nx398, nx400, nx402, nx404, nx406, nx408, nx410, 
-         nx412, nx414, nx416, nx418, nx420;
+         nx368, nx370, nx372, nx374, nx382, nx384, nx392, nx396, nx398, nx400, 
+         nx402, nx404, nx406, nx408, nx410, nx412, nx414, nx416, nx418, nx420, 
+         nx394, nx394_XX0_XREP41, nx380, nx380_XX0_XREP43, nx433, nx435, nx437, 
+         nx439, nx441, nx443, nx445, nx447, nx449, nx451, nx453, nx455, nx457, 
+         nx459, nx461, nx463, nx465, nx467;
     wire [2:0] \$dummy ;
 
 
@@ -2488,15 +2673,15 @@ module nMul8x16_10 ( q_9__7, q_9__6, q_9__5, q_9__4, q_9__3, q_9__2, q_9__1,
             m_9__9,m_9__8,m_9__7,m_9__6,m_9__5,m_9__4,m_9__3,m_9__2,m_9__1,
             m_9__0}), .fMul ({f_9__15,f_9__14,f_9__13,f_9__12,f_9__11,f_9__10,
             f_9__9,f_9__8,f_9__7,f_9__6,f_9__5,f_9__4,f_9__3,f_9__2,f_9__1,
-            f_9__0}), .clk (nx414), .start (nx396), .rst (nx418), .sel (nx368), 
-            .startAndPause (nx406)) ;
+            f_9__0}), .clk (nx414), .start (nx445), .rst (nx418), .sel (nx368), 
+            .startAndPause (nx451)) ;
     Mul8x16 gen_8_cmp (.q ({q_8__7,q_8__6,q_8__5,q_8__4,q_8__3,q_8__2,q_8__1,
             q_8__0}), .m ({m_8__15,m_8__14,m_8__13,m_8__12,m_8__11,m_8__10,
             m_8__9,m_8__8,m_8__7,m_8__6,m_8__5,m_8__4,m_8__3,m_8__2,m_8__1,
             m_8__0}), .fMul ({f_8__15,f_8__14,f_8__13,f_8__12,f_8__11,f_8__10,
             f_8__9,f_8__8,f_8__7,f_8__6,f_8__5,f_8__4,f_8__3,f_8__2,f_8__1,
-            f_8__0}), .clk (nx414), .start (nx396), .rst (nx382), .sel (nx368), 
-            .startAndPause (nx406)) ;
+            f_8__0}), .clk (nx414), .start (nx445), .rst (nx382), .sel (nx368), 
+            .startAndPause (nx453)) ;
     Mul8x16 gen_7_cmp (.q ({q_7__7,q_7__6,q_7__5,q_7__4,q_7__3,q_7__2,q_7__1,
             q_7__0}), .m ({m_7__15,m_7__14,m_7__13,m_7__12,m_7__11,m_7__10,
             m_7__9,m_7__8,m_7__7,m_7__6,m_7__5,m_7__4,m_7__3,m_7__2,m_7__1,
@@ -2509,51 +2694,51 @@ module nMul8x16_10 ( q_9__7, q_9__6, q_9__5, q_9__4, q_9__3, q_9__2, q_9__1,
             m_6__9,m_6__8,m_6__7,m_6__6,m_6__5,m_6__4,m_6__3,m_6__2,m_6__1,
             m_6__0}), .fMul ({f_6__15,f_6__14,f_6__13,f_6__12,f_6__11,f_6__10,
             f_6__9,f_6__8,f_6__7,f_6__6,f_6__5,f_6__4,f_6__3,f_6__2,f_6__1,
-            f_6__0}), .clk (nx416), .start (nx398), .rst (nx384), .sel (nx368), 
-            .startAndPause (nx408)) ;
+            f_6__0}), .clk (nx416), .start (nx447), .rst (nx384), .sel (nx368), 
+            .startAndPause (nx455)) ;
     Mul8x16 gen_5_cmp (.q ({q_5__7,q_5__6,q_5__5,q_5__4,q_5__3,q_5__2,q_5__1,
             q_5__0}), .m ({m_5__15,m_5__14,m_5__13,m_5__12,m_5__11,m_5__10,
             m_5__9,m_5__8,m_5__7,m_5__6,m_5__5,m_5__4,m_5__3,m_5__2,m_5__1,
             m_5__0}), .fMul ({f_5__15,f_5__14,f_5__13,f_5__12,f_5__11,f_5__10,
             f_5__9,f_5__8,f_5__7,f_5__6,f_5__5,f_5__4,f_5__3,f_5__2,f_5__1,
-            f_5__0}), .clk (nx416), .start (nx398), .rst (nx386), .sel (nx368), 
-            .startAndPause (nx408)) ;
+            f_5__0}), .clk (nx416), .start (nx447), .rst (nx433), .sel (nx368), 
+            .startAndPause (nx457)) ;
     Mul8x16 gen_4_cmp (.q ({q_4__7,q_4__6,q_4__5,q_4__4,q_4__3,q_4__2,q_4__1,
             q_4__0}), .m ({m_4__15,m_4__14,m_4__13,m_4__12,m_4__11,m_4__10,
             m_4__9,m_4__8,m_4__7,m_4__6,m_4__5,m_4__4,m_4__3,m_4__2,m_4__1,
             m_4__0}), .fMul ({f_4__15,f_4__14,f_4__13,f_4__12,f_4__11,f_4__10,
             f_4__9,f_4__8,f_4__7,f_4__6,f_4__5,f_4__4,f_4__3,f_4__2,f_4__1,
-            f_4__0}), .clk (nx416), .start (nx398), .rst (nx386), .sel (nx368), 
+            f_4__0}), .clk (nx416), .start (nx398), .rst (nx435), .sel (nx368), 
             .startAndPause (nx408)) ;
     Mul8x16 gen_3_cmp (.q ({q_3__7,q_3__6,q_3__5,q_3__4,q_3__3,q_3__2,q_3__1,
             q_3__0}), .m ({m_3__15,m_3__14,m_3__13,m_3__12,m_3__11,m_3__10,
             m_3__9,m_3__8,m_3__7,m_3__6,m_3__5,m_3__4,m_3__3,m_3__2,m_3__1,
             m_3__0}), .fMul ({f_3__15,f_3__14,f_3__13,f_3__12,f_3__11,f_3__10,
             f_3__9,f_3__8,f_3__7,f_3__6,f_3__5,f_3__4,f_3__3,f_3__2,f_3__1,
-            f_3__0}), .clk (nx372), .start (nx400), .rst (nx388), .sel (nx368), 
+            f_3__0}), .clk (nx372), .start (nx449), .rst (nx437), .sel (nx368), 
             .startAndPause (nx410)) ;
     Mul8x16 gen_2_cmp (.q ({q_2__7,q_2__6,q_2__5,q_2__4,q_2__3,q_2__2,q_2__1,
             q_2__0}), .m ({m_2__15,m_2__14,m_2__13,m_2__12,m_2__11,m_2__10,
             m_2__9,m_2__8,m_2__7,m_2__6,m_2__5,m_2__4,m_2__3,m_2__2,m_2__1,
             m_2__0}), .fMul ({f_2__15,f_2__14,f_2__13,f_2__12,f_2__11,f_2__10,
             f_2__9,f_2__8,f_2__7,f_2__6,f_2__5,f_2__4,f_2__3,f_2__2,f_2__1,
-            f_2__0}), .clk (nx374), .start (nx400), .rst (nx388), .sel (nx370), 
-            .startAndPause (nx412)) ;
+            f_2__0}), .clk (nx374), .start (nx449), .rst (nx439), .sel (nx370), 
+            .startAndPause (nx461)) ;
     Mul8x16 gen_1_cmp (.q ({q_1__7,q_1__6,q_1__5,q_1__4,q_1__3,q_1__2,q_1__1,
             q_1__0}), .m ({m_1__15,m_1__14,m_1__13,m_1__12,m_1__11,m_1__10,
             m_1__9,m_1__8,m_1__7,m_1__6,m_1__5,m_1__4,m_1__3,m_1__2,m_1__1,
             m_1__0}), .fMul ({f_1__15,f_1__14,f_1__13,f_1__12,f_1__11,f_1__10,
             f_1__9,f_1__8,f_1__7,f_1__6,f_1__5,f_1__4,f_1__3,f_1__2,f_1__1,
-            f_1__0}), .clk (nx374), .start (nx400), .rst (nx390), .sel (nx370), 
-            .startAndPause (nx412)) ;
+            f_1__0}), .clk (nx374), .start (nx400), .rst (nx441), .sel (nx370), 
+            .startAndPause (nx463)) ;
     Mul8x16 gen_0_cmp (.q ({q_0__7,q_0__6,q_0__5,q_0__4,q_0__3,q_0__2,q_0__1,
             q_0__0}), .m ({m_0__15,m_0__14,m_0__13,m_0__12,m_0__11,m_0__10,
             m_0__9,m_0__8,m_0__7,m_0__6,m_0__5,m_0__4,m_0__3,m_0__2,m_0__1,
             m_0__0}), .fMul ({f_0__15,f_0__14,f_0__13,f_0__12,f_0__11,f_0__10,
             f_0__9,f_0__8,f_0__7,f_0__6,f_0__5,f_0__4,f_0__3,f_0__2,f_0__1,
-            f_0__0}), .clk (nx374), .start (nx402), .rst (nx390), .sel (nx370), 
-            .startAndPause (nx412)) ;
-    RisingHolderHalfCycle StartCaptuerCmp (.edge (nx396), .clk (clk), .rst (
+            f_0__0}), .clk (nx374), .start (nx402), .rst (nx443), .sel (nx370), 
+            .startAndPause (nx465)) ;
+    RisingHolderHalfCycle StartCaptuerCmp (.edge (nx445), .clk (clk), .rst (
                           nx418), .f (restartDetection)) ;
     ShiftReg_3 CounterCmp (.outp ({done,\$dummy [0],\$dummy [1],counter_0}), .clk (
                clk), .en (nx366), .rst (counterRst)) ;
@@ -2568,16 +2753,11 @@ module nMul8x16_10 ( q_9__7, q_9__6, q_9__5, q_9__4, q_9__3, q_9__2, q_9__1,
     buf02 ix369 (.Y (nx370), .A (counter_0)) ;
     inv01 ix371 (.Y (nx372), .A (clk)) ;
     inv01 ix373 (.Y (nx374), .A (clk)) ;
-    inv01 ix379 (.Y (nx380), .A (rst)) ;
     inv01 ix381 (.Y (nx382), .A (nx380)) ;
     inv01 ix383 (.Y (nx384), .A (nx380)) ;
-    inv01 ix385 (.Y (nx386), .A (nx380)) ;
-    inv01 ix387 (.Y (nx388), .A (nx380)) ;
-    inv01 ix389 (.Y (nx390), .A (nx380)) ;
     inv01 ix391 (.Y (nx392), .A (nx380)) ;
-    inv01 ix393 (.Y (nx394), .A (start)) ;
-    inv02 ix395 (.Y (nx396), .A (nx394)) ;
-    inv02 ix397 (.Y (nx398), .A (nx394)) ;
+    inv02 ix395 (.Y (nx396), .A (nx394_XX0_XREP41)) ;
+    inv02 ix397 (.Y (nx398), .A (nx394_XX0_XREP41)) ;
     inv02 ix399 (.Y (nx400), .A (nx394)) ;
     inv02 ix401 (.Y (nx402), .A (nx394)) ;
     inv01 ix403 (.Y (nx404), .A (nx364)) ;
@@ -2588,7 +2768,29 @@ module nMul8x16_10 ( q_9__7, q_9__6, q_9__5, q_9__4, q_9__3, q_9__2, q_9__1,
     inv01 ix413 (.Y (nx414), .A (clk)) ;
     inv01 ix415 (.Y (nx416), .A (clk)) ;
     inv01 ix417 (.Y (nx418), .A (nx380)) ;
-    inv01 ix419 (.Y (nx420), .A (nx380)) ;
+    inv01 ix419 (.Y (nx420), .A (nx467)) ;
+    inv01 ix393 (.Y (nx394), .A (start)) ;
+    inv01 ix393_0_XREP41 (.Y (nx394_XX0_XREP41), .A (start)) ;
+    inv01 ix379 (.Y (nx380), .A (rst)) ;
+    inv01 ix379_0_XREP43 (.Y (nx380_XX0_XREP43), .A (rst)) ;
+    inv01 ix432 (.Y (nx433), .A (nx467)) ;
+    inv01 ix434 (.Y (nx435), .A (nx467)) ;
+    inv01 ix436 (.Y (nx437), .A (nx467)) ;
+    inv01 ix438 (.Y (nx439), .A (nx380_XX0_XREP43)) ;
+    inv01 ix440 (.Y (nx441), .A (nx380_XX0_XREP43)) ;
+    inv01 ix442 (.Y (nx443), .A (nx380_XX0_XREP43)) ;
+    inv02 ix444 (.Y (nx445), .A (nx394_XX0_XREP41)) ;
+    inv02 ix446 (.Y (nx447), .A (nx394_XX0_XREP41)) ;
+    inv02 ix448 (.Y (nx449), .A (nx394)) ;
+    inv01 ix450 (.Y (nx451), .A (nx404)) ;
+    inv01 ix452 (.Y (nx453), .A (nx404)) ;
+    inv01 ix454 (.Y (nx455), .A (nx404)) ;
+    inv01 ix456 (.Y (nx457), .A (nx404)) ;
+    inv01 ix458 (.Y (nx459), .A (nx412)) ;
+    inv01 ix460 (.Y (nx461), .A (nx459)) ;
+    inv01 ix462 (.Y (nx463), .A (nx459)) ;
+    inv01 ix464 (.Y (nx465), .A (nx459)) ;
+    inv01 ix379_0_XREP43_rep_1 (.Y (nx467), .A (rst)) ;
 endmodule
 
 
@@ -2987,17 +3189,16 @@ module BinaryMux_33 ( a, b, sel, f ) ;
     input sel ;
     output [32:0]f ;
 
-    wire nx298, nx300, nx302, nx304, nx306, nx308;
+    wire nx302, nx304, nx306, nx308, nx298, nx314;
 
 
 
-    mux21_ni ix7 (.Y (f[0]), .A0 (a[0]), .A1 (b[0]), .S0 (nx300)) ;
-    mux21_ni ix15 (.Y (f[1]), .A0 (a[1]), .A1 (b[1]), .S0 (nx300)) ;
-    mux21_ni ix23 (.Y (f[2]), .A0 (a[2]), .A1 (b[2]), .S0 (nx300)) ;
-    mux21_ni ix31 (.Y (f[3]), .A0 (a[3]), .A1 (b[3]), .S0 (nx300)) ;
-    mux21_ni ix39 (.Y (f[4]), .A0 (a[4]), .A1 (b[4]), .S0 (nx300)) ;
-    mux21_ni ix47 (.Y (f[5]), .A0 (a[5]), .A1 (b[5]), .S0 (nx300)) ;
-    mux21_ni ix55 (.Y (f[6]), .A0 (a[6]), .A1 (b[6]), .S0 (nx300)) ;
+    mux21_ni ix15 (.Y (f[1]), .A0 (a[1]), .A1 (b[1]), .S0 (nx314)) ;
+    mux21_ni ix23 (.Y (f[2]), .A0 (a[2]), .A1 (b[2]), .S0 (nx314)) ;
+    mux21_ni ix31 (.Y (f[3]), .A0 (a[3]), .A1 (b[3]), .S0 (nx314)) ;
+    mux21_ni ix39 (.Y (f[4]), .A0 (a[4]), .A1 (b[4]), .S0 (nx314)) ;
+    mux21_ni ix47 (.Y (f[5]), .A0 (a[5]), .A1 (b[5]), .S0 (nx314)) ;
+    mux21_ni ix55 (.Y (f[6]), .A0 (a[6]), .A1 (b[6]), .S0 (nx314)) ;
     mux21_ni ix63 (.Y (f[7]), .A0 (a[7]), .A1 (b[7]), .S0 (nx302)) ;
     mux21_ni ix71 (.Y (f[8]), .A0 (a[8]), .A1 (b[8]), .S0 (nx302)) ;
     mux21_ni ix79 (.Y (f[9]), .A0 (a[9]), .A1 (b[9]), .S0 (nx302)) ;
@@ -3024,12 +3225,13 @@ module BinaryMux_33 ( a, b, sel, f ) ;
     mux21_ni ix247 (.Y (f[30]), .A0 (a[30]), .A1 (b[30]), .S0 (nx308)) ;
     mux21_ni ix255 (.Y (f[31]), .A0 (a[31]), .A1 (b[31]), .S0 (nx308)) ;
     mux21_ni ix263 (.Y (f[32]), .A0 (a[32]), .A1 (b[32]), .S0 (nx308)) ;
-    inv01 ix297 (.Y (nx298), .A (sel)) ;
-    inv02 ix299 (.Y (nx300), .A (nx298)) ;
     inv02 ix301 (.Y (nx302), .A (nx298)) ;
     inv02 ix303 (.Y (nx304), .A (nx298)) ;
     inv02 ix305 (.Y (nx306), .A (nx298)) ;
     inv02 ix307 (.Y (nx308), .A (nx298)) ;
+    inv02 reg_nx298 (.Y (nx298), .A (sel)) ;
+    ao22 reg_f_0 (.Y (f[0]), .A0 (a[0]), .A1 (nx298), .B0 (b[0]), .B1 (nx314)) ;
+    inv02 ix313 (.Y (nx314), .A (nx298)) ;
 endmodule
 
 
@@ -3131,8 +3333,10 @@ module Reg_16 ( D, en, clk, rst, Q, Qbar ) ;
          nx570, nx580, nx590, nx600, nx610, nx620, nx630, nx640, nx650, nx660, 
          nx670, nx680, nx690, nx700, nx710, nx720, nx730, nx740, nx750, nx760, 
          nx770, nx780, nx792, nx797, nx802, nx807, nx812, nx817, nx822, nx827, 
-         nx832, nx837, nx842, nx847, nx852, nx857, nx862, nx867, nx923, nx925, 
-         nx927, nx929, nx931, nx933, nx935, nx937, nx939, nx941, nx943, nx945;
+         nx832, nx837, nx842, nx847, nx852, nx857, nx862, nx867, nx929, nx931, 
+         nx933, nx937, nx939, nx941, nx943, nx945, nx923, nx935, 
+         nx935_XX0_XREP23, nx925, nx927, nx923_XX0_XREP21, nx982, nx983, nx984, 
+         nx985;
     wire [31:0] \$dummy ;
 
 
@@ -3142,27 +3346,27 @@ module Reg_16 ( D, en, clk, rst, Q, Qbar ) ;
             ), .S (nx937)) ;
     mux21_ni ix631 (.Y (nx630), .A0 (Qbar[0]), .A1 (nx792), .S0 (en)) ;
     inv01 ix793 (.Y (nx792), .A (D[0])) ;
-    dffs_ni reg_Qbar_1 (.Q (Qbar[1]), .QB (\$dummy [1]), .D (nx640), .CLK (nx925
+    dffs_ni reg_Qbar_1 (.Q (Qbar[1]), .QB (\$dummy [1]), .D (nx640), .CLK (nx983
             ), .S (nx937)) ;
     mux21_ni ix641 (.Y (nx640), .A0 (Qbar[1]), .A1 (nx797), .S0 (en)) ;
     inv01 ix798 (.Y (nx797), .A (D[1])) ;
-    dffs_ni reg_Qbar_2 (.Q (Qbar[2]), .QB (\$dummy [2]), .D (nx650), .CLK (nx925
+    dffs_ni reg_Qbar_2 (.Q (Qbar[2]), .QB (\$dummy [2]), .D (nx650), .CLK (nx983
             ), .S (nx937)) ;
     mux21_ni ix651 (.Y (nx650), .A0 (Qbar[2]), .A1 (nx802), .S0 (en)) ;
     inv01 ix803 (.Y (nx802), .A (D[2])) ;
-    dffs_ni reg_Qbar_3 (.Q (Qbar[3]), .QB (\$dummy [3]), .D (nx660), .CLK (nx925
+    dffs_ni reg_Qbar_3 (.Q (Qbar[3]), .QB (\$dummy [3]), .D (nx660), .CLK (nx983
             ), .S (nx937)) ;
     mux21_ni ix661 (.Y (nx660), .A0 (Qbar[3]), .A1 (nx807), .S0 (en)) ;
     inv01 ix808 (.Y (nx807), .A (D[3])) ;
-    dffs_ni reg_Qbar_4 (.Q (Qbar[4]), .QB (\$dummy [4]), .D (nx670), .CLK (nx925
+    dffs_ni reg_Qbar_4 (.Q (Qbar[4]), .QB (\$dummy [4]), .D (nx670), .CLK (nx982
             ), .S (nx937)) ;
     mux21_ni ix671 (.Y (nx670), .A0 (Qbar[4]), .A1 (nx812), .S0 (en)) ;
     inv01 ix813 (.Y (nx812), .A (D[4])) ;
-    dffs_ni reg_Qbar_5 (.Q (Qbar[5]), .QB (\$dummy [5]), .D (nx680), .CLK (nx925
+    dffs_ni reg_Qbar_5 (.Q (Qbar[5]), .QB (\$dummy [5]), .D (nx680), .CLK (nx982
             ), .S (nx937)) ;
     mux21_ni ix681 (.Y (nx680), .A0 (Qbar[5]), .A1 (nx817), .S0 (en)) ;
     inv01 ix818 (.Y (nx817), .A (D[5])) ;
-    dffs_ni reg_Qbar_6 (.Q (Qbar[6]), .QB (\$dummy [6]), .D (nx690), .CLK (nx925
+    dffs_ni reg_Qbar_6 (.Q (Qbar[6]), .QB (\$dummy [6]), .D (nx690), .CLK (nx982
             ), .S (nx937)) ;
     mux21_ni ix691 (.Y (nx690), .A0 (Qbar[6]), .A1 (nx822), .S0 (en)) ;
     inv01 ix823 (.Y (nx822), .A (D[6])) ;
@@ -3170,28 +3374,28 @@ module Reg_16 ( D, en, clk, rst, Q, Qbar ) ;
             ), .S (nx939)) ;
     mux21_ni ix701 (.Y (nx700), .A0 (Qbar[7]), .A1 (nx827), .S0 (en)) ;
     inv01 ix828 (.Y (nx827), .A (D[7])) ;
-    dffs_ni reg_Qbar_8 (.Q (Qbar[8]), .QB (\$dummy [8]), .D (nx710), .CLK (nx927
+    dffs_ni reg_Qbar_8 (.Q (Qbar[8]), .QB (\$dummy [8]), .D (nx710), .CLK (nx985
             ), .S (nx939)) ;
     mux21_ni ix711 (.Y (nx710), .A0 (Qbar[8]), .A1 (nx832), .S0 (en)) ;
     inv01 ix833 (.Y (nx832), .A (D[8])) ;
-    dffs_ni reg_Qbar_9 (.Q (Qbar[9]), .QB (\$dummy [9]), .D (nx720), .CLK (nx927
+    dffs_ni reg_Qbar_9 (.Q (Qbar[9]), .QB (\$dummy [9]), .D (nx720), .CLK (nx985
             ), .S (nx939)) ;
     mux21_ni ix721 (.Y (nx720), .A0 (Qbar[9]), .A1 (nx837), .S0 (en)) ;
     inv01 ix838 (.Y (nx837), .A (D[9])) ;
     dffs_ni reg_Qbar_10 (.Q (Qbar[10]), .QB (\$dummy [10]), .D (nx730), .CLK (
-            nx927), .S (nx939)) ;
+            nx985), .S (nx939)) ;
     mux21_ni ix731 (.Y (nx730), .A0 (Qbar[10]), .A1 (nx842), .S0 (en)) ;
     inv01 ix843 (.Y (nx842), .A (D[10])) ;
     dffs_ni reg_Qbar_11 (.Q (Qbar[11]), .QB (\$dummy [11]), .D (nx740), .CLK (
-            nx927), .S (nx939)) ;
+            nx984), .S (nx939)) ;
     mux21_ni ix741 (.Y (nx740), .A0 (Qbar[11]), .A1 (nx847), .S0 (en)) ;
     inv01 ix848 (.Y (nx847), .A (D[11])) ;
     dffs_ni reg_Qbar_12 (.Q (Qbar[12]), .QB (\$dummy [12]), .D (nx750), .CLK (
-            nx927), .S (nx939)) ;
+            nx984), .S (nx939)) ;
     mux21_ni ix751 (.Y (nx750), .A0 (Qbar[12]), .A1 (nx852), .S0 (en)) ;
     inv01 ix853 (.Y (nx852), .A (D[12])) ;
     dffs_ni reg_Qbar_13 (.Q (Qbar[13]), .QB (\$dummy [13]), .D (nx760), .CLK (
-            nx927), .S (nx939)) ;
+            nx984), .S (nx939)) ;
     mux21_ni ix761 (.Y (nx760), .A0 (Qbar[13]), .A1 (nx857), .S0 (en)) ;
     inv01 ix858 (.Y (nx857), .A (D[13])) ;
     dffs_ni reg_Qbar_14 (.Q (Qbar[14]), .QB (\$dummy [14]), .D (nx770), .CLK (
@@ -3250,18 +3454,24 @@ module Reg_16 ( D, en, clk, rst, Q, Qbar ) ;
     dffr reg_Q_15 (.Q (Q[15]), .QB (\$dummy [31]), .D (nx620), .CLK (nx933), .R (
          nx945)) ;
     mux21_ni ix621 (.Y (nx620), .A0 (Q[15]), .A1 (D[15]), .S0 (en)) ;
-    inv01 ix922 (.Y (nx923), .A (clk)) ;
-    inv02 ix924 (.Y (nx925), .A (nx923)) ;
-    inv02 ix926 (.Y (nx927), .A (nx923)) ;
     inv02 ix928 (.Y (nx929), .A (nx923)) ;
     inv02 ix930 (.Y (nx931), .A (nx923)) ;
     inv02 ix932 (.Y (nx933), .A (nx923)) ;
-    inv01 ix934 (.Y (nx935), .A (rst)) ;
     inv02 ix936 (.Y (nx937), .A (nx935)) ;
     inv02 ix938 (.Y (nx939), .A (nx935)) ;
-    inv02 ix940 (.Y (nx941), .A (nx935)) ;
-    inv02 ix942 (.Y (nx943), .A (nx935)) ;
+    inv02 ix940 (.Y (nx941), .A (nx935_XX0_XREP23)) ;
+    inv02 ix942 (.Y (nx943), .A (nx935_XX0_XREP23)) ;
     inv02 ix944 (.Y (nx945), .A (nx935)) ;
+    inv01 ix922 (.Y (nx923), .A (clk)) ;
+    inv01 ix934 (.Y (nx935), .A (rst)) ;
+    inv01 ix934_0_XREP23 (.Y (nx935_XX0_XREP23), .A (rst)) ;
+    inv02 ix924 (.Y (nx925), .A (nx923_XX0_XREP21)) ;
+    inv02 ix926 (.Y (nx927), .A (nx923_XX0_XREP21)) ;
+    inv01 ix922_0_XREP21 (.Y (nx923_XX0_XREP21), .A (clk)) ;
+    buf04 ix986 (.Y (nx982), .A (nx925)) ;
+    buf04 ix987 (.Y (nx983), .A (nx925)) ;
+    buf04 ix988 (.Y (nx984), .A (nx927)) ;
+    buf04 ix989 (.Y (nx985), .A (nx927)) ;
 endmodule
 
 
@@ -3284,11 +3494,13 @@ module Reg_33 ( D, en, clk, rst, Q, Qbar ) ;
          nx1569, nx1579, nx1591, nx1596, nx1601, nx1606, nx1611, nx1616, nx1621, 
          nx1626, nx1631, nx1636, nx1641, nx1646, nx1651, nx1656, nx1661, nx1666, 
          nx1671, nx1676, nx1681, nx1686, nx1691, nx1696, nx1701, nx1706, nx1711, 
-         nx1716, nx1721, nx1726, nx1731, nx1736, nx1741, nx1746, nx1751, nx1858, 
-         nx1860, nx1862, nx1864, nx1866, nx1868, nx1870, nx1872, nx1874, nx1876, 
-         nx1878, nx1880, nx1882, nx1884, nx1886, nx1888, nx1890, nx1892, nx1894, 
-         nx1896, nx1898, nx1900, nx1902, nx1904, nx1906, nx1908, nx1910, nx1912, 
-         nx1914, nx1916, nx1918, nx1920, nx1922, nx1924, nx1926, nx1928;
+         nx1716, nx1721, nx1726, nx1731, nx1736, nx1741, nx1746, nx1751, nx1860, 
+         nx1862, nx1864, nx1866, nx1868, nx1870, nx1872, nx1874, nx1876, nx1878, 
+         nx1880, nx1882, nx1884, nx1886, nx1888, nx1890, nx1892, nx1894, nx1896, 
+         nx1898, nx1900, nx1904, nx1906, nx1908, nx1910, nx1912, nx1914, nx1916, 
+         nx1918, nx1920, nx1922, nx1926, nx1924, nx1924_XX0_XREP13, nx1928, 
+         nx1928_XX0_XREP15, nx1858, nx1858_XX0_XREP17, nx1902, nx1902_XX0_XREP19
+         ;
     wire [65:0] \$dummy ;
 
 
@@ -3525,14 +3737,13 @@ module Reg_33 ( D, en, clk, rst, Q, Qbar ) ;
     dffr reg_Q_32 (.Q (Q[32]), .QB (\$dummy [65]), .D (nx1249), .CLK (nx1900), .R (
          nx1922)) ;
     mux21_ni ix1250 (.Y (nx1249), .A0 (Q[32]), .A1 (D[32]), .S0 (nx1878)) ;
-    inv01 ix1857 (.Y (nx1858), .A (en)) ;
-    inv02 ix1859 (.Y (nx1860), .A (nx1924)) ;
-    inv02 ix1861 (.Y (nx1862), .A (nx1924)) ;
+    inv02 ix1859 (.Y (nx1860), .A (nx1924_XX0_XREP13)) ;
+    inv02 ix1861 (.Y (nx1862), .A (nx1924_XX0_XREP13)) ;
     inv02 ix1863 (.Y (nx1864), .A (nx1924)) ;
     inv02 ix1865 (.Y (nx1866), .A (nx1924)) ;
     inv02 ix1867 (.Y (nx1868), .A (nx1924)) ;
-    inv02 ix1869 (.Y (nx1870), .A (nx1858)) ;
-    inv02 ix1871 (.Y (nx1872), .A (nx1858)) ;
+    inv02 ix1869 (.Y (nx1870), .A (nx1858_XX0_XREP17)) ;
+    inv02 ix1871 (.Y (nx1872), .A (nx1858_XX0_XREP17)) ;
     inv02 ix1873 (.Y (nx1874), .A (nx1858)) ;
     inv02 ix1875 (.Y (nx1876), .A (nx1858)) ;
     inv02 ix1877 (.Y (nx1878), .A (nx1858)) ;
@@ -3547,20 +3758,25 @@ module Reg_33 ( D, en, clk, rst, Q, Qbar ) ;
     inv02 ix1895 (.Y (nx1896), .A (nx1880)) ;
     inv02 ix1897 (.Y (nx1898), .A (nx1880)) ;
     inv02 ix1899 (.Y (nx1900), .A (nx1880)) ;
-    inv01 ix1901 (.Y (nx1902), .A (rst)) ;
     inv02 ix1903 (.Y (nx1904), .A (nx1928)) ;
-    inv02 ix1905 (.Y (nx1906), .A (nx1928)) ;
+    inv02 ix1905 (.Y (nx1906), .A (nx1928_XX0_XREP15)) ;
     inv02 ix1907 (.Y (nx1908), .A (nx1928)) ;
     inv02 ix1909 (.Y (nx1910), .A (nx1928)) ;
-    inv02 ix1911 (.Y (nx1912), .A (nx1928)) ;
-    inv02 ix1913 (.Y (nx1914), .A (nx1902)) ;
-    inv02 ix1915 (.Y (nx1916), .A (nx1902)) ;
+    inv02 ix1911 (.Y (nx1912), .A (nx1928_XX0_XREP15)) ;
+    inv02 ix1913 (.Y (nx1914), .A (nx1902_XX0_XREP19)) ;
+    inv02 ix1915 (.Y (nx1916), .A (nx1902_XX0_XREP19)) ;
     inv02 ix1917 (.Y (nx1918), .A (nx1902)) ;
     inv02 ix1919 (.Y (nx1920), .A (nx1902)) ;
     inv02 ix1921 (.Y (nx1922), .A (nx1902)) ;
-    inv01 ix1923 (.Y (nx1924), .A (en)) ;
     inv01 ix1925 (.Y (nx1926), .A (clk)) ;
+    inv01 ix1923 (.Y (nx1924), .A (en)) ;
+    inv01 ix1923_0_XREP13 (.Y (nx1924_XX0_XREP13), .A (en)) ;
     inv01 ix1927 (.Y (nx1928), .A (rst)) ;
+    inv01 ix1927_0_XREP15 (.Y (nx1928_XX0_XREP15), .A (rst)) ;
+    inv01 ix1857 (.Y (nx1858), .A (en)) ;
+    inv01 ix1857_0_XREP17 (.Y (nx1858_XX0_XREP17), .A (en)) ;
+    inv01 ix1901 (.Y (nx1902), .A (rst)) ;
+    inv01 ix1901_0_XREP19 (.Y (nx1902_XX0_XREP19), .A (rst)) ;
 endmodule
 
 
@@ -3812,9 +4028,9 @@ module ngetMax_16_10 ( inputArray_9__15, inputArray_9__14, inputArray_9__13,
          nx993, nx995, nx997, nx999, nx1001, nx1003, nx1005, nx1007, nx1009, 
          nx1011, nx1013, nx1015, nx1017, nx1019, nx1021, nx1023, nx1025, nx1027, 
          nx1029, nx1031, nx1033, nx1035, nx1037, nx1039, nx1041, nx1043, nx1045, 
-         nx1047, nx1049, nx1051, nx1065, nx1067, nx1069, nx1071, nx1073, nx1075, 
-         nx1077, nx1079, nx1081, nx1083, nx1085, nx1087, nx1089, nx1091, nx1093, 
-         nx1095;
+         nx1047, nx1049, nx1051, nx1065, nx1069, nx1071, nx1073, nx1075, nx1077, 
+         nx1079, nx1081, nx1083, nx1085, nx1087, nx1089, nx1091, nx1093, nx1095, 
+         nx1067, nx1067_XX0_XREP11;
     wire [20:0] \$dummy ;
 
 
@@ -4174,10 +4390,9 @@ module ngetMax_16_10 ( inputArray_9__15, inputArray_9__14, inputArray_9__13,
     nor02ii ix1044 (.Y (nx1045), .A0 (nx1073), .A1 (nx1087)) ;
     nor02ii ix1046 (.Y (nx1047), .A0 (nx1075), .A1 (ComparatorG)) ;
     nor02ii ix1048 (.Y (nx1049), .A0 (nx1075), .A1 (ComparatorG)) ;
-    inv01 ix1066 (.Y (nx1067), .A (rst)) ;
     inv01 ix1068 (.Y (nx1069), .A (nx1067)) ;
     inv01 ix1070 (.Y (nx1071), .A (nx1067)) ;
-    inv01 ix1072 (.Y (nx1073), .A (nx1067)) ;
+    inv01 ix1072 (.Y (nx1073), .A (nx1067_XX0_XREP11)) ;
     inv01 ix1074 (.Y (nx1075), .A (nx1067)) ;
     inv02 ix1076 (.Y (nx1077), .A (nx703)) ;
     inv02 ix1078 (.Y (nx1079), .A (nx701)) ;
@@ -4189,6 +4404,8 @@ module ngetMax_16_10 ( inputArray_9__15, inputArray_9__14, inputArray_9__13,
     buf02 ix1090 (.Y (nx1091), .A (nx1045)) ;
     buf02 ix1092 (.Y (nx1093), .A (nx1047)) ;
     buf02 ix1094 (.Y (nx1095), .A (nx1049)) ;
+    inv01 ix1066 (.Y (nx1067), .A (rst)) ;
+    inv01 ix1066_0_XREP11 (.Y (nx1067_XX0_XREP11), .A (rst)) ;
 endmodule
 
 
@@ -4199,289 +4416,256 @@ module Comparator_16 ( inputA, inputB, outputG, outputEqual ) ;
     output outputG ;
     output outputEqual ;
 
-    wire nx91, nx137, nx203, nx5, nx332, nx333, nx334, nx335, nx336, nx337, 
-         nx338, nx339, nx88, nx340, nx341, nx342, nx343, nx344, nx345, nx346, 
-         nx347, nx348, nx349, nx350, nx351, nx352, nx40, nx177, nx353, nx354, 
-         nx355, nx356, nx357, nx358, nx359, nx360, nx361, nx362, nx363, nx364, 
-         nx365, nx141, nx366, nx367, nx368, nx369, nx370, nx371, nx372, nx373, 
+    wire nx91, nx170, nx137, nx213, nx215, nx5, nx332, nx333, nx334, nx335, 
+         nx336, nx337, nx338, nx339, nx88, nx340, nx341, nx342, nx343, nx344, 
+         nx345, nx346, nx347, nx348, nx349, nx350, nx351, nx352, nx353, nx354, 
+         nx355, nx356, nx357, nx358, nx359, nx177, nx360, nx361, nx362, nx363, 
+         nx364, nx365, nx366, nx367, nx368, nx369, nx370, nx371, nx372, nx373, 
          nx374, nx375, nx376, nx377, nx378, nx379, nx380, nx381, nx382, nx383, 
          nx384, nx385, nx386, nx387, nx388, nx389, nx390, nx391, nx392, nx393, 
          nx394, nx395, nx396, nx397, nx398, nx399, nx400, nx401, nx402, nx403, 
          nx404, nx405, nx406, nx407, nx408, nx409, nx410, nx411, nx412, nx413, 
          nx414, nx415, nx416, nx417, nx418, nx419, nx420, nx421, nx422, nx423, 
-         nx424, nx425, nx426, nx427, nx428, nx181, nx429, nx430, nx431, nx432, 
+         nx424, nx425, nx426, nx427, nx428, nx429, nx430, nx431, nx72, nx432, 
          nx433, nx434, nx435, nx436, nx437, nx438, nx439, nx440, nx441, nx442, 
-         nx443, nx444, nx268, nx445, nx286, nx446, nx447, nx448, nx449, nx450, 
-         nx451, nx452, nx453, nx454, nx455, nx456, nx457, nx458, nx459, nx460, 
-         nx461, nx462, nx463, nx464, nx465, nx466, nx467, nx468, nx469, nx470, 
-         nx471, nx472, nx473, nx474, nx475, nx64, nx476, nx477, nx478, nx479, 
-         nx480, nx481, nx482, nx483, nx484, nx485, nx486, nx487, nx488, nx489, 
-         nx490, nx491, nx492, nx493, nx494, nx495, nx496, nx497, nx165, nx498, 
-         nx499, nx44, nx500, nx501, nx502, nx503, nx504, nx505, nx209, nx170, 
-         nx506, nx507, nx508, nx509, nx510, nx188, NOT_nx56, nx511, nx512, nx513, 
-         nx514, nx699, nx701, nx703, nx705, nx711;
+         nx48, nx443, nx44, nx444, nx445, nx446, nx447, nx448, nx449, nx450, 
+         nx451, nx452, NOT_nx277, nx453, nx454, nx56, nx455, nx456, nx52, nx457, 
+         nx458, nx286, nx459, nx460, nx461, nx209, nx462, nx463, nx464, nx465, 
+         nx466, nx467, nx468, nx469, nx470, nx471, nx472, nx473, nx474, nx475, 
+         nx476, nx477, nx478, nx188, nx479, NOT_nx141, nx480, nx481, nx633, 
+         nx635, nx637, nx639, nx641, nx643, nx649, nx651;
 
 
 
     fake_gnd ix92 (.Y (nx91)) ;
     and02 ix93 (.Y (outputEqual), .A0 (nx137), .A1 (nx88)) ;
     xnor2 ix138 (.Y (nx137), .A0 (inputA[0]), .A1 (inputB[0])) ;
-    inv01 ix204 (.Y (nx203), .A (inputB[14])) ;
+    oai33 ix171 (.Y (nx170), .A0 (nx209), .A1 (nx213), .A2 (inputB[12]), .B0 (
+          nx177), .B1 (nx215), .B2 (inputB[13])) ;
+    inv01 ix214 (.Y (nx213), .A (inputA[12])) ;
+    inv01 ix216 (.Y (nx215), .A (inputA[13])) ;
     latchs_ni lat_outputG_u1 (.QB (nx5), .D (nx91), .CLK (nx188), .S (nx286)) ;
     inv02 lat_outputG_u2 (.Y (outputG), .A (nx5)) ;
-    inv02 ix515 (.Y (nx332), .A (inputA[2])) ;
-    inv02 ix516 (.Y (nx333), .A (inputA[3])) ;
-    inv02 ix517 (.Y (nx334), .A (inputB[1])) ;
-    inv02 ix518 (.Y (nx335), .A (inputB[0])) ;
-    aoi22 ix519 (.Y (nx336), .A0 (inputA[1]), .A1 (nx334), .B0 (inputA[0]), .B1 (
+    inv02 ix482 (.Y (nx332), .A (inputA[2])) ;
+    inv02 ix483 (.Y (nx333), .A (inputA[3])) ;
+    inv02 ix484 (.Y (nx334), .A (inputB[1])) ;
+    inv02 ix485 (.Y (nx335), .A (inputB[0])) ;
+    aoi22 ix486 (.Y (nx336), .A0 (inputA[1]), .A1 (nx334), .B0 (inputA[0]), .B1 (
           nx335)) ;
-    nor02ii ix520 (.Y (nx337), .A0 (inputA[1]), .A1 (inputB[1])) ;
-    inv02 ix521 (.Y (nx338), .A (inputA[1])) ;
-    aoi22 ix522 (.Y (nx339), .A0 (inputB[1]), .A1 (inputA[1]), .B0 (nx334), .B1 (
+    nor02ii ix487 (.Y (nx337), .A0 (inputA[1]), .A1 (inputB[1])) ;
+    inv02 ix488 (.Y (nx338), .A (inputA[1])) ;
+    aoi22 ix489 (.Y (nx339), .A0 (inputB[1]), .A1 (inputA[1]), .B0 (nx334), .B1 (
           nx338)) ;
-    nor02_2x reg_nx88 (.Y (nx88), .A0 (nx339), .A1 (nx141)) ;
-    inv02 ix523 (.Y (nx340), .A (nx334)) ;
-    nand02_2x ix524 (.Y (nx341), .A0 (inputB[1]), .A1 (nx338)) ;
-    nor02ii ix525 (.Y (nx342), .A0 (inputA[0]), .A1 (inputB[0])) ;
-    inv02 ix526 (.Y (nx343), .A (inputB[0])) ;
-    inv02 ix527 (.Y (nx344), .A (inputB[1])) ;
-    oai21 ix528 (.Y (nx345), .A0 (nx343), .A1 (inputA[0]), .B0 (nx344)) ;
-    inv02 ix529 (.Y (nx346), .A (inputA[1])) ;
-    aoi32 ix530 (.Y (nx347), .A0 (nx340), .A1 (nx341), .A2 (nx342), .B0 (nx345)
+    nor02_2x reg_nx88 (.Y (nx88), .A0 (nx339), .A1 (nx372)) ;
+    inv02 ix490 (.Y (nx340), .A (nx334)) ;
+    nand02_2x ix491 (.Y (nx341), .A0 (inputB[1]), .A1 (nx338)) ;
+    nor02ii ix492 (.Y (nx342), .A0 (inputA[0]), .A1 (inputB[0])) ;
+    inv02 ix493 (.Y (nx343), .A (inputB[0])) ;
+    inv02 ix494 (.Y (nx344), .A (inputB[1])) ;
+    oai21 ix495 (.Y (nx345), .A0 (nx343), .A1 (inputA[0]), .B0 (nx344)) ;
+    inv02 ix496 (.Y (nx346), .A (inputA[1])) ;
+    aoi32 ix497 (.Y (nx347), .A0 (nx340), .A1 (nx341), .A2 (nx342), .B0 (nx345)
           , .B1 (nx346)) ;
-    inv02 ix531 (.Y (nx348), .A (inputB[2])) ;
-    inv02 ix532 (.Y (nx349), .A (inputA[2])) ;
-    oai22 ix533 (.Y (nx350), .A0 (nx348), .A1 (inputA[2]), .B0 (nx349), .B1 (
+    inv02 ix498 (.Y (nx348), .A (inputB[2])) ;
+    inv02 ix499 (.Y (nx349), .A (inputA[2])) ;
+    oai22 ix500 (.Y (nx350), .A0 (nx348), .A1 (inputA[2]), .B0 (nx349), .B1 (
           inputB[2])) ;
-    inv02 ix534 (.Y (nx351), .A (inputB[3])) ;
-    oai22 ix535 (.Y (nx352), .A0 (nx454), .A1 (nx453), .B0 (inputA[13]), .B1 (
+    inv02 ix501 (.Y (nx351), .A (inputB[14])) ;
+    inv02 ix502 (.Y (nx352), .A (inputA[14])) ;
+    inv02 ix503 (.Y (nx353), .A (inputB[15])) ;
+    inv02 ix504 (.Y (nx354), .A (inputA[15])) ;
+    inv02 ix505 (.Y (nx355), .A (inputB[12])) ;
+    inv02 ix506 (.Y (nx356), .A (inputA[12])) ;
+    inv02 ix507 (.Y (nx357), .A (inputB[13])) ;
+    inv02 ix508 (.Y (nx358), .A (inputA[13])) ;
+    oai22 ix509 (.Y (nx359), .A0 (nx358), .A1 (nx357), .B0 (inputA[13]), .B1 (
           inputB[13])) ;
-    and02 reg_nx40 (.Y (nx40), .A0 (nx352), .A1 (nx513)) ;
-    inv01 reg_nx177 (.Y (nx177), .A (nx513)) ;
-    inv01 ix536 (.Y (nx353), .A (nx513)) ;
-    inv02 ix537 (.Y (nx354), .A (inputB[4])) ;
-    inv02 ix538 (.Y (nx355), .A (inputA[4])) ;
-    aoi22 ix539 (.Y (nx356), .A0 (inputA[4]), .A1 (nx354), .B0 (inputB[4]), .B1 (
-          nx355)) ;
-    inv02 ix540 (.Y (nx357), .A (inputB[3])) ;
-    inv02 ix541 (.Y (nx358), .A (inputA[3])) ;
-    aoi22 ix542 (.Y (nx359), .A0 (inputA[3]), .A1 (nx357), .B0 (inputB[3]), .B1 (
-          nx358)) ;
-    oai221 ix543 (.Y (nx360), .A0 (nx348), .A1 (inputA[2]), .B0 (inputB[2]), .B1 (
-           nx349), .C0 (nx359)) ;
-    inv02 ix544 (.Y (nx361), .A (inputA[5])) ;
-    oai22 ix545 (.Y (nx362), .A0 (nx354), .A1 (nx355), .B0 (inputB[4]), .B1 (
+    inv01 reg_nx177 (.Y (nx177), .A (nx417)) ;
+    inv02 ix510 (.Y (nx360), .A (inputB[4])) ;
+    inv02 ix511 (.Y (nx361), .A (inputA[4])) ;
+    aoi22 ix512 (.Y (nx362), .A0 (inputA[4]), .A1 (nx360), .B0 (nx651), .B1 (
+          nx361)) ;
+    inv02 ix513 (.Y (nx363), .A (inputB[3])) ;
+    inv02 ix514 (.Y (nx364), .A (inputA[3])) ;
+    aoi22 ix515 (.Y (nx365), .A0 (inputA[3]), .A1 (nx363), .B0 (inputB[3]), .B1 (
+          nx364)) ;
+    oai221 ix516 (.Y (nx366), .A0 (nx348), .A1 (inputA[2]), .B0 (inputB[2]), .B1 (
+           nx349), .C0 (nx365)) ;
+    inv02 ix517 (.Y (nx367), .A (inputA[5])) ;
+    oai22 ix518 (.Y (nx368), .A0 (nx360), .A1 (nx361), .B0 (nx651), .B1 (
           inputA[4])) ;
-    aoi22 ix546 (.Y (nx363), .A0 (inputB[3]), .A1 (inputA[3]), .B0 (nx357), .B1 (
-          nx358)) ;
-    oai32 ix547 (.Y (nx364), .A0 (nx363), .A1 (nx332), .A2 (inputB[2]), .B0 (
+    aoi22 ix519 (.Y (nx369), .A0 (inputB[3]), .A1 (inputA[3]), .B0 (nx363), .B1 (
+          nx364)) ;
+    oai32 ix520 (.Y (nx370), .A0 (nx369), .A1 (nx332), .A2 (inputB[2]), .B0 (
           nx333), .B1 (inputB[3])) ;
-    or02 ix548 (.Y (nx365), .A0 (nx336), .A1 (nx337)) ;
-    inv01 reg_nx141 (.Y (nx141), .A (nx473)) ;
-    inv02 ix549 (.Y (nx366), .A (inputB[10])) ;
-    inv02 ix550 (.Y (nx367), .A (inputA[10])) ;
-    inv01 ix551 (.Y (nx368), .A (inputB[11])) ;
-    inv02 ix552 (.Y (nx369), .A (inputA[11])) ;
-    inv02 ix553 (.Y (nx370), .A (inputB[6])) ;
-    inv02 ix554 (.Y (nx371), .A (inputA[6])) ;
-    aoi22 ix555 (.Y (nx372), .A0 (inputB[6]), .A1 (inputA[6]), .B0 (nx370), .B1 (
-          nx371)) ;
-    inv02 ix556 (.Y (nx373), .A (inputB[5])) ;
-    inv02 ix557 (.Y (nx374), .A (inputA[5])) ;
-    aoi22 ix558 (.Y (nx375), .A0 (inputB[5]), .A1 (inputA[5]), .B0 (nx373), .B1 (
-          nx374)) ;
-    oai32 ix559 (.Y (nx376), .A0 (nx699), .A1 (nx355), .A2 (inputB[4]), .B0 (
-          nx361), .B1 (inputB[5])) ;
-    nor02ii ix560 (.Y (nx377), .A0 (nx372), .A1 (nx376)) ;
-    inv02 ix561 (.Y (nx378), .A (inputA[7])) ;
-    aoi22 ix562 (.Y (nx379), .A0 (inputA[6]), .A1 (nx370), .B0 (inputB[6]), .B1 (
-          nx371)) ;
-    aoi22 ix563 (.Y (nx380), .A0 (inputA[5]), .A1 (nx373), .B0 (inputB[5]), .B1 (
-          nx374)) ;
-    inv02 ix564 (.Y (nx381), .A (inputA[8])) ;
-    inv02 ix565 (.Y (nx382), .A (inputB[8])) ;
-    inv02 ix566 (.Y (nx383), .A (inputA[9])) ;
-    inv02 ix567 (.Y (nx384), .A (inputB[9])) ;
-    inv01 ix568 (.Y (nx385), .A (nx356)) ;
-    nor02_2x ix569 (.Y (nx386), .A0 (nx385), .A1 (nx360)) ;
-    inv02 ix570 (.Y (nx387), .A (inputA[7])) ;
-    inv02 ix571 (.Y (nx388), .A (inputB[7])) ;
-    nor03_2x ix572 (.Y (nx389), .A0 (nx372), .A1 (nx417), .A2 (nx699)) ;
-    inv01 ix573 (.Y (nx390), .A (nx372)) ;
-    inv01 ix574 (.Y (nx391), .A (nx375)) ;
-    aoi22 ix575 (.Y (nx392), .A0 (inputB[7]), .A1 (nx387), .B0 (inputA[7]), .B1 (
-          nx388)) ;
-    and03 ix576 (.Y (nx393), .A0 (nx356), .A1 (nx391), .A2 (nx392)) ;
-    inv01 ix577 (.Y (nx394), .A (nx392)) ;
-    inv02 ix578 (.Y (nx395), .A (inputA[6])) ;
-    inv02 ix579 (.Y (nx396), .A (inputB[7])) ;
-    nor04_2x ix580 (.Y (nx397), .A0 (nx703), .A1 (nx701), .A2 (nx396), .A3 (
-             inputA[7])) ;
-    inv02 ix581 (.Y (nx398), .A (nx348)) ;
-    inv02 ix582 (.Y (nx399), .A (inputA[2])) ;
-    and04 ix583 (.Y (nx400), .A0 (nx398), .A1 (nx399), .A2 (nx356), .A3 (nx359)
-          ) ;
-    nor03_2x ix584 (.Y (nx401), .A0 (nx351), .A1 (nx701), .A2 (inputA[3])) ;
-    nand03_2x ix585 (.Y (nx402), .A0 (nx393), .A1 (nx390), .A2 (nx401)) ;
-    and02 ix586 (.Y (nx403), .A0 (nx356), .A1 (nx359)) ;
-    nor02_2x ix587 (.Y (nx404), .A0 (nx347), .A1 (nx350)) ;
-    inv02 ix588 (.Y (nx405), .A (inputA[4])) ;
-    inv02 ix589 (.Y (nx406), .A (inputA[5])) ;
-    ao32 ix590 (.Y (nx407), .A0 (nx380), .A1 (inputB[4]), .A2 (nx405), .B0 (
-         inputB[5]), .B1 (nx406)) ;
-    nor03_2x ix591 (.Y (nx408), .A0 (nx703), .A1 (nx394), .A2 (nx701)) ;
-    nor02_2x ix592 (.Y (nx409), .A0 (nx703), .A1 (nx701)) ;
-    oai22 ix593 (.Y (nx410), .A0 (nx383), .A1 (nx384), .B0 (inputA[9]), .B1 (
-          inputB[9])) ;
-    and02 ix594 (.Y (nx411), .A0 (inputA[7]), .A1 (inputB[7])) ;
-    oai22 ix595 (.Y (nx412), .A0 (nx411), .A1 (nx387), .B0 (nx411), .B1 (nx388)
-          ) ;
-    inv02 ix596 (.Y (nx413), .A (nx412)) ;
-    nor02_2x ix597 (.Y (nx414), .A0 (nx381), .A1 (inputB[8])) ;
-    nor02_2x ix598 (.Y (nx415), .A0 (nx382), .A1 (inputA[8])) ;
-    nor02_2x ix599 (.Y (nx416), .A0 (nx701), .A1 (nx703)) ;
-    inv02 ix600 (.Y (nx417), .A (nx413)) ;
-    inv02 ix601 (.Y (nx418), .A (nx413)) ;
-    inv02 ix602 (.Y (nx419), .A (nx365)) ;
-    nand02_2x ix603 (.Y (nx420), .A0 (nx449), .A1 (nx711)) ;
-    nand02_2x ix604 (.Y (nx421), .A0 (nx450), .A1 (nx711)) ;
-    inv01 ix605 (.Y (nx422), .A (inputB[14])) ;
-    inv02 ix606 (.Y (nx423), .A (inputA[15])) ;
-    oai22 ix607 (.Y (nx424), .A0 (nx422), .A1 (inputA[14]), .B0 (nx423), .B1 (
-          nx711)) ;
-    nand02_2x ix608 (.Y (nx425), .A0 (inputB[6]), .A1 (nx395)) ;
-    nor04_2x ix609 (.Y (nx426), .A0 (nx703), .A1 (nx701), .A2 (nx394), .A3 (
-             nx425)) ;
-    inv02 ix610 (.Y (nx427), .A (inputB[12])) ;
-    inv01 ix611 (.Y (nx428), .A (inputB[13])) ;
-    oai22 reg_nx181 (.Y (nx181), .A0 (nx449), .A1 (nx450), .B0 (nx711), .B1 (
-          inputA[15])) ;
-    inv01 ix612 (.Y (nx429), .A (nx513)) ;
-    inv01 ix613 (.Y (nx430), .A (nx511)) ;
-    inv02 ix614 (.Y (nx431), .A (inputA[11])) ;
-    inv02 ix615 (.Y (nx432), .A (inputA[10])) ;
-    ao32 ix616 (.Y (nx433), .A0 (nx44), .A1 (inputB[11]), .A2 (nx431), .B0 (
-         inputB[10]), .B1 (nx432)) ;
-    inv02 ix617 (.Y (nx434), .A (inputA[9])) ;
-    inv02 ix618 (.Y (nx435), .A (inputA[8])) ;
-    ao32 ix619 (.Y (nx436), .A0 (nx165), .A1 (inputB[9]), .A2 (nx434), .B0 (
-         inputB[8]), .B1 (nx435)) ;
-    aoi322 ix620 (.Y (nx437), .A0 (nx64), .A1 (nx379), .A2 (nx407), .B0 (nx433)
-           , .B1 (nx499), .C0 (nx436), .C1 (nx496)) ;
-    ao21 ix621 (.Y (nx438), .A0 (nx403), .A1 (nx404), .B0 (nx400)) ;
-    nor02_2x ix622 (.Y (nx439), .A0 (nx372), .A1 (nx699)) ;
-    nor02_2x ix623 (.Y (nx440), .A0 (nx418), .A1 (nx701)) ;
-    nand03_2x ix624 (.Y (nx441), .A0 (nx438), .A1 (nx439), .A2 (nx440)) ;
-    ao21 ix625 (.Y (nx442), .A0 (nx402), .A1 (nx441), .B0 (nx703)) ;
-    nor02_2x ix626 (.Y (nx443), .A0 (nx426), .A1 (nx397)) ;
-    nand02_2x ix627 (.Y (nx444), .A0 (nx442), .A1 (nx443)) ;
-    oai33 reg_nx268 (.Y (nx268), .A0 (nx209), .A1 (nx427), .A2 (inputA[12]), .B0 (
-          nx353), .B1 (nx428), .B2 (inputA[13])) ;
-    aoi321 ix628 (.Y (nx445), .A0 (nx420), .A1 (nx421), .A2 (nx424), .B0 (nx444)
-           , .B1 (NOT_nx56), .C0 (nx268)) ;
-    nand02_2x reg_nx286 (.Y (nx286), .A0 (nx437), .A1 (nx445)) ;
-    inv02 ix629 (.Y (nx446), .A (nx415)) ;
-    inv02 ix630 (.Y (nx447), .A (inputB[10])) ;
-    inv02 ix631 (.Y (nx448), .A (inputB[11])) ;
-    inv01 ix632 (.Y (nx449), .A (inputB[15])) ;
-    inv02 ix633 (.Y (nx450), .A (inputA[15])) ;
-    inv01 ix634 (.Y (nx451), .A (inputB[14])) ;
-    inv02 ix635 (.Y (nx452), .A (inputA[14])) ;
-    inv01 ix636 (.Y (nx453), .A (inputB[13])) ;
-    inv02 ix637 (.Y (nx454), .A (inputA[13])) ;
-    inv01 ix638 (.Y (nx455), .A (inputB[12])) ;
-    inv02 ix639 (.Y (nx456), .A (inputA[12])) ;
-    inv01 ix640 (.Y (nx457), .A (nx368)) ;
-    inv02 ix641 (.Y (nx458), .A (nx369)) ;
-    oai22 ix642 (.Y (nx459), .A0 (nx368), .A1 (nx369), .B0 (inputB[11]), .B1 (
-          inputA[11])) ;
-    inv02 ix643 (.Y (nx460), .A (inputB[9])) ;
-    nor02ii ix644 (.Y (nx461), .A0 (inputB[8]), .A1 (inputA[8])) ;
-    ao21 ix645 (.Y (nx462), .A0 (nx457), .A1 (nx458), .B0 (nx448)) ;
-    inv02 ix646 (.Y (nx463), .A (inputA[15])) ;
-    inv02 ix647 (.Y (nx464), .A (inputA[12])) ;
-    inv02 ix648 (.Y (nx465), .A (inputA[13])) ;
-    inv02 ix649 (.Y (nx466), .A (nx371)) ;
-    inv02 ix650 (.Y (nx467), .A (inputB[6])) ;
-    nor02_2x ix651 (.Y (nx468), .A0 (nx378), .A1 (inputB[7])) ;
-    inv01 ix652 (.Y (nx469), .A (nx511)) ;
-    inv01 ix653 (.Y (nx470), .A (nx513)) ;
-    and03 ix654 (.Y (nx471), .A0 (nx439), .A1 (nx362), .A2 (nx364)) ;
-    and03 ix655 (.Y (nx472), .A0 (nx409), .A1 (nx386), .A2 (nx389)) ;
-    and04 ix656 (.Y (nx473), .A0 (nx511), .A1 (nx514), .A2 (nx495), .A3 (nx472)
-          ) ;
-    inv01 ix657 (.Y (nx474), .A (nx495)) ;
-    nand02_2x ix658 (.Y (nx475), .A0 (nx413), .A1 (nx416)) ;
-    nor04_2x reg_nx64 (.Y (nx64), .A0 (nx429), .A1 (nx430), .A2 (nx474), .A3 (
-             nx475)) ;
-    aoi22 ix659 (.Y (nx476), .A0 (inputB[14]), .A1 (inputA[14]), .B0 (nx451), .B1 (
-          nx452)) ;
-    aoi22 ix660 (.Y (nx477), .A0 (inputA[15]), .A1 (nx711), .B0 (nx449), .B1 (
-          nx450)) ;
-    nor02_2x ix661 (.Y (nx478), .A0 (nx476), .A1 (nx477)) ;
-    aoi22 ix662 (.Y (nx479), .A0 (inputB[12]), .A1 (inputA[12]), .B0 (nx455), .B1 (
-          nx456)) ;
-    aoi22 ix663 (.Y (nx480), .A0 (inputA[13]), .A1 (inputB[13]), .B0 (nx453), .B1 (
-          nx454)) ;
-    nor02_2x ix664 (.Y (nx481), .A0 (nx479), .A1 (nx480)) ;
-    inv01 ix665 (.Y (nx482), .A (nx368)) ;
-    inv02 ix666 (.Y (nx483), .A (inputA[11])) ;
-    inv02 ix667 (.Y (nx484), .A (nx369)) ;
-    inv01 ix668 (.Y (nx485), .A (inputB[11])) ;
-    aoi22 ix669 (.Y (nx486), .A0 (nx482), .A1 (nx483), .B0 (nx484), .B1 (nx485)
-          ) ;
-    and02 ix670 (.Y (nx487), .A0 (inputA[10]), .A1 (nx366)) ;
-    and02 ix671 (.Y (nx488), .A0 (inputB[10]), .A1 (nx367)) ;
-    inv02 ix672 (.Y (nx489), .A (inputB[9])) ;
-    inv02 ix673 (.Y (nx490), .A (nx434)) ;
-    nor04_2x ix674 (.Y (nx491), .A0 (nx487), .A1 (nx488), .A2 (nx489), .A3 (
-             nx490)) ;
-    and03 ix675 (.Y (nx492), .A0 (nx511), .A1 (nx486), .A2 (nx491)) ;
-    oai22 ix676 (.Y (nx493), .A0 (nx368), .A1 (inputA[11]), .B0 (nx369), .B1 (
+    or02 ix521 (.Y (nx371), .A0 (nx336), .A1 (nx337)) ;
+    inv01 ix522 (.Y (nx372), .A (NOT_nx141)) ;
+    inv02 ix523 (.Y (nx373), .A (inputB[10])) ;
+    inv02 ix524 (.Y (nx374), .A (inputA[10])) ;
+    inv02 ix525 (.Y (nx375), .A (inputB[11])) ;
+    inv02 ix526 (.Y (nx376), .A (inputA[11])) ;
+    oai22 ix527 (.Y (nx377), .A0 (nx375), .A1 (inputA[11]), .B0 (nx376), .B1 (
           inputB[11])) ;
-    inv02 ix677 (.Y (nx494), .A (nx410)) ;
-    nor04_2x ix678 (.Y (nx495), .A0 (nx493), .A1 (nx487), .A2 (nx494), .A3 (
-             nx488)) ;
-    ao21 ix679 (.Y (nx496), .A0 (nx514), .A1 (nx492), .B0 (NOT_nx56)) ;
-    aoi22 ix680 (.Y (nx497), .A0 (inputA[10]), .A1 (nx366), .B0 (inputB[10]), .B1 (
-          nx367)) ;
-    and04 reg_nx165 (.Y (nx165), .A0 (nx513), .A1 (nx511), .A2 (nx486), .A3 (
-          nx497)) ;
-    ao21 ix681 (.Y (nx498), .A0 (inputB[11]), .A1 (nx431), .B0 (nx459)) ;
-    and03 ix682 (.Y (nx499), .A0 (nx512), .A1 (nx514), .A2 (nx498)) ;
-    and02 reg_nx44 (.Y (nx44), .A0 (nx514), .A1 (nx512)) ;
-    aoi33 ix683 (.Y (nx500), .A0 (nx446), .A1 (nx440), .A2 (nx471), .B0 (nx416)
-          , .B1 (nx377), .B2 (nx413)) ;
-    nand04_2x ix684 (.Y (nx501), .A0 (nx409), .A1 (nx389), .A2 (nx419), .A3 (
-              nx386)) ;
-    aoi32 ix685 (.Y (nx502), .A0 (nx408), .A1 (nx466), .A2 (nx467), .B0 (nx409)
-          , .B1 (nx468)) ;
-    nand02_2x ix686 (.Y (nx503), .A0 (nx512), .A1 (nx514)) ;
-    oai332 ix687 (.Y (nx504), .A0 (nx500), .A1 (nx429), .A2 (nx430), .B0 (nx469)
-           , .B1 (nx470), .B2 (nx501), .C0 (nx502), .C1 (nx503)) ;
-    nand02_2x ix688 (.Y (nx505), .A0 (nx495), .A1 (nx705)) ;
-    inv01 reg_nx209 (.Y (nx209), .A (nx40)) ;
-    oai33 reg_nx170 (.Y (nx170), .A0 (nx209), .A1 (nx464), .A2 (inputB[12]), .B0 (
-          nx177), .B1 (nx465), .B2 (inputB[13])) ;
-    aoi321 ix689 (.Y (nx506), .A0 (nx181), .A1 (inputA[14]), .A2 (nx203), .B0 (
-           nx711), .B1 (nx463), .C0 (nx170)) ;
-    and02 ix690 (.Y (nx507), .A0 (nx512), .A1 (nx514)) ;
-    ao22 ix691 (.Y (nx508), .A0 (inputA[11]), .A1 (nx448), .B0 (inputA[10]), .B1 (
-         nx447)) ;
-    and02 ix692 (.Y (nx509), .A0 (inputA[9]), .A1 (nx460)) ;
-    aoi332 ix693 (.Y (nx510), .A0 (nx507), .A1 (nx461), .A2 (nx495), .B0 (nx508)
-           , .B1 (nx44), .B2 (nx462), .C0 (nx165), .C1 (nx509)) ;
-    nand03_2x reg_nx188 (.Y (nx188), .A0 (nx505), .A1 (nx506), .A2 (nx510)) ;
-    and03 reg_NOT_nx56 (.Y (NOT_nx56), .A0 (nx512), .A1 (nx495), .A2 (nx514)) ;
-    buf16 ix694 (.Y (nx511), .A (nx481)) ;
-    buf16 ix695 (.Y (nx512), .A (nx481)) ;
-    buf16 ix696 (.Y (nx513), .A (nx478)) ;
-    buf16 ix697 (.Y (nx514), .A (nx478)) ;
-    inv01 ix698 (.Y (nx699), .A (nx391)) ;
-    buf02 ix700 (.Y (nx701), .A (nx414)) ;
-    inv02 ix702 (.Y (nx703), .A (nx446)) ;
-    buf02 ix704 (.Y (nx705), .A (nx504)) ;
-    inv02 ix710 (.Y (nx711), .A (nx449)) ;
+    oai22 ix528 (.Y (nx378), .A0 (nx376), .A1 (nx375), .B0 (inputA[11]), .B1 (
+          inputB[11])) ;
+    inv02 ix529 (.Y (nx379), .A (inputB[6])) ;
+    inv02 ix530 (.Y (nx380), .A (inputA[6])) ;
+    aoi22 ix531 (.Y (nx381), .A0 (inputB[6]), .A1 (inputA[6]), .B0 (nx379), .B1 (
+          nx380)) ;
+    inv02 ix532 (.Y (nx382), .A (inputB[5])) ;
+    inv02 ix533 (.Y (nx383), .A (inputA[5])) ;
+    aoi22 ix534 (.Y (nx384), .A0 (inputB[5]), .A1 (inputA[5]), .B0 (nx382), .B1 (
+          nx383)) ;
+    oai32 ix535 (.Y (nx385), .A0 (nx637), .A1 (nx361), .A2 (nx651), .B0 (nx367)
+          , .B1 (inputB[5])) ;
+    nor02ii ix536 (.Y (nx386), .A0 (nx635), .A1 (nx385)) ;
+    inv02 ix537 (.Y (nx387), .A (inputA[7])) ;
+    aoi22 ix538 (.Y (nx388), .A0 (inputA[6]), .A1 (nx379), .B0 (inputB[6]), .B1 (
+          nx380)) ;
+    aoi22 ix539 (.Y (nx389), .A0 (inputA[5]), .A1 (nx382), .B0 (inputB[5]), .B1 (
+          nx383)) ;
+    inv02 ix540 (.Y (nx390), .A (inputA[9])) ;
+    inv02 ix541 (.Y (nx391), .A (inputB[9])) ;
+    inv02 ix542 (.Y (nx392), .A (inputA[8])) ;
+    inv02 ix543 (.Y (nx393), .A (inputB[8])) ;
+    inv01 ix544 (.Y (nx394), .A (nx362)) ;
+    inv02 ix545 (.Y (nx395), .A (inputA[7])) ;
+    inv02 ix546 (.Y (nx396), .A (inputB[7])) ;
+    aoi22 ix547 (.Y (nx397), .A0 (inputA[7]), .A1 (inputB[7]), .B0 (nx395), .B1 (
+          nx396)) ;
+    or03 ix548 (.Y (nx398), .A0 (nx635), .A1 (nx394), .A2 (nx397)) ;
+    nor02_2x ix549 (.Y (nx399), .A0 (nx635), .A1 (nx637)) ;
+    aoi22 ix550 (.Y (nx400), .A0 (inputB[7]), .A1 (nx395), .B0 (inputA[7]), .B1 (
+          nx396)) ;
+    oai22 ix551 (.Y (nx401), .A0 (nx357), .A1 (inputA[13]), .B0 (nx358), .B1 (
+          inputB[13])) ;
+    oai22 ix552 (.Y (nx402), .A0 (nx353), .A1 (inputA[15]), .B0 (nx354), .B1 (
+          nx649)) ;
+    oai22 ix553 (.Y (nx403), .A0 (nx390), .A1 (nx391), .B0 (inputA[9]), .B1 (
+          inputB[9])) ;
+    aoi22 ix554 (.Y (nx404), .A0 (inputB[8]), .A1 (nx392), .B0 (inputA[8]), .B1 (
+          nx393)) ;
+    inv01 ix555 (.Y (nx405), .A (nx362)) ;
+    nor02_2x ix556 (.Y (nx406), .A0 (nx348), .A1 (inputA[2])) ;
+    inv02 ix557 (.Y (nx407), .A (inputA[3])) ;
+    aoi44 ix558 (.Y (nx408), .A0 (nx459), .A1 (nx438), .A2 (nx365), .A3 (nx406)
+          , .B0 (nx399), .B1 (nx400), .B2 (inputB[3]), .B3 (nx407)) ;
+    inv01 ix559 (.Y (nx409), .A (nx365)) ;
+    inv02 ix560 (.Y (nx410), .A (inputA[4])) ;
+    inv02 ix561 (.Y (nx411), .A (inputA[5])) ;
+    inv01 ix562 (.Y (nx412), .A (nx400)) ;
+    inv02 ix563 (.Y (nx413), .A (inputB[6])) ;
+    inv02 ix564 (.Y (nx414), .A (inputB[7])) ;
+    inv01 ix565 (.Y (nx415), .A (nx400)) ;
+    oai32 ix566 (.Y (nx416), .A0 (nx415), .A1 (nx380), .A2 (inputB[6]), .B0 (
+          nx387), .B1 (inputB[7])) ;
+    aoi221 ix567 (.Y (nx417), .A0 (inputA[14]), .A1 (nx351), .B0 (inputB[14]), .B1 (
+           nx352), .C0 (nx402)) ;
+    and02 ix568 (.Y (nx418), .A0 (inputA[12]), .A1 (nx355)) ;
+    and02 ix569 (.Y (nx419), .A0 (inputB[12]), .A1 (nx356)) ;
+    nor03_2x ix570 (.Y (nx420), .A0 (nx418), .A1 (nx419), .A2 (nx401)) ;
+    and02 ix571 (.Y (nx421), .A0 (inputA[10]), .A1 (nx373)) ;
+    nor02_2x ix572 (.Y (nx422), .A0 (nx641), .A1 (nx633)) ;
+    inv02 ix573 (.Y (nx423), .A (nx403)) ;
+    inv01 ix574 (.Y (nx424), .A (nx404)) ;
+    and02 ix575 (.Y (nx425), .A0 (inputB[10]), .A1 (nx374)) ;
+    nor03_2x ix576 (.Y (nx426), .A0 (nx423), .A1 (nx424), .A2 (nx643)) ;
+    and04 ix577 (.Y (nx427), .A0 (nx639), .A1 (nx420), .A2 (nx422), .A3 (nx426)
+          ) ;
+    nor04_2x ix578 (.Y (nx428), .A0 (nx409), .A1 (nx405), .A2 (nx347), .A3 (
+             nx350)) ;
+    nand02_2x ix579 (.Y (nx429), .A0 (nx404), .A1 (nx403)) ;
+    or04 ix580 (.Y (nx430), .A0 (nx397), .A1 (nx635), .A2 (nx643), .A3 (nx637)
+         ) ;
+    nor04_2x ix581 (.Y (nx431), .A0 (nx641), .A1 (nx633), .A2 (nx429), .A3 (
+             nx430)) ;
+    and03 reg_nx72 (.Y (nx72), .A0 (nx639), .A1 (nx431), .A2 (nx420)) ;
+    aoi32 ix582 (.Y (nx432), .A0 (nx389), .A1 (nx651), .A2 (nx410), .B0 (
+          inputB[5]), .B1 (nx411)) ;
+    inv01 ix583 (.Y (nx433), .A (nx388)) ;
+    oai32 ix584 (.Y (nx434), .A0 (nx412), .A1 (nx413), .A2 (inputA[6]), .B0 (
+          nx414), .B1 (inputA[7])) ;
+    inv01 ix585 (.Y (nx435), .A (nx434)) ;
+    oai321 ix586 (.Y (nx436), .A0 (nx432), .A1 (nx397), .A2 (nx433), .B0 (nx405)
+           , .B1 (nx408), .C0 (nx435)) ;
+    aoi321 ix587 (.Y (nx437), .A0 (nx389), .A1 (nx651), .A2 (nx410), .B0 (
+           inputB[5]), .B1 (nx411), .C0 (nx428)) ;
+    inv01 ix588 (.Y (nx438), .A (nx397)) ;
+    aoi21 ix589 (.Y (nx439), .A0 (nx438), .A1 (nx388), .B0 (nx428)) ;
+    oai221 ix590 (.Y (nx440), .A0 (nx437), .A1 (nx439), .B0 (nx405), .B1 (nx408)
+           , .C0 (nx435)) ;
+    inv02 ix591 (.Y (nx441), .A (nx378)) ;
+    nor04_2x ix592 (.Y (nx442), .A0 (nx441), .A1 (nx419), .A2 (nx418), .A3 (
+             nx401)) ;
+    and02 reg_nx48 (.Y (nx48), .A0 (nx639), .A1 (nx442)) ;
+    inv02 ix593 (.Y (nx443), .A (inputA[10])) ;
+    and02 reg_nx44 (.Y (nx44), .A0 (nx639), .A1 (nx420)) ;
+    nor02ii ix594 (.Y (nx444), .A0 (inputA[11]), .A1 (inputB[11])) ;
+    nand02_2x ix595 (.Y (nx445), .A0 (nx353), .A1 (nx649)) ;
+    nand02_2x ix596 (.Y (nx446), .A0 (nx354), .A1 (nx649)) ;
+    inv02 ix597 (.Y (nx447), .A (inputB[14])) ;
+    inv02 ix598 (.Y (nx448), .A (inputA[15])) ;
+    oai22 ix599 (.Y (nx449), .A0 (nx447), .A1 (inputA[14]), .B0 (nx448), .B1 (
+          nx649)) ;
+    inv02 ix600 (.Y (nx450), .A (inputA[12])) ;
+    inv02 ix601 (.Y (nx451), .A (inputA[13])) ;
+    ao32 ix602 (.Y (nx452), .A0 (nx359), .A1 (inputB[12]), .A2 (nx450), .B0 (
+         inputB[13]), .B1 (nx451)) ;
+    ao32 reg_NOT_nx277 (.Y (NOT_nx277), .A0 (nx445), .A1 (nx446), .A2 (nx449), .B0 (
+         nx452), .B1 (nx639)) ;
+    aoi321 ix603 (.Y (nx453), .A0 (nx48), .A1 (inputB[10]), .A2 (nx443), .B0 (
+           nx44), .B1 (nx444), .C0 (NOT_nx277)) ;
+    nor04_2x ix604 (.Y (nx454), .A0 (nx641), .A1 (nx633), .A2 (nx423), .A3 (
+             nx643)) ;
+    and03 reg_nx56 (.Y (nx56), .A0 (nx639), .A1 (nx420), .A2 (nx454)) ;
+    inv02 ix605 (.Y (nx455), .A (inputA[8])) ;
+    nor03_2x ix606 (.Y (nx456), .A0 (nx641), .A1 (nx643), .A2 (nx633)) ;
+    and03 reg_nx52 (.Y (nx52), .A0 (nx639), .A1 (nx420), .A2 (nx456)) ;
+    inv02 ix607 (.Y (nx457), .A (inputA[9])) ;
+    aoi33 ix608 (.Y (nx458), .A0 (nx56), .A1 (inputB[8]), .A2 (nx455), .B0 (nx52
+          ), .B1 (inputB[9]), .B2 (nx457)) ;
+    nand03_2x reg_nx286 (.Y (nx286), .A0 (nx481), .A1 (nx453), .A2 (nx458)) ;
+    nor02_2x ix609 (.Y (nx459), .A0 (nx635), .A1 (nx637)) ;
+    nand02_2x ix610 (.Y (nx460), .A0 (inputA[14]), .A1 (nx351)) ;
+    aoi21 ix611 (.Y (nx461), .A0 (inputB[14]), .A1 (nx352), .B0 (nx402)) ;
+    nand03_2x reg_nx209 (.Y (nx209), .A0 (nx460), .A1 (nx359), .A2 (nx461)) ;
+    inv02 ix612 (.Y (nx462), .A (inputB[8])) ;
+    inv02 ix613 (.Y (nx463), .A (inputB[9])) ;
+    aoi33 ix614 (.Y (nx464), .A0 (nx56), .A1 (inputA[8]), .A2 (nx462), .B0 (nx52
+          ), .B1 (inputA[9]), .B2 (nx463)) ;
+    inv02 ix615 (.Y (nx465), .A (inputB[10])) ;
+    inv02 ix616 (.Y (nx466), .A (inputB[11])) ;
+    aoi33 ix617 (.Y (nx467), .A0 (nx48), .A1 (inputA[10]), .A2 (nx465), .B0 (
+          nx44), .B1 (inputA[11]), .B2 (nx466)) ;
+    inv02 ix618 (.Y (nx468), .A (inputA[15])) ;
+    nand02_2x ix619 (.Y (nx469), .A0 (nx649), .A1 (nx468)) ;
+    inv02 ix620 (.Y (nx470), .A (inputB[14])) ;
+    nand02_2x ix621 (.Y (nx471), .A0 (inputA[14]), .A1 (nx470)) ;
+    aoi222 ix622 (.Y (nx472), .A0 (nx469), .A1 (nx471), .B0 (nx354), .B1 (
+           inputA[15]), .C0 (nx353), .C1 (inputA[15])) ;
+    nor02_2x ix623 (.Y (nx473), .A0 (nx472), .A1 (nx170)) ;
+    inv01 ix624 (.Y (nx474), .A (nx404)) ;
+    nor02_2x ix625 (.Y (nx475), .A0 (nx474), .A1 (nx398)) ;
+    nor03_2x ix626 (.Y (nx476), .A0 (nx637), .A1 (nx371), .A2 (nx366)) ;
+    ao21 ix627 (.Y (nx477), .A0 (nx386), .A1 (nx438), .B0 (nx416)) ;
+    aoi332 ix628 (.Y (nx478), .A0 (nx72), .A1 (nx368), .A2 (nx370), .B0 (nx56), 
+           .B1 (nx475), .B2 (nx476), .C0 (nx427), .C1 (nx477)) ;
+    nand04_2x reg_nx188 (.Y (nx188), .A0 (nx464), .A1 (nx467), .A2 (nx473), .A3 (
+              nx478)) ;
+    nor04_2x ix629 (.Y (nx479), .A0 (nx474), .A1 (nx398), .A2 (nx637), .A3 (
+             nx366)) ;
+    and02 reg_NOT_nx141 (.Y (NOT_nx141), .A0 (nx56), .A1 (nx479)) ;
+    and02 ix630 (.Y (nx480), .A0 (nx428), .A1 (nx72)) ;
+    oai221 ix631 (.Y (nx481), .A0 (nx480), .A1 (nx427), .B0 (nx72), .B1 (nx436)
+           , .C0 (nx440)) ;
+    buf02 ix632 (.Y (nx633), .A (nx377)) ;
+    buf02 ix634 (.Y (nx635), .A (nx381)) ;
+    buf02 ix636 (.Y (nx637), .A (nx384)) ;
+    inv01 ix638 (.Y (nx639), .A (nx177)) ;
+    buf02 ix640 (.Y (nx641), .A (nx421)) ;
+    buf02 ix642 (.Y (nx643), .A (nx425)) ;
+    inv02 ix648 (.Y (nx649), .A (nx353)) ;
+    inv02 ix650 (.Y (nx651), .A (nx360)) ;
 endmodule
 
 
@@ -4499,7 +4683,7 @@ module CounterUpDown_4 ( load, resetValue, clk, en, rst, isLoad, upOrDown, count
 
     wire countAdded_3, countAdded_2, countAdded_1, countAdded_0, NOT_upOrDown, 
          nx8, nx10, nx14, nx24, nx26, nx30, nx40, nx42, nx46, nx56, nx58, nx62, 
-         nx202, nx212, nx222, nx232, nx249, nx279;
+         nx202, nx212, nx222, nx232, nx249, nx290;
     wire [4:0] \$dummy ;
 
 
@@ -4513,29 +4697,29 @@ module CounterUpDown_4 ( load, resetValue, clk, en, rst, isLoad, upOrDown, count
     dffsr_ni reg_currentCount_0 (.Q (count[0]), .QB (\$dummy [1]), .D (nx202), .CLK (
              clk), .S (nx10), .R (nx14)) ;
     mux21_ni ix203 (.Y (nx202), .A0 (nx8), .A1 (count[0]), .S0 (nx249)) ;
-    mux21_ni ix9 (.Y (nx8), .A0 (load[0]), .A1 (countAdded_0), .S0 (nx279)) ;
-    nor02_2x ix250 (.Y (nx249), .A0 (nx279), .A1 (isLoad)) ;
+    mux21_ni ix9 (.Y (nx8), .A0 (load[0]), .A1 (countAdded_0), .S0 (nx290)) ;
     and02 ix11 (.Y (nx10), .A0 (resetValue[0]), .A1 (rst)) ;
     dffsr_ni reg_currentCount_1 (.Q (count[1]), .QB (\$dummy [2]), .D (nx212), .CLK (
              clk), .S (nx26), .R (nx30)) ;
     mux21_ni ix213 (.Y (nx212), .A0 (nx24), .A1 (count[1]), .S0 (nx249)) ;
-    mux21_ni ix25 (.Y (nx24), .A0 (load[1]), .A1 (countAdded_1), .S0 (nx279)) ;
+    mux21_ni ix25 (.Y (nx24), .A0 (load[1]), .A1 (countAdded_1), .S0 (nx290)) ;
     and02 ix27 (.Y (nx26), .A0 (resetValue[1]), .A1 (rst)) ;
     dffsr_ni reg_currentCount_2 (.Q (count[2]), .QB (\$dummy [3]), .D (nx222), .CLK (
              clk), .S (nx42), .R (nx46)) ;
     mux21_ni ix223 (.Y (nx222), .A0 (nx40), .A1 (count[2]), .S0 (nx249)) ;
-    mux21_ni ix41 (.Y (nx40), .A0 (load[2]), .A1 (countAdded_2), .S0 (nx279)) ;
+    mux21_ni ix41 (.Y (nx40), .A0 (load[2]), .A1 (countAdded_2), .S0 (nx290)) ;
     and02 ix43 (.Y (nx42), .A0 (resetValue[2]), .A1 (rst)) ;
     dffsr_ni reg_currentCount_3 (.Q (count[3]), .QB (\$dummy [4]), .D (nx232), .CLK (
              clk), .S (nx58), .R (nx62)) ;
     mux21_ni ix233 (.Y (nx232), .A0 (nx56), .A1 (count[3]), .S0 (nx249)) ;
-    mux21_ni ix57 (.Y (nx56), .A0 (load[3]), .A1 (countAdded_3), .S0 (nx279)) ;
+    mux21_ni ix57 (.Y (nx56), .A0 (load[3]), .A1 (countAdded_3), .S0 (nx290)) ;
     and02 ix59 (.Y (nx58), .A0 (resetValue[3]), .A1 (rst)) ;
     nor02ii ix15 (.Y (nx14), .A0 (resetValue[0]), .A1 (rst)) ;
     nor02ii ix31 (.Y (nx30), .A0 (resetValue[1]), .A1 (rst)) ;
     nor02ii ix47 (.Y (nx46), .A0 (resetValue[2]), .A1 (rst)) ;
     nor02ii ix63 (.Y (nx62), .A0 (resetValue[3]), .A1 (rst)) ;
-    buf02 ix278 (.Y (nx279), .A (en)) ;
+    nor02_2x reg_nx249 (.Y (nx249), .A0 (isLoad), .A1 (nx290)) ;
+    buf02 ix289 (.Y (nx290), .A (en)) ;
 endmodule
 
 
@@ -4573,7 +4757,8 @@ module RegTony_4 ( D, load, en, clk, rst, Q, Qbar ) ;
     output [3:0]Qbar ;
 
     wire nx0, nx4, nx8, nx12, nx16, nx20, nx24, nx28, nx176, nx186, nx196, nx206, 
-         nx216, nx226, nx236, nx246, nx260, nx269, nx276, nx283, nx305, nx307;
+         nx216, nx226, nx236, nx260, nx269, nx276, nx307, nx320, nx321, nx246, 
+         nx325, nx327;
     wire [7:0] \$dummy ;
 
 
@@ -4581,33 +4766,31 @@ module RegTony_4 ( D, load, en, clk, rst, Q, Qbar ) ;
 
     dffsr_ni reg_Qbar_0 (.Q (Qbar[0]), .QB (\$dummy [0]), .D (nx216), .CLK (clk)
              , .S (nx4), .R (nx0)) ;
-    mux21_ni ix217 (.Y (nx216), .A0 (Qbar[0]), .A1 (nx260), .S0 (nx305)) ;
+    mux21_ni ix217 (.Y (nx216), .A0 (Qbar[0]), .A1 (nx260), .S0 (nx325)) ;
     inv01 ix261 (.Y (nx260), .A (D[0])) ;
     and02 ix1 (.Y (nx0), .A0 (rst), .A1 (load[0])) ;
     dffsr_ni reg_Qbar_1 (.Q (Qbar[1]), .QB (\$dummy [1]), .D (nx226), .CLK (clk)
              , .S (nx12), .R (nx8)) ;
-    mux21_ni ix227 (.Y (nx226), .A0 (Qbar[1]), .A1 (nx269), .S0 (nx305)) ;
+    mux21_ni ix227 (.Y (nx226), .A0 (Qbar[1]), .A1 (nx269), .S0 (nx325)) ;
     inv01 ix270 (.Y (nx269), .A (D[1])) ;
     and02 ix9 (.Y (nx8), .A0 (rst), .A1 (load[1])) ;
     dffsr_ni reg_Qbar_2 (.Q (Qbar[2]), .QB (\$dummy [2]), .D (nx236), .CLK (clk)
              , .S (nx20), .R (nx16)) ;
-    mux21_ni ix237 (.Y (nx236), .A0 (Qbar[2]), .A1 (nx276), .S0 (nx305)) ;
+    mux21_ni ix237 (.Y (nx236), .A0 (Qbar[2]), .A1 (nx276), .S0 (nx325)) ;
     inv01 ix277 (.Y (nx276), .A (D[2])) ;
     and02 ix17 (.Y (nx16), .A0 (rst), .A1 (load[2])) ;
     dffsr_ni reg_Qbar_3 (.Q (Qbar[3]), .QB (\$dummy [3]), .D (nx246), .CLK (clk)
              , .S (nx28), .R (nx24)) ;
-    mux21_ni ix247 (.Y (nx246), .A0 (Qbar[3]), .A1 (nx283), .S0 (nx305)) ;
-    inv01 ix284 (.Y (nx283), .A (D[3])) ;
     and02 ix25 (.Y (nx24), .A0 (rst), .A1 (load[3])) ;
     dffsr_ni reg_Q_0 (.Q (Q[0]), .QB (\$dummy [4]), .D (nx176), .CLK (clk), .S (
              nx0), .R (nx4)) ;
-    mux21_ni ix177 (.Y (nx176), .A0 (Q[0]), .A1 (D[0]), .S0 (nx305)) ;
+    mux21_ni ix177 (.Y (nx176), .A0 (Q[0]), .A1 (D[0]), .S0 (nx325)) ;
     dffsr_ni reg_Q_1 (.Q (Q[1]), .QB (\$dummy [5]), .D (nx186), .CLK (clk), .S (
              nx8), .R (nx12)) ;
-    mux21_ni ix187 (.Y (nx186), .A0 (Q[1]), .A1 (D[1]), .S0 (nx305)) ;
+    mux21_ni ix187 (.Y (nx186), .A0 (Q[1]), .A1 (D[1]), .S0 (nx325)) ;
     dffsr_ni reg_Q_2 (.Q (Q[2]), .QB (\$dummy [6]), .D (nx196), .CLK (clk), .S (
              nx16), .R (nx20)) ;
-    mux21_ni ix197 (.Y (nx196), .A0 (Q[2]), .A1 (D[2]), .S0 (nx305)) ;
+    mux21_ni ix197 (.Y (nx196), .A0 (Q[2]), .A1 (D[2]), .S0 (nx325)) ;
     dffsr_ni reg_Q_3 (.Q (Q[3]), .QB (\$dummy [7]), .D (nx206), .CLK (clk), .S (
              nx24), .R (nx28)) ;
     mux21_ni ix207 (.Y (nx206), .A0 (Q[3]), .A1 (D[3]), .S0 (nx307)) ;
@@ -4615,8 +4798,13 @@ module RegTony_4 ( D, load, en, clk, rst, Q, Qbar ) ;
     nor02ii ix13 (.Y (nx12), .A0 (load[1]), .A1 (rst)) ;
     nor02ii ix21 (.Y (nx20), .A0 (load[2]), .A1 (rst)) ;
     nor02ii ix29 (.Y (nx28), .A0 (load[3]), .A1 (rst)) ;
-    buf02 ix304 (.Y (nx305), .A (en)) ;
-    buf02 ix306 (.Y (nx307), .A (en)) ;
+    buf02 ix306 (.Y (nx307), .A (nx325)) ;
+    inv02 ix322 (.Y (nx320), .A (en)) ;
+    inv02 ix323 (.Y (nx321), .A (D[3])) ;
+    ao22 reg_nx246 (.Y (nx246), .A0 (Qbar[3]), .A1 (nx320), .B0 (nx327), .B1 (
+         nx321)) ;
+    inv02 ix324 (.Y (nx325), .A (nx320)) ;
+    inv02 ix326 (.Y (nx327), .A (nx320)) ;
 endmodule
 
 
@@ -4637,8 +4825,9 @@ module RegTony_16 ( D, load, en, clk, rst, Q, Qbar ) ;
          nx656, nx666, nx676, nx686, nx696, nx706, nx716, nx726, nx736, nx746, 
          nx756, nx766, nx776, nx786, nx796, nx806, nx816, nx826, nx836, nx860, 
          nx869, nx876, nx883, nx890, nx897, nx904, nx911, nx918, nx925, nx932, 
-         nx939, nx946, nx953, nx960, nx1035, nx1037, nx1039, nx1041, nx1043, 
-         nx1045, nx1047, nx1049, nx1051, nx1055, nx1057, nx1094, nx1053, nx846;
+         nx939, nx946, nx953, nx960, nx1037, nx1039, nx1041, nx1043, nx1045, 
+         nx1049, nx1051, nx1055, nx1057, nx1047, nx1047_XX0_XREP1, nx1035, 
+         nx1035_XX0_XREP3, nx1094, nx1053, nx846;
     wire [31:0] \$dummy ;
 
 
@@ -4786,17 +4975,19 @@ module RegTony_16 ( D, load, en, clk, rst, Q, Qbar ) ;
     nor02ii ix109 (.Y (nx108), .A0 (load[13]), .A1 (nx1045)) ;
     nor02ii ix117 (.Y (nx116), .A0 (load[14]), .A1 (nx1045)) ;
     nor02ii ix125 (.Y (nx124), .A0 (load[15]), .A1 (nx1045)) ;
-    inv01 ix1034 (.Y (nx1035), .A (rst)) ;
-    inv01 ix1036 (.Y (nx1037), .A (nx1035)) ;
-    inv01 ix1038 (.Y (nx1039), .A (nx1035)) ;
+    inv01 ix1036 (.Y (nx1037), .A (nx1035_XX0_XREP3)) ;
+    inv01 ix1038 (.Y (nx1039), .A (nx1035_XX0_XREP3)) ;
     inv01 ix1040 (.Y (nx1041), .A (nx1035)) ;
     inv01 ix1042 (.Y (nx1043), .A (nx1035)) ;
     inv01 ix1044 (.Y (nx1045), .A (nx1035)) ;
-    inv01 ix1046 (.Y (nx1047), .A (en)) ;
-    inv02 ix1048 (.Y (nx1049), .A (nx1047)) ;
-    inv02 ix1050 (.Y (nx1051), .A (nx1047)) ;
+    inv02 ix1048 (.Y (nx1049), .A (nx1047_XX0_XREP1)) ;
+    inv02 ix1050 (.Y (nx1051), .A (nx1047_XX0_XREP1)) ;
     inv02 ix1054 (.Y (nx1055), .A (nx1047)) ;
     inv02 ix1056 (.Y (nx1057), .A (nx1047)) ;
+    inv01 ix1046 (.Y (nx1047), .A (en)) ;
+    inv01 ix1046_0_XREP1 (.Y (nx1047_XX0_XREP1), .A (en)) ;
+    inv01 ix1034 (.Y (nx1035), .A (rst)) ;
+    inv01 ix1034_0_XREP3 (.Y (nx1035_XX0_XREP3), .A (rst)) ;
     inv02 ix1095 (.Y (nx1094), .A (D[15])) ;
     inv02 reg_nx1053 (.Y (nx1053), .A (nx1047)) ;
     ao22 reg_nx846 (.Y (nx846), .A0 (Qbar[15]), .A1 (nx1047), .B0 (nx1094), .B1 (
@@ -4811,30 +5002,31 @@ module Mux2_16 ( A, B, S, C ) ;
     input S ;
     output [15:0]C ;
 
-    wire nx173, nx175, nx177, nx179;
+    wire nx173, nx185, nx187, nx189;
 
 
 
-    mux21_ni ix7 (.Y (C[0]), .A0 (A[0]), .A1 (B[0]), .S0 (nx175)) ;
-    mux21_ni ix15 (.Y (C[1]), .A0 (A[1]), .A1 (B[1]), .S0 (nx175)) ;
-    mux21_ni ix23 (.Y (C[2]), .A0 (A[2]), .A1 (B[2]), .S0 (nx175)) ;
-    mux21_ni ix31 (.Y (C[3]), .A0 (A[3]), .A1 (B[3]), .S0 (nx175)) ;
-    mux21_ni ix39 (.Y (C[4]), .A0 (A[4]), .A1 (B[4]), .S0 (nx175)) ;
-    mux21_ni ix47 (.Y (C[5]), .A0 (A[5]), .A1 (B[5]), .S0 (nx175)) ;
-    mux21_ni ix55 (.Y (C[6]), .A0 (A[6]), .A1 (B[6]), .S0 (nx175)) ;
-    mux21_ni ix63 (.Y (C[7]), .A0 (A[7]), .A1 (B[7]), .S0 (nx177)) ;
-    mux21_ni ix71 (.Y (C[8]), .A0 (A[8]), .A1 (B[8]), .S0 (nx177)) ;
-    mux21_ni ix79 (.Y (C[9]), .A0 (A[9]), .A1 (B[9]), .S0 (nx177)) ;
-    mux21_ni ix87 (.Y (C[10]), .A0 (A[10]), .A1 (B[10]), .S0 (nx177)) ;
-    mux21_ni ix95 (.Y (C[11]), .A0 (A[11]), .A1 (B[11]), .S0 (nx177)) ;
-    mux21_ni ix103 (.Y (C[12]), .A0 (A[12]), .A1 (B[12]), .S0 (nx177)) ;
-    mux21_ni ix111 (.Y (C[13]), .A0 (A[13]), .A1 (B[13]), .S0 (nx177)) ;
-    mux21_ni ix119 (.Y (C[14]), .A0 (A[14]), .A1 (B[14]), .S0 (nx179)) ;
-    mux21_ni ix127 (.Y (C[15]), .A0 (A[15]), .A1 (B[15]), .S0 (nx179)) ;
-    inv01 ix172 (.Y (nx173), .A (S)) ;
-    inv02 ix174 (.Y (nx175), .A (nx173)) ;
-    inv02 ix176 (.Y (nx177), .A (nx173)) ;
-    inv02 ix178 (.Y (nx179), .A (nx173)) ;
+    mux21_ni ix15 (.Y (C[1]), .A0 (A[1]), .A1 (B[1]), .S0 (nx185)) ;
+    mux21_ni ix23 (.Y (C[2]), .A0 (A[2]), .A1 (B[2]), .S0 (nx185)) ;
+    mux21_ni ix31 (.Y (C[3]), .A0 (A[3]), .A1 (B[3]), .S0 (nx185)) ;
+    mux21_ni ix39 (.Y (C[4]), .A0 (A[4]), .A1 (B[4]), .S0 (nx185)) ;
+    mux21_ni ix47 (.Y (C[5]), .A0 (A[5]), .A1 (B[5]), .S0 (nx185)) ;
+    mux21_ni ix55 (.Y (C[6]), .A0 (A[6]), .A1 (B[6]), .S0 (nx185)) ;
+    mux21_ni ix71 (.Y (C[8]), .A0 (A[8]), .A1 (B[8]), .S0 (nx185)) ;
+    mux21_ni ix79 (.Y (C[9]), .A0 (A[9]), .A1 (B[9]), .S0 (nx187)) ;
+    mux21_ni ix87 (.Y (C[10]), .A0 (A[10]), .A1 (B[10]), .S0 (nx187)) ;
+    mux21_ni ix95 (.Y (C[11]), .A0 (A[11]), .A1 (B[11]), .S0 (nx187)) ;
+    mux21_ni ix103 (.Y (C[12]), .A0 (A[12]), .A1 (B[12]), .S0 (nx187)) ;
+    mux21_ni ix111 (.Y (C[13]), .A0 (A[13]), .A1 (B[13]), .S0 (nx187)) ;
+    mux21_ni ix119 (.Y (C[14]), .A0 (A[14]), .A1 (B[14]), .S0 (nx187)) ;
+    ao22 reg_C_7 (.Y (C[7]), .A0 (A[7]), .A1 (nx173), .B0 (B[7]), .B1 (nx187)) ;
+    ao22 reg_C_0 (.Y (C[0]), .A0 (A[0]), .A1 (nx173), .B0 (B[0]), .B1 (nx189)) ;
+    inv02 reg_nx173 (.Y (nx173), .A (S)) ;
+    ao22 reg_C_15 (.Y (C[15]), .A0 (A[15]), .A1 (nx173), .B0 (B[15]), .B1 (nx189
+         )) ;
+    inv02 ix184 (.Y (nx185), .A (nx173)) ;
+    inv02 ix186 (.Y (nx187), .A (nx173)) ;
+    inv02 ix188 (.Y (nx189), .A (nx173)) ;
 endmodule
 
 
