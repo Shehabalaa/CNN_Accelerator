@@ -1,0 +1,890 @@
+LeonardoSpectrum Level 3 - 2018a.2 (Release Production Release, compiled Nov  1 2018 at 10:14:57)
+Copyright 1990-2018 Mentor Graphics.  All rights reserved.
+Portions copyright 1991-2018 Compuware Corporation
+
+Session history will be logged to file '/home/ayman/Desktop/CNN_Accelerator/calibre/leospec.his'
+--
+-- Welcome to LeonardoSpectrum Level 3
+-- Run Started On Sat May 11 21:06:26 EET 2019
+--
+# load_library tsmc035_typReading library file `/home/ayman/mgc/LeonardoSpectrum/lib/tsmc035_typ.syn`...
+Library version = 3.0 Release : Patch (a) : 09/13/04
+Delays assume: Process=typical Temp= 27.0 C  Voltage=3.30 V  
+Info: setting encoding to auto
+Info, Command 'load_library' finished successfully# read -technology "tsmc035_typ"  { # 	./IOChip.vhd# 	./CNNRam.vhd# 	./ImageRam.vhd# 	./IODFF.vhd# 	./DFFZ.vhd# 	./CNNWithRAM.vhd# 	./FcMain.vhd# 	./Accelerator.vhd# # }-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/standard.vhd for unit standard
+-- Loading package standard into library std
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 3: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 4: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 5: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 6: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 7: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 8: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 9: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 10: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 11: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 12: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 13: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 14: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 15: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 16: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 17: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 18: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 19: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 20: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 21: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 22: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 23: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 24: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 25: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 26: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 27: -- Sorry, too many errors
+Error, std_logic is not a known type.
+Error in file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd.
+-- Error found in VHDL source
+near /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl(14): 
+# load_library tsmc035_typInfo, Library tsmc035_typ is already loaded. Setting it as target
+Info: setting encoding to auto
+Info, Command 'load_library' finished successfully# read -technology "tsmc035_typ"  { # 	./IOChip.vhd# 	./CNNRam.vhd# 	./ImageRam.vhd# 	./IODFF.vhd# 	./DFFZ.vhd# 	./CNNWithRAM.vhd# 	./FcMain.vhd# 	./Accelerator.vhd# # }-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 3: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 4: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 5: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 6: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 7: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 8: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 9: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 10: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 11: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 12: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 13: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 14: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 15: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 16: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 17: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 18: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 19: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 20: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 21: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 22: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 23: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 24: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 25: Error, std_logic_vector is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 26: Error, std_logic is not a known type.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 27: -- Sorry, too many errors
+Error, std_logic is not a known type.
+Error in file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd.
+-- Error found in VHDL source
+near /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl(14): 
+# load_library tsmc035_typInfo, Library tsmc035_typ is already loaded. Setting it as target
+Info: setting encoding to auto
+Info, Command 'load_library' finished successfully# read -technology "tsmc035_typ"  { # 	./IOChip.vhd# 	./CNNRam.vhd# 	./ImageRam.vhd# 	./IODFF.vhd# 	./DFFZ.vhd# 	./CNNWithRAM.vhd# 	./FcMain.vhd# 	./Accelerator.vhd# # }-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd into library work
+-- Reading file /home/ayman/mgc/LeonardoSpectrum/data/std_1164.vhd for unit STD_LOGIC_1164
+-- Loading package std_logic_1164 into library IEEE
+-- Loading entity IOChip into library work
+-- Loading architecture IOChipArch of IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 6: Warning, input din is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 9: Warning, input imageOrCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 10: Warning, input INTR is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 11: Warning, input load is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 12: Warning, input processing is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 13: Warning, output doneWithPhase is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 14: Warning, output busy is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 15: Warning, input doneDMAFC is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 16: Warning, input doneDMACNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 17: Warning, input doneDMAImage is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 18: Warning, inout imgRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 19: Warning, inout CNNRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 20: Warning, inout FCRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 21: Warning, output imageDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 22: Warning, output imageDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 23: Warning, output CNNDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 24: Warning, output CNNDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 25: Warning, output FCDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 26: Warning, output FCDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 27: Warning, output result is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 28: Warning, input FCResult is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 29: Warning, input FCDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 30: Warning, inout toCNN is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 31: Warning, output toFC is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd into library work
+-- Loading entity CNNRam into library work
+-- Loading architecture RAMArch of CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 6: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 7: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 8: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 9: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 10: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 11: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 12: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 13: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 14: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 15: Warning, output MFCWriteOut is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd into library work
+-- Loading entity ImageRam into library work
+-- Loading architecture RAMArch of ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 8: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 9: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 10: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 11: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 12: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 13: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 14: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 15: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 16: Warning, output MFCWriteOut is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd into library work
+-- Loading entity IODFF into library work
+-- Loading architecture IODFFArch of IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 9: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 10: Warning, output Q is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd into library work
+-- Loading entity DFFZ into library work
+-- Loading architecture DFFZArch of DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 8: Warning, output Q is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd into library work
+-- Loading entity CNNModule_8_16_5_5_3_12_13 into library work
+-- Loading architecture CNNModuleArch of CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 6: Warning, input startCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 9: Warning, input weightsRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 10: Warning, input windowRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 11: Warning, input MFCWindowRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 12: Warning, input MFCWeightsRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 13: Warning, input MFCWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 14: Warning, output weightsRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 15: Warning, output windowRamAddressRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 16: Warning, output windowRamAddressWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 17: Warning, output weightsRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 18: Warning, output windowRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 19: Warning, output windowRamWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 20: Warning, output windowRamDataOutBus is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 21: Warning, output finishNetwork is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd into library work
+-- Loading entity FcMain into library work
+-- Loading architecture FcMainArch of FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 7: Warning, input cnnDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 7: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 8: Warning, output fcDone is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd into library work
+-- Loading entity Accelerator into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 66: Warning, FCRam is not declared in library work.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 66: Error, expected 0 actuals while 3 are given.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 67: Error, expected 0 actuals while 10 are given.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal doneDMAFC is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal doneDMACNN is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal doneDMAImage is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal high is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal low is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 23: Warning, signal FCRamDin is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 24: Warning, signal FCRamDout is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 25: Warning, signal FCRamAddress is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 28: Warning, signal CNNReadRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 29: Warning, signal imgReadRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 30: Warning, signal finishRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 30: Warning, signal finishRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 31: Warning, signal doneDMACNNOld is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 31: Warning, signal doneDMAFCOld is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 31: Warning, signal doneDMAFCOld is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 32: Warning, signal weightsRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 32: Warning, signal windowRamWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 32: Warning, signal windowRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 32: Warning, signal finishNetwork is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 33: Warning, signal readRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 33: Warning, signal readRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 33: Warning, signal readRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 34: Warning, signal windowRamDataOutBus is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 35: Warning, signal windowRamAddressWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 37: Warning, signal defaultAddressNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 37: Warning, signal defaultAddressNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 38: Warning, signal dmaAddRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 40: Warning, signal dmaAddRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 40: Warning, signal dmaAddRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 12: Warning, inout FCResult is used as input only.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 13: Warning, inout ChipDone is used as input only.
+Error in file /home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd.
+-- Error found in VHDL source
+near /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl(14): 
+# load_library tsmc035_typInfo, Library tsmc035_typ is already loaded. Setting it as target
+Info: setting encoding to auto
+Info, Command 'load_library' finished successfully# read -technology "tsmc035_typ"  { # 	./IOChip.vhd# 	./CNNRam.vhd# 	./ImageRam.vhd# 	./IODFF.vhd# 	./DFFZ.vhd# 	./CNNWithRAM.vhd# 	./FcMain.vhd# 	./Accelerator.vhd# # }-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd into library work
+-- Loading entity IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 4: Warning, replacing IOChip in HDL library work.
+-- Loading architecture IOChipArch of IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 6: Warning, input din is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 9: Warning, input imageOrCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 10: Warning, input INTR is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 11: Warning, input load is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 12: Warning, input processing is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 13: Warning, output doneWithPhase is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 14: Warning, output busy is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 15: Warning, input doneDMAFC is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 16: Warning, input doneDMACNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 17: Warning, input doneDMAImage is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 18: Warning, inout imgRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 19: Warning, inout CNNRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 20: Warning, inout FCRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 21: Warning, output imageDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 22: Warning, output imageDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 23: Warning, output CNNDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 24: Warning, output CNNDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 25: Warning, output FCDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 26: Warning, output FCDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 27: Warning, output result is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 28: Warning, input FCResult is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 29: Warning, input FCDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 30: Warning, inout toCNN is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 31: Warning, output toFC is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 34: Warning, replacing IOChipArch of entity IOChip.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd into library work
+-- Loading entity CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 4: Warning, replacing CNNRam in HDL library work.
+-- Loading architecture RAMArch of CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 6: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 7: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 8: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 9: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 10: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 11: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 12: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 13: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 14: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 15: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 18: Warning, replacing RAMArch of entity CNNRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd into library work
+-- Loading entity ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 5: Warning, replacing ImageRam in HDL library work.
+-- Loading architecture RAMArch of ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 8: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 9: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 10: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 11: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 12: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 13: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 14: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 15: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 16: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 19: Warning, replacing RAMArch of entity ImageRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd into library work
+-- Loading entity IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 4: Warning, replacing IODFF in HDL library work.
+-- Loading architecture IODFFArch of IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 9: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 10: Warning, output Q is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 13: Warning, replacing IODFFArch of entity IODFF.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd into library work
+-- Loading entity DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 4: Warning, replacing DFFZ in HDL library work.
+-- Loading architecture DFFZArch of DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 8: Warning, output Q is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 12: Warning, replacing DFFZArch of entity DFFZ.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd into library work
+-- Loading entity CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 4: Warning, replacing CNNModule_8_16_5_5_3_12_13 in HDL library work.
+-- Loading architecture CNNModuleArch of CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 6: Warning, input startCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 9: Warning, input weightsRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 10: Warning, input windowRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 11: Warning, input MFCWindowRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 12: Warning, input MFCWeightsRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 13: Warning, input MFCWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 14: Warning, output weightsRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 15: Warning, output windowRamAddressRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 16: Warning, output windowRamAddressWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 17: Warning, output weightsRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 18: Warning, output windowRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 19: Warning, output windowRamWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 20: Warning, output windowRamDataOutBus is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 21: Warning, output finishNetwork is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 24: Warning, replacing CNNModuleArch of entity CNNModule_8_16_5_5_3_12_13.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd into library work
+-- Loading entity FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 5: Warning, replacing FcMain in HDL library work.
+-- Loading architecture FcMainArch of FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input cnnDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input ioDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 15: Warning, input defaultAddressNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 16: Warning, output dmaAddRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 17: Warning, output readRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 18: Warning, input finishRamNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 19: Warning, input dataOutRamNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 23: Warning, output dmaAddRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 24: Warning, output readRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 25: Warning, input finishRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 26: Warning, input dataOutRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 29: Warning, output fcDone is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 30: Warning, output MAXPrediction is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 38: Warning, replacing FcMainArch of entity FcMain.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd into library work
+-- Loading entity Accelerator into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 5: Warning, replacing Accelerator in HDL library work.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 66: Warning, FCRam is not declared in library work.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 66: Error, expected 0 actuals while 3 are given.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 67: Error, expected 0 actuals while 10 are given.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal doneDMAFC is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal doneDMACNN is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal doneDMAImage is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal high is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal low is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 23: Warning, signal FCRamDin is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 24: Warning, signal FCRamDout is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 25: Warning, signal FCRamAddress is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 28: Warning, signal CNNReadRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 29: Warning, signal imgReadRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 30: Warning, signal finishRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 30: Warning, signal finishRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 31: Warning, signal doneDMACNNOld is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 31: Warning, signal doneDMAFCOld is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 31: Warning, signal doneDMAFCOld is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 32: Warning, signal weightsRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 32: Warning, signal windowRamWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 32: Warning, signal windowRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 32: Warning, signal finishNetwork is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 33: Warning, signal readRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 33: Warning, signal readRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 33: Warning, signal readRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 34: Warning, signal windowRamDataOutBus is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 35: Warning, signal windowRamAddressWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 37: Warning, signal defaultAddressNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 37: Warning, signal defaultAddressNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 38: Warning, signal dmaAddRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 40: Warning, signal dmaAddRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 40: Warning, signal dmaAddRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 12: Warning, inout FCResult is used as input only.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 13: Warning, inout ChipDone is used as input only.
+Error in file /home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd.
+-- Error found in VHDL source
+near /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl(14): 
+# load_library tsmc035_typInfo, Library tsmc035_typ is already loaded. Setting it as target
+Info: setting encoding to auto
+Info, Command 'load_library' finished successfully# read -technology "tsmc035_typ"  { # 	./IOChip.vhd# 	./CNNRam.vhd# 	./ImageRam.vhd# 	./IODFF.vhd# 	./DFFZ.vhd# 	./FCRam.vhd# 	./CNNWithRAM.vhd# 	./FcMain.vhd# 	./Accelerator.vhd# # }-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd into library work
+-- Loading entity IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 4: Warning, replacing IOChip in HDL library work.
+-- Loading architecture IOChipArch of IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 6: Warning, input din is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 9: Warning, input imageOrCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 10: Warning, input INTR is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 11: Warning, input load is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 12: Warning, input processing is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 13: Warning, output doneWithPhase is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 14: Warning, output busy is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 15: Warning, input doneDMAFC is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 16: Warning, input doneDMACNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 17: Warning, input doneDMAImage is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 18: Warning, inout imgRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 19: Warning, inout CNNRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 20: Warning, inout FCRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 21: Warning, output imageDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 22: Warning, output imageDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 23: Warning, output CNNDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 24: Warning, output CNNDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 25: Warning, output FCDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 26: Warning, output FCDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 27: Warning, output result is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 28: Warning, input FCResult is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 29: Warning, input FCDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 30: Warning, inout toCNN is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 31: Warning, output toFC is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 34: Warning, replacing IOChipArch of entity IOChip.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd into library work
+-- Loading entity CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 4: Warning, replacing CNNRam in HDL library work.
+-- Loading architecture RAMArch of CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 6: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 7: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 8: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 9: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 10: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 11: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 12: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 13: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 14: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 15: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 18: Warning, replacing RAMArch of entity CNNRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd into library work
+-- Loading entity ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 5: Warning, replacing ImageRam in HDL library work.
+-- Loading architecture RAMArch of ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 8: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 9: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 10: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 11: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 12: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 13: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 14: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 15: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 16: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 19: Warning, replacing RAMArch of entity ImageRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd into library work
+-- Loading entity IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 4: Warning, replacing IODFF in HDL library work.
+-- Loading architecture IODFFArch of IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 9: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 10: Warning, output Q is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 13: Warning, replacing IODFFArch of entity IODFF.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd into library work
+-- Loading entity DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 4: Warning, replacing DFFZ in HDL library work.
+-- Loading architecture DFFZArch of DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 8: Warning, output Q is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 12: Warning, replacing DFFZArch of entity DFFZ.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd into library work
+-- Loading entity FCRam into library work
+-- Loading architecture FCRamArch of FCRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 12: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 12: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 13: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 14: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 15: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 15: Warning, output MFCWriteOut is never assigned a value.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd into library work
+-- Loading entity CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 4: Warning, replacing CNNModule_8_16_5_5_3_12_13 in HDL library work.
+-- Loading architecture CNNModuleArch of CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 6: Warning, input startCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 9: Warning, input weightsRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 10: Warning, input windowRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 11: Warning, input MFCWindowRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 12: Warning, input MFCWeightsRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 13: Warning, input MFCWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 14: Warning, output weightsRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 15: Warning, output windowRamAddressRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 16: Warning, output windowRamAddressWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 17: Warning, output weightsRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 18: Warning, output windowRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 19: Warning, output windowRamWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 20: Warning, output windowRamDataOutBus is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 21: Warning, output finishNetwork is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 24: Warning, replacing CNNModuleArch of entity CNNModule_8_16_5_5_3_12_13.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd into library work
+-- Loading entity FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 5: Warning, replacing FcMain in HDL library work.
+-- Loading architecture FcMainArch of FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input cnnDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input ioDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 15: Warning, input defaultAddressNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 16: Warning, output dmaAddRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 17: Warning, output readRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 18: Warning, input finishRamNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 19: Warning, input dataOutRamNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 23: Warning, output dmaAddRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 24: Warning, output readRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 25: Warning, input finishRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 26: Warning, input dataOutRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 29: Warning, output fcDone is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 30: Warning, output MAXPrediction is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 38: Warning, replacing FcMainArch of entity FcMain.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd into library work
+-- Loading entity Accelerator into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 5: Warning, replacing Accelerator in HDL library work.
+-- Loading architecture AcceleratorArch of Accelerator into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal low is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 37: Warning, signal defaultAddressNeorons is never assigned a value.
+-- Compiling root entity Accelerator(AcceleratorArch)
+-- Compiling entity IOChip(IOChipArch)
+-- Compiling entity CNNRam(RAMArch)
+-- Compiling entity ImageRam(RAMArch)
+-- Compiling entity FCRam_16_80_400(FCRamArch)
+-- Compiling entity IODFF(IODFFArch)
+-- Compiling entity CNNModule_8_16_5_5_3_12_13(CNNModuleArch)
+-- Compiling entity FcMain_16_13(FcMainArch)
+Info, Command 'read' finished successfully# elaborate FcTest -architecture FcTestArch Error, 'FcTest' not found in HDL library 'work'
+near /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl(17): 
+# load_library tsmc035_typInfo, Library tsmc035_typ is already loaded. Setting it as target
+Info: setting encoding to auto
+Info, Command 'load_library' finished successfully# read -technology "tsmc035_typ"  { # 	./IOChip.vhd# 	./CNNRam.vhd# 	./ImageRam.vhd# 	./IODFF.vhd# 	./DFFZ.vhd# 	./FCRam.vhd# 	./CNNWithRAM.vhd# 	./FcMain.vhd# 	./Accelerator.vhd# # }-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd into library work
+-- Loading entity IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 4: Warning, replacing IOChip in HDL library work.
+-- Loading architecture IOChipArch of IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 6: Warning, input din is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 9: Warning, input imageOrCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 10: Warning, input INTR is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 11: Warning, input load is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 12: Warning, input processing is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 13: Warning, output doneWithPhase is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 14: Warning, output busy is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 15: Warning, input doneDMAFC is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 16: Warning, input doneDMACNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 17: Warning, input doneDMAImage is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 18: Warning, inout imgRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 19: Warning, inout CNNRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 20: Warning, inout FCRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 21: Warning, output imageDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 22: Warning, output imageDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 23: Warning, output CNNDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 24: Warning, output CNNDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 25: Warning, output FCDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 26: Warning, output FCDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 27: Warning, output result is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 28: Warning, input FCResult is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 29: Warning, input FCDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 30: Warning, inout toCNN is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 31: Warning, output toFC is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 34: Warning, replacing IOChipArch of entity IOChip.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd into library work
+-- Loading entity CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 4: Warning, replacing CNNRam in HDL library work.
+-- Loading architecture RAMArch of CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 6: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 7: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 8: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 9: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 10: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 11: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 12: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 13: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 14: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 15: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 18: Warning, replacing RAMArch of entity CNNRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd into library work
+-- Loading entity ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 5: Warning, replacing ImageRam in HDL library work.
+-- Loading architecture RAMArch of ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 8: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 9: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 10: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 11: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 12: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 13: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 14: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 15: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 16: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 19: Warning, replacing RAMArch of entity ImageRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd into library work
+-- Loading entity IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 4: Warning, replacing IODFF in HDL library work.
+-- Loading architecture IODFFArch of IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 9: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 10: Warning, output Q is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 13: Warning, replacing IODFFArch of entity IODFF.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd into library work
+-- Loading entity DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 4: Warning, replacing DFFZ in HDL library work.
+-- Loading architecture DFFZArch of DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 8: Warning, output Q is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 12: Warning, replacing DFFZArch of entity DFFZ.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd into library work
+-- Loading entity FCRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 4: Warning, replacing FCRam in HDL library work.
+-- Loading architecture FCRamArch of FCRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 12: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 12: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 13: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 14: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 15: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 15: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 19: Warning, replacing FCRamArch of entity FCRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd into library work
+-- Loading entity CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 4: Warning, replacing CNNModule_8_16_5_5_3_12_13 in HDL library work.
+-- Loading architecture CNNModuleArch of CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 6: Warning, input startCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 9: Warning, input weightsRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 10: Warning, input windowRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 11: Warning, input MFCWindowRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 12: Warning, input MFCWeightsRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 13: Warning, input MFCWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 14: Warning, output weightsRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 15: Warning, output windowRamAddressRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 16: Warning, output windowRamAddressWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 17: Warning, output weightsRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 18: Warning, output windowRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 19: Warning, output windowRamWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 20: Warning, output windowRamDataOutBus is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 21: Warning, output finishNetwork is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 24: Warning, replacing CNNModuleArch of entity CNNModule_8_16_5_5_3_12_13.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd into library work
+-- Loading entity FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 5: Warning, replacing FcMain in HDL library work.
+-- Loading architecture FcMainArch of FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input cnnDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input ioDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 15: Warning, input defaultAddressNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 16: Warning, output dmaAddRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 17: Warning, output readRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 18: Warning, input finishRamNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 19: Warning, input dataOutRamNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 23: Warning, output dmaAddRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 24: Warning, output readRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 25: Warning, input finishRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 26: Warning, input dataOutRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 29: Warning, output fcDone is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 30: Warning, output MAXPrediction is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 38: Warning, replacing FcMainArch of entity FcMain.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd into library work
+-- Loading entity Accelerator into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 5: Warning, replacing Accelerator in HDL library work.
+-- Loading architecture AcceleratorArch of Accelerator into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal low is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 37: Warning, signal defaultAddressNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 18: Warning, replacing AcceleratorArch of entity Accelerator.
+-- Compiling root entity Accelerator(AcceleratorArch)
+-- Compiling entity IOChip(IOChipArch)
+-- Info, replacing IOChip(IOChipArch)
+-- Compiling entity CNNRam(RAMArch)
+-- Info, replacing CNNRam(RAMArch)
+-- Compiling entity ImageRam(RAMArch)
+-- Info, replacing ImageRam(RAMArch)
+-- Compiling entity FCRam_16_80_400(FCRamArch)
+-- Info, replacing FCRam_16_80_400(FCRamArch)
+-- Compiling entity IODFF(IODFFArch)
+-- Info, replacing IODFF(IODFFArch)
+-- Compiling entity CNNModule_8_16_5_5_3_12_13(CNNModuleArch)
+-- Info, replacing CNNModule_8_16_5_5_3_12_13(CNNModuleArch)
+-- Compiling entity FcMain_16_13(FcMainArch)
+-- Info, replacing FcMain_16_13(FcMainArch)
+-- Info, replacing Accelerator(AcceleratorArch)
+Info, Command 'read' finished successfully# elaborate FcTest -architecture FcTestArch Error, 'FcTest' not found in HDL library 'work'
+near /home/ayman/Desktop/CNN_Accelerator/calibre/script.tcl(17): 
+# load_library tsmc035_typInfo, Library tsmc035_typ is already loaded. Setting it as target
+Info: setting encoding to auto
+Info, Command 'load_library' finished successfully# read -technology "tsmc035_typ"  { # 	./IOChip.vhd# 	./CNNRam.vhd# 	./ImageRam.vhd# 	./IODFF.vhd# 	./DFFZ.vhd# 	./FCRam.vhd# 	./CNNWithRAM.vhd# 	./FcMain.vhd# 	./Accelerator.vhd# # }-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd into library work
+-- Loading entity IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 4: Warning, replacing IOChip in HDL library work.
+-- Loading architecture IOChipArch of IOChip into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 6: Warning, input din is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 9: Warning, input imageOrCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 10: Warning, input INTR is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 11: Warning, input load is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 12: Warning, input processing is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 13: Warning, output doneWithPhase is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 14: Warning, output busy is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 15: Warning, input doneDMAFC is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 16: Warning, input doneDMACNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 17: Warning, input doneDMAImage is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 18: Warning, inout imgRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 19: Warning, inout CNNRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 20: Warning, inout FCRamWrite is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 21: Warning, output imageDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 22: Warning, output imageDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 23: Warning, output CNNDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 24: Warning, output CNNDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 25: Warning, output FCDMAAddressOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 26: Warning, output FCDMADataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 27: Warning, output result is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 28: Warning, input FCResult is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 29: Warning, input FCDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 30: Warning, inout toCNN is never used or assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 31: Warning, output toFC is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IOChip.vhd",line 34: Warning, replacing IOChipArch of entity IOChip.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd into library work
+-- Loading entity CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 4: Warning, replacing CNNRam in HDL library work.
+-- Loading architecture RAMArch of CNNRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 6: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 7: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 8: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 9: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 10: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 11: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 12: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 13: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 14: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 15: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNRam.vhd",line 18: Warning, replacing RAMArch of entity CNNRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd into library work
+-- Loading entity ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 5: Warning, replacing ImageRam in HDL library work.
+-- Loading architecture RAMArch of ImageRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 8: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 9: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 10: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 11: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 12: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 13: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 14: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 15: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 16: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./ImageRam.vhd",line 19: Warning, replacing RAMArch of entity ImageRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd into library work
+-- Loading entity IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 4: Warning, replacing IODFF in HDL library work.
+-- Loading architecture IODFFArch of IODFF into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 9: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 10: Warning, output Q is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./IODFF.vhd",line 13: Warning, replacing IODFFArch of entity IODFF.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd into library work
+-- Loading entity DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 4: Warning, replacing DFFZ in HDL library work.
+-- Loading architecture DFFZArch of DFFZ into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 6: Warning, input D is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 7: Warning, input en is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 8: Warning, output Q is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./DFFZ.vhd",line 12: Warning, replacing DFFZArch of entity DFFZ.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd into library work
+-- Loading entity FCRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 4: Warning, replacing FCRam in HDL library work.
+-- Loading architecture FCRamArch of FCRam into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input rd is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input we is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 11: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 12: Warning, input addressRead is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 12: Warning, input addressWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 13: Warning, input dataIn is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 14: Warning, output dataOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 15: Warning, output MFCReadOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 15: Warning, output MFCWriteOut is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FCRam.vhd",line 19: Warning, replacing FCRamArch of entity FCRam.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd into library work
+-- Loading entity CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 4: Warning, replacing CNNModule_8_16_5_5_3_12_13 in HDL library work.
+-- Loading architecture CNNModuleArch of CNNModule_8_16_5_5_3_12_13 into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 6: Warning, input startCNN is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 7: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 8: Warning, input rst is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 9: Warning, input weightsRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 10: Warning, input windowRamDataInBus is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 11: Warning, input MFCWindowRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 12: Warning, input MFCWeightsRam is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 13: Warning, input MFCWrite is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 14: Warning, output weightsRamAddress is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 15: Warning, output windowRamAddressRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 16: Warning, output windowRamAddressWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 17: Warning, output weightsRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 18: Warning, output windowRamRead is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 19: Warning, output windowRamWrite is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 20: Warning, output windowRamDataOutBus is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 21: Warning, output finishNetwork is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./CNNWithRAM.vhd",line 24: Warning, replacing CNNModuleArch of entity CNNModule_8_16_5_5_3_12_13.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd into library work
+-- Loading entity FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 5: Warning, replacing FcMain in HDL library work.
+-- Loading architecture FcMainArch of FcMain into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input cnnDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input ioDone is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input clk is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 12: Warning, input reset is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 15: Warning, input defaultAddressNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 16: Warning, output dmaAddRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 17: Warning, output readRamNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 18: Warning, input finishRamNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 19: Warning, input dataOutRamNeorons is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 23: Warning, output dmaAddRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 24: Warning, output readRamWeights is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 25: Warning, input finishRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 26: Warning, input dataOutRamWeights is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 29: Warning, output fcDone is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 30: Warning, output MAXPrediction is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./FcMain.vhd",line 38: Warning, replacing FcMainArch of entity FcMain.
+-- Reading vhdl file /home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd into library work
+-- Loading entity Accelerator into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 5: Warning, replacing Accelerator in HDL library work.
+-- Loading architecture AcceleratorArch of Accelerator into library work
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 19: Warning, signal low is never used.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 37: Warning, signal defaultAddressNeorons is never assigned a value.
+"/home/ayman/Desktop/CNN_Accelerator/calibre/./Accelerator.vhd",line 18: Warning, replacing AcceleratorArch of entity Accelerator.
+-- Compiling root entity Accelerator(AcceleratorArch)
+-- Compiling entity IOChip(IOChipArch)
+-- Info, replacing IOChip(IOChipArch)
+-- Compiling entity CNNRam(RAMArch)
+-- Info, replacing CNNRam(RAMArch)
+-- Compiling entity ImageRam(RAMArch)
+-- Info, replacing ImageRam(RAMArch)
+-- Compiling entity FCRam_16_80_400(FCRamArch)
+-- Info, replacing FCRam_16_80_400(FCRamArch)
+-- Compiling entity IODFF(IODFFArch)
+-- Info, replacing IODFF(IODFFArch)
+-- Compiling entity CNNModule_8_16_5_5_3_12_13(CNNModuleArch)
+-- Info, replacing CNNModule_8_16_5_5_3_12_13(CNNModuleArch)
+-- Compiling entity FcMain_16_13(FcMainArch)
+-- Info, replacing FcMain_16_13(FcMainArch)
+-- Info, replacing Accelerator(AcceleratorArch)
+Info, Command 'read' finished successfully{Package .std.standard} {Entity .work.IOChip} {Entity .work.CNNRam} {Entity .work.ImageRam} {Entity .work.IODFF} {Entity .work.DFFZ} {Entity .work.FCRam} {Entity .work.CNNModule_8_16_5_5_3_12_13} {Entity .work.FcMain} {Entity .work.Accelerator} {Package .IEEE.std_logic_1164}
+{Architecture .work.IOChip.IOChipArch} {Architecture .work.CNNRam.RAMArch} {Architecture .work.ImageRam.RAMArch} {Architecture .work.IODFF.IODFFArch} {Architecture .work.DFFZ.DFFZArch} {Architecture .work.FCRam.FCRamArch} {Architecture .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch} {Architecture .work.FcMain.FcMainArch} {Architecture .work.Accelerator.AcceleratorArch}
+{Package .std.standard} {Entity .work.IOChip} {Entity .work.CNNRam} {Entity .work.ImageRam} {Entity .work.IODFF} {Entity .work.DFFZ} {Entity .work.FCRam} {Entity .work.CNNModule_8_16_5_5_3_12_13} {Entity .work.FcMain} {Entity .work.Accelerator} {Package .IEEE.std_logic_1164}
+{Architecture .work.IOChip.IOChipArch} {Architecture .work.CNNRam.RAMArch} {Architecture .work.ImageRam.RAMArch} {Architecture .work.IODFF.IODFFArch} {Architecture .work.DFFZ.DFFZArch} {Architecture .work.FCRam.FCRamArch} {Architecture .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch} {Architecture .work.FcMain.FcMainArch} {Architecture .work.Accelerator.AcceleratorArch}
+{Package .std.standard} {Entity .work.IOChip} {Entity .work.CNNRam} {Entity .work.ImageRam} {Entity .work.IODFF} {Entity .work.DFFZ} {Entity .work.FCRam} {Entity .work.CNNModule_8_16_5_5_3_12_13} {Entity .work.FcMain} {Entity .work.Accelerator} {Package .IEEE.std_logic_1164}
+-- Compiling root entity Accelerator(AcceleratorArch)
+-- Compiling entity IOChip(IOChipArch)
+-- Info, replacing IOChip(IOChipArch)
+-- Compiling entity CNNRam(RAMArch)
+-- Info, replacing CNNRam(RAMArch)
+-- Compiling entity ImageRam(RAMArch)
+-- Info, replacing ImageRam(RAMArch)
+-- Compiling entity FCRam_16_80_400(FCRamArch)
+-- Info, replacing FCRam_16_80_400(FCRamArch)
+-- Compiling entity IODFF(IODFFArch)
+-- Info, replacing IODFF(IODFFArch)
+-- Compiling entity CNNModule_8_16_5_5_3_12_13(CNNModuleArch)
+-- Info, replacing CNNModule_8_16_5_5_3_12_13(CNNModuleArch)
+-- Compiling entity FcMain_16_13(FcMainArch)
+-- Info, replacing FcMain_16_13(FcMainArch)
+-- Info, replacing Accelerator(AcceleratorArch)
+Info, Command 'elaborate' finished successfully
+{Package .std.standard} {Entity .work.IOChip} {Entity .work.CNNRam} {Entity .work.ImageRam} {Entity .work.IODFF} {Entity .work.DFFZ} {Entity .work.FCRam} {Entity .work.CNNModule_8_16_5_5_3_12_13} {Entity .work.FcMain} {Entity .work.Accelerator} {Package .IEEE.std_logic_1164}
+{Architecture .work.IOChip.IOChipArch} {Architecture .work.CNNRam.RAMArch} {Architecture .work.ImageRam.RAMArch} {Architecture .work.IODFF.IODFFArch} {Architecture .work.DFFZ.DFFZArch} {Architecture .work.FCRam.FCRamArch} {Architecture .work.CNNModule_8_16_5_5_3_12_13.CNNModuleArch} {Architecture .work.FcMain.FcMainArch} {Architecture .work.Accelerator.AcceleratorArch}
+{Package .std.standard} {Entity .work.IOChip} {Entity .work.CNNRam} {Entity .work.ImageRam} {Entity .work.IODFF} {Entity .work.DFFZ} {Entity .work.FCRam} {Entity .work.CNNModule_8_16_5_5_3_12_13} {Entity .work.FcMain} {Entity .work.Accelerator} {Package .IEEE.std_logic_1164}
+Info: setting novendor_constraint_file to FALSE
+FALSE
+AutoWrite args are : -format Verilog AcceleratorIntegrate.v
+-- Writing file AcceleratorIntegrate.v
+Info, Command 'auto_write' finished successfully
