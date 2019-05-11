@@ -51,9 +51,9 @@ begin
     test <= "00"&"11";
     nclk <= not clk;
     ------------------------------
-    RAMWEIGHTS: ENTITY work.RAM2 GENERIC MAP(RamWeightAddressSize,80,400) PORT MAP(clk,readRamWeights,'0',reset,dmaAddRamWeights,(15 downto 0 =>'0'),(79 downto 0 =>'0'),dataOutRamWeights,finishRamWeights);
+    RAMWEIGHTS: ENTITY work.RAM2 GENERIC MAP(RamWeightAddressSize,80,400) PORT MAP(nclk,readRamWeights,'0',reset,dmaAddRamWeights,(15 downto 0 =>'0'),(79 downto 0 =>'0'),dataOutRamWeights,finishRamWeights);
 
-    RAMNEORONS: ENTITY work.RAM2 GENERIC MAP(RamNeoronAddressSize,16) PORT MAP(clk,readRamNeorons,'0',reset,dmaAddRamNeorons,(12 downto 0 =>'0'),(15 downto 0 =>'0'),dataOutRamNeorons,finishRamNeorons);
+    RAMNEORONS: ENTITY work.RAM2 GENERIC MAP(RamNeoronAddressSize,16) PORT MAP(nclk,readRamNeorons,'0',reset,dmaAddRamNeorons,(12 downto 0 =>'0'),(15 downto 0 =>'0'),dataOutRamNeorons,finishRamNeorons);
     ------------------------------------
 
     --finishRamNeorons <= delayOutputNeorons(RAMDELAY);
