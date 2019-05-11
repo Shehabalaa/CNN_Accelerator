@@ -22,7 +22,7 @@ ARCHITECTURE FcTestArch OF FcTest IS
     CONSTANT RAMDELAY : INTEGER := 1;
     CONSTANT RAMADDRESS : INTEGER := 16;
 
-    signal dmaAddRamNeorons :  STD_LOGIC_VECTOR(16-1 downto 0);   -- ram address bits
+    signal dmaAddRamNeorons,default :  STD_LOGIC_VECTOR(16-1 downto 0);   -- ram address bits
     signal readRamNeorons : STD_LOGIC;
     signal finishRamNeorons: std_logic;
     signal dataOutRamNeorons: STD_LOGIC_VECTOR(79 downto 0);
@@ -33,32 +33,36 @@ ARCHITECTURE FcTestArch OF FcTest IS
     signal dataOutRamWeights: STD_LOGIC_VECTOR(79 downto 0);   
 
       -- signal declaration
-    SIGNAL delayOutput : STD_LOGIC_VECTOR (delayCounter+1 DOWNTO 0);
-    SIGNAL enableDelayCounter,resetDelayCounter : STD_LOGIC ;
-    SIGNAL addReg : STD_LOGIC_VECTOR(addressBits-1 DOWNTO 0);
+    SIGNAL delayOutputNeorons,delayOutputWeights : STD_LOGIC_VECTOR (RAMDELAY+1 DOWNTO 0);
+    signal resetDelayCounterNeorons,resetDelayCounterWeights: std_logic;
+
+    signal nclk:std_LOGIC;
+
 
 begin
-    FCENT: entity work.FcMain port map(cnnDone,ioDone,clk,reset,
-    dmaAddRamNeorons,readRamNeorons,finishRamNeorons,finishRamNeorons,
-    dmaAddRamWeights,readRamWeights,finishRamWeights,dataOutRamWeights
-    fcDone,MAXPrediction
-    );
+
+    default <= (others => '0');
+    nclk <= not clk;
+    FCENT: entity work.FcMain GENERIC MAP(16,16) port map(cnnDone,ioDone,clk,reset,
+    default,dmaAddRamNeorons,readRamNeorons,finishRamNeorons,dataOutRamNeorons,
+    dmaAddRamWeights,readRamWeights,finishRamWeights,dataOutRamWeights,
+    fcDone,MAXPrediction);
 
     ------------------------------
-    RAMWEIGHTS: ENTITY work.RAM GENERIC MAP(RAMADDRESS,RamWeigthsWIDTH) PORT MAP(clk,'0',dmaAddRamWeights,(79 downto 0 =>'0'),dataOutRamWeights);
+    RAMWEIGHTS: ENTITY work.RAM GENERIC MAP(16,80) PORT MAP(clk,'0',dmaAddRamWeights,(79 downto 0 =>'0'),dataOutRamWeights);
 
-    RAMNEORONS: ENTITY work.RAM GENERIC MAP(RAMADDRESS,RamNeoronsWIDTH) PORT MAP(clk,'0' ,dmaAddRamNeorons,(79 downto 0 =>'0'),dataOutRamNeorons);
+    RAMNEORONS: ENTITY work.RAM GENERIC MAP(16,80) PORT MAP(clk,'0' ,dmaAddRamNeorons,(79 downto 0 =>'0'),dataOutRamNeorons);
     ------------------------------------
 
-    readRamNeorons <= readSignal;
-    readRamWeights <= readSignal;
-    finishRamNeorons <= finishSignal;
-    finishRamWeights <= finishSignal;
+    finishRamNeorons <= delayOutputNeorons(RAMDELAY);
+    resetDelayCounterNeorons <= delayOutputNeorons(RAMDELAY) or  reset;
+    DELAYNEORONS: ENTITY work.ShiftRegSynRst GENERIC MAP(RAMDELAY+1) PORT MAP(delayOutputNeorons,clk,readRamNeorons,resetDelayCounterNeorons);
+	------------------------------
 
-    -- signal initialization
-    finishSignal <= delayOutput(delayCounter);
-    resetDelayCounter <= delayOutput(delayCounter) or  reset;
-    DELAYCOUNTERMAP: ENTITY work.ShiftRegSynRst GENERIC MAP(delayCounter+1) PORT MAP(delayOutput,clk,readSignal,resetDelayCounter);
+    finishRamWeights <= delayOutputWeights(RAMDELAY);
+    resetDelayCounterWeights <= delayOutputWeights(RAMDELAY) or  reset;
+    DELAYWeights: ENTITY work.ShiftRegSynRst GENERIC MAP(RAMDELAY+1) PORT MAP(delayOutputWeights,clk,readRamWeights,resetDelayCounterWeights);
+	------------------------------
 
 
             
