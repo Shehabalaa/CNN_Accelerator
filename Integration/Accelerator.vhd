@@ -29,7 +29,8 @@ SIGNAL CNNReadRamAddress: std_logic_vector(11 DOWNTO 0);
 SIGNAL imgReadRamAddress: std_logic_vector(12 DOWNTO 0);
 SIGNAL CNNReadMFC, ImageReadMFC, finishRamWeights: std_logic;
 SIGNAL doneDMAImageOld, notClk, doneDMACNNOld, doneDMAFCOld, 
-			 weightsRamRead, windowRamWrite, windowRamRead, finishNetwork, finalImgRead: std_logic;
+			 weightsRamRead, windowRamWrite, windowRamRead, finishNetwork, finalImgRead, 
+			 finishNetworkLatched, CNNDoneLatchInput: std_logic;
 SIGNAL finalImgRamWrite, readRamNeorons, readRamWeights: std_logic;
 SIGNAL windowRamDataOutBus, finalImgRamDin: std_logic_vector(15 DOWNTO 0);
 SIGNAL windowRamAddressWrite: std_logic_vector(12 DOWNTO 0);
@@ -69,6 +70,8 @@ BEGIN
 	imageMFCLatch: Entity work.IODFF PORT MAP(doneDMAImageOld, notClk, rst, high, doneDMAImage);
 	CNNMFCLatch: Entity work.IODFF PORT MAP(doneDMACNNOld, notClk, rst, high, doneDMACNN);
 	FCMFCLatch: Entity work.IODFF PORT MAP(doneDMAFCOld, notClk, rst, high, doneDMAFC);
+	CNNDoneLatchInput <= finishNetworkLatched OR finishNetwork;
+	CNNDoneLatch: Entity work.IODFF PORT MAP(CNNDoneLatchInput, notClk, rst, high, finishNetworkLatched);
 
 	CNNModule: Entity work.CNNModule_8_16_5_5_3_12_13 
 			 PORT MAP(startCNN => toCNN, clk => clk, rst => rst, weightsRamDataInBus => CNNRamDout, 
@@ -78,7 +81,7 @@ BEGIN
 			 windowRamWrite => windowRamWrite, windowRamDataOutBus => windowRamDataOutBus, finishNetwork => finishNetwork);
 
 	FCENT: Entity work.FcMain 
-				 PORT MAP(cnnDone => finishNetwork, ioDone => toFC, clk => notClk, reset => rst, 
+				 PORT MAP(cnnDone => finishNetworkLatched, ioDone => toFC, clk => notClk, reset => rst, 
 				 defaultAddressNeorons => defaultAddressNeorons, dmaAddRamNeorons => dmaAddRamNeorons, 
 				 readRamNeorons => readRamNeorons, finishRamNeorons => ImageReadMFC, dataOutRamNeorons => imgRamDout,
 				 dmaAddRamWeights => dmaAddRamWeights, readRamWeights => readRamWeights, finishRamWeights => finishRamWeights,
