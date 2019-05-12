@@ -18,8 +18,12 @@ def changeEntities():
                     if (all([s in line for s in ["port","map"]])):
                         for e in entites:
                             arr = line.split(':')
-                            arr[1] = arr[1].replace(e+' ',e+add +' ')
-                            line = ':'.join(arr)
+                            try:
+                                arr[1] = arr[1].replace(e+' ',e+add +' ')
+                                line = ':'.join(arr)
+                            except:
+                                line = arr[0].replace(e+' ',e+add +' ')
+
                     elif(all([s in line for s in ["end"]])):
                         for e in entites:
                             line = line.replace(' '+e+';',' '+e+add +';')
@@ -53,7 +57,7 @@ def changeArchs():
 # r=root, d=directories, f = files
 for r, _, files in os.walk("./"):
     if(r == "./"+sys.argv[1]):
-        # toWrite = changeEntities()
+        toWrite = changeEntities()
         changeArchs()
 
         # with open('script.tcl','rw+') as ff:

@@ -11,7 +11,7 @@ read -technology "tsmc035_typ"  {
     "Counter2.vhd"
     "Counter.vhd"
     "TriState.vhd"
-    "ShiftRegister.vhd"
+    "ShiftReg.vhd"
     "ALUs/BoothStep.vhd"
     "Types.vhd"
     "Mux.vhd"
