@@ -1,5 +1,4 @@
 load_library tsmc035_typ
-set_working_dir /home/ayman/Desktop/CNN_Accelerator-IO//IO/leonardoScritpts
 read -technology "tsmc035_typ" {
     
    ./IO/changed/Mux2.vhd
