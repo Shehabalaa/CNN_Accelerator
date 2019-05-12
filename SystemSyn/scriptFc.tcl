@@ -4,7 +4,6 @@ load_library tsmc035_typ
 read -technology "tsmc035_typ"  { 
 
 ./Utiles.vhd
-
 ./FC/changed/Decoder.vhd
 ./FC/changed/FlibFlob.vhd
 ./FC/changed/FullAdder.vhd
