@@ -41,4 +41,4 @@ else zeros when rst = '1'
 else datain;
 
 
-end inversemuxioarch;rchitecture;
+end inversemuxioarch;

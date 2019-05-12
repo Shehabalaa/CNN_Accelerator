@@ -1,28 +1,28 @@
 load_library tsmc035_typ
 read -technology "tsmc035_typ" {
     
-   ./IO/changed/Mux2.vhd
-   ./IO/changed/Reg.vhd
-   ./IO/changed/FullAdder.vhd
-   ./IO/changed/FullSubtractor.vhd
-   ./IO/changed/InverseMux.vhd
-   ./IO/changed/NBitAdder.vhd
-   ./IO/changed/NBitSubtractor.vhd
-   ./IO/changed/IOCounter.vhd
-   ./IO/changed/IOCounter2.vhd
-   ./IO/changed/IOCounter5.vhd
-   ./IO/changed/IODFF.vhd
-   ./IO/changed/ModuloCounter.vhd
-   ./IO/changed/UpCounterSyncLoad.vhd
-   ./IO/changed/DownCounterSyncLoad.vhd
-   ./IO/changed/Controller.vhd
-   ./IO/changed/IOInterface.vhd
-   ./IO/changed/IO.vhd
-   ./IO/changed/Decompressor.vhd
-   ./IO/changed/DMACNN.vhd
-   ./IO/changed/FCDMA.vhd
-   ./IO/changed/DMAImage.vhd
-   ./IO/changed/IOChip.vhd
+   ./IO/Mux2.vhd
+   ./IO/Reg.vhd
+   ./IO/FullAdder.vhd
+   ./IO/FullSubtractor.vhd
+   ./IO/InverseMux.vhd
+   ./IO/NBitAdder.vhd
+   ./IO/NBitSubtractor.vhd
+   ./IO/IOCounter.vhd
+   ./IO/IOCounter2.vhd
+   ./IO/IOCounter5.vhd
+   ./IO/IODFF.vhd
+   ./IO/ModuloCounter.vhd
+   ./IO/UpCounterSyncLoad.vhd
+   ./IO/DownCounterSyncLoad.vhd
+   ./IO/Controller.vhd
+   ./IO/IOInterface.vhd
+   ./IO/IO.vhd
+   ./IO/Decompressor.vhd
+   ./IO/DMACNN.vhd
+   ./IO/FCDMA.vhd
+   ./IO/DMAImage.vhd
+   ./IO/IOChip.vhd
     
 }
 
