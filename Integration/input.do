@@ -11,17 +11,38 @@ quietly virtual signal -install /accelerator/FCENT { (context /accelerator/FCENT
 quietly virtual signal -install /accelerator/FCENT { (context /accelerator/FCENT )(labelReg_8_15 & labelReg_8_14 & labelReg_8_13 & labelReg_8_12 & labelReg_8_11 & labelReg_8_10 & labelReg_8_9 & labelReg_8_8 & labelReg_8_7 & labelReg_8_6 & labelReg_8_5 & labelReg_8_4 & labelReg_8_3 & labelReg_8_2 & labelReg_8_1 & labelReg_8_0 )} Ninth15
 quietly virtual signal -install /accelerator/FCENT { (context /accelerator/FCENT )(labelReg_9_15 & labelReg_9_14 & labelReg_9_13 & labelReg_9_12 & labelReg_9_11 & labelReg_9_10 & labelReg_9_9 & labelReg_9_8 & labelReg_9_7 & labelReg_9_6 & labelReg_9_5 & labelReg_9_4 & labelReg_9_3 & labelReg_9_2 & labelReg_9_1 & labelReg_9_0 )} Tenth15
 	quietly virtual signal -install /accelerator/FCENT { (concat_range (0 to 159) )( (context /accelerator/FCENT )(labelReg_0_15 & labelReg_0_14 & labelReg_0_13 & labelReg_0_12 & labelReg_0_11 & labelReg_0_10 & labelReg_0_9 & labelReg_0_8 & labelReg_0_7 & labelReg_0_6 & labelReg_0_5 & labelReg_0_4 & labelReg_0_3 & labelReg_0_2 & labelReg_0_1 & labelReg_0_0 & labelReg_1_15 & labelReg_1_14 & labelReg_1_13 & labelReg_1_12 & labelReg_1_11 & labelReg_1_10 & labelReg_1_9 & labelReg_1_8 & labelReg_1_7 & labelReg_1_6 & labelReg_1_5 & labelReg_1_4 & labelReg_1_3 & labelReg_1_2 & labelReg_1_1 & labelReg_1_0 & labelReg_2_15 & labelReg_2_14 & labelReg_2_13 & labelReg_2_12 & labelReg_2_11 & labelReg_2_10 & labelReg_2_9 & labelReg_2_8 & labelReg_2_7 & labelReg_2_6 & labelReg_2_5 & labelReg_2_4 & labelReg_2_3 & labelReg_2_2 & labelReg_2_1 & labelReg_2_0 & labelReg_3_15 & labelReg_3_14 & labelReg_3_13 & labelReg_3_12 & labelReg_3_11 & labelReg_3_10 & labelReg_3_9 & labelReg_3_8 & labelReg_3_7 & labelReg_3_6 & labelReg_3_5 & labelReg_3_4 & labelReg_3_3 & labelReg_3_2 & labelReg_3_1 & labelReg_3_0 & labelReg_4_15 & labelReg_4_14 & labelReg_4_13 & labelReg_4_12 & labelReg_4_11 & labelReg_4_10 & labelReg_4_9 & labelReg_4_8 & labelReg_4_7 & labelReg_4_6 & labelReg_4_5 & labelReg_4_4 & labelReg_4_3 & labelReg_4_2 & labelReg_4_1 & labelReg_4_0 & labelReg_5_15 & labelReg_5_14 & labelReg_5_13 & labelReg_5_12 & labelReg_5_11 & labelReg_5_10 & labelReg_5_9 & labelReg_5_8 & labelReg_5_7 & labelReg_5_6 & labelReg_5_5 & labelReg_5_4 & labelReg_5_3 & labelReg_5_2 & labelReg_5_1 & labelReg_5_0 & labelReg_6_15 & labelReg_6_14 & labelReg_6_13 & labelReg_6_12 & labelReg_6_11 & labelReg_6_10 & labelReg_6_9 & labelReg_6_8 & labelReg_6_7 & labelReg_6_6 & labelReg_6_5 & labelReg_6_4 & labelReg_6_3 & labelReg_6_2 & labelReg_6_1 & labelReg_6_0 & labelReg_7_15 & labelReg_7_14 & labelReg_7_13 & labelReg_7_12 & labelReg_7_11 & labelReg_7_10 & labelReg_7_9 & labelReg_7_8 & labelReg_7_7 & labelReg_7_6 & labelReg_7_5 & labelReg_7_4 & labelReg_7_3 & labelReg_7_2 & labelReg_7_1 & labelReg_7_0 & labelReg_8_15 & labelReg_8_14 & labelReg_8_13 & labelReg_8_12 & labelReg_8_11 & labelReg_8_10 & labelReg_8_9 & labelReg_8_8 & labelReg_8_7 & labelReg_8_6 & labelReg_8_5 & labelReg_8_4 & labelReg_8_3 & labelReg_8_2 & labelReg_8_1 & labelReg_8_0 & labelReg_9_15 & labelReg_9_14 & labelReg_9_13 & labelReg_9_12 & labelReg_9_11 & labelReg_9_10 & labelReg_9_9 & labelReg_9_8 & labelReg_9_7 & labelReg_9_6 & labelReg_9_5 & labelReg_9_4 & labelReg_9_3 & labelReg_9_2 & labelReg_9_1 & labelReg_9_0 ) )} Test001
-	add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/dmaAddRamNeorons
-    add wave -position insertpoint  \
-	sim:/Accelerator/rst \
-	sim:/Accelerator/toFC 
-	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/toCNNComb
-	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/delayedToCNN
-	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/delayedToCNNSq
-	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/delayedToCNNCube
-	add wave -noupdate -group toCNN /accelerator/IOChip/io/Controller/toCNN
 	
 	
+add wave -noupdate /accelerator/rst
+add wave -noupdate -group IO -radix hexadecimal /accelerator/din
+add wave -noupdate -group IO -radix hexadecimal /accelerator/INTR
+add wave -noupdate -group IO /accelerator/IOChip/clk
+add wave -noupdate -group IO -radix hexadecimal /accelerator/imageOrCNN
+add wave -noupdate -group IO -radix hexadecimal /accelerator/processing
+add wave -noupdate -group IO -radix hexadecimal /accelerator/load
+add wave -noupdate -group IO -radix hexadecimal /accelerator/busy
+add wave -noupdate -group IO -radix hexadecimal /accelerator/doneDMAFC
+add wave -noupdate -group IO -radix hexadecimal /accelerator/doneDMACNN
+add wave -noupdate -group IO -radix hexadecimal /accelerator/doneDMAImage
+add wave -noupdate -group IO -radix hexadecimal /accelerator/doneWithPhase
+add wave -noupdate -group IO -radix hexadecimal /accelerator/IOChip/io/Interface/GlobalCounter/counterOutput
+add wave -noupdate -group IO -radix hexadecimal /accelerator/IOChip/decomp/Counter/counterReg/Q
+add wave -noupdate -group IO /accelerator/toFC
+add wave -noupdate -group IO /accelerator/toCNN
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/dmaAddRamNeorons
+add wave -noupdate -group FC /accelerator/FCENT/cnnDone
+add wave -noupdate -group FC /accelerator/FCENT/ioDone
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/readRamNeorons
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/finishRamNeorons
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/dataOutRamNeorons
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/dmaAddRamWeights
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/readRamWeights
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/finishRamWeights
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/dataOutRamWeights
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/fcDone
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/MAXPrediction
+add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/Test001
+add wave -noupdate /accelerator/result
 add wave -noupdate -group CNN -radix hexadecimal /accelerator/CNNModule/coresMap/filterBus
 add wave -noupdate -group CNN -radix hexadecimal /accelerator/CNNModule/coresMap/windowBus
 add wave -noupdate -group CNN -radix hexadecimal /accelerator/CNNModule/coresMap/decoderRow
@@ -133,18 +154,9 @@ add wave -noupdate -group CNN -radix hexadecimal /accelerator/windowRamAddressWr
 add wave -noupdate -group CNN -radix hexadecimal /accelerator/finalImgRamWriteAddress
 add wave -noupdate -group CNN -radix hexadecimal /accelerator/CNNReadRamAddress
 add wave -noupdate -group CNN -radix hexadecimal /accelerator/finishNetwork
-add wave -noupdate -group FC /accelerator/FCENT/cnnDone
-add wave -noupdate -group FC /accelerator/FCENT/ioDone
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/readRamNeorons
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/finishRamNeorons
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/dataOutRamNeorons
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/dmaAddRamWeights
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/readRamWeights
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/finishRamWeights
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/dataOutRamWeights
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/fcDone
-add wave -noupdate -group FC -radix hexadecimal /accelerator/FCENT/MAXPrediction
-add wave -noupdate -expand -group FC -radix hexadecimal /accelerator/FCENT/Test001
+add wave -noupdate /accelerator/clk
+add wave -position insertpoint  \
+sim:/accelerator/toCNNLatched
 
    
     # $fileImage will contain the fileImage pointer to test.txt (fileImage must exist)
@@ -270,6 +282,8 @@ add wave -noupdate -expand -group FC -radix hexadecimal /accelerator/FCENT/Test0
 						force -freeze sim:/Accelerator/processing 1 0
 						puts "done with CNN weights phase"
 						mem save -o CNN.mem -f mti -noaddress -data binary -addr hex -startaddress 0 -endaddress 107 -wordsperline 1 /accelerator/Weights/ram
+						mem load -i C:/Users/Osama/Desktop/10neoronsTC/PassedLeo/Conv_S_1L1F3/windowRAM.mem /accelerator/Image/ram
+						mem load -i C:/Users/Osama/Desktop/10neoronsTC/PassedLeo/Conv_S_1L1F3/weightsRAM.mem /accelerator/Weights/ram
 					}
                     force -freeze sim:/Accelerator/imageOrCNN 1 0
                     run $halfRunTime
@@ -293,6 +307,7 @@ add wave -noupdate -expand -group FC -radix hexadecimal /accelerator/FCENT/Test0
 		run $halfRunTime
 		set samirDone [examine -binary /Accelerator/finishNetwork]
 	}
+	mem save -o {C:/D/PDFS/College/3rd year/2nd term/VLSI/Project/CNN_Accelerator/Integration/SamirOutput.mem} -f mti -data binary -addr hex -startaddress 3872 -endaddress 3880 -wordsperline 1 /accelerator/Image/ram
 	--load CNN mem
 	mem load -i C:/Users/Osama/Desktop/10neoronsTC/RAMNEORONS.mem /accelerator/Image/ram
 	

@@ -164,11 +164,15 @@ begin
       end if;
           
       
-      dataOut <= ram(to_integer(unsigned(addressRead))+4) 
-                  & ram(to_integer(unsigned(addressRead))+3)
-                  & ram(to_integer(unsigned(addressRead))+2)
-                  & ram(to_integer(unsigned(addressRead))+1)
-                  & ram(to_integer(unsigned(addressRead)));
+      if (to_integer(unsigned(addressRead))+4 <= 8191) then
+         dataOut <= ram(to_integer(unsigned(addressRead))+4) 
+                     & ram(to_integer(unsigned(addressRead))+3)
+                     & ram(to_integer(unsigned(addressRead))+2)
+                     & ram(to_integer(unsigned(addressRead))+1)
+                     & ram(to_integer(unsigned(addressRead)));
+   else
+         dataOut <= (others => '0');
+   end if;
   
   end PROCESS;    
 

@@ -30,7 +30,7 @@ SIGNAL imgReadRamAddress: std_logic_vector(12 DOWNTO 0);
 SIGNAL CNNReadMFC, ImageReadMFC, finishRamWeights: std_logic;
 SIGNAL doneDMAImageOld, notClk, doneDMACNNOld, doneDMAFCOld, 
 			 weightsRamRead, windowRamWrite, windowRamRead, finishNetwork, finalImgRead, 
-			 finishNetworkLatched, CNNDoneLatchInput: std_logic;
+			 finishNetworkLatched, CNNDoneLatchInput, ToCNNLatchInput, toCNNLatched, newDoneDMAImage: std_logic;
 SIGNAL finalImgRamWrite, readRamNeorons, readRamWeights: std_logic;
 SIGNAL windowRamDataOutBus, finalImgRamDin: std_logic_vector(15 DOWNTO 0);
 SIGNAL windowRamAddressWrite: std_logic_vector(12 DOWNTO 0);
@@ -52,13 +52,15 @@ BEGIN
 										ELSE dmaAddRamNeorons WHEN readRamNeorons = '1' AND windowRamRead = '0'
 										ELSE (others => '0');
 	finalImgRead <= windowRamRead OR readRamNeorons;
-	
+	newDoneDMAImage <= doneDMAImage WHEN toCNNLatched = '0'
+										 ELSE '0';
 	notClk <= NOT clk;
 	high <= '1';
 	low <= '0';
+
 	IOChip: Entity work.IOChip 
 			PORT MAP(din, clk, rst, imageOrCNN, INTR, load, processing, doneWithPhase, busy, doneDMAFC, 
-							 doneDMACNN, doneDMAImage, imgRamWrite, CNNRamWrite, FCRamWrite, imgRamAddress, imgRamDin, 
+							 doneDMACNN, newDoneDMAImage, imgRamWrite, CNNRamWrite, FCRamWrite, imgRamAddress, imgRamDin, 
 							 CNNRamAddress, CNNRamDin, FCRamAddress, FCRamDin, result, FCResult, ChipDone, toCNN, toFC);
 	Weights: Entity work.CNNRam PORT MAP(clk, weightsRamRead, CNNRamWrite, rst, CNNReadRamAddress, CNNRamAddress, 
 																			CNNRamDin, CNNRamDout, CNNReadMFC, doneDMACNNOld);
@@ -72,6 +74,9 @@ BEGIN
 	FCMFCLatch: Entity work.IODFF PORT MAP(doneDMAFCOld, notClk, rst, high, doneDMAFC);
 	CNNDoneLatchInput <= finishNetworkLatched OR finishNetwork;
 	CNNDoneLatch: Entity work.IODFF PORT MAP(CNNDoneLatchInput, notClk, rst, high, finishNetworkLatched);
+	ToCNNLatchInput <= toCNN OR toCNNLatched;
+	--أنا متخلف
+	ToCNNLatch: Entity work.IODFF PORT MAP(ToCNNLatchInput, clk, rst, high, toCNNLatched);
 
 	CNNModule: Entity work.CNNModule_8_16_5_5_3_12_13 
 			 PORT MAP(startCNN => toCNN, clk => clk, rst => rst, weightsRamDataInBus => CNNRamDout, 
