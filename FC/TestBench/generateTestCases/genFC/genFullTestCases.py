@@ -37,7 +37,7 @@ printPredictions.step = 0
 def generateTestCase(cnn_out_dims):
     weights = [];cnn_out = []
     if(len(sys.argv) > 2):
-        weights,cnn_out_dims = readWeightsBiases(realTestCaseDir+sys.argv[2])
+        weights,cnn_out_dims = readWeightsBiases(realTestCaseDir+sys.argv[2],sys.argv[1])
         sys.argv[1] = str(cnn_out_dims)
     else:
 	    weights = [[ BS.pack('int:8=a',a=random.randint(-(1<<5),(1<<5)-1)) for i in range(10)] for j in range(cnn_out_dims+1)]
@@ -56,7 +56,7 @@ def generateTestCase(cnn_out_dims):
     cnn_out_valid = np.array(map(toFloatWord,cnn_outTmp))
     biases_valid = np.array(map(toFloatByte,biasesTmp))
     weights_valid = np.array([map(toFloatByte,i) for i in weightsTmp])
-    result_valid = np.dot(cnn_out_valid,weights_valid) + biases_valid
+    result_valid = np.dot(transpose(weights_valid),cnn_out_valid) + biases_valid
     print(result_valid)
 
     predictions = [ BS.pack('int:16=a',a=0) for i in range(10)]

@@ -1,5 +1,6 @@
 import json
 import bitstring as bs 
+import re
 
 Byte_float_bits = 6
 toIntByte = lambda a : int(a*2**Byte_float_bits)
@@ -9,21 +10,28 @@ floatToBitStreamByte = lambda a: truncateTo8(toIntByte(a))
 def transpose(array):
 	return [list(i) for i in zip(*array)]
 
-def readWeightsBiases(weightsFile):
-	neoronsNum = 0
-	weights = []
-	biases = []
-	with open(weightsFile) as json_file:  
-		data = json.load(json_file)
-		neoronsNum = data['layers'][4]['num_inputs']	
-        print(data['layers'][4]['layer_type'])	
-        for i in range(10):
-            weights.append([ floatToBitStreamByte(data['layers'][4]['filters'][i]['w'][str(num)]) for num in range(neoronsNum)])
-        tmp = data['layers'][4]['biases']['w']
-        biases = [ floatToBitStreamByte(tmp[str(num)]) for num in range(10)]
-        weights = transpose(weights)
+def readWeightsBiases(weightsFile,option):
+    neoronsNum = 0
+    weights = []
+    biases = []
+    with open(weightsFile) as json_file:  
+        if (option == "1"):
+            lines = json_file.read().split()
+            neoronsNum = bs.pack('bin:16=a',a=lines[0][-16:]).int -1
+            biases = [bs.pack('bin:8=a',a=a) for a in re.findall("."*8,lines[1])]
+            for ll in lines[2:neoronsNum+2]:
+                weights.append([bs.pack('bin:8=a',a=a) for a in re.findall("."*8,ll)])
+        else:
+            data = json.load(json_file)
+            neoronsNum = data['layers'][4]['num_inputs']	
+            print(data['layers'][4]['layer_type'])	
+            for i in range(10):
+                weights.append([ floatToBitStreamByte(data['layers'][4]['filters'][i]['w'][str(num)]) for num in range(neoronsNum)])
+            tmp = data['layers'][4]['biases']['w']
+            biases = [ floatToBitStreamByte(tmp[str(num)]) for num in range(10)]
+            weights = transpose(weights)
         weights.insert(0,biases)
-	return weights,neoronsNum
+    return weights,neoronsNum
 
 
 
