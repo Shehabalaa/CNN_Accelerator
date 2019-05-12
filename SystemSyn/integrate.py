@@ -18,8 +18,12 @@ def changeEntities():
                     if (all([s in line for s in ["port","map"]])):
                         for e in entites:
                             arr = line.split(':')
-                            arr[1] = arr[1].replace(e+' ',e+add +' ')
-                            line = ':'.join(arr)
+                            try:
+                                arr[1] = arr[1].replace(e+' ',e+add +' ')
+                                line = ':'.join(arr)
+                            except:
+                                line = arr[0].replace(e+' ',e+add +' ')
+
                     elif(all([s in line for s in ["end"]])):
                         for e in entites:
                             line = line.replace(' '+e+';',' '+e+add +';')
@@ -31,6 +35,7 @@ def changeEntities():
     return toWrite
 
 def changeArchs():
+    archPassed =False
     for f in files:
         with open(sys.argv[1]+'/changed/'+f,'rw+') as ff:
             lines = ff.readlines()
@@ -40,20 +45,23 @@ def changeArchs():
             add = 'arch'
             for line in lines:
                 line = line.lower()
-                if(all([s in line for s in ["end"]])):
-                    line = line.replace(' '+a+' ',' '+b+add +' ')
-                    line = line.replace(' '+a+';',' '+b+add +';')
-                elif(all([s in line.lower() for s in ["of","architecture","is"]])):
+                if(all([s in line.lower() for s in ["of","architecture","is"]])):
+                    archPassed = True
                     s = line.split()
                     a,b = s[1].lower(),s[3].lower()
-                    line = line.replace(' '+a+' ',' '+b+add +' ')
+                    line = line.replace(' '+a+' ',' '+b+add +' ',1)
+                elif(all([s in line for s in ["end"]])):
+                    if(archPassed and a !=''  and line.find(a)>=0):
+                        line = line.replace(' '+a+' ',' '+b+add +' ',1)
+                        line = line.replace(' '+a+';',' '+b+add +';',1)
+                        archPassed = False
                 ff.write(line)
 
 
 # r=root, d=directories, f = files
 for r, _, files in os.walk("./"):
     if(r == "./"+sys.argv[1]):
-        # toWrite = changeEntities()
+        toWrite = changeEntities()
         changeArchs()
 
         # with open('script.tcl','rw+') as ff:
