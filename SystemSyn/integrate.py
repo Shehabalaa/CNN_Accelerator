@@ -51,7 +51,7 @@ def changeArchs():
                     a,b = s[1].lower(),s[3].lower()
                     line = line.replace(' '+a+' ',' '+b+add +' ',1)
                 elif(all([s in line for s in ["end"]])):
-                    if(archPassed and line.find(a)>=0):
+                    if(archPassed and a !=''  and line.find(a)>=0):
                         line = line.replace(' '+a+' ',' '+b+add +' ',1)
                         line = line.replace(' '+a+';',' '+b+add +';',1)
                         archPassed = False

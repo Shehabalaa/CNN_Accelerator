@@ -8,7 +8,7 @@ entity downcountercnn is
         enable,clk,isload:in std_logic;
         currentcount:inout std_logic_vector(n-1 downto 0) 
     );
- arch   end downcountercnn;
+    end downcountercnn;
     architecture downcountercnnarch of downcountercnn is 
     signal counterinput, subtractoroutput,zerossignal: std_logic_vector(n-1 downto 0);
     begin

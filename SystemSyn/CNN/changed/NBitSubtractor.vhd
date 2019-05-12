@@ -10,7 +10,7 @@ entity nbitsubtractorcnn is
         borrowout:out std_logic
 
     )  ;
- arch   end nbitsubtractorcnn;
+    end nbitsubtractorcnn;
     ------------------------------------------
 
     --arch
