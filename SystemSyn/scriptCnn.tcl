@@ -1,7 +1,6 @@
 load_library tsmc035_typ
-
-read -technology "tsmc035_typ"  { 
-
+set_working_dir /media/sf_CNN_Accelerator/CNN/Leonardo/FinalCNNNewDMA
+read -technology "tsmc035_typ"  {
     "./CNN/changed/Mux2.vhd"
     "./CNN/changed/Mux4.vhd"
     "./CNN/changed/Decoder.vhd"
@@ -11,9 +10,9 @@ read -technology "tsmc035_typ"  {
     "./CNN/changed/Counter2.vhd"
     "./CNN/changed/Counter.vhd"
     "./CNN/changed/TriState.vhd"
-    "./CNN/changed/ShiftReg.vhd"
+    "./CNN/changed/ShiftRegister.vhd"
     "./CNN/changed/BoothStep.vhd"
-    "./Types.vhd"
+    "Types.vhd"
     "./CNN/changed/Mux.vhd"
     "./CNN/changed/BinaryMux.vhd"
     "./CNN/changed/Mul8x16.vhd"
@@ -23,11 +22,11 @@ read -technology "tsmc035_typ"  {
     "./CNN/changed/RegRow.vhd"
     "./CNN/changed/RegFile.vhd"
     "./CNN/changed/CNNMuls.vhd"
-    "./CNN/changed/ControlUnit/SliceFilterController.vhd"
-    "./CNN/changed/ControlUnit/FilterController.vhd"
-    "./CNN/changed/ControlUnit/LayerController.vhd"
-    "./CNN/changed/ControlUnit/NetworkController.vhd"
-    "./CNN/changed/ControlUnit/ControlUnit.vhd"
+    "./CNN/changed/SliceFilterController.vhd"
+    "./CNN/changed/FilterController.vhd"
+    "./CNN/changed/LayerController.vhd"
+    "./CNN/changed/NetworkController.vhd"
+    "./CNN/changed/ControlUnit.vhd"
     "./CNN/changed/MultiStepCounter.vhd"
     "./CNN/changed/FullSubtractor.vhd"
     "./CNN/changed/NbitSubtractor.vhd"
@@ -49,10 +48,12 @@ read -technology "tsmc035_typ"  {
     "./CNN/changed/Ram.vhd"
     "./CNN/changed/CNNWithRAM.vhd"
 }
-
 elaborate CNNWithRAM -architecture CNNWithRAMArch
+read_constraints constraint.ctr
+set sdf_type combined
 optimize .work.CNNWithRam.CNNWithRamArch -target tsmc035_typ -macro -delay -effort quick -hierarchy preserve
-
+report_area area.rep -cell_usage -hierarchy -all_leafs 
+report_delay delay.rep -num_paths 1 -longest_path -clock_frequency
 set novendor_constraint_file FALSE
 auto_write -format Verilog CNNWithRAM.v
 set novendor_constraint_file FALSE
