@@ -53,7 +53,7 @@ generic (
     -- writedone: out std_logic; -- output signal set when all the write is done
     writedoneone: out std_logic
   );
-end writelogiccnn ; 
+end writelogiccnn arch; 
 
 architecture writelogiccnnarch of writelogiccnn is
 

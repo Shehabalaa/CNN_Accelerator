@@ -40,4 +40,4 @@ begin
       carryout <= temp(wordsize-1);
 
 
-end nbitadderarch;
+end nbitadderioarch;

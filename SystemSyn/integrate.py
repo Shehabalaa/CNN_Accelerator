@@ -45,16 +45,16 @@ def changeArchs():
             add = 'arch'
             for line in lines:
                 line = line.lower()
-                if(all([s in line for s in ["end"]])):
-                    if(archPassed):
-                        line = line.replace(' '+a+' ',' '+b+add +' ',1)
-                        line = line.replace(' '+a+';',' '+b+add +';',1)
-                        archPassed = False
-                elif(all([s in line.lower() for s in ["of","architecture","is"]])):
+                if(all([s in line.lower() for s in ["of","architecture","is"]])):
+                    archPassed = True
                     s = line.split()
                     a,b = s[1].lower(),s[3].lower()
                     line = line.replace(' '+a+' ',' '+b+add +' ',1)
-                    archPassed = True
+                elif(all([s in line for s in ["end"]])):
+                    if(archPassed and line.find(a)>=0):
+                        line = line.replace(' '+a+' ',' '+b+add +' ',1)
+                        line = line.replace(' '+a+';',' '+b+add +';',1)
+                        archPassed = False
                 ff.write(line)
 
 

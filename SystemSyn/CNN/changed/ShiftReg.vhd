@@ -22,4 +22,4 @@ begin
             end if;
 		end if;
 	end process;
-end shiftregarch;
+end shiftregcnnarch;

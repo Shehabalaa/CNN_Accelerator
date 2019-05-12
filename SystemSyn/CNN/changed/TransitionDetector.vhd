@@ -30,4 +30,4 @@ begin
             f <= '1' ;
         end if;
     end process;
-end transitiondetectorarch; 
+end transitiondetectorcnnarch; 

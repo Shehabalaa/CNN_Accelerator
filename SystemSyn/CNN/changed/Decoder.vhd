@@ -32,4 +32,4 @@ architecture decodercnnarch of decodercnn is
             end generate;
 
 
-    end decoderarch;
+    end decodercnnarch;

@@ -9,7 +9,7 @@ port (
     bin : in std_logic;
     difference : out std_logic;
     bout : out std_logic);
-    end fullsubtractorio;
+ arch   end fullsubtractorio;
 architecture fullsubtractorioarch of fullsubtractorio is
 begin
     difference<=x xor y xor bin;

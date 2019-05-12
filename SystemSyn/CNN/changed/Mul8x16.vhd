@@ -30,4 +30,4 @@ begin
     --f <= pbs(2*16-8 downto 9); -- without floating point
     f <= pbs(15+7 downto 7); --with floating point
 
-end mul8x16arch; 
+end mul8x16cnnarch; 

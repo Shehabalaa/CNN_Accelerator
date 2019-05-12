@@ -10,7 +10,7 @@ entity nbitsubtractorcnn is
         borrowout:out std_logic
 
     )  ;
-    end nbitsubtractorcnn;
+ arch   end nbitsubtractorcnn;
     ------------------------------------------
 
     --arch
@@ -23,4 +23,4 @@ entity nbitsubtractorcnn is
                 fx:entity work.fullsubtractorcnn  port map(x(i),y(i),temp(i-1),difference(i),temp(i));
                 end generate;
                 borrowout<=temp(wordsize-1);
-                end nbitsubtractorarch;
+                end nbitsubtractorcnnarch;
