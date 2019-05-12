@@ -9,7 +9,7 @@ entity filtercontrollercnn is
 			start, -- signal to start applying 1 filter to 1 image
 			layertype, -- signal to know layer type 0 -> conv , 1->pool 
 			dmafinish,  -- signal is sent when dma finishes desired operation
- arch  arch  arch  arch  arch  arch oneconvfinish, -- signal when one convolution finishes it sends it
+            oneconvfinish, -- signal when one convolution finishes it sends it
             resetstate, -- signal to reset state to idle state
 			clk : in std_logic; -- system clock
 

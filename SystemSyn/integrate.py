@@ -35,6 +35,7 @@ def changeEntities():
     return toWrite
 
 def changeArchs():
+    archPassed =False
     for f in files:
         with open(sys.argv[1]+'/changed/'+f,'rw+') as ff:
             lines = ff.readlines()
@@ -45,12 +46,15 @@ def changeArchs():
             for line in lines:
                 line = line.lower()
                 if(all([s in line for s in ["end"]])):
-                    line = line.replace(' '+a+' ',' '+b+add +' ')
-                    line = line.replace(' '+a+';',' '+b+add +';')
+                    if(archPassed):
+                        line = line.replace(' '+a+' ',' '+b+add +' ',1)
+                        line = line.replace(' '+a+';',' '+b+add +';',1)
+                        archPassed = False
                 elif(all([s in line.lower() for s in ["of","architecture","is"]])):
                     s = line.split()
                     a,b = s[1].lower(),s[3].lower()
-                    line = line.replace(' '+a+' ',' '+b+add +' ')
+                    line = line.replace(' '+a+' ',' '+b+add +' ',1)
+                    archPassed = True
                 ff.write(line)
 
 

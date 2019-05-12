@@ -83,7 +83,7 @@ entity dmacontrollercnn is
     -- filteralunumber: out std_logic_vector(2 downto 0); -- 5 bits to say where to set the data within which alu when fetching filter
     -- windowalunumber: out std_logic_vector(2 downto 0) -- 5 bits to say where to set the data within which alu when fetching window
   );
-end dmacontrollercnn arch;
+end dmacontrollercnn ;
 
 architecture dmacontrollercnnarch of dmacontrollercnn is
 

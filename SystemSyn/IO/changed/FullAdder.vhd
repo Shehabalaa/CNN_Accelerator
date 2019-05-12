@@ -25,4 +25,4 @@ begin
 
      end process;
 
-end fulladderioarch;
+end fulladderarch;

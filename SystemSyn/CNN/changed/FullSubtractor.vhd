@@ -9,7 +9,7 @@ port (
     bin : in std_logic;
     difference : out std_logic;
     bout : out std_logic);
- arch  arch end fullsubtractorcnn;
+    end fullsubtractorcnn;
 architecture fullsubtractorcnnarch of fullsubtractorcnn is
 begin
     difference<=x xor y xor bin;

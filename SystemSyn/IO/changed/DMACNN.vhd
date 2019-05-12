@@ -13,7 +13,7 @@ port    (
 
 end entity;
 
-architecture dmacnnioarch of dmacnnioarch is
+architecture dmacnnioarch of dmacnnio is
 begin
 	addresscounter: entity work.iocounter5io generic map(12) port map(enablecnncounter, rst, clk, addressout);
 	myreg: entity work.reg	generic map(16) port map(datain, enablecnnregister, clk, rst, dataout);

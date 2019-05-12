@@ -41,7 +41,7 @@ entity readlogiccnn is
     readone: out std_logic; -- output signal set when one row when loading window is available on internal buses
     readfinal: out std_logic-- // // // // when final input is available on the internal data bus
   );
-end readlogiccnn arch; 
+end readlogiccnn ; 
 
 architecture readlogiccnnarch of readlogiccnn is
 
