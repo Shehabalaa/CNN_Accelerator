@@ -14,7 +14,7 @@ port    (
 
 end entity;
 
-architecture dmaimageioarch of dmaimageio is
+architecture dmaimageioarch of dmaimageioarch is
 signal addresscounterin: std_logic_vector(12 downto 0);
 signal registerin: std_logic_vector(15 downto 0);
 begin

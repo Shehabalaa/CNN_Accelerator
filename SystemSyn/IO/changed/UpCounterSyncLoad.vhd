@@ -14,7 +14,7 @@ entity upcountersyncload is
 	);
 end upcountersyncload;
 
-architecture upcountersyncloadarch of upcountersyncload is
+architecture upcountersyncloadarch of upcountersyncloadarch is
 signal outborrow: std_logic;
 signal counterinput, adderoutput, dummyinput, currentcount: std_logic_vector(n-1 downto 0);
 begin
