@@ -1,0 +1,722 @@
+FcMain 1000
+bad_active_area
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Active area must be covered by a select
+bad_contact_poly
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to poly must consist of poly, CONTACT_TO_POLY, and METAL1
+bad_contact_ELECTRODE
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to ELECTRODE must consist of ELECTRODE, CONTACT_TO_ELECTRODE, and METAL1
+bad_contact_active
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to active must consist of active, CONTACT_TO_ACTIVE, and METAL1
+bad_contact_gate
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to poly may not be on gate region.
+bad_via
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via must consist of METAL1, via, and METAL2
+bad_via2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via2 must consist of METAL2, via2, and METAL3
+bad_via3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via3 must consist of METAL3, via3, and METAL4
+select_overlap
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Overlap of N+ and P+ not allowed
+bad_nwell
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Nwell must have well contact
+bad_psubstrate
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Psubstrate must have a substrate contact
+bad_pgate
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+P-type gate must not be in psubstrate
+bad_ngate
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+N-type gate must not be in nwell
+bad_port
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Port must be completely covered with Metal
+DRC1_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+N-Well width = 12L
+DRC1_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+N-well spacing (different potential) = 18L
+DRC2_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Active area width = 3L
+DRC2_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Active area spacing = 3L
+DRC2_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Source/Drain Active to Well Edge = 6L
+DRC2_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Substrate/Well Contact, Active to Well Edge = 3L
+DRC3_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Poly width = 2L
+DRC3_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Poly spacing = 3L
+DRC3_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Gate poly overlap of active = 2L
+DRC3_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Active overlap of gate poly = 3L
+DRC3_5
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Field poly to active = 1L
+DRC4.1p
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.1n
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.2
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.3p
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.3n
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.4pw
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.4ps
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.4nw
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.4ns
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC4.4np
+0 0 1 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+DRC5_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to poly size exactly 2L X 2L
+DRC5_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Poly overlap for contact = 1.5L
+DRC5_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to poly spacing = 3L
+DRC5_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to active space to gate of transistor = 2L
+DRC6_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to active exactly 2L X 2L
+DRC6_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Active overlap for contact = 1.5L
+DRC6_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to active spacing = 3L
+DRC6_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to active space to gate of transistor = 2L
+DRC7_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal1 width = 3L
+DRC7_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal1 spacing = 3L
+DRC7_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal1 overlap of contact to poly or contact to active = 1L
+DRC7_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal1 spacing = 6L if width > 10L
+DRC8_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via size exactly 2L X 2L
+DRC8_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via spacing = 3L
+DRC8_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via overlap by METAL1 = 1L
+DRC9_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal2 width = 3L
+DRC9_2
+10 10 2 May 12 14:24:09 2019                   
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal2 spacing = 3L
+e 1 2
+CN FcMain c 1 0 0 1 0 0 0
+794000 1111902 794000 1114500
+795500 1114500 795500 1117098
+e 2 2
+794500 1114500 794500 1118500
+795500 1114500 795500 1118500
+e 3 2
+794500 1115902 794500 1118500
+796000 1118500 796000 1121098
+e 4 2
+876000 1121500 877000 1121500
+876500 1122000 877000 1122000
+e 5 2
+876500 1126000 877000 1126000
+876500 1128500 877000 1128500
+e 6 2
+880000 1126000 880500 1126000
+880000 1128500 880500 1128500
+e 7 2
+1002500 126402 1002500 129000
+1004000 129000 1004000 131598
+e 8 2
+1003000 129000 1003000 133000
+1004000 129000 1004000 133000
+e 9 2
+1003000 130402 1003000 133000
+1004500 133000 1004500 135598
+e 10 2
+1040000 622000 1041000 622000
+1040000 624500 1040500 624500
+DRC9_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal2 overlap of via = 1L
+DRC9_4
+8 8 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal2 spacing = 6L if width > 10L
+e 1 2
+CN FcMain c 1 0 0 1 0 0 0
+99000 148804 99000 1102000
+102000 154000 102000 1107196
+e 2 2
+1186000 154000 1186000 1107196
+1189000 148804 1189000 1102000
+e 3 2
+CN FcMain c 1 0 0 1 0 0 0
+152000 251102 152000 259898
+157500 253500 157500 257500
+e 4 2
+152000 274804 152000 289196
+155000 280000 155000 284000
+e 5 2
+152000 610804 152000 625196
+155000 616000 155000 620000
+e 6 2
+152000 778804 152000 793196
+155000 784000 155000 788000
+e 7 2
+152000 946804 152000 961196
+155000 952000 155000 956000
+e 8 2
+152000 1114804 152000 1129196
+155000 1120000 155000 1124000
+DRC11_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+ELECTRODE width = 7L ON CAP
+DRC11_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+ELECTRODE spacing = 3L ON CAP
+DRC11_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Poly overlap of ELECTRODE = 5L
+DRC11_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+ELECTRODE spacing to active or well = 2L
+DRC11_5
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+ELECTRODE spacing to Contact to Poly = 6L
+DRC11_sel
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Capacitor and Select may not intersect
+DRC12_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+ELECTRODE width = 2L
+DRC12_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+ELECTRODE spacing = 3L
+DRC13_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to ELECTRODE size exactly 2L X 2L
+DRC13_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to ELECTRODE spacing = 3L
+DRC13_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+ELECTRODE overlap for contact = 3L ON CAP PLATE
+DRC13_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+ELECTRODE overlap for contact = 2L NOT ON CAP PLATE
+DRC13_5
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Contact to ELECTRODE space to Poly or Active = 3L
+DRC14_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via2 size exactly 2L X 2L
+DRC14_2
+1 1 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via2 spacing = 3L
+p 1 4
+CN FcMain c 1 0 0 1 0 0 0
+1056500 612000
+1057500 612000
+1057500 614000
+1056500 614000
+DRC14_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via2 overlap by METAL2 = 1L
+DRC15_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal3 width = 3L
+DRC15_2
+7 7 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal3 spacing = 3L
+e 1 2
+CN FcMain c 1 0 0 1 0 0 0
+794500 1114500 794500 1115000
+795500 1114500 795500 1115000
+e 2 2
+794500 1118000 794500 1118500
+795500 1118000 795500 1118500
+e 3 2
+876500 1126000 880500 1126000
+876500 1128500 880500 1128500
+e 4 2
+957000 442500 957000 443000
+957500 442500 957500 443000
+e 5 2
+957000 446000 957000 446500
+957500 446000 957500 446500
+e 6 2
+1003000 129000 1003000 129500
+1004000 129000 1004000 129500
+e 7 2
+1003000 132500 1003000 133000
+1004000 132500 1004000 133000
+DRC15_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal3 overlap of via2 = 1L
+DRC15_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal3 spacing = 6L if width > 10L
+DRC21_1
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via3 size exactly 2L X 2L
+DRC21_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via3 spacing = 3L
+DRC21_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Via3 overlap by METAL3 = 1L
+DRC22_1
+107 107 2 May 12 14:24:09 2019                 
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal4 width = 6L
+e 1 2
+CN FcMain c 1 0 0 1 0 0 0
+50000 1248000 56000 1248000
+50000 1252000 56000 1252000
+e 2 2
+66000 1248000 72000 1248000
+66000 1252000 72000 1252000
+e 3 2
+82000 1248000 88000 1248000
+82000 1252000 88000 1252000
+e 4 2
+98000 1248000 104000 1248000
+98000 1252000 104000 1252000
+e 5 2
+114000 1248000 120000 1248000
+114000 1252000 120000 1252000
+e 6 2
+130000 1248000 136000 1248000
+130000 1252000 136000 1252000
+e 7 2
+146000 1248000 152000 1248000
+146000 1252000 152000 1252000
+e 8 2
+162000 1248000 168000 1248000
+162000 1252000 168000 1252000
+e 9 2
+178000 1248000 184000 1248000
+178000 1252000 184000 1252000
+e 10 2
+194000 1248000 200000 1248000
+194000 1252000 200000 1252000
+e 11 2
+210000 1248000 216000 1248000
+210000 1252000 216000 1252000
+e 12 2
+226000 1248000 232000 1248000
+226000 1252000 232000 1252000
+e 13 2
+242000 1248000 248000 1248000
+242000 1252000 248000 1252000
+e 14 2
+258000 1248000 264000 1248000
+258000 1252000 264000 1252000
+e 15 2
+274000 1248000 280000 1248000
+274000 1252000 280000 1252000
+e 16 2
+290000 1248000 296000 1248000
+290000 1252000 296000 1252000
+e 17 2
+306000 1248000 312000 1248000
+306000 1252000 312000 1252000
+e 18 2
+322000 1248000 328000 1248000
+322000 1252000 328000 1252000
+e 19 2
+338000 1248000 344000 1248000
+338000 1252000 344000 1252000
+e 20 2
+354000 1248000 360000 1248000
+354000 1252000 360000 1252000
+e 21 2
+370000 1248000 376000 1248000
+370000 1252000 376000 1252000
+e 22 2
+386000 1248000 392000 1248000
+386000 1252000 392000 1252000
+e 23 2
+402000 1248000 408000 1248000
+402000 1252000 408000 1252000
+e 24 2
+418000 1248000 424000 1248000
+418000 1252000 424000 1252000
+e 25 2
+434000 1248000 440000 1248000
+434000 1252000 440000 1252000
+e 26 2
+450000 1248000 456000 1248000
+450000 1252000 456000 1252000
+e 27 2
+466000 1248000 472000 1248000
+466000 1252000 472000 1252000
+e 28 2
+482000 1248000 488000 1248000
+482000 1252000 488000 1252000
+e 29 2
+498000 1248000 504000 1248000
+498000 1252000 504000 1252000
+e 30 2
+514000 1248000 520000 1248000
+514000 1252000 520000 1252000
+e 31 2
+530000 1248000 536000 1248000
+530000 1252000 536000 1252000
+e 32 2
+546000 1248000 552000 1248000
+546000 1252000 552000 1252000
+e 33 2
+562000 1248000 568000 1248000
+562000 1252000 568000 1252000
+e 34 2
+578000 1248000 584000 1248000
+578000 1252000 584000 1252000
+e 35 2
+604000 1248000 610000 1248000
+604000 1252000 610000 1252000
+e 36 2
+620500 0 626500 0
+620500 4000 626500 4000
+e 37 2
+620500 1248000 626500 1248000
+620500 1252000 626500 1252000
+e 38 2
+637000 0 643000 0
+637000 4000 643000 4000
+e 39 2
+637000 1248000 643000 1248000
+637000 1252000 643000 1252000
+e 40 2
+653000 0 659000 0
+653000 4000 659000 4000
+e 41 2
+653000 1248000 659000 1248000
+653000 1252000 659000 1252000
+e 42 2
+669000 0 675000 0
+669000 4000 675000 4000
+e 43 2
+669000 1248000 675000 1248000
+669000 1252000 675000 1252000
+e 44 2
+685000 0 691000 0
+685000 4000 691000 4000
+e 45 2
+685000 1248000 691000 1248000
+685000 1252000 691000 1252000
+e 46 2
+701000 0 707000 0
+701000 4000 707000 4000
+e 47 2
+701000 1248000 707000 1248000
+701000 1252000 707000 1252000
+e 48 2
+717000 0 723000 0
+717000 4000 723000 4000
+e 49 2
+717000 1248000 723000 1248000
+717000 1252000 723000 1252000
+e 50 2
+733000 0 739000 0
+733000 4000 739000 4000
+e 51 2
+749000 0 755000 0
+749000 4000 755000 4000
+e 52 2
+749000 1248000 755000 1248000
+749000 1252000 755000 1252000
+e 53 2
+765000 0 771000 0
+765000 4000 771000 4000
+e 54 2
+765000 1248000 771000 1248000
+765000 1252000 771000 1252000
+e 55 2
+781000 0 787000 0
+781000 4000 787000 4000
+e 56 2
+781000 1248000 787000 1248000
+781000 1252000 787000 1252000
+e 57 2
+797000 0 803000 0
+797000 4000 803000 4000
+e 58 2
+797000 1248000 803000 1248000
+797000 1252000 803000 1252000
+e 59 2
+813000 0 819000 0
+813000 4000 819000 4000
+e 60 2
+813000 1248000 819000 1248000
+813000 1252000 819000 1252000
+e 61 2
+829000 0 835000 0
+829000 4000 835000 4000
+e 62 2
+829000 1248000 835000 1248000
+829000 1252000 835000 1252000
+e 63 2
+845000 0 851000 0
+845000 4000 851000 4000
+e 64 2
+845000 1248000 851000 1248000
+845000 1252000 851000 1252000
+e 65 2
+861000 0 867000 0
+861000 4000 867000 4000
+e 66 2
+861000 1248000 867000 1248000
+861000 1252000 867000 1252000
+e 67 2
+877000 0 883000 0
+877000 4000 883000 4000
+e 68 2
+877000 1248000 883000 1248000
+877000 1252000 883000 1252000
+e 69 2
+893000 0 899000 0
+893000 4000 899000 4000
+e 70 2
+893000 1248000 899000 1248000
+893000 1252000 899000 1252000
+e 71 2
+909000 0 915000 0
+909000 4000 915000 4000
+e 72 2
+909000 1248000 915000 1248000
+909000 1252000 915000 1252000
+e 73 2
+925000 0 931000 0
+925000 4000 931000 4000
+e 74 2
+925000 1248000 931000 1248000
+925000 1252000 931000 1252000
+e 75 2
+941000 0 947000 0
+941000 4000 947000 4000
+e 76 2
+941000 1248000 947000 1248000
+941000 1252000 947000 1252000
+e 77 2
+957000 0 963000 0
+957000 4000 963000 4000
+e 78 2
+957000 1248000 963000 1248000
+957000 1252000 963000 1252000
+e 79 2
+989000 0 995000 0
+989000 4000 995000 4000
+e 80 2
+1005000 0 1011000 0
+1005000 4000 1011000 4000
+e 81 2
+1005000 1248000 1011000 1248000
+1005000 1252000 1011000 1252000
+e 82 2
+1021000 0 1027000 0
+1021000 4000 1027000 4000
+e 83 2
+1021000 1248000 1027000 1248000
+1021000 1252000 1027000 1252000
+e 84 2
+1037000 0 1043000 0
+1037000 4000 1043000 4000
+e 85 2
+1037000 1248000 1043000 1248000
+1037000 1252000 1043000 1252000
+e 86 2
+1053000 0 1059000 0
+1053000 4000 1059000 4000
+e 87 2
+1053000 1248000 1059000 1248000
+1053000 1252000 1059000 1252000
+e 88 2
+1069000 0 1075000 0
+1069000 4000 1075000 4000
+e 89 2
+1069000 1248000 1075000 1248000
+1069000 1252000 1075000 1252000
+e 90 2
+1085000 0 1091000 0
+1085000 4000 1091000 4000
+e 91 2
+1085000 1248000 1091000 1248000
+1085000 1252000 1091000 1252000
+e 92 2
+1101000 0 1107000 0
+1101000 4000 1107000 4000
+e 93 2
+1101000 1248000 1107000 1248000
+1101000 1252000 1107000 1252000
+e 94 2
+1117000 0 1123000 0
+1117000 4000 1123000 4000
+e 95 2
+1117000 1248000 1123000 1248000
+1117000 1252000 1123000 1252000
+e 96 2
+1133000 0 1139000 0
+1133000 4000 1139000 4000
+e 97 2
+1133000 1248000 1139000 1248000
+1133000 1252000 1139000 1252000
+e 98 2
+1149000 0 1155000 0
+1149000 4000 1155000 4000
+e 99 2
+1149000 1248000 1155000 1248000
+1149000 1252000 1155000 1252000
+e 100 2
+1165000 0 1171000 0
+1165000 4000 1171000 4000
+e 101 2
+1165000 1248000 1171000 1248000
+1165000 1252000 1171000 1252000
+e 102 2
+1181000 0 1187000 0
+1181000 4000 1187000 4000
+e 103 2
+1181000 1248000 1187000 1248000
+1181000 1252000 1187000 1252000
+e 104 2
+1197000 0 1203000 0
+1197000 4000 1203000 4000
+e 105 2
+1197000 1248000 1203000 1248000
+1197000 1252000 1203000 1252000
+e 106 2
+1213000 0 1219000 0
+1213000 4000 1219000 4000
+e 107 2
+1213000 1248000 1219000 1248000
+1213000 1252000 1219000 1252000
+DRC22_2
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal4 spacing = 6L
+DRC22_3
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal4 overlap of via3 = 2L
+DRC22_4
+0 0 2 May 12 14:24:09 2019                     
+Rule File Pathname: /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder/_tsmc035.rules_
+Metal4 spacing = 12L if width > 10L

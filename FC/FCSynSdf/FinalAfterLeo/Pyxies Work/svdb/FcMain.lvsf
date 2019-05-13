@@ -1,0 +1,13 @@
+# Automagically generated file: Please do not edit!
+lvs_LvsOutFile RUNDIR /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC
+lvs_LvsfVersion 4
+lvs_LvsInputSummary {0 0 1443}
+lvs_LvsComparisonSummary {2 0 0 0}
+lvs_LvsOutFile LVS_SUMMARY lvs.summary
+lvs_SourceCase NO
+lvs_LayoutCase NO
+lvs_PowerName VCC
+lvs_GroundName GND
+lvs_LvsOutFile LVS_REPORT FcMain.lvs.report
+lvs_LvsOutFile SOURCE_NETLIST /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp
+lvs_LvsOutFile RULES_FILE /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_tsmc035.calibre.rules_

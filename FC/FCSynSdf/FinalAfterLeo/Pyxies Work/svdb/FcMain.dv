@@ -1,0 +1,773 @@
+# CALIBRE-LVS DISCREPANCY VIEWER TCL FILE 
+# FILE: svdb/FcMain.dv
+dv_start notcompared                              
+dv_global
+dv_discrep 1 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "oai21" at line 382 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 2 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 383 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 3 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "oai21" at line 384 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 4 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffs_ni" at line 385 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 5 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 386 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 6 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "ao22" at line 387 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 7 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 388 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 8 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "ao21" at line 389 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 9 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 390 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 10 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 391 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 11 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "or02" at line 392 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 12 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor03_2x" at line 393 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 13 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor03_2x" at line 394 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 14 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor04" at line 396 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 15 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor04" at line 398 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 16 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor04" at line 400 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 17 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor04" at line 402 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 18 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 404 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 19 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor04" at line 405 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 20 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nand04" at line 407 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 21 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "or02" at line 408 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 22 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 409 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 23 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 410 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 24 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nand03" at line 411 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 25 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nand02" at line 412 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 26 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 413 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 27 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "ao22" at line 414 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 28 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor03_2x" at line 415 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 29 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 416 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 30 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 417 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 31 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "ao22" at line 418 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 32 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 419 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 33 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 420 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 34 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "ao21" at line 421 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 35 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nand03" at line 422 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 36 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 423 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 37 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "or02" at line 424 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 38 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "or02" at line 425 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 39 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "or03" at line 426 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 40 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 427 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 41 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 428 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 42 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 429 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 43 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 430 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 44 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 431 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 45 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 432 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 46 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 433 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 47 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 434 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 48 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 435 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 49 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 436 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 50 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 437 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 51 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 438 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 52 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 439 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 53 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 440 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 54 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 441 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 55 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 442 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 56 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 443 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 57 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 444 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 58 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 445 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 59 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 446 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 60 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 447 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 61 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 448 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 62 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 449 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 63 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 450 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 64 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 451 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 65 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 452 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 66 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 453 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 67 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 454 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 68 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 455 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 69 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 456 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 70 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 457 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 71 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 458 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 72 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 459 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 73 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 460 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 74 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 461 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 75 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 462 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 76 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 463 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 77 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 464 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 78 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 465 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 79 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 466 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 80 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 467 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 81 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 468 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 82 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 469 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 83 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 470 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 84 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 471 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 85 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 472 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 86 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 473 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 87 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 474 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 88 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 475 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 89 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 476 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 90 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 477 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 91 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 478 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 92 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 479 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 93 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 480 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 94 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 481 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 95 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 482 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 96 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 483 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 97 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 484 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 98 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 485 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 99 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 486 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 100 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 487 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 101 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 488 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 102 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 489 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 103 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 490 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 104 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 491 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 105 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 492 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 106 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 493 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 107 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 494 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 108 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 495 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 109 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 496 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 110 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 497 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 111 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 498 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 112 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 499 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 113 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 500 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 114 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 501 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 115 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 502 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 116 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 503 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 117 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 504 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 118 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 505 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 119 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 506 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 120 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 507 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 121 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 508 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 122 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 509 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 123 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 510 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 124 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 511 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 125 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 512 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 126 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 513 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 127 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 514 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 128 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 515 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 129 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 516 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 130 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "buf02" at line 517 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 131 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 518 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 132 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffr" at line 3010 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 133 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "or02" at line 3011 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 134 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dff" at line 3012 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 135 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 2872 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 136 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2873 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 137 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2875 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 138 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2876 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 139 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02_2x" at line 2877 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 140 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2878 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 141 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2879 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 142 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2881 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 143 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2882 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 144 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2883 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 145 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2884 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 146 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2886 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 147 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2887 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 148 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2888 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 149 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2889 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 150 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2891 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 151 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2892 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 152 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2893 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 153 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2894 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 154 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2896 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 155 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2897 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 156 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2898 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 157 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2899 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 158 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2901 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 159 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2902 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 160 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2903 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 161 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2904 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 162 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2906 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 163 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2907 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 164 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2908 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 165 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2909 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 166 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2911 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 167 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2912 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 168 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2913 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 169 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2914 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 170 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2916 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 171 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2917 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 172 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2918 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 173 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2919 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 174 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2921 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 175 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2922 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 176 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2923 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 177 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2924 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 178 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2926 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 179 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2927 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 180 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2928 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 181 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2929 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 182 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2931 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 183 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2932 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 184 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2933 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 185 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2934 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 186 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2936 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 187 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2937 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 188 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2938 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 189 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2939 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 190 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2941 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 191 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2942 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 192 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2943 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 193 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2944 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 194 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2946 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 195 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2947 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 196 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2948 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 197 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "dffsr_ni" at line 2949 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 198 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2951 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 199 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2952 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 200 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "and02" at line 2953 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 201 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02_2x" at line 2954 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 202 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02_2x" at line 2955 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 203 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2956 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 204 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2957 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 205 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2958 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 206 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2959 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 207 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2960 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 208 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2961 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 209 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2962 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 210 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2963 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 211 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2964 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 212 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2965 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 213 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2966 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 214 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2967 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 215 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2968 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 216 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2969 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 217 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2970 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 218 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nor02ii" at line 2971 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 219 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv01" at line 2972 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 220 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2973 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 221 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2974 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 222 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2975 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 223 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2830 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 224 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2831 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 225 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2832 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 226 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2833 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 227 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2834 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 228 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2835 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 229 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2836 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 230 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2837 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 231 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2838 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 232 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2839 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 233 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2840 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 234 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2841 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 235 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "mux21_ni" at line 2842 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 236 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "ao22" at line 2843 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 237 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "ao22" at line 2844 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 238 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2845 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 239 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "ao22" at line 2846 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 240 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2847 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 241 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2848 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 242 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2849 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 243 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2131 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 244 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2132 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 245 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "latch" at line 2133 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 246 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nand04" at line 2134 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 247 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "aoi22" at line 2135 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 248 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "aoi222" at line 2137 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 249 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2139 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 250 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "aoi22" at line 2140 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 251 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "aoi222" at line 2142 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 252 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "inv02" at line 2144 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 253 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "latch" at line 2145 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 254 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "nand04" at line 2146 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 255 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "aoi22" at line 2147 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_discrep 256 {Error: Unmatched statement}
+dv_discrep_line {No matching ".SUBCKT" statement for "aoi222" at line 2149 in file "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/_FCSyn.v.sp"}
+dv_discrep_line {}
+dv_end
