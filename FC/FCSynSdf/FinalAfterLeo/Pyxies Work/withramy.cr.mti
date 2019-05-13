@@ -1,0 +1,233 @@
+/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v {1 {vlog -work work -stats=none /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v
+Model Technology ModelSim DE vlog 2019.1 Compiler 2019.01 Jan  1 2019
+-- Compiling module FcMain
+-- Compiling module Reg_4
+-- Compiling module CounterUpDown_13
+-- Compiling module NBitAdder_13
+-- Compiling module FlibFlob
+-- Compiling module Alus8x16_10
+-- Compiling module Accumulator_10
+-- Compiling module nMul8x16_10
+-- Compiling module Reg_1
+-- Compiling module ShiftReg_3
+-- Compiling module RisingHolderHalfCycle
+-- Compiling module Mul8x16
+-- Compiling module BoothStep
+-- Compiling module NBitAdder_24
+-- Compiling module BinaryMux_33
+-- Compiling module Reg_8
+-- Compiling module Reg_16
+-- Compiling module Reg_33
+-- Compiling module ngetMax_16_10
+-- Compiling module Comparator_16
+-- Compiling module CounterUpDown_4
+-- Compiling module NBitAdder_4
+-- Compiling module RegTony_4
+-- Compiling module RegTony_16
+-- Compiling module Mux2_16
+-- Compiling module CounterUpDown_16
+-- Compiling module NBitAdder_16
+-- Compiling module FullAdder
+-- Compiling module RisingHolderFullCycle
+
+Top level modules:
+	FcMain
+
+} {} {}} /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/adk.v {1 {vlog -work work -stats=none /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/adk.v
+Model Technology ModelSim DE vlog 2019.1 Compiler 2019.01 Jan  1 2019
+-- Compiling module and02
+-- Compiling module and03
+-- Compiling module and04
+-- Compiling module ao21
+-- Compiling module ao22
+-- Compiling module ao221
+-- Compiling module ao32
+-- Compiling module aoi21
+-- Compiling module aoi22
+-- Compiling module aoi221
+-- Compiling module aoi222
+-- Compiling module aoi32
+-- Compiling module aoi321
+-- Compiling module aoi322
+-- Compiling module aoi33
+-- Compiling module aoi332
+-- Compiling module aoi333
+-- Compiling module aoi422
+-- Compiling module aoi43
+-- Compiling module aoi44
+-- Compiling module buf02
+-- Compiling module buf04
+-- Compiling module buf08
+-- Compiling module buf12
+-- Compiling module buf16
+-- Compiling module dff
+-- Compiling UDP dff_err
+-- Compiling UDP dff_p
+-- Compiling module dffr
+-- Compiling UDP dff_r_err
+-- Compiling UDP dff_r
+-- Compiling module dffs
+-- Compiling UDP dff_s_err
+-- Compiling UDP dff_s
+-- Compiling module dffs_ni
+-- Compiling module dffsr
+-- Compiling UDP dff_sr_err
+-- Compiling UDP dff_sr_1
+-- Compiling module dffsr_ni
+-- Compiling module fadd1
+-- Compiling module hadd1
+-- Compiling module inv01
+-- Compiling module inv02
+-- Compiling module inv04
+-- Compiling module inv08
+-- Compiling module inv12
+-- Compiling module inv16
+-- Compiling module latch
+-- Compiling UDP latch_p
+-- Compiling module latchr
+-- Compiling UDP latch_r
+-- Compiling module latchs
+-- Compiling UDP latch_s
+-- Compiling module latchs_ni
+-- Compiling module latchsr
+-- Compiling UDP latch_sr_1
+-- Compiling module latchsr_ni
+-- Compiling module mux21
+-- Compiling UDP mux2
+-- Compiling module mux21_ni
+-- Compiling module nand02
+-- Compiling module nand02_2x
+-- Compiling module nand03
+-- Compiling module nand03_2x
+-- Compiling module nand04
+-- Compiling module nand04_2x
+-- Compiling module nor02
+-- Compiling module nor02_2x
+-- Compiling module nor02ii
+-- Compiling module nor03
+-- Compiling module nor03_2x
+-- Compiling module nor04
+-- Compiling module nor04_2x
+-- Compiling module oai21
+-- Compiling module oai22
+-- Compiling module oai221
+-- Compiling module oai222
+-- Compiling module oai32
+-- Compiling module oai321
+-- Compiling module oai322
+-- Compiling module oai33
+-- Compiling module oai332
+-- Compiling module oai333
+-- Compiling module oai422
+-- Compiling module oai43
+-- Compiling module oai44
+-- Compiling module or02
+-- Compiling module or03
+-- Compiling module or04
+-- Compiling module sff
+-- Compiling module sffr
+-- Compiling module sffr_ni
+-- Compiling module sffs
+-- Compiling module sffsr
+-- Compiling UDP dff_sr_0
+-- Compiling module sffsr_ni
+-- Compiling module tri01
+-- Compiling module trib04
+-- Compiling module trib08
+-- Compiling module xnor2
+-- Compiling module xnor2_2x
+-- Compiling module xor2
+-- Compiling module xor2_2x
+
+Top level modules:
+	and02
+	and03
+	and04
+	ao21
+	ao22
+	ao221
+	ao32
+	aoi21
+	aoi22
+	aoi221
+	aoi222
+	aoi32
+	aoi321
+	aoi322
+	aoi33
+	aoi332
+	aoi333
+	aoi422
+	aoi43
+	aoi44
+	buf02
+	buf04
+	buf08
+	buf12
+	buf16
+	dff
+	dffr
+	dffs
+	dffs_ni
+	dffsr
+	dffsr_ni
+	fadd1
+	hadd1
+	inv01
+	inv02
+	inv04
+	inv08
+	inv12
+	inv16
+	latch
+	latchr
+	latchs
+	latchs_ni
+	latchsr
+	latchsr_ni
+	mux21
+	mux21_ni
+	nand02
+	nand02_2x
+	nand03
+	nand03_2x
+	nand04
+	nand04_2x
+	nor02
+	nor02_2x
+	nor02ii
+	nor03
+	nor03_2x
+	nor04
+	nor04_2x
+	oai21
+	oai22
+	oai221
+	oai222
+	oai32
+	oai321
+	oai322
+	oai33
+	oai332
+	oai333
+	oai422
+	oai43
+	oai44
+	or02
+	or03
+	or04
+	sff
+	sffr
+	sffr_ni
+	sffs
+	sffsr
+	sffsr_ni
+	tri01
+	trib04
+	trib08
+	xnor2
+	xnor2_2x
+	xor2
+	xor2_2x
+
+} {} {}}

@@ -1,0 +1,1304 @@
+//  Pyxis Layout  v18.3_0.0  Dec  4 2018 00:53:15
+//  ICverify/Calibre Libraries  v2010.2_59.49   Tue Dec 4 00:50:15 PST 2018
+//
+//             Copyright Mentor Graphics Corporation 1982
+//
+//                      All Rights Reserved.
+//
+//    THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+//      WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR
+//           ITS LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+//
+//  Mentor Graphics software executing under x86_64 Linux.
+//
+
+$change_workspace("Tabbed");
+   $set_verilog_supply1("VDD");
+   $set_verilog_supply0("GND");
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/a\
+dk3_1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v
+// Starting conversion ...
+// Converting module FcMain
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module NBitAdder_13
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module FlibFlob
+// Converting module Alus8x16_10
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module Accumulator_10
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module nMul8x16_10
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module BoothStep
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+// Converting module RisingHolderFullCycle
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+//  Note: Instance update has occurred for "FcMain". (from: Ic/database/ic_ifc_update 80)
+$set_active_window("IC 0"); 
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "", "", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_Acce\
+leratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Converting module ngetMax_16_10
+// Error: No cell found for undeclared module fake_vcc; first encountered in module ngetMax_16_10
+// Error: No cell found for undeclared module fake_gnd; first encountered in module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+// Converting module RisingHolderFullCycle
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Converting module ngetMax_16_10
+// Converting module RegTony_16
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+//  Warning: Cannot edit in this window. (from: Uims/Notepad/btxt_area 83)
+//  Warning: Cannot edit in this window. (from: Uims/Notepad/btxt_area 83)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Converting module ngetMax_16_10
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+// Converting module RisingHolderFullCycle
+// Error: No cell found for undeclared module fake_vcc; first encountered in module RisingHolderFullCycle
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Converting module ngetMax_16_10
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Converting module ngetMax_16_10
+// Error: No cell found for undeclared module fake_vcc; first encountered in module ngetMax_16_10
+// Error: No cell found for undeclared module fake_gnd; first encountered in module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module FlibFlob
+// Converting module Alus8x16_10
+// Converting module Accumulator_10
+// Converting module nMul8x16_10
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module FlibFlob
+// Converting module Alus8x16_10
+// Converting module Accumulator_10
+// Converting module nMul8x16_10
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module FlibFlob
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module Comparator_16
+// Error: No cell found for undeclared module fake_gnd; first encountered in module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module Comparator_16
+// Error: No cell found for undeclared module fake_gnd; first encountered in module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/adk3_\
+1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/F.v
+// Starting conversion ...
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/a\
+dk3_1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v
+// Starting conversion ...
+// Converting module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module FlibFlob
+// Converting module Alus8x16_10
+// Converting module Accumulator_10
+// Converting module nMul8x16_10
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+// Converting module RisingHolderFullCycle
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/a\
+dk3_1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module FlibFlob
+// Converting module Alus8x16_10
+// Converting module Accumulator_10
+// Converting module nMul8x16_10
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+// Converting module RisingHolderFullCycle
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $set_verilog_supply1("fake_vcc");
+   $set_verilog_supply0("fake_gnd");
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/a\
+dk3_1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module FlibFlob
+// Converting module Alus8x16_10
+// Converting module Accumulator_10
+// Converting module nMul8x16_10
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+// Converting module RisingHolderFullCycle
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $set_verilog_supply1("VCC");
+   $set_verilog_supply0("GND");
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/a\
+dk3_1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v
+// Starting conversion ...
+// Converting module FcMain
+// Error: No cell found for undeclared module fake_gnd; first encountered in module FcMain
+// Error: No cell found for undeclared module fake_vcc; first encountered in module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module FlibFlob
+// Converting module Alus8x16_10
+// Converting module Accumulator_10
+// Converting module nMul8x16_10
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+// Converting module RisingHolderFullCycle
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Error: Loadable Module "verilog": Verilog netlist read completed with error(s). (from: Ic/modules/general 01)
+   $read_verilog("", "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v", "", @nocreate_prim, "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035", "/home/ayman/mgc/adk3_1/technology/ic/process/tsmc035.rules", "/home/ayman/mgc/a\
+dk3_1/technology/ic/process/tsmc035", "", "", "", @update, @false, "/home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/folder", "[", "]", @full_hierarchy);
+// Reading file /home/ayman/Desktop/Project/BeforeSub/CNN_AcceleratorSys/calibreFC/FCSyn.v
+// Starting conversion ...
+// Converting module FcMain
+// Converting module Reg_4
+// Converting module CounterUpDown_13
+// Converting module NBitAdder_13
+// Converting module FlibFlob
+// Converting module Alus8x16_10
+// Converting module Accumulator_10
+// Converting module nMul8x16_10
+// Converting module Reg_1
+// Converting module ShiftReg_3
+// Converting module RisingHolderHalfCycle
+// Converting module Mul8x16
+// Converting module BoothStep
+// Converting module NBitAdder_24
+// Converting module BinaryMux_33
+// Converting module Reg_8
+// Converting module Reg_16
+// Converting module Reg_33
+// Converting module ngetMax_16_10
+// Converting module Comparator_16
+// Converting module CounterUpDown_4
+// Converting module NBitAdder_4
+// Converting module RegTony_4
+// Converting module RegTony_16
+// Converting module Mux2_16
+// Converting module CounterUpDown_16
+// Converting module NBitAdder_16
+// Converting module FullAdder
+// Converting module RisingHolderFullCycle
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Loadable Module "verilog": Verilog netlist read completed successfully. (from: Ic/modules/general 82)
+   $show_sub_palette("user_ic@@Plan & Place");
+//  Note: Attempting to acquire the license ICassemble... (from: Uims/base_toolkit/ui_session_tk 81)
+   $acquire_license(@icassemble);
+//  Note: License for ICassemble has been acquired. (from: Ic/ui/ic_license_mgr 81)
+   $autofloorplan(0.5, 1.5, 0, 3000, 3000, 0.0, 0.0, 0.0, 0.0, 1.0, 0, @auto, @auto, 0, [@normal, @mirror_x], 0, [@mirror_y, @mirror_xy], 0, [@rotate_ccw, @rotate_mirror_y], 0, [@rotate_mirror_x, @rotate_mirror_xy], @auto, @nokeep, @normal, "");
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Total time in $autofloorplan():   CPU Seconds = 0   Wall Clock Seconds = 0 (from: Ic/apr/auto-tools 87)
+//  Note: Floorplanning completed. Read FLOORPLAN_FcMain.rpt for detail. (from: Ic/apr/auto-tools 84)
+//  Note: Instance update has occurred for "FcMain". (from: Ic/database/ic_ifc_update 80)
+   $view_all();
+   $autoplace_ports(@local, [@left, @right, @bottom, @top], void, 0.0, @selected_order, void, "", "M3", "M4");
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Total time in $autoplace_ports():   CPU Seconds = 0   Wall Clock Seconds = 0 (from: Ic/apr/auto-tools 87)
+   $view_all();
+   $autoplace_ports(@local, [@left, @right, @bottom, @top], void, 0.0, @selected_order, void, "", "M3", "M4");
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Total time in $autoplace_ports():   CPU Seconds = 0   Wall Clock Seconds = 0 (from: Ic/apr/auto-tools 87)
+   $view_all();
+   $autoplace_ports(@local, [@left, @right, @bottom, @top], void, 0.0, @selected_order, void, "", "M3", "M4");
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Total time in $autoplace_ports():   CPU Seconds = 0   Wall Clock Seconds = 0 (from: Ic/apr/auto-tools 87)
+   $view_all();
+   $add_text_on_ports([], [], 1.0, @left, @bottom, @horizontal, @internal, ":", @false);
+//  Note: Loadable Module "edit": 217 text object(s) added. (from: Ic/modules/general 82)
+   $autoplace_standard_cells([[0, 0], [0, 0]], @init_n_improve, @bal, 0, 0.0, @false);
+//  Note: Unplaced large macro block BUFFERREGTWO,
+;//        nets connected to this block will be ignored.
+//  Warning: Unplaced blocks found, nets ignored during placement. (from: Ic/apr/std_placer 82)
+//  Note: Unplaced large macro block BUFFERREGONE,
+;//        nets connected to this block will be ignored.
+//  Note: Unplaced large macro block ALUMAP,
+;//        nets connected to this block will be ignored.
+//  Note: Unplaced large macro block CNNDONEHOLDER,
+;//        nets connected to this block will be ignored.
+//  Note: Unplaced large macro block MAXVALUEREGMAP,
+;//        nets connected to this block will be ignored.
+//  Note: Unplaced large macro block NEORONADDRESSCOUNTER,
+;//        nets connected to this block will be ignored.
+//  Note: Unplaced large macro block NEORONREGMUX,
+;//        nets connected to this block will be ignored.
+//  Note: Unplaced large macro block WEIGHTADDRESSCOUNTER,
+;//        nets connected to this block will be ignored.
+//  Note: Unplaced large macro block NEORONSLASTSTAGES,
+;//        nets connected to this block will be ignored.
+//  Note: Unplaced large macro block MAXIMIZATIONMAP,
+;//        nets connected to this block will be ignored.
+//  Note: Row utilization: 93.54%, user units free: 448 (6.45%). (from: Ic/apr/std_placer 8D)
+//  Note: Doing initial placement. Control-S to abort. (from: Ic/apr/std_placer 87)
+//  Note: Bipartition pass  1 of 10, average nets cut:  18, cuts performed:  1 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass  2 of 10, average nets cut:  35, cuts performed:  1 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass  3 of 10, average nets cut:   9, cuts performed:  2 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass  4 of 10, average nets cut:  12, cuts performed:  2 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass  5 of 10, average nets cut:   0, cuts performed:  4 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass  6 of 10, average nets cut:   4, cuts performed:  3 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass  7 of 10, average nets cut:   0, cuts performed:  4 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass  8 of 10, average nets cut:   0, cuts performed:  2 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass  9 of 10, average nets cut:   0, cuts performed:  2 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Bipartition pass 10 of 10, average nets cut:   0, cuts performed:  3 (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Initial placement: CPU seconds: 0, Wall Core_clock seconds: 2
+//  Note: Doing detailed placement. Control-S to stop. (from: Ic/apr/std_placer 88)
+//  Note: Iteration:     0, wire length: 4103  (T= 2.32) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   180, wire length: 3639  (T= 1.64) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   220, wire length: 3639  (T= 1.16) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   320, wire length: 3638  (T= 0.82) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   560, wire length: 3508  (T= 0.58) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   620, wire length: 3510  (T= 0.41) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   680, wire length: 3507  (T= 0.29) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   720, wire length: 3507  (T= 0.21) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   760, wire length: 3507  (T= 0.14) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Iteration:   800, wire length: 3507  (T= 0.00) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Final iteration: 840, wire length: 3481  (T= 0.00) (from: Uims/base_toolkit/ui_session_tk 81)
+//  Note: Detailed placement: CPU seconds: 0, Wall Core_clock seconds: 0
+//  Note: Placement not saved, use $save_cell command to save it.
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+//  Note: Total time in $autoplace_standard_cells():   CPU Seconds = 0.6   Wall Clock Seconds = 2.7 (from: Ic/apr/auto-tools 87)
+//  Note: Placement completed. (from: Ic/apr/auto-tools 83)
+   $show_sub_palette("user_ic@@ARoute");
+   $set_process_override(@power_styles, "[[@right_vertical_bus, \"VDD\", 2, 51, 50.0, 0.0, 1], [@right_vertical_bus, \"GND\", 2, 51, 50.0, 0.0, 1], [@left_vertical_bus, \"VDD\", 2, 51, 50.0, 0.0, 1], [@left_vertical_bus, \"GND\", 2, 51, 50.0, 0.0, 1]]", @\
+replace);
+//  Note: Set process override successfully completed. (from: Ic/ui/ic_functions B3)
+   $proute();
+//  Error: $layer_shielding undefined at line 1 (from: Uims/Ample/Ample_eval 0A)
+//  Error: No command "$layer_shielding" was found to execute. If the command requires an auxiliary license, acquire that license and try again. (from: Ic/ui/ic_license_mgr 02)
+//  Note: Loadable Module "fr":  Pass 1 of 1 ... Initial Net count: 2; Processed: 2; To go: 0. (from: Ic/modules/general 82)
+//  Note: Loadable Module "fr":  Pass 1 of 1 complete ... Net count: 2. (from: Ic/modules/general 82)
+//  Note: Total time in $proute():   CPU Seconds = 0   Wall Clock Seconds = 0 (from: Ic/apr/auto-tools 87)
+   $aroute();
+//  Error: $layer_shielding undefined at line 1 (from: Uims/Ample/Ample_eval 0A)
+//  Error: No command "$layer_shielding" was found to execute. If the command requires an auxiliary license, acquire that license and try again. (from: Ic/ui/ic_license_mgr 02)
+//  Note: Loadable Module "fr":  Pass 1 of 1 ... Initial Overflow count: 177; Routed: 34; Failed: 0; To go: 143. (from: Ic/modules/general 82)
+//  Note: Loadable Module "fr":  Pass 1 of 1 ... Initial Overflow count: 177; Routed: 71; Failed: 0; To go: 106. (from: Ic/modules/general 82)
+//  Note: Loadable Module "fr":  Pass 1 of 1 ... Initial Overflow count: 177; Routed: 113; Failed: 0; To go: 64. (from: Ic/modules/general 82)
+//  Note: Loadable Module "fr":  Pass 1 of 1 ... Initial Overflow count: 177; Routed: 145; Failed: 0; To go: 32. (from: Ic/modules/general 82)
+//  Note: Loadable Module "fr":  Pass 1 of 1 ... Initial Overflow count: 177; Routed: 162; Failed: 0; To go: 15. (from: Ic/modules/general 82)
+//  Note: Loadable Module "fr":  Pass 1 of 1 ... Initial Overflow count: 177; Routed: 177; Failed: 0; To go: 0. (from: Ic/modules/general 82)
+//  Note: Loadable Module "fr":  Pass 1 of 1 complete ... Overflow count: 177; Routed: 177; Failed: 0. (from: Ic/modules/general 82)
+//  Note: Total time in $aroute():   CPU Seconds = 2   Wall Clock Seconds = 6 (from: Ic/apr/auto-tools 87)
+//  Note: Net information recalculated (from: Ic/connectivity/ic_net 8C)
+   $$write_gdsii_1();
+//  
+//   --------------------------------------------------------------------------------------------------
+//   -----                        GDSII STREAM DATA FOR TRANSLATED CELLS                          -----
+//   --------------------------------------------------------------------------------------------------
+//        CELL NAME                    PLACEMENTS   ARRAYS  POLYGONS   PATHS    TEXT   PROPERTY   NODES
+//   --------------------------------------------------------------------------------------------------
+//   via3                                     0        0        3        0        0        0        0
+//   via2                                     0        0        3        0        0        0        0
+//   via                                      0        0        3        0        0        0        0
+//   pwell_contact                            0        0        4        0        0        0        0
+//   nwell_contact                            0        0        4        0        0        0        0
+//   dffr                                    18        0      316       92        7      121        0
+//   inv01                                    2        0       39        9        4       14        0
+//   mux21_ni                                 4        0      134       19        6       46        0
+//   dffs_ni                                  5        0      429       99        7      147        0
+//   FlibFlob                                 0        0        0        0        0        0        0
+//   buf02                                    2        0       61       14        4       20        0
+//   buf04                                    4        0       75       20        4       26        0
+//   inv02                                    2        0       45        9        4       14        0
+//   Reg_16                                   0        0        0        0        0        0        0
+//   xnor2                                    6        0      119       32        5       41        0
+//   ao22                                     6        0      110       31        7       41        0
+//   FullAdder                                0        0        0        0        0        0        0
+//   NBitAdder_16                             0        0        0        0        0        0        0
+//   Accumulator_10                           0        0        0        0        0        0        0
+//   nor02ii                                  0        0       83       10        5       30        0
+//   or02                                     4        0       71       19        5       26        0
+//   Reg_1                                    0        0        0        0        0        0        0
+//   ShiftReg_3                               0        0        0        0        0        0        0
+//   dff                                     10        0      277       82        6      102        0
+//   RisingHolderHalfCycle                    0        0        0        0        0        0        0
+//   aoi21                                    4        0       77       19        6       27        0
+//   mux21                                    6        0      108       31        6       40        0
+//   nand03                                   4        0       79       19        6       26        0
+//   nor03_2x                                 0        0      110        8        6       30        0
+//   nand02                                   4        0       62       14        5       22        0
+//   nor02_2x                                 0        0       89        4        5       24        0
+//   aoi22                                    4        0       91       24        7       33        0
+//   oai221                                   6        0      137       31        8       42        0
+//   NBitAdder_24                             0        0        0        0        0        0        0
+//   BoothStep                                0        0        0        0        0        0        0
+//   BinaryMux_33                             0        0        0        0        0        0        0
+//   Reg_8                                    0        0        0        0        0        0        0
+//   Reg_33                                   0        0        0        0        0        0        0
+//   Mul8x16                                  0        0        0        0        0        0        0
+//   nMul8x16_10                              0        0        0        0        0        0        0
+//   Alus8x16_10                              0        0        0        0        0        0        0
+//   RisingHolderFullCycle                    0        0        0        0        0        0        0
+//   and02                                    4        0       72       20        5       26        0
+//   or03                                     4        0      102       24        6       40        0
+//   nand04                                   4        0      105       24        7       32        0
+//   nor04                                    6        0      100       24        7       36        0
+//   ao21                                     6        0       94       24        6       35        0
+//   oai21                                    4        0       80       19        6       27        0
+//   Reg_4                                    0        0        0        0        0        0        0
+//   dffsr_ni                                 6        0      474       76        8      161        0
+//   NBitAdder_13                             0        0        0        0        0        0        0
+//   CounterUpDown_13                         0        0        0        0        0        0        0
+//   Mux2_16                                  0        0        0        0        0        0        0
+//   CounterUpDown_16                         0        0        0        0        0        0        0
+//   and04                                    6        0      118       29        7       38        0
+//   aoi222                                   6        0      162       38        9       54        0
+//   latch                                    8        0      146       45        5       56        0
+//   nand04_2x                                0        0      163       13        7       45        0
+//   aoi332                                   8        0      209       44       11       62        0
+//   nand03_2x                                0        0      114        8        6       30        0
+//   aoi33                                    6        0      133       38        9       47        0
+//   ao32                                     6        0      124       34        8       47        0
+//   aoi321                                   6        0      164       39        9       54        0
+//   oai321                                   6        0      171       50        9       61        0
+//   and03                                    4        0       99       24        6       32        0
+//   or04                                     6        0      106       31        7       40        0
+//   nor04_2x                                 0        0      156       13        7       45        0
+//   aoi221                                   6        0      138       31        8       48        0
+//   aoi44                                    8        0      195       48       11       65        0
+//   oai32                                    6        0      126       29        8       41        0
+//   oai22                                    4        0       97       24        7       33        0
+//   aoi32                                    4        0      110       29        8       39        0
+//   nand02_2x                                0        0       93        4        5       24        0
+//   latchs_ni                                4        0      216       45        6       76        0
+//   oai33                                    6        0      158       36        9       49        0
+//   Comparator_16                            0        0        0        0        0        0        0
+//   NBitAdder_4                              0        0        0        0        0        0        0
+//   CounterUpDown_4                          0        0        0        0        0        0        0
+//   RegTony_4                                0        0        0        0        0        0        0
+//   RegTony_16                               0        0        0        0        0        0        0
+//   ngetMax_16_10                            0        0        0        0        0        0        0
+//   FcMain                                 131        0      217      724      217      779        0
+//  
+//   -----------------------------------------TOTALS---------------------------------------------------
+//                                     PLACEMENTS   ARRAYS  POLYGONS   PATHS    TEXT   PROPERTY   NODES
+//   --------------------------------------------------------------------------------------------------
+//   UNIQUE CELLS 82                        356        0     6771     2173      537     2994        0
+//   --------------------------------------------------------------------------------------------------
+//   ERRORS:0  WARNINGS:0
+//   --------------------------------------------------------------------------------------------------
+//  Total time for write_gdsii: cpu=00000.18 secs    wall=00000.21 secs
+   $check_shorts_all(@replace);
+//  Note: License for ICshortchecker has been acquired. (from: Ic/ui/ic_license_mgr 81)
+//  Note: Loadable Module "short_checker": 0 short(s) found. (from: Ic/modules/general 82)
+   mgc_rve_run_calibre_gui("drc");
+//  Calibre Interactive - DRC  v2019.1_18.11    Thu Jan 10 13:52:51 PST 2019
+//
+//        Copyright Mentor Graphics Corporation 1996-2019
+//                       All Rights Reserved.
+//   THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+//      WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION
+//        OR ITS LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+//
+//  The registered trademark Linux is used pursuant to a sublicense from LMI, the
+//  exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+//
+//  Mentor Graphics software executing under x86-64 Linux
+//
+//  Running on Linux ubuntu 4.4.0-140-generic #166~14.04.1-Ubuntu SMP Sat Nov 17 01:52:43 UTC 2018 x86_64
+//  64 bit virtual addressing enabled
+//
+//  Starting time: Sun May 12 14:16:28 2019
+//
+// ICRVE: invalid command: mgc_rve_send_protocol_version 4.6 ubuntu 9189 ubuntu:0.0 
+//  calinteractive license acquired.
+//  WARNING: calinteractive license(s) (1717@ubuntu SN=62651427, HostID=0023ae7cbd56) will expire in 26 days.
+//  Calibre Interactive authorized.
+// ICRVE: invalid command: mgc_rve_send_protocol_version 4.6 ubuntu 9189 ubuntu:0.0 
+//     mgc_rve_delete_markers "" 1 
+   mgc_rve_delete_markers("", 1);
+// ICRVE: invalid command: mgc_rve_send_protocol_version 4.6 ubuntu 9189 ubuntu:0.0 
+   mgc_rve_run_calibre_gui("lvs");
