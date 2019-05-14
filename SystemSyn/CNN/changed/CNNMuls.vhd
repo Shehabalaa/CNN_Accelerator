@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 use work.types.all;
 
--- cnnmulscnn entity
+-- cnnmuls entity
 
 -- window --> output registers of the window (25 in our case)
 -- filter --> output registers of the filter (25 in our case)

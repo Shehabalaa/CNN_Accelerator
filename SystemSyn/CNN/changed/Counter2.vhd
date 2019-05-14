@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
- -- countercnn entity
+ -- counter entity
 
  -- load ==> a parallel load to the counter
 -- reset ==> 1 to reset the counter

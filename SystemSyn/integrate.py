@@ -5,7 +5,7 @@ import sys
 files = []
 
 def changeEntities():
-    entites = [n.strip('.vhd').lower() for n in files]
+    entites = [n.replace(".vhd","").lower() for n in files]
     add = r.strip("./")
     toWrite = ''
     for f in files:
@@ -15,7 +15,7 @@ def changeEntities():
                 lines = ff.readlines()
                 for line in lines:
                     line = line.lower()
-                    if (all([s in line for s in ["port","map"]])):
+                    if (all([s in line for s in ["port "," map"]])):
                         for e in entites:
                             arr = line.split(':')
                             try:
@@ -24,11 +24,11 @@ def changeEntities():
                             except:
                                 line = arr[0].replace(e+' ',e+add +' ')
 
-                    elif(all([s in line for s in ["end"]])):
+                    elif(all([s in line for s in ["end "]])):
                         for e in entites:
                             line = line.replace(' '+e+';',' '+e+add +';')
                             line = line.replace(' '+e+' ',' '+e+add+' ')
-                    elif(any([s in line for s in ["entity","architecture","component"]])):
+                    elif(any([s in line for s in ["entity ","architecture","component"]])):
                         for e in entites:
                             line = line.replace(' '+e+' ',' '+e+add+' ')
                     ff2.write(line)
@@ -36,17 +36,19 @@ def changeEntities():
 
 def changeArchs():
     for f in files:
-        with open(sys.argv[1]+'/changed/'+f,'rw+') as ff:
+        with open(sys.argv[1]+'/changed/'+f,'r') as ff:
             lines = ff.readlines()
+        with open(sys.argv[1]+'/changed/'+f,'w') as ff:
             a=''
             b=''
             add = 'arch'
-            ff.seek(0)
             for line in lines:
                 line = line.lower()
                 if(all([s in line for s in ["end"]])):
-                    if(a!=''):
-                        line = line.replace(' '+a,' '+b+add)
+                    if(a!='' and line.find(a)>=0):
+                        line = "end "+b+add+";\n";
+                        a=''
+                        b=''
                 elif(all([s in line.lower() for s in ["of","architecture","is"]])):
                     s = line.split()
                     a,b = s[1].lower(),s[3].lower()

@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use work.types.arrayofregs16;
 
--- adder8valuescnn entity
+-- adder8values entity
 
 
 

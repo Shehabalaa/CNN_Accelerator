@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- iocounterio entity
+-- iocounter entity
 
 -- load ==> a parallel load to the iocounter
 -- reset ==> 1 to reset the iocounter

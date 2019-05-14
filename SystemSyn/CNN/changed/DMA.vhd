@@ -20,7 +20,7 @@ generic (
   );
   port (
     initialcount: in std_logic_vector(2 downto 0); -- three bit to include max count size which is 5
-    readbaseaddress: in std_logic_vector(addresssize-1 downto 0) ; -- the start address of the fetching (fetch -> inc with offsetaddress -> fetch again tell the countercnn ends)
+    readbaseaddress: in std_logic_vector(addresssize-1 downto 0) ; -- the start address of the fetching (fetch -> inc with offsetaddress -> fetch again tell the counter ends)
     readstep: in std_logic_vector(addresssize-1 downto 0); -- three bit to include max count size which is 5
     initaddress: in std_logic;
     initcounter:in std_logic;

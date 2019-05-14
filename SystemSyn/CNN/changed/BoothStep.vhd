@@ -25,4 +25,4 @@ begin
     else not x;
 
     f <= "00" & res & p(8 downto 2);
-end boothstepcnnarch; 
+end boothstepcnnarch;

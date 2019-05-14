@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.math_real.all;
 
--- tristatecnn buffer entity
+-- tristate buffer entity
 
 entity tristatecnn is
         generic (wordsize : integer := 32);

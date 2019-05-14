@@ -16,4 +16,4 @@ end binarymuxcnn;
 architecture binarymuxcnnarch of binarymuxcnn is
 begin
     f <= a when sel ='0' else b;
-end binarymuxcnnarch; 
+end binarymuxcnnarch;

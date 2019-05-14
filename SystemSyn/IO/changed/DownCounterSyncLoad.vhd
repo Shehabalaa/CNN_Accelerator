@@ -5,16 +5,16 @@ use ieee.std_logic_1164.all;
 --if enable is off, it does nothing, else
 --can be reset to 0, can be loaded asynchronously
 --decrements at each rising edge
-entity downcountersyncload is
+entity downcountersyncloadio is
 	generic (n: integer :=16);
 	port(
 		loaddata: in std_logic_vector(n - 1 downto 0);
 		en, load, rst, clk: in std_logic;
 		counteroutput: out std_logic_vector(n - 1 downto 0)
 	);
-end downcountersyncload;
+end downcountersyncloadio;
 
-architecture downcountersyncloadarch of downcountersyncload is
+architecture downcountersyncloadioarch of downcountersyncloadio is
 signal outborrow: std_logic;
 signal counterinput, subtractoroutput,dummyinput,currentcount: std_logic_vector(n-1 downto 0);
 begin

@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 use work.types.arrayofregs;
 
--- muxcnn entity
+-- mux entity
 
 entity muxcnn is
 

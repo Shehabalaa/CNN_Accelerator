@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use work.types.arrayofregs16;
 
--- cnnadderscnn entity
+-- cnnadders entity
 
 -- inputs ==> array of 25 registers to be added
 -- filtertype ==> 0 for 3*3 filter and 1 for 5*5 filter

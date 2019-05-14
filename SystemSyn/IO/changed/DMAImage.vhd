@@ -20,7 +20,7 @@ signal registerin: std_logic_vector(15 downto 0);
 begin
 	addresscounterin <= "000" & addressin;
 -- address counter needs enable
-	addresscounter: entity work.upcountersyncload generic map(13) port map(addresscounterin, enableimagecounter, intrdelayed , rst, clk, addressout);
+	addresscounter: entity work.upcountersyncloadio generic map(13) port map(addresscounterin, enableimagecounter, intrdelayed , rst, clk, addressout);
 	registerin <= datain & "00000000";
 	myreg: entity work.reg	generic map(16) port map(registerin, enableimageregister, clk, rst, dataout);
 

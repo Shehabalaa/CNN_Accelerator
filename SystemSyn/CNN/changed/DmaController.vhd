@@ -88,7 +88,7 @@ end dmacontrollercnn ;
 architecture dmacontrollercnnarch of dmacontrollercnn is
 
 signal currentreadrambaseaddress, currentwriterambaseaddress: std_logic_vector(windowaddresssize-1 downto 0);
--- signal readlogicramaddress, writelogicramaddress: std_logic_vector(windowaddresssize-1 downto 0)Ø­ØºØ­;
+-- signal readlogicramaddress, writelogicramaddress: std_logic_vector(windowaddresssize-1 downto 0)ø­øºø­;
 signal rambaseaddressselector: std_logic; -- 0 selects address1, 1 selects address 2
 signal windowinternalbusrlogic: std_logic_vector((windowsize * numunits)-1 downto 0);
 -- internal cnt signals
@@ -274,4 +274,4 @@ begin
     end process switchbaseaddressproc; 
 
 
-end architecture ; -- dmacontrollerarch
+end dmacontrollercnnarch;

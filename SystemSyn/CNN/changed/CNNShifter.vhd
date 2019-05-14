@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- cnnshiftercnn entity
+-- cnnshifter entity
 
 -- this entity shits input right 3 or 5 depending on the filter size
 

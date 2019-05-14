@@ -23,4 +23,4 @@ entity nbitsubtractorio is
                 fx:entity work.fullsubtractorio  port map(x(i),y(i),temp(i-1),difference(i),temp(i));
                 end generate;
                 borrowout<=temp(wordsize-1);
-    end nbitsubtractorioarch;
+end nbitsubtractorioarch;

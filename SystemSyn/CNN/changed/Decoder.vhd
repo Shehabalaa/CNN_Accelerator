@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.math_real.all;
 use ieee.numeric_std.all;
 
--- decodercnn entity
+-- decoder entity
 
 entity decodercnn is
         generic (wordsize : integer := 3); --wordsize : number of selection lines
@@ -32,4 +32,4 @@ architecture decodercnnarch of decodercnn is
             end generate;
 
 
-    end decodercnnarch;
+end decodercnnarch;

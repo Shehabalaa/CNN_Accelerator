@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- mux4cnn entity
+-- mux4 entity
 
 --if s = 00 then z = a
 --if s = 01 then z = b

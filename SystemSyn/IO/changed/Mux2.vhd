@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- mux2io entity
+-- mux2 entity
 
 --if s = 0 then c = a
 --if s = 1 then c = b
